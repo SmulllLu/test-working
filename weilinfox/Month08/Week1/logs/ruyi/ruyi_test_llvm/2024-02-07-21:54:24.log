@@ -1,0 +1,71 @@
++ source ./common/common_lib.sh
+++ source /root/ruyi-mugen/libs/locallibs/common_lib.sh
++++ python3 --version
++++ '[' 0 -eq 0 ']'
++++ source /root/ruyi-mugen/libs/locallibs/common_lib_python.sh
+./common/common_lib.sh: line 71: syntax error near unexpected token `}'
+./common/common_lib.sh: line 71: `}'
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environmental preparation.'
++ message='Start environmental preparation.'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'Start environmental preparation.'
+Wed Feb  7 21:54:25 2024 - INFO  - Start environmental preparation.
++ install_ruyi
+ruyi_test_llvm.sh: line 23: install_ruyi: command not found
++ LOG_ERROR 'Install ruyi error'
++ message='Install ruyi error'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level error --message 'Install ruyi error'
+Wed Feb  7 21:54:25 2024 - ERROR - Install ruyi error
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Wed Feb  7 21:54:26 2024 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start to run test.'
++ message='Start to run test.'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'Start to run test.'
+Wed Feb  7 21:54:26 2024 - INFO  - Start to run test.
++ mkdir llvm_test
++ cd llvm_test
++ qemu_pkg=qemu-user-riscv-upstream
++ qemu_cmd='-e qemu-user-riscv-upstream'
++ qemu_bin=ruyi-qemu
+++ uname -m
++ '[' riscv64 == riscv64 ']'
++ qemu_pkg=
++ qemu_cmd=
++ qemu_bin=
++ ruyi update
+++ awk '/\* / {if (f==1) f=2} /./ {if (f==1) {print $0}} /\* toolchain\/llvm-upstream/ {if (f==0) f=1}'
+++ ruyi list
+++ grep -e '^  -'
+++ grep -v 'no binary for current host'
++ pe=
++ '[' -z '' ']'
+++ uname -m
++ LOG_INFO 'No llvm-upstream available for current host riscv64, skip'
++ message='No llvm-upstream available for current host riscv64, skip'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'No llvm-upstream available for current host riscv64, skip'
+Wed Feb  7 21:54:39 2024 - INFO  - No llvm-upstream available for current host riscv64, skip
++ exit 0
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Wed Feb  7 21:54:39 2024 - INFO  - start environment cleanup.
++ remove_ruyi
+ruyi_test_llvm.sh: line 86: remove_ruyi: command not found
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Wed Feb  7 21:54:40 2024 - INFO  - Finish environment cleanup!

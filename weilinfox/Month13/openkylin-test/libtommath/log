@@ -1,0 +1,813 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [13:16:12]: starting date and time: 2024-07-18 13:16:12+0800
+  0s autopkgtest [13:16:12]: version @version@
+  0s autopkgtest [13:16:12]: host nana; command line: /usr/bin/autopkgtest libtommath_1.2.1-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/libtommath -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.j8sIHX
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-fc3d4c5f-764b-46f3-8626-a1fd7dc926ea,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-fc3d4c5f-764b-46f3-8626-a1fd7dc926ea//tmp/autopkgtest.j8sIHX
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-fc3d4c5f-764b-46f3-8626-a1fd7dc926ea//tmp/autopkgtest.j8sIHX', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.j8sIHX'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.j8sIHX/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.j8sIHX/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [13:16:13]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [13:16:13]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.j8sIHX/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.j8sIHX/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libtommath/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [13:16:14]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [13:16:14]: @@@@@@@@@@@@@@@@@@@@ source libtommath_1.2.1-ok1.dsc
+  2s autopkgtest: DBG: blame += libtommath_1.2.1-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.j8sIHX'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libtommath_1.2.1-ok1.dsc /tmp/autopkgtest.j8sIHX/libtommath_1.2.1-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.j8sIHX'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libtommath_1.2.1.orig.tar.xz /tmp/autopkgtest.j8sIHX/libtommath_1.2.1.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.j8sIHX'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libtommath_1.2.1-ok1.debian.tar.xz /tmp/autopkgtest.j8sIHX/libtommath_1.2.1-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.j8sIHX/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.j8sIHX/libtommath_1.2.1-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.j8sIHX/build.XXX
+  2s + builddir=/tmp/autopkgtest.j8sIHX/build.OpZ
+  2s + cd /tmp/autopkgtest.j8sIHX/build.OpZ
+  2s + dpkg-source -x /tmp/autopkgtest.j8sIHX/libtommath_1.2.1-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.JpUeCB0W/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 25 Oct 2023 10:00:28 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.j8sIHX/libtommath_1.2.1-ok1.dsc
+  3s dpkg-source: info: extracting libtommath in src
+  3s dpkg-source: info: unpacking libtommath_1.2.1.orig.tar.xz
+  3s dpkg-source: info: unpacking libtommath_1.2.1-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying increase-test-timeout
+  3s dpkg-source: info: applying remove-undefined-macro
+  3s dpkg-source: info: applying fix-shift-count-overflow-on-x32
+  3s dpkg-source: info: applying use-utc-timezone
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [13:16:15]: testing package libtommath version 1.2.1-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.j8sIHX/build.OpZ/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libtommath/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libtommath-doc
+  3s autopkgtest: DBG: synthesised dependency libtommath-dev
+  3s autopkgtest: DBG: synthesised dependency libtommath1
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: Test defined: name run-tests path debian/tests/run-tests command "None" restrictions ['allow-stderr'] features [] depends ['libtommath-doc', 'libtommath-dev', 'libtommath1', 'build-essential'] 
+  3s autopkgtest [13:16:15]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.j8sIHX/build.OpZ/src/ /home/hachi/openkylin_test/sharefolder/results/libtommath/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libtommath-doc
+  3s autopkgtest: DBG: synthesised dependency libtommath-dev
+  3s autopkgtest: DBG: synthesised dependency libtommath1
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: Test defined: name run-tests path debian/tests/run-tests command "None" restrictions ['allow-stderr'] features [] depends ['libtommath-doc', 'libtommath-dev', 'libtommath1', 'build-essential'] 
+  3s autopkgtest [13:16:15]: test run-tests: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libtommath-doc', 'libtommath-dev', 'libtommath1', 'build-essential']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['libtommath-doc', 'libtommath-dev', 'libtommath1', 'build-essential']
+  3s autopkgtest: DBG: install-deps: satisfying libtommath-doc, libtommath-dev, libtommath1, build-essential
+  3s autopkgtest: DBG: install-deps: architecture resolved: libtommath-doc, libtommath-dev, libtommath1, build-essential
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.j8sIHX'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-fc3d4c5f-764b-46f3-8626-a1fd7dc926ea//tmp/autopkgtest.j8sIHX/1-autopkgtest-satdep.deb /tmp/autopkgtest.j8sIHX/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.j8sIHX/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   libtommath-dev libtommath-doc libtommath1
+  6s The following NEW packages will be installed:
+  6s   autopkgtest-satdep libtommath-dev libtommath-doc libtommath1
+  6s 0 upgraded, 4 newly installed, 0 to remove and 1066 not upgraded.
+  6s Need to get 588 kB/589 kB of archives.
+  6s After this operation, 1,133 kB of additional disk space will be used.
+  6s Get:1 /tmp/autopkgtest.j8sIHX/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtommath1 riscv64 1.2.1-ok1 [62.4 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtommath-dev riscv64 1.2.1-ok1 [99.9 kB]
+  7s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtommath-doc all 1.2.1-ok1 [426 kB]
+ 11s Fetched 588 kB in 2s (284 kB/s)
+ 11s Selecting previously unselected package libtommath1:riscv64.
+ 11s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 11s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 11s Preparing to unpack .../libtommath1_1.2.1-ok1_riscv64.deb ...
+ 11s Unpacking libtommath1:riscv64 (1.2.1-ok1) ...
+ 11s Selecting previously unselected package libtommath-dev:riscv64.
+ 11s Preparing to unpack .../libtommath-dev_1.2.1-ok1_riscv64.deb ...
+ 11s Unpacking libtommath-dev:riscv64 (1.2.1-ok1) ...
+ 11s Selecting previously unselected package libtommath-doc.
+ 11s Preparing to unpack .../libtommath-doc_1.2.1-ok1_all.deb ...
+ 11s Unpacking libtommath-doc (1.2.1-ok1) ...
+ 12s Selecting previously unselected package autopkgtest-satdep.
+ 12s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 12s Unpacking autopkgtest-satdep (0) ...
+ 12s Setting up libtommath1:riscv64 (1.2.1-ok1) ...
+ 12s Setting up libtommath-doc (1.2.1-ok1) ...
+ 12s Setting up libtommath-dev:riscv64 (1.2.1-ok1) ...
+ 12s Setting up autopkgtest-satdep (0) ...
+ 12s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libtommath-doc'], kind short, sout pipe, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libtommath-dev'], kind short, sout pipe, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libtommath1'], kind short, sout pipe, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libtommath-dev libtommath-doc libtommath1 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libtommath-dev', 'libtommath-doc', 'libtommath1', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 24s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 24s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 24s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 24s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 24s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 24s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 24s (Reading database ... 193829 files and directories currently installed.)
+ 24s Removing autopkgtest-satdep (0) ...
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.j8sIHX/run-tests-packages.all"], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.j8sIHX/run-tests-packages.all /home/hachi/openkylin_test/sharefolder/results/libtommath/run-tests-packages.all
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.j8sIHX/build.OpZ/src'], kind short, sout raw, serr raw, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.j8sIHX/build.OpZ/src already exists
+ 25s autopkgtest [13:16:37]: test run-tests: [-----------------------
+ 25s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.j8sIHX/wrapper.sh --debug --artifacts=/tmp/autopkgtest.j8sIHX/run-tests-artifacts --chdir=/tmp/autopkgtest.j8sIHX/build.OpZ/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.j8sIHX/run-tests-stderr --stdout=/tmp/autopkgtest.j8sIHX/run-tests-stdout --tmp=/tmp/autopkgtest.j8sIHX/autopkgtest_tmp --make-executable=/tmp/autopkgtest.j8sIHX/build.OpZ/src/debian/tests/run-tests -- /tmp/autopkgtest.j8sIHX/build.OpZ/src/debian/tests/run-tests'], kind test, sout raw, serr raw, env []
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.j8sIHX/run-tests-artifacts
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: changing to directory: /tmp/autopkgtest.j8sIHX/build.OpZ/src
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: setting environment: LANG=C.UTF-8
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LANGUAGE
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_ADDRESS
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_ALL
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_COLLATE
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_CTYPE
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_MESSAGES
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_MONETARY
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_NAME
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_NUMERIC
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_PAPER
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: unsetting environment: LC_TIME
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: pretending to be a login shell
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: will write standard error to /tmp/autopkgtest.j8sIHX/run-tests-stderr
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: will write stdout to /tmp/autopkgtest.j8sIHX/run-tests-stdout
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.j8sIHX/autopkgtest_tmp
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: marking as executable: /tmp/autopkgtest.j8sIHX/build.OpZ/src/debian/tests/run-tests
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: command to run: /tmp/autopkgtest.j8sIHX/build.OpZ/src/debian/tests/run-tests
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: copying /tmp/tmp.IdXFdU8MCp/out to stdout and file: /tmp/autopkgtest.j8sIHX/run-tests-stdout
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: copying /tmp/tmp.IdXFdU8MCp/err to standard error and file: /tmp/autopkgtest.j8sIHX/run-tests-stdout
+ 25s /tmp/autopkgtest.j8sIHX/wrapper.sh: writing script pid 1000053 to /tmp/autopkgtest_script_pid
+ 25s creating test binaries
+ 25s    * gcc demo/test.o
+ 33s    * gcc demo/shared.o
+ 33s    * gcc bn_cutoffs.o
+ 33s    * gcc bn_deprecated.o
+ 34s    * gcc bn_mp_2expt.o
+ 34s    * gcc bn_mp_abs.o
+ 34s    * gcc bn_mp_add.o
+ 34s    * gcc bn_mp_add_d.o
+ 34s    * gcc bn_mp_addmod.o
+ 35s    * gcc bn_mp_and.o
+ 35s    * gcc bn_mp_clamp.o
+ 35s    * gcc bn_mp_clear.o
+ 35s    * gcc bn_mp_clear_multi.o
+ 35s    * gcc bn_mp_cmp.o
+ 36s    * gcc bn_mp_cmp_d.o
+ 36s    * gcc bn_mp_cmp_mag.o
+ 36s    * gcc bn_mp_cnt_lsb.o
+ 36s    * gcc bn_mp_complement.o
+ 36s    * gcc bn_mp_copy.o
+ 36s    * gcc bn_mp_count_bits.o
+ 36s    * gcc bn_mp_decr.o
+ 37s    * gcc bn_mp_div.o
+ 37s    * gcc bn_mp_div_2.o
+ 37s    * gcc bn_mp_div_2d.o
+ 37s    * gcc bn_mp_div_3.o
+ 37s    * gcc bn_mp_div_d.o
+ 38s    * gcc bn_mp_dr_is_modulus.o
+ 38s    * gcc bn_mp_dr_reduce.o
+ 38s    * gcc bn_mp_dr_setup.o
+ 38s    * gcc bn_mp_error_to_string.o
+ 38s    * gcc bn_mp_exch.o
+ 38s    * gcc bn_mp_expt_u32.o
+ 38s    * gcc bn_mp_exptmod.o
+ 39s    * gcc bn_mp_exteuclid.o
+ 39s    * gcc bn_mp_fread.o
+ 39s    * gcc bn_mp_from_sbin.o
+ 39s    * gcc bn_mp_from_ubin.o
+ 39s    * gcc bn_mp_fwrite.o
+ 39s    * gcc bn_mp_gcd.o
+ 40s    * gcc bn_mp_get_double.o
+ 40s    * gcc bn_mp_get_i32.o
+ 40s    * gcc bn_mp_get_i64.o
+ 40s    * gcc bn_mp_get_l.o
+ 40s    * gcc bn_mp_get_ll.o
+ 40s    * gcc bn_mp_get_mag_u32.o
+ 40s    * gcc bn_mp_get_mag_u64.o
+ 40s    * gcc bn_mp_get_mag_ul.o
+ 41s    * gcc bn_mp_get_mag_ull.o
+ 41s    * gcc bn_mp_grow.o
+ 41s    * gcc bn_mp_incr.o
+ 41s    * gcc bn_mp_init.o
+ 41s    * gcc bn_mp_init_copy.o
+ 41s    * gcc bn_mp_init_i32.o
+ 41s    * gcc bn_mp_init_i64.o
+ 41s    * gcc bn_mp_init_l.o
+ 42s    * gcc bn_mp_init_ll.o
+ 42s    * gcc bn_mp_init_multi.o
+ 42s    * gcc bn_mp_init_set.o
+ 42s    * gcc bn_mp_init_size.o
+ 42s    * gcc bn_mp_init_u32.o
+ 42s    * gcc bn_mp_init_u64.o
+ 42s    * gcc bn_mp_init_ul.o
+ 42s    * gcc bn_mp_init_ull.o
+ 43s    * gcc bn_mp_invmod.o
+ 43s    * gcc bn_mp_is_square.o
+ 43s    * gcc bn_mp_iseven.o
+ 43s    * gcc bn_mp_isodd.o
+ 43s    * gcc bn_mp_kronecker.o
+ 43s    * gcc bn_mp_lcm.o
+ 43s    * gcc bn_mp_log_u32.o
+ 44s    * gcc bn_mp_lshd.o
+ 44s    * gcc bn_mp_mod.o
+ 44s    * gcc bn_mp_mod_2d.o
+ 44s    * gcc bn_mp_mod_d.o
+ 44s    * gcc bn_mp_montgomery_calc_normalization.o
+ 44s    * gcc bn_mp_montgomery_reduce.o
+ 45s    * gcc bn_mp_montgomery_setup.o
+ 45s    * gcc bn_mp_mul.o
+ 45s    * gcc bn_mp_mul_2.o
+ 45s    * gcc bn_mp_mul_2d.o
+ 45s    * gcc bn_mp_mul_d.o
+ 45s    * gcc bn_mp_mulmod.o
+ 46s    * gcc bn_mp_neg.o
+ 46s    * gcc bn_mp_or.o
+ 46s    * gcc bn_mp_pack.o
+ 47s    * gcc bn_mp_pack_count.o
+ 47s    * gcc bn_mp_prime_fermat.o
+ 47s    * gcc bn_mp_prime_frobenius_underwood.o
+ 47s    * gcc bn_mp_prime_is_prime.o
+ 47s    * gcc bn_mp_prime_miller_rabin.o
+ 48s    * gcc bn_mp_prime_next_prime.o
+ 48s    * gcc bn_mp_prime_rabin_miller_trials.o
+ 48s    * gcc bn_mp_prime_rand.o
+ 48s    * gcc bn_mp_prime_strong_lucas_selfridge.o
+ 49s    * gcc bn_mp_radix_size.o
+ 49s    * gcc bn_mp_radix_smap.o
+ 49s    * gcc bn_mp_rand.o
+ 49s    * gcc bn_mp_read_radix.o
+ 49s    * gcc bn_mp_reduce.o
+ 49s    * gcc bn_mp_reduce_2k.o
+ 50s    * gcc bn_mp_reduce_2k_l.o
+ 50s    * gcc bn_mp_reduce_2k_setup.o
+ 50s    * gcc bn_mp_reduce_2k_setup_l.o
+ 50s    * gcc bn_mp_reduce_is_2k.o
+ 50s    * gcc bn_mp_reduce_is_2k_l.o
+ 50s    * gcc bn_mp_reduce_setup.o
+ 50s    * gcc bn_mp_root_u32.o
+ 51s    * gcc bn_mp_rshd.o
+ 51s    * gcc bn_mp_sbin_size.o
+ 51s    * gcc bn_mp_set.o
+ 51s    * gcc bn_mp_set_double.o
+ 51s    * gcc bn_mp_set_i32.o
+ 51s    * gcc bn_mp_set_i64.o
+ 51s    * gcc bn_mp_set_l.o
+ 52s    * gcc bn_mp_set_ll.o
+ 52s    * gcc bn_mp_set_u32.o
+ 52s    * gcc bn_mp_set_u64.o
+ 52s    * gcc bn_mp_set_ul.o
+ 52s    * gcc bn_mp_set_ull.o
+ 52s    * gcc bn_mp_shrink.o
+ 52s    * gcc bn_mp_signed_rsh.o
+ 52s    * gcc bn_mp_sqr.o
+ 53s    * gcc bn_mp_sqrmod.o
+ 53s    * gcc bn_mp_sqrt.o
+ 53s    * gcc bn_mp_sqrtmod_prime.o
+ 53s    * gcc bn_mp_sub.o
+ 53s    * gcc bn_mp_sub_d.o
+ 53s    * gcc bn_mp_submod.o
+ 54s    * gcc bn_mp_to_radix.o
+ 54s    * gcc bn_mp_to_sbin.o
+ 54s    * gcc bn_mp_to_ubin.o
+ 54s    * gcc bn_mp_ubin_size.o
+ 54s    * gcc bn_mp_unpack.o
+ 54s    * gcc bn_mp_xor.o
+ 55s    * gcc bn_mp_zero.o
+ 55s    * gcc bn_prime_tab.o
+ 55s    * gcc bn_s_mp_add.o
+ 55s    * gcc bn_s_mp_balance_mul.o
+ 56s    * gcc bn_s_mp_exptmod.o
+ 56s    * gcc bn_s_mp_exptmod_fast.o
+ 56s    * gcc bn_s_mp_get_bit.o
+ 57s    * gcc bn_s_mp_invmod_fast.o
+ 57s    * gcc bn_s_mp_invmod_slow.o
+ 57s    * gcc bn_s_mp_karatsuba_mul.o
+ 57s    * gcc bn_s_mp_karatsuba_sqr.o
+ 58s    * gcc bn_s_mp_montgomery_reduce_fast.o
+ 58s    * gcc bn_s_mp_mul_digs.o
+ 58s    * gcc bn_s_mp_mul_digs_fast.o
+ 58s    * gcc bn_s_mp_mul_high_digs.o
+ 59s    * gcc bn_s_mp_mul_high_digs_fast.o
+ 59s    * gcc bn_s_mp_prime_is_divisible.o
+ 59s    * gcc bn_s_mp_rand_jenkins.o
+ 59s    * gcc bn_s_mp_rand_platform.o
+ 59s    * gcc bn_s_mp_reverse.o
+ 60s    * gcc bn_s_mp_sqr.o
+ 60s    * gcc bn_s_mp_sqr_fast.o
+ 60s    * gcc bn_s_mp_sub.o
+ 60s    * gcc bn_s_mp_toom_mul.o
+ 61s    * gcc bn_s_mp_toom_sqr.o
+ 61s ar rv libtommath.a bn_cutoffs.o bn_deprecated.o bn_mp_2expt.o bn_mp_abs.o bn_mp_add.o bn_mp_add_d.o bn_mp_addmod.o bn_mp_and.o bn_mp_clamp.o bn_mp_clear.o bn_mp_clear_multi.o bn_mp_cmp.o bn_mp_cmp_d.o bn_mp_cmp_mag.o bn_mp_cnt_lsb.o bn_mp_complement.o bn_mp_copy.o bn_mp_count_bits.o bn_mp_decr.o bn_mp_div.o bn_mp_div_2.o bn_mp_div_2d.o bn_mp_div_3.o bn_mp_div_d.o bn_mp_dr_is_modulus.o bn_mp_dr_reduce.o bn_mp_dr_setup.o bn_mp_error_to_string.o bn_mp_exch.o bn_mp_expt_u32.o bn_mp_exptmod.o bn_mp_exteuclid.o bn_mp_fread.o bn_mp_from_sbin.o bn_mp_from_ubin.o bn_mp_fwrite.o bn_mp_gcd.o bn_mp_get_double.o bn_mp_get_i32.o bn_mp_get_i64.o bn_mp_get_l.o bn_mp_get_ll.o bn_mp_get_mag_u32.o bn_mp_get_mag_u64.o bn_mp_get_mag_ul.o bn_mp_get_mag_ull.o bn_mp_grow.o bn_mp_incr.o bn_mp_init.o bn_mp_init_copy.o bn_mp_init_i32.o bn_mp_init_i64.o bn_mp_init_l.o bn_mp_init_ll.o bn_mp_init_multi.o bn_mp_init_set.o bn_mp_init_size.o bn_mp_init_u32.o bn_mp_init_u64.o bn_mp_init_ul.o bn_mp_init_ull.o bn_mp_invmod.o bn_mp_is_square.o bn_mp_iseven.o bn_mp_isodd.o bn_mp_kronecker.o bn_mp_lcm.o bn_mp_log_u32.o bn_mp_lshd.o bn_mp_mod.o bn_mp_mod_2d.o bn_mp_mod_d.o bn_mp_montgomery_calc_normalization.o bn_mp_montgomery_reduce.o bn_mp_montgomery_setup.o bn_mp_mul.o bn_mp_mul_2.o bn_mp_mul_2d.o bn_mp_mul_d.o bn_mp_mulmod.o bn_mp_neg.o bn_mp_or.o bn_mp_pack.o bn_mp_pack_count.o bn_mp_prime_fermat.o bn_mp_prime_frobenius_underwood.o bn_mp_prime_is_prime.o bn_mp_prime_miller_rabin.o bn_mp_prime_next_prime.o bn_mp_prime_rabin_miller_trials.o bn_mp_prime_rand.o bn_mp_prime_strong_lucas_selfridge.o bn_mp_radix_size.o bn_mp_radix_smap.o bn_mp_rand.o bn_mp_read_radix.o bn_mp_reduce.o bn_mp_reduce_2k.o bn_mp_reduce_2k_l.o bn_mp_reduce_2k_setup.o bn_mp_reduce_2k_setup_l.o bn_mp_reduce_is_2k.o bn_mp_reduce_is_2k_l.o bn_mp_reduce_setup.o bn_mp_root_u32.o bn_mp_rshd.o bn_mp_sbin_size.o bn_mp_set.o bn_mp_set_double.o bn_mp_set_i32.o bn_mp_set_i64.o bn_mp_set_l.o bn_mp_set_ll.o bn_mp_set_u32.o bn_mp_set_u64.o bn_mp_set_ul.o bn_mp_set_ull.o bn_mp_shrink.o bn_mp_signed_rsh.o bn_mp_sqr.o bn_mp_sqrmod.o bn_mp_sqrt.o bn_mp_sqrtmod_prime.o bn_mp_sub.o bn_mp_sub_d.o bn_mp_submod.o bn_mp_to_radix.o bn_mp_to_sbin.o bn_mp_to_ubin.o bn_mp_ubin_size.o bn_mp_unpack.o bn_mp_xor.o bn_mp_zero.o bn_prime_tab.o bn_s_mp_add.o bn_s_mp_balance_mul.o bn_s_mp_exptmod.o bn_s_mp_exptmod_fast.o bn_s_mp_get_bit.o bn_s_mp_invmod_fast.o bn_s_mp_invmod_slow.o bn_s_mp_karatsuba_mul.o bn_s_mp_karatsuba_sqr.o bn_s_mp_montgomery_reduce_fast.o bn_s_mp_mul_digs.o bn_s_mp_mul_digs_fast.o bn_s_mp_mul_high_digs.o bn_s_mp_mul_high_digs_fast.o bn_s_mp_prime_is_divisible.o bn_s_mp_rand_jenkins.o bn_s_mp_rand_platform.o bn_s_mp_reverse.o bn_s_mp_sqr.o bn_s_mp_sqr_fast.o bn_s_mp_sub.o bn_s_mp_toom_mul.o bn_s_mp_toom_sqr.o
+ 61s ar: creating libtommath.a
+ 61s a - bn_cutoffs.o
+ 61s a - bn_deprecated.o
+ 61s a - bn_mp_2expt.o
+ 61s a - bn_mp_abs.o
+ 61s a - bn_mp_add.o
+ 61s a - bn_mp_add_d.o
+ 61s a - bn_mp_addmod.o
+ 61s a - bn_mp_and.o
+ 61s a - bn_mp_clamp.o
+ 61s a - bn_mp_clear.o
+ 61s a - bn_mp_clear_multi.o
+ 61s a - bn_mp_cmp.o
+ 61s a - bn_mp_cmp_d.o
+ 61s a - bn_mp_cmp_mag.o
+ 61s a - bn_mp_cnt_lsb.o
+ 61s a - bn_mp_complement.o
+ 61s a - bn_mp_copy.o
+ 61s a - bn_mp_count_bits.o
+ 61s a - bn_mp_decr.o
+ 61s a - bn_mp_div.o
+ 61s a - bn_mp_div_2.o
+ 61s a - bn_mp_div_2d.o
+ 61s a - bn_mp_div_3.o
+ 61s a - bn_mp_div_d.o
+ 61s a - bn_mp_dr_is_modulus.o
+ 61s a - bn_mp_dr_reduce.o
+ 61s a - bn_mp_dr_setup.o
+ 61s a - bn_mp_error_to_string.o
+ 61s a - bn_mp_exch.o
+ 61s a - bn_mp_expt_u32.o
+ 61s a - bn_mp_exptmod.o
+ 61s a - bn_mp_exteuclid.o
+ 61s a - bn_mp_fread.o
+ 61s a - bn_mp_from_sbin.o
+ 61s a - bn_mp_from_ubin.o
+ 61s a - bn_mp_fwrite.o
+ 61s a - bn_mp_gcd.o
+ 61s a - bn_mp_get_double.o
+ 61s a - bn_mp_get_i32.o
+ 61s a - bn_mp_get_i64.o
+ 61s a - bn_mp_get_l.o
+ 61s a - bn_mp_get_ll.o
+ 61s a - bn_mp_get_mag_u32.o
+ 61s a - bn_mp_get_mag_u64.o
+ 61s a - bn_mp_get_mag_ul.o
+ 61s a - bn_mp_get_mag_ull.o
+ 61s a - bn_mp_grow.o
+ 61s a - bn_mp_incr.o
+ 61s a - bn_mp_init.o
+ 61s a - bn_mp_init_copy.o
+ 61s a - bn_mp_init_i32.o
+ 61s a - bn_mp_init_i64.o
+ 61s a - bn_mp_init_l.o
+ 61s a - bn_mp_init_ll.o
+ 61s a - bn_mp_init_multi.o
+ 61s a - bn_mp_init_set.o
+ 61s a - bn_mp_init_size.o
+ 61s a - bn_mp_init_u32.o
+ 61s a - bn_mp_init_u64.o
+ 61s a - bn_mp_init_ul.o
+ 61s a - bn_mp_init_ull.o
+ 61s a - bn_mp_invmod.o
+ 61s a - bn_mp_is_square.o
+ 61s a - bn_mp_iseven.o
+ 61s a - bn_mp_isodd.o
+ 61s a - bn_mp_kronecker.o
+ 61s a - bn_mp_lcm.o
+ 61s a - bn_mp_log_u32.o
+ 61s a - bn_mp_lshd.o
+ 61s a - bn_mp_mod.o
+ 61s a - bn_mp_mod_2d.o
+ 61s a - bn_mp_mod_d.o
+ 61s a - bn_mp_montgomery_calc_normalization.o
+ 61s a - bn_mp_montgomery_reduce.o
+ 61s a - bn_mp_montgomery_setup.o
+ 61s a - bn_mp_mul.o
+ 61s a - bn_mp_mul_2.o
+ 61s a - bn_mp_mul_2d.o
+ 61s a - bn_mp_mul_d.o
+ 61s a - bn_mp_mulmod.o
+ 61s a - bn_mp_neg.o
+ 61s a - bn_mp_or.o
+ 61s a - bn_mp_pack.o
+ 61s a - bn_mp_pack_count.o
+ 61s a - bn_mp_prime_fermat.o
+ 61s a - bn_mp_prime_frobenius_underwood.o
+ 61s a - bn_mp_prime_is_prime.o
+ 61s a - bn_mp_prime_miller_rabin.o
+ 61s a - bn_mp_prime_next_prime.o
+ 61s a - bn_mp_prime_rabin_miller_trials.o
+ 61s a - bn_mp_prime_rand.o
+ 61s a - bn_mp_prime_strong_lucas_selfridge.o
+ 61s a - bn_mp_radix_size.o
+ 61s a - bn_mp_radix_smap.o
+ 61s a - bn_mp_rand.o
+ 61s a - bn_mp_read_radix.o
+ 61s a - bn_mp_reduce.o
+ 61s a - bn_mp_reduce_2k.o
+ 61s a - bn_mp_reduce_2k_l.o
+ 61s a - bn_mp_reduce_2k_setup.o
+ 61s a - bn_mp_reduce_2k_setup_l.o
+ 61s a - bn_mp_reduce_is_2k.o
+ 61s a - bn_mp_reduce_is_2k_l.o
+ 61s a - bn_mp_reduce_setup.o
+ 61s a - bn_mp_root_u32.o
+ 61s a - bn_mp_rshd.o
+ 61s a - bn_mp_sbin_size.o
+ 61s a - bn_mp_set.o
+ 61s a - bn_mp_set_double.o
+ 61s a - bn_mp_set_i32.o
+ 61s a - bn_mp_set_i64.o
+ 61s a - bn_mp_set_l.o
+ 61s a - bn_mp_set_ll.o
+ 61s a - bn_mp_set_u32.o
+ 61s a - bn_mp_set_u64.o
+ 61s a - bn_mp_set_ul.o
+ 61s a - bn_mp_set_ull.o
+ 61s a - bn_mp_shrink.o
+ 61s a - bn_mp_signed_rsh.o
+ 61s a - bn_mp_sqr.o
+ 61s a - bn_mp_sqrmod.o
+ 61s a - bn_mp_sqrt.o
+ 61s a - bn_mp_sqrtmod_prime.o
+ 61s a - bn_mp_sub.o
+ 61s a - bn_mp_sub_d.o
+ 61s a - bn_mp_submod.o
+ 61s a - bn_mp_to_radix.o
+ 61s a - bn_mp_to_sbin.o
+ 61s a - bn_mp_to_ubin.o
+ 61s a - bn_mp_ubin_size.o
+ 61s a - bn_mp_unpack.o
+ 61s a - bn_mp_xor.o
+ 61s a - bn_mp_zero.o
+ 61s a - bn_prime_tab.o
+ 61s a - bn_s_mp_add.o
+ 61s a - bn_s_mp_balance_mul.o
+ 61s a - bn_s_mp_exptmod.o
+ 61s a - bn_s_mp_exptmod_fast.o
+ 61s a - bn_s_mp_get_bit.o
+ 61s a - bn_s_mp_invmod_fast.o
+ 61s a - bn_s_mp_invmod_slow.o
+ 61s a - bn_s_mp_karatsuba_mul.o
+ 61s a - bn_s_mp_karatsuba_sqr.o
+ 61s a - bn_s_mp_montgomery_reduce_fast.o
+ 61s a - bn_s_mp_mul_digs.o
+ 61s a - bn_s_mp_mul_digs_fast.o
+ 61s a - bn_s_mp_mul_high_digs.o
+ 61s a - bn_s_mp_mul_high_digs_fast.o
+ 61s a - bn_s_mp_prime_is_divisible.o
+ 61s a - bn_s_mp_rand_jenkins.o
+ 61s a - bn_s_mp_rand_platform.o
+ 61s a - bn_s_mp_reverse.o
+ 61s a - bn_s_mp_sqr.o
+ 61s a - bn_s_mp_sqr_fast.o
+ 61s a - bn_s_mp_sub.o
+ 61s a - bn_s_mp_toom_mul.o
+ 61s a - bn_s_mp_toom_sqr.o
+ 61s ranlib libtommath.a
+ 61s gcc -I./ -Wall -Wsign-compare -Wextra -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wcast-align -Wstrict-prototypes -Wpointer-arith -Wsystem-headers -O3 -funroll-loops -fomit-frame-pointer   demo/test.o demo/shared.o libtommath.a -o test
+ 61s Runing test
+ 61s Digit size 64 Bit 
+ 61s Size of mp_digit: 8
+ 61s Size of mp_word: 16
+ 61s MP_DIGIT_BIT: 60
+ 61s MP_PREC: 32
+ 61s SEED: 0x6698a559
+ 61s 
+ 61s TEST feature_detection
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST trivial_stuff
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST mp_get_set_i32
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST mp_get_set_i64
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST mp_and
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST mp_cnt_lsb
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST mp_complement
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST mp_decr
+ 61s 
+ 61s 
+ 61s 
+ 61s TEST mp_div_3
+ 61s 
+ 62s       128      256      384      512      640      768      896     1024     1152     1280     1408     1536     1664     1792     1920     2048     2176     2304     2432     2560     2688     2816     2944     3072     3200     3328     3456     3584     3712     3840     3968     4096     4224     4352     4480     4608     4736     4864     4992     5120     5248     5376     5504     5632     5760     5888     6016     6144     6272     6400     6528     6656     6784     6912     7040     7168     7296     7424     7552     7680     7808     7936     8064     8192     8320     8448     8576     8704     8832     8960     9088     9216     9344     9472     9600     9728     9856     9984
+ 62s Passed div_3 testing
+ 62s 
+ 62s TEST mp_dr_reduce
+ 62s 
+ 62s 2 digit modulus.... passed3 digit modulus.... passed4 digit modulus.... passed5 digit modulus.... passed6 digit modulus.... passed7 digit modulus.... passed8 digit modulus.... passed9 digit modulus.... passed10 digit modulus.... passed11 digit modulus.... passed12 digit modulus.... passed13 digit modulus.... passed14 digit modulus.... passed15 digit modulus.... passed16 digit modulus.... passed17 digit modulus.... passed18 digit modulus.... passed19 digit modulus.... passed20 digit modulus.... passed21 digit modulus.... passed22 digit modulus.... passed23 digit modulus.... passed24 digit modulus.... passed25 digit modulus.... passed26 digit modulus.... passed27 digit modulus.... passed28 digit modulus.... passed29 digit modulus.... passed30 digit modulus.... passed31 digit modulus.... passed
+ 62s 
+ 62s TEST mp_pack_unpack
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_fread_fwrite
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_get_u32
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_get_u64
+ 62s 
+ 62s  r = 0x1 i = 0 r = 0x3 i = 1 r = 0x7 i = 2 r = 0xf i = 3 r = 0x1f i = 4 r = 0x3f i = 5 r = 0x7f i = 6 r = 0xff i = 7 r = 0x1ff i = 8 r = 0x3ff i = 9 r = 0x7ff i = 10 r = 0xfff i = 11 r = 0x1fff i = 12 r = 0x3fff i = 13 r = 0x7fff i = 14 r = 0xffff i = 15 r = 0x1ffff i = 16 r = 0x3ffff i = 17 r = 0x7ffff i = 18 r = 0xfffff i = 19 r = 0x1fffff i = 20 r = 0x3fffff i = 21 r = 0x7fffff i = 22 r = 0xffffff i = 23 r = 0x1ffffff i = 24 r = 0x3ffffff i = 25 r = 0x7ffffff i = 26 r = 0xfffffff i = 27 r = 0x1fffffff i = 28 r = 0x3fffffff i = 29 r = 0x7fffffff i = 30 r = 0xffffffff i = 31 r = 0x1ffffffff i = 32 r = 0x3ffffffff i = 33 r = 0x7ffffffff i = 34 r = 0xfffffffff i = 35 r = 0x1fffffffff i = 36 r = 0x3fffffffff i = 37 r = 0x7fffffffff i = 38 r = 0xffffffffff i = 39 r = 0x1ffffffffff i = 40 r = 0x3ffffffffff i = 41 r = 0x7ffffffffff i = 42 r = 0xfffffffffff i = 43 r = 0x1fffffffffff i = 44 r = 0x3fffffffffff i = 45 r = 0x7fffffffffff i = 46 r = 0xffffffffffff i = 47 r = 0x1ffffffffffff i = 48 r = 0x3ffffffffffff i = 49 r = 0x7ffffffffffff i = 50 r = 0xfffffffffffff i = 51 r = 0x1fffffffffffff i = 52 r = 0x3fffffffffffff i = 53 r = 0x7fffffffffffff i = 54 r = 0xffffffffffffff i = 55 r = 0x1ffffffffffffff i = 56 r = 0x3ffffffffffffff i = 57 r = 0x7ffffffffffffff i = 58 r = 0xfffffffffffffff i = 59 r = 0x1fffffffffffffff i = 60 r = 0x3fffffffffffffff i = 61 r = 0x7fffffffffffffff i = 62
+ 62s 
+ 62s TEST mp_get_ul
+ 62s 
+ 62s  t = 0x1 i = 0 t = 0x3 i = 1 t = 0x7 i = 2 t = 0xf i = 3 t = 0x1f i = 4 t = 0x3f i = 5 t = 0x7f i = 6 t = 0xff i = 7 t = 0x1ff i = 8 t = 0x3ff i = 9 t = 0x7ff i = 10 t = 0xfff i = 11 t = 0x1fff i = 12 t = 0x3fff i = 13 t = 0x7fff i = 14 t = 0xffff i = 15 t = 0x1ffff i = 16 t = 0x3ffff i = 17 t = 0x7ffff i = 18 t = 0xfffff i = 19 t = 0x1fffff i = 20 t = 0x3fffff i = 21 t = 0x7fffff i = 22 t = 0xffffff i = 23 t = 0x1ffffff i = 24 t = 0x3ffffff i = 25 t = 0x7ffffff i = 26 t = 0xfffffff i = 27 t = 0x1fffffff i = 28 t = 0x3fffffff i = 29 t = 0x7fffffff i = 30 t = 0xffffffff i = 31 t = 0x1ffffffff i = 32 t = 0x3ffffffff i = 33 t = 0x7ffffffff i = 34 t = 0xfffffffff i = 35 t = 0x1fffffffff i = 36 t = 0x3fffffffff i = 37 t = 0x7fffffffff i = 38 t = 0xffffffffff i = 39 t = 0x1ffffffffff i = 40 t = 0x3ffffffffff i = 41 t = 0x7ffffffffff i = 42 t = 0xfffffffffff i = 43 t = 0x1fffffffffff i = 44 t = 0x3fffffffffff i = 45 t = 0x7fffffffffff i = 46 t = 0xffffffffffff i = 47 t = 0x1ffffffffffff i = 48 t = 0x3ffffffffffff i = 49 t = 0x7ffffffffffff i = 50 t = 0xfffffffffffff i = 51 t = 0x1fffffffffffff i = 52 t = 0x3fffffffffffff i = 53 t = 0x7fffffffffffff i = 54 t = 0xffffffffffffff i = 55 t = 0x1ffffffffffffff i = 56 t = 0x3ffffffffffffff i = 57 t = 0x7ffffffffffffff i = 58 t = 0xfffffffffffffff i = 59 t = 0x1fffffffffffffff i = 60 t = 0x3fffffffffffffff i = 61 t = 0x7fffffffffffffff i = 62
+ 62s 
+ 62s TEST mp_log_u32
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_incr
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_invmod
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_is_square
+ 62s 
+ 62s      0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29    30    31    32    33    34    35    36    37    38    39    40    41    42    43    44    45    46    47    48    49    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70    71    72    73    74    75    76    77    78    79    80    81    82    83    84    85    86    87    88    89    90    91    92    93    94    95    96    97    98    99   100   101   102   103   104   105   106   107   108   109   110   111   112   113   114   115   116   117   118   119   120   121   122   123   124   125   126   127   128   129   130   131   132   133   134   135   136   137   138   139   140   141   142   143   144   145   146   147   148   149   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170   171   172   173   174   175   176   177   178   179   180   181   182   183   184   185   186   187   188   189   190   191   192   193   194   195   196   197   198   199   200   201   202   203   204   205   206   207   208   209   210   211   212   213   214   215   216   217   218   219   220   221   222   223   224   225   226   227   228   229   230   231   232   233   234   235   236   237   238   239   240   241   242   243   244   245   246   247   248   249   250   251   252   253   254   255   256   257   258   259   260   261   262   263   264   265   266   267   268   269   270   271   272   273   274   275   276   277   278   279   280   281   282   283   284   285   286   287   288   289   290   291   292   293   294   295   296   297   298   299   300   301   302   303   304   305   306   307   308   309   310   311   312   313   314   315   316   317   318   319   320   321   322   323   324   325   326   327   328   329   330   331   332   333   334   335   336   337   338   339   340   341   342   343   344   345   346   347   348   349   350   351   352   353   354   355   356   357   358   359   360   361   362   363   364   365   366   367   368   369   370   371   372   373   374   375   376   377   378   379   380   381   382   383   384   385   386   387   388   389   390   391   392   393   394   395   396   397   398   399   400   401   402   403   404   405   406   407   408   409   410   411   412   413   414   415   416   417   418   419   420   421   422   423   424   425   426   427   428   429   430   431   432   433   434   435   436   437   438   439   440   441   442   443   444   445   446   447   448   449   450   451   452   453   454   455   456   457   458   459   460   461   462   463   464   465   466   467   468   469   470   471   472   473   474   475   476   477   478   479   480   481   482   483   484   485   486   487   488   489   490   491   492   493   494   495   496   497   498   499   500   501   502   503   504   505   506   507   508   509   510   511   512   513   514   515   516   517   518   519   520   521   522   523   524   525   526   527   528   529   530   531   532   533   534   535   536   537   538   539   540   541   542   543   544   545   546   547   548   549   550   551   552   553   554   555   556   557   558   559   560   561   562   563   564   565   566   567   568   569   570   571   572   573   574   575   576   577   578   579   580   581   582   583   584   585   586   587   588   589   590   591   592   593   594   595   596   597   598   599   600   601   602   603   604   605   606   607   608   609   610   611   612   613   614   615   616   617   618   619   620   621   622   623   624   625   626   627   628   629   630   631   632   633   634   635   636   637   638   639   640   641   642   643   644   645   646   647   648   649   650   651   652   653   654   655   656   657   658   659   660   661   662   663   664   665   666   667   668   669   670   671   672   673   674   675   676   677   678   679   680   681   682   683   684   685   686   687   688   689   690   691   692   693   694   695   696   697   698   699   700   701   702   703   704   705   706   707   708   709   710   711   712   713   714   715   716   717   718   719   720   721   722   723   724   725   726   727   728   729   730   731   732   733   734   735   736   737   738   739   740   741   742   743   744   745   746   747   748   749   750   751   752   753   754   755   756   757   758   759   760   761   762   763   764   765   766   767   768   769   770   771   772   773   774   775   776   777   778   779   780   781   782   783   784   785   786   787   788   789   790   791   792   793   794   795   796   797   798   799   800   801   802   803   804   805   806   807   808   809   810   811   812   813   814   815   816   817   818   819   820   821   822   823   824   825   826   827   828   829   830   831   832   833   834   835   836   837   838   839   840   841   842   843   844   845   846   847   848   849   850   851   852   853   854   855   856   857   858   859   860   861   862   863   864   865   866   867   868   869   870   871   872   873   874   875   876   877   878   879   880   881   882   883   884   885   886   887   888   889   890   891   892   893   894   895   896   897   898   899   900   901   902   903   904   905   906   907   908   909   910   911   912   913   914   915   916   917   918   919   920   921   922   923   924   925   926   927   928   929   930   931   932   933   934   935   936   937   938   939   940   941   942   943   944   945   946   947   948   949   950   951   952   953   954   955   956   957   958   959   960   961   962   963   964   965   966   967   968   969   970   971   972   973   974   975   976   977   978   979   980   981   982   983   984   985   986   987   988   989   990   991   992   993   994   995   996   997   998   999
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_kronecker
+ 62s 
+ 62s 
+ 62s 
+ 62s TEST mp_montgomery_reduce
+ 62s 
+ 76s  digit size:  1 digit size:  2 digit size:  3 digit size:  4 digit size:  5 digit size:  6 digit size:  7 digit size:  8 digit size:  9 digit size: 1000
+ 76s 
+ 76s 
+ 76s 
+ 76s TEST mp_root_u32
+ 76s 
+ 76s 
+ 76s 
+ 76s TEST mp_or
+ 76s 
+ 76s 
+ 76s 
+ 76s TEST mp_prime_is_prime
+ 76s 
+ 76s Testing mp_prime_is_prime() with Arnault's pseudoprime  803...901 
+ 76s 
+ 76s Testing mp_prime_is_prime() with certified prime 2^1119 + 53
+ 76s 
+ 84s Testing (    safe-prime):        16 bits    Testing (    safe-prime):        17 bits    Testing (    safe-prime):        18 bits    Testing (    safe-prime):        19 bits    Testing (    safe-prime):        20 bits    Testing (    safe-prime):        21 bits    Testing (    safe-prime):        22 bits    Testing (    safe-prime):        23 bits    Testing (    safe-prime):        24 bits    Testing (    safe-prime):        25 bits    Testing (    safe-prime):        26 bits    Testing (    safe-prime):        27 bits    Testing (    safe-prime):        28 bits    Testing (    safe-prime):        29 bits    Testing (    safe-prime):        30 bits    Testing (    safe-prime):        31 bits    Testing (    safe-prime):        32 bits    Testing (    safe-prime):        33 bits    Testing (    safe-prime):        34 bits    Testing (    safe-prime):        35 bits    Testing (    safe-prime):        36 bits    Testing (    safe-prime):        37 bits    Testing (    safe-prime):        38 bits    Testing (    safe-prime):        39 bits    Testing (    safe-prime):        40 bits    Testing (    safe-prime):        41 bits    Testing (    safe-prime):        42 bits    Testing (    safe-prime):        43 bits    Testing (    safe-prime):        44 bits    Testing (    safe-prime):        45 bits    Testing (    safe-prime):        46 bits    Testing (    safe-prime):        47 bits    Testing (    safe-prime):        48 bits    Testing (    safe-prime):        49 bits    Testing (    safe-prime):        50 bits    Testing (    safe-prime):        51 bits    Testing (    safe-prime):        52 bits    Testing (    safe-prime):        53 bits    Testing (    safe-prime):        54 bits    Testing (    safe-prime):        55 bits    Testing (    safe-prime):        56 bits    Testing (    safe-prime):        57 bits    Testing (    safe-prime):        58 bits    Testing (    safe-prime):        59 bits    Testing (    safe-prime):        60 bits    Testing (    safe-prime):        61 bits    Testing (    safe-prime):        62 bits    Testing (    safe-prime):        63 bits    Testing (    safe-prime):        64 bits    Testing (    safe-prime):        65 bits    Testing (    safe-prime):        66 bits    Testing (    safe-prime):        67 bits    Testing (    safe-prime):        68 bits    Testing (    safe-prime):        69 bits    Testing (    safe-prime):        70 bits    Testing (    safe-prime):        71 bits    Testing (    safe-prime):        72 bits    Testing (    safe-prime):        73 bits    Testing (    safe-prime):        74 bits    Testing (    safe-prime):        75 bits    Testing (    safe-prime):        76 bits    Testing (    safe-prime):        77 bits    Testing (    safe-prime):        78 bits    Testing (    safe-prime):        79 bits    Testing (    safe-prime):        80 bits    Testing (    safe-prime):        81 bits    Testing (    safe-prime):        82 bits    Testing (    safe-prime):        83 bits    Testing (    safe-prime):        84 bits    Testing (    safe-prime):        85 bits    Testing (    safe-prime):        86 bits    Testing (    safe-prime):        87 bits    Testing (    safe-prime):        88 bits    Testing (    safe-prime):        89 bits    Testing (    safe-prime):        90 bits    Testing (    safe-prime):        91 bits    Testing (    safe-prime):        92 bits    Testing (    safe-prime):        93 bits    Testing (    safe-prime):        94 bits    Testing (    safe-prime):        95 bits    Testing (    safe-prime):        96 bits    Testing (    safe-prime):        97 bits    Testing (    safe-prime):        98 bits    Testing (    safe-prime):        99 bits    Testing (    safe-prime):       100 bits    Testing (    safe-prime):       101 bits    Testing (    safe-prime):       102 bits    Testing (    safe-prime):       103 bits    Testing (    safe-prime):       104 bits    Testing (    safe-prime):       105 bits    Testing (    safe-prime):       106 bits    Testing (    safe-prime):       107 bits    Testing (    safe-prime):       108 bits    Testing (    safe-prime):       109 bits    Testing (    safe-prime):       110 bits    Testing (    safe-prime):       111 bits    Testing (    safe-prime):       112 bits    Testing (    safe-prime):       113 bits    Testing (    safe-prime):       114 bits    Testing (    safe-prime):       115 bits    Testing (    safe-prime):       116 bits    Testing (    safe-prime):       117 bits    Testing (    safe-prime):       118 bits    Testing (    safe-prime):       119 bits    Testing (    safe-prime):       120 bits    Testing (    safe-prime):       121 bits    Testing (    safe-prime):       122 bits    Testing (    safe-prime):       123 bits    Testing (    safe-prime):       124 bits    Testing (    safe-prime):       125 bits    Testing (    safe-prime):       126 bits    Testing (    safe-prime):       127 bits    
+ 84s 
+ 84s 
+ 84s 
+ 84s TEST mp_prime_next_prime
+ 84s 
+ 84s 
+ 84s 
+ 84s TEST mp_prime_rand
+ 84s 
+ 85s Testing (not safe-prime):        10 bits    Testing (not safe-prime):        11 bits    Testing (not safe-prime):        12 bits    Testing (not safe-prime):        13 bits    Testing (not safe-prime):        14 bits    Testing (not safe-prime):        15 bits    Testing (not safe-prime):        16 bits    Testing (not safe-prime):        17 bits    Testing (not safe-prime):        18 bits    Testing (not safe-prime):        19 bits    Testing (not safe-prime):        20 bits    Testing (not safe-prime):        21 bits    Testing (not safe-prime):        22 bits    Testing (not safe-prime):        23 bits    Testing (not safe-prime):        24 bits    Testing (not safe-prime):        25 bits    Testing (not safe-prime):        26 bits    Testing (not safe-prime):        27 bits    Testing (not safe-prime):        28 bits    Testing (not safe-prime):        29 bits    Testing (not safe-prime):        30 bits    Testing (not safe-prime):        31 bits    Testing (not safe-prime):        32 bits    Testing (not safe-prime):        33 bits    Testing (not safe-prime):        34 bits    Testing (not safe-prime):        35 bits    Testing (not safe-prime):        36 bits    Testing (not safe-prime):        37 bits    Testing (not safe-prime):        38 bits    Testing (not safe-prime):        39 bits    Testing (not safe-prime):        40 bits    Testing (not safe-prime):        41 bits    Testing (not safe-prime):        42 bits    Testing (not safe-prime):        43 bits    Testing (not safe-prime):        44 bits    Testing (not safe-prime):        45 bits    Testing (not safe-prime):        46 bits    Testing (not safe-prime):        47 bits    Testing (not safe-prime):        48 bits    Testing (not safe-prime):        49 bits    Testing (not safe-prime):        50 bits    Testing (not safe-prime):        51 bits    Testing (not safe-prime):        52 bits    Testing (not safe-prime):        53 bits    Testing (not safe-prime):        54 bits    Testing (not safe-prime):        55 bits    Testing (not safe-prime):        56 bits    Testing (not safe-prime):        57 bits    Testing (not safe-prime):        58 bits    Testing (not safe-prime):        59 bits    Testing (not safe-prime):        60 bits    Testing (not safe-prime):        61 bits    Testing (not safe-prime):        62 bits    Testing (not safe-prime):        63 bits    Testing (not safe-prime):        64 bits    Testing (not safe-prime):        65 bits    Testing (not safe-prime):        66 bits    Testing (not safe-prime):        67 bits    Testing (not safe-prime):        68 bits    Testing (not safe-prime):        69 bits    Testing (not safe-prime):        70 bits    Testing (not safe-prime):        71 bits    Testing (not safe-prime):        72 bits    Testing (not safe-prime):        73 bits    Testing (not safe-prime):        74 bits    Testing (not safe-prime):        75 bits    Testing (not safe-prime):        76 bits    Testing (not safe-prime):        77 bits    Testing (not safe-prime):        78 bits    Testing (not safe-prime):        79 bits    Testing (not safe-prime):        80 bits    Testing (not safe-prime):        81 bits    Testing (not safe-prime):        82 bits    Testing (not safe-prime):        83 bits    Testing (not safe-prime):        84 bits    Testing (not safe-prime):        85 bits    Testing (not safe-prime):        86 bits    Testing (not safe-prime):        87 bits    Testing (not safe-prime):        88 bits    Testing (not safe-prime):        89 bits    Testing (not safe-prime):        90 bits    Testing (not safe-prime):        91 bits    Testing (not safe-prime):        92 bits    Testing (not safe-prime):        93 bits    Testing (not safe-prime):        94 bits    Testing (not safe-prime):        95 bits    Testing (not safe-prime):        96 bits    Testing (not safe-prime):        97 bits    Testing (not safe-prime):        98 bits    Testing (not safe-prime):        99 bits    Testing (not safe-prime):       100 bits    Testing (not safe-prime):       101 bits    Testing (not safe-prime):       102 bits    Testing (not safe-prime):       103 bits    Testing (not safe-prime):       104 bits    Testing (not safe-prime):       105 bits    Testing (not safe-prime):       106 bits    Testing (not safe-prime):       107 bits    Testing (not safe-prime):       108 bits    Testing (not safe-prime):       109 bits    Testing (not safe-prime):       110 bits    Testing (not safe-prime):       111 bits    Testing (not safe-prime):       112 bits    Testing (not safe-prime):       113 bits    Testing (not safe-prime):       114 bits    Testing (not safe-prime):       115 bits    Testing (not safe-prime):       116 bits    Testing (not safe-prime):       117 bits    Testing (not safe-prime):       118 bits    Testing (not safe-prime):       119 bits    Testing (not safe-prime):       120 bits    Testing (not safe-prime):       121 bits    Testing (not safe-prime):       122 bits    Testing (not safe-prime):       123 bits    Testing (not safe-prime):       124 bits    Testing (not safe-prime):       125 bits    Testing (not safe-prime):       126 bits    Testing (not safe-prime):       127 bits    
+ 85s 
+ 85s 
+ 85s TEST mp_rand
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST mp_read_radix
+ 85s 
+ 85s  '123456' a == 123456, length = 7
+ 85s  '-123456' a == -123456, length = 8
+ 85s  '0' a == 0, length = 2
+ 85s 
+ 85s 
+ 85s TEST mp_read_write_ubin
+ 85s 
+ 85s mp_to_ubin_size  113
+ 85s mp_to_ubin len = 113
+ 85s 
+ 85s 
+ 85s TEST mp_read_write_sbin
+ 85s 
+ 85s mp_to_sbin_size  114
+ 85s mp_to_sbin len = 114
+ 85s 
+ 85s 
+ 85s TEST mp_reduce_2k
+ 85s 
+ 85s     3 bits(1)(2)........    4 bits(1)(2)........    5 bits(1)(2)........    6 bits(1)(2)........    7 bits(1)(2)........    8 bits(1)(2)........    9 bits(1)(2)........   10 bits(1)(2)........   11 bits(1)(2)........   12 bits(1)(2)........   13 bits(1)(2)........   14 bits(1)(2)........   15 bits(1)(2)........   16 bits(1)(2)........   17 bits(1)(2)........   18 bits(1)(2)........   19 bits(1)(2)........   20 bits(1)(2)........   21 bits(1)(2)........   22 bits(1)(2)........   23 bits(1)(2)........   24 bits(1)(2)........   25 bits(1)(2)........   26 bits(1)(2)........   27 bits(1)(2)........   28 bits(1)(2)........   29 bits(1)(2)........   30 bits(1)(2)........   31 bits(1)(2)........   32 bits(1)(2)........   33 bits(1)(2)........   34 bits(1)(2)........   35 bits(1)(2)........   36 bits(1)(2)........   37 bits(1)(2)........   38 bits(1)(2)........   39 bits(1)(2)........   40 bits(1)(2)........   41 bits(1)(2)........   42 bits(1)(2)........   43 bits(1)(2)........   44 bits(1)(2)........   45 bits(1)(2)........   46 bits(1)(2)........   47 bits(1)(2)........   48 bits(1)(2)........   49 bits(1)(2)........   50 bits(1)(2)........   51 bits(1)(2)........   52 bits(1)(2)........   53 bits(1)(2)........   54 bits(1)(2)........   55 bits(1)(2)........   56 bits(1)(2)........   57 bits(1)(2)........   58 bits(1)(2)........   59 bits(1)(2)........   60 bits(1)(2)........   61 bits(1)(2)........   62 bits(1)(2)........   63 bits(1)(2)........   64 bits(1)(2)........   65 bits(1)(2)........   66 bits(1)(2)........   67 bits(1)(2)........   68 bits(1)(2)........   69 bits(1)(2)........   70 bits(1)(2)........   71 bits(1)(2)........   72 bits(1)(2)........   73 bits(1)(2)........   74 bits(1)(2)........   75 bits(1)(2)........   76 bits(1)(2)........   77 bits(1)(2)........   78 bits(1)(2)........   79 bits(1)(2)........   80 bits(1)(2)........   81 bits(1)(2)........   82 bits(1)(2)........   83 bits(1)(2)........   84 bits(1)(2)........   85 bits(1)(2)........   86 bits(1)(2)........   87 bits(1)(2)........   88 bits(1)(2)........   89 bits(1)(2)........   90 bits(1)(2)........   91 bits(1)(2)........   92 bits(1)(2)........   93 bits(1)(2)........   94 bits(1)(2)........   95 bits(1)(2)........   96 bits(1)(2)........   97 bits(1)(2)........   98 bits(1)(2)........   99 bits(1)(2)........  100 bits(1)(2)........  101 bits(1)(2)........  102 bits(1)(2)........  103 bits(1)(2)........  104 bits(1)(2)........  105 bits(1)(2)........  106 bits(1)(2)........  107 bits(1)(2)........  108 bits(1)(2)........  109 bits(1)(2)........  110 bits(1)(2)........  111 bits(1)(2)........  112 bits(1)(2)........  113 bits(1)(2)........  114 bits(1)(2)........  115 bits(1)(2)........  116 bits(1)(2)........  117 bits(1)(2)........  118 bits(1)(2)........  119 bits(1)(2)........  120 bits(1)(2)........  121 bits(1)(2)........  122 bits(1)(2)........  123 bits(1)(2)........  124 bits(1)(2)........  125 bits(1)(2)........  126 bits(1)(2)........  127 bits(1)(2)........  128 bits(1)(2)........
+ 85s 
+ 85s TEST mp_reduce_2k_l
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST mp_set_double
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST mp_signed_rsh
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST mp_sqrt
+ 85s 
+ 85s      0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29    30    31    32    33    34    35    36    37    38    39    40    41    42    43    44    45    46    47    48    49    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70    71    72    73    74    75    76    77    78    79    80    81    82    83    84    85    86    87    88    89    90    91    92    93    94    95    96    97    98    99   100   101   102   103   104   105   106   107   108   109   110   111   112   113   114   115   116   117   118   119   120   121   122   123   124   125   126   127   128   129   130   131   132   133   134   135   136   137   138   139   140   141   142   143   144   145   146   147   148   149   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170   171   172   173   174   175   176   177   178   179   180   181   182   183   184   185   186   187   188   189   190   191   192   193   194   195   196   197   198   199   200   201   202   203   204   205   206   207   208   209   210   211   212   213   214   215   216   217   218   219   220   221   222   223   224   225   226   227   228   229   230   231   232   233   234   235   236   237   238   239   240   241   242   243   244   245   246   247   248   249   250   251   252   253   254   255   256   257   258   259   260   261   262   263   264   265   266   267   268   269   270   271   272   273   274   275   276   277   278   279   280   281   282   283   284   285   286   287   288   289   290   291   292   293   294   295   296   297   298   299   300   301   302   303   304   305   306   307   308   309   310   311   312   313   314   315   316   317   318   319   320   321   322   323   324   325   326   327   328   329   330   331   332   333   334   335   336   337   338   339   340   341   342   343   344   345   346   347   348   349   350   351   352   353   354   355   356   357   358   359   360   361   362   363   364   365   366   367   368   369   370   371   372   373   374   375   376   377   378   379   380   381   382   383   384   385   386   387   388   389   390   391   392   393   394   395   396   397   398   399   400   401   402   403   404   405   406   407   408   409   410   411   412   413   414   415   416   417   418   419   420   421   422   423   424   425   426   427   428   429   430   431   432   433   434   435   436   437   438   439   440   441   442   443   444   445   446   447   448   449   450   451   452   453   454   455   456   457   458   459   460   461   462   463   464   465   466   467   468   469   470   471   472   473   474   475   476   477   478   479   480   481   482   483   484   485   486   487   488   489   490   491   492   493   494   495   496   497   498   499   500   501   502   503   504   505   506   507   508   509   510   511   512   513   514   515   516   517   518   519   520   521   522   523   524   525   526   527   528   529   530   531   532   533   534   535   536   537   538   539   540   541   542   543   544   545   546   547   548   549   550   551   552   553   554   555   556   557   558   559   560   561   562   563   564   565   566   567   568   569   570   571   572   573   574   575   576   577   578   579   580   581   582   583   584   585   586   587   588   589   590   591   592   593   594   595   596   597   598   599   600   601   602   603   604   605   606   607   608   609   610   611   612   613   614   615   616   617   618   619   620   621   622   623   624   625   626   627   628   629   630   631   632   633   634   635   636   637   638   639   640   641   642   643   644   645   646   647   648   649   650   651   652   653   654   655   656   657   658   659   660   661   662   663   664   665   666   667   668   669   670   671   672   673   674   675   676   677   678   679   680   681   682   683   684   685   686   687   688   689   690   691   692   693   694   695   696   697   698   699   700   701   702   703   704   705   706   707   708   709   710   711   712   713   714   715   716   717   718   719   720   721   722   723   724   725   726   727   728   729   730   731   732   733   734   735   736   737   738   739   740   741   742   743   744   745   746   747   748   749   750   751   752   753   754   755   756   757   758   759   760   761   762   763   764   765   766   767   768   769   770   771   772   773   774   775   776   777   778   779   780   781   782   783   784   785   786   787   788   789   790   791   792   793   794   795   796   797   798   799   800   801   802   803   804   805   806   807   808   809   810   811   812   813   814   815   816   817   818   819   820   821   822   823   824   825   826   827   828   829   830   831   832   833   834   835   836   837   838   839   840   841   842   843   844   845   846   847   848   849   850   851   852   853   854   855   856   857   858   859   860   861   862   863   864   865   866   867   868   869   870   871   872   873   874   875   876   877   878   879   880   881   882   883   884   885   886   887   888   889   890   891   892   893   894   895   896   897   898   899   900   901   902   903   904   905   906   907   908   909   910   911   912   913   914   915   916   917   918   919   920   921   922   923   924   925   926   927   928   929   930   931   932   933   934   935   936   937   938   939   940   941   942   943   944   945   946   947   948   949   950   951   952   953   954   955   956   957   958   959   960   961   962   963   964   965   966   967   968   969   970   971   972   973   974   975   976   977   978   979   980   981   982   983   984   985   986   987   988   989   990   991   992   993   994   995   996   997   998   999
+ 85s 
+ 85s TEST mp_sqrtmod_prime
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST mp_xor
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST s_mp_balance_mul
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST s_mp_karatsuba_mul
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST s_mp_karatsuba_sqr
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST s_mp_toom_mul
+ 85s 
+ 85s 
+ 85s 
+ 85s TEST s_mp_toom_sqr
+ 85s 
+ 85s 
+ 85s 
+ 85s Tests OK/NOP/FAIL: 42/0/0
+ 85s test done
+ 85s /tmp/autopkgtest.j8sIHX/wrapper.sh: checking for leaked background processes...
+ 85s /tmp/autopkgtest.j8sIHX/wrapper.sh: waiting for tee/cat subprocesses...
+ 85s /tmp/autopkgtest.j8sIHX/wrapper.sh: cleaning up...
+ 85s /tmp/autopkgtest.j8sIHX/wrapper.sh: Exit status: 0
+ 85s autopkgtest: DBG: testbed command exited with code 0
+ 85s autopkgtest [13:17:37]: test run-tests: -----------------------]
+ 85s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 85s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.j8sIHX/run-tests-stdout /home/hachi/openkylin_test/sharefolder/results/libtommath/run-tests-stdout
+ 85s autopkgtest: DBG: got reply from testbed: ok
+ 85s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.j8sIHX/run-tests-stderr /home/hachi/openkylin_test/sharefolder/results/libtommath/run-tests-stderr
+ 85s autopkgtest: DBG: got reply from testbed: ok
+ 85s autopkgtest [13:17:37]: test run-tests:  - - - - - - - - - - results - - - - - - - - - -
+ 85s run-tests            PASS
+ 85s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.j8sIHX/run-tests-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libtommath/artifacts/
+ 85s autopkgtest: DBG: got reply from testbed: ok
+ 85s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.j8sIHX/run-tests-artifacts', '/tmp/autopkgtest.j8sIHX/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 86s autopkgtest [13:17:38]: @@@@@@@@@@@@@@@@@@@@ summary
+ 86s run-tests            PASS
+ 86s autopkgtest: DBG: testbed stop
+ 86s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.j8sIHX
+ 86s autopkgtest: DBG: sending command to testbed: close
+ 86s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 86s autopkgtest: DBG: got reply from testbed: ok
+ 86s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,489 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:46:41]: starting date and time: 2024-07-18 23:46:41+0800
+  0s autopkgtest [23:46:41]: version @version@
+  0s autopkgtest [23:46:41]: host lili; command line: /usr/bin/autopkgtest openjdk-8_8u402-ga-ok5.dsc -o /home/hachi/openkylin_test/sharefolder/results/openjdk-8 -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.HemsJT
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-59c4b693-db6e-4e49-be19-0a0ddeddee9f,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-59c4b693-db6e-4e49-be19-0a0ddeddee9f//tmp/autopkgtest.HemsJT
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-59c4b693-db6e-4e49-be19-0a0ddeddee9f//tmp/autopkgtest.HemsJT', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HemsJT'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.HemsJT/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.HemsJT/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:46:42]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:46:42]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.HemsJT/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HemsJT/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openjdk-8/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [23:46:43]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [23:46:43]: @@@@@@@@@@@@@@@@@@@@ source openjdk-8_8u402-ga-ok5.dsc
+  2s autopkgtest: DBG: blame += openjdk-8_8u402-ga-ok5.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HemsJT'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown openjdk-8_8u402-ga-ok5.dsc /tmp/autopkgtest.HemsJT/openjdk-8_8u402-ga-ok5.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HemsJT'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown openjdk-8_8u402-ga.orig.tar.gz /tmp/autopkgtest.HemsJT/openjdk-8_8u402-ga.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HemsJT'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown openjdk-8_8u402-ga-ok5.debian.tar.xz /tmp/autopkgtest.HemsJT/openjdk-8_8u402-ga-ok5.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.HemsJT/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.HemsJT/openjdk-8_8u402-ga-ok5.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.HemsJT/build.XXX
+  3s + builddir=/tmp/autopkgtest.HemsJT/build.GX1
+  3s + cd /tmp/autopkgtest.HemsJT/build.GX1
+  3s + dpkg-source -x /tmp/autopkgtest.HemsJT/openjdk-8_8u402-ga-ok5.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.700FDczk/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 11 Jun 2024 08:16:10 PM CST
+  3s gpgv:                using RSA key 3ABEB88EEC8A148B268B0DA1BA4F811AD8D6E2D9
+  3s gpgv:                issuer "liwenjun@kylinos.cn"
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.HemsJT/openjdk-8_8u402-ga-ok5.dsc
+  5s dpkg-source: info: extracting openjdk-8 in src
+  5s dpkg-source: info: unpacking openjdk-8_8u402-ga.orig.tar.gz
+  6s dpkg-source: info: unpacking openjdk-8_8u402-ga-ok5.debian.tar.xz
+  6s + chmod -R a+rX .
+  6s + cd src/.
+  6s + pwd
+  6s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest [23:46:47]: testing package openjdk-8 version 8u402-ga-ok5
+  6s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HemsJT/build.GX1/src/debian/ /home/hachi/openkylin_test/sharefolder/results/openjdk-8/pkg/debian/
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: processing dependency @
+  6s autopkgtest: DBG: synthesised dependency openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  6s autopkgtest: DBG: synthesised dependency openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-source
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-doc
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]
+  7s autopkgtest: DBG: processing dependency default-jre-headless
+  7s autopkgtest: DBG: processing dependency jtreg
+  7s autopkgtest: DBG: processing dependency libasmtools-java
+  7s autopkgtest: DBG: processing dependency testng
+  7s autopkgtest: DBG: processing dependency g++
+  7s autopkgtest: DBG: Test defined: name hotspot path debian/tests/hotspot command "None" restrictions ['allow-stderr', 'flaky', 'skippable'] features [] depends ['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++'] 
+  7s autopkgtest: DBG: Test defined: name langtools path debian/tests/langtools command "None" restrictions ['allow-stderr', 'flaky', 'skippable'] features [] depends ['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++'] 
+  7s autopkgtest: DBG: processing dependency @
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  7s autopkgtest: DBG: synthesised dependency openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  8s autopkgtest: DBG: synthesised dependency openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  8s autopkgtest: DBG: synthesised dependency openjdk-8-source
+  8s autopkgtest: DBG: synthesised dependency openjdk-8-doc
+  8s autopkgtest: DBG: synthesised dependency openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  8s autopkgtest: DBG: synthesised dependency openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]
+  8s autopkgtest: DBG: processing dependency default-jre-headless
+  8s autopkgtest: DBG: processing dependency jtreg
+  8s autopkgtest: DBG: processing dependency libasmtools-java
+  8s autopkgtest: DBG: processing dependency testng
+  8s autopkgtest: DBG: processing dependency g++
+  8s autopkgtest: DBG: processing dependency xfwm4
+  8s autopkgtest: DBG: processing dependency xvfb
+  8s autopkgtest: DBG: processing dependency dbus-x11
+  8s autopkgtest: DBG: processing dependency unzip
+  8s autopkgtest: DBG: processing dependency zip
+  8s autopkgtest: DBG: Test defined: name jdk path debian/tests/jdk command "None" restrictions ['allow-stderr', 'flaky', 'skippable'] features [] depends ['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++', 'xfwm4', 'xvfb', 'dbus-x11', 'unzip', 'zip'] 
+  8s autopkgtest [23:46:49]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HemsJT/build.GX1/src/ /home/hachi/openkylin_test/sharefolder/results/openjdk-8/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  8s autopkgtest: DBG: synthesised dependency openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-source
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-doc
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]
+  9s autopkgtest: DBG: processing dependency default-jre-headless
+  9s autopkgtest: DBG: processing dependency jtreg
+  9s autopkgtest: DBG: processing dependency libasmtools-java
+  9s autopkgtest: DBG: processing dependency testng
+  9s autopkgtest: DBG: processing dependency g++
+  9s autopkgtest: DBG: Test defined: name hotspot path debian/tests/hotspot command "None" restrictions ['allow-stderr', 'flaky', 'skippable'] features [] depends ['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++'] 
+  9s autopkgtest: DBG: Test defined: name langtools path debian/tests/langtools command "None" restrictions ['allow-stderr', 'flaky', 'skippable'] features [] depends ['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++'] 
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+  9s autopkgtest: DBG: synthesised dependency openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+ 10s autopkgtest: DBG: synthesised dependency openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+ 10s autopkgtest: DBG: synthesised dependency openjdk-8-source
+ 10s autopkgtest: DBG: synthesised dependency openjdk-8-doc
+ 10s autopkgtest: DBG: synthesised dependency openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]
+ 10s autopkgtest: DBG: synthesised dependency openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]
+ 10s autopkgtest: DBG: processing dependency default-jre-headless
+ 10s autopkgtest: DBG: processing dependency jtreg
+ 10s autopkgtest: DBG: processing dependency libasmtools-java
+ 10s autopkgtest: DBG: processing dependency testng
+ 10s autopkgtest: DBG: processing dependency g++
+ 10s autopkgtest: DBG: processing dependency xfwm4
+ 10s autopkgtest: DBG: processing dependency xvfb
+ 10s autopkgtest: DBG: processing dependency dbus-x11
+ 10s autopkgtest: DBG: processing dependency unzip
+ 10s autopkgtest: DBG: processing dependency zip
+ 10s autopkgtest: DBG: Test defined: name jdk path debian/tests/jdk command "None" restrictions ['allow-stderr', 'flaky', 'skippable'] features [] depends ['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++', 'xfwm4', 'xvfb', 'dbus-x11', 'unzip', 'zip'] 
+ 10s autopkgtest [23:46:51]: test hotspot: preparing testbed
+ 10s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++']
+ 10s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 10s autopkgtest: DBG: install_deps: deps_new=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++']
+ 10s autopkgtest: DBG: install-deps: satisfying openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-source, openjdk-8-doc, openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf], default-jre-headless, jtreg, libasmtools-java, testng, g++
+ 10s autopkgtest: DBG: install-deps: architecture resolved: openjdk-8-source, openjdk-8-doc, default-jre-headless, jtreg, libasmtools-java, testng, g++
+ 10s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: can use apt-get on testbed: True
+ 10s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HemsJT'], kind short, sout raw, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-59c4b693-db6e-4e49-be19-0a0ddeddee9f//tmp/autopkgtest.HemsJT/1-autopkgtest-satdep.deb /tmp/autopkgtest.HemsJT/1-autopkgtest-satdep.deb
+ 10s autopkgtest: DBG: got reply from testbed: ok
+ 10s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.HemsJT/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 11s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 12s Starting pkgProblemResolver with broken count: 1
+ 12s Starting 2 pkgProblemResolver with broken count: 1
+ 12s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-source:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 12s   Considering openjdk-8-source:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s     Reinst Failed early because of openjdk-8-jre:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-doc:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 12s   Considering openjdk-8-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated openjdk-8-doc:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on default-jre-headless:riscv64 < none | 2:1.21-75+exp1-ok1 @un uH >
+ 12s   Considering default-jre-headless:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated java-common:riscv64
+ 12s     Reinst Failed early because of openjdk-21-jre-headless:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on jtreg:riscv64 < none | 5.1-b01-ok1 @un uH >
+ 12s   Considering jtreg:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s     Reinst Failed early because of javahelp2:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on libasmtools-java:riscv64 < none @un H >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on testng:riscv64 < none @un H >
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  autopkgtest-satdep : Depends: openjdk-8-source but it is not going to be installed
+ 12s                       Depends: default-jre-headless but it is not going to be installed
+ 12s                       Depends: jtreg but it is not going to be installed
+ 12s                       Depends: libasmtools-java but it is not installable
+ 12s                       Depends: testng but it is not installable
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.HemsJT/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate openjdk-8-source openjdk-8-doc default-jre-headless jtreg libasmtools-java testng g++ -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 13s Reading package lists...
+ 13s Building dependency tree...
+ 13s Reading state information...
+ 13s Package testng is not available, but is referred to by another package.
+ 13s This may mean that the package is missing, has been obsoleted, or
+ 13s is only available from another source
+ 13s 
+ 13s Package libasmtools-java is not available, but is referred to by another package.
+ 13s This may mean that the package is missing, has been obsoleted, or
+ 13s is only available from another source
+ 13s 
+ 13s E: Package 'libasmtools-java' has no installation candidate
+ 13s E: Package 'testng' has no installation candidate
+ 13s autopkgtest: DBG: testbed command exited with code 100
+ 13s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 13s hotspot              FAIL badpkg
+ 13s blame: openjdk-8_8u402-ga-ok5.dsc
+ 13s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 13s autopkgtest [23:46:54]: test langtools: preparing testbed
+ 13s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++'], deps_new=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++']
+ 13s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 13s autopkgtest: DBG: install_deps: deps_new=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++']
+ 13s autopkgtest: DBG: install-deps: satisfying openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-source, openjdk-8-doc, openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf], default-jre-headless, jtreg, libasmtools-java, testng, g++
+ 13s autopkgtest: DBG: install-deps: architecture resolved: openjdk-8-source, openjdk-8-doc, default-jre-headless, jtreg, libasmtools-java, testng, g++
+ 13s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: can use apt-get on testbed: True
+ 13s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HemsJT'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-59c4b693-db6e-4e49-be19-0a0ddeddee9f//tmp/autopkgtest.HemsJT/2-autopkgtest-satdep.deb /tmp/autopkgtest.HemsJT/2-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.HemsJT/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 14s Building dependency tree...
+ 14s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 15s Starting 2 pkgProblemResolver with broken count: 1
+ 15s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-source:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 15s   Considering openjdk-8-source:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s     Reinst Failed early because of openjdk-8-jre:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-doc:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 15s   Considering openjdk-8-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated openjdk-8-doc:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on default-jre-headless:riscv64 < none | 2:1.21-75+exp1-ok1 @un uH >
+ 15s   Considering default-jre-headless:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated java-common:riscv64
+ 15s     Reinst Failed early because of openjdk-21-jre-headless:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on jtreg:riscv64 < none | 5.1-b01-ok1 @un uH >
+ 15s   Considering jtreg:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s     Reinst Failed early because of javahelp2:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on libasmtools-java:riscv64 < none @un H >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on testng:riscv64 < none @un H >
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 15s  autopkgtest-satdep : Depends: openjdk-8-source but it is not going to be installed
+ 15s                       Depends: default-jre-headless but it is not going to be installed
+ 15s                       Depends: jtreg but it is not going to be installed
+ 15s                       Depends: libasmtools-java but it is not installable
+ 15s                       Depends: testng but it is not installable
+ 15s E: Unable to correct problems, you have held broken packages.
+ 15s autopkgtest: DBG: testbed command exited with code 100
+ 15s autopkgtest: DBG: apt-get install /tmp/autopkgtest.HemsJT/2-autopkgtest-satdep.deb failed; status-fd:
+ 15s 
+ 15s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 15s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate openjdk-8-source openjdk-8-doc default-jre-headless jtreg libasmtools-java testng g++ -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s Reading package lists...
+ 16s Building dependency tree...
+ 16s Reading state information...
+ 16s Package testng is not available, but is referred to by another package.
+ 16s This may mean that the package is missing, has been obsoleted, or
+ 16s is only available from another source
+ 16s 
+ 16s Package libasmtools-java is not available, but is referred to by another package.
+ 16s This may mean that the package is missing, has been obsoleted, or
+ 16s is only available from another source
+ 16s 
+ 16s E: Package 'libasmtools-java' has no installation candidate
+ 16s E: Package 'testng' has no installation candidate
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s langtools            FAIL badpkg
+ 16s blame: openjdk-8_8u402-ga-ok5.dsc
+ 16s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s autopkgtest [23:46:57]: test jdk: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++'], deps_new=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++', 'xfwm4', 'xvfb', 'dbus-x11', 'unzip', 'zip']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-source', 'openjdk-8-doc', 'openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32]', 'openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf]', 'default-jre-headless', 'jtreg', 'libasmtools-java', 'testng', 'g++', 'xfwm4', 'xvfb', 'dbus-x11', 'unzip', 'zip']
+ 16s autopkgtest: DBG: install-deps: satisfying openjdk-8-jdk-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre-headless [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jdk [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-demo [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-source, openjdk-8-doc, openjdk-8-dbg [alpha amd64 arm64 armel armhf i386 ia64 loong64 m68k mips mipsel mips64 mips64el powerpc powerpcspe ppc64 ppc64el s390x sh4 sparc sparc64 x32], openjdk-8-jre-zero [amd64 arm64 i386 ppc64 ppc64el armhf], default-jre-headless, jtreg, libasmtools-java, testng, g++, xfwm4, xvfb, dbus-x11, unzip, zip
+ 16s autopkgtest: DBG: install-deps: architecture resolved: openjdk-8-source, openjdk-8-doc, default-jre-headless, jtreg, libasmtools-java, testng, g++, xfwm4, xvfb, dbus-x11, unzip, zip
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 17s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HemsJT'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-59c4b693-db6e-4e49-be19-0a0ddeddee9f//tmp/autopkgtest.HemsJT/3-autopkgtest-satdep.deb /tmp/autopkgtest.HemsJT/3-autopkgtest-satdep.deb
+ 17s autopkgtest: DBG: got reply from testbed: ok
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.HemsJT/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 18s Starting pkgProblemResolver with broken count: 1
+ 18s Starting 2 pkgProblemResolver with broken count: 1
+ 18s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-source:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 18s   Considering openjdk-8-source:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s     Reinst Failed early because of openjdk-8-jre:riscv64
+ 18s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-doc:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 18s   Considering openjdk-8-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s   Re-Instated openjdk-8-doc:riscv64
+ 18s Broken autopkgtest-satdep:riscv64 Depends on default-jre-headless:riscv64 < none | 2:1.21-75+exp1-ok1 @un uH >
+ 18s   Considering default-jre-headless:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s   Re-Instated java-common:riscv64
+ 18s     Reinst Failed early because of openjdk-21-jre-headless:riscv64
+ 18s Broken autopkgtest-satdep:riscv64 Depends on jtreg:riscv64 < none | 5.1-b01-ok1 @un uH >
+ 18s   Considering jtreg:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s     Reinst Failed early because of javahelp2:riscv64
+ 18s Broken autopkgtest-satdep:riscv64 Depends on libasmtools-java:riscv64 < none @un H >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on testng:riscv64 < none @un H >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on xfwm4:riscv64 < none | 4.18.0-ok1 @un uH >
+ 18s   Considering xfwm4:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s   Re-Instated libglib2.0-0t64:riscv64
+ 18s   Re-Instated libatspi2.0-0t64:riscv64
+ 18s   Re-Instated at-spi2-core:riscv64
+ 18s   Re-Instated at-spi2-common:riscv64
+ 18s   Re-Instated libatk1.0-0t64:riscv64
+ 18s   Re-Instated libgdk-pixbuf2.0-common:riscv64
+ 18s   Re-Instated libpng16-16t64:riscv64
+ 18s   Re-Instated libdeflate0:riscv64
+ 18s   Re-Instated liblerc4:riscv64
+ 18s   Re-Instated libsharpyuv0:riscv64
+ 18s   Re-Instated libwebp7:riscv64
+ 18s   Re-Instated libzstd1:riscv64
+ 18s   Re-Instated libtiff6:riscv64
+ 18s   Re-Instated libgdk-pixbuf-2.0-0:riscv64
+ 18s   Re-Instated libxres1:riscv64
+ 18s   Re-Instated libwnck-3-common:riscv64
+ 18s   Re-Instated libwnck-3-0:riscv64
+ 18s   Re-Instated libxfce4ui-common:riscv64
+ 18s   Re-Instated libxfce4util-common:riscv64
+ 18s   Re-Instated libxfce4util7:riscv64
+ 18s   Re-Instated xfconf:riscv64
+ 18s   Re-Instated libxfconf-0-3:riscv64
+ 18s   Re-Instated libxfce4ui-2-0:riscv64
+ 18s   Re-Instated libxpresent1:riscv64
+ 18s   Re-Instated xfwm4:riscv64
+ 18s Broken autopkgtest-satdep:riscv64 Depends on xvfb:riscv64 < none | 2:21.1.10-ok2 @un uH >
+ 18s   Considering xvfb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s   Re-Instated xserver-common:riscv64
+ 18s   Re-Instated libgcrypt20:riscv64
+ 18s   Re-Instated xvfb:riscv64
+ 18s Investigating (0) libgdk-pixbuf2.0-0:riscv64 < 2.40.0+dfsg-ok1 | 2.40.2-ok1 @ii uH Ib >
+ 18s Broken libgdk-pixbuf2.0-0:riscv64 Depends on libgdk-pixbuf2.0-common:riscv64 < 2.40.0+dfsg-ok1 -> 2.42.10+dfsg-ok4 @ii uU > (= 2.40.0+dfsg-ok1)
+ 18s   Considering libgdk-pixbuf2.0-common:riscv64 36 as a solution to libgdk-pixbuf2.0-0:riscv64 143
+ 18s   Added libgdk-pixbuf2.0-common:riscv64 to the remove list
+ 18s   Fixing libgdk-pixbuf2.0-0:riscv64 via keep of libgdk-pixbuf2.0-common:riscv64
+ 18s Investigating (0) libatk1.0-0t64:riscv64 < none -> 2.52.0-ok1 @un uN Ib >
+ 18s Broken libatk1.0-0t64:riscv64 Breaks on libatk1.0-0:riscv64 < 2.35.1-ok1 @ii K > (< 2.52.0-ok1)
+ 18s   Considering libatk1.0-0:riscv64 95 as a solution to libatk1.0-0t64:riscv64 0
+ 18s   Holding Back libatk1.0-0t64:riscv64 rather than change libatk1.0-0:riscv64
+ 18s Investigating (0) libwnck-3-0:riscv64 < none -> 43.0-ok1 @un uN Ib >
+ 18s Broken libwnck-3-0:riscv64 Depends on libatk1.0-0t64:riscv64 < none | 2.52.0-ok1 @un uH > (>= 1.12.4)
+ 18s   Considering libatk1.0-0t64:riscv64 0 as a solution to libwnck-3-0:riscv64 0
+ 18s   Holding Back libwnck-3-0:riscv64 rather than change libatk1.0-0t64:riscv64
+ 18s Investigating (0) libpng16-16t64:riscv64 < none -> 1.6.43-ok1 @un uN Ib >
+ 18s Broken libpng16-16t64:riscv64 Breaks on libpng16-16:riscv64 < 1.6.38-2 @ii K > (< 1.6.43-ok1)
+ 18s   Considering libpng16-16:riscv64 330 as a solution to libpng16-16t64:riscv64 0
+ 18s   Holding Back libpng16-16t64:riscv64 rather than change libpng16-16:riscv64
+ 18s Investigating (0) libglib2.0-0t64:riscv64 < none -> 2.80.0-ok1~0615.2 @un uN Ib >
+ 18s Broken libglib2.0-0t64:riscv64 Breaks on libglib2.0-0:riscv64 < 2.78.0-ok1~0229.1 @ii K > (< 2.80.0~)
+ 18s   Considering libglib2.0-0:riscv64 1516 as a solution to libglib2.0-0t64:riscv64 0
+ 18s   Holding Back libglib2.0-0t64:riscv64 rather than change libglib2.0-0:riscv64
+ 18s Investigating (0) at-spi2-core:riscv64 < 2.36.0-ok1 -> 2.52.0-ok1 @ii uU Ib >
+ 18s Broken at-spi2-core:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.79.0)
+ 18s   Considering libglib2.0-0t64:riscv64 0 as a solution to at-spi2-core:riscv64 0
+ 18s   Holding Back at-spi2-core:riscv64 rather than change libglib2.0-0t64:riscv64
+ 18s Investigating (0) libatspi2.0-0t64:riscv64 < none -> 2.52.0-ok1 @un uN Ib >
+ 18s Broken libatspi2.0-0t64:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.79.0)
+ 18s   Considering libglib2.0-0t64:riscv64 0 as a solution to libatspi2.0-0t64:riscv64 0
+ 18s   Holding Back libatspi2.0-0t64:riscv64 rather than change libglib2.0-0t64:riscv64
+ 18s Investigating (0) libgdk-pixbuf-2.0-0:riscv64 < none -> 2.42.10+dfsg-ok4 @un uN Ib >
+ 18s Broken libgdk-pixbuf-2.0-0:riscv64 Depends on libgdk-pixbuf2.0-common:riscv64 < 2.40.0+dfsg-ok1 | 2.42.10+dfsg-ok4 @ii uH > (>= 2.42.10+dfsg-ok4)
+ 18s   Considering libgdk-pixbuf2.0-common:riscv64 36 as a solution to libgdk-pixbuf-2.0-0:riscv64 0
+ 18s   Holding Back libgdk-pixbuf-2.0-0:riscv64 rather than change libgdk-pixbuf2.0-common:riscv64
+ 18s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-source:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 18s   Considering openjdk-8-source:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s Broken autopkgtest-satdep:riscv64 Depends on default-jre-headless:riscv64 < none | 2:1.21-75+exp1-ok1 @un uH >
+ 18s   Considering default-jre-headless:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s Broken autopkgtest-satdep:riscv64 Depends on jtreg:riscv64 < none | 5.1-b01-ok1 @un uH >
+ 18s   Considering jtreg:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s Broken autopkgtest-satdep:riscv64 Depends on libasmtools-java:riscv64 < none @un H >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on testng:riscv64 < none @un H >
+ 18s Investigating (1) xfwm4:riscv64 < none -> 4.18.0-ok1 @un uN Ib >
+ 18s Broken xfwm4:riscv64 Depends on libwnck-3-0:riscv64 < none | 43.0-ok1 @un uH > (>= 2.91.6)
+ 18s   Considering libwnck-3-0:riscv64 0 as a solution to xfwm4:riscv64 1
+ 18s   Holding Back xfwm4:riscv64 rather than change libwnck-3-0:riscv64
+ 18s Investigating (1) at-spi2-common:riscv64 < none -> 2.52.0-ok1 @un uN Ib >
+ 18s Broken at-spi2-common:riscv64 Breaks on at-spi2-core:riscv64 < 2.36.0-ok1 | 2.52.0-ok1 @ii uH > (< 2.46.0-2~)
+ 18s   Considering at-spi2-core:riscv64 0 as a solution to at-spi2-common:riscv64 0
+ 18s   Holding Back at-spi2-common:riscv64 rather than change at-spi2-core:riscv64
+ 18s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on openjdk-8-source:riscv64 < none | 8u402-ga-ok5 @un uH >
+ 18s   Considering openjdk-8-source:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s Broken autopkgtest-satdep:riscv64 Depends on default-jre-headless:riscv64 < none | 2:1.21-75+exp1-ok1 @un uH >
+ 18s   Considering default-jre-headless:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s Broken autopkgtest-satdep:riscv64 Depends on jtreg:riscv64 < none | 5.1-b01-ok1 @un uH >
+ 18s   Considering jtreg:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s Broken autopkgtest-satdep:riscv64 Depends on libasmtools-java:riscv64 < none @un H >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on testng:riscv64 < none @un H >
+ 18s Broken autopkgtest-satdep:riscv64 Depends on xfwm4:riscv64 < none | 4.18.0-ok1 @un uH >
+ 18s   Considering xfwm4:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 18s Done
+ 18s Some packages could not be installed. This may mean that you have
+ 18s requested an impossible situation or if you are using the unstable
+ 18s distribution that some required packages have not yet been created
+ 18s or been moved out of Incoming.
+ 18s The following information may help to resolve the situation:
+ 18s 
+ 18s The following packages have unmet dependencies:
+ 19s  autopkgtest-satdep : Depends: openjdk-8-source but it is not going to be installed
+ 19s                       Depends: default-jre-headless but it is not going to be installed
+ 19s                       Depends: jtreg but it is not going to be installed
+ 19s                       Depends: libasmtools-java but it is not installable
+ 19s                       Depends: testng but it is not installable
+ 19s                       Depends: xfwm4 but it is not going to be installed
+ 19s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.HemsJT/3-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate openjdk-8-source openjdk-8-doc default-jre-headless jtreg libasmtools-java testng g++ xfwm4 xvfb dbus-x11 unzip zip -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 19s Reading package lists...
+ 20s Building dependency tree...
+ 20s Reading state information...
+ 20s Package testng is not available, but is referred to by another package.
+ 20s This may mean that the package is missing, has been obsoleted, or
+ 20s is only available from another source
+ 20s 
+ 20s Package libasmtools-java is not available, but is referred to by another package.
+ 20s This may mean that the package is missing, has been obsoleted, or
+ 20s is only available from another source
+ 20s 
+ 20s E: Package 'libasmtools-java' has no installation candidate
+ 20s E: Package 'testng' has no installation candidate
+ 20s autopkgtest: DBG: testbed command exited with code 100
+ 20s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s jdk                  FAIL badpkg
+ 20s blame: openjdk-8_8u402-ga-ok5.dsc
+ 20s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 20s autopkgtest [23:47:01]: @@@@@@@@@@@@@@@@@@@@ summary
+ 20s hotspot              FAIL badpkg
+ 20s blame: openjdk-8_8u402-ga-ok5.dsc
+ 20s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s langtools            FAIL badpkg
+ 20s blame: openjdk-8_8u402-ga-ok5.dsc
+ 20s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s jdk                  FAIL badpkg
+ 20s blame: openjdk-8_8u402-ga-ok5.dsc
+ 20s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s autopkgtest: DBG: testbed stop
+ 20s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.HemsJT
+ 20s autopkgtest: DBG: sending command to testbed: close
+ 20s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,1775 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:29:05]: starting date and time: 2024-07-18 23:29:05+0800
+  0s autopkgtest [23:29:05]: version @version@
+  0s autopkgtest [23:29:05]: host nana; command line: /usr/bin/autopkgtest rust-hashbrown_0.12.3-1-ok2.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-hashbrown -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.SClpIc
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.SClpIc/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.SClpIc/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [23:29:09]: testbed dpkg architecture: riscv64
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [23:29:09]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 127
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.SClpIc/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.SClpIc/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-hashbrown/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [23:29:10]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: Binaries: initialising
+  6s autopkgtest [23:29:11]: @@@@@@@@@@@@@@@@@@@@ source rust-hashbrown_0.12.3-1-ok2.dsc
+  6s autopkgtest: DBG: blame += rust-hashbrown_0.12.3-1-ok2.dsc
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-hashbrown_0.12.3-1-ok2.dsc /tmp/autopkgtest.SClpIc/rust-hashbrown_0.12.3-1-ok2.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-hashbrown_0.12.3-1.orig.tar.gz /tmp/autopkgtest.SClpIc/rust-hashbrown_0.12.3-1.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-hashbrown_0.12.3-1-ok2.debian.tar.xz /tmp/autopkgtest.SClpIc/rust-hashbrown_0.12.3-1-ok2.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.SClpIc/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.SClpIc/rust-hashbrown_0.12.3-1-ok2.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.SClpIc/build.XXX
+  7s + builddir=/tmp/autopkgtest.SClpIc/build.K0N
+  7s + cd /tmp/autopkgtest.SClpIc/build.K0N
+  7s + dpkg-source -x /tmp/autopkgtest.SClpIc/rust-hashbrown_0.12.3-1-ok2.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.yB2ZEAbe/trustedkeys.kbx': General error
+  8s gpgv: Signature made Tue 21 May 2024 11:15:33 AM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.SClpIc/rust-hashbrown_0.12.3-1-ok2.dsc
+  8s dpkg-source: info: extracting rust-hashbrown in src
+  8s dpkg-source: info: unpacking rust-hashbrown_0.12.3-1.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-hashbrown_0.12.3-1-ok2.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying 0001-Apply-patches.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [23:29:13]: testing package rust-hashbrown version 0.12.3-1-ok2
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.SClpIc/build.K0N/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-hashbrown/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name rust-hashbrown:@ path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-hashbrown:@'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:ahash path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features ahash" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:ahash'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:ahash-compile-time-rng path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features ahash-compile-time-rng" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:ahash-compile-time-rng'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:bumpalo path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features bumpalo" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:bumpalo'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:compiler_builtins path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features compiler_builtins" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:compiler_builtins'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:core path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features core" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:core'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:default'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:inline-more path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features inline-more" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:inline-more'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:nightly path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features nightly" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:nightly'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:raw path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features raw" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:raw'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:rayon path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features rayon" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:rayon'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:rustc-dep-of-std path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features rustc-dep-of-std" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:rustc-dep-of-std'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:rustc-internal-api path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features rustc-internal-api" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:rustc-internal-api'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:serde path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features serde" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:serde'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev: path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest [23:29:13]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.SClpIc/build.K0N/src/ /home/hachi/openkylin_test/sharefolder/results/rust-hashbrown/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name rust-hashbrown:@ path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-hashbrown:@'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:ahash path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features ahash" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:ahash'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:ahash-compile-time-rng path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features ahash-compile-time-rng" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:ahash-compile-time-rng'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  8s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  8s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  8s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:bumpalo path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features bumpalo" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:bumpalo'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:compiler_builtins path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features compiler_builtins" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:compiler_builtins'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:core path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features core" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:core'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:default'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:inline-more path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features inline-more" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:inline-more'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:nightly path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features nightly" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:nightly'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:raw path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features raw" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:raw'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:rayon path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features rayon" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:rayon'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:rustc-dep-of-std path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features rustc-dep-of-std" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:rustc-dep-of-std'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:rustc-internal-api path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features rustc-internal-api" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:rustc-internal-api'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev:serde path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features --features serde" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:serde'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)
+  9s autopkgtest: DBG: processing dependency librust-fnv-1+default-dev (>= 1.0.7-~~)
+  9s autopkgtest: DBG: processing dependency librust-lazy-static-1+default-dev (>= 1.4-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rayon-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-serde-test-1+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-hashbrown-dev
+  9s autopkgtest: DBG: Test defined: name librust-hashbrown-dev: path None command "/usr/share/cargo/bin/cargo-auto-test hashbrown 0.12.3 --all-targets --no-default-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-hashbrown-dev:'] depends ['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'] 
+  9s autopkgtest [23:29:14]: test rust-hashbrown:@: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+  9s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+  9s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/1-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/1-autopkgtest-satdep.deb
+ 10s autopkgtest: DBG: got reply from testbed: ok
+ 10s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 11s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 12s Starting pkgProblemResolver with broken count: 1
+ 12s Starting 2 pkgProblemResolver with broken count: 1
+ 12s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 12s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 12s     Reinst Failed because of libgit2-1.7:riscv64
+ 12s     Reinst Failed because of cargo:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 12s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated librust-fnv-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 12s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated librust-autocfg-dev:riscv64
+ 12s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 12s   Re-Instated librust-owning-ref-dev:riscv64
+ 12s   Re-Instated librust-scopeguard-dev:riscv64
+ 12s   Re-Instated librust-unicode-ident-dev:riscv64
+ 12s   Re-Instated librust-proc-macro2-dev:riscv64
+ 12s   Re-Instated librust-quote-dev:riscv64
+ 12s   Re-Instated librust-syn-dev:riscv64
+ 12s   Re-Instated librust-serde-derive-dev:riscv64
+ 12s   Re-Instated librust-serde-dev:riscv64
+ 12s   Re-Instated librust-lock-api-dev:riscv64
+ 12s   Re-Instated librust-spin-dev:riscv64
+ 12s   Re-Instated librust-lazy-static-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 12s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated librust-libc-dev:riscv64
+ 12s   Re-Instated librust-sval-derive-dev:riscv64
+ 12s   Re-Instated librust-sval-dev:riscv64
+ 12s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 12s     Reinst Failed because of librust-log-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 12s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 12s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated librust-either-dev:riscv64
+ 12s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 12s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 12s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 12s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 12s   Re-Instated librust-rayon-core-dev:riscv64
+ 12s   Re-Instated librust-rayon-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 12s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 12s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 12s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 12s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 12s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 12s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s autopkgtest: DBG: testbed command exited with code 2
+ 12s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 12s rust-hashbrown:@     SKIP installation fails and skip-not-installable set
+ 12s autopkgtest [23:29:17]: test librust-hashbrown-dev:ahash: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 13s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 13s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: can use apt-get on testbed: True
+ 13s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/2-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/2-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 15s Building dependency tree...
+ 15s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 15s Starting 2 pkgProblemResolver with broken count: 1
+ 15s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 15s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 15s     Reinst Failed because of libgit2-1.7:riscv64
+ 15s     Reinst Failed because of cargo:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 15s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated librust-fnv-dev:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated librust-autocfg-dev:riscv64
+ 15s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 15s   Re-Instated librust-owning-ref-dev:riscv64
+ 15s   Re-Instated librust-scopeguard-dev:riscv64
+ 15s   Re-Instated librust-unicode-ident-dev:riscv64
+ 15s   Re-Instated librust-proc-macro2-dev:riscv64
+ 15s   Re-Instated librust-quote-dev:riscv64
+ 15s   Re-Instated librust-syn-dev:riscv64
+ 15s   Re-Instated librust-serde-derive-dev:riscv64
+ 15s   Re-Instated librust-serde-dev:riscv64
+ 15s   Re-Instated librust-lock-api-dev:riscv64
+ 15s   Re-Instated librust-spin-dev:riscv64
+ 15s   Re-Instated librust-lazy-static-dev:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 15s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated librust-libc-dev:riscv64
+ 15s   Re-Instated librust-sval-derive-dev:riscv64
+ 15s   Re-Instated librust-sval-dev:riscv64
+ 15s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 15s     Reinst Failed because of librust-log-dev:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 15s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 15s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated librust-either-dev:riscv64
+ 15s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 15s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 15s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 15s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 15s   Re-Instated librust-rayon-core-dev:riscv64
+ 15s   Re-Instated librust-rayon-dev:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 15s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 16s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 16s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 16s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 16s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 16s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 16s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 16s E: Unable to correct problems, you have held broken packages.
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/2-autopkgtest-satdep.deb failed; status-fd:
+ 16s 
+ 16s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s autopkgtest: DBG: testbed command exited with code 2
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s librust-hashbrown-dev:ahash SKIP installation fails and skip-not-installable set
+ 16s autopkgtest [23:29:21]: test librust-hashbrown-dev:ahash-compile-time-rng: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 16s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 16s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: can use apt-get on testbed: True
+ 17s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/3-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/3-autopkgtest-satdep.deb
+ 17s autopkgtest: DBG: got reply from testbed: ok
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 18s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 19s Starting pkgProblemResolver with broken count: 1
+ 19s Starting 2 pkgProblemResolver with broken count: 1
+ 19s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 19s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 19s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 19s     Reinst Failed because of libgit2-1.7:riscv64
+ 19s     Reinst Failed because of cargo:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 19s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s   Re-Instated librust-fnv-dev:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 19s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s   Re-Instated librust-autocfg-dev:riscv64
+ 19s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 19s   Re-Instated librust-owning-ref-dev:riscv64
+ 19s   Re-Instated librust-scopeguard-dev:riscv64
+ 19s   Re-Instated librust-unicode-ident-dev:riscv64
+ 19s   Re-Instated librust-proc-macro2-dev:riscv64
+ 19s   Re-Instated librust-quote-dev:riscv64
+ 19s   Re-Instated librust-syn-dev:riscv64
+ 19s   Re-Instated librust-serde-derive-dev:riscv64
+ 19s   Re-Instated librust-serde-dev:riscv64
+ 19s   Re-Instated librust-lock-api-dev:riscv64
+ 19s   Re-Instated librust-spin-dev:riscv64
+ 19s   Re-Instated librust-lazy-static-dev:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 19s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s   Re-Instated librust-libc-dev:riscv64
+ 19s   Re-Instated librust-sval-derive-dev:riscv64
+ 19s   Re-Instated librust-sval-dev:riscv64
+ 19s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 19s     Reinst Failed because of librust-log-dev:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 19s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 19s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s   Re-Instated librust-either-dev:riscv64
+ 19s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 19s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 19s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 19s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 19s   Re-Instated librust-rayon-core-dev:riscv64
+ 19s   Re-Instated librust-rayon-dev:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 19s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 19s Done
+ 19s Some packages could not be installed. This may mean that you have
+ 19s requested an impossible situation or if you are using the unstable
+ 19s distribution that some required packages have not yet been created
+ 19s or been moved out of Incoming.
+ 19s The following information may help to resolve the situation:
+ 19s 
+ 19s The following packages have unmet dependencies:
+ 19s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 19s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 19s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 19s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 19s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 19s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 19s E: Unable to correct problems, you have held broken packages.
+ 20s autopkgtest: DBG: testbed command exited with code 100
+ 20s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/3-autopkgtest-satdep.deb failed; status-fd:
+ 20s 
+ 20s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 20s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 20s autopkgtest: DBG: testbed command exited with code 2
+ 20s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s librust-hashbrown-dev:ahash-compile-time-rng SKIP installation fails and skip-not-installable set
+ 20s autopkgtest [23:29:25]: test librust-hashbrown-dev:bumpalo: preparing testbed
+ 20s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 20s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 20s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 20s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/4-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/4-autopkgtest-satdep.deb
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 22s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 23s Starting pkgProblemResolver with broken count: 1
+ 23s Starting 2 pkgProblemResolver with broken count: 1
+ 23s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 23s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 23s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 23s     Reinst Failed because of libgit2-1.7:riscv64
+ 23s     Reinst Failed because of cargo:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 23s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s   Re-Instated librust-fnv-dev:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 23s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s   Re-Instated librust-autocfg-dev:riscv64
+ 23s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 23s   Re-Instated librust-owning-ref-dev:riscv64
+ 23s   Re-Instated librust-scopeguard-dev:riscv64
+ 23s   Re-Instated librust-unicode-ident-dev:riscv64
+ 23s   Re-Instated librust-proc-macro2-dev:riscv64
+ 23s   Re-Instated librust-quote-dev:riscv64
+ 23s   Re-Instated librust-syn-dev:riscv64
+ 23s   Re-Instated librust-serde-derive-dev:riscv64
+ 23s   Re-Instated librust-serde-dev:riscv64
+ 23s   Re-Instated librust-lock-api-dev:riscv64
+ 23s   Re-Instated librust-spin-dev:riscv64
+ 23s   Re-Instated librust-lazy-static-dev:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 23s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s   Re-Instated librust-libc-dev:riscv64
+ 23s   Re-Instated librust-sval-derive-dev:riscv64
+ 23s   Re-Instated librust-sval-dev:riscv64
+ 23s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 23s     Reinst Failed because of librust-log-dev:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 23s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 23s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s   Re-Instated librust-either-dev:riscv64
+ 23s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 23s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 23s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 23s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 23s   Re-Instated librust-rayon-core-dev:riscv64
+ 23s   Re-Instated librust-rayon-dev:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 23s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 23s Done
+ 23s Some packages could not be installed. This may mean that you have
+ 23s requested an impossible situation or if you are using the unstable
+ 23s distribution that some required packages have not yet been created
+ 23s or been moved out of Incoming.
+ 23s The following information may help to resolve the situation:
+ 23s 
+ 23s The following packages have unmet dependencies:
+ 23s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 23s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 23s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 23s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 23s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 23s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/4-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s autopkgtest: DBG: testbed command exited with code 2
+ 23s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s librust-hashbrown-dev:bumpalo SKIP installation fails and skip-not-installable set
+ 23s autopkgtest [23:29:28]: test librust-hashbrown-dev:compiler_builtins: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 23s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 23s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 23s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 24s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 24s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: can use apt-get on testbed: True
+ 24s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/5-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/5-autopkgtest-satdep.deb
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 25s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 26s Starting pkgProblemResolver with broken count: 1
+ 26s Starting 2 pkgProblemResolver with broken count: 1
+ 26s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 26s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 26s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 26s     Reinst Failed because of libgit2-1.7:riscv64
+ 26s     Reinst Failed because of cargo:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 26s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s   Re-Instated librust-fnv-dev:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 26s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s   Re-Instated librust-autocfg-dev:riscv64
+ 26s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 26s   Re-Instated librust-owning-ref-dev:riscv64
+ 26s   Re-Instated librust-scopeguard-dev:riscv64
+ 26s   Re-Instated librust-unicode-ident-dev:riscv64
+ 26s   Re-Instated librust-proc-macro2-dev:riscv64
+ 26s   Re-Instated librust-quote-dev:riscv64
+ 26s   Re-Instated librust-syn-dev:riscv64
+ 26s   Re-Instated librust-serde-derive-dev:riscv64
+ 26s   Re-Instated librust-serde-dev:riscv64
+ 26s   Re-Instated librust-lock-api-dev:riscv64
+ 26s   Re-Instated librust-spin-dev:riscv64
+ 26s   Re-Instated librust-lazy-static-dev:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 26s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s   Re-Instated librust-libc-dev:riscv64
+ 26s   Re-Instated librust-sval-derive-dev:riscv64
+ 26s   Re-Instated librust-sval-dev:riscv64
+ 26s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 26s     Reinst Failed because of librust-log-dev:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 26s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 26s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s   Re-Instated librust-either-dev:riscv64
+ 26s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 26s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 26s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 26s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 26s   Re-Instated librust-rayon-core-dev:riscv64
+ 26s   Re-Instated librust-rayon-dev:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 26s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 26s Done
+ 26s Some packages could not be installed. This may mean that you have
+ 26s requested an impossible situation or if you are using the unstable
+ 26s distribution that some required packages have not yet been created
+ 26s or been moved out of Incoming.
+ 26s The following information may help to resolve the situation:
+ 26s 
+ 26s The following packages have unmet dependencies:
+ 27s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 27s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 27s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 27s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 27s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 27s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 27s E: Unable to correct problems, you have held broken packages.
+ 27s autopkgtest: DBG: testbed command exited with code 100
+ 27s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/5-autopkgtest-satdep.deb failed; status-fd:
+ 27s 
+ 27s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s autopkgtest: DBG: testbed command exited with code 2
+ 27s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s librust-hashbrown-dev:compiler_builtins SKIP installation fails and skip-not-installable set
+ 27s autopkgtest [23:29:32]: test librust-hashbrown-dev:core: preparing testbed
+ 27s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 27s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 27s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 27s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 27s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 27s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: can use apt-get on testbed: True
+ 28s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/6-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/6-autopkgtest-satdep.deb
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 29s Building dependency tree...
+ 29s Reading state information...
+ 30s Starting pkgProblemResolver with broken count: 1
+ 30s Starting 2 pkgProblemResolver with broken count: 1
+ 30s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 30s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 30s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 30s     Reinst Failed because of libgit2-1.7:riscv64
+ 30s     Reinst Failed because of cargo:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 30s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s   Re-Instated librust-fnv-dev:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 30s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s   Re-Instated librust-autocfg-dev:riscv64
+ 30s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 30s   Re-Instated librust-owning-ref-dev:riscv64
+ 30s   Re-Instated librust-scopeguard-dev:riscv64
+ 30s   Re-Instated librust-unicode-ident-dev:riscv64
+ 30s   Re-Instated librust-proc-macro2-dev:riscv64
+ 30s   Re-Instated librust-quote-dev:riscv64
+ 30s   Re-Instated librust-syn-dev:riscv64
+ 30s   Re-Instated librust-serde-derive-dev:riscv64
+ 30s   Re-Instated librust-serde-dev:riscv64
+ 30s   Re-Instated librust-lock-api-dev:riscv64
+ 30s   Re-Instated librust-spin-dev:riscv64
+ 30s   Re-Instated librust-lazy-static-dev:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 30s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s   Re-Instated librust-libc-dev:riscv64
+ 30s   Re-Instated librust-sval-derive-dev:riscv64
+ 30s   Re-Instated librust-sval-dev:riscv64
+ 30s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 30s     Reinst Failed because of librust-log-dev:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 30s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 30s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s   Re-Instated librust-either-dev:riscv64
+ 30s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 30s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 30s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 30s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 30s   Re-Instated librust-rayon-core-dev:riscv64
+ 30s   Re-Instated librust-rayon-dev:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 30s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 30s Done
+ 30s Some packages could not be installed. This may mean that you have
+ 30s requested an impossible situation or if you are using the unstable
+ 30s distribution that some required packages have not yet been created
+ 30s or been moved out of Incoming.
+ 30s The following information may help to resolve the situation:
+ 30s 
+ 30s The following packages have unmet dependencies:
+ 31s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 31s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 31s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 31s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 31s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 31s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 31s E: Unable to correct problems, you have held broken packages.
+ 31s autopkgtest: DBG: testbed command exited with code 100
+ 31s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/6-autopkgtest-satdep.deb failed; status-fd:
+ 31s 
+ 31s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s autopkgtest: DBG: testbed command exited with code 2
+ 31s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 31s librust-hashbrown-dev:core SKIP installation fails and skip-not-installable set
+ 31s autopkgtest [23:29:36]: test librust-hashbrown-dev:default: preparing testbed
+ 31s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 31s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 31s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 31s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 31s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 31s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: can use apt-get on testbed: True
+ 31s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/7-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/7-autopkgtest-satdep.deb
+ 32s autopkgtest: DBG: got reply from testbed: ok
+ 32s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/7-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 33s Reading package lists...
+ 33s Building dependency tree...
+ 33s Reading state information...
+ 34s Starting pkgProblemResolver with broken count: 1
+ 34s Starting 2 pkgProblemResolver with broken count: 1
+ 34s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 34s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 34s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 34s     Reinst Failed because of libgit2-1.7:riscv64
+ 34s     Reinst Failed because of cargo:riscv64
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 34s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s   Re-Instated librust-fnv-dev:riscv64
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 34s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s   Re-Instated librust-autocfg-dev:riscv64
+ 34s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 34s   Re-Instated librust-owning-ref-dev:riscv64
+ 34s   Re-Instated librust-scopeguard-dev:riscv64
+ 34s   Re-Instated librust-unicode-ident-dev:riscv64
+ 34s   Re-Instated librust-proc-macro2-dev:riscv64
+ 34s   Re-Instated librust-quote-dev:riscv64
+ 34s   Re-Instated librust-syn-dev:riscv64
+ 34s   Re-Instated librust-serde-derive-dev:riscv64
+ 34s   Re-Instated librust-serde-dev:riscv64
+ 34s   Re-Instated librust-lock-api-dev:riscv64
+ 34s   Re-Instated librust-spin-dev:riscv64
+ 34s   Re-Instated librust-lazy-static-dev:riscv64
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 34s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s   Re-Instated librust-libc-dev:riscv64
+ 34s   Re-Instated librust-sval-derive-dev:riscv64
+ 34s   Re-Instated librust-sval-dev:riscv64
+ 34s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 34s     Reinst Failed because of librust-log-dev:riscv64
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 34s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 34s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s   Re-Instated librust-either-dev:riscv64
+ 34s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 34s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 34s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 34s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 34s   Re-Instated librust-rayon-core-dev:riscv64
+ 34s   Re-Instated librust-rayon-dev:riscv64
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 34s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 34s Done
+ 34s Some packages could not be installed. This may mean that you have
+ 34s requested an impossible situation or if you are using the unstable
+ 34s distribution that some required packages have not yet been created
+ 34s or been moved out of Incoming.
+ 34s The following information may help to resolve the situation:
+ 34s 
+ 34s The following packages have unmet dependencies:
+ 34s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 34s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 34s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 34s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 34s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 34s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 34s E: Unable to correct problems, you have held broken packages.
+ 34s autopkgtest: DBG: testbed command exited with code 100
+ 34s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/7-autopkgtest-satdep.deb failed; status-fd:
+ 34s 
+ 34s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 35s autopkgtest: DBG: testbed command exited with code 2
+ 35s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s librust-hashbrown-dev:default SKIP installation fails and skip-not-installable set
+ 35s autopkgtest [23:29:40]: test librust-hashbrown-dev:inline-more: preparing testbed
+ 35s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 35s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 35s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 35s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 35s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 35s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: can use apt-get on testbed: True
+ 35s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/8-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/8-autopkgtest-satdep.deb
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/8-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 36s Reading package lists...
+ 37s Building dependency tree...
+ 37s Reading state information...
+ 37s Starting pkgProblemResolver with broken count: 1
+ 38s Starting 2 pkgProblemResolver with broken count: 1
+ 38s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 38s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 38s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 38s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 38s     Reinst Failed because of libgit2-1.7:riscv64
+ 38s     Reinst Failed because of cargo:riscv64
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 38s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 38s   Re-Instated librust-fnv-dev:riscv64
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 38s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 38s   Re-Instated librust-autocfg-dev:riscv64
+ 38s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 38s   Re-Instated librust-owning-ref-dev:riscv64
+ 38s   Re-Instated librust-scopeguard-dev:riscv64
+ 38s   Re-Instated librust-unicode-ident-dev:riscv64
+ 38s   Re-Instated librust-proc-macro2-dev:riscv64
+ 38s   Re-Instated librust-quote-dev:riscv64
+ 38s   Re-Instated librust-syn-dev:riscv64
+ 38s   Re-Instated librust-serde-derive-dev:riscv64
+ 38s   Re-Instated librust-serde-dev:riscv64
+ 38s   Re-Instated librust-lock-api-dev:riscv64
+ 38s   Re-Instated librust-spin-dev:riscv64
+ 38s   Re-Instated librust-lazy-static-dev:riscv64
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 38s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 38s   Re-Instated librust-libc-dev:riscv64
+ 38s   Re-Instated librust-sval-derive-dev:riscv64
+ 38s   Re-Instated librust-sval-dev:riscv64
+ 38s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 38s     Reinst Failed because of librust-log-dev:riscv64
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 38s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 38s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 38s   Re-Instated librust-either-dev:riscv64
+ 38s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 38s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 38s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 38s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 38s   Re-Instated librust-rayon-core-dev:riscv64
+ 38s   Re-Instated librust-rayon-dev:riscv64
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 38s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 38s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 38s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 38s Done
+ 38s Some packages could not be installed. This may mean that you have
+ 38s requested an impossible situation or if you are using the unstable
+ 38s distribution that some required packages have not yet been created
+ 38s or been moved out of Incoming.
+ 38s The following information may help to resolve the situation:
+ 38s 
+ 38s The following packages have unmet dependencies:
+ 38s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 38s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 38s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 38s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 38s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 38s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 38s E: Unable to correct problems, you have held broken packages.
+ 38s autopkgtest: DBG: testbed command exited with code 100
+ 38s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/8-autopkgtest-satdep.deb failed; status-fd:
+ 38s 
+ 38s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 38s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s autopkgtest: DBG: testbed command exited with code 2
+ 38s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 38s librust-hashbrown-dev:inline-more SKIP installation fails and skip-not-installable set
+ 38s autopkgtest [23:29:43]: test librust-hashbrown-dev:nightly: preparing testbed
+ 38s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 38s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 38s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 38s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 38s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 38s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: can use apt-get on testbed: True
+ 39s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/9-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/9-autopkgtest-satdep.deb
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/9-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 41s Building dependency tree...
+ 41s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 41s Starting 2 pkgProblemResolver with broken count: 1
+ 41s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 41s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 41s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 41s     Reinst Failed because of libgit2-1.7:riscv64
+ 41s     Reinst Failed because of cargo:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 41s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s   Re-Instated librust-fnv-dev:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 41s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s   Re-Instated librust-autocfg-dev:riscv64
+ 41s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 41s   Re-Instated librust-owning-ref-dev:riscv64
+ 41s   Re-Instated librust-scopeguard-dev:riscv64
+ 41s   Re-Instated librust-unicode-ident-dev:riscv64
+ 41s   Re-Instated librust-proc-macro2-dev:riscv64
+ 41s   Re-Instated librust-quote-dev:riscv64
+ 41s   Re-Instated librust-syn-dev:riscv64
+ 41s   Re-Instated librust-serde-derive-dev:riscv64
+ 41s   Re-Instated librust-serde-dev:riscv64
+ 41s   Re-Instated librust-lock-api-dev:riscv64
+ 41s   Re-Instated librust-spin-dev:riscv64
+ 41s   Re-Instated librust-lazy-static-dev:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 41s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s   Re-Instated librust-libc-dev:riscv64
+ 41s   Re-Instated librust-sval-derive-dev:riscv64
+ 41s   Re-Instated librust-sval-dev:riscv64
+ 41s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 41s     Reinst Failed because of librust-log-dev:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 41s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 41s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s   Re-Instated librust-either-dev:riscv64
+ 41s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 41s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 41s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 41s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 41s   Re-Instated librust-rayon-core-dev:riscv64
+ 41s   Re-Instated librust-rayon-dev:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 41s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 41s Done
+ 41s Some packages could not be installed. This may mean that you have
+ 41s requested an impossible situation or if you are using the unstable
+ 41s distribution that some required packages have not yet been created
+ 41s or been moved out of Incoming.
+ 41s The following information may help to resolve the situation:
+ 41s 
+ 41s The following packages have unmet dependencies:
+ 42s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 42s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 42s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 42s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 42s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 42s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 42s E: Unable to correct problems, you have held broken packages.
+ 42s autopkgtest: DBG: testbed command exited with code 100
+ 42s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/9-autopkgtest-satdep.deb failed; status-fd:
+ 42s 
+ 42s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 42s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 42s autopkgtest: DBG: testbed command exited with code 2
+ 42s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 42s librust-hashbrown-dev:nightly SKIP installation fails and skip-not-installable set
+ 42s autopkgtest [23:29:47]: test librust-hashbrown-dev:raw: preparing testbed
+ 42s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 42s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 42s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 42s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 42s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 42s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: can use apt-get on testbed: True
+ 43s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/10-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/10-autopkgtest-satdep.deb
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/10-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 44s Reading package lists...
+ 44s Building dependency tree...
+ 44s Reading state information...
+ 45s Starting pkgProblemResolver with broken count: 1
+ 45s Starting 2 pkgProblemResolver with broken count: 1
+ 45s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 45s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 45s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 45s     Reinst Failed because of libgit2-1.7:riscv64
+ 45s     Reinst Failed because of cargo:riscv64
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 45s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s   Re-Instated librust-fnv-dev:riscv64
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 45s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s   Re-Instated librust-autocfg-dev:riscv64
+ 45s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 45s   Re-Instated librust-owning-ref-dev:riscv64
+ 45s   Re-Instated librust-scopeguard-dev:riscv64
+ 45s   Re-Instated librust-unicode-ident-dev:riscv64
+ 45s   Re-Instated librust-proc-macro2-dev:riscv64
+ 45s   Re-Instated librust-quote-dev:riscv64
+ 45s   Re-Instated librust-syn-dev:riscv64
+ 45s   Re-Instated librust-serde-derive-dev:riscv64
+ 45s   Re-Instated librust-serde-dev:riscv64
+ 45s   Re-Instated librust-lock-api-dev:riscv64
+ 45s   Re-Instated librust-spin-dev:riscv64
+ 45s   Re-Instated librust-lazy-static-dev:riscv64
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 45s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s   Re-Instated librust-libc-dev:riscv64
+ 45s   Re-Instated librust-sval-derive-dev:riscv64
+ 45s   Re-Instated librust-sval-dev:riscv64
+ 45s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 45s     Reinst Failed because of librust-log-dev:riscv64
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 45s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 45s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s   Re-Instated librust-either-dev:riscv64
+ 45s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 45s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 45s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 45s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 45s   Re-Instated librust-rayon-core-dev:riscv64
+ 45s   Re-Instated librust-rayon-dev:riscv64
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 45s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 45s Done
+ 45s Some packages could not be installed. This may mean that you have
+ 45s requested an impossible situation or if you are using the unstable
+ 45s distribution that some required packages have not yet been created
+ 45s or been moved out of Incoming.
+ 45s The following information may help to resolve the situation:
+ 45s 
+ 45s The following packages have unmet dependencies:
+ 45s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 45s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 45s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 45s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 45s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 45s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 45s E: Unable to correct problems, you have held broken packages.
+ 45s autopkgtest: DBG: testbed command exited with code 100
+ 45s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/10-autopkgtest-satdep.deb failed; status-fd:
+ 45s 
+ 45s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 45s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 46s autopkgtest: DBG: testbed command exited with code 2
+ 46s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 46s librust-hashbrown-dev:raw SKIP installation fails and skip-not-installable set
+ 46s autopkgtest [23:29:51]: test librust-hashbrown-dev:rayon: preparing testbed
+ 46s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 46s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 46s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 46s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 46s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 46s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: can use apt-get on testbed: True
+ 46s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/11-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/11-autopkgtest-satdep.deb
+ 46s autopkgtest: DBG: got reply from testbed: ok
+ 46s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/11-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 47s Reading package lists...
+ 48s Building dependency tree...
+ 48s Reading state information...
+ 48s Starting pkgProblemResolver with broken count: 1
+ 49s Starting 2 pkgProblemResolver with broken count: 1
+ 49s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 49s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 49s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 49s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 49s     Reinst Failed because of libgit2-1.7:riscv64
+ 49s     Reinst Failed because of cargo:riscv64
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 49s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 49s   Re-Instated librust-fnv-dev:riscv64
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 49s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 49s   Re-Instated librust-autocfg-dev:riscv64
+ 49s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 49s   Re-Instated librust-owning-ref-dev:riscv64
+ 49s   Re-Instated librust-scopeguard-dev:riscv64
+ 49s   Re-Instated librust-unicode-ident-dev:riscv64
+ 49s   Re-Instated librust-proc-macro2-dev:riscv64
+ 49s   Re-Instated librust-quote-dev:riscv64
+ 49s   Re-Instated librust-syn-dev:riscv64
+ 49s   Re-Instated librust-serde-derive-dev:riscv64
+ 49s   Re-Instated librust-serde-dev:riscv64
+ 49s   Re-Instated librust-lock-api-dev:riscv64
+ 49s   Re-Instated librust-spin-dev:riscv64
+ 49s   Re-Instated librust-lazy-static-dev:riscv64
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 49s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 49s   Re-Instated librust-libc-dev:riscv64
+ 49s   Re-Instated librust-sval-derive-dev:riscv64
+ 49s   Re-Instated librust-sval-dev:riscv64
+ 49s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 49s     Reinst Failed because of librust-log-dev:riscv64
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 49s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 49s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 49s   Re-Instated librust-either-dev:riscv64
+ 49s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 49s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 49s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 49s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 49s   Re-Instated librust-rayon-core-dev:riscv64
+ 49s   Re-Instated librust-rayon-dev:riscv64
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 49s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 49s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 49s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 49s Done
+ 49s Some packages could not be installed. This may mean that you have
+ 49s requested an impossible situation or if you are using the unstable
+ 49s distribution that some required packages have not yet been created
+ 49s or been moved out of Incoming.
+ 49s The following information may help to resolve the situation:
+ 49s 
+ 49s The following packages have unmet dependencies:
+ 49s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 49s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 49s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 49s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 49s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 49s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 49s E: Unable to correct problems, you have held broken packages.
+ 49s autopkgtest: DBG: testbed command exited with code 100
+ 49s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/11-autopkgtest-satdep.deb failed; status-fd:
+ 49s 
+ 49s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 49s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 49s autopkgtest: DBG: testbed command exited with code 2
+ 49s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 49s librust-hashbrown-dev:rayon SKIP installation fails and skip-not-installable set
+ 49s autopkgtest [23:29:54]: test librust-hashbrown-dev:rustc-dep-of-std: preparing testbed
+ 49s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 49s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 49s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 49s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 49s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 49s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: can use apt-get on testbed: True
+ 50s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/12-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/12-autopkgtest-satdep.deb
+ 50s autopkgtest: DBG: got reply from testbed: ok
+ 50s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/12-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 51s Reading package lists...
+ 52s Building dependency tree...
+ 52s Reading state information...
+ 52s Starting pkgProblemResolver with broken count: 1
+ 52s Starting 2 pkgProblemResolver with broken count: 1
+ 52s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 52s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 52s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 52s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 52s     Reinst Failed because of libgit2-1.7:riscv64
+ 52s     Reinst Failed because of cargo:riscv64
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 52s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 52s   Re-Instated librust-fnv-dev:riscv64
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 52s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 52s   Re-Instated librust-autocfg-dev:riscv64
+ 52s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 52s   Re-Instated librust-owning-ref-dev:riscv64
+ 52s   Re-Instated librust-scopeguard-dev:riscv64
+ 52s   Re-Instated librust-unicode-ident-dev:riscv64
+ 52s   Re-Instated librust-proc-macro2-dev:riscv64
+ 52s   Re-Instated librust-quote-dev:riscv64
+ 52s   Re-Instated librust-syn-dev:riscv64
+ 52s   Re-Instated librust-serde-derive-dev:riscv64
+ 52s   Re-Instated librust-serde-dev:riscv64
+ 52s   Re-Instated librust-lock-api-dev:riscv64
+ 52s   Re-Instated librust-spin-dev:riscv64
+ 52s   Re-Instated librust-lazy-static-dev:riscv64
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 52s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 52s   Re-Instated librust-libc-dev:riscv64
+ 52s   Re-Instated librust-sval-derive-dev:riscv64
+ 52s   Re-Instated librust-sval-dev:riscv64
+ 52s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 52s     Reinst Failed because of librust-log-dev:riscv64
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 52s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 52s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 52s   Re-Instated librust-either-dev:riscv64
+ 52s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 52s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 52s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 52s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 52s   Re-Instated librust-rayon-core-dev:riscv64
+ 52s   Re-Instated librust-rayon-dev:riscv64
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 52s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 52s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 52s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 52s Done
+ 52s Some packages could not be installed. This may mean that you have
+ 52s requested an impossible situation or if you are using the unstable
+ 52s distribution that some required packages have not yet been created
+ 52s or been moved out of Incoming.
+ 52s The following information may help to resolve the situation:
+ 52s 
+ 52s The following packages have unmet dependencies:
+ 52s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 52s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 52s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 52s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 52s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 52s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 53s E: Unable to correct problems, you have held broken packages.
+ 53s autopkgtest: DBG: testbed command exited with code 100
+ 53s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/12-autopkgtest-satdep.deb failed; status-fd:
+ 53s 
+ 53s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 53s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 53s autopkgtest: DBG: testbed command exited with code 2
+ 53s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 53s librust-hashbrown-dev:rustc-dep-of-std SKIP installation fails and skip-not-installable set
+ 53s autopkgtest [23:29:58]: test librust-hashbrown-dev:rustc-internal-api: preparing testbed
+ 53s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 53s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 53s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 53s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 53s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 53s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: can use apt-get on testbed: True
+ 53s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/13-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/13-autopkgtest-satdep.deb
+ 54s autopkgtest: DBG: got reply from testbed: ok
+ 54s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/13-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 55s Reading package lists...
+ 55s Building dependency tree...
+ 55s Reading state information...
+ 56s Starting pkgProblemResolver with broken count: 1
+ 56s Starting 2 pkgProblemResolver with broken count: 1
+ 56s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 56s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 56s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 56s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 56s     Reinst Failed because of libgit2-1.7:riscv64
+ 56s     Reinst Failed because of cargo:riscv64
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 56s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 56s   Re-Instated librust-fnv-dev:riscv64
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 56s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 56s   Re-Instated librust-autocfg-dev:riscv64
+ 56s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 56s   Re-Instated librust-owning-ref-dev:riscv64
+ 56s   Re-Instated librust-scopeguard-dev:riscv64
+ 56s   Re-Instated librust-unicode-ident-dev:riscv64
+ 56s   Re-Instated librust-proc-macro2-dev:riscv64
+ 56s   Re-Instated librust-quote-dev:riscv64
+ 56s   Re-Instated librust-syn-dev:riscv64
+ 56s   Re-Instated librust-serde-derive-dev:riscv64
+ 56s   Re-Instated librust-serde-dev:riscv64
+ 56s   Re-Instated librust-lock-api-dev:riscv64
+ 56s   Re-Instated librust-spin-dev:riscv64
+ 56s   Re-Instated librust-lazy-static-dev:riscv64
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 56s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 56s   Re-Instated librust-libc-dev:riscv64
+ 56s   Re-Instated librust-sval-derive-dev:riscv64
+ 56s   Re-Instated librust-sval-dev:riscv64
+ 56s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 56s     Reinst Failed because of librust-log-dev:riscv64
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 56s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 56s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 56s   Re-Instated librust-either-dev:riscv64
+ 56s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 56s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 56s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 56s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 56s   Re-Instated librust-rayon-core-dev:riscv64
+ 56s   Re-Instated librust-rayon-dev:riscv64
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 56s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 56s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 56s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 56s Done
+ 56s Some packages could not be installed. This may mean that you have
+ 56s requested an impossible situation or if you are using the unstable
+ 56s distribution that some required packages have not yet been created
+ 56s or been moved out of Incoming.
+ 56s The following information may help to resolve the situation:
+ 56s 
+ 56s The following packages have unmet dependencies:
+ 56s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 56s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 56s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 56s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 56s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 56s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 56s E: Unable to correct problems, you have held broken packages.
+ 56s autopkgtest: DBG: testbed command exited with code 100
+ 56s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/13-autopkgtest-satdep.deb failed; status-fd:
+ 56s 
+ 56s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 56s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 56s autopkgtest: DBG: testbed command exited with code 2
+ 56s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 56s librust-hashbrown-dev:rustc-internal-api SKIP installation fails and skip-not-installable set
+ 56s autopkgtest [23:30:01]: test librust-hashbrown-dev:serde: preparing testbed
+ 56s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 56s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 56s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 56s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 57s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 57s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest: DBG: can use apt-get on testbed: True
+ 57s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/14-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/14-autopkgtest-satdep.deb
+ 57s autopkgtest: DBG: got reply from testbed: ok
+ 57s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/14-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 58s Reading package lists...
+ 59s Building dependency tree...
+ 59s Reading state information...
+ 59s Starting pkgProblemResolver with broken count: 1
+ 59s Starting 2 pkgProblemResolver with broken count: 1
+ 59s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 59s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 59s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 59s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 59s     Reinst Failed because of libgit2-1.7:riscv64
+ 59s     Reinst Failed because of cargo:riscv64
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 59s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 59s   Re-Instated librust-fnv-dev:riscv64
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 59s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 59s   Re-Instated librust-autocfg-dev:riscv64
+ 59s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 59s   Re-Instated librust-owning-ref-dev:riscv64
+ 59s   Re-Instated librust-scopeguard-dev:riscv64
+ 59s   Re-Instated librust-unicode-ident-dev:riscv64
+ 59s   Re-Instated librust-proc-macro2-dev:riscv64
+ 59s   Re-Instated librust-quote-dev:riscv64
+ 59s   Re-Instated librust-syn-dev:riscv64
+ 59s   Re-Instated librust-serde-derive-dev:riscv64
+ 59s   Re-Instated librust-serde-dev:riscv64
+ 59s   Re-Instated librust-lock-api-dev:riscv64
+ 59s   Re-Instated librust-spin-dev:riscv64
+ 59s   Re-Instated librust-lazy-static-dev:riscv64
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 59s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 59s   Re-Instated librust-libc-dev:riscv64
+ 59s   Re-Instated librust-sval-derive-dev:riscv64
+ 59s   Re-Instated librust-sval-dev:riscv64
+ 59s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 59s     Reinst Failed because of librust-log-dev:riscv64
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 59s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 59s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 59s   Re-Instated librust-either-dev:riscv64
+ 59s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 59s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 59s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 59s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 59s   Re-Instated librust-rayon-core-dev:riscv64
+ 59s   Re-Instated librust-rayon-dev:riscv64
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 59s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 59s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 59s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 59s Done
+ 59s Some packages could not be installed. This may mean that you have
+ 59s requested an impossible situation or if you are using the unstable
+ 59s distribution that some required packages have not yet been created
+ 59s or been moved out of Incoming.
+ 59s The following information may help to resolve the situation:
+ 59s 
+ 59s The following packages have unmet dependencies:
+ 60s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 60s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 60s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 60s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 60s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 60s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 60s E: Unable to correct problems, you have held broken packages.
+ 60s autopkgtest: DBG: testbed command exited with code 100
+ 60s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/14-autopkgtest-satdep.deb failed; status-fd:
+ 60s 
+ 60s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 60s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 60s autopkgtest: DBG: testbed command exited with code 2
+ 60s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 60s librust-hashbrown-dev:serde SKIP installation fails and skip-not-installable set
+ 60s autopkgtest [23:30:05]: test librust-hashbrown-dev:: preparing testbed
+ 60s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev'], deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 60s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 60s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-doc-comment-0.3+default-dev (>= 0.3.1-~~)', 'librust-fnv-1+default-dev (>= 1.0.7-~~)', 'librust-lazy-static-1+default-dev (>= 1.4-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)', 'librust-rayon-1+default-dev', 'librust-serde-test-1+default-dev', 'librust-hashbrown-dev']
+ 60s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 60s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-doc-comment-0.3+default-dev (>= 0.3.1-~~), librust-fnv-1+default-dev (>= 1.0.7-~~), librust-lazy-static-1+default-dev (>= 1.4-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-rand-0.8+small-rng-dev (>= 0.8.3-~~), librust-rayon-1+default-dev, librust-serde-test-1+default-dev, librust-hashbrown-dev
+ 60s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: can use apt-get on testbed: True
+ 61s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.SClpIc'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ce92630a-b195-49df-83c7-e8e94ee81a98//tmp/autopkgtest.SClpIc/15-autopkgtest-satdep.deb /tmp/autopkgtest.SClpIc/15-autopkgtest-satdep.deb
+ 61s autopkgtest: DBG: got reply from testbed: ok
+ 61s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.SClpIc/15-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 62s Reading package lists...
+ 62s Building dependency tree...
+ 62s Reading state information...
+ 63s Starting pkgProblemResolver with broken count: 1
+ 63s Starting 2 pkgProblemResolver with broken count: 1
+ 63s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 63s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 63s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 63s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 63s     Reinst Failed because of libgit2-1.7:riscv64
+ 63s     Reinst Failed because of cargo:riscv64
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-doc-comment-0.3+default-dev:riscv64 < none @un H > (>= 0.3.1-~~)
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-fnv-1+default-dev:riscv64 < none @un H > (>= 1.0.7-~~)
+ 63s   Considering librust-fnv-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 63s   Re-Instated librust-fnv-dev:riscv64
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-lazy-static-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 63s   Considering librust-lazy-static-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 63s   Re-Instated librust-autocfg-dev:riscv64
+ 63s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 63s   Re-Instated librust-owning-ref-dev:riscv64
+ 63s   Re-Instated librust-scopeguard-dev:riscv64
+ 63s   Re-Instated librust-unicode-ident-dev:riscv64
+ 63s   Re-Instated librust-proc-macro2-dev:riscv64
+ 63s   Re-Instated librust-quote-dev:riscv64
+ 63s   Re-Instated librust-syn-dev:riscv64
+ 63s   Re-Instated librust-serde-derive-dev:riscv64
+ 63s   Re-Instated librust-serde-dev:riscv64
+ 63s   Re-Instated librust-lock-api-dev:riscv64
+ 63s   Re-Instated librust-spin-dev:riscv64
+ 63s   Re-Instated librust-lazy-static-dev:riscv64
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 63s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 63s   Re-Instated librust-libc-dev:riscv64
+ 63s   Re-Instated librust-sval-derive-dev:riscv64
+ 63s   Re-Instated librust-sval-dev:riscv64
+ 63s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 63s     Reinst Failed because of librust-log-dev:riscv64
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+small-rng-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 63s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-rayon-1+default-dev:riscv64 < none @un H >
+ 63s   Considering librust-rayon-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 63s   Re-Instated librust-either-dev:riscv64
+ 63s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 63s   Re-Instated librust-crossbeam-epoch-dev:riscv64
+ 63s   Re-Instated librust-crossbeam-epoch+std-dev:riscv64
+ 63s   Re-Instated librust-crossbeam-deque-dev:riscv64
+ 63s   Re-Instated librust-rayon-core-dev:riscv64
+ 63s   Re-Instated librust-rayon-dev:riscv64
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-serde-test-1+default-dev:riscv64 < none @un H >
+ 63s Broken autopkgtest-satdep:riscv64 Depends on librust-hashbrown-dev:riscv64 < none | 0.12.3-1-ok2 @un uH >
+ 63s   Considering librust-hashbrown-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 63s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 63s Done
+ 63s Some packages could not be installed. This may mean that you have
+ 63s requested an impossible situation or if you are using the unstable
+ 63s distribution that some required packages have not yet been created
+ 63s or been moved out of Incoming.
+ 63s The following information may help to resolve the situation:
+ 63s 
+ 63s The following packages have unmet dependencies:
+ 63s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 63s                       Depends: librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) but it is not installable
+ 63s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 63s                       Depends: librust-rand-0.8+small-rng-dev (>= 0.8.3-~~)
+ 63s                       Depends: librust-serde-test-1+default-dev but it is not installable
+ 63s                       Depends: librust-hashbrown-dev but it is not going to be installed
+ 63s E: Unable to correct problems, you have held broken packages.
+ 64s autopkgtest: DBG: testbed command exited with code 100
+ 64s autopkgtest: DBG: apt-get install /tmp/autopkgtest.SClpIc/15-autopkgtest-satdep.deb failed; status-fd:
+ 64s 
+ 64s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 64s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-doc-comment-0.3+default-dev (>= 0.3.1-~~) librust-fnv-1+default-dev (>= 1.0.7-~~) librust-lazy-static-1+default-dev (>= 1.4-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-rand-0.8+small-rng-dev (>= 0.8.3-~~) librust-rayon-1+default-dev librust-serde-test-1+default-dev librust-hashbrown-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 64s autopkgtest: DBG: testbed command exited with code 2
+ 64s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 64s librust-hashbrown-dev: SKIP installation fails and skip-not-installable set
+ 64s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 64s autopkgtest [23:30:09]: @@@@@@@@@@@@@@@@@@@@ summary
+ 64s rust-hashbrown:@     SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:ahash SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:ahash-compile-time-rng SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:bumpalo SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:compiler_builtins SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:core SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:default SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:inline-more SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:nightly SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:raw SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:rayon SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:rustc-dep-of-std SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:rustc-internal-api SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev:serde SKIP installation fails and skip-not-installable set
+ 64s librust-hashbrown-dev: SKIP installation fails and skip-not-installable set
+ 64s autopkgtest: DBG: testbed stop
+ 64s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.SClpIc
+ 64s autopkgtest: DBG: sending command to testbed: close
+ 65s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest: DBG: sending command to testbed: quit

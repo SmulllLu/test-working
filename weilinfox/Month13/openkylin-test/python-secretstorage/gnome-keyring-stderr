@@ -1,0 +1,64 @@
+test_all_collections (test_collection.CollectionTest.test_all_collections) ... dbus-daemon[1099058]: [session uid=0 pid=1099058] Activating service name='org.freedesktop.secrets' requested by ':1.0' (uid=0 pid=1099059 comm="python3.12 -m unittest discover -v -s tests")
+** Message: 19:42:50.379: couldn't access control socket: /tmp/autopkgtest.2LB4rH/autopkgtest_tmp/keyring/control: No such file or directory
+dbus-daemon[1099058]: [session uid=0 pid=1099058] Successfully activated service 'org.freedesktop.secrets'
+ok
+test_all_items (test_collection.CollectionTest.test_all_items) ... ok
+test_create_empty_item (test_collection.CollectionTest.test_create_empty_item) ... ok
+test_label (test_collection.CollectionTest.test_label) ... ok
+test_create_collection (test_collection.MockCollectionTest.test_create_collection) ... skipped 'This test should only be run with the mocked server.'
+test_default_collection (test_collection.MockCollectionTest.test_default_collection) ... skipped 'This test should only be run with the mocked server.'
+test_deleting (test_collection.MockCollectionTest.test_deleting) ... skipped 'This test should only be run with the mocked server.'
+test_deleting_item_prompt (test_collection.MockCollectionTest.test_deleting_item_prompt) ... skipped 'This test should only be run with the mocked server.'
+test_deleting_prompt (test_collection.MockCollectionTest.test_deleting_prompt) ... skipped 'This test should only be run with the mocked server.'
+test_context_manager (unittest.loader._FailedTest.test_context_manager) ... ERROR
+test_int_to_bytes (test_dhcrypto.ConversionTest.test_int_to_bytes) ... ok
+test_double_deleting (test_exceptions.ExceptionsTest.test_double_deleting) ... ok
+test_non_existing_collection (test_exceptions.ExceptionsTest.test_non_existing_collection) ... ok
+test_non_existing_item (test_exceptions.ExceptionsTest.test_non_existing_item) ... ok
+test_attributes (test_item.ItemTest.test_attributes) ... ok
+test_created (test_item.ItemTest.test_created) ... ok
+test_equal (test_item.ItemTest.test_equal) ... ok
+test_item_in_all_items (test_item.ItemTest.test_item_in_all_items) ... ok
+test_label (test_item.ItemTest.test_label) ... ok
+test_modified (test_item.ItemTest.test_modified) ... ok
+test_searchable (test_item.ItemTest.test_searchable) ... ok
+test_secret (test_item.ItemTest.test_secret) ... ok
+test_secret_content_type (test_item.ItemTest.test_secret_content_type) ... ok
+test_secret_wrong_type (test_item.ItemTest.test_secret_wrong_type) ... ERROR
+test_unlock (test_item.ItemTest.test_unlock) ... ok
+test_lock_unlock (test_unlocking.LockingUnlockingTest.test_lock_unlock) ... skipped 'This test should only be run with the mocked server.'
+
+======================================================================
+ERROR: test_context_manager (unittest.loader._FailedTest.test_context_manager)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_context_manager
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "/tmp/autopkgtest.2LB4rH/autopkgtest_tmp/tests/test_context_manager.py", line 10, in <module>
+    from secretstorage import check_service_availability, dbus_init
+ImportError: cannot import name 'check_service_availability' from 'secretstorage' (/usr/lib/python3/dist-packages/secretstorage/__init__.py)
+
+
+======================================================================
+ERROR: test_secret_wrong_type (test_item.ItemTest.test_secret_wrong_type)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/autopkgtest.2LB4rH/autopkgtest_tmp/tests/test_item.py", line 80, in test_secret_wrong_type
+    self.item.set_secret(None)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/secretstorage/item.py", line 124, in set_secret
+    secret = format_secret(self.session, secret, content_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/secretstorage/util.py", line 92, in format_secret
+    secret = secret.encode('utf-8')
+             ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+
+----------------------------------------------------------------------
+Ran 26 tests in 2.453s
+
+FAILED (errors=2, skipped=6)

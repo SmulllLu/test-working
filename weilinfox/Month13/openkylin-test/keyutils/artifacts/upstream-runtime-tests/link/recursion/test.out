@@ -1,0 +1,120 @@
+++++ BEGINNING TEST
++++ CREATE KEYRING 1
+keyctl newring first @s
+83759717
+keyctl setperm 83759717 0x3f3f0000
++++ RECURSE 1
+keyctl link 83759717 83759717
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 2
+keyctl newring second 83759717
+20613213
+keyctl setperm 20613213 0x3f3f0000
++++ RECURSE 2
+keyctl link 83759717 20613213
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 3
+keyctl newring third 20613213
+818961181
+keyctl setperm 818961181 0x3f3f0000
++++ RECURSE 3
+keyctl link 83759717 818961181
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 4
+keyctl newring fourth 818961181
+383950961
+keyctl setperm 383950961 0x3f3f0000
++++ RECURSE 4
+keyctl link 83759717 383950961
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 5
+keyctl newring fifth 383950961
+775745689
+keyctl setperm 775745689 0x3f3f0000
++++ RECURSE 5
+keyctl link 83759717 775745689
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 6
+keyctl newring sixth 775745689
+980282666
+keyctl setperm 980282666 0x3f3f0000
++++ RECURSE 6
+keyctl link 83759717 980282666
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 7
+keyctl newring seventh 980282666
+256018616
+keyctl setperm 256018616 0x3f3f0000
++++ RECURSE 7
+keyctl link 83759717 256018616
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 8
+keyctl newring eighth @s
+484354282
+keyctl setperm 484354282 0x3f3f0000
+keyctl link 484354282 256018616
+keyctl unlink 484354282 @s
++++ RECURSE 8
+keyctl link 83759717 484354282
+keyctl_link: Resource deadlock avoided
++++ CREATE KEYRING 9
+keyctl newring ninth @s
+23137291
+keyctl setperm 23137291 0x3f3f0000
+keyctl link 23137291 484354282
+keyctl unlink 23137291 @s
++++ RECURSE 9
+keyctl link 83759717 23137291
+keyctl_link: Too many levels of symbolic links
++++ UNLINK KEYRING
+keyctl unlink 83759717 @s
++++ CREATE KEYRING STACKS
+keyctl newring A1 @s
+61632263
+keyctl newring B1 @s
+561853311
+keyctl newring A2 61632263
+907242663
+keyctl newring B2 561853311
+750260910
+keyctl newring A3 907242663
+205117571
+keyctl newring B3 750260910
+383101561
+keyctl newring A4 205117571
+884512894
+keyctl newring B4 383101561
+556026810
++++ LINK A TO B
+keyctl link 61632263 556026810
++++ LINK B TO A
+keyctl link 561853311 884512894
+keyctl_link: Resource deadlock avoided
++++ UNLINK A FROM B
+keyctl unlink 61632263 556026810
++++ LINK B TO A
+keyctl link 561853311 884512894
++++ LINK A TO B
+keyctl link 61632263 556026810
+keyctl_link: Resource deadlock avoided
++++ UNLINK B FROM A
+keyctl unlink 561853311 884512894
++++ EXTEND STACKS
+keyctl newring A5 884512894
+327622870
+keyctl newring B5 556026810
+264688305
++++ CHECK MAXDEPTH A TO B
+keyctl link 61632263 264688305
+keyctl link 561853311 327622870
+keyctl_link: Too many levels of symbolic links
+keyctl unlink 61632263 264688305
++++ CHECK MAXDEPTH B TO A
+keyctl link 561853311 327622870
+keyctl link 61632263 264688305
+keyctl_link: Too many levels of symbolic links
+keyctl unlink 561853311 327622870
++++ UNLINK STACKS
+keyctl unlink 61632263 @s
+keyctl unlink 561853311 @s
+++++ FINISHED TEST: PASS

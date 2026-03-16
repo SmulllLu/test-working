@@ -1,0 +1,635 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:26:06]: starting date and time: 2024-07-18 23:26:06+0800
+  0s autopkgtest [23:26:06]: version @version@
+  0s autopkgtest [23:26:06]: host nana; command line: /usr/bin/autopkgtest rust-getrandom_0.2.10-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-getrandom -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.5bUW9r
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.5bUW9r/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.5bUW9r/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [23:26:10]: testbed dpkg architecture: riscv64
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [23:26:10]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 127
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.5bUW9r/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5bUW9r/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-getrandom/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest [23:26:12]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  6s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: Binaries: initialising
+  6s autopkgtest [23:26:12]: @@@@@@@@@@@@@@@@@@@@ source rust-getrandom_0.2.10-ok1.dsc
+  6s autopkgtest: DBG: blame += rust-getrandom_0.2.10-ok1.dsc
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-getrandom_0.2.10-ok1.dsc /tmp/autopkgtest.5bUW9r/rust-getrandom_0.2.10-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-getrandom_0.2.10.orig.tar.gz /tmp/autopkgtest.5bUW9r/rust-getrandom_0.2.10.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: sending command to testbed: copydown rust-getrandom_0.2.10-ok1.debian.tar.xz /tmp/autopkgtest.5bUW9r/rust-getrandom_0.2.10-ok1.debian.tar.xz
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: install_deps: deps_new=[]
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.5bUW9r/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.5bUW9r/rust-getrandom_0.2.10-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.5bUW9r/build.XXX
+  7s + builddir=/tmp/autopkgtest.5bUW9r/build.Nhe
+  7s + cd /tmp/autopkgtest.5bUW9r/build.Nhe
+  7s + dpkg-source -x /tmp/autopkgtest.5bUW9r/rust-getrandom_0.2.10-ok1.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.yE81r5DI/trustedkeys.kbx': General error
+  8s gpgv: Signature made Tue 11 Jun 2024 10:00:55 AM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.5bUW9r/rust-getrandom_0.2.10-ok1.dsc
+  8s dpkg-source: info: extracting rust-getrandom in src
+  8s dpkg-source: info: unpacking rust-getrandom_0.2.10.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-getrandom_0.2.10-ok1.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying 0001-fix-build-error.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [23:26:14]: testing package rust-getrandom version 0.2.10-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5bUW9r/build.Nhe/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-getrandom/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name rust-getrandom:@ path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-getrandom:@'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom-dev:custom path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features custom" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:custom'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:default'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom-dev:rdrand path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features rdrand" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:rdrand'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom-dev:std path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:std'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom-dev:test-in-browser path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features test-in-browser" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:test-in-browser'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom-dev: path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom+compiler-builtins-dev:compiler_builtins path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features compiler_builtins" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom+compiler-builtins-dev:compiler_builtins'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom+core-dev:core path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features core" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom+core-dev:core'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  8s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: Test defined: name librust-getrandom+rustc-dep-of-std-dev:rustc-dep-of-std path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features rustc-dep-of-std" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom+rustc-dep-of-std-dev:rustc-dep-of-std'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  8s autopkgtest [23:26:14]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5bUW9r/build.Nhe/src/ /home/hachi/openkylin_test/sharefolder/results/rust-getrandom/tests-tree/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name rust-getrandom:@ path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-getrandom:@'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom-dev:custom path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features custom" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:custom'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:default'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom-dev:rdrand path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features rdrand" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:rdrand'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom-dev:std path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:std'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom-dev:test-in-browser path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features test-in-browser" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:test-in-browser'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom-dev: path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-getrandom-dev:'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom+compiler-builtins-dev:compiler_builtins path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features compiler_builtins" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom+compiler-builtins-dev:compiler_builtins'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom+core-dev:core path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features core" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom+core-dev:core'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+compiler-builtins-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+core-dev
+  9s autopkgtest: DBG: synthesised dependency librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: Test defined: name librust-getrandom+rustc-dep-of-std-dev:rustc-dep-of-std path None command "/usr/share/cargo/bin/cargo-auto-test getrandom 0.2.10 --all-targets --no-default-features --features rustc-dep-of-std" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-getrandom+rustc-dep-of-std-dev:rustc-dep-of-std'] depends ['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'] 
+  9s autopkgtest [23:26:15]: test rust-getrandom:@: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+  9s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/1-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 1
+ 12s Starting 2 pkgProblemResolver with broken count: 1
+ 12s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 12s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s autopkgtest: DBG: testbed command exited with code 2
+ 12s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 12s rust-getrandom:@     SKIP installation fails and skip-not-installable set
+ 12s autopkgtest [23:26:18]: test librust-getrandom-dev:custom: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 12s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 12s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: can use apt-get on testbed: True
+ 13s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/2-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/2-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 15s Building dependency tree...
+ 15s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 15s Starting 2 pkgProblemResolver with broken count: 1
+ 15s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 15s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 16s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 16s E: Unable to correct problems, you have held broken packages.
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/2-autopkgtest-satdep.deb failed; status-fd:
+ 16s 
+ 16s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s autopkgtest: DBG: testbed command exited with code 2
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s librust-getrandom-dev:custom SKIP installation fails and skip-not-installable set
+ 16s autopkgtest [23:26:22]: test librust-getrandom-dev:default: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 16s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 16s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 17s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/3-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/3-autopkgtest-satdep.deb
+ 17s autopkgtest: DBG: got reply from testbed: ok
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 18s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 19s Starting pkgProblemResolver with broken count: 1
+ 19s Starting 2 pkgProblemResolver with broken count: 1
+ 19s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 19s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 19s Done
+ 19s Some packages could not be installed. This may mean that you have
+ 19s requested an impossible situation or if you are using the unstable
+ 19s distribution that some required packages have not yet been created
+ 19s or been moved out of Incoming.
+ 19s The following information may help to resolve the situation:
+ 19s 
+ 19s The following packages have unmet dependencies:
+ 19s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 19s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/3-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 20s autopkgtest: DBG: testbed command exited with code 2
+ 20s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s librust-getrandom-dev:default SKIP installation fails and skip-not-installable set
+ 20s autopkgtest [23:26:26]: test librust-getrandom-dev:rdrand: preparing testbed
+ 20s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 20s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 20s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 20s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/4-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/4-autopkgtest-satdep.deb
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 21s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 22s Starting pkgProblemResolver with broken count: 1
+ 23s Starting 2 pkgProblemResolver with broken count: 1
+ 23s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 23s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 23s Done
+ 23s Some packages could not be installed. This may mean that you have
+ 23s requested an impossible situation or if you are using the unstable
+ 23s distribution that some required packages have not yet been created
+ 23s or been moved out of Incoming.
+ 23s The following information may help to resolve the situation:
+ 23s 
+ 23s The following packages have unmet dependencies:
+ 23s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/4-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s autopkgtest: DBG: testbed command exited with code 2
+ 23s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s librust-getrandom-dev:rdrand SKIP installation fails and skip-not-installable set
+ 23s autopkgtest [23:26:29]: test librust-getrandom-dev:std: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 23s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 23s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 23s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 24s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 24s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: can use apt-get on testbed: True
+ 24s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/5-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/5-autopkgtest-satdep.deb
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 25s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 26s Starting pkgProblemResolver with broken count: 1
+ 26s Starting 2 pkgProblemResolver with broken count: 1
+ 26s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 26s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 26s Done
+ 26s Some packages could not be installed. This may mean that you have
+ 26s requested an impossible situation or if you are using the unstable
+ 26s distribution that some required packages have not yet been created
+ 26s or been moved out of Incoming.
+ 26s The following information may help to resolve the situation:
+ 26s 
+ 26s The following packages have unmet dependencies:
+ 27s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 27s E: Unable to correct problems, you have held broken packages.
+ 27s autopkgtest: DBG: testbed command exited with code 100
+ 27s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/5-autopkgtest-satdep.deb failed; status-fd:
+ 27s 
+ 27s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s autopkgtest: DBG: testbed command exited with code 2
+ 27s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s librust-getrandom-dev:std SKIP installation fails and skip-not-installable set
+ 27s autopkgtest [23:26:33]: test librust-getrandom-dev:test-in-browser: preparing testbed
+ 27s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 27s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 27s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 27s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 27s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 27s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: can use apt-get on testbed: True
+ 28s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/6-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/6-autopkgtest-satdep.deb
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 29s Building dependency tree...
+ 29s Reading state information...
+ 30s Starting pkgProblemResolver with broken count: 1
+ 30s Starting 2 pkgProblemResolver with broken count: 1
+ 30s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 30s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 30s Done
+ 30s Some packages could not be installed. This may mean that you have
+ 30s requested an impossible situation or if you are using the unstable
+ 30s distribution that some required packages have not yet been created
+ 30s or been moved out of Incoming.
+ 30s The following information may help to resolve the situation:
+ 30s 
+ 30s The following packages have unmet dependencies:
+ 30s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 30s E: Unable to correct problems, you have held broken packages.
+ 30s autopkgtest: DBG: testbed command exited with code 100
+ 30s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/6-autopkgtest-satdep.deb failed; status-fd:
+ 30s 
+ 30s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 30s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s autopkgtest: DBG: testbed command exited with code 2
+ 31s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 31s librust-getrandom-dev:test-in-browser SKIP installation fails and skip-not-installable set
+ 31s autopkgtest [23:26:37]: test librust-getrandom-dev:: preparing testbed
+ 31s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 31s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 31s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 31s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 31s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 31s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: can use apt-get on testbed: True
+ 31s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/7-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/7-autopkgtest-satdep.deb
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/7-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 32s Reading package lists...
+ 33s Building dependency tree...
+ 33s Reading state information...
+ 33s Starting pkgProblemResolver with broken count: 1
+ 34s Starting 2 pkgProblemResolver with broken count: 1
+ 34s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 34s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 34s Done
+ 34s Some packages could not be installed. This may mean that you have
+ 34s requested an impossible situation or if you are using the unstable
+ 34s distribution that some required packages have not yet been created
+ 34s or been moved out of Incoming.
+ 34s The following information may help to resolve the situation:
+ 34s 
+ 34s The following packages have unmet dependencies:
+ 34s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 34s E: Unable to correct problems, you have held broken packages.
+ 34s autopkgtest: DBG: testbed command exited with code 100
+ 34s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/7-autopkgtest-satdep.deb failed; status-fd:
+ 34s 
+ 34s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 34s autopkgtest: DBG: testbed command exited with code 2
+ 34s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 34s librust-getrandom-dev: SKIP installation fails and skip-not-installable set
+ 34s autopkgtest [23:26:40]: test librust-getrandom+compiler-builtins-dev:compiler_builtins: preparing testbed
+ 34s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 34s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 34s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 34s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 35s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 35s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: can use apt-get on testbed: True
+ 35s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/8-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/8-autopkgtest-satdep.deb
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/8-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 36s Reading package lists...
+ 37s Building dependency tree...
+ 37s Reading state information...
+ 37s Starting pkgProblemResolver with broken count: 1
+ 37s Starting 2 pkgProblemResolver with broken count: 1
+ 37s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 37s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 37s Done
+ 37s Some packages could not be installed. This may mean that you have
+ 37s requested an impossible situation or if you are using the unstable
+ 37s distribution that some required packages have not yet been created
+ 37s or been moved out of Incoming.
+ 37s The following information may help to resolve the situation:
+ 37s 
+ 37s The following packages have unmet dependencies:
+ 38s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 38s E: Unable to correct problems, you have held broken packages.
+ 38s autopkgtest: DBG: testbed command exited with code 100
+ 38s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/8-autopkgtest-satdep.deb failed; status-fd:
+ 38s 
+ 38s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 38s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s autopkgtest: DBG: testbed command exited with code 2
+ 38s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 38s librust-getrandom+compiler-builtins-dev:compiler_builtins SKIP installation fails and skip-not-installable set
+ 38s autopkgtest [23:26:44]: test librust-getrandom+core-dev:core: preparing testbed
+ 38s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 38s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 38s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 38s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 38s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 38s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: can use apt-get on testbed: True
+ 39s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/9-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/9-autopkgtest-satdep.deb
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/9-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 40s Building dependency tree...
+ 40s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 41s Starting 2 pkgProblemResolver with broken count: 1
+ 41s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 41s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 41s Done
+ 41s Some packages could not be installed. This may mean that you have
+ 41s requested an impossible situation or if you are using the unstable
+ 41s distribution that some required packages have not yet been created
+ 41s or been moved out of Incoming.
+ 41s The following information may help to resolve the situation:
+ 41s 
+ 41s The following packages have unmet dependencies:
+ 41s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 41s E: Unable to correct problems, you have held broken packages.
+ 41s autopkgtest: DBG: testbed command exited with code 100
+ 41s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/9-autopkgtest-satdep.deb failed; status-fd:
+ 41s 
+ 41s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 41s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 42s autopkgtest: DBG: testbed command exited with code 2
+ 42s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 42s librust-getrandom+core-dev:core SKIP installation fails and skip-not-installable set
+ 42s autopkgtest [23:26:48]: test librust-getrandom+rustc-dep-of-std-dev:rustc-dep-of-std: preparing testbed
+ 42s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev'], deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 42s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 42s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-getrandom-dev', 'librust-getrandom+compiler-builtins-dev', 'librust-getrandom+core-dev', 'librust-getrandom+rustc-dep-of-std-dev']
+ 42s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 42s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-getrandom-dev, librust-getrandom+compiler-builtins-dev, librust-getrandom+core-dev, librust-getrandom+rustc-dep-of-std-dev
+ 42s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: can use apt-get on testbed: True
+ 42s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5bUW9r'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ff64b66a-825d-41e4-94f7-8d40a3b79f55//tmp/autopkgtest.5bUW9r/10-autopkgtest-satdep.deb /tmp/autopkgtest.5bUW9r/10-autopkgtest-satdep.deb
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5bUW9r/10-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 43s Reading package lists...
+ 44s Building dependency tree...
+ 44s Reading state information...
+ 45s Starting pkgProblemResolver with broken count: 1
+ 45s Starting 2 pkgProblemResolver with broken count: 1
+ 45s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 45s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 45s Done
+ 45s Some packages could not be installed. This may mean that you have
+ 45s requested an impossible situation or if you are using the unstable
+ 45s distribution that some required packages have not yet been created
+ 45s or been moved out of Incoming.
+ 45s The following information may help to resolve the situation:
+ 45s 
+ 45s The following packages have unmet dependencies:
+ 45s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 45s E: Unable to correct problems, you have held broken packages.
+ 45s autopkgtest: DBG: testbed command exited with code 100
+ 45s autopkgtest: DBG: apt-get install /tmp/autopkgtest.5bUW9r/10-autopkgtest-satdep.deb failed; status-fd:
+ 45s 
+ 45s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 45s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-getrandom-dev librust-getrandom+compiler-builtins-dev librust-getrandom+core-dev librust-getrandom+rustc-dep-of-std-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 45s autopkgtest: DBG: testbed command exited with code 2
+ 45s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 45s librust-getrandom+rustc-dep-of-std-dev:rustc-dep-of-std SKIP installation fails and skip-not-installable set
+ 45s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 45s autopkgtest [23:26:51]: @@@@@@@@@@@@@@@@@@@@ summary
+ 45s rust-getrandom:@     SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom-dev:custom SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom-dev:default SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom-dev:rdrand SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom-dev:std SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom-dev:test-in-browser SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom-dev: SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom+compiler-builtins-dev:compiler_builtins SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom+core-dev:core SKIP installation fails and skip-not-installable set
+ 45s librust-getrandom+rustc-dep-of-std-dev:rustc-dep-of-std SKIP installation fails and skip-not-installable set
+ 45s autopkgtest: DBG: testbed stop
+ 45s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.5bUW9r
+ 45s autopkgtest: DBG: sending command to testbed: close
+ 46s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 47s autopkgtest: DBG: got reply from testbed: ok
+ 47s autopkgtest: DBG: sending command to testbed: quit

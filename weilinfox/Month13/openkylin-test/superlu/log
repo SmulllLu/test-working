@@ -1,0 +1,664 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [08:20:28]: starting date and time: 2024-07-19 08:20:28+0800
+  0s autopkgtest [08:20:28]: version @version@
+  0s autopkgtest [08:20:28]: host lili; command line: /usr/bin/autopkgtest superlu_6.0.1+dfsg1-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/superlu -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.DA9grc
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-37ca3e74-b151-461c-9c8e-f651ef92b78e,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-37ca3e74-b151-461c-9c8e-f651ef92b78e//tmp/autopkgtest.DA9grc
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-37ca3e74-b151-461c-9c8e-f651ef92b78e//tmp/autopkgtest.DA9grc', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.DA9grc'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.DA9grc/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.DA9grc/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [08:20:29]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [08:20:29]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.DA9grc/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.DA9grc/testbed-packages /home/hachi/openkylin_test/sharefolder/results/superlu/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [08:20:30]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [08:20:30]: @@@@@@@@@@@@@@@@@@@@ source superlu_6.0.1+dfsg1-ok1.dsc
+  2s autopkgtest: DBG: blame += superlu_6.0.1+dfsg1-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.DA9grc'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown superlu_6.0.1%2Bdfsg1-ok1.dsc /tmp/autopkgtest.DA9grc/superlu_6.0.1%2Bdfsg1-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.DA9grc'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown superlu_6.0.1%2Bdfsg1.orig.tar.xz /tmp/autopkgtest.DA9grc/superlu_6.0.1%2Bdfsg1.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.DA9grc'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown superlu_6.0.1%2Bdfsg1-ok1.debian.tar.xz /tmp/autopkgtest.DA9grc/superlu_6.0.1%2Bdfsg1-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.DA9grc/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.DA9grc/superlu_6.0.1+dfsg1-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.DA9grc/build.XXX
+  3s + builddir=/tmp/autopkgtest.DA9grc/build.v8T
+  3s + cd /tmp/autopkgtest.DA9grc/build.v8T
+  3s + dpkg-source -x /tmp/autopkgtest.DA9grc/superlu_6.0.1+dfsg1-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.8PnkjS2z/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 24 Apr 2024 05:27:39 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.DA9grc/superlu_6.0.1+dfsg1-ok1.dsc
+  3s dpkg-source: info: extracting superlu in src
+  3s dpkg-source: info: unpacking superlu_6.0.1+dfsg1.orig.tar.xz
+  3s dpkg-source: info: unpacking superlu_6.0.1+dfsg1-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying mc64ad-stub.patch
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [08:20:31]: testing package superlu version 6.0.1+dfsg1-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.DA9grc/build.v8T/src/debian/ /home/hachi/openkylin_test/sharefolder/results/superlu/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libsuperlu6
+  3s autopkgtest: DBG: synthesised dependency libsuperlu-dev
+  3s autopkgtest: DBG: synthesised dependency libsuperlu-doc
+  3s autopkgtest: DBG: processing dependency @builddeps@
+  3s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  3s autopkgtest: DBG: synthesised dependency gfortran
+  3s autopkgtest: DBG: synthesised dependency cmake
+  3s autopkgtest: DBG: synthesised dependency libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so
+  3s autopkgtest: DBG: synthesised dependency build-essential
+  3s autopkgtest: DBG: Test defined: name test-superlu path debian/tests/test-superlu command "None" restrictions [] features [] depends ['libsuperlu6', 'libsuperlu-dev', 'libsuperlu-doc', 'debhelper-compat (= 13)', 'gfortran', 'cmake', 'libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so', 'build-essential'] 
+  3s autopkgtest [08:20:31]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.DA9grc/build.v8T/src/ /home/hachi/openkylin_test/sharefolder/results/superlu/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libsuperlu6
+  4s autopkgtest: DBG: synthesised dependency libsuperlu-dev
+  4s autopkgtest: DBG: synthesised dependency libsuperlu-doc
+  4s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  4s autopkgtest: DBG: synthesised dependency gfortran
+  4s autopkgtest: DBG: synthesised dependency cmake
+  4s autopkgtest: DBG: synthesised dependency libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: Test defined: name test-superlu path debian/tests/test-superlu command "None" restrictions [] features [] depends ['libsuperlu6', 'libsuperlu-dev', 'libsuperlu-doc', 'debhelper-compat (= 13)', 'gfortran', 'cmake', 'libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so', 'build-essential'] 
+  4s autopkgtest [08:20:32]: test test-superlu: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libsuperlu6', 'libsuperlu-dev', 'libsuperlu-doc', 'debhelper-compat (= 13)', 'gfortran', 'cmake', 'libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so', 'build-essential']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['libsuperlu6', 'libsuperlu-dev', 'libsuperlu-doc', 'debhelper-compat (= 13)', 'gfortran', 'cmake', 'libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so', 'build-essential']
+  4s autopkgtest: DBG: install-deps: satisfying libsuperlu6, libsuperlu-dev, libsuperlu-doc, debhelper-compat (= 13), gfortran, cmake, libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so, build-essential
+  4s autopkgtest: DBG: install-deps: architecture resolved: libsuperlu6, libsuperlu-dev, libsuperlu-doc, debhelper-compat (= 13), gfortran, cmake, libblas-dev | libopenblas-dev | libatlas-base-dev | libblas.so, build-essential
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.DA9grc'], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-37ca3e74-b151-461c-9c8e-f651ef92b78e//tmp/autopkgtest.DA9grc/1-autopkgtest-satdep.deb /tmp/autopkgtest.DA9grc/1-autopkgtest-satdep.deb
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.DA9grc/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  5s Building dependency tree...
+  6s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 0
+  6s Starting 2 pkgProblemResolver with broken count: 0
+  6s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  7s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  7s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  7s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  7s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  7s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatrildocument3
+  7s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  7s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  7s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  7s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  7s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  7s   libido3-0.1-0 libindicator3-7 libisl22 libjs-mathjax libkpathsea6
+  7s   libkylin-chkname1 libkysdk-appcommon libmatemixer-common libmatemixer0
+  7s   libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1
+  7s   librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1
+  7s   libsynctex2 libukui-appwidget-qmlplugin0 libunity-settings-daemon1
+  7s   libwhoopsie0 nautilus-data pipewire-alsa pipewire-audio-client-libraries
+  7s   pipewire-jack pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets
+  7s   python3-ibus-1.0 python3-xdg session-migration ukui-appwidget-manager
+  7s   ukui-notebook ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  7s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  7s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   autoconf automake autopoint autotools-dev cmake cmake-data cpp-12 debhelper
+  7s   dh-autoreconf dh-strip-nondeterminism dwz g++-12 gcc-12 gcc-12-base
+  7s   gcc-13-base gettext gettext-base gfortran gfortran-12 intltool-debian
+  7s   libarchive-zip-perl libarchive13t64 libasan8 libatomic1 libblas-dev libblas3
+  7s   libcc1-0 libdebhelper-perl libfile-stripnondeterminism-perl libgcc-12-dev
+  7s   libgcc-s1 libgfortran-12-dev libgfortran5 libgomp1 liblapack3 libnettle8t64
+  7s   librhash0 libstdc++-12-dev libstdc++6 libsub-override-perl libsuperlu-dev
+  7s   libsuperlu-doc libsuperlu6 libtool libunistring5 libzstd1 m4 po-debconf zstd
+  7s Suggested packages:
+  7s   autoconf-archive gnu-standards autoconf-doc cmake-doc cmake-format
+  7s   elpa-cmake-mode ninja-build gcc-12-locales cpp-12-doc dh-make gcc-12-doc
+  7s   gettext-doc libasprintf-dev libgettextpo-dev gfortran-doc gfortran-12-doc
+  7s   libcoarrays-dev lrzip liblapack-doc libstdc++-12-doc libtool-doc gcj-jdk
+  7s   m4-doc libmail-box-perl
+  7s Recommended packages:
+  7s   libarchive-cpio-perl libltdl-dev libmail-sendmail-perl
+  7s The following packages will be REMOVED:
+  7s   libarchive13
+  7s The following NEW packages will be installed:
+  7s   autoconf automake autopkgtest-satdep autopoint autotools-dev cmake
+  7s   cmake-data debhelper dh-autoreconf dh-strip-nondeterminism dwz gcc-13-base
+  7s   gfortran gfortran-12 intltool-debian libarchive-zip-perl libarchive13t64
+  7s   libblas-dev libdebhelper-perl libfile-stripnondeterminism-perl
+  7s   libgfortran-12-dev libnettle8t64 librhash0 libsub-override-perl
+  7s   libsuperlu-dev libsuperlu-doc libsuperlu6 libtool libunistring5 m4
+  7s   po-debconf
+  7s The following packages will be upgraded:
+  7s   cpp-12 g++-12 gcc-12 gcc-12-base gettext gettext-base libasan8 libatomic1
+  7s   libblas3 libcc1-0 libgcc-12-dev libgcc-s1 libgfortran5 libgomp1 liblapack3
+  7s   libstdc++-12-dev libstdc++6 libzstd1 zstd
+  8s 19 upgraded, 31 newly installed, 1 to remove and 1047 not upgraded.
+  8s Need to get 69.7 MB/69.7 MB of archives.
+  8s After this operation, 96.2 MB of additional disk space will be used.
+  8s Get:1 /tmp/autopkgtest.DA9grc/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [788 B]
+  8s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnettle8t64 riscv64 3.9.1-ok2 [191 kB]
+  8s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzstd1 riscv64 1.5.5-ok3 [286 kB]
+  8s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libarchive13t64 riscv64 3.7.2-ok1 [318 kB]
+  8s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 gcc-13-base riscv64 13.2.0-4ok3.3 [18.2 kB]
+  8s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgcc-s1 riscv64 13.2.0-4ok3.3 [57.1 kB]
+  8s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libstdc++6 riscv64 13.2.0-4ok3.3 [753 kB]
+  8s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext-base riscv64 0.22-ok3 [81.1 kB]
+  8s Get:9 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 m4 riscv64 1.4.19-ok1 [259 kB]
+  9s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 autoconf all 2.71-ok2 [390 kB]
+  9s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 autotools-dev all 20220506-ok1 [41.6 kB]
+  9s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 automake all 1:1.16.5-ok1 [557 kB]
+  9s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgomp1 riscv64 13.2.0-4ok3.3 [135 kB]
+  9s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 libunistring5 riscv64 1.1-ok1 [540 kB]
+  9s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext riscv64 0.22-ok3 [1,190 kB]
+ 10s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 autopoint all 0.22-ok3 [424 kB]
+ 10s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 librhash0 riscv64 1.4.3-ok2 [152 kB]
+ 10s Get:18 http://archive.build.openkylin.top/openkylin nile/main riscv64 cmake-data all 3.28.3-ok1 [2,124 kB]
+ 11s Get:19 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 cmake riscv64 3.28.3-ok1 [8,611 kB]
+ 15s Get:20 http://archive.build.openkylin.top/openkylin nile/main riscv64 libatomic1 riscv64 13.2.0-4ok3.3 [9,156 B]
+ 15s Get:21 http://archive.build.openkylin.top/openkylin nile/main riscv64 libasan8 riscv64 13.2.0-4ok3.3 [2,634 kB]
+ 16s Get:22 http://archive.build.openkylin.top/openkylin nile/main riscv64 g++-12 riscv64 12.3.0-1ok3 [8,385 kB]
+ 19s Get:23 http://archive.build.openkylin.top/openkylin nile/main riscv64 gcc-12 riscv64 12.3.0-1ok3 [14.6 MB]
+ 25s Get:24 http://archive.build.openkylin.top/openkylin nile/main riscv64 libstdc++-12-dev riscv64 12.3.0-1ok3 [4,122 kB]
+ 27s Get:25 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgcc-12-dev riscv64 12.3.0-1ok3 [1,934 kB]
+ 28s Get:26 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgfortran5 riscv64 13.2.0-4ok3.3 [433 kB]
+ 28s Get:27 http://archive.build.openkylin.top/openkylin nile/main riscv64 libcc1-0 riscv64 13.2.0-4ok3.3 [43.6 kB]
+ 28s Get:28 http://archive.build.openkylin.top/openkylin nile/main riscv64 cpp-12 riscv64 12.3.0-1ok3 [7,549 kB]
+ 31s Get:29 http://archive.build.openkylin.top/openkylin nile/main riscv64 gcc-12-base riscv64 12.3.0-1ok3 [17.8 kB]
+ 31s Get:30 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdebhelper-perl all 13.15.3-ok1 [66.0 kB]
+ 31s Get:31 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtool all 2.4.7-ok2 [164 kB]
+ 31s Get:32 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-autoreconf all 20-ok1 [16.3 kB]
+ 31s Get:33 http://archive.build.openkylin.top/openkylin nile/main riscv64 libarchive-zip-perl all 1.68-ok1 [90.7 kB]
+ 31s Get:34 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsub-override-perl all 0.10-ok1 [9,172 B]
+ 31s Get:35 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfile-stripnondeterminism-perl all 1.13.1-ok1 [16.3 kB]
+ 31s Get:36 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-strip-nondeterminism all 1.13.1-ok1 [5,324 B]
+ 31s Get:37 http://archive.build.openkylin.top/openkylin nile/main riscv64 dwz riscv64 0.15-1ok1 [113 kB]
+ 32s Get:38 http://archive.build.openkylin.top/openkylin nile/main riscv64 intltool-debian all 0.35.0+20060710.5-ok2 [23.2 kB]
+ 32s Get:39 http://archive.build.openkylin.top/openkylin nile/main riscv64 po-debconf all 1.0.21+nmu1-ok1 [227 kB]
+ 32s Get:40 http://archive.build.openkylin.top/openkylin nile/main riscv64 debhelper all 13.15.3-ok1 [959 kB]
+ 32s Get:41 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgfortran-12-dev riscv64 12.3.0-1ok3 [913 kB]
+ 32s Get:42 http://archive.build.openkylin.top/openkylin nile/main riscv64 gfortran-12 riscv64 12.3.0-1ok3 [7,958 kB]
+ 36s Get:43 http://archive.build.openkylin.top/openkylin nile/main riscv64 gfortran riscv64 4:12.2.0-ok1 [1,136 B]
+ 36s Get:44 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libblas3 riscv64 3.12.0-ok1 [107 kB]
+ 36s Get:45 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libblas-dev riscv64 3.12.0-ok1 [246 kB]
+ 36s Get:46 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 liblapack3 riscv64 3.12.0-ok1 [1,872 kB]
+ 37s Get:47 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libsuperlu6 riscv64 6.0.1+dfsg1-ok1 [141 kB]
+ 37s Get:48 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libsuperlu-dev riscv64 6.0.1+dfsg1-ok1 [20.2 kB]
+ 37s Get:49 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsuperlu-doc all 6.0.1+dfsg1-ok1 [238 kB]
+ 37s Get:50 http://archive.build.openkylin.top/openkylin nile/main riscv64 zstd riscv64 1.5.5-ok3 [643 kB]
+ 40s Fetched 69.7 MB in 30s (2,354 kB/s)
+ 40s Selecting previously unselected package libnettle8t64:riscv64.
+ 40s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 40s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 40s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 40s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 40s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 40s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 40s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 40s Preparing to unpack .../libnettle8t64_3.9.1-ok2_riscv64.deb ...
+ 40s Unpacking libnettle8t64:riscv64 (3.9.1-ok2) ...
+ 41s Preparing to unpack .../libzstd1_1.5.5-ok3_riscv64.deb ...
+ 41s Unpacking libzstd1:riscv64 (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+ 41s Setting up libzstd1:riscv64 (1.5.5-ok3) ...
+ 41s dpkg: libarchive13:riscv64: dependency problems, but removing anyway as you requested:
+ 41s  mpv depends on libarchive13 (>= 3.4.0).
+ 41s  libtesseract4:riscv64 depends on libarchive13 (>= 3.0.4).
+ 41s  libmpv1:riscv64 depends on libarchive13 (>= 3.4.0).
+ 41s  libkysdk-ocr:riscv64 depends on libarchive13.
+ 41s  libhfstospell10:riscv64 depends on libarchive13 (>= 3.0.4).
+ 41s  libgxps2:riscv64 depends on libarchive13 (>= 3.0.4).
+ 41s  gvfs-backends depends on libarchive13 (>= 3.0.4).
+ 41s 
+ 41s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 42s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193817 files and directories currently installed.)
+ 42s Removing libarchive13:riscv64 (3.4.0-ok6) ...
+ 42s Selecting previously unselected package libarchive13t64:riscv64.
+ 42s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 42s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193811 files and directories currently installed.)
+ 42s Preparing to unpack .../libarchive13t64_3.7.2-ok1_riscv64.deb ...
+ 42s Unpacking libarchive13t64:riscv64 (3.7.2-ok1) ...
+ 43s Selecting previously unselected package gcc-13-base:riscv64.
+ 43s Preparing to unpack .../gcc-13-base_13.2.0-4ok3.3_riscv64.deb ...
+ 43s Unpacking gcc-13-base:riscv64 (13.2.0-4ok3.3) ...
+ 43s Setting up gcc-13-base:riscv64 (13.2.0-4ok3.3) ...
+ 43s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 44s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193823 files and directories currently installed.)
+ 44s Preparing to unpack .../libgcc-s1_13.2.0-4ok3.3_riscv64.deb ...
+ 44s Unpacking libgcc-s1:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+ 44s Setting up libgcc-s1:riscv64 (13.2.0-4ok3.3) ...
+ 44s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 45s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193823 files and directories currently installed.)
+ 45s Preparing to unpack .../libstdc++6_13.2.0-4ok3.3_riscv64.deb ...
+ 45s Unpacking libstdc++6:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+ 45s Setting up libstdc++6:riscv64 (13.2.0-4ok3.3) ...
+ 45s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 46s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193823 files and directories currently installed.)
+ 46s Preparing to unpack .../00-gettext-base_0.22-ok3_riscv64.deb ...
+ 46s Unpacking gettext-base (0.22-ok3) over (0.21-4-ok6) ...
+ 46s Selecting previously unselected package m4.
+ 46s Preparing to unpack .../01-m4_1.4.19-ok1_riscv64.deb ...
+ 47s Unpacking m4 (1.4.19-ok1) ...
+ 47s Selecting previously unselected package autoconf.
+ 47s Preparing to unpack .../02-autoconf_2.71-ok2_all.deb ...
+ 47s Unpacking autoconf (2.71-ok2) ...
+ 47s Selecting previously unselected package autotools-dev.
+ 47s Preparing to unpack .../03-autotools-dev_20220506-ok1_all.deb ...
+ 47s Unpacking autotools-dev (20220506-ok1) ...
+ 48s Selecting previously unselected package automake.
+ 48s Preparing to unpack .../04-automake_1%3a1.16.5-ok1_all.deb ...
+ 48s Unpacking automake (1:1.16.5-ok1) ...
+ 48s Preparing to unpack .../05-libgomp1_13.2.0-4ok3.3_riscv64.deb ...
+ 48s Unpacking libgomp1:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+ 48s Selecting previously unselected package libunistring5:riscv64.
+ 48s Preparing to unpack .../06-libunistring5_1.1-ok1_riscv64.deb ...
+ 48s Unpacking libunistring5:riscv64 (1.1-ok1) ...
+ 49s Preparing to unpack .../07-gettext_0.22-ok3_riscv64.deb ...
+ 49s Unpacking gettext (0.22-ok3) over (0.21-4-ok5) ...
+ 50s Selecting previously unselected package autopoint.
+ 50s Preparing to unpack .../08-autopoint_0.22-ok3_all.deb ...
+ 50s Unpacking autopoint (0.22-ok3) ...
+ 50s Selecting previously unselected package librhash0:riscv64.
+ 51s Preparing to unpack .../09-librhash0_1.4.3-ok2_riscv64.deb ...
+ 51s Unpacking librhash0:riscv64 (1.4.3-ok2) ...
+ 51s Selecting previously unselected package cmake-data.
+ 51s Preparing to unpack .../10-cmake-data_3.28.3-ok1_all.deb ...
+ 51s Unpacking cmake-data (3.28.3-ok1) ...
+ 66s Selecting previously unselected package cmake.
+ 67s Preparing to unpack .../11-cmake_3.28.3-ok1_riscv64.deb ...
+ 67s Unpacking cmake (3.28.3-ok1) ...
+ 69s Preparing to unpack .../12-libatomic1_13.2.0-4ok3.3_riscv64.deb ...
+ 69s Unpacking libatomic1:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+ 69s Preparing to unpack .../13-libasan8_13.2.0-4ok3.3_riscv64.deb ...
+ 69s Unpacking libasan8:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+ 70s Preparing to unpack .../14-g++-12_12.3.0-1ok3_riscv64.deb ...
+ 70s Unpacking g++-12 (12.3.0-1ok3) over (12.2.0-ok7) ...
+ 71s Preparing to unpack .../15-gcc-12_12.3.0-1ok3_riscv64.deb ...
+ 71s Unpacking gcc-12 (12.3.0-1ok3) over (12.2.0-ok7) ...
+ 74s Preparing to unpack .../16-libstdc++-12-dev_12.3.0-1ok3_riscv64.deb ...
+ 74s Unpacking libstdc++-12-dev:riscv64 (12.3.0-1ok3) over (12.2.0-ok7) ...
+ 82s Preparing to unpack .../17-libgcc-12-dev_12.3.0-1ok3_riscv64.deb ...
+ 82s Unpacking libgcc-12-dev:riscv64 (12.3.0-1ok3) over (12.2.0-ok7) ...
+ 83s Preparing to unpack .../18-libgfortran5_13.2.0-4ok3.3_riscv64.deb ...
+ 83s Unpacking libgfortran5:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+ 83s Preparing to unpack .../19-libcc1-0_13.2.0-4ok3.3_riscv64.deb ...
+ 83s Unpacking libcc1-0:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+ 83s Preparing to unpack .../20-cpp-12_12.3.0-1ok3_riscv64.deb ...
+ 83s Unpacking cpp-12 (12.3.0-1ok3) over (12.2.0-ok7) ...
+ 85s Preparing to unpack .../21-gcc-12-base_12.3.0-1ok3_riscv64.deb ...
+ 85s Unpacking gcc-12-base:riscv64 (12.3.0-1ok3) over (12.2.0-ok7) ...
+ 85s Selecting previously unselected package libdebhelper-perl.
+ 85s Preparing to unpack .../22-libdebhelper-perl_13.15.3-ok1_all.deb ...
+ 85s Unpacking libdebhelper-perl (13.15.3-ok1) ...
+ 85s Selecting previously unselected package libtool.
+ 85s Preparing to unpack .../23-libtool_2.4.7-ok2_all.deb ...
+ 85s Unpacking libtool (2.4.7-ok2) ...
+ 86s Selecting previously unselected package dh-autoreconf.
+ 86s Preparing to unpack .../24-dh-autoreconf_20-ok1_all.deb ...
+ 86s Unpacking dh-autoreconf (20-ok1) ...
+ 86s Selecting previously unselected package libarchive-zip-perl.
+ 86s Preparing to unpack .../25-libarchive-zip-perl_1.68-ok1_all.deb ...
+ 86s Unpacking libarchive-zip-perl (1.68-ok1) ...
+ 86s Selecting previously unselected package libsub-override-perl.
+ 86s Preparing to unpack .../26-libsub-override-perl_0.10-ok1_all.deb ...
+ 86s Unpacking libsub-override-perl (0.10-ok1) ...
+ 86s Selecting previously unselected package libfile-stripnondeterminism-perl.
+ 86s Preparing to unpack .../27-libfile-stripnondeterminism-perl_1.13.1-ok1_all.deb ...
+ 86s Unpacking libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 87s Selecting previously unselected package dh-strip-nondeterminism.
+ 87s Preparing to unpack .../28-dh-strip-nondeterminism_1.13.1-ok1_all.deb ...
+ 87s Unpacking dh-strip-nondeterminism (1.13.1-ok1) ...
+ 87s Selecting previously unselected package dwz.
+ 87s Preparing to unpack .../29-dwz_0.15-1ok1_riscv64.deb ...
+ 87s Unpacking dwz (0.15-1ok1) ...
+ 87s Selecting previously unselected package intltool-debian.
+ 87s Preparing to unpack .../30-intltool-debian_0.35.0+20060710.5-ok2_all.deb ...
+ 87s Unpacking intltool-debian (0.35.0+20060710.5-ok2) ...
+ 87s Selecting previously unselected package po-debconf.
+ 87s Preparing to unpack .../31-po-debconf_1.0.21+nmu1-ok1_all.deb ...
+ 87s Unpacking po-debconf (1.0.21+nmu1-ok1) ...
+ 88s Selecting previously unselected package debhelper.
+ 88s Preparing to unpack .../32-debhelper_13.15.3-ok1_all.deb ...
+ 88s Unpacking debhelper (13.15.3-ok1) ...
+ 89s Selecting previously unselected package libgfortran-12-dev:riscv64.
+ 89s Preparing to unpack .../33-libgfortran-12-dev_12.3.0-1ok3_riscv64.deb ...
+ 89s Unpacking libgfortran-12-dev:riscv64 (12.3.0-1ok3) ...
+ 90s Selecting previously unselected package gfortran-12.
+ 90s Preparing to unpack .../34-gfortran-12_12.3.0-1ok3_riscv64.deb ...
+ 90s Unpacking gfortran-12 (12.3.0-1ok3) ...
+ 91s Selecting previously unselected package gfortran.
+ 91s Preparing to unpack .../35-gfortran_4%3a12.2.0-ok1_riscv64.deb ...
+ 91s Unpacking gfortran (4:12.2.0-ok1) ...
+ 91s Preparing to unpack .../36-libblas3_3.12.0-ok1_riscv64.deb ...
+ 91s Unpacking libblas3:riscv64 (3.12.0-ok1) over (3.9.0-ok1) ...
+ 92s Selecting previously unselected package libblas-dev:riscv64.
+ 92s Preparing to unpack .../37-libblas-dev_3.12.0-ok1_riscv64.deb ...
+ 92s Unpacking libblas-dev:riscv64 (3.12.0-ok1) ...
+ 92s Preparing to unpack .../38-liblapack3_3.12.0-ok1_riscv64.deb ...
+ 92s Unpacking liblapack3:riscv64 (3.12.0-ok1) over (3.9.0-ok1) ...
+ 92s Selecting previously unselected package libsuperlu6:riscv64.
+ 93s Preparing to unpack .../39-libsuperlu6_6.0.1+dfsg1-ok1_riscv64.deb ...
+ 93s Unpacking libsuperlu6:riscv64 (6.0.1+dfsg1-ok1) ...
+ 93s Selecting previously unselected package libsuperlu-dev:riscv64.
+ 93s Preparing to unpack .../40-libsuperlu-dev_6.0.1+dfsg1-ok1_riscv64.deb ...
+ 93s Unpacking libsuperlu-dev:riscv64 (6.0.1+dfsg1-ok1) ...
+ 93s Selecting previously unselected package libsuperlu-doc.
+ 93s Preparing to unpack .../41-libsuperlu-doc_6.0.1+dfsg1-ok1_all.deb ...
+ 93s Unpacking libsuperlu-doc (6.0.1+dfsg1-ok1) ...
+ 94s Preparing to unpack .../42-zstd_1.5.5-ok3_riscv64.deb ...
+ 94s Unpacking zstd (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+ 95s Selecting previously unselected package autopkgtest-satdep.
+ 95s Preparing to unpack .../43-1-autopkgtest-satdep.deb ...
+ 95s Unpacking autopkgtest-satdep (0) ...
+ 95s Setting up libarchive-zip-perl (1.68-ok1) ...
+ 95s Setting up libdebhelper-perl (13.15.3-ok1) ...
+ 95s Setting up gettext-base (0.22-ok3) ...
+ 95s Setting up m4 (1.4.19-ok1) ...
+ 95s Setting up libgomp1:riscv64 (13.2.0-4ok3.3) ...
+ 95s Setting up gcc-12-base:riscv64 (12.3.0-1ok3) ...
+ 95s Setting up libnettle8t64:riscv64 (3.9.1-ok2) ...
+ 95s Setting up autotools-dev (20220506-ok1) ...
+ 95s Setting up libblas3:riscv64 (3.12.0-ok1) ...
+ 95s Setting up libunistring5:riscv64 (1.1-ok1) ...
+ 95s Setting up libatomic1:riscv64 (13.2.0-4ok3.3) ...
+ 95s Setting up autopoint (0.22-ok3) ...
+ 95s Setting up libsuperlu-doc (6.0.1+dfsg1-ok1) ...
+ 95s Setting up libgfortran5:riscv64 (13.2.0-4ok3.3) ...
+ 95s Setting up autoconf (2.71-ok2) ...
+ 95s Setting up dwz (0.15-1ok1) ...
+ 95s Setting up librhash0:riscv64 (1.4.3-ok2) ...
+ 95s Setting up libasan8:riscv64 (13.2.0-4ok3.3) ...
+ 95s Setting up libsub-override-perl (0.10-ok1) ...
+ 95s Setting up cmake-data (3.28.3-ok1) ...
+ 95s Setting up libarchive13t64:riscv64 (3.7.2-ok1) ...
+ 95s Setting up zstd (1.5.5-ok3) ...
+ 95s Setting up libcc1-0:riscv64 (13.2.0-4ok3.3) ...
+ 95s Setting up libblas-dev:riscv64 (3.12.0-ok1) ...
+ 95s update-alternatives: using /usr/lib/riscv64-linux-gnu/blas/libblas.so to provide /usr/lib/riscv64-linux-gnu/libblas.so (libblas.so-riscv64-linux-gnu) in auto mode
+ 95s Setting up automake (1:1.16.5-ok1) ...
+ 95s update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+ 95s Setting up libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 95s Setting up liblapack3:riscv64 (3.12.0-ok1) ...
+ 96s Setting up cpp-12 (12.3.0-1ok3) ...
+ 96s Setting up gettext (0.22-ok3) ...
+ 96s Setting up libtool (2.4.7-ok2) ...
+ 96s Setting up libsuperlu6:riscv64 (6.0.1+dfsg1-ok1) ...
+ 96s Setting up intltool-debian (0.35.0+20060710.5-ok2) ...
+ 96s Setting up dh-autoreconf (20-ok1) ...
+ 96s Setting up libgcc-12-dev:riscv64 (12.3.0-1ok3) ...
+ 96s Setting up dh-strip-nondeterminism (1.13.1-ok1) ...
+ 96s Setting up cmake (3.28.3-ok1) ...
+ 96s Setting up libsuperlu-dev:riscv64 (6.0.1+dfsg1-ok1) ...
+ 96s Setting up libstdc++-12-dev:riscv64 (12.3.0-1ok3) ...
+ 96s Setting up po-debconf (1.0.21+nmu1-ok1) ...
+ 96s Setting up debhelper (13.15.3-ok1) ...
+ 96s Setting up libgfortran-12-dev:riscv64 (12.3.0-1ok3) ...
+ 96s Setting up gcc-12 (12.3.0-1ok3) ...
+ 96s Setting up g++-12 (12.3.0-1ok3) ...
+ 96s Setting up gfortran-12 (12.3.0-1ok3) ...
+ 96s Setting up gfortran (4:12.2.0-ok1) ...
+ 96s update-alternatives: using /usr/bin/gfortran to provide /usr/bin/f95 (f95) in auto mode
+ 96s update-alternatives: warning: skip creation of /usr/share/man/man1/f95.1.gz because associated file /usr/share/man/man1/gfortran.1.gz (of link group f95) doesn't exist
+ 96s update-alternatives: using /usr/bin/gfortran to provide /usr/bin/f77 (f77) in auto mode
+ 96s update-alternatives: warning: skip creation of /usr/share/man/man1/f77.1.gz because associated file /usr/share/man/man1/gfortran.1.gz (of link group f77) doesn't exist
+ 96s Setting up autopkgtest-satdep (0) ...
+ 96s Processing triggers for man-db (2.10.2-2) ...
+ 97s Processing triggers for install-info (6.8-6ok1.1) ...
+ 97s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 99s autopkgtest: DBG: testbed command exited with code 0
+ 99s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libsuperlu6'], kind short, sout pipe, serr pipe, env []
+ 99s autopkgtest: DBG: testbed command exited with code 0
+ 99s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libsuperlu-dev'], kind short, sout pipe, serr pipe, env []
+ 99s autopkgtest: DBG: testbed command exited with code 0
+ 99s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libsuperlu-doc'], kind short, sout pipe, serr pipe, env []
+ 99s autopkgtest: DBG: testbed command exited with code 0
+ 99s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 99s autopkgtest: DBG: testbed command exited with code 0
+ 99s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+103s autopkgtest: DBG: testbed command exited with code 0
+103s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cmake cmake-data cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libsuperlu-dev libblas-dev libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libisl22 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 librhash0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsuperlu-doc libsuperlu6 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+103s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cmake', 'cmake-data', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax'], kind short, sout raw, serr pipe, env []
+104s autopkgtest: DBG: testbed command exited with code 0
+104s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'xfonts-thai', 'fonts-thai-tlwg', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf'], kind short, sout raw, serr pipe, env []
+105s autopkgtest: DBG: testbed command exited with code 0
+105s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0'], kind short, sout raw, serr pipe, env []
+106s autopkgtest: DBG: testbed command exited with code 0
+106s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libsuperlu-dev', 'libblas-dev', 'libbpf0', 'libcanberra-gtk3-module'], kind short, sout raw, serr pipe, env []
+107s autopkgtest: DBG: testbed command exited with code 0
+107s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7'], kind short, sout raw, serr pipe, env []
+107s autopkgtest: DBG: testbed command exited with code 0
+108s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libisl22', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'librhash0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsuperlu-doc', 'libsuperlu6', 'libsynctex2'], kind short, sout raw, serr pipe, env []
+108s autopkgtest: DBG: testbed command exited with code 0
+108s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+109s autopkgtest: DBG: testbed command exited with code 0
+109s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+110s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+110s (Reading database ... 198590 files and directories currently installed.)
+110s Removing autopkgtest-satdep (0) ...
+110s autopkgtest: DBG: testbed command exited with code 0
+110s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+110s autopkgtest: DBG: testbed command exited with code 0
+110s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.DA9grc/test-superlu-packages.all"], kind short, sout raw, serr pipe, env []
+110s autopkgtest: DBG: testbed command exited with code 0
+110s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.DA9grc/test-superlu-packages.all /home/hachi/openkylin_test/sharefolder/results/superlu/test-superlu-packages.all
+110s autopkgtest: DBG: got reply from testbed: ok
+110s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.DA9grc/build.v8T/src'], kind short, sout raw, serr raw, env []
+110s autopkgtest: DBG: testbed command exited with code 0
+110s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.DA9grc/build.v8T/src already exists
+110s autopkgtest [08:22:18]: test test-superlu: [-----------------------
+110s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.DA9grc/wrapper.sh --debug --artifacts=/tmp/autopkgtest.DA9grc/test-superlu-artifacts --chdir=/tmp/autopkgtest.DA9grc/build.v8T/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.DA9grc/test-superlu-stderr --stdout=/tmp/autopkgtest.DA9grc/test-superlu-stdout --tmp=/tmp/autopkgtest.DA9grc/autopkgtest_tmp --make-executable=/tmp/autopkgtest.DA9grc/build.v8T/src/debian/tests/test-superlu -- /tmp/autopkgtest.DA9grc/build.v8T/src/debian/tests/test-superlu'], kind test, sout raw, serr raw, env []
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.DA9grc/test-superlu-artifacts
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: changing to directory: /tmp/autopkgtest.DA9grc/build.v8T/src
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: setting environment: LANG=C.UTF-8
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LANGUAGE
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_ADDRESS
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_ALL
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_COLLATE
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_CTYPE
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_MEASUREMENT
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_MESSAGES
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_MONETARY
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_NAME
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_NUMERIC
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_PAPER
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_TELEPHONE
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: unsetting environment: LC_TIME
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: pretending to be a login shell
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: will write standard error to /tmp/autopkgtest.DA9grc/test-superlu-stderr
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: will write stdout to /tmp/autopkgtest.DA9grc/test-superlu-stdout
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.DA9grc/autopkgtest_tmp
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: marking as executable: /tmp/autopkgtest.DA9grc/build.v8T/src/debian/tests/test-superlu
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: command to run: /tmp/autopkgtest.DA9grc/build.v8T/src/debian/tests/test-superlu
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: copying /tmp/tmp.VXE8WuLbes/out to stdout and file: /tmp/autopkgtest.DA9grc/test-superlu-stdout
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: copying /tmp/tmp.VXE8WuLbes/err to standard error and file: /tmp/autopkgtest.DA9grc/test-superlu-stdout
+111s /tmp/autopkgtest.DA9grc/wrapper.sh: writing script pid 1568721 to /tmp/autopkgtest_script_pid
+113s -- The C compiler identification is GNU 12.3.0
+113s -- Detecting C compiler ABI info
+113s -- Detecting C compiler ABI info - done
+113s -- Check for working C compiler: /usr/bin/cc - skipped
+113s -- Detecting C compile features
+113s -- Detecting C compile features - done
+113s -- Looking for sgemm_
+114s -- Looking for sgemm_ - not found
+114s -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+114s -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+114s -- Found Threads: TRUE  
+114s -- Looking for sgemm_
+114s -- Looking for sgemm_ - found
+114s -- Found BLAS: /usr/lib/riscv64-linux-gnu/libblas.so  
+115s -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+115s -- Configuring done (3.5s)
+115s -- Generating done (0.5s)
+115s -- Build files have been written to: /tmp/autopkgtest.DA9grc/build.v8T/src/testdir
+116s Test project /tmp/autopkgtest.DA9grc/build.v8T/src/testdir
+116s       Start  1: s_test_9_2_0_LA
+116s  1/24 Test  #1: s_test_9_2_0_LA ..................   Passed    0.11 sec
+116s       Start  2: s_test_9_2_10000000_LA
+116s  2/24 Test  #2: s_test_9_2_10000000_LA ...........   Passed    0.10 sec
+116s       Start  3: s_test_19_2_0_LA
+116s  3/24 Test  #3: s_test_19_2_0_LA .................   Passed    0.10 sec
+116s       Start  4: s_test_19_2_10000000_LA
+116s  4/24 Test  #4: s_test_19_2_10000000_LA ..........   Passed    0.10 sec
+116s       Start  5: s_test_2_0_SP
+116s  5/24 Test  #5: s_test_2_0_SP ....................   Passed    0.10 sec
+116s       Start  6: s_test_2_10000000_SP
+116s  6/24 Test  #6: s_test_2_10000000_SP .............   Passed    0.10 sec
+116s       Start  7: d_test_9_2_0_LA
+116s  7/24 Test  #7: d_test_9_2_0_LA ..................   Passed    0.11 sec
+116s       Start  8: d_test_9_2_10000000_LA
+116s  8/24 Test  #8: d_test_9_2_10000000_LA ...........   Passed    0.10 sec
+116s       Start  9: d_test_19_2_0_LA
+117s  9/24 Test  #9: d_test_19_2_0_LA .................   Passed    0.10 sec
+117s       Start 10: d_test_19_2_10000000_LA
+117s 10/24 Test #10: d_test_19_2_10000000_LA ..........   Passed    0.10 sec
+117s       Start 11: d_test_2_0_SP
+117s 11/24 Test #11: d_test_2_0_SP ....................   Passed    0.10 sec
+117s       Start 12: d_test_2_10000000_SP
+117s 12/24 Test #12: d_test_2_10000000_SP .............   Passed    0.10 sec
+117s       Start 13: c_test_9_2_0_LA
+117s 13/24 Test #13: c_test_9_2_0_LA ..................   Passed    0.10 sec
+117s       Start 14: c_test_9_2_10000000_LA
+117s 14/24 Test #14: c_test_9_2_10000000_LA ...........   Passed    0.10 sec
+117s       Start 15: c_test_19_2_0_LA
+117s 15/24 Test #15: c_test_19_2_0_LA .................   Passed    0.10 sec
+117s       Start 16: c_test_19_2_10000000_LA
+117s 16/24 Test #16: c_test_19_2_10000000_LA ..........   Passed    0.10 sec
+117s       Start 17: c_test_2_0_SP
+117s 17/24 Test #17: c_test_2_0_SP ....................   Passed    0.11 sec
+117s       Start 18: c_test_2_10000000_SP
+117s 18/24 Test #18: c_test_2_10000000_SP .............   Passed    0.10 sec
+117s       Start 19: z_test_9_2_0_LA
+118s 19/24 Test #19: z_test_9_2_0_LA ..................   Passed    0.10 sec
+118s       Start 20: z_test_9_2_10000000_LA
+118s 20/24 Test #20: z_test_9_2_10000000_LA ...........   Passed    0.10 sec
+118s       Start 21: z_test_19_2_0_LA
+118s 21/24 Test #21: z_test_19_2_0_LA .................   Passed    0.10 sec
+118s       Start 22: z_test_19_2_10000000_LA
+118s 22/24 Test #22: z_test_19_2_10000000_LA ..........   Passed    0.10 sec
+118s       Start 23: z_test_2_0_SP
+118s 23/24 Test #23: z_test_2_0_SP ....................   Passed    0.10 sec
+118s       Start 24: z_test_2_10000000_SP
+118s 24/24 Test #24: z_test_2_10000000_SP .............   Passed    0.10 sec
+118s 
+118s 100% tests passed, 0 tests failed out of 24
+118s 
+118s Total Test time (real) =   2.55 sec
+118s /tmp/autopkgtest.DA9grc/wrapper.sh: checking for leaked background processes...
+118s /tmp/autopkgtest.DA9grc/wrapper.sh: waiting for tee/cat subprocesses...
+118s /tmp/autopkgtest.DA9grc/wrapper.sh: cleaning up...
+118s /tmp/autopkgtest.DA9grc/wrapper.sh: Exit status: 0
+118s autopkgtest: DBG: testbed command exited with code 0
+119s autopkgtest [08:22:27]: test test-superlu: -----------------------]
+119s autopkgtest: DBG: testbed executing test finished with exit status 0
+119s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.DA9grc/test-superlu-stdout /home/hachi/openkylin_test/sharefolder/results/superlu/test-superlu-stdout
+119s autopkgtest: DBG: got reply from testbed: ok
+119s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.DA9grc/test-superlu-stderr /home/hachi/openkylin_test/sharefolder/results/superlu/test-superlu-stderr
+119s autopkgtest: DBG: got reply from testbed: ok
+119s autopkgtest [08:22:27]: test test-superlu:  - - - - - - - - - - results - - - - - - - - - -
+119s test-superlu         PASS
+119s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.DA9grc/test-superlu-artifacts/ /home/hachi/openkylin_test/sharefolder/results/superlu/artifacts/
+119s autopkgtest: DBG: got reply from testbed: ok
+119s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.DA9grc/test-superlu-artifacts', '/tmp/autopkgtest.DA9grc/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+119s autopkgtest: DBG: testbed command exited with code 0
+119s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+119s autopkgtest [08:22:27]: @@@@@@@@@@@@@@@@@@@@ summary
+119s test-superlu         PASS
+119s autopkgtest: DBG: testbed stop
+119s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.DA9grc
+119s autopkgtest: DBG: sending command to testbed: close
+119s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+121s autopkgtest: DBG: got reply from testbed: ok
+121s autopkgtest: DBG: sending command to testbed: quit

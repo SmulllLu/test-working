@@ -1,0 +1,408 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:23:55]: starting date and time: 2024-07-19 00:23:55+0800
+  0s autopkgtest [00:23:55]: version @version@
+  0s autopkgtest [00:23:55]: host nana; command line: /usr/bin/autopkgtest rust-print-bytes_1.2.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-print-bytes -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.9u5qqZ
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-7eb9f340-06bc-4d8a-a5b0-5095743af2ba,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-7eb9f340-06bc-4d8a-a5b0-5095743af2ba//tmp/autopkgtest.9u5qqZ
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-7eb9f340-06bc-4d8a-a5b0-5095743af2ba//tmp/autopkgtest.9u5qqZ', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.9u5qqZ/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.9u5qqZ/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [00:23:58]: testbed dpkg architecture: riscv64
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [00:23:59]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.9u5qqZ/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.9u5qqZ/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-print-bytes/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [00:24:00]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: Binaries: initialising
+  5s autopkgtest [00:24:00]: @@@@@@@@@@@@@@@@@@@@ source rust-print-bytes_1.2.0-ok1.dsc
+  5s autopkgtest: DBG: blame += rust-print-bytes_1.2.0-ok1.dsc
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-print-bytes_1.2.0-ok1.dsc /tmp/autopkgtest.9u5qqZ/rust-print-bytes_1.2.0-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-print-bytes_1.2.0.orig.tar.gz /tmp/autopkgtest.9u5qqZ/rust-print-bytes_1.2.0.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-print-bytes_1.2.0-ok1.debian.tar.xz /tmp/autopkgtest.9u5qqZ/rust-print-bytes_1.2.0-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.9u5qqZ/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.9u5qqZ/rust-print-bytes_1.2.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.9u5qqZ/build.XXX
+  7s + builddir=/tmp/autopkgtest.9u5qqZ/build.x0e
+  7s + cd /tmp/autopkgtest.9u5qqZ/build.x0e
+  7s + dpkg-source -x /tmp/autopkgtest.9u5qqZ/rust-print-bytes_1.2.0-ok1.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.ivrsY5I4/trustedkeys.kbx': General error
+  8s gpgv: Signature made Tue 07 May 2024 03:17:50 PM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.9u5qqZ/rust-print-bytes_1.2.0-ok1.dsc
+  8s dpkg-source: info: extracting rust-print-bytes in src
+  8s dpkg-source: info: unpacking rust-print-bytes_1.2.0.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-print-bytes_1.2.0-ok1.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying remove-windows.patch
+  8s dpkg-source: info: applying remove-reference-to-missing-tests.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [00:24:03]: testing package rust-print-bytes version 1.2.0-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.9u5qqZ/build.x0e/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-print-bytes/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name rust-print-bytes:@ path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets --all-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=rust-print-bytes:@'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name librust-print-bytes-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-print-bytes-dev:default'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name librust-print-bytes-dev:specialization path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets --no-default-features --features specialization" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-print-bytes-dev:specialization'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name librust-print-bytes-dev: path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-print-bytes-dev:'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest [00:24:03]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.9u5qqZ/build.x0e/src/ /home/hachi/openkylin_test/sharefolder/results/rust-print-bytes/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name rust-print-bytes:@ path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets --all-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=rust-print-bytes:@'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name librust-print-bytes-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-print-bytes-dev:default'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name librust-print-bytes-dev:specialization path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets --no-default-features --features specialization" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-print-bytes-dev:specialization'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-os-str-bytes-6+default-dev (>= 6.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-print-bytes-dev
+  8s autopkgtest: DBG: Test defined: name librust-print-bytes-dev: path None command "/usr/share/cargo/bin/cargo-auto-test print_bytes 1.2.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-print-bytes-dev:'] depends ['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'] 
+  8s autopkgtest [00:24:03]: test rust-print-bytes:@: preparing testbed
+  8s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+  8s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  8s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+  8s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+  8s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+  8s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-7eb9f340-06bc-4d8a-a5b0-5095743af2ba//tmp/autopkgtest.9u5qqZ/1-autopkgtest-satdep.deb /tmp/autopkgtest.9u5qqZ/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.9u5qqZ/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 10s Building dependency tree...
+ 10s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 2
+ 11s Starting 2 pkgProblemResolver with broken count: 2
+ 11s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 11s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 11s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 11s Broken librust-log-dev:riscv64 Depends on librust-serde-1-dev:riscv64 < none @un H >
+ 11s   Considering librust-serde-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s   Re-Instated librust-unicode-ident-dev:riscv64
+ 11s   Re-Instated librust-proc-macro2-dev:riscv64
+ 11s   Re-Instated librust-quote-dev:riscv64
+ 11s   Re-Instated librust-syn-dev:riscv64
+ 11s   Re-Instated librust-serde-derive-dev:riscv64
+ 11s   Re-Instated librust-serde-dev:riscv64
+ 11s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 11s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s   Re-Instated librust-sval-derive-dev:riscv64
+ 11s   Re-Instated librust-sval-dev:riscv64
+ 11s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s Done
+ 11s Some packages could not be installed. This may mean that you have
+ 11s requested an impossible situation or if you are using the unstable
+ 11s distribution that some required packages have not yet been created
+ 11s or been moved out of Incoming.
+ 11s The following information may help to resolve the situation:
+ 11s 
+ 11s The following packages have unmet dependencies:
+ 12s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 12s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 12s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 12s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 12s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 12s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.9u5qqZ/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-os-str-bytes-6+default-dev (>= 6.3-~~) librust-print-bytes-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s autopkgtest: DBG: testbed command exited with code 2
+ 12s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 12s rust-print-bytes:@   SKIP installation fails and skip-not-installable set
+ 12s autopkgtest [00:24:07]: test librust-print-bytes-dev:default: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'], deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+ 12s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+ 12s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: can use apt-get on testbed: True
+ 13s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-7eb9f340-06bc-4d8a-a5b0-5095743af2ba//tmp/autopkgtest.9u5qqZ/2-autopkgtest-satdep.deb /tmp/autopkgtest.9u5qqZ/2-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.9u5qqZ/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 14s Building dependency tree...
+ 14s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 2
+ 15s Starting 2 pkgProblemResolver with broken count: 2
+ 15s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 15s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 15s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 15s Broken librust-log-dev:riscv64 Depends on librust-serde-1-dev:riscv64 < none @un H >
+ 15s   Considering librust-serde-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s   Re-Instated librust-unicode-ident-dev:riscv64
+ 15s   Re-Instated librust-proc-macro2-dev:riscv64
+ 15s   Re-Instated librust-quote-dev:riscv64
+ 15s   Re-Instated librust-syn-dev:riscv64
+ 15s   Re-Instated librust-serde-derive-dev:riscv64
+ 15s   Re-Instated librust-serde-dev:riscv64
+ 15s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 15s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s   Re-Instated librust-sval-derive-dev:riscv64
+ 15s   Re-Instated librust-sval-dev:riscv64
+ 15s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 15s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 15s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 15s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 15s E: Unable to correct problems, you have held broken packages.
+ 15s autopkgtest: DBG: testbed command exited with code 100
+ 15s autopkgtest: DBG: apt-get install /tmp/autopkgtest.9u5qqZ/2-autopkgtest-satdep.deb failed; status-fd:
+ 15s 
+ 15s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 15s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-os-str-bytes-6+default-dev (>= 6.3-~~) librust-print-bytes-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s autopkgtest: DBG: testbed command exited with code 2
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s librust-print-bytes-dev:default SKIP installation fails and skip-not-installable set
+ 16s autopkgtest [00:24:11]: test librust-print-bytes-dev:specialization: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'], deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+ 16s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+ 16s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 16s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-7eb9f340-06bc-4d8a-a5b0-5095743af2ba//tmp/autopkgtest.9u5qqZ/3-autopkgtest-satdep.deb /tmp/autopkgtest.9u5qqZ/3-autopkgtest-satdep.deb
+ 16s autopkgtest: DBG: got reply from testbed: ok
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.9u5qqZ/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 18s Starting pkgProblemResolver with broken count: 2
+ 19s Starting 2 pkgProblemResolver with broken count: 2
+ 19s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 19s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 19s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 19s Broken librust-log-dev:riscv64 Depends on librust-serde-1-dev:riscv64 < none @un H >
+ 19s   Considering librust-serde-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 19s   Re-Instated librust-unicode-ident-dev:riscv64
+ 19s   Re-Instated librust-proc-macro2-dev:riscv64
+ 19s   Re-Instated librust-quote-dev:riscv64
+ 19s   Re-Instated librust-syn-dev:riscv64
+ 19s   Re-Instated librust-serde-derive-dev:riscv64
+ 19s   Re-Instated librust-serde-dev:riscv64
+ 19s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 19s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 19s   Re-Instated librust-sval-derive-dev:riscv64
+ 19s   Re-Instated librust-sval-dev:riscv64
+ 19s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 19s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 19s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 19s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 19s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 19s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 19s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 19s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 19s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 19s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 19s Done
+ 19s Some packages could not be installed. This may mean that you have
+ 19s requested an impossible situation or if you are using the unstable
+ 19s distribution that some required packages have not yet been created
+ 19s or been moved out of Incoming.
+ 19s The following information may help to resolve the situation:
+ 19s 
+ 19s The following packages have unmet dependencies:
+ 19s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 19s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 19s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 19s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.9u5qqZ/3-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-os-str-bytes-6+default-dev (>= 6.3-~~) librust-print-bytes-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 19s autopkgtest: DBG: testbed command exited with code 2
+ 19s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 19s librust-print-bytes-dev:specialization SKIP installation fails and skip-not-installable set
+ 19s autopkgtest [00:24:14]: test librust-print-bytes-dev:: preparing testbed
+ 19s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev'], deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+ 19s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 19s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-os-str-bytes-6+default-dev (>= 6.3-~~)', 'librust-print-bytes-dev']
+ 19s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+ 19s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-os-str-bytes-6+default-dev (>= 6.3-~~), librust-print-bytes-dev
+ 19s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 20s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9u5qqZ'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-7eb9f340-06bc-4d8a-a5b0-5095743af2ba//tmp/autopkgtest.9u5qqZ/4-autopkgtest-satdep.deb /tmp/autopkgtest.9u5qqZ/4-autopkgtest-satdep.deb
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.9u5qqZ/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 21s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 22s Starting pkgProblemResolver with broken count: 2
+ 22s Starting 2 pkgProblemResolver with broken count: 2
+ 22s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 22s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 22s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 22s Broken librust-log-dev:riscv64 Depends on librust-serde-1-dev:riscv64 < none @un H >
+ 22s   Considering librust-serde-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 22s   Re-Instated librust-unicode-ident-dev:riscv64
+ 22s   Re-Instated librust-proc-macro2-dev:riscv64
+ 22s   Re-Instated librust-quote-dev:riscv64
+ 22s   Re-Instated librust-syn-dev:riscv64
+ 22s   Re-Instated librust-serde-derive-dev:riscv64
+ 22s   Re-Instated librust-serde-dev:riscv64
+ 22s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 22s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 22s   Re-Instated librust-sval-derive-dev:riscv64
+ 22s   Re-Instated librust-sval-dev:riscv64
+ 22s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 22s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 22s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 22s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 22s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 22s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 22s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 22s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 22s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 22s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 22s Done
+ 22s Some packages could not be installed. This may mean that you have
+ 22s requested an impossible situation or if you are using the unstable
+ 22s distribution that some required packages have not yet been created
+ 22s or been moved out of Incoming.
+ 22s The following information may help to resolve the situation:
+ 22s 
+ 22s The following packages have unmet dependencies:
+ 23s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 23s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 23s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 23s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 23s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 23s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.9u5qqZ/4-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-os-str-bytes-6+default-dev (>= 6.3-~~) librust-print-bytes-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s autopkgtest: DBG: testbed command exited with code 2
+ 23s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s librust-print-bytes-dev: SKIP installation fails and skip-not-installable set
+ 23s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 23s autopkgtest [00:24:18]: @@@@@@@@@@@@@@@@@@@@ summary
+ 23s rust-print-bytes:@   SKIP installation fails and skip-not-installable set
+ 23s librust-print-bytes-dev:default SKIP installation fails and skip-not-installable set
+ 23s librust-print-bytes-dev:specialization SKIP installation fails and skip-not-installable set
+ 23s librust-print-bytes-dev: SKIP installation fails and skip-not-installable set
+ 23s autopkgtest: DBG: testbed stop
+ 23s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.9u5qqZ
+ 23s autopkgtest: DBG: sending command to testbed: close
+ 24s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: sending command to testbed: quit

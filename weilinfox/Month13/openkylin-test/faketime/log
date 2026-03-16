@@ -1,0 +1,762 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [03:56:25]: starting date and time: 2024-07-18 03:56:25+0800
+  0s autopkgtest [03:56:25]: version @version@
+  0s autopkgtest [03:56:25]: host lili; command line: /usr/bin/autopkgtest faketime_0.9.10-ok2.dsc -o /home/hachi/openkylin_test/sharefolder/results/faketime -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.tK2BMd
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d//tmp/autopkgtest.tK2BMd
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d//tmp/autopkgtest.tK2BMd', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.tK2BMd/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.tK2BMd/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [03:56:27]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [03:56:27]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.tK2BMd/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/testbed-packages /home/hachi/openkylin_test/sharefolder/results/faketime/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [03:56:27]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [03:56:27]: @@@@@@@@@@@@@@@@@@@@ source faketime_0.9.10-ok2.dsc
+  2s autopkgtest: DBG: blame += faketime_0.9.10-ok2.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown faketime_0.9.10-ok2.dsc /tmp/autopkgtest.tK2BMd/faketime_0.9.10-ok2.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown faketime_0.9.10.orig.tar.gz /tmp/autopkgtest.tK2BMd/faketime_0.9.10.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown faketime_0.9.10-ok2.debian.tar.xz /tmp/autopkgtest.tK2BMd/faketime_0.9.10-ok2.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.tK2BMd/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.tK2BMd/faketime_0.9.10-ok2.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.tK2BMd/build.XXX
+  3s + builddir=/tmp/autopkgtest.tK2BMd/build.B4Q
+  3s + cd /tmp/autopkgtest.tK2BMd/build.B4Q
+  3s + dpkg-source -x /tmp/autopkgtest.tK2BMd/faketime_0.9.10-ok2.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.yEjI459e/trustedkeys.kbx': General error
+  3s gpgv: Signature made Thu 22 Sep 2022 06:58:44 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.tK2BMd/faketime_0.9.10-ok2.dsc
+  3s dpkg-source: info: extracting faketime in src
+  3s dpkg-source: info: unpacking faketime_0.9.10.orig.tar.gz
+  3s dpkg-source: info: unpacking faketime_0.9.10-ok2.debian.tar.xz
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [03:56:28]: testing package faketime version 0.9.10-ok2
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/ /home/hachi/openkylin_test/sharefolder/results/faketime/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency faketime
+  3s autopkgtest: DBG: marked alternatives ['faketime'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name smoketest path debian/tests/smoketest command "None" restrictions ['superficial'] features [] depends ['faketime'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency libfaketime
+  3s autopkgtest: DBG: marked alternatives ['libfaketime'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name upstream path debian/tests/upstream command "None" restrictions [] features [] depends ['build-essential', 'libfaketime'] 
+  3s autopkgtest [03:56:28]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/build.B4Q/src/ /home/hachi/openkylin_test/sharefolder/results/faketime/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency faketime
+  4s autopkgtest: DBG: marked alternatives ['faketime'] as a synthesised dependency
+  4s autopkgtest: DBG: Test defined: name smoketest path debian/tests/smoketest command "None" restrictions ['superficial'] features [] depends ['faketime'] 
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency libfaketime
+  4s autopkgtest: DBG: marked alternatives ['libfaketime'] as a synthesised dependency
+  4s autopkgtest: DBG: Test defined: name upstream path debian/tests/upstream command "None" restrictions [] features [] depends ['build-essential', 'libfaketime'] 
+  4s autopkgtest [03:56:29]: test smoketest: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['faketime']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['faketime']
+  4s autopkgtest: DBG: install-deps: satisfying faketime
+  4s autopkgtest: DBG: install-deps: architecture resolved: faketime
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d//tmp/autopkgtest.tK2BMd/1-autopkgtest-satdep.deb /tmp/autopkgtest.tK2BMd/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.tK2BMd/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  6s Starting 2 pkgProblemResolver with broken count: 0
+  6s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   faketime libfaketime
+  7s The following NEW packages will be installed:
+  7s   autopkgtest-satdep faketime libfaketime
+  7s 0 upgraded, 3 newly installed, 0 to remove and 1066 not upgraded.
+  7s Need to get 65.3 kB/66.0 kB of archives.
+  7s After this operation, 198 kB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.tK2BMd/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [696 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfaketime riscv64 0.9.10-ok2 [47.2 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 faketime riscv64 0.9.10-ok2 [18.2 kB]
+  9s Fetched 65.3 kB in 0s (270 kB/s)
+  9s Selecting previously unselected package libfaketime:riscv64.
+  9s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+  9s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+  9s Preparing to unpack .../libfaketime_0.9.10-ok2_riscv64.deb ...
+  9s Unpacking libfaketime:riscv64 (0.9.10-ok2) ...
+ 10s Selecting previously unselected package faketime.
+ 10s Preparing to unpack .../faketime_0.9.10-ok2_riscv64.deb ...
+ 10s Unpacking faketime (0.9.10-ok2) ...
+ 10s Selecting previously unselected package autopkgtest-satdep.
+ 10s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 10s Unpacking autopkgtest-satdep (0) ...
+ 10s Setting up libfaketime:riscv64 (0.9.10-ok2) ...
+ 10s Setting up faketime (0.9.10-ok2) ...
+ 10s Setting up autopkgtest-satdep (0) ...
+ 10s Processing triggers for man-db (2.10.2-2) ...
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'faketime'], kind short, sout pipe, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 15s autopkgtest: DBG: testbed command exited with code 0
+ 15s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant faketime fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfaketime libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 15s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'faketime', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-thai-tlwg', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gir1.2-peas-1.0', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libenchant1c2a', 'libfaketime', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 22s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 22s (Reading database ... 193823 files and directories currently installed.)
+ 22s Removing autopkgtest-satdep (0) ...
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.tK2BMd/smoketest-packages.all"], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/smoketest-packages.all /home/hachi/openkylin_test/sharefolder/results/faketime/smoketest-packages.all
+ 22s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.tK2BMd/build.B4Q/src'], kind short, sout raw, serr raw, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.tK2BMd/build.B4Q/src already exists
+ 23s autopkgtest [03:56:48]: test smoketest: [-----------------------
+ 23s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.tK2BMd/wrapper.sh --debug --artifacts=/tmp/autopkgtest.tK2BMd/smoketest-artifacts --chdir=/tmp/autopkgtest.tK2BMd/build.B4Q/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.tK2BMd/smoketest-stderr --stdout=/tmp/autopkgtest.tK2BMd/smoketest-stdout --tmp=/tmp/autopkgtest.tK2BMd/autopkgtest_tmp --make-executable=/tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/smoketest -- /tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/smoketest'], kind test, sout raw, serr raw, env []
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.tK2BMd/smoketest-artifacts
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: changing to directory: /tmp/autopkgtest.tK2BMd/build.B4Q/src
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: setting environment: LANG=C.UTF-8
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LANGUAGE
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_ADDRESS
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_ALL
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_COLLATE
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_CTYPE
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_MESSAGES
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_MONETARY
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_NAME
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_NUMERIC
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_PAPER
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_TIME
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: pretending to be a login shell
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: will write standard error to /tmp/autopkgtest.tK2BMd/smoketest-stderr
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: will write stdout to /tmp/autopkgtest.tK2BMd/smoketest-stdout
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.tK2BMd/autopkgtest_tmp
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: marking as executable: /tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/smoketest
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: command to run: /tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/smoketest
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: copying /tmp/tmp.IYiVHYs6oA/out to stdout and file: /tmp/autopkgtest.tK2BMd/smoketest-stdout
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: copying /tmp/tmp.IYiVHYs6oA/err to standard error and file: /tmp/autopkgtest.tK2BMd/smoketest-stdout
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: writing script pid 383885 to /tmp/autopkgtest_script_pid
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: checking for leaked background processes...
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: waiting for tee/cat subprocesses...
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: cleaning up...
+ 23s /tmp/autopkgtest.tK2BMd/wrapper.sh: Exit status: 0
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest [03:56:48]: test smoketest: -----------------------]
+ 23s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 23s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/smoketest-stdout /home/hachi/openkylin_test/sharefolder/results/faketime/smoketest-stdout
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/smoketest-stderr /home/hachi/openkylin_test/sharefolder/results/faketime/smoketest-stderr
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest [03:56:48]: test smoketest:  - - - - - - - - - - results - - - - - - - - - -
+ 23s smoketest            PASS (superficial)
+ 23s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/smoketest-artifacts/ /home/hachi/openkylin_test/sharefolder/results/faketime/artifacts/
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.tK2BMd/smoketest-artifacts', '/tmp/autopkgtest.tK2BMd/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest [03:56:48]: test upstream: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['faketime'], deps_new=['build-essential', 'libfaketime']
+ 23s autopkgtest: DBG: testbed reset
+ 23s autopkgtest: DBG: sending command to testbed: revert
+ 24s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 25s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.tK2BMd
+ 25s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 25s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d,--user%3Droot,--
+ 25s autopkgtest: DBG: sending command to testbed: capabilities
+ 25s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d//tmp/autopkgtest.tK2BMd
+ 25s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d//tmp/autopkgtest.tK2BMd', 'has_internet']
+ 25s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.tK2BMd/wrapper.sh
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.tK2BMd/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest [03:56:50]: testbed dpkg architecture: riscv64
+ 25s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest [03:56:50]: testbed apt version: 2.7.3-ok3
+ 25s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 127
+ 26s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.tK2BMd/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/testbed-packages /home/hachi/openkylin_test/sharefolder/results/faketime/testbed-packages
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 26s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'libfaketime']
+ 26s autopkgtest: DBG: install-deps: satisfying build-essential, libfaketime
+ 26s autopkgtest: DBG: install-deps: architecture resolved: build-essential, libfaketime
+ 26s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: can use apt-get on testbed: True
+ 26s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-81728b98-1cf7-444c-ab4a-18287f802b9d//tmp/autopkgtest.tK2BMd/2-autopkgtest-satdep.deb /tmp/autopkgtest.tK2BMd/2-autopkgtest-satdep.deb
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.tK2BMd/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s Reading package lists...
+ 27s Building dependency tree...
+ 27s Reading state information...
+ 28s Starting pkgProblemResolver with broken count: 0
+ 28s Starting 2 pkgProblemResolver with broken count: 0
+ 28s Done
+ 29s The following packages were automatically installed and are no longer required:
+ 29s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 29s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 29s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 29s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 29s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 29s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 29s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 29s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 29s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 29s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 29s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 29s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 29s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 29s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 29s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 29s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 29s   language-selector-common language-selector-gnome libatrildocument3
+ 29s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 29s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 29s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 29s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 29s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 29s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 29s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 29s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 29s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 29s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 29s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 29s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 29s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 29s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 29s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 29s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 29s Use 'sudo apt autoremove' to remove them.
+ 29s The following additional packages will be installed:
+ 29s   libfaketime
+ 29s The following NEW packages will be installed:
+ 29s   autopkgtest-satdep libfaketime
+ 29s 0 upgraded, 2 newly installed, 0 to remove and 1066 not upgraded.
+ 29s Need to get 47.2 kB/47.9 kB of archives.
+ 29s After this operation, 135 kB of additional disk space will be used.
+ 29s Get:1 /tmp/autopkgtest.tK2BMd/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [716 B]
+ 29s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfaketime riscv64 0.9.10-ok2 [47.2 kB]
+ 31s Fetched 47.2 kB in 0s (267 kB/s)
+ 31s Selecting previously unselected package libfaketime:riscv64.
+ 31s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 32s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 32s Preparing to unpack .../libfaketime_0.9.10-ok2_riscv64.deb ...
+ 32s Unpacking libfaketime:riscv64 (0.9.10-ok2) ...
+ 32s Selecting previously unselected package autopkgtest-satdep.
+ 32s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 32s Unpacking autopkgtest-satdep (0) ...
+ 33s Setting up libfaketime:riscv64 (0.9.10-ok2) ...
+ 33s Setting up autopkgtest-satdep (0) ...
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libfaketime'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfaketime libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 37s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 41s autopkgtest: DBG: testbed command exited with code 0
+ 41s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfaketime', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon'], kind short, sout raw, serr pipe, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 44s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 44s (Reading database ... 193816 files and directories currently installed.)
+ 44s Removing autopkgtest-satdep (0) ...
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.tK2BMd/upstream-packages.all"], kind short, sout raw, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/upstream-packages.all /home/hachi/openkylin_test/sharefolder/results/faketime/upstream-packages.all
+ 45s autopkgtest: DBG: got reply from testbed: ok
+ 45s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.tK2BMd/build.B4Q/src'], kind short, sout raw, serr raw, env []
+ 45s autopkgtest: DBG: testbed command exited with code 1
+ 45s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tK2BMd/build.B4Q'], kind short, sout raw, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/faketime/tests-tree/ /tmp/autopkgtest.tK2BMd/build.B4Q/src/
+ 45s autopkgtest: DBG: got reply from testbed: ok
+ 45s autopkgtest [03:57:10]: test upstream: [-----------------------
+ 45s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.tK2BMd/wrapper.sh --debug --artifacts=/tmp/autopkgtest.tK2BMd/upstream-artifacts --chdir=/tmp/autopkgtest.tK2BMd/build.B4Q/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.tK2BMd/upstream-stderr --stdout=/tmp/autopkgtest.tK2BMd/upstream-stdout --tmp=/tmp/autopkgtest.tK2BMd/autopkgtest_tmp --make-executable=/tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/upstream -- /tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/upstream'], kind test, sout raw, serr raw, env []
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.tK2BMd/upstream-artifacts
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: changing to directory: /tmp/autopkgtest.tK2BMd/build.B4Q/src
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: setting environment: LANG=C.UTF-8
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LANGUAGE
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_ADDRESS
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_ALL
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_COLLATE
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_CTYPE
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_MESSAGES
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_MONETARY
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_NAME
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_NUMERIC
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_PAPER
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: unsetting environment: LC_TIME
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: pretending to be a login shell
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: will write standard error to /tmp/autopkgtest.tK2BMd/upstream-stderr
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: will write stdout to /tmp/autopkgtest.tK2BMd/upstream-stdout
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.tK2BMd/autopkgtest_tmp
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: marking as executable: /tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/upstream
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: command to run: /tmp/autopkgtest.tK2BMd/build.B4Q/src/debian/tests/upstream
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: copying /tmp/tmp.fQLWtCssbw/out to stdout and file: /tmp/autopkgtest.tK2BMd/upstream-stdout
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: copying /tmp/tmp.fQLWtCssbw/err to standard error and file: /tmp/autopkgtest.tK2BMd/upstream-stdout
+ 45s /tmp/autopkgtest.tK2BMd/wrapper.sh: writing script pid 384243 to /tmp/autopkgtest_script_pid
+ 45s gcc -c -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  timetest.c
+ 46s gcc -o timetest timetest.o -lrt -lpthread
+ 46s ./testframe.sh functests
+ 46s # Begin Test Suites in functests
+ 46s 
+ 46s # Begin functests/test_exclude_mono.sh
+ 46s # PLATFORM=linuxlike
+ 48s out=63769.49688275 When not faking monotonic time, timestamps should be different ref=63770.541529954 - ok
+ 48s # functests/test_exclude_mono.sh summary: 1 succeeded, 0 failed
+ 48s # End functests/test_exclude_mono.sh - OK
+ 48s 
+ 48s # Begin functests/test_null.sh
+ 48s out=0 () ref=1721246233 - ok
+ 48s # functests/test_null.sh summary: 1 succeeded, 0 failed
+ 48s # End functests/test_null.sh - OK
+ 48s 
+ 48s # Begin functests/test_true.sh
+ 48s # functests/test_true.sh summary: 1 succeeded, 0 failed
+ 48s # End functests/test_true.sh - OK
+ 48s 
+ 48s # Begin functests/test_walkone.sh
+ 48s # PLATFORM=linuxlike
+ 48s out=1 (secs since Epoch) - ok
+ 48s out=2 (secs since Epoch) - ok
+ 48s out=4 (secs since Epoch) - ok
+ 48s out=8 (secs since Epoch) - ok
+ 48s out=16 (secs since Epoch) - ok
+ 48s out=32 (secs since Epoch) - ok
+ 48s out=64 (secs since Epoch) - ok
+ 48s out=128 (secs since Epoch) - ok
+ 48s out=256 (secs since Epoch) - ok
+ 48s out=512 (secs since Epoch) - ok
+ 48s out=1024 (secs since Epoch) - ok
+ 48s out=2048 (secs since Epoch) - ok
+ 48s out=4096 (secs since Epoch) - ok
+ 48s out=8192 (secs since Epoch) - ok
+ 48s out=16384 (secs since Epoch) - ok
+ 48s out=32768 (secs since Epoch) - ok
+ 48s out=65536 (secs since Epoch) - ok
+ 48s out=131072 (secs since Epoch) - ok
+ 48s out=262144 (secs since Epoch) - ok
+ 48s out=524288 (secs since Epoch) - ok
+ 48s out=1048576 (secs since Epoch) - ok
+ 48s out=2097152 (secs since Epoch) - ok
+ 48s out=4194304 (secs since Epoch) - ok
+ 48s out=8388608 (secs since Epoch) - ok
+ 48s out=16777216 (secs since Epoch) - ok
+ 48s out=33554432 (secs since Epoch) - ok
+ 48s out=67108864 (secs since Epoch) - ok
+ 48s out=134217728 (secs since Epoch) - ok
+ 48s out=268435456 (secs since Epoch) - ok
+ 48s out=536870912 (secs since Epoch) - ok
+ 48s out=1073741824 (secs since Epoch) - ok
+ 48s # functests/test_walkone.sh summary: 31 succeeded, 0 failed
+ 48s # End functests/test_walkone.sh - OK
+ 48s 
+ 48s # Test Suites summary: 4 succeeded, 0 failed
+ 48s # End Test Suites - OK
+ 48s 
+ 48s Running the test program with no faked time specified
+ 48s $ LD_PRELOAD=/usr/lib/riscv64-linux-gnu/faketime/libfaketime.so.1 ./timetest
+ 48s pthread_cond_timedwait: CLOCK_REALTIME test
+ 48s (Intentionally sleeping 1 second...)
+ 49s pthread_cond_timedwait: CLOCK_MONOTONIC test
+ 49s (Intentionally sleeping 1 second...)
+ 49s (If this test hangs for more than a few seconds, please report
+ 49s  your glibc version and system details as FORCE_MONOTONIC_FIX
+ 49s  issue at https://github.com/wolfcw/libfaketime)
+ 50s Blocking signal 10
+ 50s time()         : Current date and time: Thu Jul 18 03:57:15 2024
+ 50s time(NULL)     : Seconds since Epoch  : 1721246235
+ 50s ftime()        : Current date and time: Thu Jul 18 03:57:15 2024
+ 50s (Intentionally sleeping 2 seconds...)
+ 52s gettimeofday() : Current date and time: Thu Jul 18 03:57:17 2024
+ 52s Caught signal 10
+ 52s clock_gettime(): Current date and time: Thu Jul 18 03:57:17 2024
+ 52s stat(): mod. time of file './timetest': Thu Jul 18 03:57:11 2024
+ 52s 
+ 52s =============================================================================
+ 52s 
+ 52s Running the test program with absolute date 2003-01-01 10:00:05 specified
+ 52s $ LD_PRELOAD=/usr/lib/riscv64-linux-gnu/faketime/libfaketime.so.1 FAKETIME="2003-01-01 10:00:05" ./timetest
+ 52s pthread_cond_timedwait: CLOCK_REALTIME test
+ 52s (Intentionally sleeping 1 second...)
+ 53s pthread_cond_timedwait: CLOCK_MONOTONIC test
+ 53s (Intentionally sleeping 1 second...)
+ 53s (If this test hangs for more than a few seconds, please report
+ 53s  your glibc version and system details as FORCE_MONOTONIC_FIX
+ 53s  issue at https://github.com/wolfcw/libfaketime)
+ 54s Blocking signal 10
+ 54s time()         : Current date and time: Wed Jan  1 10:00:05 2003
+ 54s time(NULL)     : Seconds since Epoch  : 1041386405
+ 54s ftime()        : Current date and time: Wed Jan  1 10:00:05 2003
+ 54s (Intentionally sleeping 2 seconds...)
+ 56s gettimeofday() : Current date and time: Wed Jan  1 10:00:05 2003
+ 56s Caught signal 10
+ 56s Caught signal 10
+ 56s clock_gettime(): Current date and time: Wed Jan  1 10:00:05 2003
+ 56s stat(): mod. time of file './timetest': Wed Jan  1 10:00:05 2003
+ 56s 
+ 56s =============================================================================
+ 56s 
+ 56s Running the test program with START date @2005-03-29 14:14:14 specified
+ 56s $ LD_PRELOAD=/usr/lib/riscv64-linux-gnu/faketime/libfaketime.so.1 FAKETIME="@2005-03-29 14:14:14" ./timetest
+ 56s pthread_cond_timedwait: CLOCK_REALTIME test
+ 56s (Intentionally sleeping 1 second...)
+ 57s pthread_cond_timedwait: CLOCK_MONOTONIC test
+ 57s (Intentionally sleeping 1 second...)
+ 57s (If this test hangs for more than a few seconds, please report
+ 57s  your glibc version and system details as FORCE_MONOTONIC_FIX
+ 57s  issue at https://github.com/wolfcw/libfaketime)
+ 58s Blocking signal 10
+ 58s time()         : Current date and time: Tue Mar 29 14:14:16 2005
+ 58s time(NULL)     : Seconds since Epoch  : 1112076856
+ 58s ftime()        : Current date and time: Tue Mar 29 14:14:16 2005
+ 58s (Intentionally sleeping 2 seconds...)
+ 60s gettimeofday() : Current date and time: Tue Mar 29 14:14:18 2005
+ 60s Caught signal 10
+ 60s Caught signal 10
+ 60s clock_gettime(): Current date and time: Tue Mar 29 14:14:18 2005
+ 60s stat(): mod. time of file './timetest': Tue Mar 29 14:14:03 2005
+ 60s 
+ 60s =============================================================================
+ 60s 
+ 60s Running the test program with 10 days negative offset specified
+ 60s LD_PRELOAD=/usr/lib/riscv64-linux-gnu/faketime/libfaketime.so.1 FAKETIME="-10d" ./timetest
+ 60s pthread_cond_timedwait: CLOCK_REALTIME test
+ 60s (Intentionally sleeping 1 second...)
+ 61s pthread_cond_timedwait: CLOCK_MONOTONIC test
+ 61s (Intentionally sleeping 1 second...)
+ 61s (If this test hangs for more than a few seconds, please report
+ 61s  your glibc version and system details as FORCE_MONOTONIC_FIX
+ 61s  issue at https://github.com/wolfcw/libfaketime)
+ 62s Blocking signal 10
+ 62s time()         : Current date and time: Mon Jul  8 03:57:27 2024
+ 62s time(NULL)     : Seconds since Epoch  : 1720382247
+ 62s ftime()        : Current date and time: Mon Jul  8 03:57:27 2024
+ 62s (Intentionally sleeping 2 seconds...)
+ 64s gettimeofday() : Current date and time: Mon Jul  8 03:57:29 2024
+ 64s Caught signal 10
+ 64s Caught signal 10
+ 64s clock_gettime(): Current date and time: Mon Jul  8 03:57:29 2024
+ 64s stat(): mod. time of file './timetest': Mon Jul  8 03:57:11 2024
+ 64s 
+ 64s =============================================================================
+ 64s 
+ 64s Running the test program with 10 days negative offset specified, and FAKE_STAT disabled
+ 64s $ LD_PRELOAD=/usr/lib/riscv64-linux-gnu/faketime/libfaketime.so.1 FAKETIME="-10d" NO_FAKE_STAT=1 ./timetest
+ 64s pthread_cond_timedwait: CLOCK_REALTIME test
+ 64s (Intentionally sleeping 1 second...)
+ 65s pthread_cond_timedwait: CLOCK_MONOTONIC test
+ 65s (Intentionally sleeping 1 second...)
+ 65s (If this test hangs for more than a few seconds, please report
+ 65s  your glibc version and system details as FORCE_MONOTONIC_FIX
+ 65s  issue at https://github.com/wolfcw/libfaketime)
+ 66s Blocking signal 10
+ 66s time()         : Current date and time: Mon Jul  8 03:57:31 2024
+ 66s time(NULL)     : Seconds since Epoch  : 1720382251
+ 66s ftime()        : Current date and time: Mon Jul  8 03:57:31 2024
+ 66s (Intentionally sleeping 2 seconds...)
+ 68s gettimeofday() : Current date and time: Mon Jul  8 03:57:33 2024
+ 68s Caught signal 10
+ 68s Caught signal 10
+ 68s clock_gettime(): Current date and time: Mon Jul  8 03:57:33 2024
+ 68s stat(): mod. time of file './timetest': Thu Jul 18 03:57:11 2024
+ 68s 
+ 68s =============================================================================
+ 68s 
+ 68s Running the test program with 10 days positive offset specified, and speed-up factor
+ 68s $ LD_PRELOAD=/usr/lib/riscv64-linux-gnu/faketime/libfaketime.so.1 FAKETIME="+10d x1" ./timetest
+ 68s pthread_cond_timedwait: CLOCK_REALTIME test
+ 68s (Intentionally sleeping 1 second...)
+ 69s pthread_cond_timedwait: CLOCK_MONOTONIC test
+ 69s (Intentionally sleeping 1 second...)
+ 69s (If this test hangs for more than a few seconds, please report
+ 69s  your glibc version and system details as FORCE_MONOTONIC_FIX
+ 69s  issue at https://github.com/wolfcw/libfaketime)
+ 70s Blocking signal 10
+ 70s time()         : Current date and time: Sun Jul 28 03:57:35 2024
+ 70s time(NULL)     : Seconds since Epoch  : 1722110255
+ 70s ftime()        : Current date and time: Sun Jul 28 03:57:35 2024
+ 70s (Intentionally sleeping 2 seconds...)
+ 72s gettimeofday() : Current date and time: Sun Jul 28 03:57:37 2024
+ 72s Caught signal 10
+ 72s clock_gettime(): Current date and time: Sun Jul 28 03:57:37 2024
+ 72s stat(): mod. time of file './timetest': Thu Jul 18 03:57:11 2024
+ 72s 
+ 72s =============================================================================
+ 72s 
+ 72s Running the 'date' command with 15 days negative offset specified
+ 72s $ LD_PRELOAD=/usr/lib/riscv64-linux-gnu/faketime/libfaketime.so.1 FAKETIME="-15d" date
+ 72s Wed Jul  3 03:57:37 CST 2024
+ 72s 
+ 72s =============================================================================
+ 72s Testing finished.
+ 72s gcc -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra   -lrt -lpthread  repeat_random.c   -o repeat_random
+ 73s ./randomtest.sh
+ 73s getrandom interception test successful.
+ 73s sed s/SNIPPET_NAME/time/g < _libtest.c | gcc -shared -o libtime.so -fpic -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c -
+ 73s sed s/SNIPPET_NAME/time/g < _use_lib_test.c | gcc -L. -o use_lib_time -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - -ltime
+ 73s ./test_constructors.sh time
+ 73s Testing library init for time (no LD_PRELOAD)
+ 73s [libtime] time() yielded 1721246258
+ 73s   called time_as_needed() 
+ 73s [use_lib_time] time() yielded 1721246258
+ 73s Testing library init for time (LD_PRELOAD)
+ 73s [libtime] time() yielded 1721246258
+ 73s   called time_as_needed() 
+ 73s [use_lib_time] time() yielded 1721246258
+ 73s sed s/SNIPPET_NAME/clock_gettime/g < _libtest.c | gcc -shared -o libclock_gettime.so -fpic -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c -
+ 73s sed s/SNIPPET_NAME/clock_gettime/g < _use_lib_test.c | gcc -L. -o use_lib_clock_gettime -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - -lclock_gettime
+ 73s ./test_constructors.sh clock_gettime
+ 73s Testing library init for clock_gettime (no LD_PRELOAD)
+ 73s [libclock_gettime] clock_gettime(CLOCK_REALTIME[0], &ts) -> {1721246258, 854640575}
+ 73s   called clock_gettime_as_needed() 
+ 73s [use_lib_clock_gettime] clock_gettime(CLOCK_REALTIME[0], &ts) -> {1721246258, 854771555}
+ 73s Testing library init for clock_gettime (LD_PRELOAD)
+ 73s [libclock_gettime] clock_gettime(CLOCK_REALTIME[0], &ts) -> {1721246258, 859357691}
+ 73s   called clock_gettime_as_needed() 
+ 73s [use_lib_clock_gettime] clock_gettime(CLOCK_REALTIME[0], &ts) -> {1721246258, 859638111}
+ 73s sed s/SNIPPET_NAME/getentropy/g < _libtest.c | gcc -shared -o libgetentropy.so -fpic -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c -
+ 74s sed s/SNIPPET_NAME/getentropy/g < _use_lib_test.c | gcc -L. -o use_lib_getentropy -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - -lgetentropy
+ 74s ./test_constructors.sh getentropy
+ 74s Testing library init for getentropy (no LD_PRELOAD)
+ 74s [libgetentropy] getentropy() yielded 0xbcf5f070
+ 74s   called getentropy_as_needed() 
+ 74s [use_lib_getentropy] getentropy() yielded 0x41b120e1
+ 74s Testing library init for getentropy (LD_PRELOAD)
+ 74s [libgetentropy] getentropy() yielded 0x7e22190c
+ 74s   called getentropy_as_needed() 
+ 74s [use_lib_getentropy] getentropy() yielded 0x16070ef3
+ 74s sed s/SNIPPET_NAME/getrandom/g < _libtest.c | gcc -shared -o libgetrandom.so -fpic -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c -
+ 74s sed s/SNIPPET_NAME/getrandom/g < _use_lib_test.c | gcc -L. -o use_lib_getrandom -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - -lgetrandom
+ 74s ./test_constructors.sh getrandom
+ 74s Testing library init for getrandom (no LD_PRELOAD)
+ 74s [libgetrandom] getrandom() yielded 0x2bf4649e
+ 74s   called getrandom_as_needed() 
+ 74s [use_lib_getrandom] getrandom() yielded 0xe4c38e6e
+ 74s Testing library init for getrandom (LD_PRELOAD)
+ 74s [libgetrandom] getrandom() yielded 0xcbeb2c3c
+ 74s   called getrandom_as_needed() 
+ 74s [use_lib_getrandom] getrandom() yielded 0x262265fb
+ 74s sed s/SNIPPET_NAME/getpid/g < _libtest.c | gcc -shared -o libgetpid.so -fpic -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c -
+ 74s sed s/SNIPPET_NAME/getpid/g < _use_lib_test.c | gcc -L. -o use_lib_getpid -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - -lgetpid
+ 74s ./test_constructors.sh getpid
+ 74s Testing library init for getpid (no LD_PRELOAD)
+ 74s [libgetpid] getpid() yielded 384500
+ 74s   called getpid_as_needed() 
+ 74s [use_lib_getpid] getpid() yielded 384500
+ 74s Testing library init for getpid (LD_PRELOAD)
+ 74s [libgetpid] getpid() yielded 384501
+ 74s   called getpid_as_needed() 
+ 74s [use_lib_getpid] getpid() yielded 384501
+ 74s sed s/SNIPPET_NAME/clock_gettime_heap/g < _libtest.c | gcc -shared -o libclock_gettime_heap.so -fpic -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c -
+ 75s sed s/SNIPPET_NAME/clock_gettime_heap/g < _use_lib_test.c | gcc -L. -o use_lib_clock_gettime_heap -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - -lclock_gettime_heap
+ 75s ./test_constructors.sh clock_gettime_heap
+ 75s Testing library init for clock_gettime_heap (no LD_PRELOAD)
+ 75s [libclock_gettime_heap] clock_gettime_heap(CLOCK_REALTIME[0], ts) -> {1721246260, 369372510}
+ 75s   called clock_gettime_heap_as_needed() 
+ 75s [use_lib_clock_gettime_heap] clock_gettime_heap(CLOCK_REALTIME[0], ts) -> {1721246260, 369463770}
+ 75s Testing library init for clock_gettime_heap (LD_PRELOAD)
+ 75s [libclock_gettime_heap] clock_gettime_heap(CLOCK_REALTIME[0], ts) -> {1721246260, 373902526}
+ 75s   called clock_gettime_heap_as_needed() 
+ 75s [use_lib_clock_gettime_heap] clock_gettime_heap(CLOCK_REALTIME[0], ts) -> {1721246260, 374197946}
+ 75s sed s/SNIPPET_NAME/getentropy/g < _run_test.c | gcc -o run_getentropy -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - 
+ 75s sed s/SNIPPET_NAME/getrandom/g < _run_test.c | gcc -o run_getrandom -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - 
+ 75s sed s/SNIPPET_NAME/getpid/g < _run_test.c | gcc -o run_getpid -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - 
+ 75s sed s/SNIPPET_NAME/clock_gettime_heap/g < _run_test.c | gcc -o run_clock_gettime_heap -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - 
+ 76s sed s/SNIPPET_NAME/time/g < _run_test.c | gcc -o run_time -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - 
+ 76s sed s/SNIPPET_NAME/clock_gettime/g < _run_test.c | gcc -o run_clock_gettime -std=gnu99 -Wall -DFAKE_STAT -Werror -Wextra  -x c - 
+ 76s ./test_variable_data.sh getentropy getrandom getpid clock_gettime_heap time clock_gettime
+ 78s Sleeping 2 seconds...done
+ 78s rm use_lib_getrandom libgetrandom.so libclock_gettime.so use_lib_getpid use_lib_clock_gettime use_lib_getentropy libgetpid.so libclock_gettime_heap.so libtime.so use_lib_clock_gettime_heap libgetentropy.so use_lib_time
+ 78s /tmp/autopkgtest.tK2BMd/wrapper.sh: checking for leaked background processes...
+ 78s /tmp/autopkgtest.tK2BMd/wrapper.sh: waiting for tee/cat subprocesses...
+ 78s /tmp/autopkgtest.tK2BMd/wrapper.sh: cleaning up...
+ 78s /tmp/autopkgtest.tK2BMd/wrapper.sh: Exit status: 0
+ 78s autopkgtest: DBG: testbed command exited with code 0
+ 79s autopkgtest [03:57:44]: test upstream: -----------------------]
+ 79s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 79s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/upstream-stdout /home/hachi/openkylin_test/sharefolder/results/faketime/upstream-stdout
+ 79s autopkgtest: DBG: got reply from testbed: ok
+ 79s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/upstream-stderr /home/hachi/openkylin_test/sharefolder/results/faketime/upstream-stderr
+ 79s autopkgtest: DBG: got reply from testbed: ok
+ 79s autopkgtest [03:57:44]: test upstream:  - - - - - - - - - - results - - - - - - - - - -
+ 79s upstream             PASS
+ 79s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tK2BMd/upstream-artifacts/ /home/hachi/openkylin_test/sharefolder/results/faketime/artifacts/
+ 79s autopkgtest: DBG: got reply from testbed: ok
+ 79s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.tK2BMd/upstream-artifacts', '/tmp/autopkgtest.tK2BMd/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 79s autopkgtest: DBG: testbed command exited with code 0
+ 79s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 79s autopkgtest [03:57:44]: @@@@@@@@@@@@@@@@@@@@ summary
+ 79s smoketest            PASS (superficial)
+ 79s upstream             PASS
+ 79s autopkgtest: DBG: testbed stop
+ 79s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.tK2BMd
+ 79s autopkgtest: DBG: sending command to testbed: close
+ 79s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 80s autopkgtest: DBG: got reply from testbed: ok
+ 80s autopkgtest: DBG: sending command to testbed: quit

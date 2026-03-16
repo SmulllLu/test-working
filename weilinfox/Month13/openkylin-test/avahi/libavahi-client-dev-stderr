@@ -1,0 +1,17 @@
++ package=libavahi-client-dev
++ pc=libavahi-client
++ pc=avahi-client
++ mktemp -d
++ WORKDIR=/tmp/tmp.b0gTlQxiJE
++ trap rm -rf "${WORKDIR}" 0 INT QUIT ABRT PIPE TERM
++ cp debian/tests/libavahi-client-dev.c /tmp/tmp.b0gTlQxiJE
++ cd /tmp/tmp.b0gTlQxiJE
++ [ -n  ]
++ CROSS_COMPILE=
++ pkgconf --cflags --libs avahi-client
++ gcc -o libavahi-client-dev libavahi-client-dev.c -D_REENTRANT -lavahi-common -lavahi-client
++ echo build: OK
++ [ -x libavahi-client-dev ]
++ ./libavahi-client-dev
++ echo run: OK
++ rm -rf /tmp/tmp.b0gTlQxiJE

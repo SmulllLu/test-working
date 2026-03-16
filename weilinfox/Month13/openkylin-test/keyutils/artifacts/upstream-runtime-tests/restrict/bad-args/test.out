@@ -1,0 +1,26 @@
+++++ BEGINNING TEST
++++ ADD CA KEYRING
+keyctl newring cakeyring @s
+1011364151
++++ ADD KEYRING TO RESTRICT
+keyctl newring restrict @s
+718063195
++++ INVALID EXTRA PARAMETER 1
+keyctl restrict_keyring 718063195 asymmetric key_or_keyring:1011364151:bad_param
+keyctl_restrict_keyring: Invalid argument
++++ INVALID EXTRA PARAMETER 2
+keyctl restrict_keyring 718063195 asymmetric builtin_trusted:bad_param
+keyctl_restrict_keyring: Invalid argument
++++ INVALID RESTRICT METHOD
+keyctl restrict_keyring 718063195 asymmetric no_such_method:1011364151
+keyctl_restrict_keyring: Invalid argument
++++ INVALID KEY TYPE
+keyctl restrict_keyring 718063195 not_a_key_type builtin_trusted
+keyctl_restrict_keyring: Required key not available
++++ INVALID KEY ID
+keyctl restrict_keyring 718063195 asymmetric key_or_keyring:abcxyz
+keyctl_restrict_keyring: Invalid argument
++++ USE KEY ID 0 FOR KEYRING
+keyctl restrict_keyring 718063195 asymmetric key_or_keyring:0
+keyctl_restrict_keyring: Required key not available
+++++ FINISHED TEST: PASS

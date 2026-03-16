@@ -1,0 +1,11 @@
++ TMP=/tmp/autopkgtest.cL3URu/autopkgtest_tmp
++ [ ! -d /tmp/autopkgtest.cL3URu/autopkgtest_tmp ]
++ awk -F" /# *define QPDF_VERSION / {print $2} include/qpdf/DLL.h
++ tail -n 1
++ WANTED_VERSION=11.9.0
++ cp pkg-test/qpdf-version.cc pkg-test/CMakeLists.txt /tmp/autopkgtest.cL3URu/autopkgtest_tmp
++ cd /tmp/autopkgtest.cL3URu/autopkgtest_tmp
++ cmake -S . -B build
++ cmake --build build
++ ./build/qpdf-version
++ [ 11.9.0 != 11.9.0 ]

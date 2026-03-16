@@ -1,0 +1,96 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:41:50]: starting date and time: 2024-07-19 01:41:50+0800
+  0s autopkgtest [01:41:50]: version @version@
+  0s autopkgtest [01:41:50]: host nana; command line: /usr/bin/autopkgtest rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-winapi-x86-64-pc-windows-gnu -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.scokap
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-7e1633d2-c53a-40a8-bec7-d95ef8004188,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-7e1633d2-c53a-40a8-bec7-d95ef8004188//tmp/autopkgtest.scokap
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-7e1633d2-c53a-40a8-bec7-d95ef8004188//tmp/autopkgtest.scokap', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.scokap'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.scokap/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.scokap/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [01:41:53]: testbed dpkg architecture: riscv64
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [01:41:54]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.scokap/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.scokap/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-winapi-x86-64-pc-windows-gnu/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [01:41:55]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: Binaries: initialising
+  5s autopkgtest [01:41:55]: @@@@@@@@@@@@@@@@@@@@ source rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc
+  5s autopkgtest: DBG: blame += rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.scokap'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc /tmp/autopkgtest.scokap/rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.scokap'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-winapi-x86-64-pc-windows-gnu_0.4.0.orig.tar.gz /tmp/autopkgtest.scokap/rust-winapi-x86-64-pc-windows-gnu_0.4.0.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.scokap'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.debian.tar.xz /tmp/autopkgtest.scokap/rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.scokap/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.scokap/rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  6s + cd /
+  6s + mktemp -d /tmp/autopkgtest.scokap/build.XXX
+  7s + builddir=/tmp/autopkgtest.scokap/build.Lj2
+  7s + cd /tmp/autopkgtest.scokap/build.Lj2
+  7s + dpkg-source -x /tmp/autopkgtest.scokap/rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc src
+  7s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  7s gpgv: keyblock resource '/tmp/dpkg-verify-sig.diJOgVlX/trustedkeys.kbx': General error
+  7s gpgv: Signature made Wed 01 Mar 2023 09:44:04 AM CST
+  7s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  7s gpgv: Can't check signature: No public key
+  7s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.scokap/rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.dsc
+  7s dpkg-source: info: extracting rust-winapi-x86-64-pc-windows-gnu in src
+  7s dpkg-source: info: unpacking rust-winapi-x86-64-pc-windows-gnu_0.4.0.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-winapi-x86-64-pc-windows-gnu_0.4.0-ok1.debian.tar.xz
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [01:41:58]: testing package rust-winapi-x86-64-pc-windows-gnu version 0.4.0-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.scokap/build.Lj2/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-winapi-x86-64-pc-windows-gnu/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: autodep8 not available ([Errno 2] No such file or directory: 'autodep8')
+  8s autopkgtest [01:41:58]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.scokap/build.Lj2/src/ /home/hachi/openkylin_test/sharefolder/results/rust-winapi-x86-64-pc-windows-gnu/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: autodep8 not available ([Errno 2] No such file or directory: 'autodep8')
+  8s *                    SKIP no tests in this package
+  8s autopkgtest [01:41:58]: @@@@@@@@@@@@@@@@@@@@ summary
+  8s *                    SKIP no tests in this package
+  8s autopkgtest: DBG: testbed stop
+  8s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.scokap
+  8s autopkgtest: DBG: sending command to testbed: close
+  9s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 10s autopkgtest: DBG: got reply from testbed: ok
+ 10s autopkgtest: DBG: sending command to testbed: quit

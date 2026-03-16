@@ -1,0 +1,82 @@
+++++ BEGINNING TEST
++++ ADD KEYRING
+keyctl newring wibble @s
+1021946461
++++ ADD KEY
+keyctl add user lizard gizzard 1021946461
+772184837
++++ CHOWN
+keyctl chown 772184837 1
++++ CHOWN BACK
+keyctl chown 772184837 0
++++ CHGRP
+keyctl chgrp 772184837 1
+keyctl rdescribe 772184837 @
+user@0@1@3f010000@lizard
++++ ITERATE PERMISSIONS
+keyctl setperm 772184837 0x00210002
+keyctl rdescribe 772184837 @
+user@0@1@00210002@lizard
+keyctl setperm 772184837 0x00210004
+keyctl rdescribe 772184837 @
+user@0@1@00210004@lizard
+keyctl setperm 772184837 0x00210008
+keyctl rdescribe 772184837 @
+user@0@1@00210008@lizard
+keyctl setperm 772184837 0x00210010
+keyctl rdescribe 772184837 @
+user@0@1@00210010@lizard
+keyctl setperm 772184837 0x00210200
+keyctl rdescribe 772184837 @
+user@0@1@00210200@lizard
+keyctl setperm 772184837 0x00210400
+keyctl rdescribe 772184837 @
+user@0@1@00210400@lizard
+keyctl setperm 772184837 0x00210800
+keyctl rdescribe 772184837 @
+user@0@1@00210800@lizard
+keyctl setperm 772184837 0x00211000
+keyctl rdescribe 772184837 @
+user@0@1@00211000@lizard
+keyctl setperm 772184837 0x00230000
+keyctl rdescribe 772184837 @
+user@0@1@00230000@lizard
+keyctl setperm 772184837 0x00250000
+keyctl rdescribe 772184837 @
+user@0@1@00250000@lizard
+keyctl setperm 772184837 0x00290000
+keyctl rdescribe 772184837 @
+user@0@1@00290000@lizard
+keyctl setperm 772184837 0x00310000
+keyctl rdescribe 772184837 @
+user@0@1@00310000@lizard
+keyctl setperm 772184837 0x02210000
+keyctl rdescribe 772184837 @
+user@0@1@02210000@lizard
+keyctl setperm 772184837 0x04210000
+keyctl rdescribe 772184837 @
+user@0@1@04210000@lizard
+keyctl setperm 772184837 0x08210000
+keyctl rdescribe 772184837 @
+user@0@1@08210000@lizard
+keyctl setperm 772184837 0x10210000
+keyctl rdescribe 772184837 @
+user@0@1@10210000@lizard
++++ VIEW GROUP PERMISSIONS
+keyctl setperm 772184837 0x00201f00
+keyctl rdescribe 772184837 @
+keyctl_describe: Permission denied
++++ VIEW OTHER PERMISSIONS
+keyctl setperm 772184837 0x0020001f
+keyctl rdescribe 772184837 @
+keyctl_describe: Permission denied
++++ REMOVE SETATTR
+keyctl setperm 772184837 0x1f1f1f1f
+keyctl rdescribe 772184837 @
+user@0@1@1f1f1f1f@lizard
++++ REINSTATE SETATTR
+keyctl setperm 772184837 0x3f3f1f1f
+keyctl_setperm: Permission denied
++++ UNLINK KEYRING
+keyctl unlink 1021946461 @s
+++++ FINISHED TEST: PASS

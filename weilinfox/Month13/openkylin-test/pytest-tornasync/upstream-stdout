@@ -1,0 +1,54 @@
+====== Running tests for python3.12 ======
+$ python3.12 -m pytest -v
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.12.2, pytest-7.4.4, pluggy-1.4.0 -- /usr/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /tmp/autopkgtest.gWf5iT/autopkgtest_tmp
+configfile: pytest.ini
+testpaths: test
+plugins: tornasync-0.6.0.post2
+[1mcollecting ... [0mcollected 10 items
+
+test/test_plugin.py::test_plain_function [32mPASSED[0m
+test/test_plugin.py::test_plain_function_with_fixture [32mPASSED[0m
+test/test_plugin.py::test_pause [32mPASSED[0m
+test/test_plugin.py::test_http_client_fetch [32mPASSED[0m
+test/test_plugin.py::test_http_server_client_fetch [32mPASSED[0m
+test/test_plugin.py::test_expected_noncoroutine_fail [33mXFAIL[0m
+test/test_plugin.py::test_expected_coroutine_fail_no_ioloop [33mXFAIL[0m
+test/test_plugin.py::test_expected_coroutine_fail_io_loop [33mXFAIL[0m
+test/test_plugin.py::test_timeout [33mXFAIL[0m
+test/test_plugin2.py::test_bad_io_loop_fixture [33mXFAIL[0m
+
+[33m=============================== warnings summary ===============================[0m
+../../../usr/lib/python3/dist-packages/_pytest/config/__init__.py:1373
+  /usr/lib/python3/dist-packages/_pytest/config/__init__.py:1373: PytestConfigWarning: Unknown config option: looponfailroots
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+test/test_plugin.py:95
+  /tmp/autopkgtest.gWf5iT/autopkgtest_tmp/test/test_plugin.py:95: PytestUnknownMarkWarning: Unknown pytest.mark.timeout - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.timeout(seconds=0.1)
+
+test/test_plugin.py::test_pause
+  /usr/lib/python3/dist-packages/tornado/platform/asyncio.py:333: DeprecationWarning: There is no current event loop
+    self.old_asyncio = asyncio.get_event_loop()
+
+test/test_plugin.py::test_pause
+test/test_plugin.py::test_http_client_fetch
+test/test_plugin.py::test_http_server_client_fetch
+test/test_plugin.py::test_expected_coroutine_fail_io_loop
+test/test_plugin.py::test_timeout
+  /usr/lib/python3/dist-packages/pytest_tornasync/plugin.py:65: DeprecationWarning: make_current is deprecated; start the event loop first
+    loop.make_current()
+
+test/test_plugin.py::test_pause
+test/test_plugin.py::test_http_client_fetch
+test/test_plugin.py::test_http_server_client_fetch
+test/test_plugin.py::test_expected_coroutine_fail_io_loop
+test/test_plugin.py::test_timeout
+  /usr/lib/python3/dist-packages/pytest_tornasync/plugin.py:67: DeprecationWarning: clear_current is deprecated
+    loop.clear_current()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[33m================== [32m5 passed[0m, [33m[1m5 xfailed[0m, [33m[1m13 warnings[0m[33m in 0.59s[0m[33m ===================[0m

@@ -1,0 +1,411 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [21:33:49]: starting date and time: 2024-07-18 21:33:49+0800
+  0s autopkgtest [21:33:49]: version @version@
+  0s autopkgtest [21:33:49]: host nana; command line: /usr/bin/autopkgtest rdate_1.11-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rdate -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.FAKcym
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-ab524de6-9e7f-498b-b650-6ed8f4316a3a,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-ab524de6-9e7f-498b-b650-6ed8f4316a3a//tmp/autopkgtest.FAKcym
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-ab524de6-9e7f-498b-b650-6ed8f4316a3a//tmp/autopkgtest.FAKcym', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FAKcym'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.FAKcym/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.FAKcym/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [21:33:52]: testbed dpkg architecture: riscv64
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [21:33:53]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.FAKcym/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rdate/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [21:33:54]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: Binaries: initialising
+  5s autopkgtest [21:33:54]: @@@@@@@@@@@@@@@@@@@@ source rdate_1.11-ok1.dsc
+  5s autopkgtest: DBG: blame += rdate_1.11-ok1.dsc
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FAKcym'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rdate_1.11-ok1.dsc /tmp/autopkgtest.FAKcym/rdate_1.11-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FAKcym'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rdate_1.11.orig.tar.gz /tmp/autopkgtest.FAKcym/rdate_1.11.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FAKcym'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rdate_1.11-ok1.debian.tar.xz /tmp/autopkgtest.FAKcym/rdate_1.11-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.FAKcym/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.FAKcym/rdate_1.11-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.FAKcym/build.XXX
+  7s + builddir=/tmp/autopkgtest.FAKcym/build.lTE
+  7s + cd /tmp/autopkgtest.FAKcym/build.lTE
+  7s + dpkg-source -x /tmp/autopkgtest.FAKcym/rdate_1.11-ok1.dsc src
+  7s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  7s gpgv: keyblock resource '/tmp/dpkg-verify-sig.egl3SmLM/trustedkeys.kbx': General error
+  7s gpgv: Signature made Mon 06 May 2024 02:29:04 PM CST
+  7s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  7s gpgv: Can't check signature: No public key
+  7s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.FAKcym/rdate_1.11-ok1.dsc
+  8s dpkg-source: info: extracting rdate in src
+  8s dpkg-source: info: unpacking rdate_1.11.orig.tar.gz
+  8s dpkg-source: info: unpacking rdate_1.11-ok1.debian.tar.xz
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [21:33:57]: testing package rdate version 1:1.11-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/build.lTE/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rdate/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency rdate
+  8s autopkgtest: DBG: Test defined: name command1 path None command "/usr/sbin/rdate 2>&1 | grep Usage" restrictions [] features [] depends ['rdate'] 
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency rdate
+  8s autopkgtest: DBG: Test defined: name command2 path None command "rdate -n4pv 127.0.0.1 || exit 77" restrictions ['allow-stderr', 'needs-root', 'skippable'] features [] depends ['rdate'] 
+  8s autopkgtest [21:33:57]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/build.lTE/src/ /home/hachi/openkylin_test/sharefolder/results/rdate/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency rdate
+  8s autopkgtest: DBG: Test defined: name command1 path None command "/usr/sbin/rdate 2>&1 | grep Usage" restrictions [] features [] depends ['rdate'] 
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency rdate
+  8s autopkgtest: DBG: Test defined: name command2 path None command "rdate -n4pv 127.0.0.1 || exit 77" restrictions ['allow-stderr', 'needs-root', 'skippable'] features [] depends ['rdate'] 
+  8s autopkgtest [21:33:57]: test command1: preparing testbed
+  8s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['rdate']
+  8s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  8s autopkgtest: DBG: install_deps: deps_new=['rdate']
+  8s autopkgtest: DBG: install-deps: satisfying rdate
+  8s autopkgtest: DBG: install-deps: architecture resolved: rdate
+  8s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FAKcym'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ab524de6-9e7f-498b-b650-6ed8f4316a3a//tmp/autopkgtest.FAKcym/1-autopkgtest-satdep.deb /tmp/autopkgtest.FAKcym/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.FAKcym/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 10s Building dependency tree...
+ 10s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 0
+ 11s Starting 2 pkgProblemResolver with broken count: 0
+ 11s Done
+ 12s The following packages were automatically installed and are no longer required:
+ 12s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 12s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 12s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 12s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 12s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 12s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 12s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 12s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 12s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 12s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 12s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 12s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 12s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 12s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 12s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 12s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 12s   language-selector-common language-selector-gnome libatrildocument3
+ 12s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 12s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 12s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 12s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 12s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 12s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 12s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 12s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 12s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 12s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 12s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 12s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 12s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 12s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 12s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 12s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 12s Use 'sudo apt autoremove' to remove them.
+ 12s The following additional packages will be installed:
+ 12s   rdate tzdata tzdata-legacy
+ 12s The following NEW packages will be installed:
+ 12s   autopkgtest-satdep rdate tzdata-legacy
+ 12s The following packages will be upgraded:
+ 12s   tzdata
+ 12s 1 upgraded, 3 newly installed, 0 to remove and 1065 not upgraded.
+ 12s Need to get 351 kB/352 kB of archives.
+ 12s After this operation, 1,397 kB disk space will be freed.
+ 12s Get:1 /tmp/autopkgtest.FAKcym/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [700 B]
+ 13s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 tzdata all 2024a-ok1 [250 kB]
+ 13s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 tzdata-legacy all 2024a-ok1 [86.9 kB]
+ 13s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 rdate riscv64 1:1.11-ok1 [13.8 kB]
+ 16s Preconfiguring packages ...
+ 17s Fetched 351 kB in 1s (351 kB/s)
+ 17s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 18s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 18s Preparing to unpack .../tzdata_2024a-ok1_all.deb ...
+ 18s Unpacking tzdata (2024a-ok1) over (2019c-ok1) ...
+ 23s Selecting previously unselected package tzdata-legacy.
+ 23s Preparing to unpack .../tzdata-legacy_2024a-ok1_all.deb ...
+ 23s Unpacking tzdata-legacy (2024a-ok1) ...
+ 25s Selecting previously unselected package rdate.
+ 25s Preparing to unpack .../rdate_1%3a1.11-ok1_riscv64.deb ...
+ 25s Unpacking rdate (1:1.11-ok1) ...
+ 25s Selecting previously unselected package autopkgtest-satdep.
+ 26s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 26s Unpacking autopkgtest-satdep (0) ...
+ 26s Setting up tzdata (2024a-ok1) ...
+ 26s 
+ 26s Current default time zone: 'Asia/Shanghai'
+ 26s Local time is now:      Thu Jul 18 21:34:15 CST 2024.
+ 26s Universal Time is now:  Thu Jul 18 13:34:15 UTC 2024.
+ 26s Run 'dpkg-reconfigure tzdata' if you wish to change it.
+ 26s 
+ 26s Setting up tzdata-legacy (2024a-ok1) ...
+ 27s Setting up rdate (1:1.11-ok1) ...
+ 27s Setting up autopkgtest-satdep (0) ...
+ 27s Processing triggers for man-db (2.10.2-2) ...
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'rdate'], kind short, sout pipe, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg rdate session-migration tzdata-legacy ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 35s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 41s autopkgtest: DBG: testbed command exited with code 0
+ 41s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg'], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'rdate', 'session-migration', 'tzdata-legacy', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 46s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 47s (Reading database ... 193162 files and directories currently installed.)
+ 47s Removing autopkgtest-satdep (0) ...
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.FAKcym/command1-packages.all"], kind short, sout raw, serr pipe, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command1-packages.all /home/hachi/openkylin_test/sharefolder/results/rdate/command1-packages.all
+ 48s autopkgtest: DBG: got reply from testbed: ok
+ 48s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.FAKcym/build.lTE/src'], kind short, sout raw, serr raw, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.FAKcym/build.lTE/src already exists
+ 48s autopkgtest [21:34:37]: test command1: /usr/sbin/rdate 2>&1 | grep Usage
+ 48s autopkgtest [21:34:37]: test command1: [-----------------------
+ 48s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', "set -e; exec /tmp/autopkgtest.FAKcym/wrapper.sh --debug --artifacts=/tmp/autopkgtest.FAKcym/command1-artifacts --chdir=/tmp/autopkgtest.FAKcym/build.lTE/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.FAKcym/command1-stderr --stdout=/tmp/autopkgtest.FAKcym/command1-stdout --tmp=/tmp/autopkgtest.FAKcym/autopkgtest_tmp -- bash -ec '/usr/sbin/rdate 2>&1 | grep Usage'"], kind test, sout raw, serr raw, env []
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.FAKcym/command1-artifacts
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: changing to directory: /tmp/autopkgtest.FAKcym/build.lTE/src
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: LANG=C.UTF-8
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LANGUAGE
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_ADDRESS
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_ALL
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_COLLATE
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_CTYPE
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_MESSAGES
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_MONETARY
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_NAME
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_NUMERIC
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_PAPER
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_TIME
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: pretending to be a login shell
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: will write standard error to /tmp/autopkgtest.FAKcym/command1-stderr
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: will write stdout to /tmp/autopkgtest.FAKcym/command1-stdout
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.FAKcym/autopkgtest_tmp
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: command to run: bash -ec /usr/sbin/rdate 2>&1 | grep Usage
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: copying /tmp/tmp.h7edb82IGz/out to stdout and file: /tmp/autopkgtest.FAKcym/command1-stdout
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: copying /tmp/tmp.h7edb82IGz/err to standard error and file: /tmp/autopkgtest.FAKcym/command1-stdout
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: writing script pid 1160997 to /tmp/autopkgtest_script_pid
+ 48s Usage: rdate [-46acnpsv] [ -b sec ] [-o port] [ -t msec ] host
+ 48s /tmp/autopkgtest.FAKcym/wrapper.sh: checking for leaked background processes...
+ 49s /tmp/autopkgtest.FAKcym/wrapper.sh: waiting for tee/cat subprocesses...
+ 49s /tmp/autopkgtest.FAKcym/wrapper.sh: cleaning up...
+ 49s /tmp/autopkgtest.FAKcym/wrapper.sh: Exit status: 0
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest [21:34:38]: test command1: -----------------------]
+ 49s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 49s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command1-stdout /home/hachi/openkylin_test/sharefolder/results/rdate/command1-stdout
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command1-stderr /home/hachi/openkylin_test/sharefolder/results/rdate/command1-stderr
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest [21:34:38]: test command1:  - - - - - - - - - - results - - - - - - - - - -
+ 49s command1             PASS
+ 49s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command1-artifacts/ /home/hachi/openkylin_test/sharefolder/results/rdate/artifacts/
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.FAKcym/command1-artifacts', '/tmp/autopkgtest.FAKcym/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest [21:34:38]: test command2: preparing testbed
+ 49s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['rdate'], deps_new=['rdate']
+ 49s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 49s autopkgtest: DBG: install_deps: deps_new=['rdate']
+ 49s autopkgtest: DBG: install-deps: satisfying rdate
+ 50s autopkgtest: DBG: install-deps: architecture resolved: rdate
+ 50s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: can use apt-get on testbed: True
+ 50s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FAKcym'], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ab524de6-9e7f-498b-b650-6ed8f4316a3a//tmp/autopkgtest.FAKcym/2-autopkgtest-satdep.deb /tmp/autopkgtest.FAKcym/2-autopkgtest-satdep.deb
+ 50s autopkgtest: DBG: got reply from testbed: ok
+ 50s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.FAKcym/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 52s Reading package lists...
+ 52s Building dependency tree...
+ 52s Reading state information...
+ 53s Starting pkgProblemResolver with broken count: 0
+ 53s Starting 2 pkgProblemResolver with broken count: 0
+ 53s Done
+ 54s The following NEW packages will be installed:
+ 54s   autopkgtest-satdep
+ 54s 0 upgraded, 1 newly installed, 0 to remove and 1065 not upgraded.
+ 54s Need to get 0 B/700 B of archives.
+ 54s After this operation, 0 B of additional disk space will be used.
+ 54s Get:1 /tmp/autopkgtest.FAKcym/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [700 B]
+ 58s Selecting previously unselected package autopkgtest-satdep.
+ 58s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 58s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193162 files and directories currently installed.)
+ 58s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 58s Unpacking autopkgtest-satdep (0) ...
+ 59s Setting up autopkgtest-satdep (0) ...
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'rdate'], kind short, sout pipe, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 65s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 66s (Reading database ... 193162 files and directories currently installed.)
+ 66s Removing autopkgtest-satdep (0) ...
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.FAKcym/command2-packages.all"], kind short, sout raw, serr pipe, env []
+ 67s autopkgtest: DBG: testbed command exited with code 0
+ 67s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command2-packages.all /home/hachi/openkylin_test/sharefolder/results/rdate/command2-packages.all
+ 67s autopkgtest: DBG: got reply from testbed: ok
+ 67s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.FAKcym/build.lTE/src'], kind short, sout raw, serr raw, env []
+ 67s autopkgtest: DBG: testbed command exited with code 0
+ 67s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.FAKcym/build.lTE/src already exists
+ 67s autopkgtest [21:34:56]: test command2: rdate -n4pv 127.0.0.1 || exit 77
+ 67s autopkgtest [21:34:56]: test command2: [-----------------------
+ 67s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', "set -e; exec /tmp/autopkgtest.FAKcym/wrapper.sh --debug --artifacts=/tmp/autopkgtest.FAKcym/command2-artifacts --chdir=/tmp/autopkgtest.FAKcym/build.lTE/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.FAKcym/command2-stderr --stdout=/tmp/autopkgtest.FAKcym/command2-stdout --tmp=/tmp/autopkgtest.FAKcym/autopkgtest_tmp --env=AUTOPKGTEST_NORMAL_USER= --env=ADT_NORMAL_USER= -- bash -ec 'rdate -n4pv 127.0.0.1 || exit 77'"], kind test, sout raw, serr raw, env []
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.FAKcym/command2-artifacts
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: changing to directory: /tmp/autopkgtest.FAKcym/build.lTE/src
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: LANG=C.UTF-8
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LANGUAGE
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_ADDRESS
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_ALL
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_COLLATE
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_CTYPE
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_MESSAGES
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_MONETARY
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_NAME
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_NUMERIC
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_PAPER
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: unsetting environment: LC_TIME
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: pretending to be a login shell
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: will write standard error to /tmp/autopkgtest.FAKcym/command2-stderr
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: will write stdout to /tmp/autopkgtest.FAKcym/command2-stdout
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.FAKcym/autopkgtest_tmp
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: AUTOPKGTEST_NORMAL_USER=
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: setting environment: ADT_NORMAL_USER=
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: command to run: bash -ec rdate -n4pv 127.0.0.1 || exit 77
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: copying /tmp/tmp.wRr1dRUQPY/out to stdout and file: /tmp/autopkgtest.FAKcym/command2-stdout
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: copying /tmp/tmp.wRr1dRUQPY/err to standard error and file: /tmp/autopkgtest.FAKcym/command2-stdout
+ 67s /tmp/autopkgtest.FAKcym/wrapper.sh: writing script pid 1161120 to /tmp/autopkgtest_script_pid
+ 68s rdate: Unable to receive NTP packet from server: Connection refused
+ 68s rdate: Unable to get a reasonable time estimate
+ 68s /tmp/autopkgtest.FAKcym/wrapper.sh: checking for leaked background processes...
+ 68s /tmp/autopkgtest.FAKcym/wrapper.sh: waiting for tee/cat subprocesses...
+ 68s /tmp/autopkgtest.FAKcym/wrapper.sh: cleaning up...
+ 68s /tmp/autopkgtest.FAKcym/wrapper.sh: Exit status: 77
+ 68s autopkgtest: DBG: testbed command exited with code 77
+ 68s autopkgtest [21:34:57]: test command2: -----------------------]
+ 68s autopkgtest: DBG: testbed executing test finished with exit status 77
+ 68s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command2-stdout /home/hachi/openkylin_test/sharefolder/results/rdate/command2-stdout
+ 68s autopkgtest: DBG: got reply from testbed: ok
+ 68s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command2-stderr /home/hachi/openkylin_test/sharefolder/results/rdate/command2-stderr
+ 68s autopkgtest: DBG: got reply from testbed: ok
+ 68s autopkgtest [21:34:57]: test command2:  - - - - - - - - - - results - - - - - - - - - -
+ 68s command2             SKIP exit status 77 and marked as skippable
+ 68s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FAKcym/command2-artifacts/ /home/hachi/openkylin_test/sharefolder/results/rdate/artifacts/
+ 68s autopkgtest: DBG: got reply from testbed: ok
+ 68s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.FAKcym/command2-artifacts', '/tmp/autopkgtest.FAKcym/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 68s autopkgtest: DBG: testbed command exited with code 0
+ 69s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 69s autopkgtest [21:34:58]: @@@@@@@@@@@@@@@@@@@@ summary
+ 69s command1             PASS
+ 69s command2             SKIP exit status 77 and marked as skippable
+ 69s autopkgtest: DBG: testbed stop
+ 69s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.FAKcym
+ 69s autopkgtest: DBG: sending command to testbed: close
+ 69s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 71s autopkgtest: DBG: got reply from testbed: ok
+ 71s autopkgtest: DBG: sending command to testbed: quit

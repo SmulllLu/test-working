@@ -1,0 +1,465 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:20:25]: starting date and time: 2024-07-19 01:20:25+0800
+  0s autopkgtest [01:20:25]: version @version@
+  0s autopkgtest [01:20:25]: host nana; command line: /usr/bin/autopkgtest rust-tokio-macros_2.2.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-tokio-macros -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.tfGkId
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-51e93869-70a0-4586-a0ab-d962f27c4a6e,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-51e93869-70a0-4586-a0ab-d962f27c4a6e//tmp/autopkgtest.tfGkId
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-51e93869-70a0-4586-a0ab-d962f27c4a6e//tmp/autopkgtest.tfGkId', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tfGkId'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.tfGkId/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.tfGkId/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [01:20:29]: testbed dpkg architecture: riscv64
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [01:20:29]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.tfGkId/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tfGkId/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-tokio-macros/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [01:20:30]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: Binaries: initialising
+  6s autopkgtest [01:20:31]: @@@@@@@@@@@@@@@@@@@@ source rust-tokio-macros_2.2.0-ok1.dsc
+  6s autopkgtest: DBG: blame += rust-tokio-macros_2.2.0-ok1.dsc
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tfGkId'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-tokio-macros_2.2.0-ok1.dsc /tmp/autopkgtest.tfGkId/rust-tokio-macros_2.2.0-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tfGkId'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-tokio-macros_2.2.0.orig.tar.gz /tmp/autopkgtest.tfGkId/rust-tokio-macros_2.2.0.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tfGkId'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-tokio-macros_2.2.0-ok1.debian.tar.xz /tmp/autopkgtest.tfGkId/rust-tokio-macros_2.2.0-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.tfGkId/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.tfGkId/rust-tokio-macros_2.2.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.tfGkId/build.XXX
+  7s + builddir=/tmp/autopkgtest.tfGkId/build.Kft
+  7s + cd /tmp/autopkgtest.tfGkId/build.Kft
+  7s + dpkg-source -x /tmp/autopkgtest.tfGkId/rust-tokio-macros_2.2.0-ok1.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.BYJ_5L06/trustedkeys.kbx': General error
+  8s gpgv: Signature made Tue 07 May 2024 04:34:40 PM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.tfGkId/rust-tokio-macros_2.2.0-ok1.dsc
+  8s dpkg-source: info: extracting rust-tokio-macros in src
+  8s dpkg-source: info: unpacking rust-tokio-macros_2.2.0.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-tokio-macros_2.2.0-ok1.debian.tar.xz
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [01:20:33]: testing package rust-tokio-macros version 2.2.0-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tfGkId/build.Kft/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-tokio-macros/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+full-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-tokio-macros-dev
+  8s autopkgtest: DBG: Test defined: name rust-tokio-macros:@ path None command "/usr/share/cargo/bin/cargo-auto-test tokio-macros 2.2.0 --all-targets --all-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=rust-tokio-macros:@'] depends ['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+full-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-tokio-macros-dev
+  8s autopkgtest: DBG: Test defined: name librust-tokio-macros-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test tokio-macros 2.2.0 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-tokio-macros-dev:default'] depends ['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+full-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-tokio-macros-dev
+  8s autopkgtest: DBG: Test defined: name librust-tokio-macros-dev: path None command "/usr/share/cargo/bin/cargo-auto-test tokio-macros 2.2.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-tokio-macros-dev:'] depends ['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'] 
+  8s autopkgtest [01:20:33]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.tfGkId/build.Kft/src/ /home/hachi/openkylin_test/sharefolder/results/rust-tokio-macros/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+full-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-tokio-macros-dev
+  8s autopkgtest: DBG: Test defined: name rust-tokio-macros:@ path None command "/usr/share/cargo/bin/cargo-auto-test tokio-macros 2.2.0 --all-targets --all-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=rust-tokio-macros:@'] depends ['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+full-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-tokio-macros-dev
+  8s autopkgtest: DBG: Test defined: name librust-tokio-macros-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test tokio-macros 2.2.0 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-tokio-macros-dev:default'] depends ['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-tokio-1+full-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-tokio-macros-dev
+  8s autopkgtest: DBG: Test defined: name librust-tokio-macros-dev: path None command "/usr/share/cargo/bin/cargo-auto-test tokio-macros 2.2.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-tokio-macros-dev:'] depends ['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'] 
+  8s autopkgtest [01:20:33]: test rust-tokio-macros:@: preparing testbed
+  8s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev']
+  8s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  8s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev']
+  8s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-tokio-1+default-dev, librust-tokio-1+full-dev, librust-tokio-macros-dev
+  8s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-tokio-1+default-dev, librust-tokio-1+full-dev, librust-tokio-macros-dev
+  8s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tfGkId'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-51e93869-70a0-4586-a0ab-d962f27c4a6e//tmp/autopkgtest.tfGkId/1-autopkgtest-satdep.deb /tmp/autopkgtest.tfGkId/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.tfGkId/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 10s Building dependency tree...
+ 10s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 4
+ 11s Starting 2 pkgProblemResolver with broken count: 4
+ 11s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 11s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 11s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 11s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 11s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s   Re-Instated librust-sval-derive-dev:riscv64
+ 11s   Re-Instated librust-sval-dev:riscv64
+ 11s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 11s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 11s Investigating (0) librust-backtrace-dev:riscv64 < none -> 0.3.69-ok1 @un puN Ib >
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-addr2line-0.21-dev:riscv64 < none @un H >
+ 11s   Considering librust-addr2line-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s   Re-Instated librust-cpp-demangle-dev:riscv64
+ 11s     Reinst Failed early because of librust-fallible-iterator-0.3-dev:riscv64
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-cc-1+default-dev:riscv64 < none @un H > (>= 1.0.67-~~)
+ 11s   Considering librust-cc-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s   Re-Instated librust-cc-dev:riscv64
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-miniz-oxide-0.7-dev:riscv64 < none @un H >
+ 11s   Considering librust-miniz-oxide-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s   Re-Instated librust-adler-dev:riscv64
+ 11s   Re-Instated librust-miniz-oxide-dev:riscv64
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+archive-dev:riscv64 < none @un H >
+ 11s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s   Re-Instated librust-compiler-builtins-dev:riscv64
+ 11s   Re-Instated librust-crc32fast-dev:riscv64
+ 11s   Re-Instated librust-pkg-config-dev:riscv64
+ 11s   Re-Instated librust-vcpkg-dev:riscv64
+ 11s   Re-Instated librust-libz-sys-dev:riscv64
+ 11s   Re-Instated librust-libz-sys+libc-dev:riscv64
+ 11s   Re-Instated librust-libz-sys+default-dev:riscv64
+ 11s   Re-Instated librust-flate2-dev:riscv64
+ 11s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 11s     Reinst Failed because of librust-hashbrown-dev:riscv64
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+elf-dev:riscv64 < none @un H >
+ 11s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+macho-dev:riscv64 < none @un H >
+ 11s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+pe-dev:riscv64 < none @un H >
+ 11s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+read-core-dev:riscv64 < none @un H >
+ 11s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+unaligned-dev:riscv64 < none @un H >
+ 11s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 11s Broken librust-backtrace-dev:riscv64 Depends on librust-rustc-demangle-0.1+default-dev:riscv64 < none @un H > (>= 0.1.4-~~)
+ 11s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 11s Broken librust-tracing-core-dev:riscv64 Depends on librust-once-cell-1+default-dev:riscv64 < none @un H > (>= 1.13.0-~~)
+ 11s   Considering librust-once-cell-dev:riscv64 0 as a solution to librust-tracing-core-dev:riscv64 -1
+ 11s     Reinst Failed early because of librust-critical-section-1+default-dev:riscv64
+ 11s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 11s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 11s Done
+ 11s Some packages could not be installed. This may mean that you have
+ 11s requested an impossible situation or if you are using the unstable
+ 11s distribution that some required packages have not yet been created
+ 11s or been moved out of Incoming.
+ 11s The following information may help to resolve the situation:
+ 11s 
+ 11s The following packages have unmet dependencies:
+ 11s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 11s  librust-backtrace-dev : Depends: librust-addr2line-0.21-dev
+ 11s                          Depends: librust-object-0.32+archive-dev
+ 11s                          Depends: librust-object-0.32+elf-dev
+ 11s                          Depends: librust-object-0.32+macho-dev
+ 11s                          Depends: librust-object-0.32+pe-dev
+ 11s                          Depends: librust-object-0.32+read-core-dev
+ 11s                          Depends: librust-object-0.32+unaligned-dev
+ 11s                          Depends: librust-rustc-demangle-0.1+default-dev (>= 0.1.4-~~) but it is not installable
+ 11s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 11s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 11s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 11s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 11s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 11s  librust-tracing-core-dev : Depends: librust-once-cell-1+default-dev (>= 1.13.0-~~)
+ 11s                             Depends: librust-valuable-0.1+std-dev but it is not installable
+ 11s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 11s E: Unable to correct problems, you have held broken packages.
+ 11s autopkgtest: DBG: testbed command exited with code 100
+ 11s autopkgtest: DBG: apt-get install /tmp/autopkgtest.tfGkId/1-autopkgtest-satdep.deb failed; status-fd:
+ 11s 
+ 11s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 11s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-tokio-1+default-dev librust-tokio-1+full-dev librust-tokio-macros-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s autopkgtest: DBG: testbed command exited with code 2
+ 12s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 12s rust-tokio-macros:@  SKIP installation fails and skip-not-installable set
+ 12s autopkgtest [01:20:37]: test librust-tokio-macros-dev:default: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'], deps_new=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-tokio-1+default-dev, librust-tokio-1+full-dev, librust-tokio-macros-dev
+ 12s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-tokio-1+default-dev, librust-tokio-1+full-dev, librust-tokio-macros-dev
+ 12s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: can use apt-get on testbed: True
+ 12s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tfGkId'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-51e93869-70a0-4586-a0ab-d962f27c4a6e//tmp/autopkgtest.tfGkId/2-autopkgtest-satdep.deb /tmp/autopkgtest.tfGkId/2-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.tfGkId/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 14s Building dependency tree...
+ 14s Reading state information...
+ 14s Starting pkgProblemResolver with broken count: 4
+ 15s Starting 2 pkgProblemResolver with broken count: 4
+ 15s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 15s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 15s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 15s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 15s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s   Re-Instated librust-sval-derive-dev:riscv64
+ 15s   Re-Instated librust-sval-dev:riscv64
+ 15s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 15s Broken librust-tracing-core-dev:riscv64 Depends on librust-once-cell-1+default-dev:riscv64 < none @un H > (>= 1.13.0-~~)
+ 15s   Considering librust-once-cell-dev:riscv64 0 as a solution to librust-tracing-core-dev:riscv64 -1
+ 15s     Reinst Failed early because of librust-critical-section-1+default-dev:riscv64
+ 15s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 15s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 15s Investigating (0) librust-backtrace-dev:riscv64 < none -> 0.3.69-ok1 @un puN Ib >
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-addr2line-0.21-dev:riscv64 < none @un H >
+ 15s   Considering librust-addr2line-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s   Re-Instated librust-cpp-demangle-dev:riscv64
+ 15s     Reinst Failed early because of librust-fallible-iterator-0.3-dev:riscv64
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-cc-1+default-dev:riscv64 < none @un H > (>= 1.0.67-~~)
+ 15s   Considering librust-cc-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s   Re-Instated librust-cc-dev:riscv64
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-miniz-oxide-0.7-dev:riscv64 < none @un H >
+ 15s   Considering librust-miniz-oxide-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s   Re-Instated librust-adler-dev:riscv64
+ 15s   Re-Instated librust-miniz-oxide-dev:riscv64
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+archive-dev:riscv64 < none @un H >
+ 15s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s   Re-Instated librust-compiler-builtins-dev:riscv64
+ 15s   Re-Instated librust-crc32fast-dev:riscv64
+ 15s   Re-Instated librust-pkg-config-dev:riscv64
+ 15s   Re-Instated librust-vcpkg-dev:riscv64
+ 15s   Re-Instated librust-libz-sys-dev:riscv64
+ 15s   Re-Instated librust-libz-sys+libc-dev:riscv64
+ 15s   Re-Instated librust-libz-sys+default-dev:riscv64
+ 15s   Re-Instated librust-flate2-dev:riscv64
+ 15s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 15s     Reinst Failed because of librust-hashbrown-dev:riscv64
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+elf-dev:riscv64 < none @un H >
+ 15s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+macho-dev:riscv64 < none @un H >
+ 15s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+pe-dev:riscv64 < none @un H >
+ 15s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+read-core-dev:riscv64 < none @un H >
+ 15s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+unaligned-dev:riscv64 < none @un H >
+ 15s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 15s Broken librust-backtrace-dev:riscv64 Depends on librust-rustc-demangle-0.1+default-dev:riscv64 < none @un H > (>= 0.1.4-~~)
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 15s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 15s  librust-backtrace-dev : Depends: librust-addr2line-0.21-dev
+ 15s                          Depends: librust-object-0.32+archive-dev
+ 15s                          Depends: librust-object-0.32+elf-dev
+ 15s                          Depends: librust-object-0.32+macho-dev
+ 15s                          Depends: librust-object-0.32+pe-dev
+ 15s                          Depends: librust-object-0.32+read-core-dev
+ 15s                          Depends: librust-object-0.32+unaligned-dev
+ 15s                          Depends: librust-rustc-demangle-0.1+default-dev (>= 0.1.4-~~) but it is not installable
+ 15s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 15s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 15s  librust-tracing-core-dev : Depends: librust-once-cell-1+default-dev (>= 1.13.0-~~)
+ 15s                             Depends: librust-valuable-0.1+std-dev but it is not installable
+ 15s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 15s E: Unable to correct problems, you have held broken packages.
+ 15s autopkgtest: DBG: testbed command exited with code 100
+ 15s autopkgtest: DBG: apt-get install /tmp/autopkgtest.tfGkId/2-autopkgtest-satdep.deb failed; status-fd:
+ 15s 
+ 15s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 15s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-tokio-1+default-dev librust-tokio-1+full-dev librust-tokio-macros-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 15s autopkgtest: DBG: testbed command exited with code 2
+ 15s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 15s librust-tokio-macros-dev:default SKIP installation fails and skip-not-installable set
+ 15s autopkgtest [01:20:40]: test librust-tokio-macros-dev:: preparing testbed
+ 15s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev'], deps_new=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev']
+ 15s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 15s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-tokio-1+default-dev', 'librust-tokio-1+full-dev', 'librust-tokio-macros-dev']
+ 15s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-tokio-1+default-dev, librust-tokio-1+full-dev, librust-tokio-macros-dev
+ 16s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-tokio-1+default-dev, librust-tokio-1+full-dev, librust-tokio-macros-dev
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 16s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.tfGkId'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-51e93869-70a0-4586-a0ab-d962f27c4a6e//tmp/autopkgtest.tfGkId/3-autopkgtest-satdep.deb /tmp/autopkgtest.tfGkId/3-autopkgtest-satdep.deb
+ 16s autopkgtest: DBG: got reply from testbed: ok
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.tfGkId/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 18s Starting pkgProblemResolver with broken count: 4
+ 18s Starting 2 pkgProblemResolver with broken count: 4
+ 18s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 18s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 18s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 18s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 18s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s   Re-Instated librust-sval-derive-dev:riscv64
+ 18s   Re-Instated librust-sval-dev:riscv64
+ 18s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 18s Broken librust-tracing-core-dev:riscv64 Depends on librust-once-cell-1+default-dev:riscv64 < none @un H > (>= 1.13.0-~~)
+ 18s   Considering librust-once-cell-dev:riscv64 0 as a solution to librust-tracing-core-dev:riscv64 -1
+ 18s     Reinst Failed early because of librust-critical-section-1+default-dev:riscv64
+ 18s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 18s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 18s Investigating (0) librust-backtrace-dev:riscv64 < none -> 0.3.69-ok1 @un puN Ib >
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-addr2line-0.21-dev:riscv64 < none @un H >
+ 18s   Considering librust-addr2line-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s   Re-Instated librust-cpp-demangle-dev:riscv64
+ 18s     Reinst Failed early because of librust-fallible-iterator-0.3-dev:riscv64
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-cc-1+default-dev:riscv64 < none @un H > (>= 1.0.67-~~)
+ 18s   Considering librust-cc-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s   Re-Instated librust-cc-dev:riscv64
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-miniz-oxide-0.7-dev:riscv64 < none @un H >
+ 18s   Considering librust-miniz-oxide-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s   Re-Instated librust-adler-dev:riscv64
+ 18s   Re-Instated librust-miniz-oxide-dev:riscv64
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+archive-dev:riscv64 < none @un H >
+ 18s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s   Re-Instated librust-compiler-builtins-dev:riscv64
+ 18s   Re-Instated librust-crc32fast-dev:riscv64
+ 18s   Re-Instated librust-pkg-config-dev:riscv64
+ 18s   Re-Instated librust-vcpkg-dev:riscv64
+ 18s   Re-Instated librust-libz-sys-dev:riscv64
+ 18s   Re-Instated librust-libz-sys+libc-dev:riscv64
+ 18s   Re-Instated librust-libz-sys+default-dev:riscv64
+ 18s   Re-Instated librust-flate2-dev:riscv64
+ 18s     Reinst Failed early because of librust-ahash-0.7+compile-time-rng-dev:riscv64
+ 18s     Reinst Failed because of librust-hashbrown-dev:riscv64
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+elf-dev:riscv64 < none @un H >
+ 18s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+macho-dev:riscv64 < none @un H >
+ 18s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+pe-dev:riscv64 < none @un H >
+ 18s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+read-core-dev:riscv64 < none @un H >
+ 18s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-object-0.32+unaligned-dev:riscv64 < none @un H >
+ 18s   Considering librust-object-dev:riscv64 0 as a solution to librust-backtrace-dev:riscv64 -1
+ 18s Broken librust-backtrace-dev:riscv64 Depends on librust-rustc-demangle-0.1+default-dev:riscv64 < none @un H > (>= 0.1.4-~~)
+ 18s Done
+ 18s Some packages could not be installed. This may mean that you have
+ 18s requested an impossible situation or if you are using the unstable
+ 18s distribution that some required packages have not yet been created
+ 18s or been moved out of Incoming.
+ 18s The following information may help to resolve the situation:
+ 18s 
+ 18s The following packages have unmet dependencies:
+ 19s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 19s  librust-backtrace-dev : Depends: librust-addr2line-0.21-dev
+ 19s                          Depends: librust-object-0.32+archive-dev
+ 19s                          Depends: librust-object-0.32+elf-dev
+ 19s                          Depends: librust-object-0.32+macho-dev
+ 19s                          Depends: librust-object-0.32+pe-dev
+ 19s                          Depends: librust-object-0.32+read-core-dev
+ 19s                          Depends: librust-object-0.32+unaligned-dev
+ 19s                          Depends: librust-rustc-demangle-0.1+default-dev (>= 0.1.4-~~) but it is not installable
+ 19s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 19s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 19s  librust-tracing-core-dev : Depends: librust-once-cell-1+default-dev (>= 1.13.0-~~)
+ 19s                             Depends: librust-valuable-0.1+std-dev but it is not installable
+ 19s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 19s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.tfGkId/3-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-tokio-1+default-dev librust-tokio-1+full-dev librust-tokio-macros-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 19s autopkgtest: DBG: testbed command exited with code 2
+ 19s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 19s librust-tokio-macros-dev: SKIP installation fails and skip-not-installable set
+ 19s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 19s autopkgtest [01:20:44]: @@@@@@@@@@@@@@@@@@@@ summary
+ 19s rust-tokio-macros:@  SKIP installation fails and skip-not-installable set
+ 19s librust-tokio-macros-dev:default SKIP installation fails and skip-not-installable set
+ 19s librust-tokio-macros-dev: SKIP installation fails and skip-not-installable set
+ 19s autopkgtest: DBG: testbed stop
+ 19s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.tfGkId
+ 19s autopkgtest: DBG: sending command to testbed: close
+ 20s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: sending command to testbed: quit

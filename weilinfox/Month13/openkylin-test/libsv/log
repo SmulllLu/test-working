@@ -1,0 +1,581 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [12:58:41]: starting date and time: 2024-07-18 12:58:41+0800
+  0s autopkgtest [12:58:41]: version @version@
+  0s autopkgtest [12:58:41]: host nana; command line: /usr/bin/autopkgtest libsv_1.2-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/libsv -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.snYbGM
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-83ff8afd-1de3-4947-8e67-f8eb7c029640,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-83ff8afd-1de3-4947-8e67-f8eb7c029640//tmp/autopkgtest.snYbGM
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-83ff8afd-1de3-4947-8e67-f8eb7c029640//tmp/autopkgtest.snYbGM', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.snYbGM'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.snYbGM/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.snYbGM/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [12:58:43]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [12:58:43]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.snYbGM/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.snYbGM/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libsv/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [12:58:43]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [12:58:43]: @@@@@@@@@@@@@@@@@@@@ source libsv_1.2-ok1.dsc
+  2s autopkgtest: DBG: blame += libsv_1.2-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.snYbGM'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libsv_1.2-ok1.dsc /tmp/autopkgtest.snYbGM/libsv_1.2-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.snYbGM'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libsv_1.2.orig.tar.gz /tmp/autopkgtest.snYbGM/libsv_1.2.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.snYbGM'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libsv_1.2-ok1.debian.tar.xz /tmp/autopkgtest.snYbGM/libsv_1.2-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.snYbGM/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.snYbGM/libsv_1.2-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  4s + cd /
+  4s + mktemp -d /tmp/autopkgtest.snYbGM/build.XXX
+  4s + builddir=/tmp/autopkgtest.snYbGM/build.1U6
+  4s + cd /tmp/autopkgtest.snYbGM/build.1U6
+  4s + dpkg-source -x /tmp/autopkgtest.snYbGM/libsv_1.2-ok1.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.uUNaDN4n/trustedkeys.kbx': General error
+  4s gpgv: Signature made Tue 16 Jan 2024 05:21:39 PM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.snYbGM/libsv_1.2-ok1.dsc
+  5s dpkg-source: info: extracting libsv in src
+  5s dpkg-source: info: unpacking libsv_1.2.orig.tar.gz
+  5s dpkg-source: info: unpacking libsv_1.2-ok1.debian.tar.xz
+  5s + chmod -R a+rX .
+  5s + cd src/.
+  5s + pwd
+  5s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [12:58:46]: testing package libsv version 1.2-ok1
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.snYbGM/build.1U6/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libsv/pkg/debian/
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: processing dependency @builddeps@
+  5s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  5s autopkgtest: DBG: synthesised dependency build-essential
+  5s autopkgtest: DBG: Test defined: name unittest.sh path debian/tests/unittest.sh command "None" restrictions ['allow-stderr'] features [] depends ['debhelper-compat (= 13)', 'build-essential'] 
+  5s autopkgtest [12:58:46]: build not needed
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.snYbGM/build.1U6/src/ /home/hachi/openkylin_test/sharefolder/results/libsv/tests-tree/
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: processing dependency @builddeps@
+  5s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  5s autopkgtest: DBG: synthesised dependency build-essential
+  5s autopkgtest: DBG: Test defined: name unittest.sh path debian/tests/unittest.sh command "None" restrictions ['allow-stderr'] features [] depends ['debhelper-compat (= 13)', 'build-essential'] 
+  5s autopkgtest [12:58:46]: test unittest.sh: preparing testbed
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['debhelper-compat (= 13)', 'build-essential']
+  5s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  5s autopkgtest: DBG: install_deps: deps_new=['debhelper-compat (= 13)', 'build-essential']
+  5s autopkgtest: DBG: install-deps: satisfying debhelper-compat (= 13), build-essential
+  6s autopkgtest: DBG: install-deps: architecture resolved: debhelper-compat (= 13), build-essential
+  6s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: can use apt-get on testbed: True
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.snYbGM'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-83ff8afd-1de3-4947-8e67-f8eb7c029640//tmp/autopkgtest.snYbGM/1-autopkgtest-satdep.deb /tmp/autopkgtest.snYbGM/1-autopkgtest-satdep.deb
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.snYbGM/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  7s Reading package lists...
+  8s Building dependency tree...
+  8s Reading state information...
+  8s Starting pkgProblemResolver with broken count: 0
+  9s Starting 2 pkgProblemResolver with broken count: 0
+  9s Done
+  9s The following packages were automatically installed and are no longer required:
+  9s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  9s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  9s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  9s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  9s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  9s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  9s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  9s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  9s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  9s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  9s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  9s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  9s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  9s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  9s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  9s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  9s   language-selector-common language-selector-gnome libatrildocument3
+  9s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  9s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  9s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  9s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  9s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  9s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  9s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  9s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  9s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  9s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  9s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  9s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  9s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  9s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  9s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  9s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  9s Use 'sudo apt autoremove' to remove them.
+  9s The following additional packages will be installed:
+  9s   autoconf automake autopoint autotools-dev debhelper dh-autoreconf
+  9s   dh-strip-nondeterminism dwz gettext gettext-base intltool-debian
+  9s   libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl
+  9s   libsub-override-perl libtool libunistring5 m4 po-debconf
+  9s Suggested packages:
+  9s   autoconf-archive gnu-standards autoconf-doc dh-make gettext-doc
+  9s   libasprintf-dev libgettextpo-dev libtool-doc gfortran | fortran95-compiler
+  9s   gcj-jdk m4-doc libmail-box-perl
+  9s Recommended packages:
+  9s   libarchive-cpio-perl libltdl-dev libmail-sendmail-perl
+ 10s The following NEW packages will be installed:
+ 10s   autoconf automake autopkgtest-satdep autopoint autotools-dev debhelper
+ 10s   dh-autoreconf dh-strip-nondeterminism dwz intltool-debian
+ 10s   libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl
+ 10s   libsub-override-perl libtool libunistring5 m4 po-debconf
+ 10s The following packages will be upgraded:
+ 10s   gettext gettext-base
+ 10s 2 upgraded, 18 newly installed, 0 to remove and 1064 not upgraded.
+ 10s Need to get 5,173 kB/5,174 kB of archives.
+ 10s After this operation, 10.9 MB of additional disk space will be used.
+ 10s Get:1 /tmp/autopkgtest.snYbGM/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+ 10s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext-base riscv64 0.22-ok3 [81.1 kB]
+ 10s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 m4 riscv64 1.4.19-ok1 [259 kB]
+ 10s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 autoconf all 2.71-ok2 [390 kB]
+ 11s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 autotools-dev all 20220506-ok1 [41.6 kB]
+ 11s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 automake all 1:1.16.5-ok1 [557 kB]
+ 11s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libunistring5 riscv64 1.1-ok1 [540 kB]
+ 11s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext riscv64 0.22-ok3 [1,190 kB]
+ 12s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 autopoint all 0.22-ok3 [424 kB]
+ 12s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdebhelper-perl all 13.15.3-ok1 [66.0 kB]
+ 12s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtool all 2.4.7-ok2 [164 kB]
+ 12s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-autoreconf all 20-ok1 [16.3 kB]
+ 12s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libarchive-zip-perl all 1.68-ok1 [90.7 kB]
+ 12s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsub-override-perl all 0.10-ok1 [9,172 B]
+ 12s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfile-stripnondeterminism-perl all 1.13.1-ok1 [16.3 kB]
+ 12s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-strip-nondeterminism all 1.13.1-ok1 [5,324 B]
+ 12s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 dwz riscv64 0.15-1ok1 [113 kB]
+ 12s Get:18 http://archive.build.openkylin.top/openkylin nile/main riscv64 intltool-debian all 0.35.0+20060710.5-ok2 [23.2 kB]
+ 12s Get:19 http://archive.build.openkylin.top/openkylin nile/main riscv64 po-debconf all 1.0.21+nmu1-ok1 [227 kB]
+ 12s Get:20 http://archive.build.openkylin.top/openkylin nile/main riscv64 debhelper all 13.15.3-ok1 [959 kB]
+ 16s Fetched 5,173 kB in 3s (1,907 kB/s)
+ 16s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 17s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 17s Preparing to unpack .../00-gettext-base_0.22-ok3_riscv64.deb ...
+ 17s Unpacking gettext-base (0.22-ok3) over (0.21-4-ok6) ...
+ 18s Selecting previously unselected package m4.
+ 18s Preparing to unpack .../01-m4_1.4.19-ok1_riscv64.deb ...
+ 18s Unpacking m4 (1.4.19-ok1) ...
+ 19s Selecting previously unselected package autoconf.
+ 19s Preparing to unpack .../02-autoconf_2.71-ok2_all.deb ...
+ 19s Unpacking autoconf (2.71-ok2) ...
+ 20s Selecting previously unselected package autotools-dev.
+ 20s Preparing to unpack .../03-autotools-dev_20220506-ok1_all.deb ...
+ 20s Unpacking autotools-dev (20220506-ok1) ...
+ 21s Selecting previously unselected package automake.
+ 21s Preparing to unpack .../04-automake_1%3a1.16.5-ok1_all.deb ...
+ 21s Unpacking automake (1:1.16.5-ok1) ...
+ 22s Selecting previously unselected package libunistring5:riscv64.
+ 22s Preparing to unpack .../05-libunistring5_1.1-ok1_riscv64.deb ...
+ 22s Unpacking libunistring5:riscv64 (1.1-ok1) ...
+ 22s Preparing to unpack .../06-gettext_0.22-ok3_riscv64.deb ...
+ 22s Unpacking gettext (0.22-ok3) over (0.21-4-ok5) ...
+ 25s Selecting previously unselected package autopoint.
+ 25s Preparing to unpack .../07-autopoint_0.22-ok3_all.deb ...
+ 25s Unpacking autopoint (0.22-ok3) ...
+ 25s Selecting previously unselected package libdebhelper-perl.
+ 25s Preparing to unpack .../08-libdebhelper-perl_13.15.3-ok1_all.deb ...
+ 25s Unpacking libdebhelper-perl (13.15.3-ok1) ...
+ 26s Selecting previously unselected package libtool.
+ 26s Preparing to unpack .../09-libtool_2.4.7-ok2_all.deb ...
+ 26s Unpacking libtool (2.4.7-ok2) ...
+ 26s Selecting previously unselected package dh-autoreconf.
+ 26s Preparing to unpack .../10-dh-autoreconf_20-ok1_all.deb ...
+ 26s Unpacking dh-autoreconf (20-ok1) ...
+ 27s Selecting previously unselected package libarchive-zip-perl.
+ 27s Preparing to unpack .../11-libarchive-zip-perl_1.68-ok1_all.deb ...
+ 27s Unpacking libarchive-zip-perl (1.68-ok1) ...
+ 27s Selecting previously unselected package libsub-override-perl.
+ 27s Preparing to unpack .../12-libsub-override-perl_0.10-ok1_all.deb ...
+ 27s Unpacking libsub-override-perl (0.10-ok1) ...
+ 28s Selecting previously unselected package libfile-stripnondeterminism-perl.
+ 28s Preparing to unpack .../13-libfile-stripnondeterminism-perl_1.13.1-ok1_all.deb ...
+ 28s Unpacking libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 28s Selecting previously unselected package dh-strip-nondeterminism.
+ 28s Preparing to unpack .../14-dh-strip-nondeterminism_1.13.1-ok1_all.deb ...
+ 28s Unpacking dh-strip-nondeterminism (1.13.1-ok1) ...
+ 29s Selecting previously unselected package dwz.
+ 29s Preparing to unpack .../15-dwz_0.15-1ok1_riscv64.deb ...
+ 29s Unpacking dwz (0.15-1ok1) ...
+ 29s Selecting previously unselected package intltool-debian.
+ 29s Preparing to unpack .../16-intltool-debian_0.35.0+20060710.5-ok2_all.deb ...
+ 29s Unpacking intltool-debian (0.35.0+20060710.5-ok2) ...
+ 29s Selecting previously unselected package po-debconf.
+ 30s Preparing to unpack .../17-po-debconf_1.0.21+nmu1-ok1_all.deb ...
+ 30s Unpacking po-debconf (1.0.21+nmu1-ok1) ...
+ 30s Selecting previously unselected package debhelper.
+ 30s Preparing to unpack .../18-debhelper_13.15.3-ok1_all.deb ...
+ 30s Unpacking debhelper (13.15.3-ok1) ...
+ 33s Selecting previously unselected package autopkgtest-satdep.
+ 34s Preparing to unpack .../19-1-autopkgtest-satdep.deb ...
+ 34s Unpacking autopkgtest-satdep (0) ...
+ 35s Setting up libarchive-zip-perl (1.68-ok1) ...
+ 35s Setting up libdebhelper-perl (13.15.3-ok1) ...
+ 35s Setting up gettext-base (0.22-ok3) ...
+ 35s Setting up m4 (1.4.19-ok1) ...
+ 35s Setting up autotools-dev (20220506-ok1) ...
+ 35s Setting up libunistring5:riscv64 (1.1-ok1) ...
+ 35s Setting up autopoint (0.22-ok3) ...
+ 35s Setting up autoconf (2.71-ok2) ...
+ 35s Setting up dwz (0.15-1ok1) ...
+ 35s Setting up libsub-override-perl (0.10-ok1) ...
+ 35s Setting up automake (1:1.16.5-ok1) ...
+ 35s update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+ 35s Setting up libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 35s Setting up gettext (0.22-ok3) ...
+ 35s Setting up libtool (2.4.7-ok2) ...
+ 35s Setting up intltool-debian (0.35.0+20060710.5-ok2) ...
+ 36s Setting up dh-autoreconf (20-ok1) ...
+ 36s Setting up dh-strip-nondeterminism (1.13.1-ok1) ...
+ 36s Setting up po-debconf (1.0.21+nmu1-ok1) ...
+ 36s Setting up debhelper (13.15.3-ok1) ...
+ 36s Setting up autopkgtest-satdep (0) ...
+ 36s Processing triggers for man-db (2.10.2-2) ...
+ 37s Processing triggers for install-info (6.8-6ok1.1) ...
+ 38s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 41s autopkgtest: DBG: testbed command exited with code 0
+ 41s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 41s autopkgtest: DBG: testbed command exited with code 0
+ 41s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 47s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg'], kind short, sout raw, serr pipe, env []
+ 56s autopkgtest: DBG: testbed command exited with code 0
+ 56s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 58s autopkgtest: DBG: testbed command exited with code 0
+ 58s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 58s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 58s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 59s (Reading database ... 194802 files and directories currently installed.)
+ 59s Removing autopkgtest-satdep (0) ...
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.snYbGM/unittest.sh-packages.all"], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.snYbGM/unittest.sh-packages.all /home/hachi/openkylin_test/sharefolder/results/libsv/unittest.sh-packages.all
+ 60s autopkgtest: DBG: got reply from testbed: ok
+ 60s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.snYbGM/build.1U6/src'], kind short, sout raw, serr raw, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.snYbGM/build.1U6/src already exists
+ 60s autopkgtest [12:59:41]: test unittest.sh: [-----------------------
+ 60s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.snYbGM/wrapper.sh --debug --artifacts=/tmp/autopkgtest.snYbGM/unittest.sh-artifacts --chdir=/tmp/autopkgtest.snYbGM/build.1U6/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.snYbGM/unittest.sh-stderr --stdout=/tmp/autopkgtest.snYbGM/unittest.sh-stdout --tmp=/tmp/autopkgtest.snYbGM/autopkgtest_tmp --make-executable=/tmp/autopkgtest.snYbGM/build.1U6/src/debian/tests/unittest.sh -- /tmp/autopkgtest.snYbGM/build.1U6/src/debian/tests/unittest.sh'], kind test, sout raw, serr raw, env []
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.snYbGM/unittest.sh-artifacts
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: changing to directory: /tmp/autopkgtest.snYbGM/build.1U6/src
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: setting environment: LANG=C.UTF-8
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LANGUAGE
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_ADDRESS
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_ALL
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_COLLATE
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_CTYPE
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_MESSAGES
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_MONETARY
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_NAME
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_NUMERIC
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_PAPER
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: unsetting environment: LC_TIME
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: pretending to be a login shell
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: will write standard error to /tmp/autopkgtest.snYbGM/unittest.sh-stderr
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: will write stdout to /tmp/autopkgtest.snYbGM/unittest.sh-stdout
+ 60s /tmp/autopkgtest.snYbGM/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.snYbGM/autopkgtest_tmp
+ 61s /tmp/autopkgtest.snYbGM/wrapper.sh: marking as executable: /tmp/autopkgtest.snYbGM/build.1U6/src/debian/tests/unittest.sh
+ 61s /tmp/autopkgtest.snYbGM/wrapper.sh: command to run: /tmp/autopkgtest.snYbGM/build.1U6/src/debian/tests/unittest.sh
+ 61s /tmp/autopkgtest.snYbGM/wrapper.sh: copying /tmp/tmp.QHwwht4IZX/out to stdout and file: /tmp/autopkgtest.snYbGM/unittest.sh-stdout
+ 61s /tmp/autopkgtest.snYbGM/wrapper.sh: copying /tmp/tmp.QHwwht4IZX/err to standard error and file: /tmp/autopkgtest.snYbGM/unittest.sh-stdout
+ 61s /tmp/autopkgtest.snYbGM/wrapper.sh: writing script pid 958241 to /tmp/autopkgtest_script_pid
+ 74s libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'scripts'.
+ 74s libtoolize: copying file 'scripts/ltmain.sh'
+ 74s libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+ 74s libtoolize: copying file 'm4/libtool.m4'
+ 74s libtoolize: copying file 'm4/ltoptions.m4'
+ 75s libtoolize: copying file 'm4/ltsugar.m4'
+ 75s libtoolize: copying file 'm4/ltversion.m4'
+ 75s libtoolize: copying file 'm4/lt~obsolete.m4'
+ 82s configure.ac:60: warning: The macro `AC_PROG_CC_C99' is obsolete.
+ 82s configure.ac:60: You should run autoupdate.
+ 82s ./lib/autoconf/c.m4:1659: AC_PROG_CC_C99 is expanded from...
+ 82s configure.ac:60: the top level
+ 82s configure.ac:62: warning: The macro `AC_HEADER_STDC' is obsolete.
+ 82s configure.ac:62: You should run autoupdate.
+ 82s ./lib/autoconf/headers.m4:704: AC_HEADER_STDC is expanded from...
+ 82s configure.ac:62: the top level
+ 84s configure.ac:38: installing 'scripts/ar-lib'
+ 84s configure.ac:38: installing 'scripts/compile'
+ 84s configure.ac:32: installing 'scripts/config.guess'
+ 84s configure.ac:32: installing 'scripts/config.sub'
+ 84s configure.ac:35: installing 'scripts/install-sh'
+ 84s configure.ac:35: installing 'scripts/missing'
+ 84s Makefile.am: installing 'scripts/depcomp'
+ 84s parallel-tests: installing 'scripts/test-driver'
+ 86s checking build system type... riscv64-unknown-linux-gnu
+ 86s checking host system type... riscv64-unknown-linux-gnu
+ 86s checking target system type... riscv64-unknown-linux-gnu
+ 86s checking for a BSD-compatible install... /usr/bin/install -c
+ 86s checking whether build environment is sane... yes
+ 86s checking for a race-free mkdir -p... /usr/bin/mkdir -p
+ 86s checking for gawk... gawk
+ 87s checking whether make sets $(MAKE)... yes
+ 87s checking whether make supports nested variables... yes
+ 87s checking whether to enable maintainer-specific portions of Makefiles... no
+ 87s checking whether make supports the include directive... yes (GNU style)
+ 87s checking for gcc... gcc
+ 87s checking whether the C compiler works... yes
+ 87s checking for C compiler default output file name... a.out
+ 88s checking for suffix of executables... 
+ 88s checking whether we are cross compiling... no
+ 88s checking for suffix of object files... o
+ 88s checking whether the compiler supports GNU C... yes
+ 89s checking whether gcc accepts -g... yes
+ 89s checking for gcc option to enable C11 features... none needed
+ 89s checking whether gcc understands -c and -o together... yes
+ 90s checking dependency style of gcc... gcc3
+ 90s checking for ar... ar
+ 90s checking the archiver (ar) interface... ar
+ 90s checking whether ln -s works... yes
+ 90s checking whether make sets $(MAKE)... (cached) yes
+ 90s checking how to print strings... printf
+ 90s checking for a sed that does not truncate output... /usr/bin/sed
+ 90s checking for grep that handles long lines and -e... /usr/bin/grep
+ 90s checking for egrep... /usr/bin/grep -E
+ 90s checking for fgrep... /usr/bin/grep -F
+ 90s checking for ld used by gcc... /usr/bin/ld
+ 90s checking if the linker (/usr/bin/ld) is GNU ld... yes
+ 91s checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+ 91s checking the name lister (/usr/bin/nm -B) interface... BSD nm
+ 91s checking the maximum length of command line arguments... 1572864
+ 91s checking how to convert riscv64-unknown-linux-gnu file names to riscv64-unknown-linux-gnu format... func_convert_file_noop
+ 91s checking how to convert riscv64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+ 91s checking for /usr/bin/ld option to reload object files... -r
+ 91s checking for file... file
+ 91s checking for objdump... objdump
+ 91s checking how to recognize dependent libraries... pass_all
+ 91s checking for dlltool... no
+ 91s checking how to associate runtime and link libraries... printf %s\n
+ 91s checking for archiver @FILE support... @
+ 91s checking for strip... strip
+ 91s checking for ranlib... ranlib
+ 92s checking command to parse /usr/bin/nm -B output from gcc object... ok
+ 92s checking for sysroot... no
+ 92s checking for a working dd... /usr/bin/dd
+ 92s checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+ 92s checking for mt... mt
+ 92s checking if mt is a manifest tool... no
+ 92s checking for stdio.h... yes
+ 92s checking for stdlib.h... yes
+ 93s checking for string.h... yes
+ 93s checking for inttypes.h... yes
+ 93s checking for stdint.h... yes
+ 94s checking for strings.h... yes
+ 94s checking for sys/stat.h... yes
+ 94s checking for sys/types.h... yes
+ 94s checking for unistd.h... yes
+ 95s checking for dlfcn.h... yes
+ 95s checking for objdir... .libs
+ 96s checking if gcc supports -fno-rtti -fno-exceptions... no
+ 96s checking for gcc option to produce PIC... -fPIC -DPIC
+ 96s checking if gcc PIC flag -fPIC -DPIC works... yes
+ 96s checking if gcc static flag -static works... yes
+ 97s checking if gcc supports -c -o file.o... yes
+ 97s checking if gcc supports -c -o file.o... (cached) yes
+ 97s checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+ 97s checking whether -lc should be explicitly linked in... no
+ 98s checking dynamic linker characteristics... GNU/Linux ld.so
+ 98s checking how to hardcode library paths into programs... immediate
+ 98s checking whether stripping libraries is possible... yes
+ 98s checking if libtool supports shared libraries... yes
+ 98s checking whether to build shared libraries... yes
+ 98s checking whether to build static libraries... yes
+ 98s checking dependency style of gcc... gcc3
+ 98s checking for egrep... (cached) /usr/bin/grep -E
+ 99s checking that generated files are newer than configure... done
+ 99s configure: creating ./config.status
+105s config.status: creating Makefile
+105s config.status: creating scripts/libsv.pc
+105s config.status: executing depfiles commands
+106s config.status: executing libtool commands
+107s depbase=`echo src/comp.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+107s /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.    -I./src -I./include -Wall  -g -O2 -MT src/comp.lo -MD -MP -MF $depbase.Tpo -c -o src/comp.lo src/comp.c &&\
+107s mv -f $depbase.Tpo $depbase.Plo
+107s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/comp.lo -MD -MP -MF src/.deps/comp.Tpo -c src/comp.c  -fPIC -DPIC -o src/.libs/comp.o
+109s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/comp.lo -MD -MP -MF src/.deps/comp.Tpo -c src/comp.c -o src/comp.o >/dev/null 2>&1
+110s depbase=`echo src/id.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+110s /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.    -I./src -I./include -Wall  -g -O2 -MT src/id.lo -MD -MP -MF $depbase.Tpo -c -o src/id.lo src/id.c &&\
+110s mv -f $depbase.Tpo $depbase.Plo
+111s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/id.lo -MD -MP -MF src/.deps/id.Tpo -c src/id.c  -fPIC -DPIC -o src/.libs/id.o
+112s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/id.lo -MD -MP -MF src/.deps/id.Tpo -c src/id.c -o src/id.o >/dev/null 2>&1
+112s depbase=`echo src/num.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+112s /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.    -I./src -I./include -Wall  -g -O2 -MT src/num.lo -MD -MP -MF $depbase.Tpo -c -o src/num.lo src/num.c &&\
+112s mv -f $depbase.Tpo $depbase.Plo
+113s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/num.lo -MD -MP -MF src/.deps/num.Tpo -c src/num.c  -fPIC -DPIC -o src/.libs/num.o
+113s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/num.lo -MD -MP -MF src/.deps/num.Tpo -c src/num.c -o src/num.o >/dev/null 2>&1
+114s depbase=`echo src/range.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+114s /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.    -I./src -I./include -Wall  -g -O2 -MT src/range.lo -MD -MP -MF $depbase.Tpo -c -o src/range.lo src/range.c &&\
+114s mv -f $depbase.Tpo $depbase.Plo
+114s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/range.lo -MD -MP -MF src/.deps/range.Tpo -c src/range.c  -fPIC -DPIC -o src/.libs/range.o
+115s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/range.lo -MD -MP -MF src/.deps/range.Tpo -c src/range.c -o src/range.o >/dev/null 2>&1
+116s depbase=`echo src/semvers.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+116s /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.    -I./src -I./include -Wall  -g -O2 -MT src/semvers.lo -MD -MP -MF $depbase.Tpo -c -o src/semvers.lo src/semvers.c &&\
+116s mv -f $depbase.Tpo $depbase.Plo
+116s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/semvers.lo -MD -MP -MF src/.deps/semvers.Tpo -c src/semvers.c  -fPIC -DPIC -o src/.libs/semvers.o
+117s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/semvers.lo -MD -MP -MF src/.deps/semvers.Tpo -c src/semvers.c -o src/semvers.o >/dev/null 2>&1
+118s depbase=`echo src/version.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+118s /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.    -I./src -I./include -Wall  -g -O2 -MT src/version.lo -MD -MP -MF $depbase.Tpo -c -o src/version.lo src/version.c &&\
+118s mv -f $depbase.Tpo $depbase.Plo
+118s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/version.lo -MD -MP -MF src/.deps/version.Tpo -c src/version.c  -fPIC -DPIC -o src/.libs/version.o
+119s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/version.lo -MD -MP -MF src/.deps/version.Tpo -c src/version.c -o src/version.o >/dev/null 2>&1
+120s depbase=`echo src/utils.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+120s /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.    -I./src -I./include -Wall  -g -O2 -MT src/utils.lo -MD -MP -MF $depbase.Tpo -c -o src/utils.lo src/utils.c &&\
+120s mv -f $depbase.Tpo $depbase.Plo
+120s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/utils.lo -MD -MP -MF src/.deps/utils.Tpo -c src/utils.c  -fPIC -DPIC -o src/.libs/utils.o
+120s libtool: compile:  gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" "-DPACKAGE_STRING=\"libsv 0.0.1\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I. -I./src -I./include -Wall -g -O2 -MT src/utils.lo -MD -MP -MF src/.deps/utils.Tpo -c src/utils.c -o src/utils.o >/dev/null 2>&1
+121s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2 -version-info 1:0:0  -o libsv.la -rpath /usr/local/lib src/comp.lo src/id.lo src/num.lo src/range.lo src/semvers.lo src/version.lo src/utils.lo  
+122s libtool: link: gcc -shared  -fPIC -DPIC  src/.libs/comp.o src/.libs/id.o src/.libs/num.o src/.libs/range.o src/.libs/semvers.o src/.libs/version.o src/.libs/utils.o    -g -O2   -Wl,-soname -Wl,libsv.so.1 -o .libs/libsv.so.1.0.0
+122s libtool: link: (cd ".libs" && rm -f "libsv.so.1" && ln -s "libsv.so.1.0.0" "libsv.so.1")
+122s libtool: link: (cd ".libs" && rm -f "libsv.so" && ln -s "libsv.so.1.0.0" "libsv.so")
+122s libtool: link: ar cr .libs/libsv.a  src/comp.o src/id.o src/num.o src/range.o src/semvers.o src/version.o src/utils.o
+122s libtool: link: ranlib .libs/libsv.a
+122s libtool: link: ( cd ".libs" && rm -f "libsv.la" && ln -s "../libsv.la" "libsv.la" )
+122s make  test/version test/comp test/match test/range test/semvers test/utils test/usage
+122s make[1]: Entering directory '/tmp/autopkgtest.snYbGM/build.1U6/src'
+123s gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.  -I./src -I./include  -I./src -I./include -Wall  -g -O2 -MT test/version-version.o -MD -MP -MF test/.deps/version-version.Tpo -c -o test/version-version.o `test -f 'test/version.c' || echo './'`test/version.c
+123s mv -f test/.deps/version-version.Tpo test/.deps/version-version.Po
+123s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2   -o test/version test/version-version.o libsv.la 
+124s libtool: link: gcc -I./src -I./include -Wall -g -O2 -o test/.libs/version test/version-version.o  ./.libs/libsv.so
+124s gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.  -I./src -I./include  -I./src -I./include -Wall  -g -O2 -MT test/comp-comp.o -MD -MP -MF test/.deps/comp-comp.Tpo -c -o test/comp-comp.o `test -f 'test/comp.c' || echo './'`test/comp.c
+125s mv -f test/.deps/comp-comp.Tpo test/.deps/comp-comp.Po
+125s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2   -o test/comp test/comp-comp.o libsv.la 
+126s libtool: link: gcc -I./src -I./include -Wall -g -O2 -o test/.libs/comp test/comp-comp.o  ./.libs/libsv.so
+126s gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.  -I./src -I./include  -I./src -I./include -Wall  -g -O2 -MT test/match-match.o -MD -MP -MF test/.deps/match-match.Tpo -c -o test/match-match.o `test -f 'test/match.c' || echo './'`test/match.c
+127s mv -f test/.deps/match-match.Tpo test/.deps/match-match.Po
+127s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2   -o test/match test/match-match.o libsv.la 
+128s libtool: link: gcc -I./src -I./include -Wall -g -O2 -o test/.libs/match test/match-match.o  ./.libs/libsv.so
+128s gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.  -I./src -I./include  -I./src -I./include -Wall  -g -O2 -MT test/range-range.o -MD -MP -MF test/.deps/range-range.Tpo -c -o test/range-range.o `test -f 'test/range.c' || echo './'`test/range.c
+129s mv -f test/.deps/range-range.Tpo test/.deps/range-range.Po
+129s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2   -o test/range test/range-range.o libsv.la 
+130s libtool: link: gcc -I./src -I./include -Wall -g -O2 -o test/.libs/range test/range-range.o  ./.libs/libsv.so
+130s gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.  -I./src -I./include  -I./src -I./include -Wall  -g -O2 -MT test/semvers-semvers.o -MD -MP -MF test/.deps/semvers-semvers.Tpo -c -o test/semvers-semvers.o `test -f 'test/semvers.c' || echo './'`test/semvers.c
+131s mv -f test/.deps/semvers-semvers.Tpo test/.deps/semvers-semvers.Po
+131s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2   -o test/semvers test/semvers-semvers.o libsv.la 
+132s libtool: link: gcc -I./src -I./include -Wall -g -O2 -o test/.libs/semvers test/semvers-semvers.o  ./.libs/libsv.so
+132s gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.  -I./src -I./include  -I./src -I./include -Wall  -g -O2 -MT test/utils-utils.o -MD -MP -MF test/.deps/utils-utils.Tpo -c -o test/utils-utils.o `test -f 'test/utils.c' || echo './'`test/utils.c
+132s mv -f test/.deps/utils-utils.Tpo test/.deps/utils-utils.Po
+133s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2   -o test/utils test/utils-utils.o libsv.la 
+133s libtool: link: gcc -I./src -I./include -Wall -g -O2 -o test/.libs/utils test/utils-utils.o  ./.libs/libsv.so
+134s gcc -DPACKAGE_NAME=\"libsv\" -DPACKAGE_TARNAME=\"libsv\" -DPACKAGE_VERSION=\"0.0.1\" -DPACKAGE_STRING=\"libsv\ 0.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"http://github.com/uael/sv\" -DPACKAGE=\"libsv\" -DVERSION=\"0.0.1\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -Dlibsv_VERSION_INTERFACE=1.0.0 -Dlibsv_VERSION_INTERFACE_CURRENT=1 -Dlibsv_VERSION_INTERFACE_REVISION=0 -Dlibsv_VERSION_INTERFACE_AGE=0 -Dlibsv_VERSION_INTERFACE_STRING=\"1.0\" -I.  -I./src -I./include  -I./src -I./include -Wall  -g -O2 -MT test/usage-usage.o -MD -MP -MF test/.deps/usage-usage.Tpo -c -o test/usage-usage.o `test -f 'test/usage.c' || echo './'`test/usage.c
+134s mv -f test/.deps/usage-usage.Tpo test/.deps/usage-usage.Po
+134s /bin/bash ./libtool  --tag=CC   --mode=link gcc -I./src -I./include -Wall  -g -O2   -o test/usage test/usage-usage.o libsv.la 
+135s libtool: link: gcc -I./src -I./include -Wall -g -O2 -o test/.libs/usage test/usage-usage.o  ./.libs/libsv.so
+135s make[1]: Leaving directory '/tmp/autopkgtest.snYbGM/build.1U6/src'
+135s make  check-TESTS
+135s make[1]: Entering directory '/tmp/autopkgtest.snYbGM/build.1U6/src'
+135s make[2]: Entering directory '/tmp/autopkgtest.snYbGM/build.1U6/src'
+136s PASS: test/version
+136s PASS: test/comp
+136s PASS: test/match
+136s PASS: test/range
+137s PASS: test/semvers
+137s PASS: test/utils
+137s PASS: test/usage
+138s ============================================================================
+138s Testsuite summary for libsv 0.0.1
+138s ============================================================================
+138s # TOTAL: 7
+138s # PASS:  7
+138s # SKIP:  0
+138s # XFAIL: 0
+138s # FAIL:  0
+138s # XPASS: 0
+138s # ERROR: 0
+138s ============================================================================
+138s make[2]: Leaving directory '/tmp/autopkgtest.snYbGM/build.1U6/src'
+138s make[1]: Leaving directory '/tmp/autopkgtest.snYbGM/build.1U6/src'
+138s /tmp/autopkgtest.snYbGM/wrapper.sh: checking for leaked background processes...
+138s /tmp/autopkgtest.snYbGM/wrapper.sh: waiting for tee/cat subprocesses...
+138s /tmp/autopkgtest.snYbGM/wrapper.sh: cleaning up...
+138s /tmp/autopkgtest.snYbGM/wrapper.sh: Exit status: 0
+138s autopkgtest: DBG: testbed command exited with code 0
+138s autopkgtest [13:00:59]: test unittest.sh: -----------------------]
+138s autopkgtest: DBG: testbed executing test finished with exit status 0
+138s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.snYbGM/unittest.sh-stdout /home/hachi/openkylin_test/sharefolder/results/libsv/unittest.sh-stdout
+138s autopkgtest: DBG: got reply from testbed: ok
+138s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.snYbGM/unittest.sh-stderr /home/hachi/openkylin_test/sharefolder/results/libsv/unittest.sh-stderr
+138s autopkgtest: DBG: got reply from testbed: ok
+138s autopkgtest [13:00:59]: test unittest.sh:  - - - - - - - - - - results - - - - - - - - - -
+138s unittest.sh          PASS
+138s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.snYbGM/unittest.sh-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libsv/artifacts/
+138s autopkgtest: DBG: got reply from testbed: ok
+138s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.snYbGM/unittest.sh-artifacts', '/tmp/autopkgtest.snYbGM/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+139s autopkgtest: DBG: testbed command exited with code 0
+139s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+139s autopkgtest [13:01:00]: @@@@@@@@@@@@@@@@@@@@ summary
+139s unittest.sh          PASS
+139s autopkgtest: DBG: testbed stop
+139s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.snYbGM
+139s autopkgtest: DBG: sending command to testbed: close
+139s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+140s autopkgtest: DBG: got reply from testbed: ok
+140s autopkgtest: DBG: sending command to testbed: quit

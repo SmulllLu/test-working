@@ -1,0 +1,570 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [10:55:17]: starting date and time: 2024-07-19 10:55:17+0800
+  0s autopkgtest [10:55:17]: version @version@
+  0s autopkgtest [10:55:17]: host lili; command line: /usr/bin/autopkgtest xsimd_11.1.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/xsimd -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.VSxPWU
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.VSxPWU/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.VSxPWU/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [10:55:20]: testbed dpkg architecture: riscv64
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [10:55:21]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VSxPWU/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VSxPWU/testbed-packages /home/hachi/openkylin_test/sharefolder/results/xsimd/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [10:55:22]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: Binaries: initialising
+  5s autopkgtest [10:55:22]: @@@@@@@@@@@@@@@@@@@@ source xsimd_11.1.0-ok1.dsc
+  5s autopkgtest: DBG: blame += xsimd_11.1.0-ok1.dsc
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown xsimd_11.1.0-ok1.dsc /tmp/autopkgtest.VSxPWU/xsimd_11.1.0-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown xsimd_11.1.0.orig.tar.gz /tmp/autopkgtest.VSxPWU/xsimd_11.1.0.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown xsimd_11.1.0-ok1.debian.tar.xz /tmp/autopkgtest.VSxPWU/xsimd_11.1.0-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.VSxPWU/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.VSxPWU/xsimd_11.1.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.VSxPWU/build.XXX
+  7s + builddir=/tmp/autopkgtest.VSxPWU/build.El3
+  7s + cd /tmp/autopkgtest.VSxPWU/build.El3
+  7s + dpkg-source -x /tmp/autopkgtest.VSxPWU/xsimd_11.1.0-ok1.dsc src
+  7s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  7s gpgv: keyblock resource '/tmp/dpkg-verify-sig.X5wd2q5V/trustedkeys.kbx': General error
+  7s gpgv: Signature made Sat 28 Oct 2023 10:47:45 AM CST
+  7s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  7s gpgv: Can't check signature: No public key
+  7s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.VSxPWU/xsimd_11.1.0-ok1.dsc
+  8s dpkg-source: info: extracting xsimd in src
+  8s dpkg-source: info: unpacking xsimd_11.1.0.orig.tar.gz
+  8s dpkg-source: info: unpacking xsimd_11.1.0-ok1.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying xtl_complex_PR950.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [10:55:25]: testing package xsimd version 11.1.0-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VSxPWU/build.El3/src/debian/ /home/hachi/openkylin_test/sharefolder/results/xsimd/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency libxsimd-dev
+  8s autopkgtest: DBG: marked alternatives ['libxsimd-dev'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency xtl-dev
+  8s autopkgtest: DBG: processing dependency cmake
+  8s autopkgtest: DBG: processing dependency doctest-dev
+  8s autopkgtest: DBG: processing dependency g++
+  8s autopkgtest: DBG: Test defined: name xsimd-test path debian/tests/xsimd-test command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++'] 
+  8s autopkgtest: DBG: Test defined: name xsimd-test-complex path debian/tests/xsimd-test-complex command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++'] 
+  8s autopkgtest: DBG: processing dependency libxsimd-dev
+  8s autopkgtest: DBG: marked alternatives ['libxsimd-dev'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency xtl-dev
+  8s autopkgtest: DBG: processing dependency cmake
+  8s autopkgtest: DBG: processing dependency doctest-dev
+  8s autopkgtest: DBG: processing dependency clang
+  8s autopkgtest: DBG: Test defined: name xsimd-test-clang path debian/tests/xsimd-test-clang command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang'] 
+  8s autopkgtest: DBG: Test defined: name xsimd-test-clang-complex path debian/tests/xsimd-test-clang-complex command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang'] 
+  8s autopkgtest [10:55:25]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VSxPWU/build.El3/src/ /home/hachi/openkylin_test/sharefolder/results/xsimd/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency libxsimd-dev
+  8s autopkgtest: DBG: marked alternatives ['libxsimd-dev'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency xtl-dev
+  8s autopkgtest: DBG: processing dependency cmake
+  8s autopkgtest: DBG: processing dependency doctest-dev
+  8s autopkgtest: DBG: processing dependency g++
+  8s autopkgtest: DBG: Test defined: name xsimd-test path debian/tests/xsimd-test command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++'] 
+  8s autopkgtest: DBG: Test defined: name xsimd-test-complex path debian/tests/xsimd-test-complex command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++'] 
+  8s autopkgtest: DBG: processing dependency libxsimd-dev
+  8s autopkgtest: DBG: marked alternatives ['libxsimd-dev'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency xtl-dev
+  8s autopkgtest: DBG: processing dependency cmake
+  8s autopkgtest: DBG: processing dependency doctest-dev
+  8s autopkgtest: DBG: processing dependency clang
+  8s autopkgtest: DBG: Test defined: name xsimd-test-clang path debian/tests/xsimd-test-clang command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang'] 
+  8s autopkgtest: DBG: Test defined: name xsimd-test-clang-complex path debian/tests/xsimd-test-clang-complex command "None" restrictions ['allow-stderr'] features [] depends ['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang'] 
+  8s autopkgtest [10:55:25]: test xsimd-test: preparing testbed
+  8s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++']
+  8s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  8s autopkgtest: DBG: install_deps: deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++']
+  8s autopkgtest: DBG: install-deps: satisfying libxsimd-dev, xtl-dev, cmake, doctest-dev, g++
+  9s autopkgtest: DBG: install-deps: architecture resolved: libxsimd-dev, xtl-dev, cmake, doctest-dev, g++
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU/1-autopkgtest-satdep.deb /tmp/autopkgtest.VSxPWU/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.VSxPWU/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 1
+ 12s Starting 2 pkgProblemResolver with broken count: 1
+ 12s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on libxsimd-dev:riscv64 < none | 11.1.0-ok1 @un uH >
+ 12s   Considering libxsimd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated libxsimd-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on xtl-dev:riscv64 < none | 0.7.5-ok1 @un uH >
+ 12s   Considering xtl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated xtl-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 12s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated libnettle8t64:riscv64
+ 12s   Re-Instated libzstd1:riscv64
+ 12s   Re-Instated libarchive13t64:riscv64
+ 12s   Re-Instated librhash0:riscv64
+ 12s   Re-Instated cmake-data:riscv64
+ 12s   Re-Instated cmake:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 12s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+ 12s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+ 12s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+ 12s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+ 12s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 12s Investigating (1) cmake:riscv64 < none -> 3.28.3-ok1 @un uN Ib >
+ 12s Broken cmake:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.3.3)
+ 12s   Considering libarchive13t64:riscv64 0 as a solution to cmake:riscv64 1
+ 12s   Holding Back cmake:riscv64 rather than change libarchive13t64:riscv64
+ 12s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 12s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  autopkgtest-satdep : Depends: cmake but it is not going to be installed
+ 12s                       Depends: doctest-dev but it is not installable
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.VSxPWU/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libxsimd-dev xtl-dev cmake doctest-dev g++ -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 13s Reading package lists...
+ 13s Building dependency tree...
+ 13s Reading state information...
+ 14s E: Unable to locate package doctest-dev
+ 14s autopkgtest: DBG: testbed command exited with code 100
+ 14s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s xsimd-test           FAIL badpkg
+ 14s blame: xsimd_11.1.0-ok1.dsc
+ 14s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s autopkgtest [10:55:31]: test xsimd-test-complex: preparing testbed
+ 14s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++'], deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++']
+ 14s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 14s autopkgtest: DBG: install_deps: deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++']
+ 14s autopkgtest: DBG: install-deps: satisfying libxsimd-dev, xtl-dev, cmake, doctest-dev, g++
+ 14s autopkgtest: DBG: install-deps: architecture resolved: libxsimd-dev, xtl-dev, cmake, doctest-dev, g++
+ 14s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: can use apt-get on testbed: True
+ 14s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU/2-autopkgtest-satdep.deb /tmp/autopkgtest.VSxPWU/2-autopkgtest-satdep.deb
+ 14s autopkgtest: DBG: got reply from testbed: ok
+ 14s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.VSxPWU/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 15s Reading package lists...
+ 16s Building dependency tree...
+ 16s Reading state information...
+ 16s Starting pkgProblemResolver with broken count: 1
+ 17s Starting 2 pkgProblemResolver with broken count: 1
+ 17s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on libxsimd-dev:riscv64 < none | 11.1.0-ok1 @un uH >
+ 17s   Considering libxsimd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Re-Instated libxsimd-dev:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on xtl-dev:riscv64 < none | 0.7.5-ok1 @un uH >
+ 17s   Considering xtl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Re-Instated xtl-dev:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 17s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Re-Instated libnettle8t64:riscv64
+ 17s   Re-Instated libzstd1:riscv64
+ 17s   Re-Instated libarchive13t64:riscv64
+ 17s   Re-Instated librhash0:riscv64
+ 17s   Re-Instated cmake-data:riscv64
+ 17s   Re-Instated cmake:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 17s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+ 17s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+ 17s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+ 17s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+ 17s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 17s Investigating (1) cmake:riscv64 < none -> 3.28.3-ok1 @un uN Ib >
+ 17s Broken cmake:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.3.3)
+ 17s   Considering libarchive13t64:riscv64 0 as a solution to cmake:riscv64 1
+ 17s   Holding Back cmake:riscv64 rather than change libarchive13t64:riscv64
+ 17s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 17s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 17s Done
+ 17s Some packages could not be installed. This may mean that you have
+ 17s requested an impossible situation or if you are using the unstable
+ 17s distribution that some required packages have not yet been created
+ 17s or been moved out of Incoming.
+ 17s The following information may help to resolve the situation:
+ 17s 
+ 17s The following packages have unmet dependencies:
+ 17s  autopkgtest-satdep : Depends: cmake but it is not going to be installed
+ 17s                       Depends: doctest-dev but it is not installable
+ 17s E: Unable to correct problems, you have held broken packages.
+ 17s autopkgtest: DBG: testbed command exited with code 100
+ 17s autopkgtest: DBG: apt-get install /tmp/autopkgtest.VSxPWU/2-autopkgtest-satdep.deb failed; status-fd:
+ 17s 
+ 17s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libxsimd-dev xtl-dev cmake doctest-dev g++ -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 18s Reading package lists...
+ 19s Building dependency tree...
+ 19s Reading state information...
+ 19s E: Unable to locate package doctest-dev
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 19s xsimd-test-complex   FAIL badpkg
+ 19s blame: xsimd_11.1.0-ok1.dsc
+ 19s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 19s autopkgtest [10:55:36]: test xsimd-test-clang: preparing testbed
+ 19s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'g++'], deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang']
+ 19s autopkgtest: DBG: testbed reset
+ 19s autopkgtest: DBG: sending command to testbed: revert
+ 19s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 23s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.VSxPWU
+ 23s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 23s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57,--user%3Droot,--
+ 23s autopkgtest: DBG: sending command to testbed: capabilities
+ 23s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU
+ 23s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU', 'has_internet']
+ 23s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.VSxPWU/wrapper.sh
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.VSxPWU/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest [10:55:41]: testbed dpkg architecture: riscv64
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest [10:55:41]: testbed apt version: 2.7.3-ok3
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 127
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VSxPWU/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VSxPWU/testbed-packages /home/hachi/openkylin_test/sharefolder/results/xsimd/testbed-packages
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 25s autopkgtest: DBG: install_deps: deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang']
+ 25s autopkgtest: DBG: install-deps: satisfying libxsimd-dev, xtl-dev, cmake, doctest-dev, clang
+ 25s autopkgtest: DBG: install-deps: architecture resolved: libxsimd-dev, xtl-dev, cmake, doctest-dev, clang
+ 25s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: can use apt-get on testbed: True
+ 26s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU/3-autopkgtest-satdep.deb /tmp/autopkgtest.VSxPWU/3-autopkgtest-satdep.deb
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.VSxPWU/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s Reading package lists...
+ 28s Building dependency tree...
+ 28s Reading state information...
+ 28s Starting pkgProblemResolver with broken count: 1
+ 28s Starting 2 pkgProblemResolver with broken count: 1
+ 28s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on libxsimd-dev:riscv64 < none | 11.1.0-ok1 @un uH >
+ 28s   Considering libxsimd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated libxsimd-dev:riscv64
+ 28s Broken autopkgtest-satdep:riscv64 Depends on xtl-dev:riscv64 < none | 0.7.5-ok1 @un uH >
+ 28s   Considering xtl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated xtl-dev:riscv64
+ 28s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 28s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated libnettle8t64:riscv64
+ 28s   Re-Instated libzstd1:riscv64
+ 28s   Re-Instated libarchive13t64:riscv64
+ 28s   Re-Instated librhash0:riscv64
+ 28s   Re-Instated cmake-data:riscv64
+ 28s   Re-Instated cmake:riscv64
+ 28s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on clang:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 28s   Considering clang:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated libllvm17t64:riscv64
+ 28s   Re-Instated libclang-cpp17t64:riscv64
+ 28s   Re-Instated gcc-12-base:riscv64
+ 28s   Re-Instated gcc-13-base:riscv64
+ 28s   Re-Instated libgcc-s1:riscv64
+ 28s   Re-Instated libgomp1:riscv64
+ 28s   Re-Instated libatomic1:riscv64
+ 28s   Re-Instated libasan8:riscv64
+ 28s   Re-Instated libgcc-12-dev:riscv64
+ 28s   Re-Instated libgc1c2:riscv64
+ 28s   Re-Instated libobjc4:riscv64
+ 28s   Re-Instated libobjc-12-dev:riscv64
+ 28s   Re-Instated libclang-common-17-dev:riscv64
+ 28s   Re-Instated llvm-17-linker-tools:riscv64
+ 28s   Re-Instated libclang1-17t64:riscv64
+ 28s   Re-Instated clang-17:riscv64
+ 28s   Re-Instated clang:riscv64
+ 28s Investigating (0) libstdc++6:riscv64 < 12.2.0-ok7 | 13.2.0-4ok3.3 @ii uH Ib >
+ 28s Broken libstdc++6:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU > (= 12.2.0-ok7)
+ 28s   Considering gcc-12-base:riscv64 812 as a solution to libstdc++6:riscv64 2414
+ 28s   Added gcc-12-base:riscv64 to the remove list
+ 28s   Fixing libstdc++6:riscv64 via keep of gcc-12-base:riscv64
+ 28s Investigating (0) gcc-12:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH Ib >
+ 28s Broken gcc-12:riscv64 Depends on libgcc-12-dev:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU Ib > (= 12.2.0-ok7)
+ 28s   Considering libgcc-12-dev:riscv64 4 as a solution to gcc-12:riscv64 8
+ 28s   Added libgcc-12-dev:riscv64 to the remove list
+ 28s   Fixing gcc-12:riscv64 via keep of libgcc-12-dev:riscv64
+ 28s Investigating (0) libobjc-12-dev:riscv64 < none -> 12.3.0-1ok3 @un uN Ib >
+ 28s Broken libobjc-12-dev:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH > (= 12.3.0-1ok3)
+ 28s   Considering gcc-12-base:riscv64 812 as a solution to libobjc-12-dev:riscv64 0
+ 28s   Holding Back libobjc-12-dev:riscv64 rather than change gcc-12-base:riscv64
+ 28s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+ 28s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+ 28s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+ 28s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+ 28s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 28s Investigating (1) cmake:riscv64 < none -> 3.28.3-ok1 @un uN Ib >
+ 28s Broken cmake:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.3.3)
+ 28s   Considering libarchive13t64:riscv64 0 as a solution to cmake:riscv64 1
+ 28s   Holding Back cmake:riscv64 rather than change libarchive13t64:riscv64
+ 28s Investigating (1) clang-17:riscv64 < none -> 1:17.0.6-9ok4 @un uN Ib >
+ 28s Broken clang-17:riscv64 Depends on libobjc-12-dev:riscv64 < none | 12.3.0-1ok3 @un uH >
+ 28s   Considering libobjc-12-dev:riscv64 0 as a solution to clang-17:riscv64 0
+ 28s   Holding Back clang-17:riscv64 rather than change libobjc-12-dev:riscv64
+ 28s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 28s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 28s Investigating (2) clang:riscv64 < none -> 1:17.0-58~exp1-ok1 @un uN Ib >
+ 28s Broken clang:riscv64 Depends on clang-17:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 17~)
+ 28s   Considering clang-17:riscv64 0 as a solution to clang:riscv64 1
+ 28s   Holding Back clang:riscv64 rather than change clang-17:riscv64
+ 28s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 28s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on clang:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 28s   Considering clang:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s Done
+ 28s Some packages could not be installed. This may mean that you have
+ 28s requested an impossible situation or if you are using the unstable
+ 28s distribution that some required packages have not yet been created
+ 28s or been moved out of Incoming.
+ 28s The following information may help to resolve the situation:
+ 28s 
+ 28s The following packages have unmet dependencies:
+ 29s  autopkgtest-satdep : Depends: cmake but it is not going to be installed
+ 29s                       Depends: doctest-dev but it is not installable
+ 29s                       Depends: clang but it is not going to be installed
+ 29s E: Unable to correct problems, you have held broken packages.
+ 29s autopkgtest: DBG: testbed command exited with code 100
+ 29s autopkgtest: DBG: apt-get install /tmp/autopkgtest.VSxPWU/3-autopkgtest-satdep.deb failed; status-fd:
+ 29s 
+ 29s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 29s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libxsimd-dev xtl-dev cmake doctest-dev clang -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 30s Reading package lists...
+ 30s Building dependency tree...
+ 30s Reading state information...
+ 30s E: Unable to locate package doctest-dev
+ 30s autopkgtest: DBG: testbed command exited with code 100
+ 30s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 30s xsimd-test-clang     FAIL badpkg
+ 30s blame: xsimd_11.1.0-ok1.dsc
+ 30s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 30s autopkgtest [10:55:47]: test xsimd-test-clang-complex: preparing testbed
+ 30s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang'], deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang']
+ 30s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 30s autopkgtest: DBG: install_deps: deps_new=['libxsimd-dev', 'xtl-dev', 'cmake', 'doctest-dev', 'clang']
+ 30s autopkgtest: DBG: install-deps: satisfying libxsimd-dev, xtl-dev, cmake, doctest-dev, clang
+ 31s autopkgtest: DBG: install-deps: architecture resolved: libxsimd-dev, xtl-dev, cmake, doctest-dev, clang
+ 31s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: can use apt-get on testbed: True
+ 31s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VSxPWU'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-625c92e6-4538-4065-96f3-c1f7e5ea9a57//tmp/autopkgtest.VSxPWU/4-autopkgtest-satdep.deb /tmp/autopkgtest.VSxPWU/4-autopkgtest-satdep.deb
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.VSxPWU/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 32s Reading package lists...
+ 33s Building dependency tree...
+ 33s Reading state information...
+ 33s Starting pkgProblemResolver with broken count: 1
+ 33s Starting 2 pkgProblemResolver with broken count: 1
+ 33s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on libxsimd-dev:riscv64 < none | 11.1.0-ok1 @un uH >
+ 33s   Considering libxsimd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s   Re-Instated libxsimd-dev:riscv64
+ 33s Broken autopkgtest-satdep:riscv64 Depends on xtl-dev:riscv64 < none | 0.7.5-ok1 @un uH >
+ 33s   Considering xtl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s   Re-Instated xtl-dev:riscv64
+ 33s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 33s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s   Re-Instated libnettle8t64:riscv64
+ 33s   Re-Instated libzstd1:riscv64
+ 33s   Re-Instated libarchive13t64:riscv64
+ 33s   Re-Instated librhash0:riscv64
+ 33s   Re-Instated cmake-data:riscv64
+ 33s   Re-Instated cmake:riscv64
+ 33s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on clang:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 33s   Considering clang:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s   Re-Instated libllvm17t64:riscv64
+ 33s   Re-Instated libclang-cpp17t64:riscv64
+ 33s   Re-Instated gcc-12-base:riscv64
+ 33s   Re-Instated gcc-13-base:riscv64
+ 33s   Re-Instated libgcc-s1:riscv64
+ 33s   Re-Instated libgomp1:riscv64
+ 33s   Re-Instated libatomic1:riscv64
+ 33s   Re-Instated libasan8:riscv64
+ 33s   Re-Instated libgcc-12-dev:riscv64
+ 33s   Re-Instated libgc1c2:riscv64
+ 33s   Re-Instated libobjc4:riscv64
+ 33s   Re-Instated libobjc-12-dev:riscv64
+ 33s   Re-Instated libclang-common-17-dev:riscv64
+ 33s   Re-Instated llvm-17-linker-tools:riscv64
+ 33s   Re-Instated libclang1-17t64:riscv64
+ 33s   Re-Instated clang-17:riscv64
+ 33s   Re-Instated clang:riscv64
+ 33s Investigating (0) libstdc++6:riscv64 < 12.2.0-ok7 | 13.2.0-4ok3.3 @ii uH Ib >
+ 33s Broken libstdc++6:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU > (= 12.2.0-ok7)
+ 33s   Considering gcc-12-base:riscv64 812 as a solution to libstdc++6:riscv64 2414
+ 33s   Added gcc-12-base:riscv64 to the remove list
+ 33s   Fixing libstdc++6:riscv64 via keep of gcc-12-base:riscv64
+ 33s Investigating (0) gcc-12:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH Ib >
+ 33s Broken gcc-12:riscv64 Depends on libgcc-12-dev:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU Ib > (= 12.2.0-ok7)
+ 33s   Considering libgcc-12-dev:riscv64 4 as a solution to gcc-12:riscv64 8
+ 33s   Added libgcc-12-dev:riscv64 to the remove list
+ 33s   Fixing gcc-12:riscv64 via keep of libgcc-12-dev:riscv64
+ 33s Investigating (0) libobjc-12-dev:riscv64 < none -> 12.3.0-1ok3 @un uN Ib >
+ 33s Broken libobjc-12-dev:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH > (= 12.3.0-1ok3)
+ 33s   Considering gcc-12-base:riscv64 812 as a solution to libobjc-12-dev:riscv64 0
+ 33s   Holding Back libobjc-12-dev:riscv64 rather than change gcc-12-base:riscv64
+ 33s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+ 33s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+ 33s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+ 33s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+ 33s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 33s Investigating (1) cmake:riscv64 < none -> 3.28.3-ok1 @un uN Ib >
+ 33s Broken cmake:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.3.3)
+ 33s   Considering libarchive13t64:riscv64 0 as a solution to cmake:riscv64 1
+ 33s   Holding Back cmake:riscv64 rather than change libarchive13t64:riscv64
+ 33s Investigating (1) clang-17:riscv64 < none -> 1:17.0.6-9ok4 @un uN Ib >
+ 33s Broken clang-17:riscv64 Depends on libobjc-12-dev:riscv64 < none | 12.3.0-1ok3 @un uH >
+ 33s   Considering libobjc-12-dev:riscv64 0 as a solution to clang-17:riscv64 0
+ 33s   Holding Back clang-17:riscv64 rather than change libobjc-12-dev:riscv64
+ 33s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 33s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 33s Investigating (2) clang:riscv64 < none -> 1:17.0-58~exp1-ok1 @un uN Ib >
+ 33s Broken clang:riscv64 Depends on clang-17:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 17~)
+ 33s   Considering clang-17:riscv64 0 as a solution to clang:riscv64 1
+ 33s   Holding Back clang:riscv64 rather than change clang-17:riscv64
+ 33s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+ 33s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s Broken autopkgtest-satdep:riscv64 Depends on doctest-dev:riscv64 < none @un H >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on clang:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 33s   Considering clang:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s Done
+ 34s Some packages could not be installed. This may mean that you have
+ 34s requested an impossible situation or if you are using the unstable
+ 34s distribution that some required packages have not yet been created
+ 34s or been moved out of Incoming.
+ 34s The following information may help to resolve the situation:
+ 34s 
+ 34s The following packages have unmet dependencies:
+ 34s  autopkgtest-satdep : Depends: cmake but it is not going to be installed
+ 34s                       Depends: doctest-dev but it is not installable
+ 34s                       Depends: clang but it is not going to be installed
+ 34s E: Unable to correct problems, you have held broken packages.
+ 34s autopkgtest: DBG: testbed command exited with code 100
+ 34s autopkgtest: DBG: apt-get install /tmp/autopkgtest.VSxPWU/4-autopkgtest-satdep.deb failed; status-fd:
+ 34s 
+ 34s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libxsimd-dev xtl-dev cmake doctest-dev clang -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 35s Reading package lists...
+ 35s Building dependency tree...
+ 35s Reading state information...
+ 35s E: Unable to locate package doctest-dev
+ 35s autopkgtest: DBG: testbed command exited with code 100
+ 35s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s xsimd-test-clang-complex FAIL badpkg
+ 35s blame: xsimd_11.1.0-ok1.dsc
+ 35s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 35s autopkgtest [10:55:52]: @@@@@@@@@@@@@@@@@@@@ summary
+ 35s xsimd-test           FAIL badpkg
+ 35s blame: xsimd_11.1.0-ok1.dsc
+ 35s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s xsimd-test-complex   FAIL badpkg
+ 35s blame: xsimd_11.1.0-ok1.dsc
+ 35s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s xsimd-test-clang     FAIL badpkg
+ 35s blame: xsimd_11.1.0-ok1.dsc
+ 35s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s xsimd-test-clang-complex FAIL badpkg
+ 35s blame: xsimd_11.1.0-ok1.dsc
+ 35s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s autopkgtest: DBG: testbed stop
+ 35s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.VSxPWU
+ 35s autopkgtest: DBG: sending command to testbed: close
+ 36s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,734 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [21:55:47]: starting date and time: 2024-07-17 21:55:47+0800
+  0s autopkgtest [21:55:47]: version @version@
+  0s autopkgtest [21:55:47]: host nana; command line: /usr/bin/autopkgtest jeepney_0.8.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/jeepney -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.fmzot5
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-aec6a39c-71a5-4aee-86db-5bf1bcc9610a,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-aec6a39c-71a5-4aee-86db-5bf1bcc9610a//tmp/autopkgtest.fmzot5
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-aec6a39c-71a5-4aee-86db-5bf1bcc9610a//tmp/autopkgtest.fmzot5', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.fmzot5'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.fmzot5/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.fmzot5/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [21:55:48]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [21:55:48]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.fmzot5/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.fmzot5/testbed-packages /home/hachi/openkylin_test/sharefolder/results/jeepney/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [21:55:49]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [21:55:49]: @@@@@@@@@@@@@@@@@@@@ source jeepney_0.8.0-ok1.dsc
+  2s autopkgtest: DBG: blame += jeepney_0.8.0-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.fmzot5'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown jeepney_0.8.0-ok1.dsc /tmp/autopkgtest.fmzot5/jeepney_0.8.0-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.fmzot5'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown jeepney_0.8.0.orig.tar.gz /tmp/autopkgtest.fmzot5/jeepney_0.8.0.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.fmzot5'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown jeepney_0.8.0-ok1.debian.tar.xz /tmp/autopkgtest.fmzot5/jeepney_0.8.0-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.fmzot5/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.fmzot5/jeepney_0.8.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.fmzot5/build.XXX
+  3s + builddir=/tmp/autopkgtest.fmzot5/build.GO6
+  3s + cd /tmp/autopkgtest.fmzot5/build.GO6
+  3s + dpkg-source -x /tmp/autopkgtest.fmzot5/jeepney_0.8.0-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.oGpMIAiz/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 30 Apr 2024 04:37:19 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.fmzot5/jeepney_0.8.0-ok1.dsc
+  3s dpkg-source: info: extracting jeepney in src
+  3s dpkg-source: info: unpacking jeepney_0.8.0.orig.tar.gz
+  3s dpkg-source: info: unpacking jeepney_0.8.0-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying Use-local-intersphinx-inventory.patch
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [21:55:50]: testing package jeepney version 0.8.0-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.fmzot5/build.GO6/src/debian/ /home/hachi/openkylin_test/sharefolder/results/jeepney/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency dbus
+  3s autopkgtest: DBG: processing dependency python3-all
+  3s autopkgtest: DBG: processing dependency python3-async-timeout
+  3s autopkgtest: DBG: processing dependency python3-jeepney
+  3s autopkgtest: DBG: marked alternatives ['python3-jeepney'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency python3-pytest
+  3s autopkgtest: DBG: processing dependency python3-pytest-asyncio (>= 0.17)
+  3s autopkgtest: DBG: processing dependency python3-testpath
+  3s autopkgtest: DBG: processing dependency python3-trio
+  3s autopkgtest: DBG: Test defined: name command1 path None command "set -e ; cd "$AUTOPKGTEST_TMP" ; for python in $(py3versions -s 2>/dev/null) ; do dbus-run-session -- $python -m pytest --verbose /usr/lib/python3/dist-packages/jeepney ; done" restrictions [] features [] depends ['dbus', 'python3-all', 'python3-async-timeout', 'python3-jeepney', 'python3-pytest', 'python3-pytest-asyncio (>= 0.17)', 'python3-testpath', 'python3-trio'] 
+  3s autopkgtest [21:55:50]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.fmzot5/build.GO6/src/ /home/hachi/openkylin_test/sharefolder/results/jeepney/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency dbus
+  3s autopkgtest: DBG: processing dependency python3-all
+  3s autopkgtest: DBG: processing dependency python3-async-timeout
+  3s autopkgtest: DBG: processing dependency python3-jeepney
+  3s autopkgtest: DBG: marked alternatives ['python3-jeepney'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency python3-pytest
+  3s autopkgtest: DBG: processing dependency python3-pytest-asyncio (>= 0.17)
+  3s autopkgtest: DBG: processing dependency python3-testpath
+  3s autopkgtest: DBG: processing dependency python3-trio
+  3s autopkgtest: DBG: Test defined: name command1 path None command "set -e ; cd "$AUTOPKGTEST_TMP" ; for python in $(py3versions -s 2>/dev/null) ; do dbus-run-session -- $python -m pytest --verbose /usr/lib/python3/dist-packages/jeepney ; done" restrictions [] features [] depends ['dbus', 'python3-all', 'python3-async-timeout', 'python3-jeepney', 'python3-pytest', 'python3-pytest-asyncio (>= 0.17)', 'python3-testpath', 'python3-trio'] 
+  3s autopkgtest [21:55:50]: test command1: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dbus', 'python3-all', 'python3-async-timeout', 'python3-jeepney', 'python3-pytest', 'python3-pytest-asyncio (>= 0.17)', 'python3-testpath', 'python3-trio']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['dbus', 'python3-all', 'python3-async-timeout', 'python3-jeepney', 'python3-pytest', 'python3-pytest-asyncio (>= 0.17)', 'python3-testpath', 'python3-trio']
+  3s autopkgtest: DBG: install-deps: satisfying dbus, python3-all, python3-async-timeout, python3-jeepney, python3-pytest, python3-pytest-asyncio (>= 0.17), python3-testpath, python3-trio
+  3s autopkgtest: DBG: install-deps: architecture resolved: dbus, python3-all, python3-async-timeout, python3-jeepney, python3-pytest, python3-pytest-asyncio (>= 0.17), python3-testpath, python3-trio
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: can use apt-get on testbed: True
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.fmzot5'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-aec6a39c-71a5-4aee-86db-5bf1bcc9610a//tmp/autopkgtest.fmzot5/1-autopkgtest-satdep.deb /tmp/autopkgtest.fmzot5/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.fmzot5/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  4s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 1
+  5s Starting 2 pkgProblemResolver with broken count: 1
+  5s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-all:riscv64 < none | 3.12.2-ok1 @un uH >
+  5s   Considering python3-all:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  5s   Re-Instated libpython3.12-minimal:riscv64
+  5s   Re-Instated python3.12-minimal:riscv64
+  5s   Re-Instated python3-minimal:riscv64
+  5s   Re-Instated libtirpc-common:riscv64
+  5s   Re-Instated libtirpc3t64:riscv64
+  5s   Re-Instated libpython3.12-stdlib:riscv64
+  5s   Re-Instated python3.12:riscv64
+  5s   Re-Instated libpython3-stdlib:riscv64
+  5s   Re-Instated python3:riscv64
+  5s   Re-Instated python3-all:riscv64
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-async-timeout:riscv64 < none | 4.0.3-ok1 @un uH >
+  5s   Considering python3-async-timeout:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  5s   Re-Instated python3-async-timeout:riscv64
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-pytest:riscv64 < none | 7.4.4-ok1 @un uH >
+  5s   Considering python3-pytest:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  5s   Re-Instated python3-iniconfig:riscv64
+  5s   Re-Instated python3-packaging:riscv64
+  5s   Re-Instated python3-pluggy:riscv64
+  5s   Re-Instated python3-pytest:riscv64
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-pytest-asyncio:riscv64 < none @un H > (>= 0.17)
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-testpath:riscv64 < none @un H >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-trio:riscv64 < none @un H >
+  5s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 | 3.48.2-ok3 @ii uH Ib >
+  5s Broken python3-gi:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-gi:riscv64 26
+  5s   Re-Instated libglib2.0-0t64:riscv64
+  5s   Re-Instated libgirepository-1.0-1:riscv64
+  5s   Re-Instated python3-gi:riscv64
+  5s Investigating (0) python3-apt:riscv64 < 2.3.0-ok4 | 2.7.7-ok3 @ii uH Ib >
+  5s Broken python3-apt:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-apt:riscv64 14
+  5s   Re-Instated libgcrypt20:riscv64
+  5s   Re-Instated libzstd1:riscv64
+  5s   Re-Instated libapt-pkg6.0t64:riscv64
+  5s   Re-Instated python3-apt:riscv64
+  5s Investigating (0) python3-dbus:riscv64 < 1.2.16-ok1 | 1.3.2-ok3 @ii uH Ib >
+  5s Broken python3-dbus:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-dbus:riscv64 9
+  5s   Re-Instated python3-dbus:riscv64
+  5s Investigating (0) python3-simplejson:riscv64 < 3.16.0-ok1 | 3.19.2-ok1 @ii uH Ib >
+  5s Broken python3-simplejson:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-simplejson:riscv64 4
+  5s   Re-Instated python3-simplejson:riscv64
+  5s Investigating (0) python3-yaml:riscv64 < 5.3.1-ok2 | 6.0.1-ok1 @ii uH Ib >
+  5s Broken python3-yaml:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-yaml:riscv64 3
+  5s   Re-Instated python3-yaml:riscv64
+  5s Investigating (0) python3-samba:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uH Ib >
+  5s Broken python3-samba:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-samba:riscv64 3
+  5s   Re-Instated libnettle8t64:riscv64
+  5s   Re-Instated libhogweed6t64:riscv64
+  5s   Re-Instated libunistring5:riscv64
+  5s   Re-Instated libgnutls30t64:riscv64
+  5s   Re-Instated libicu74:riscv64
+  5s   Re-Instated libldb2:riscv64
+  5s   Re-Instated samba-libs:riscv64
+  5s     Reinst Failed early because of libpython3.12-stdlib:riscv64
+  5s     Reinst Failed because of libpython3.12:riscv64
+  5s   Removing python3-samba:riscv64 rather than change python3:riscv64
+  5s Investigating (0) python3-talloc:riscv64 < 2.4.1-ok1 | 2.4.2-ok2 @ii uH Ib >
+  5s Broken python3-talloc:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-talloc:riscv64 2
+  5s   Re-Instated libtalloc2:riscv64
+  5s     Reinst Failed because of libpython3.12:riscv64
+  5s   Removing python3-talloc:riscv64 rather than change python3:riscv64
+  5s Investigating (0) python3-tdb:riscv64 < 1.4.9-ok1 | 1.4.10-ok2 @ii uH Ib >
+  5s Broken python3-tdb:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-tdb:riscv64 2
+  5s   Re-Instated libtdb1:riscv64
+  5s   Re-Instated python3-tdb:riscv64
+  5s Investigating (0) python3-psutil:riscv64 < 5.5.1-ok1 | 5.9.8-ok2 @ii uH Ib >
+  5s Broken python3-psutil:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-psutil:riscv64 2
+  5s   Re-Instated python3-psutil:riscv64
+  5s Investigating (0) python3-distutils:riscv64 < 3.10.7-ok2 | 3.12.3-ok6 @ii uH Ib >
+  5s Broken python3-distutils:riscv64 Depends on python3:any:any < none @un H > (< 3.12)
+  5s   Considering python3:riscv64 220 as a solution to python3-distutils:riscv64 1
+  5s   Re-Instated python3-lib2to3:riscv64
+  5s   Re-Instated python3-distutils:riscv64
+  5s Investigating (0) python3-gpg:riscv64 < 1.22.0-ok1 | 1.22.0-ok4 @ii uH Ib >
+  5s Broken python3-gpg:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-gpg:riscv64 1
+  5s   Re-Instated python3-gpg:riscv64
+  5s Investigating (0) python3-ldb:riscv64 < 2:2.8.0+samba4.19.2+dfsg-ok1~1207.5 | 2:2.8.0+samba4.19.2+dfsg-ok1~1207.6 @ii uH Ib >
+  5s Broken python3-ldb:riscv64 Depends on libldb2:riscv64 < 2:2.8.0+samba4.19.2+dfsg-ok1~1207.5 -> 2:2.8.0+samba4.19.2+dfsg-ok1~1207.6 @ii uU > (= 2:2.8.0+samba4.19.2+dfsg-ok1~1207.5)
+  5s   Considering libldb2:riscv64 12 as a solution to python3-ldb:riscv64 1
+  5s     Reinst Failed because of libpython3.12:riscv64
+  5s   Removing python3-ldb:riscv64 rather than change libldb2:riscv64
+  5s Investigating (0) python3-markupsafe:riscv64 < 2.0.1-ok2 | 2.1.5-ok1 @ii uH Ib >
+  5s Broken python3-markupsafe:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-markupsafe:riscv64 0
+  5s   Re-Instated python3-markupsafe:riscv64
+  5s Investigating (0) libapt-pkg6.0t64:riscv64 < none -> 2.8.0-ok1 @un uN Ib >
+  5s Broken libapt-pkg6.0t64:riscv64 Breaks on libapt-pkg6.0:riscv64 < 2.7.3-ok3 @ii K > (< 2.8.0-ok1)
+  5s   Considering libapt-pkg6.0:riscv64 119 as a solution to libapt-pkg6.0t64:riscv64 0
+  5s   Holding Back libapt-pkg6.0t64:riscv64 rather than change libapt-pkg6.0:riscv64
+  5s Investigating (0) python3-netifaces:riscv64 < 0.11.0-ok1 | 0.11.0-ok3 @ii uH Ib >
+  5s Broken python3-netifaces:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-netifaces:riscv64 0
+  5s   Re-Instated python3-netifaces:riscv64
+  5s Investigating (0) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+  5s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-crypto:riscv64 0
+  5s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+  5s Investigating (0) libglib2.0-0t64:riscv64 < none -> 2.80.0-ok1~0615.2 @un uN Ib >
+  5s Broken libglib2.0-0t64:riscv64 Breaks on libglib2.0-0:riscv64 < 2.78.0-ok1~0229.1 @ii K > (< 2.80.0~)
+  5s   Considering libglib2.0-0:riscv64 1516 as a solution to libglib2.0-0t64:riscv64 0
+  5s   Holding Back libglib2.0-0t64:riscv64 rather than change libglib2.0-0:riscv64
+  5s Investigating (0) python3-newt:riscv64 < 0.52.21-ok2 | 0.52.24-2ok3 @ii uH Ib >
+  5s Broken python3-newt:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-newt:riscv64 0
+  5s   Re-Instated libnewt0.52:riscv64
+  5s   Re-Instated python3-newt:riscv64
+  5s Investigating (0) libgnutls30t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+  5s Broken libgnutls30t64:riscv64 Breaks on libgnutls30:riscv64 < 3.6.13-ok3 @ii K > (< 3.8.3-ok3)
+  5s   Considering libgnutls30:riscv64 217 as a solution to libgnutls30t64:riscv64 0
+  5s   Holding Back libgnutls30t64:riscv64 rather than change libgnutls30:riscv64
+  5s Investigating (0) python3-cups:riscv64 < 1.9.73-ok2.1 | 2.0.1-ok2 @ii uH Ib >
+  5s Broken python3-cups:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-cups:riscv64 0
+  5s   Re-Instated python3-cups:riscv64
+  5s Investigating (0) samba-vfs-modules:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uH Ib >
+  5s Broken samba-vfs-modules:riscv64 Depends on samba-libs:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 -> 2:4.19.2+dfsg-ok1~1207.6 @ii uU Ib > (= 2:4.19.2+dfsg-ok1~1207.5)
+  5s   Considering samba-libs:riscv64 11 as a solution to samba-vfs-modules:riscv64 0
+  5s     Reinst Failed because of libgnutls30t64:riscv64
+  5s   Removing samba-vfs-modules:riscv64 rather than change samba-libs:riscv64
+  5s Investigating (0) python3-cffi-backend:riscv64 < 1.14.0-ok1.2 | 1.16.0-ok2 @ii uH Ib >
+  5s Broken python3-cffi-backend:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-cffi-backend:riscv64 0
+  5s   Re-Instated python3-cffi-backend:riscv64
+  5s Investigating (0) libtirpc3t64:riscv64 < none -> 1.3.4+ds-ok1 @un uN Ib >
+  5s Broken libtirpc3t64:riscv64 Breaks on libtirpc3:riscv64 < 1.3.3-ok1 @ii K > (< 1.3.4+ds-ok1)
+  5s   Considering libtirpc3:riscv64 26 as a solution to libtirpc3t64:riscv64 0
+  5s   Holding Back libtirpc3t64:riscv64 rather than change libtirpc3:riscv64
+  5s Investigating (0) python3-gdbm:riscv64 < 3.10.7-ok2 | 3.12.3-ok6 @ii uH Ib >
+  5s Broken python3-gdbm:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.12)
+  5s   Considering python3:riscv64 220 as a solution to python3-gdbm:riscv64 0
+  5s   Re-Instated libgdbm6t64:riscv64
+  5s   Re-Instated python3-gdbm:riscv64
+  5s Investigating (0) samba:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uH Ib >
+  5s Broken samba:riscv64 Depends on python3-samba:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR > (= 2:4.19.2+dfsg-ok1~1207.5)
+  5s   Considering python3-samba:riscv64 3 as a solution to samba:riscv64 0
+  5s     Reinst Failed because of python3-samba:riscv64
+  5s   Removing samba:riscv64 rather than change python3-samba:riscv64
+  5s Investigating (0) python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii K Ib >
+  5s Broken python3-pyrsistent:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-pyrsistent:riscv64 -1
+  5s   Removing python3-pyrsistent:riscv64 rather than change python3:riscv64
+  5s Investigating (0) python3-systemd:riscv64 < 234-ok1 @ii K Ib >
+  5s Broken python3-systemd:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-systemd:riscv64 -1
+  5s   Removing python3-systemd:riscv64 rather than change python3:riscv64
+  5s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+  5s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii R >
+  5s   Considering python3-pyrsistent:riscv64 -1 as a solution to python3-jsonschema:riscv64 -2
+  5s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+  5s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-pytest-asyncio:riscv64 < none @un H > (>= 0.17)
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-testpath:riscv64 < none @un H >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-trio:riscv64 < none @un H >
+  5s Investigating (1) libgirepository-1.0-1:riscv64 < 1.71.0-ok2 -> 1.80.1-ok1 @ii uU Ib >
+  5s Broken libgirepository-1.0-1:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.80.0)
+  5s   Considering libglib2.0-0t64:riscv64 0 as a solution to libgirepository-1.0-1:riscv64 33
+  5s   Holding Back libgirepository-1.0-1:riscv64 rather than change libglib2.0-0t64:riscv64
+  5s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+  5s Broken python3-gi:riscv64 Depends on libgirepository-1.0-1-with-libffi8:riscv64 < none @un H > (>= 1.64.0~)
+  5s   Considering libgirepository-1.0-1:riscv64 33 as a solution to python3-gi:riscv64 26
+  5s   Removing python3-gi:riscv64 rather than change libgirepository-1.0-1-with-libffi8:riscv64
+  5s Investigating (1) networkd-dispatcher:riscv64 < 2.0.1-ok1 | 2.2.4-ok1 @ii uH Ib >
+  5s Broken networkd-dispatcher:riscv64 Depends on python3-gi:riscv64 < 3.36.0-ok3 | 3.48.2-ok3 @ii uR >
+  5s   Considering python3-gi:riscv64 26 as a solution to networkd-dispatcher:riscv64 18
+  5s     Reinst Failed because of python3-gi:riscv64
+  5s   Removing networkd-dispatcher:riscv64 rather than change python3-gi:riscv64
+  5s Investigating (1) python3-apt:riscv64 < 2.3.0-ok4 -> 2.7.7-ok3 @ii uU Ib >
+  5s Broken python3-apt:riscv64 Depends on libapt-pkg6.0t64:riscv64 < none | 2.8.0-ok1 @un uH > (>= 2.7.11)
+  5s   Considering libapt-pkg6.0t64:riscv64 0 as a solution to python3-apt:riscv64 14
+  5s   Removing python3-apt:riscv64 rather than change libapt-pkg6.0t64:riscv64
+  5s Investigating (1) samba-libs:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 -> 2:4.19.2+dfsg-ok1~1207.6 @ii uU Ib >
+  5s Broken samba-libs:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.2)
+  5s   Considering libgnutls30t64:riscv64 0 as a solution to samba-libs:riscv64 11
+  5s   Removing samba-libs:riscv64 rather than change libgnutls30t64:riscv64
+  5s Investigating (1) python3-dbus:riscv64 < 1.2.16-ok1 -> 1.3.2-ok3 @ii uU Ib >
+  5s Broken python3-dbus:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.16.0)
+  5s   Considering libglib2.0-0t64:riscv64 0 as a solution to python3-dbus:riscv64 9
+  5s   Removing python3-dbus:riscv64 rather than change libglib2.0-0t64:riscv64
+  5s Investigating (1) libsmbclient:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uH Ib >
+  5s Broken libsmbclient:riscv64 Depends on samba-libs:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR > (= 2:4.19.2+dfsg-ok1~1207.5)
+  5s   Considering samba-libs:riscv64 11 as a solution to libsmbclient:riscv64 6
+  5s     Reinst Failed because of samba-libs:riscv64
+  5s   Removing libsmbclient:riscv64 rather than change samba-libs:riscv64
+  5s Investigating (1) aptdaemon:riscv64 < 1.1.1+bzr982-ok5 | 1.1.1+bzr982-ok7 @ii uH Ib >
+  5s Broken aptdaemon:riscv64 Depends on python3-gi:riscv64 < 3.36.0-ok3 | 3.48.2-ok3 @ii uR >
+  5s   Considering python3-gi:riscv64 26 as a solution to aptdaemon:riscv64 4
+  5s     Reinst Failed because of python3-apt:riscv64
+  5s     Reinst Failed because of python3-aptdaemon:riscv64
+  5s   Removing aptdaemon:riscv64 rather than change python3-gi:riscv64
+  5s Investigating (1) python3-apport:riscv64 < 2.20.11-ok3 | 2.28.1-ok3 @ii uH Ib >
+  5s Broken python3-apport:riscv64 Depends on python3-apt:riscv64 < 2.3.0-ok4 | 2.7.7-ok3 @ii uR > (>= 0.7.9)
+  5s   Considering python3-apt:riscv64 14 as a solution to python3-apport:riscv64 4
+  5s     Reinst Failed because of python3-apt:riscv64
+  5s   Removing python3-apport:riscv64 rather than change python3-apt:riscv64
+  5s Investigating (1) samba-common-bin:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uH Ib >
+  5s Broken samba-common-bin:riscv64 Depends on python3-samba:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR >
+  5s   Considering python3-samba:riscv64 3 as a solution to samba-common-bin:riscv64 4
+  5s   Added python3-samba:riscv64 to the remove list
+  5s Broken samba-common-bin:riscv64 Depends on samba-libs:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR > (= 2:4.19.2+dfsg-ok1~1207.5)
+  5s   Considering samba-libs:riscv64 11 as a solution to samba-common-bin:riscv64 4
+  5s     Reinst Failed because of python3-samba:riscv64
+  5s   Removing samba-common-bin:riscv64 rather than change samba-libs:riscv64
+  5s Investigating (1) xserver-xorg:riscv64 < 1:7.7+19ubuntu14-ok3 | 1:7.7+23-ok1 @ii uH Ib >
+  5s Broken xserver-xorg:riscv64 Depends on python3-apport:riscv64 < 2.20.11-ok3 | 2.28.1-ok3 @ii uR >
+  5s   Considering python3-apport:riscv64 4 as a solution to xserver-xorg:riscv64 4
+  5s     Reinst Failed because of python3-apport:riscv64
+  5s   Removing xserver-xorg:riscv64 rather than change python3-apport:riscv64
+  5s Investigating (1) ibus:riscv64 < 1.5.22-ok3 | 1.5.29-ok1 @ii uH Ib >
+  5s Broken ibus:riscv64 Depends on python3-gi:riscv64 < 3.36.0-ok3 | 3.48.2-ok3 @ii uR >
+  5s   Considering python3-gi:riscv64 26 as a solution to ibus:riscv64 3
+  5s     Reinst Failed because of libglib2.0-0t64:riscv64
+  5s     Reinst Failed because of libatk1.0-0t64:riscv64
+  5s   Removing ibus:riscv64 rather than change python3-gi:riscv64
+  5s Investigating (1) python3-ibus-1.0:riscv64 < 1.5.22-ok3 | 1.5.29-ok1 @ii uH Ib >
+  5s Broken python3-ibus-1.0:riscv64 Depends on python3-gi:riscv64 < 3.36.0-ok3 | 3.48.2-ok3 @ii uR > (>= 3.8)
+  5s   Considering python3-gi:riscv64 26 as a solution to python3-ibus-1.0:riscv64 3
+  5s     Reinst Failed because of python3-gi:riscv64
+  5s   Removing python3-ibus-1.0:riscv64 rather than change python3-gi:riscv64
+  5s Investigating (1) samba-dsdb-modules:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uH Ib >
+  5s Broken samba-dsdb-modules:riscv64 Depends on samba-libs:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR > (= 2:4.19.2+dfsg-ok1~1207.5)
+  5s   Considering samba-libs:riscv64 11 as a solution to samba-dsdb-modules:riscv64 3
+  5s     Reinst Failed because of samba-libs:riscv64
+  5s   Removing samba-dsdb-modules:riscv64 rather than change samba-libs:riscv64
+  5s Investigating (1) python3-aptdaemon:riscv64 < 1.1.1+bzr982-ok5 | 1.1.1+bzr982-ok7 @ii uH Ib >
+  5s Broken python3-aptdaemon:riscv64 Depends on aptdaemon:riscv64 < 1.1.1+bzr982-ok5 | 1.1.1+bzr982-ok7 @ii uR >
+  5s   Considering aptdaemon:riscv64 4 as a solution to python3-aptdaemon:riscv64 3
+  5s   Removing python3-aptdaemon:riscv64 rather than change aptdaemon:riscv64
+  5s Investigating (1) libmpv1:riscv64 < 0.32.0.4kylin6k12-ok1 | 0.32.0.4kylin6k12-ok4 @ii uH Ib >
+  5s Broken libmpv1:riscv64 Depends on libsmbclient:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR > (>= 2:4.0.3+dfsg1)
+  5s   Considering libsmbclient:riscv64 6 as a solution to libmpv1:riscv64 2
+  5s   Re-Instated libarchive13t64:riscv64
+  5s   Re-Instated libasound2-data:riscv64
+  5s   Re-Instated libasound2t64:riscv64
+  5s   Re-Instated libavutil58:riscv64
+  5s   Re-Instated libcodec2-1.2:riscv64
+  5s   Re-Instated libdav1d7:riscv64
+  5s     Reinst Failed because of libglib2.0-0t64:riscv64
+  5s     Reinst Failed because of libavcodec60:riscv64
+  5s   Removing libmpv1:riscv64 rather than change libsmbclient:riscv64
+  5s Investigating (1) python3-distupgrade:riscv64 < 1:20.04.18-ok1 @ii K Ib >
+  5s Broken python3-distupgrade:riscv64 Depends on python3-apt:riscv64 < 2.3.0-ok4 | 2.7.7-ok3 @ii uR > (>= 0.8.5~)
+  5s   Considering python3-apt:riscv64 14 as a solution to python3-distupgrade:riscv64 2
+  5s   Removing python3-distupgrade:riscv64 rather than change python3-apt:riscv64
+  5s Investigating (1) python3-update-manager:riscv64 < 1:20.04.10-ok9 @ii K Ib >
+  5s Broken python3-update-manager:riscv64 Depends on python3-apt:riscv64 < 2.3.0-ok4 | 2.7.7-ok3 @ii uR > (>= 0.8.5~)
+  5s   Considering python3-apt:riscv64 14 as a solution to python3-update-manager:riscv64 2
+  5s   Removing python3-update-manager:riscv64 rather than change python3-apt:riscv64
+  5s Investigating (1) apport:riscv64 < 2.20.11-ok3 | 2.28.1-ok3 @ii uH Ib >
+  5s Broken apport:riscv64 Depends on python3-apport:riscv64 < 2.20.11-ok3 | 2.28.1-ok3 @ii uR > (>= 2.20.11-ok3)
+  5s   Considering python3-apport:riscv64 4 as a solution to apport:riscv64 1
+  5s   Re-Instated apport-core-dump-handler:riscv64
+  5s     Reinst Failed because of python3-apport:riscv64
+  5s   Removing apport:riscv64 rather than change python3-apport:riscv64
+  5s Investigating (1) language-selector-common:riscv64 < 0.309-ok2 @ii K Ib >
+  5s Broken language-selector-common:riscv64 Depends on python3-apt:riscv64 < 2.3.0-ok4 | 2.7.7-ok3 @ii uR > (>= 0.7.12.0)
+  5s   Considering python3-apt:riscv64 14 as a solution to language-selector-common:riscv64 1
+  5s   Removing language-selector-common:riscv64 rather than change python3-apt:riscv64
+  5s Investigating (1) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+  5s Broken kylin-system-updater:riscv64 Depends on python3-dbus:riscv64 < 1.2.16-ok1 | 1.3.2-ok3 @ii uR >
+  5s   Considering python3-dbus:riscv64 9 as a solution to kylin-system-updater:riscv64 1
+  5s     Reinst Failed because of python3-dbus:riscv64
+  5s   Removing kylin-system-updater:riscv64 rather than change python3-dbus:riscv64
+  5s Investigating (1) libpython3.12-stdlib:riscv64 < none -> 3.12.2-ok4 @un uN Ib >
+  5s Broken libpython3.12-stdlib:riscv64 Depends on libtirpc3t64:riscv64 < none | 1.3.4+ds-ok1 @un uH > (>= 1.0.2)
+  5s   Considering libtirpc3t64:riscv64 0 as a solution to libpython3.12-stdlib:riscv64 0
+  5s   Holding Back libpython3.12-stdlib:riscv64 rather than change libtirpc3t64:riscv64
+  5s Investigating (1) python3-secretstorage:riscv64 < 2.3.1-ok1 | 3.3.3-ok1 @ii uH Ib >
+  5s Broken python3-secretstorage:riscv64 Depends on python3-dbus:riscv64 < 1.2.16-ok1 | 1.3.2-ok3 @ii uR >
+  5s   Considering python3-dbus:riscv64 9 as a solution to python3-secretstorage:riscv64 0
+  5s   Re-Instated python3-secretstorage:riscv64
+  5s Investigating (1) apport-core-dump-handler:riscv64 < none -> 2.28.1-ok3 @un uN Ib >
+  5s Broken apport-core-dump-handler:riscv64 Depends on apport:riscv64 < 2.20.11-ok3 | 2.28.1-ok3 @ii uR > (>= 2.27.0-0ubuntu7~)
+  5s   Considering apport:riscv64 1 as a solution to apport-core-dump-handler:riscv64 0
+  5s   Holding Back apport-core-dump-handler:riscv64 rather than change apport:riscv64
+  5s Investigating (1) python3-aptdaemon.gtk3widgets:riscv64 < 1.1.1+bzr982-ok5 | 1.1.1+bzr982-ok7 @ii uH Ib >
+  5s Broken python3-aptdaemon.gtk3widgets:riscv64 Depends on python3-aptdaemon:riscv64 < 1.1.1+bzr982-ok5 | 1.1.1+bzr982-ok7 @ii uR > (= 1.1.1+bzr982-ok5)
+  5s   Considering python3-aptdaemon:riscv64 3 as a solution to python3-aptdaemon.gtk3widgets:riscv64 0
+  5s     Reinst Failed because of python3-aptdaemon:riscv64
+  5s   Removing python3-aptdaemon.gtk3widgets:riscv64 rather than change python3-aptdaemon:riscv64
+  5s Investigating (1) mpv:riscv64 < 0.32.0.4kylin6k12-ok1 | 0.32.0.4kylin6k12-ok4 @ii uH Ib >
+  5s Broken mpv:riscv64 Depends on libsmbclient:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR > (>= 2:4.0.3+dfsg1)
+  5s   Considering libsmbclient:riscv64 6 as a solution to mpv:riscv64 0
+  5s     Reinst Failed because of libavcodec60:riscv64
+  5s   Removing mpv:riscv64 rather than change libsmbclient:riscv64
+  5s Investigating (1) python3.12:riscv64 < none -> 3.12.2-ok4 @un uN Ib >
+  5s Broken python3.12:riscv64 Depends on libpython3.12-stdlib:riscv64 < none | 3.12.2-ok4 @un uH > (= 3.12.2-ok4)
+  5s   Considering libpython3.12-stdlib:riscv64 0 as a solution to python3.12:riscv64 0
+  5s   Holding Back python3.12:riscv64 rather than change libpython3.12-stdlib:riscv64
+  5s Investigating (1) libasound2t64:riscv64 < none -> 1.2.11-ok1 @un uN Ib >
+  5s Broken libasound2t64:riscv64 Breaks on libasound2:riscv64 < 1.2.2-ok3 @ii K > (< 1.2.11-ok1)
+  5s   Considering libasound2:riscv64 53 as a solution to libasound2t64:riscv64 0
+  5s   Holding Back libasound2t64:riscv64 rather than change libasound2:riscv64
+  5s Investigating (1) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+  5s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+  5s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+  5s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+  5s Investigating (1) peony-share:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  5s Broken peony-share:riscv64 Depends on samba:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR >
+  5s   Considering samba:riscv64 0 as a solution to peony-share:riscv64 0
+  5s     Reinst Failed because of samba:riscv64
+  5s   Removing peony-share:riscv64 rather than change samba:riscv64
+  5s Investigating (1) libgdbm6t64:riscv64 < none -> 1.23-ok5 @un uN Ib >
+  5s Broken libgdbm6t64:riscv64 Breaks on libgdbm6:riscv64 < 1.23-1 @ii K > (< 1.23-ok5)
+  5s   Considering libgdbm6:riscv64 5 as a solution to libgdbm6t64:riscv64 0
+  5s   Holding Back libgdbm6t64:riscv64 rather than change libgdbm6:riscv64
+  5s Investigating (1) python3-gdbm:riscv64 < 3.10.7-ok2 -> 3.12.3-ok6 @ii uU Ib >
+  5s Broken python3-gdbm:riscv64 Depends on libgdbm6t64:riscv64 < none | 1.23-ok5 @un uH > (>= 1.16)
+  5s   Considering libgdbm6t64:riscv64 0 as a solution to python3-gdbm:riscv64 0
+  5s   Removing python3-gdbm:riscv64 rather than change libgdbm6t64:riscv64
+  5s Investigating (1) language-selector-gnome:riscv64 < 0.309-ok2 @ii K Ib >
+  5s Broken language-selector-gnome:riscv64 Depends on aptdaemon:riscv64 < 1.1.1+bzr982-ok5 | 1.1.1+bzr982-ok7 @ii uR > (>= 0.40+bzr527)
+  5s   Considering aptdaemon:riscv64 4 as a solution to language-selector-gnome:riscv64 0
+  5s   Removing language-selector-gnome:riscv64 rather than change aptdaemon:riscv64
+  5s Investigating (1) kylin-video:riscv64 < 3.1.4.2k1-ok26.2 | 3.1.4.2k1-ok26.12 @ii uH Ib >
+  5s Broken kylin-video:riscv64 Depends on libmpv1:riscv64 < 0.32.0.4kylin6k12-ok1 | 0.32.0.4kylin6k12-ok4 @ii uR > (>= 0.9.0)
+  5s   Considering libmpv1:riscv64 2 as a solution to kylin-video:riscv64 -1
+  5s     Reinst Failed because of libmpv1:riscv64
+  5s   Removing kylin-video:riscv64 rather than change libmpv1:riscv64
+  5s Investigating (1) kylin-printer:riscv64 < 1.3.1.0-ok8 | 1.3.1.0-ok11 @ii uH Ib >
+  5s Broken kylin-printer:riscv64 Depends on kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uR >
+  5s   Considering kylin-system-updater:riscv64 1 as a solution to kylin-printer:riscv64 -1
+  5s     Reinst Failed because of kylin-system-updater:riscv64
+  5s   Removing kylin-printer:riscv64 rather than change kylin-system-updater:riscv64
+  5s Investigating (1) kylin-recorder:riscv64 < 1.3.0.2.0k3.3-ok4.6 | 1.3.0.2.0k3.3-ok5.9 @ii uH Ib >
+  5s Broken kylin-recorder:riscv64 Depends on libmpv1:riscv64 < 0.32.0.4kylin6k12-ok1 | 0.32.0.4kylin6k12-ok4 @ii uR > (>= 0.4.0)
+  5s   Considering libmpv1:riscv64 2 as a solution to kylin-recorder:riscv64 -1
+  5s     Reinst Failed because of libavcodec60:riscv64
+  5s   Removing kylin-recorder:riscv64 rather than change libmpv1:riscv64
+  5s Investigating (1) xorg:riscv64 < 1:7.7+19ubuntu14-ok3 | 1:7.7+23-ok1 @ii uH Ib >
+  5s Broken xorg:riscv64 Depends on xserver-xorg:riscv64 < 1:7.7+19ubuntu14-ok3 | 1:7.7+23-ok1 @ii uR > (>= 1:7.7+19ubuntu14-ok3)
+  5s   Considering xserver-xorg:riscv64 4 as a solution to xorg:riscv64 -1
+  5s     Reinst Failed because of xserver-xorg:riscv64
+  5s   Removing xorg:riscv64 rather than change xserver-xorg:riscv64
+  5s Investigating (1) python3-commandnotfound:riscv64 < 20.04.2-ok1 @ii K Ib >
+  5s Broken python3-commandnotfound:riscv64 Depends on python3-apt:riscv64 < 2.3.0-ok4 | 2.7.7-ok3 @ii uR >
+  5s   Considering python3-apt:riscv64 14 as a solution to python3-commandnotfound:riscv64 -1
+  5s   Removing python3-commandnotfound:riscv64 rather than change python3-apt:riscv64
+  5s Investigating (1) kylin-music:riscv64 < 1.1.0.47-ok9.3 | 1.1.0.47-ok9.16 @ii uH Ib >
+  5s Broken kylin-music:riscv64 Depends on libmpv1:riscv64 < 0.32.0.4kylin6k12-ok1 | 0.32.0.4kylin6k12-ok4 @ii uR > (>= 0.4.0)
+  5s   Considering libmpv1:riscv64 2 as a solution to kylin-music:riscv64 -1
+  5s     Reinst Failed because of libavcodec60:riscv64
+  5s     Reinst Failed because of libavformat60:riscv64
+  5s   Removing kylin-music:riscv64 rather than change libmpv1:riscv64
+  5s Investigating (1) python3-software-properties:riscv64 < 0.98.9-ok1 @ii K Ib >
+  5s Broken python3-software-properties:riscv64 Depends on python3-apt:riscv64 < 2.3.0-ok4 | 2.7.7-ok3 @ii uR > (>= 0.6.20ubuntu16)
+  5s   Considering python3-apt:riscv64 14 as a solution to python3-software-properties:riscv64 -1
+  5s   Removing python3-software-properties:riscv64 rather than change python3-apt:riscv64
+  5s Investigating (1) command-not-found:riscv64 < 20.04.2-ok1 @ii K Ib >
+  5s Broken command-not-found:riscv64 Depends on python3-commandnotfound:riscv64 < 20.04.2-ok1 @ii R > (= 20.04.2-ok1)
+  5s   Considering python3-commandnotfound:riscv64 -1 as a solution to command-not-found:riscv64 -2
+  5s   Removing command-not-found:riscv64 rather than change python3-commandnotfound:riscv64
+  5s Investigating (1) software-properties-common:riscv64 < 0.98.9-ok1 @ii K Ib >
+  5s Broken software-properties-common:riscv64 Depends on python3-dbus:riscv64 < 1.2.16-ok1 | 1.3.2-ok3 @ii uR >
+  5s   Considering python3-dbus:riscv64 9 as a solution to software-properties-common:riscv64 -2
+  5s   Removing software-properties-common:riscv64 rather than change python3-dbus:riscv64
+  5s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-pytest-asyncio:riscv64 < none @un H > (>= 0.17)
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-testpath:riscv64 < none @un H >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-trio:riscv64 < none @un H >
+  5s Investigating (2) python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU Ib >
+  5s Broken python3:riscv64 Depends on python3.12:riscv64 < none | 3.12.2-ok4 @un uH > (>= 3.12.2-1~)
+  5s   Considering python3.12:riscv64 0 as a solution to python3:riscv64 220
+  5s   Removing python3:riscv64 rather than change python3.12:riscv64
+  5s Investigating (2) libpython3-stdlib:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU Ib >
+  5s Broken libpython3-stdlib:riscv64 Depends on libpython3.12-stdlib:riscv64 < none | 3.12.2-ok4 @un uH > (>= 3.12.2-1~)
+  5s   Considering libpython3.12-stdlib:riscv64 0 as a solution to libpython3-stdlib:riscv64 134
+  5s   Holding Back libpython3-stdlib:riscv64 rather than change libpython3.12-stdlib:riscv64
+  5s Investigating (2) lsb-release:riscv64 < 11.1.0-ok3 @ii K Ib >
+  5s Broken lsb-release:riscv64 Depends on python3:any:any < none @un H >
+  5s   Considering python3:riscv64 220 as a solution to lsb-release:riscv64 23
+  5s   Removing lsb-release:riscv64 rather than change python3:any:any
+  5s Investigating (2) python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uH Ib >
+  5s Broken python3-pkg-resources:riscv64 Depends on python3:any:any < none @un H > (>= 3.8~)
+  5s   Considering python3:riscv64 220 as a solution to python3-pkg-resources:riscv64 16
+  5s     Reinst Failed because of python3:riscv64
+  5s   Removing python3-pkg-resources:riscv64 rather than change python3:any:any
+  5s Investigating (2) python3-six:riscv64 < 1.16.0-4 | 1.16.0-ok1 @ii uH Ib >
+  5s Broken python3-six:riscv64 Depends on python3:any:any < none @un H >
+  5s   Considering python3:riscv64 220 as a solution to python3-six:riscv64 15
+  5s     Reinst Failed because of python3:riscv64
+  5s   Removing python3-six:riscv64 rather than change python3:any:any
+  5s Investigating (2) gvfs-backends:riscv64 < 1.52.0-ok1~1116 | 1.52.0-ok2.1~0701 @ii uH Ib >
+  5s Broken gvfs-backends:riscv64 Depends on libsmbclient:riscv64 < 2:4.19.2+dfsg-ok1~1207.5 | 2:4.19.2+dfsg-ok1~1207.6 @ii uR > (>= 2:4.10.0+dfsg)
+  5s   Considering libsmbclient:riscv64 6 as a solution to gvfs-backends:riscv64 15
+  5s   Added libsmbclient:riscv64 to the remove list
+  5s   Fixing gvfs-backends:riscv64 via keep of libsmbclient:riscv64
+  5s Investigating (2) python3-importlib-metadata:riscv64 < 4.12.0-ok3 @ii K Ib >
+  5s Broken python3-importlib-metadata:riscv64 Depends on python3-typing-extensions:riscv64 < none | 4.10.0-ok1 @un uH >
+  5s   Considering python3-typing-extensions:riscv64 1 as a solution to python3-importlib-metadata:riscv64 6
+  5s   Try Installing python3-typing-extensions:riscv64 < none | 4.10.0-ok1 @un uH > before changing python3-importlib-metadata:riscv64
+  5s Investigating (2) python3-cryptography:riscv64 < 2.8-ok1 | 41.0.7-ok2 @ii uH Ib >
+  5s Broken python3-cryptography:riscv64 Depends on python3-six:riscv64 < 1.16.0-4 | 1.16.0-ok1 @ii uR > (>= 1.4.1)
+  5s   Considering python3-six:riscv64 220 as a solution to python3-cryptography:riscv64 6
+  5s   Re-Instated python3-cryptography:riscv64
+  5s Investigating (2) python3-lazr.uri:riscv64 < 1.0.6-2 | 1.0.6-ok1 @ii uH Ib >
+  5s Broken python3-lazr.uri:riscv64 Depends on python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uR >
+  5s   Considering python3-pkg-resources:riscv64 220 as a solution to python3-lazr.uri:riscv64 5
+  5s     Reinst Failed because of python3-pkg-resources:riscv64
+  5s   Removing python3-lazr.uri:riscv64 rather than change python3-pkg-resources:riscv64
+  5s Investigating (2) python3-launchpadlib:riscv64 < 1.10.13-ok1 | 1.11.0-ok1 @ii uH Ib >
+  5s Broken python3-launchpadlib:riscv64 Depends on python3-lazr.uri:riscv64 < 1.0.6-2 | 1.0.6-ok1 @ii uR > (>= 1.0.2-0)
+  5s   Considering python3-lazr.uri:riscv64 220 as a solution to python3-launchpadlib:riscv64 4
+  5s     Reinst Failed because of python3-lazr.uri:riscv64
+  5s   Removing python3-launchpadlib:riscv64 rather than change python3-lazr.uri:riscv64
+  5s Investigating (2) plymouth-theme-ubuntu-text:riscv64 < 0.9.4git20200323-ok2 | 24.004.60-ok4 @ii uH Ib >
+  5s Broken plymouth-theme-ubuntu-text:riscv64 Depends on lsb-release:riscv64 < 11.1.0-ok3 @ii R >
+  5s   Considering lsb-release:riscv64 220 as a solution to plymouth-theme-ubuntu-text:riscv64 4
+  5s   Re-Instated lsb-base:riscv64
+  5s   Re-Instated sysvinit-utils:riscv64
+  5s   Re-Instated libpng16-16t64:riscv64
+  5s   Re-Instated libplymouth5:riscv64
+  5s   Re-Instated plymouth:riscv64
+  5s     Reinst Failed because of lsb-release:riscv64
+  5s   Removing plymouth-theme-ubuntu-text:riscv64 rather than change lsb-release:riscv64
+  5s Investigating (2) python3-urllib3:riscv64 < 1.26.9-1 | 2.0.7-ok2 @ii uH Ib >
+  5s Broken python3-urllib3:riscv64 Depends on python3-six:riscv64 < 1.16.0-4 | 1.16.0-ok1 @ii uR >
+  5s   Considering python3-six:riscv64 220 as a solution to python3-urllib3:riscv64 3
+  5s   Re-Instated python3-urllib3:riscv64
+  5s Investigating (2) python3-wadllib:riscv64 < 1.3.6-1 | 1.3.6-ok1 @ii uH Ib >
+  5s Broken python3-wadllib:riscv64 Depends on python3-lazr.uri:riscv64 < 1.0.6-2 | 1.0.6-ok1 @ii uR >
+  5s   Considering python3-lazr.uri:riscv64 220 as a solution to python3-wadllib:riscv64 3
+  5s     Reinst Failed because of python3-lazr.uri:riscv64
+  5s   Removing python3-wadllib:riscv64 rather than change python3-lazr.uri:riscv64
+  5s Investigating (2) python3-distro:riscv64 < 1.7.0-1 | 1.9.0-ok1 @ii uH Ib >
+  5s Broken python3-distro:riscv64 Depends on lsb-release:riscv64 < 11.1.0-ok3 @ii R >
+  5s   Considering lsb-release:riscv64 220 as a solution to python3-distro:riscv64 3
+  5s     Reinst Failed because of lsb-release:riscv64
+  5s   Removing python3-distro:riscv64 rather than change lsb-release:riscv64
+  5s Investigating (2) peony-extensions:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  5s Broken peony-extensions:riscv64 Depends on peony-share:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uR > (>= 3.2.2+1015)
+  5s   Considering peony-share:riscv64 0 as a solution to peony-extensions:riscv64 2
+  5s   Added peony-share:riscv64 to the remove list
+  5s   Fixing peony-extensions:riscv64 via keep of peony-share:riscv64
+  5s Investigating (2) youtube-dl:riscv64 < 2020.03.24-ok1 @ii K Ib >
+  5s Broken youtube-dl:riscv64 Depends on python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uR >
+  5s   Considering python3-pkg-resources:riscv64 220 as a solution to youtube-dl:riscv64 2
+  5s   Removing youtube-dl:riscv64 rather than change python3-pkg-resources:riscv64
+  5s Investigating (2) python3-lazr.restfulclient:riscv64 < 0.14.2-ok1 | 0.14.6-ok1 @ii uH Ib >
+  5s Broken python3-lazr.restfulclient:riscv64 Depends on python3-lazr.uri:riscv64 < 1.0.6-2 | 1.0.6-ok1 @ii uR >
+  5s   Considering python3-lazr.uri:riscv64 220 as a solution to python3-lazr.restfulclient:riscv64 2
+  5s     Reinst Failed because of python3-lazr.uri:riscv64
+  5s   Removing python3-lazr.restfulclient:riscv64 rather than change python3-lazr.uri:riscv64
+  5s Investigating (2) python3-chardet:riscv64 < 4.0.0-2 | 5.2.0+dfsg-ok1 @ii uH Ib >
+  5s Broken python3-chardet:riscv64 Depends on python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uR >
+  5s   Considering python3-pkg-resources:riscv64 220 as a solution to python3-chardet:riscv64 2
+  5s     Reinst Failed because of python3-pkg-resources:riscv64
+  5s   Removing python3-chardet:riscv64 rather than change python3-pkg-resources:riscv64
+  5s Investigating (2) kylin-update-frontend:riscv64 < 2.0.0.0-ok18 | 2.0.0.0-ok22 @ii uH Ib >
+  5s Broken kylin-update-frontend:riscv64 Depends on kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uR > (>= 2.0.5.1)
+  5s   Considering kylin-system-updater:riscv64 1 as a solution to kylin-update-frontend:riscv64 1
+  5s   Re-Instated libyaml-cpp0.8:riscv64
+  5s     Reinst Failed because of kylin-system-updater:riscv64
+  5s   Removing kylin-update-frontend:riscv64 rather than change kylin-system-updater:riscv64
+  5s Investigating (2) python3-apscheduler:riscv64 < 3.6.3-ok2 | 3.9.1-ok1 @ii uH Ib >
+  5s Broken python3-apscheduler:riscv64 Depends on python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uR >
+  5s   Considering python3-pkg-resources:riscv64 220 as a solution to python3-apscheduler:riscv64 1
+  5s     Reinst Failed because of python3-pkg-resources:riscv64
+  5s   Removing python3-apscheduler:riscv64 rather than change python3-pkg-resources:riscv64
+  5s Investigating (2) yelp:riscv64 < 3.36.0-ok1 @ii K Ib >
+  5s Broken yelp:riscv64 Depends on python3-distro:riscv64 < 1.7.0-1 | 1.9.0-ok1 @ii uR >
+  5s   Considering python3-distro:riscv64 220 as a solution to yelp:riscv64 1
+  5s   Removing yelp:riscv64 rather than change python3-distro:riscv64
+  5s Investigating (2) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+  5s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-crypto:riscv64 0
+  5s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+  5s Investigating (2) libpng16-16t64:riscv64 < none -> 1.6.43-ok1 @un uN Ib >
+  5s Broken libpng16-16t64:riscv64 Breaks on libpng16-16:riscv64 < 1.6.38-2 @ii K > (< 1.6.43-ok1)
+  5s   Considering libpng16-16:riscv64 330 as a solution to libpng16-16t64:riscv64 0
+  5s   Holding Back libpng16-16t64:riscv64 rather than change libpng16-16:riscv64
+  5s Investigating (2) python3-setuptools:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uH Ib >
+  5s Broken python3-setuptools:riscv64 Depends on python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uR > (= 65.3.0-ok5)
+  5s   Considering python3-pkg-resources:riscv64 220 as a solution to python3-setuptools:riscv64 0
+  5s     Reinst Failed because of python3-pkg-resources:riscv64
+  5s   Removing python3-setuptools:riscv64 rather than change python3-pkg-resources:riscv64
+  5s Investigating (2) python3-pygments:riscv64 < 2.14.0-ok1 | 2.17.2+dfsg-ok1 @ii uH Ib >
+  5s Broken python3-pygments:riscv64 Depends on python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uR >
+  5s   Considering python3-pkg-resources:riscv64 220 as a solution to python3-pygments:riscv64 0
+  5s     Reinst Failed because of python3-pkg-resources:riscv64
+  5s   Removing python3-pygments:riscv64 rather than change python3-pkg-resources:riscv64
+  5s Investigating (2) python3-bcrypt:riscv64 < 3.2.0-ok1 | 3.2.2-ok1 @ii uH Ib >
+  5s Broken python3-bcrypt:riscv64 Depends on python3-six:riscv64 < 1.16.0-4 | 1.16.0-ok1 @ii uR > (>= 1.4.1)
+  5s   Considering python3-six:riscv64 220 as a solution to python3-bcrypt:riscv64 0
+  5s   Re-Instated python3-bcrypt:riscv64
+  5s Investigating (2) mate-user-guide:riscv64 < 1.24.0-ok1 @ii K Ib >
+  5s Broken mate-user-guide:riscv64 Depends on yelp:riscv64 < 3.36.0-ok1 @ii R >
+  5s   Considering yelp:riscv64 220 as a solution to mate-user-guide:riscv64 0
+  5s   Removing mate-user-guide:riscv64 rather than change yelp:riscv64
+  5s Investigating (2) python3-babel:riscv64 < 2.8.0+dfsg.1-7 @ii K Ib >
+  5s Broken python3-babel:riscv64 Depends on python3-pkg-resources:riscv64 < 65.3.0-ok5 | 68.1.2-ok1 @ii uR >
+  5s   Considering python3-pkg-resources:riscv64 220 as a solution to python3-babel:riscv64 -1
+  5s   Removing python3-babel:riscv64 rather than change python3-pkg-resources:riscv64
+  5s Investigating (2) python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii K Ib >
+  5s Broken python3-pyrsistent:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-pyrsistent:riscv64 -1
+  5s   Removing python3-pyrsistent:riscv64 rather than change python3:riscv64
+  5s Investigating (2) python3-debian:riscv64 < 0.1.46 | 0.1.49-ok1 @ii uH Ib >
+  5s Broken python3-debian:riscv64 Depends on python3-chardet:riscv64 < 4.0.0-2 | 5.2.0+dfsg-ok1 @ii uR >
+  5s   Considering python3-chardet:riscv64 220 as a solution to python3-debian:riscv64 -1
+  5s     Reinst Failed because of python3-chardet:riscv64
+  5s   Removing python3-debian:riscv64 rather than change python3-chardet:riscv64
+  5s Investigating (2) python3-systemd:riscv64 < 234-ok1 @ii K Ib >
+  5s Broken python3-systemd:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii uU > (< 3.9)
+  5s   Considering python3:riscv64 220 as a solution to python3-systemd:riscv64 -1
+  5s   Removing python3-systemd:riscv64 rather than change python3:riscv64
+  5s Investigating (2) python3-openssl:riscv64 < 19.0.0-ok1 @ii K Ib >
+  5s Broken python3-openssl:riscv64 Depends on python3-six:riscv64 < 1.16.0-4 | 1.16.0-ok1 @ii uR > (>= 1.5.2)
+  5s   Considering python3-six:riscv64 220 as a solution to python3-openssl:riscv64 -2
+  5s   Removing python3-openssl:riscv64 rather than change python3-six:riscv64
+  5s Investigating (2) pastebinit:riscv64 < 1.5.1-ok1 @ii K Ib >
+  5s Broken pastebinit:riscv64 Depends on python3-distro:riscv64 < 1.7.0-1 | 1.9.0-ok1 @ii uR >
+  5s   Considering python3-distro:riscv64 220 as a solution to pastebinit:riscv64 -2
+  5s   Removing pastebinit:riscv64 rather than change python3-distro:riscv64
+  5s Investigating (2) sosreport:riscv64 < 3.9-ok1 @ii K Ib >
+  5s Broken sosreport:riscv64 Depends on python3-six:riscv64 < 1.16.0-4 | 1.16.0-ok1 @ii uR >
+  5s   Considering python3-six:riscv64 220 as a solution to sosreport:riscv64 -2
+  5s   Removing sosreport:riscv64 rather than change python3-six:riscv64
+  5s Investigating (2) python3-configobj:riscv64 < 5.0.6-ok1 @ii K Ib >
+  5s Broken python3-configobj:riscv64 Depends on python3-six:riscv64 < 1.16.0-4 | 1.16.0-ok1 @ii uR >
+  5s   Considering python3-six:riscv64 220 as a solution to python3-configobj:riscv64 -2
+  5s   Removing python3-configobj:riscv64 rather than change python3-six:riscv64
+  5s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-pytest-asyncio:riscv64 < none @un H > (>= 0.17)
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-testpath:riscv64 < none @un H >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-trio:riscv64 < none @un H >
+  5s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+  5s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+  5s   Considering gir1.2-girepository-2.0:riscv64 0 as a solution to python3-gi:riscv64 26
+  5s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+  5s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+  5s Investigating (3) libplymouth5:riscv64 < 0.9.4git20200323-ok2 -> 24.004.60-ok4 @ii uU Ib >
+  5s Broken libplymouth5:riscv64 Depends on libpng16-16t64:riscv64 < none | 1.6.43-ok1 @un uH > (>= 1.6.2)
+  5s   Considering libpng16-16t64:riscv64 0 as a solution to libplymouth5:riscv64 5
+  5s   Holding Back libplymouth5:riscv64 rather than change libpng16-16t64:riscv64
+  5s Investigating (3) python3-requests:riscv64 < 2.25.1+dfsg-ok1 | 2.31.0+dfsg-ok1 @ii uH Ib >
+  5s Broken python3-requests:riscv64 Depends on python3-chardet:riscv64 < 4.0.0-2 | 5.2.0+dfsg-ok1 @ii uR > (>= 3.0.2)
+  5s   Considering python3-chardet:riscv64 220 as a solution to python3-requests:riscv64 2
+  5s     Reinst Failed because of python3-chardet:riscv64
+  5s   Removing python3-requests:riscv64 rather than change python3-chardet:riscv64
+  5s Investigating (3) libkysdk-location:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uH Ib >
+  5s Broken libkysdk-location:riscv64 Depends on python3-requests:riscv64 < 2.25.1+dfsg-ok1 | 2.31.0+dfsg-ok1 @ii uR >
+  5s   Considering python3-requests:riscv64 220 as a solution to libkysdk-location:riscv64 0
+  5s   Re-Instated libkysdk-location:riscv64
+  5s Investigating (4) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-pytest-asyncio:riscv64 < none @un H > (>= 0.17)
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-testpath:riscv64 < none @un H >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-trio:riscv64 < none @un H >
+  5s Investigating (4) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+  5s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+  5s   Considering gir1.2-girepository-2.0:riscv64 26 as a solution to python3-gi:riscv64 26
+  5s   Removing python3-gi:riscv64 rather than change gir1.2-girepository-2.0:riscv64
+  5s Investigating (4) plymouth:riscv64 < 0.9.4git20200323-ok2 -> 24.004.60-ok4 @ii uU Ib >
+  5s Broken plymouth:riscv64 Depends on libplymouth5:riscv64 < 0.9.4git20200323-ok2 | 24.004.60-ok4 @ii uH > (>= 23.360.11)
+  5s   Considering libplymouth5:riscv64 5 as a solution to plymouth:riscv64 6
+  5s   Holding Back plymouth:riscv64 rather than change libplymouth5:riscv64
+  5s Investigating (4) python3-requests-unixsocket:riscv64 < 0.2.0-ok1 | 0.3.0-ok1 @ii uH Ib >
+  5s Broken python3-requests-unixsocket:riscv64 Depends on python3-requests:riscv64 < 2.25.1+dfsg-ok1 | 2.31.0+dfsg-ok1 @ii uR >
+  5s   Considering python3-requests:riscv64 220 as a solution to python3-requests-unixsocket:riscv64 2
+  5s     Reinst Failed because of python3-requests:riscv64
+  5s   Removing python3-requests-unixsocket:riscv64 rather than change python3-requests:riscv64
+  5s Investigating (5) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-pytest-asyncio:riscv64 < none @un H > (>= 0.17)
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-testpath:riscv64 < none @un H >
+  5s Broken autopkgtest-satdep:riscv64 Depends on python3-trio:riscv64 < none @un H >
+  5s Done
+  5s Some packages could not be installed. This may mean that you have
+  5s requested an impossible situation or if you are using the unstable
+  5s distribution that some required packages have not yet been created
+  5s or been moved out of Incoming.
+  5s The following information may help to resolve the situation:
+  5s 
+  5s The following packages have unmet dependencies:
+  6s  autopkgtest-satdep : Depends: python3-pytest-asyncio (>= 0.17) but it is not installable
+  6s                       Depends: python3-testpath but it is not installable
+  6s                       Depends: python3-trio but it is not installable
+  6s E: Unable to correct problems, you have held broken packages.
+  6s autopkgtest: DBG: testbed command exited with code 100
+  6s autopkgtest: DBG: apt-get install /tmp/autopkgtest.fmzot5/1-autopkgtest-satdep.deb failed; status-fd:
+  6s 
+  6s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+  6s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dbus python3-all python3-async-timeout python3-jeepney python3-pytest python3-pytest-asyncio (>= 0.17) python3-testpath python3-trio -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  6s autopkgtest: DBG: testbed command exited with code 2
+  6s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  6s command1             FAIL badpkg
+  6s blame: jeepney_0.8.0-ok1.dsc
+  6s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  6s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+  6s autopkgtest [21:55:53]: @@@@@@@@@@@@@@@@@@@@ summary
+  6s command1             FAIL badpkg
+  6s blame: jeepney_0.8.0-ok1.dsc
+  6s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  6s autopkgtest: DBG: testbed stop
+  6s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.fmzot5
+  6s autopkgtest: DBG: sending command to testbed: close
+  6s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: sending command to testbed: quit

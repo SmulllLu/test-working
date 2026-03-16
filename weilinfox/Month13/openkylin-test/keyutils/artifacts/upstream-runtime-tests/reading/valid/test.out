@@ -1,0 +1,47 @@
+++++ BEGINNING TEST
++++ ADD KEYRING
+keyctl newring wibble @s
+816919708
++++ ADD KEY
+keyctl add user lizard gizzard 816919708
+556457634
++++ LIST KEYRING
+keyctl rlist 816919708
+556457634
++++ PRINT KEY
+keyctl print 556457634
+gizzard
++++ PIPE KEY
+keyctl pipe 556457634
+gizzard
++++ READ KEY
+keyctl read 556457634
+7 bytes of data in key:
+67697a7a 617264
++++ READ KEYRING
+keyctl read 816919708
+4 bytes of data in key:
+a2de2a21
++++ REMOVE READ PERM
+keyctl setperm 556457634 0x3d0000
+keyctl print 556457634
+gizzard
++++ REMOVE SEARCH PERM
+keyctl setperm 556457634 0x350000
+keyctl print 556457634
+keyctl_read_alloc: Permission denied
++++ CHECK POSSESSOR READ
+keyctl setperm 556457634 0x3d000000
+keyctl print 556457634
+gizzard
++++ REINSTATE READ PERM
+keyctl setperm 556457634 0x370000
+keyctl print 556457634
+gizzard
++++ REVOKE KEY
+keyctl revoke 556457634
+keyctl print 556457634
+keyctl_read_alloc: Key has been revoked
++++ UNLINK KEYRING
+keyctl unlink 816919708 @s
+++++ FINISHED TEST: PASS

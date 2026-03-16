@@ -1,0 +1,306 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:39:09]: starting date and time: 2024-07-18 23:39:09+0800
+  0s autopkgtest [23:39:09]: version @version@
+  0s autopkgtest [23:39:09]: host lili; command line: /usr/bin/autopkgtest openjdk-17_17.0.2+9-ok0.8.dsc -o /home/hachi/openkylin_test/sharefolder/results/openjdk-17 -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.Vt4BKV
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b//tmp/autopkgtest.Vt4BKV
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b//tmp/autopkgtest.Vt4BKV', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Vt4BKV'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.Vt4BKV/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.Vt4BKV/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:39:10]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:39:10]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.Vt4BKV/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Vt4BKV/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openjdk-17/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [23:39:11]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [23:39:11]: @@@@@@@@@@@@@@@@@@@@ source openjdk-17_17.0.2+9-ok0.8.dsc
+  2s autopkgtest: DBG: blame += openjdk-17_17.0.2+9-ok0.8.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Vt4BKV'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown openjdk-17_17.0.2%2B9-ok0.8.dsc /tmp/autopkgtest.Vt4BKV/openjdk-17_17.0.2%2B9-ok0.8.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Vt4BKV'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown openjdk-17_17.0.2%2B9.orig.tar.gz /tmp/autopkgtest.Vt4BKV/openjdk-17_17.0.2%2B9.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Vt4BKV'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown openjdk-17_17.0.2%2B9-ok0.8.debian.tar.xz /tmp/autopkgtest.Vt4BKV/openjdk-17_17.0.2%2B9-ok0.8.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.Vt4BKV/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.Vt4BKV/openjdk-17_17.0.2+9-ok0.8.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.Vt4BKV/build.XXX
+  3s + builddir=/tmp/autopkgtest.Vt4BKV/build.avN
+  3s + cd /tmp/autopkgtest.Vt4BKV/build.avN
+  3s + dpkg-source -x /tmp/autopkgtest.Vt4BKV/openjdk-17_17.0.2+9-ok0.8.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.5bNqPdhq/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 14 Nov 2023 03:37:08 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.Vt4BKV/openjdk-17_17.0.2+9-ok0.8.dsc
+  7s dpkg-source: info: extracting openjdk-17 in src
+  7s dpkg-source: info: unpacking openjdk-17_17.0.2+9.orig.tar.gz
+ 20s dpkg-source: info: unpacking openjdk-17_17.0.2+9-ok0.8.debian.tar.xz
+ 22s dpkg-source: info: using patch list from debian/patches/series
+ 22s dpkg-source: info: applying system-pcsclite.diff
+ 22s dpkg-source: info: applying hotspot-mips-align.diff
+ 22s dpkg-source: info: applying icc_loading_with_symlink.diff
+ 22s dpkg-source: info: applying icedtea-override-redirect-compiz.diff
+ 22s dpkg-source: info: applying libpcsclite-dlopen.diff
+ 22s dpkg-source: info: applying default-jvm-cfg.diff
+ 22s dpkg-source: info: applying workaround_expand_exec_shield_cs_limit.diff
+ 22s dpkg-source: info: applying adlc-parser.diff
+ 22s dpkg-source: info: applying multiple-pkcs11-library-init.diff
+ 22s dpkg-source: info: applying s390x-opt.diff
+ 22s dpkg-source: info: applying jdk-getAccessibleValue.diff
+ 22s dpkg-source: info: applying jtreg-location.diff
+ 22s dpkg-source: info: applying jdk-i18n-pt_BR.diff
+ 22s dpkg-source: info: applying 8199220.diff
+ 23s dpkg-source: info: applying machine-flag.diff
+ 23s dpkg-source: info: applying zero-x32.diff
+ 23s dpkg-source: info: applying hotspot-disable-exec-shield-workaround.diff
+ 23s dpkg-source: info: applying atk-wrapper-security.diff
+ 23s dpkg-source: info: applying dnd-files.diff
+ 23s dpkg-source: info: applying generated-headers.patch
+ 23s dpkg-source: info: applying m68k-support.diff
+ 23s dpkg-source: info: applying reproducible-properties-timestamp.diff
+ 23s dpkg-source: info: applying make-debug-print.diff
+ 23s dpkg-source: info: applying Don-t-optimize-fdlibm-fork-for-Zero-on-linux-sparc-Z.patch
+ 23s dpkg-source: info: applying keep-gtk2-as-default.patch
+ 23s dpkg-source: info: applying jaw-classpath.diff
+ 23s dpkg-source: info: applying jaw-optional.diff
+ 23s dpkg-source: info: applying reproducible-character-data.diff
+ 23s dpkg-source: info: applying reproducible-module-info.diff
+ 23s dpkg-source: info: applying reproducible-copyright-headers.diff
+ 23s dpkg-source: info: applying reproducible-build-user.diff
+ 23s dpkg-source: info: applying riscv64.diff
+ 23s dpkg-source: info: applying reproducible-build-jmod.diff
+ 23s dpkg-source: info: applying mips.diff
+ 23s dpkg-source: info: applying 0035-update-changelog.patch
+ 23s dpkg-source: info: applying 0036-update-jdk-version.m4.patch
+ 23s dpkg-source: info: applying 0037-update-changelog.patch
+ 23s dpkg-source: info: applying 0038-add-configure-option-with-pcsclite.patch
+ 23s dpkg-source: info: applying 0039-update-changelog.patch
+ 23s dpkg-source: info: applying 0040-update-build-rules-for-riscv64.patch
+ 23s dpkg-source: info: applying 0041-fix-compilation-error.patch
+ 23s + chmod -R a+rX .
+ 25s + cd src/.
+ 25s + pwd
+ 25s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest [23:39:34]: testing package openjdk-17 version 17.0.2+9-ok0.8
+ 25s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Vt4BKV/build.avN/src/debian/ /home/hachi/openkylin_test/sharefolder/results/openjdk-17/pkg/debian/
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: processing dependency openjdk-17-jre-headless
+ 25s autopkgtest: DBG: marked alternatives ['openjdk-17-jre-headless'] as a synthesised dependency
+ 25s autopkgtest: DBG: Test defined: name command1 path None command "java --version" restrictions ['superficial'] features [] depends ['openjdk-17-jre-headless'] 
+ 25s autopkgtest: DBG: processing dependency openjdk-17-jdk-headless
+ 25s autopkgtest: DBG: marked alternatives ['openjdk-17-jdk-headless'] as a synthesised dependency
+ 25s autopkgtest: DBG: Test defined: name command2 path None command "javac --version" restrictions ['superficial'] features [] depends ['openjdk-17-jdk-headless'] 
+ 25s autopkgtest [23:39:34]: build not needed
+ 25s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Vt4BKV/build.avN/src/ /home/hachi/openkylin_test/sharefolder/results/openjdk-17/tests-tree/
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest: DBG: processing dependency openjdk-17-jre-headless
+ 75s autopkgtest: DBG: marked alternatives ['openjdk-17-jre-headless'] as a synthesised dependency
+ 75s autopkgtest: DBG: Test defined: name command1 path None command "java --version" restrictions ['superficial'] features [] depends ['openjdk-17-jre-headless'] 
+ 75s autopkgtest: DBG: processing dependency openjdk-17-jdk-headless
+ 75s autopkgtest: DBG: marked alternatives ['openjdk-17-jdk-headless'] as a synthesised dependency
+ 75s autopkgtest: DBG: Test defined: name command2 path None command "javac --version" restrictions ['superficial'] features [] depends ['openjdk-17-jdk-headless'] 
+ 75s autopkgtest [23:40:24]: test command1: preparing testbed
+ 75s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['openjdk-17-jre-headless']
+ 75s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 75s autopkgtest: DBG: install_deps: deps_new=['openjdk-17-jre-headless']
+ 75s autopkgtest: DBG: install-deps: satisfying openjdk-17-jre-headless
+ 76s autopkgtest: DBG: install-deps: architecture resolved: openjdk-17-jre-headless
+ 76s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 76s autopkgtest: DBG: testbed command exited with code 0
+ 76s autopkgtest: DBG: can use apt-get on testbed: True
+ 76s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Vt4BKV'], kind short, sout raw, serr pipe, env []
+ 76s autopkgtest: DBG: testbed command exited with code 0
+ 76s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b//tmp/autopkgtest.Vt4BKV/1-autopkgtest-satdep.deb /tmp/autopkgtest.Vt4BKV/1-autopkgtest-satdep.deb
+ 76s autopkgtest: DBG: got reply from testbed: ok
+ 76s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.Vt4BKV/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 76s Reading package lists...
+ 77s Building dependency tree...
+ 77s Reading state information...
+ 77s Starting pkgProblemResolver with broken count: 1
+ 77s Starting 2 pkgProblemResolver with broken count: 1
+ 77s Investigating (0) ca-certificates-java:riscv64 < none -> 20240118-ok1 @un puN Ib >
+ 77s Broken ca-certificates-java:riscv64 Breaks on openjdk-17-jre-headless:riscv64 < none -> 17.0.2+9-ok0.8 @un puN > (< 17.0.8~6-3~)
+ 77s   Considering openjdk-17-jre-headless:riscv64 -1 as a solution to ca-certificates-java:riscv64 0
+ 77s Done
+ 77s Some packages could not be installed. This may mean that you have
+ 77s requested an impossible situation or if you are using the unstable
+ 77s distribution that some required packages have not yet been created
+ 77s or been moved out of Incoming.
+ 77s The following information may help to resolve the situation:
+ 77s 
+ 77s The following packages have unmet dependencies:
+ 78s  ca-certificates-java : Breaks: openjdk-17-jre-headless (< 17.0.8~6-3~) but 17.0.2+9-ok0.8 is to be installed
+ 78s E: Unable to correct problems, you have held broken packages.
+ 78s autopkgtest: DBG: testbed command exited with code 100
+ 78s autopkgtest: DBG: apt-get install /tmp/autopkgtest.Vt4BKV/1-autopkgtest-satdep.deb failed; status-fd:
+ 78s 
+ 78s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 78s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate openjdk-17-jre-headless -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 78s Reading package lists...
+ 79s Building dependency tree...
+ 79s Reading state information...
+ 79s Starting pkgProblemResolver with broken count: 1
+ 79s Starting 2 pkgProblemResolver with broken count: 1
+ 79s Investigating (0) ca-certificates-java:riscv64 < none -> 20240118-ok1 @un puN Ib >
+ 79s Broken ca-certificates-java:riscv64 Breaks on openjdk-17-jre-headless:riscv64 < none -> 17.0.2+9-ok0.8 @un puN > (< 17.0.8~6-3~)
+ 79s   Considering openjdk-17-jre-headless:riscv64 9998 as a solution to ca-certificates-java:riscv64 0
+ 79s Done
+ 79s Some packages could not be installed. This may mean that you have
+ 79s requested an impossible situation or if you are using the unstable
+ 79s distribution that some required packages have not yet been created
+ 79s or been moved out of Incoming.
+ 79s The following information may help to resolve the situation:
+ 79s 
+ 79s The following packages have unmet dependencies:
+ 80s  ca-certificates-java : Breaks: openjdk-17-jre-headless (< 17.0.8~6-3~) but 17.0.2+9-ok0.8 is to be installed
+ 80s E: Unable to correct problems, you have held broken packages.
+ 80s autopkgtest: DBG: testbed command exited with code 100
+ 80s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 80s command1             FAIL badpkg
+ 80s blame: openjdk-17_17.0.2+9-ok0.8.dsc
+ 80s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 80s autopkgtest [23:40:29]: test command2: preparing testbed
+ 80s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['openjdk-17-jre-headless'], deps_new=['openjdk-17-jdk-headless']
+ 80s autopkgtest: DBG: testbed reset
+ 80s autopkgtest: DBG: sending command to testbed: revert
+ 83s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 85s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.Vt4BKV
+ 85s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 85s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b,--user%3Droot,--
+ 85s autopkgtest: DBG: sending command to testbed: capabilities
+ 85s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b//tmp/autopkgtest.Vt4BKV
+ 85s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b//tmp/autopkgtest.Vt4BKV', 'has_internet']
+ 85s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Vt4BKV'], kind short, sout raw, serr pipe, env []
+ 85s autopkgtest: DBG: testbed command exited with code 0
+ 85s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.Vt4BKV/wrapper.sh
+ 85s autopkgtest: DBG: got reply from testbed: ok
+ 85s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.Vt4BKV/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 85s autopkgtest: DBG: testbed command exited with code 0
+ 85s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest [23:40:35]: testbed dpkg architecture: riscv64
+ 86s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest [23:40:35]: testbed apt version: 2.7.3-ok3
+ 86s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 127
+ 86s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.Vt4BKV/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Vt4BKV/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openjdk-17/testbed-packages
+ 86s autopkgtest: DBG: got reply from testbed: ok
+ 86s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 86s autopkgtest: DBG: install_deps: deps_new=['openjdk-17-jdk-headless']
+ 86s autopkgtest: DBG: install-deps: satisfying openjdk-17-jdk-headless
+ 86s autopkgtest: DBG: install-deps: architecture resolved: openjdk-17-jdk-headless
+ 86s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: can use apt-get on testbed: True
+ 87s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Vt4BKV'], kind short, sout raw, serr pipe, env []
+ 87s autopkgtest: DBG: testbed command exited with code 0
+ 87s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-8462ecbd-afcc-40f0-9f65-3b3f2efb518b//tmp/autopkgtest.Vt4BKV/2-autopkgtest-satdep.deb /tmp/autopkgtest.Vt4BKV/2-autopkgtest-satdep.deb
+ 87s autopkgtest: DBG: got reply from testbed: ok
+ 87s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.Vt4BKV/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 87s Reading package lists...
+ 88s Building dependency tree...
+ 88s Reading state information...
+ 88s Starting pkgProblemResolver with broken count: 1
+ 88s Starting 2 pkgProblemResolver with broken count: 1
+ 88s Investigating (0) ca-certificates-java:riscv64 < none -> 20240118-ok1 @un puN Ib >
+ 88s Broken ca-certificates-java:riscv64 Breaks on openjdk-17-jre-headless:riscv64 < none -> 17.0.2+9-ok0.8 @un puN > (< 17.0.8~6-3~)
+ 88s   Considering openjdk-17-jre-headless:riscv64 -1 as a solution to ca-certificates-java:riscv64 0
+ 88s Done
+ 88s Some packages could not be installed. This may mean that you have
+ 88s requested an impossible situation or if you are using the unstable
+ 88s distribution that some required packages have not yet been created
+ 88s or been moved out of Incoming.
+ 88s The following information may help to resolve the situation:
+ 88s 
+ 88s The following packages have unmet dependencies:
+ 89s  ca-certificates-java : Breaks: openjdk-17-jre-headless (< 17.0.8~6-3~) but 17.0.2+9-ok0.8 is to be installed
+ 89s E: Unable to correct problems, you have held broken packages.
+ 89s autopkgtest: DBG: testbed command exited with code 100
+ 89s autopkgtest: DBG: apt-get install /tmp/autopkgtest.Vt4BKV/2-autopkgtest-satdep.deb failed; status-fd:
+ 89s 
+ 89s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 89s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate openjdk-17-jdk-headless -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 89s Reading package lists...
+ 89s Building dependency tree...
+ 89s Reading state information...
+ 90s Starting pkgProblemResolver with broken count: 1
+ 90s Starting 2 pkgProblemResolver with broken count: 1
+ 90s Investigating (0) ca-certificates-java:riscv64 < none -> 20240118-ok1 @un puN Ib >
+ 90s Broken ca-certificates-java:riscv64 Breaks on openjdk-17-jre-headless:riscv64 < none -> 17.0.2+9-ok0.8 @un puN > (< 17.0.8~6-3~)
+ 90s   Considering openjdk-17-jre-headless:riscv64 -1 as a solution to ca-certificates-java:riscv64 0
+ 90s Done
+ 90s Some packages could not be installed. This may mean that you have
+ 90s requested an impossible situation or if you are using the unstable
+ 90s distribution that some required packages have not yet been created
+ 90s or been moved out of Incoming.
+ 90s The following information may help to resolve the situation:
+ 90s 
+ 90s The following packages have unmet dependencies:
+ 91s  ca-certificates-java : Breaks: openjdk-17-jre-headless (< 17.0.8~6-3~) but 17.0.2+9-ok0.8 is to be installed
+ 91s E: Unable to correct problems, you have held broken packages.
+ 91s autopkgtest: DBG: testbed command exited with code 100
+ 91s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 91s command2             FAIL badpkg
+ 91s blame: openjdk-17_17.0.2+9-ok0.8.dsc
+ 91s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 91s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 91s autopkgtest [23:40:40]: @@@@@@@@@@@@@@@@@@@@ summary
+ 91s command1             FAIL badpkg
+ 91s blame: openjdk-17_17.0.2+9-ok0.8.dsc
+ 91s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 91s command2             FAIL badpkg
+ 91s blame: openjdk-17_17.0.2+9-ok0.8.dsc
+ 91s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 91s autopkgtest: DBG: testbed stop
+ 91s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.Vt4BKV
+ 91s autopkgtest: DBG: sending command to testbed: close
+ 91s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 91s autopkgtest: DBG: got reply from testbed: ok
+ 91s autopkgtest: DBG: sending command to testbed: quit

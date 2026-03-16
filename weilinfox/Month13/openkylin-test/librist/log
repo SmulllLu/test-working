@@ -1,0 +1,484 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [12:00:47]: starting date and time: 2024-07-18 12:00:47+0800
+  0s autopkgtest [12:00:47]: version @version@
+  0s autopkgtest [12:00:47]: host nana; command line: /usr/bin/autopkgtest librist_0.2.10+dfsg-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/librist -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.k84pvR
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75//tmp/autopkgtest.k84pvR
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75//tmp/autopkgtest.k84pvR', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.k84pvR/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.k84pvR/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [12:00:49]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [12:00:49]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.k84pvR/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/testbed-packages /home/hachi/openkylin_test/sharefolder/results/librist/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [12:00:49]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [12:00:50]: @@@@@@@@@@@@@@@@@@@@ source librist_0.2.10+dfsg-ok1.dsc
+  3s autopkgtest: DBG: blame += librist_0.2.10+dfsg-ok1.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown librist_0.2.10%2Bdfsg-ok1.dsc /tmp/autopkgtest.k84pvR/librist_0.2.10%2Bdfsg-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown librist_0.2.10%2Bdfsg.orig.tar.xz /tmp/autopkgtest.k84pvR/librist_0.2.10%2Bdfsg.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown librist_0.2.10%2Bdfsg-ok1.debian.tar.xz /tmp/autopkgtest.k84pvR/librist_0.2.10%2Bdfsg-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.k84pvR/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.k84pvR/librist_0.2.10+dfsg-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.k84pvR/build.XXX
+  3s + builddir=/tmp/autopkgtest.k84pvR/build.FWA
+  3s + cd /tmp/autopkgtest.k84pvR/build.FWA
+  3s + dpkg-source -x /tmp/autopkgtest.k84pvR/librist_0.2.10+dfsg-ok1.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.pNo_UZ6A/trustedkeys.kbx': General error
+  4s gpgv: Signature made Wed 24 Apr 2024 05:05:43 PM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.k84pvR/librist_0.2.10+dfsg-ok1.dsc
+  4s dpkg-source: info: extracting librist in src
+  4s dpkg-source: info: unpacking librist_0.2.10+dfsg.orig.tar.xz
+  4s dpkg-source: info: unpacking librist_0.2.10+dfsg-ok1.debian.tar.xz
+  4s dpkg-source: info: using patch list from debian/patches/series
+  4s dpkg-source: info: applying expect_multicast_tests_to_fail.patch
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [12:00:51]: testing package librist version 0.2.10+dfsg-ok1
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/build.FWA/src/debian/ /home/hachi/openkylin_test/sharefolder/results/librist/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency pkg-config
+  4s autopkgtest: DBG: processing dependency librist-dev
+  4s autopkgtest: DBG: marked alternatives ['librist-dev'] as a synthesised dependency
+  4s autopkgtest: DBG: Test defined: name pkg-config path debian/tests/pkg-config command "None" restrictions [] features [] depends ['build-essential', 'pkg-config', 'librist-dev'] 
+  4s autopkgtest: DBG: processing dependency rist-tools
+  4s autopkgtest: DBG: marked alternatives ['rist-tools'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency ffmpeg
+  4s autopkgtest: DBG: processing dependency forensics-samples-files
+  4s autopkgtest: DBG: processing dependency file
+  4s autopkgtest: DBG: Test defined: name command1 path None command "debian/tests/execute simple" restrictions [] features [] depends ['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file'] 
+  4s autopkgtest: DBG: processing dependency rist-tools
+  4s autopkgtest: DBG: marked alternatives ['rist-tools'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency ffmpeg
+  4s autopkgtest: DBG: processing dependency forensics-samples-files
+  4s autopkgtest: DBG: processing dependency file
+  4s autopkgtest: DBG: Test defined: name command2 path None command "debian/tests/execute psk_enc" restrictions [] features [] depends ['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file'] 
+  4s autopkgtest [12:00:51]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/build.FWA/src/ /home/hachi/openkylin_test/sharefolder/results/librist/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency pkg-config
+  4s autopkgtest: DBG: processing dependency librist-dev
+  4s autopkgtest: DBG: marked alternatives ['librist-dev'] as a synthesised dependency
+  4s autopkgtest: DBG: Test defined: name pkg-config path debian/tests/pkg-config command "None" restrictions [] features [] depends ['build-essential', 'pkg-config', 'librist-dev'] 
+  4s autopkgtest: DBG: processing dependency rist-tools
+  4s autopkgtest: DBG: marked alternatives ['rist-tools'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency ffmpeg
+  4s autopkgtest: DBG: processing dependency forensics-samples-files
+  4s autopkgtest: DBG: processing dependency file
+  4s autopkgtest: DBG: Test defined: name command1 path None command "debian/tests/execute simple" restrictions [] features [] depends ['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file'] 
+  4s autopkgtest: DBG: processing dependency rist-tools
+  4s autopkgtest: DBG: marked alternatives ['rist-tools'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency ffmpeg
+  4s autopkgtest: DBG: processing dependency forensics-samples-files
+  4s autopkgtest: DBG: processing dependency file
+  4s autopkgtest: DBG: Test defined: name command2 path None command "debian/tests/execute psk_enc" restrictions [] features [] depends ['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file'] 
+  4s autopkgtest [12:00:51]: test pkg-config: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['build-essential', 'pkg-config', 'librist-dev']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'pkg-config', 'librist-dev']
+  4s autopkgtest: DBG: install-deps: satisfying build-essential, pkg-config, librist-dev
+  4s autopkgtest: DBG: install-deps: architecture resolved: build-essential, pkg-config, librist-dev
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75//tmp/autopkgtest.k84pvR/1-autopkgtest-satdep.deb /tmp/autopkgtest.k84pvR/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.k84pvR/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 0
+  6s Starting 2 pkgProblemResolver with broken count: 0
+  6s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  7s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  7s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  7s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  7s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  7s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatrildocument3
+  7s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  7s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  7s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  7s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  7s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  7s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  7s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmbedcrypto3
+  7s   libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1
+  7s   librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1
+  7s   libsynctex2 libukui-appwidget-qmlplugin0 libunity-settings-daemon1
+  7s   libwhoopsie0 nautilus-data pipewire-alsa pipewire-audio-client-libraries
+  7s   pipewire-jack pluma pluma-common python3-aptdaemon.gtk3widgets
+  7s   python3-ibus-1.0 python3-xdg session-migration ukui-appwidget-manager
+  7s   ukui-notebook ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  7s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  7s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   libcjson-dev libcjson1 libmbedcrypto7t64 libmbedtls-dev libmbedtls14t64
+  7s   libmbedx509-1t64 librist-dev librist4
+  7s Suggested packages:
+  7s   libmbedtls-doc
+  7s The following NEW packages will be installed:
+  7s   autopkgtest-satdep libcjson-dev libmbedcrypto7t64 libmbedtls-dev
+  7s   libmbedtls14t64 libmbedx509-1t64 librist-dev
+  7s The following packages will be upgraded:
+  7s   libcjson1 librist4
+  7s 2 upgraded, 7 newly installed, 0 to remove and 1064 not upgraded.
+  7s Need to get 1,366 kB/1,367 kB of archives.
+  7s After this operation, 9,428 kB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.k84pvR/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcjson1 riscv64 1.7.17-ok1 [16.9 kB]
+  8s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcjson-dev riscv64 1.7.17-ok1 [19.0 kB]
+  8s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libmbedcrypto7t64 riscv64 2.28.8-ok1 [184 kB]
+  9s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libmbedx509-1t64 riscv64 2.28.8-ok1 [40.8 kB]
+  9s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libmbedtls14t64 riscv64 2.28.8-ok1 [71.0 kB]
+  9s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libmbedtls-dev riscv64 2.28.8-ok1 [950 kB]
+ 15s Get:8 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 librist4 riscv64 0.2.10+dfsg-ok1 [65.6 kB]
+ 17s Get:9 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 librist-dev riscv64 0.2.10+dfsg-ok1 [18.0 kB]
+ 19s Fetched 1,366 kB in 10s (133 kB/s)
+ 20s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 20s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 20s Preparing to unpack .../0-libcjson1_1.7.17-ok1_riscv64.deb ...
+ 20s Unpacking libcjson1:riscv64 (1.7.17-ok1) over (1.7.15-ok1) ...
+ 20s Selecting previously unselected package libcjson-dev:riscv64.
+ 20s Preparing to unpack .../1-libcjson-dev_1.7.17-ok1_riscv64.deb ...
+ 20s Unpacking libcjson-dev:riscv64 (1.7.17-ok1) ...
+ 20s Selecting previously unselected package libmbedcrypto7t64:riscv64.
+ 20s Preparing to unpack .../2-libmbedcrypto7t64_2.28.8-ok1_riscv64.deb ...
+ 20s Unpacking libmbedcrypto7t64:riscv64 (2.28.8-ok1) ...
+ 20s Selecting previously unselected package libmbedx509-1t64:riscv64.
+ 21s Preparing to unpack .../3-libmbedx509-1t64_2.28.8-ok1_riscv64.deb ...
+ 21s Unpacking libmbedx509-1t64:riscv64 (2.28.8-ok1) ...
+ 21s Selecting previously unselected package libmbedtls14t64:riscv64.
+ 21s Preparing to unpack .../4-libmbedtls14t64_2.28.8-ok1_riscv64.deb ...
+ 21s Unpacking libmbedtls14t64:riscv64 (2.28.8-ok1) ...
+ 21s Selecting previously unselected package libmbedtls-dev:riscv64.
+ 21s Preparing to unpack .../5-libmbedtls-dev_2.28.8-ok1_riscv64.deb ...
+ 21s Unpacking libmbedtls-dev:riscv64 (2.28.8-ok1) ...
+ 22s Preparing to unpack .../6-librist4_0.2.10+dfsg-ok1_riscv64.deb ...
+ 22s Unpacking librist4:riscv64 (0.2.10+dfsg-ok1) over (0.2.7-ok1) ...
+ 22s Selecting previously unselected package librist-dev:riscv64.
+ 22s Preparing to unpack .../7-librist-dev_0.2.10+dfsg-ok1_riscv64.deb ...
+ 22s Unpacking librist-dev:riscv64 (0.2.10+dfsg-ok1) ...
+ 22s Selecting previously unselected package autopkgtest-satdep.
+ 22s Preparing to unpack .../8-1-autopkgtest-satdep.deb ...
+ 22s Unpacking autopkgtest-satdep (0) ...
+ 22s Setting up libmbedcrypto7t64:riscv64 (2.28.8-ok1) ...
+ 22s Setting up libcjson1:riscv64 (1.7.17-ok1) ...
+ 22s Setting up librist4:riscv64 (0.2.10+dfsg-ok1) ...
+ 22s Setting up libmbedx509-1t64:riscv64 (2.28.8-ok1) ...
+ 22s Setting up libcjson-dev:riscv64 (1.7.17-ok1) ...
+ 22s Setting up libmbedtls14t64:riscv64 (2.28.8-ok1) ...
+ 22s Setting up libmbedtls-dev:riscv64 (2.28.8-ok1) ...
+ 22s Setting up librist-dev:riscv64 (0.2.10+dfsg-ok1) ...
+ 22s Setting up autopkgtest-satdep (0) ...
+ 22s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'librist-dev'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 librist-dev libcjson-dev libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmbedcrypto3 libmbedtls-dev libmbedtls14t64 libmbedx509-1t64 libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 28s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'librist-dev', 'libcjson-dev', 'libdjvulibre21'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1'], kind short, sout raw, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmbedcrypto3', 'libmbedtls-dev', 'libmbedtls14t64', 'libmbedx509-1t64', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 35s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 35s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 35s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 35s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 35s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 35s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 35s (Reading database ... 194001 files and directories currently installed.)
+ 35s Removing autopkgtest-satdep (0) ...
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.k84pvR/pkg-config-packages.all"], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/pkg-config-packages.all /home/hachi/openkylin_test/sharefolder/results/librist/pkg-config-packages.all
+ 36s autopkgtest: DBG: got reply from testbed: ok
+ 36s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.k84pvR/build.FWA/src'], kind short, sout raw, serr raw, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.k84pvR/build.FWA/src already exists
+ 36s autopkgtest [12:01:23]: test pkg-config: [-----------------------
+ 36s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.k84pvR/wrapper.sh --debug --artifacts=/tmp/autopkgtest.k84pvR/pkg-config-artifacts --chdir=/tmp/autopkgtest.k84pvR/build.FWA/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.k84pvR/pkg-config-stderr --stdout=/tmp/autopkgtest.k84pvR/pkg-config-stdout --tmp=/tmp/autopkgtest.k84pvR/autopkgtest_tmp --make-executable=/tmp/autopkgtest.k84pvR/build.FWA/src/debian/tests/pkg-config -- /tmp/autopkgtest.k84pvR/build.FWA/src/debian/tests/pkg-config'], kind test, sout raw, serr raw, env []
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.k84pvR/pkg-config-artifacts
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: changing to directory: /tmp/autopkgtest.k84pvR/build.FWA/src
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: setting environment: LANG=C.UTF-8
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LANGUAGE
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_ADDRESS
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_ALL
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_COLLATE
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_CTYPE
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_MESSAGES
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_MONETARY
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_NAME
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_NUMERIC
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_PAPER
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: unsetting environment: LC_TIME
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: pretending to be a login shell
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: will write standard error to /tmp/autopkgtest.k84pvR/pkg-config-stderr
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: will write stdout to /tmp/autopkgtest.k84pvR/pkg-config-stdout
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.k84pvR/autopkgtest_tmp
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: marking as executable: /tmp/autopkgtest.k84pvR/build.FWA/src/debian/tests/pkg-config
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: command to run: /tmp/autopkgtest.k84pvR/build.FWA/src/debian/tests/pkg-config
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: copying /tmp/tmp.hZ7rBihqae/out to stdout and file: /tmp/autopkgtest.k84pvR/pkg-config-stdout
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: copying /tmp/tmp.hZ7rBihqae/err to standard error and file: /tmp/autopkgtest.k84pvR/pkg-config-stdout
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: writing script pid 890497 to /tmp/autopkgtest_script_pid
+ 36s build: OK
+ 36s libRIST version:     0.2.10 
+ 36s libRIST API version: 4.4.0 
+ 36s run: OK
+ 36s /tmp/autopkgtest.k84pvR/wrapper.sh: checking for leaked background processes...
+ 37s /tmp/autopkgtest.k84pvR/wrapper.sh: waiting for tee/cat subprocesses...
+ 37s /tmp/autopkgtest.k84pvR/wrapper.sh: cleaning up...
+ 37s /tmp/autopkgtest.k84pvR/wrapper.sh: Exit status: 0
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest [12:01:24]: test pkg-config: -----------------------]
+ 37s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 37s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/pkg-config-stdout /home/hachi/openkylin_test/sharefolder/results/librist/pkg-config-stdout
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/pkg-config-stderr /home/hachi/openkylin_test/sharefolder/results/librist/pkg-config-stderr
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest [12:01:24]: test pkg-config:  - - - - - - - - - - results - - - - - - - - - -
+ 37s pkg-config           PASS
+ 37s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/pkg-config-artifacts/ /home/hachi/openkylin_test/sharefolder/results/librist/artifacts/
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.k84pvR/pkg-config-artifacts', '/tmp/autopkgtest.k84pvR/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest [12:01:24]: test command1: preparing testbed
+ 37s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'pkg-config', 'librist-dev'], deps_new=['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file']
+ 37s autopkgtest: DBG: testbed reset
+ 37s autopkgtest: DBG: sending command to testbed: revert
+ 37s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 39s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.k84pvR
+ 39s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 39s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75,--user%3Droot,--
+ 39s autopkgtest: DBG: sending command to testbed: capabilities
+ 39s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75//tmp/autopkgtest.k84pvR
+ 39s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75//tmp/autopkgtest.k84pvR', 'has_internet']
+ 39s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.k84pvR/wrapper.sh
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.k84pvR/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest [12:01:26]: testbed dpkg architecture: riscv64
+ 39s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest [12:01:26]: testbed apt version: 2.7.3-ok3
+ 39s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 127
+ 39s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.k84pvR/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.k84pvR/testbed-packages /home/hachi/openkylin_test/sharefolder/results/librist/testbed-packages
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 40s autopkgtest: DBG: install_deps: deps_new=['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file']
+ 40s autopkgtest: DBG: install-deps: satisfying rist-tools, ffmpeg, forensics-samples-files, file
+ 40s autopkgtest: DBG: install-deps: architecture resolved: rist-tools, ffmpeg, forensics-samples-files, file
+ 40s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: can use apt-get on testbed: True
+ 40s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75//tmp/autopkgtest.k84pvR/2-autopkgtest-satdep.deb /tmp/autopkgtest.k84pvR/2-autopkgtest-satdep.deb
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.k84pvR/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 41s Reading package lists...
+ 41s Building dependency tree...
+ 41s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 42s Starting 2 pkgProblemResolver with broken count: 1
+ 42s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 42s Broken autopkgtest-satdep:riscv64 Depends on rist-tools:riscv64 < none | 0.2.10+dfsg-ok1 @un uH >
+ 42s   Considering rist-tools:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 42s   Re-Instated libmbedcrypto7t64:riscv64
+ 42s     Reinst Failed early because of libmicrohttpd12:riscv64
+ 42s   Considering rist-tools:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 42s Broken autopkgtest-satdep:riscv64 Depends on forensics-samples-files:riscv64 < none @un H >
+ 42s Done
+ 42s Some packages could not be installed. This may mean that you have
+ 42s requested an impossible situation or if you are using the unstable
+ 42s distribution that some required packages have not yet been created
+ 42s or been moved out of Incoming.
+ 42s The following information may help to resolve the situation:
+ 42s 
+ 42s The following packages have unmet dependencies:
+ 42s  autopkgtest-satdep : Depends: rist-tools but it is not going to be installed
+ 42s                       Depends: forensics-samples-files but it is not installable
+ 42s E: Unable to correct problems, you have held broken packages.
+ 42s autopkgtest: DBG: testbed command exited with code 100
+ 42s autopkgtest: DBG: apt-get install /tmp/autopkgtest.k84pvR/2-autopkgtest-satdep.deb failed; status-fd:
+ 42s 
+ 42s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 42s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate rist-tools ffmpeg forensics-samples-files file -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 42s Reading package lists...
+ 43s Building dependency tree...
+ 43s Reading state information...
+ 43s E: Unable to locate package forensics-samples-files
+ 43s autopkgtest: DBG: testbed command exited with code 100
+ 43s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 43s command1             FAIL badpkg
+ 43s blame: librist_0.2.10+dfsg-ok1.dsc
+ 43s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 43s autopkgtest [12:01:30]: test command2: preparing testbed
+ 43s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file'], deps_new=['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file']
+ 43s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 43s autopkgtest: DBG: install_deps: deps_new=['rist-tools', 'ffmpeg', 'forensics-samples-files', 'file']
+ 43s autopkgtest: DBG: install-deps: satisfying rist-tools, ffmpeg, forensics-samples-files, file
+ 43s autopkgtest: DBG: install-deps: architecture resolved: rist-tools, ffmpeg, forensics-samples-files, file
+ 43s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: can use apt-get on testbed: True
+ 43s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.k84pvR'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4de956e8-ed70-4ff1-bc72-352e0c5e6f75//tmp/autopkgtest.k84pvR/3-autopkgtest-satdep.deb /tmp/autopkgtest.k84pvR/3-autopkgtest-satdep.deb
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.k84pvR/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 44s Reading package lists...
+ 44s Building dependency tree...
+ 44s Reading state information...
+ 45s Starting pkgProblemResolver with broken count: 1
+ 45s Starting 2 pkgProblemResolver with broken count: 1
+ 45s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 45s Broken autopkgtest-satdep:riscv64 Depends on rist-tools:riscv64 < none | 0.2.10+dfsg-ok1 @un uH >
+ 45s   Considering rist-tools:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s   Re-Instated libmbedcrypto7t64:riscv64
+ 45s     Reinst Failed early because of libmicrohttpd12:riscv64
+ 45s   Considering rist-tools:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s Broken autopkgtest-satdep:riscv64 Depends on forensics-samples-files:riscv64 < none @un H >
+ 45s Done
+ 45s Some packages could not be installed. This may mean that you have
+ 45s requested an impossible situation or if you are using the unstable
+ 45s distribution that some required packages have not yet been created
+ 45s or been moved out of Incoming.
+ 45s The following information may help to resolve the situation:
+ 45s 
+ 45s The following packages have unmet dependencies:
+ 45s  autopkgtest-satdep : Depends: rist-tools but it is not going to be installed
+ 45s                       Depends: forensics-samples-files but it is not installable
+ 45s E: Unable to correct problems, you have held broken packages.
+ 45s autopkgtest: DBG: testbed command exited with code 100
+ 45s autopkgtest: DBG: apt-get install /tmp/autopkgtest.k84pvR/3-autopkgtest-satdep.deb failed; status-fd:
+ 45s 
+ 45s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 45s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate rist-tools ffmpeg forensics-samples-files file -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 46s Reading package lists...
+ 46s Building dependency tree...
+ 46s Reading state information...
+ 46s E: Unable to locate package forensics-samples-files
+ 46s autopkgtest: DBG: testbed command exited with code 100
+ 46s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 46s command2             FAIL badpkg
+ 46s blame: librist_0.2.10+dfsg-ok1.dsc
+ 46s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 46s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 46s autopkgtest [12:01:33]: @@@@@@@@@@@@@@@@@@@@ summary
+ 46s pkg-config           PASS
+ 46s command1             FAIL badpkg
+ 46s blame: librist_0.2.10+dfsg-ok1.dsc
+ 46s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 46s command2             FAIL badpkg
+ 46s blame: librist_0.2.10+dfsg-ok1.dsc
+ 46s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 46s autopkgtest: DBG: testbed stop
+ 46s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.k84pvR
+ 46s autopkgtest: DBG: sending command to testbed: close
+ 46s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 47s autopkgtest: DBG: got reply from testbed: ok
+ 47s autopkgtest: DBG: sending command to testbed: quit

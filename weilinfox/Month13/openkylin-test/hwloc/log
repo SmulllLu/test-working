@@ -1,0 +1,1405 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [10:38:37]: starting date and time: 2024-07-18 10:38:37+0800
+  0s autopkgtest [10:38:37]: version @version@
+  0s autopkgtest [10:38:37]: host lili; command line: /usr/bin/autopkgtest hwloc_2.10.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/hwloc -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.CYsC8J
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-e238af7f-8c32-4152-ba21-43e3ba13bb75,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-e238af7f-8c32-4152-ba21-43e3ba13bb75//tmp/autopkgtest.CYsC8J
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-e238af7f-8c32-4152-ba21-43e3ba13bb75//tmp/autopkgtest.CYsC8J', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYsC8J'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.CYsC8J/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.CYsC8J/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [10:38:39]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [10:38:39]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CYsC8J/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYsC8J/testbed-packages /home/hachi/openkylin_test/sharefolder/results/hwloc/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [10:38:39]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [10:38:40]: @@@@@@@@@@@@@@@@@@@@ source hwloc_2.10.0-ok1.dsc
+  3s autopkgtest: DBG: blame += hwloc_2.10.0-ok1.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYsC8J'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown hwloc_2.10.0-ok1.dsc /tmp/autopkgtest.CYsC8J/hwloc_2.10.0-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYsC8J'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown hwloc_2.10.0.orig.tar.bz2 /tmp/autopkgtest.CYsC8J/hwloc_2.10.0.orig.tar.bz2
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYsC8J'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown hwloc_2.10.0-ok1.debian.tar.xz /tmp/autopkgtest.CYsC8J/hwloc_2.10.0-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.CYsC8J/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.CYsC8J/hwloc_2.10.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.CYsC8J/build.XXX
+  3s + builddir=/tmp/autopkgtest.CYsC8J/build.6mf
+  3s + cd /tmp/autopkgtest.CYsC8J/build.6mf
+  3s + dpkg-source -x /tmp/autopkgtest.CYsC8J/hwloc_2.10.0-ok1.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.DnPRnhyz/trustedkeys.kbx': General error
+  4s gpgv: Signature made Tue 07 May 2024 10:49:40 AM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.CYsC8J/hwloc_2.10.0-ok1.dsc
+  4s dpkg-source: info: extracting hwloc in src
+  4s dpkg-source: info: unpacking hwloc_2.10.0.orig.tar.bz2
+  5s dpkg-source: info: unpacking hwloc_2.10.0-ok1.debian.tar.xz
+  5s dpkg-source: info: using patch list from debian/patches/series
+  5s dpkg-source: info: applying doc-nopdf
+  5s + chmod -R a+rX .
+  5s + cd src/.
+  5s + pwd
+  5s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [10:38:42]: testing package hwloc version 2.10.0-ok1
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYsC8J/build.6mf/src/debian/ /home/hachi/openkylin_test/sharefolder/results/hwloc/pkg/debian/
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: processing dependency hwloc-nox | hwloc
+  5s autopkgtest: DBG: marked alternatives ['hwloc-nox', 'hwloc'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency libhwloc-dev
+  5s autopkgtest: DBG: marked alternatives ['libhwloc-dev'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency libhwloc-plugins
+  5s autopkgtest: DBG: marked alternatives ['libhwloc-plugins'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency debhelper (>= 12)
+  5s autopkgtest: DBG: processing dependency dh-autoreconf
+  5s autopkgtest: DBG: processing dependency libltdl-dev
+  5s autopkgtest: DBG: processing dependency libxml2-dev
+  5s autopkgtest: DBG: processing dependency libxml2-utils
+  5s autopkgtest: DBG: Test defined: name tests path debian/tests/tests command "None" restrictions [] features [] depends ['hwloc-nox | hwloc', 'libhwloc-dev', 'libhwloc-plugins', 'debhelper (>= 12)', 'dh-autoreconf', 'libltdl-dev', 'libxml2-dev', 'libxml2-utils'] 
+  5s autopkgtest [10:38:42]: build not needed
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYsC8J/build.6mf/src/ /home/hachi/openkylin_test/sharefolder/results/hwloc/tests-tree/
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: processing dependency hwloc-nox | hwloc
+  5s autopkgtest: DBG: marked alternatives ['hwloc-nox', 'hwloc'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency libhwloc-dev
+  5s autopkgtest: DBG: marked alternatives ['libhwloc-dev'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency libhwloc-plugins
+  5s autopkgtest: DBG: marked alternatives ['libhwloc-plugins'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency debhelper (>= 12)
+  5s autopkgtest: DBG: processing dependency dh-autoreconf
+  5s autopkgtest: DBG: processing dependency libltdl-dev
+  5s autopkgtest: DBG: processing dependency libxml2-dev
+  5s autopkgtest: DBG: processing dependency libxml2-utils
+  5s autopkgtest: DBG: Test defined: name tests path debian/tests/tests command "None" restrictions [] features [] depends ['hwloc-nox | hwloc', 'libhwloc-dev', 'libhwloc-plugins', 'debhelper (>= 12)', 'dh-autoreconf', 'libltdl-dev', 'libxml2-dev', 'libxml2-utils'] 
+  5s autopkgtest [10:38:42]: test tests: preparing testbed
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['hwloc-nox | hwloc', 'libhwloc-dev', 'libhwloc-plugins', 'debhelper (>= 12)', 'dh-autoreconf', 'libltdl-dev', 'libxml2-dev', 'libxml2-utils']
+  5s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  5s autopkgtest: DBG: install_deps: deps_new=['hwloc-nox | hwloc', 'libhwloc-dev', 'libhwloc-plugins', 'debhelper (>= 12)', 'dh-autoreconf', 'libltdl-dev', 'libxml2-dev', 'libxml2-utils']
+  5s autopkgtest: DBG: install-deps: satisfying hwloc-nox | hwloc, libhwloc-dev, libhwloc-plugins, debhelper (>= 12), dh-autoreconf, libltdl-dev, libxml2-dev, libxml2-utils
+  5s autopkgtest: DBG: install-deps: architecture resolved: hwloc-nox | hwloc, libhwloc-dev, libhwloc-plugins, debhelper (>= 12), dh-autoreconf, libltdl-dev, libxml2-dev, libxml2-utils
+  5s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: can use apt-get on testbed: True
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYsC8J'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-e238af7f-8c32-4152-ba21-43e3ba13bb75//tmp/autopkgtest.CYsC8J/1-autopkgtest-satdep.deb /tmp/autopkgtest.CYsC8J/1-autopkgtest-satdep.deb
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.CYsC8J/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  6s Reading package lists...
+  7s Building dependency tree...
+  7s Reading state information...
+  7s Starting pkgProblemResolver with broken count: 0
+  7s Starting 2 pkgProblemResolver with broken count: 0
+  7s Done
+  8s The following packages were automatically installed and are no longer required:
+  8s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  8s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  8s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  8s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  8s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  8s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  8s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  8s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  8s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  8s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  8s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  8s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  8s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  8s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  8s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  8s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  8s   language-selector-common language-selector-gnome libatrildocument3
+  8s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  8s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  8s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  8s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  8s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  8s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  8s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  8s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  8s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  8s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  8s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  8s   pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  8s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  8s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  8s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  8s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  8s Use 'sudo apt autoremove' to remove them.
+  8s The following additional packages will be installed:
+  8s   autoconf automake autopoint autotools-dev debhelper dh-autoreconf
+  8s   dh-strip-nondeterminism dwz gettext gettext-base hwloc-nox icu-devtools
+  8s   intltool-debian libarchive-zip-perl libdebhelper-perl
+  8s   libfile-stripnondeterminism-perl libhwloc-dev libhwloc-plugins libhwloc15
+  8s   libicu-dev libicu74 libltdl-dev libnuma-dev libnuma1 libsub-override-perl
+  8s   libtool libunistring5 libxml2 libxml2-dev libxml2-utils libxnvctrl0 m4
+  8s   po-debconf
+  8s Suggested packages:
+  8s   autoconf-archive gnu-standards autoconf-doc dh-make gettext-doc
+  8s   libasprintf-dev libgettextpo-dev icu-doc libtool-doc gfortran
+  8s   | fortran95-compiler gcj-jdk m4-doc libmail-box-perl
+  8s Recommended packages:
+  8s   libarchive-cpio-perl libmail-sendmail-perl
+  9s The following NEW packages will be installed:
+  9s   autoconf automake autopkgtest-satdep autopoint autotools-dev debhelper
+  9s   dh-autoreconf dh-strip-nondeterminism dwz hwloc-nox icu-devtools
+  9s   intltool-debian libarchive-zip-perl libdebhelper-perl
+  9s   libfile-stripnondeterminism-perl libhwloc-dev libhwloc-plugins libhwloc15
+  9s   libicu-dev libicu74 libltdl-dev libnuma-dev libsub-override-perl libtool
+  9s   libunistring5 libxml2-dev libxml2-utils libxnvctrl0 m4 po-debconf
+  9s The following packages will be upgraded:
+  9s   gettext gettext-base libnuma1 libxml2
+  9s 4 upgraded, 30 newly installed, 0 to remove and 1062 not upgraded.
+  9s Need to get 31.9 MB/31.9 MB of archives.
+  9s After this operation, 162 MB of additional disk space will be used.
+  9s Get:1 /tmp/autopkgtest.CYsC8J/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [764 B]
+  9s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext-base riscv64 0.22-ok3 [81.1 kB]
+  9s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 m4 riscv64 1.4.19-ok1 [259 kB]
+  9s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 autoconf all 2.71-ok2 [390 kB]
+  9s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 autotools-dev all 20220506-ok1 [41.6 kB]
+  9s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 automake all 1:1.16.5-ok1 [557 kB]
+  9s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libunistring5 riscv64 1.1-ok1 [540 kB]
+ 10s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libicu74 riscv64 74.2-ok6 [9,323 kB]
+ 14s Get:9 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxml2 riscv64 2.9.14+dfsg-ok2 [548 kB]
+ 14s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext riscv64 0.22-ok3 [1,190 kB]
+ 14s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 autopoint all 0.22-ok3 [424 kB]
+ 14s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdebhelper-perl all 13.15.3-ok1 [66.0 kB]
+ 15s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtool all 2.4.7-ok2 [164 kB]
+ 15s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-autoreconf all 20-ok1 [16.3 kB]
+ 15s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 libarchive-zip-perl all 1.68-ok1 [90.7 kB]
+ 15s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsub-override-perl all 0.10-ok1 [9,172 B]
+ 15s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfile-stripnondeterminism-perl all 1.13.1-ok1 [16.3 kB]
+ 15s Get:18 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-strip-nondeterminism all 1.13.1-ok1 [5,324 B]
+ 15s Get:19 http://archive.build.openkylin.top/openkylin nile/main riscv64 dwz riscv64 0.15-1ok1 [113 kB]
+ 15s Get:20 http://archive.build.openkylin.top/openkylin nile/main riscv64 intltool-debian all 0.35.0+20060710.5-ok2 [23.2 kB]
+ 15s Get:21 http://archive.build.openkylin.top/openkylin nile/main riscv64 po-debconf all 1.0.21+nmu1-ok1 [227 kB]
+ 15s Get:22 http://archive.build.openkylin.top/openkylin nile/main riscv64 debhelper all 13.15.3-ok1 [959 kB]
+ 15s Get:23 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhwloc15 riscv64 2.10.0-ok1 [133 kB]
+ 15s Get:24 http://archive.build.openkylin.top/openkylin nile/main riscv64 hwloc-nox riscv64 2.10.0-ok1 [194 kB]
+ 15s Get:25 http://archive.build.openkylin.top/openkylin nile/main riscv64 icu-devtools riscv64 74.2-ok6 [197 kB]
+ 15s Get:26 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnuma1 riscv64 2.0.18-ok2 [18.8 kB]
+ 15s Get:27 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnuma-dev riscv64 2.0.18-ok2 [59.8 kB]
+ 15s Get:28 http://archive.build.openkylin.top/openkylin nile/main riscv64 libltdl-dev riscv64 2.4.7-ok2 [180 kB]
+ 16s Get:29 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhwloc-dev riscv64 2.10.0-ok1 [452 kB]
+ 16s Get:30 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxnvctrl0 riscv64 510.47.03-ok1 [9,744 B]
+ 16s Get:31 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhwloc-plugins riscv64 2.10.0-ok1 [13.0 kB]
+ 16s Get:32 http://archive.build.openkylin.top/openkylin nile/main riscv64 libicu-dev riscv64 74.2-ok6 [14.0 MB]
+ 22s Get:33 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxml2-dev riscv64 2.9.14+dfsg-ok2 [1,610 kB]
+ 22s Get:34 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxml2-utils riscv64 2.9.14+dfsg-ok2 [35.4 kB]
+ 25s Fetched 31.9 MB in 14s (2,339 kB/s)
+ 25s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 25s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 25s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 25s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 25s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 25s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 26s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 26s Preparing to unpack .../00-gettext-base_0.22-ok3_riscv64.deb ...
+ 26s Unpacking gettext-base (0.22-ok3) over (0.21-4-ok6) ...
+ 27s Selecting previously unselected package m4.
+ 27s Preparing to unpack .../01-m4_1.4.19-ok1_riscv64.deb ...
+ 27s Unpacking m4 (1.4.19-ok1) ...
+ 28s Selecting previously unselected package autoconf.
+ 28s Preparing to unpack .../02-autoconf_2.71-ok2_all.deb ...
+ 28s Unpacking autoconf (2.71-ok2) ...
+ 29s Selecting previously unselected package autotools-dev.
+ 29s Preparing to unpack .../03-autotools-dev_20220506-ok1_all.deb ...
+ 29s Unpacking autotools-dev (20220506-ok1) ...
+ 29s Selecting previously unselected package automake.
+ 30s Preparing to unpack .../04-automake_1%3a1.16.5-ok1_all.deb ...
+ 30s Unpacking automake (1:1.16.5-ok1) ...
+ 31s Selecting previously unselected package libunistring5:riscv64.
+ 31s Preparing to unpack .../05-libunistring5_1.1-ok1_riscv64.deb ...
+ 31s Unpacking libunistring5:riscv64 (1.1-ok1) ...
+ 31s Selecting previously unselected package libicu74:riscv64.
+ 31s Preparing to unpack .../06-libicu74_74.2-ok6_riscv64.deb ...
+ 31s Unpacking libicu74:riscv64 (74.2-ok6) ...
+ 34s Preparing to unpack .../07-libxml2_2.9.14+dfsg-ok2_riscv64.deb ...
+ 34s Unpacking libxml2:riscv64 (2.9.14+dfsg-ok2) over (2.9.10+dfsg-ok4) ...
+ 35s Preparing to unpack .../08-gettext_0.22-ok3_riscv64.deb ...
+ 35s Unpacking gettext (0.22-ok3) over (0.21-4-ok5) ...
+ 37s Selecting previously unselected package autopoint.
+ 37s Preparing to unpack .../09-autopoint_0.22-ok3_all.deb ...
+ 37s Unpacking autopoint (0.22-ok3) ...
+ 37s Selecting previously unselected package libdebhelper-perl.
+ 37s Preparing to unpack .../10-libdebhelper-perl_13.15.3-ok1_all.deb ...
+ 37s Unpacking libdebhelper-perl (13.15.3-ok1) ...
+ 38s Selecting previously unselected package libtool.
+ 38s Preparing to unpack .../11-libtool_2.4.7-ok2_all.deb ...
+ 38s Unpacking libtool (2.4.7-ok2) ...
+ 38s Selecting previously unselected package dh-autoreconf.
+ 38s Preparing to unpack .../12-dh-autoreconf_20-ok1_all.deb ...
+ 38s Unpacking dh-autoreconf (20-ok1) ...
+ 38s Selecting previously unselected package libarchive-zip-perl.
+ 38s Preparing to unpack .../13-libarchive-zip-perl_1.68-ok1_all.deb ...
+ 38s Unpacking libarchive-zip-perl (1.68-ok1) ...
+ 39s Selecting previously unselected package libsub-override-perl.
+ 39s Preparing to unpack .../14-libsub-override-perl_0.10-ok1_all.deb ...
+ 39s Unpacking libsub-override-perl (0.10-ok1) ...
+ 39s Selecting previously unselected package libfile-stripnondeterminism-perl.
+ 39s Preparing to unpack .../15-libfile-stripnondeterminism-perl_1.13.1-ok1_all.deb ...
+ 39s Unpacking libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 39s Selecting previously unselected package dh-strip-nondeterminism.
+ 39s Preparing to unpack .../16-dh-strip-nondeterminism_1.13.1-ok1_all.deb ...
+ 39s Unpacking dh-strip-nondeterminism (1.13.1-ok1) ...
+ 39s Selecting previously unselected package dwz.
+ 40s Preparing to unpack .../17-dwz_0.15-1ok1_riscv64.deb ...
+ 40s Unpacking dwz (0.15-1ok1) ...
+ 40s Selecting previously unselected package intltool-debian.
+ 40s Preparing to unpack .../18-intltool-debian_0.35.0+20060710.5-ok2_all.deb ...
+ 40s Unpacking intltool-debian (0.35.0+20060710.5-ok2) ...
+ 40s Selecting previously unselected package po-debconf.
+ 40s Preparing to unpack .../19-po-debconf_1.0.21+nmu1-ok1_all.deb ...
+ 40s Unpacking po-debconf (1.0.21+nmu1-ok1) ...
+ 40s Selecting previously unselected package debhelper.
+ 41s Preparing to unpack .../20-debhelper_13.15.3-ok1_all.deb ...
+ 41s Unpacking debhelper (13.15.3-ok1) ...
+ 42s Selecting previously unselected package libhwloc15:riscv64.
+ 42s Preparing to unpack .../21-libhwloc15_2.10.0-ok1_riscv64.deb ...
+ 42s Unpacking libhwloc15:riscv64 (2.10.0-ok1) ...
+ 42s Selecting previously unselected package hwloc-nox.
+ 43s Preparing to unpack .../22-hwloc-nox_2.10.0-ok1_riscv64.deb ...
+ 43s Unpacking hwloc-nox (2.10.0-ok1) ...
+ 43s Selecting previously unselected package icu-devtools.
+ 43s Preparing to unpack .../23-icu-devtools_74.2-ok6_riscv64.deb ...
+ 43s Unpacking icu-devtools (74.2-ok6) ...
+ 43s Preparing to unpack .../24-libnuma1_2.0.18-ok2_riscv64.deb ...
+ 43s Unpacking libnuma1:riscv64 (2.0.18-ok2) over (2.0.12-ok1) ...
+ 43s Selecting previously unselected package libnuma-dev:riscv64.
+ 44s Preparing to unpack .../25-libnuma-dev_2.0.18-ok2_riscv64.deb ...
+ 44s Unpacking libnuma-dev:riscv64 (2.0.18-ok2) ...
+ 44s Selecting previously unselected package libltdl-dev:riscv64.
+ 44s Preparing to unpack .../26-libltdl-dev_2.4.7-ok2_riscv64.deb ...
+ 44s Unpacking libltdl-dev:riscv64 (2.4.7-ok2) ...
+ 44s Selecting previously unselected package libhwloc-dev:riscv64.
+ 44s Preparing to unpack .../27-libhwloc-dev_2.10.0-ok1_riscv64.deb ...
+ 44s Unpacking libhwloc-dev:riscv64 (2.10.0-ok1) ...
+ 45s Selecting previously unselected package libxnvctrl0:riscv64.
+ 45s Preparing to unpack .../28-libxnvctrl0_510.47.03-ok1_riscv64.deb ...
+ 45s Unpacking libxnvctrl0:riscv64 (510.47.03-ok1) ...
+ 45s Selecting previously unselected package libhwloc-plugins:riscv64.
+ 45s Preparing to unpack .../29-libhwloc-plugins_2.10.0-ok1_riscv64.deb ...
+ 45s Unpacking libhwloc-plugins:riscv64 (2.10.0-ok1) ...
+ 45s Selecting previously unselected package libicu-dev:riscv64.
+ 45s Preparing to unpack .../30-libicu-dev_74.2-ok6_riscv64.deb ...
+ 45s Unpacking libicu-dev:riscv64 (74.2-ok6) ...
+ 49s Selecting previously unselected package libxml2-dev:riscv64.
+ 49s Preparing to unpack .../31-libxml2-dev_2.9.14+dfsg-ok2_riscv64.deb ...
+ 49s Unpacking libxml2-dev:riscv64 (2.9.14+dfsg-ok2) ...
+ 50s Selecting previously unselected package libxml2-utils.
+ 50s Preparing to unpack .../32-libxml2-utils_2.9.14+dfsg-ok2_riscv64.deb ...
+ 50s Unpacking libxml2-utils (2.9.14+dfsg-ok2) ...
+ 50s Selecting previously unselected package autopkgtest-satdep.
+ 50s Preparing to unpack .../33-1-autopkgtest-satdep.deb ...
+ 50s Unpacking autopkgtest-satdep (0) ...
+ 51s Setting up libarchive-zip-perl (1.68-ok1) ...
+ 51s Setting up libdebhelper-perl (13.15.3-ok1) ...
+ 51s Setting up gettext-base (0.22-ok3) ...
+ 51s Setting up m4 (1.4.19-ok1) ...
+ 51s Setting up libxnvctrl0:riscv64 (510.47.03-ok1) ...
+ 51s Setting up autotools-dev (20220506-ok1) ...
+ 51s Setting up libunistring5:riscv64 (1.1-ok1) ...
+ 51s Setting up libhwloc15:riscv64 (2.10.0-ok1) ...
+ 51s Setting up autopoint (0.22-ok3) ...
+ 51s Setting up autoconf (2.71-ok2) ...
+ 51s Setting up libicu74:riscv64 (74.2-ok6) ...
+ 51s Setting up libnuma1:riscv64 (2.0.18-ok2) ...
+ 51s Setting up dwz (0.15-1ok1) ...
+ 51s Setting up libsub-override-perl (0.10-ok1) ...
+ 51s Setting up libxml2:riscv64 (2.9.14+dfsg-ok2) ...
+ 51s Setting up automake (1:1.16.5-ok1) ...
+ 51s update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+ 51s Setting up libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 51s Setting up gettext (0.22-ok3) ...
+ 51s Setting up libtool (2.4.7-ok2) ...
+ 51s Setting up hwloc-nox (2.10.0-ok1) ...
+ 51s Setting up libhwloc-plugins:riscv64 (2.10.0-ok1) ...
+ 51s Setting up intltool-debian (0.35.0+20060710.5-ok2) ...
+ 51s Setting up libnuma-dev:riscv64 (2.0.18-ok2) ...
+ 51s Setting up dh-autoreconf (20-ok1) ...
+ 51s Setting up libltdl-dev:riscv64 (2.4.7-ok2) ...
+ 51s Setting up icu-devtools (74.2-ok6) ...
+ 51s Setting up dh-strip-nondeterminism (1.13.1-ok1) ...
+ 51s Setting up libhwloc-dev:riscv64 (2.10.0-ok1) ...
+ 51s Setting up libxml2-utils (2.9.14+dfsg-ok2) ...
+ 51s Setting up libicu-dev:riscv64 (74.2-ok6) ...
+ 51s Setting up po-debconf (1.0.21+nmu1-ok1) ...
+ 51s Setting up debhelper (13.15.3-ok1) ...
+ 51s Setting up libxml2-dev:riscv64 (2.9.14+dfsg-ok2) ...
+ 51s Setting up autopkgtest-satdep (0) ...
+ 51s Processing triggers for man-db (2.10.2-2) ...
+ 52s Processing triggers for install-info (6.8-6ok1.1) ...
+ 53s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'hwloc-nox'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libhwloc-dev'], kind short, sout pipe, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libhwloc-plugins'], kind short, sout pipe, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 58s autopkgtest: DBG: testbed command exited with code 0
+ 58s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas hwloc-nox ibus-data ibus-gtk ibus-gtk3 libxml2-dev libicu-dev icu-devtools indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libhwloc-dev libhwloc-plugins libhwloc15 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libnuma-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 libxnvctrl0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 58s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'hwloc-nox', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'libxml2-dev', 'libicu-dev', 'icu-devtools', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module'], kind short, sout raw, serr pipe, env []
+ 62s autopkgtest: DBG: testbed command exited with code 0
+ 62s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libhwloc-dev', 'libhwloc-plugins', 'libhwloc15'], kind short, sout raw, serr pipe, env []
+ 63s autopkgtest: DBG: testbed command exited with code 0
+ 63s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libnuma-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2'], kind short, sout raw, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libwhoopsie0', 'libxnvctrl0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 65s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 65s (Reading database ... 195327 files and directories currently installed.)
+ 65s Removing autopkgtest-satdep (0) ...
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CYsC8J/tests-packages.all"], kind short, sout raw, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYsC8J/tests-packages.all /home/hachi/openkylin_test/sharefolder/results/hwloc/tests-packages.all
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.CYsC8J/build.6mf/src'], kind short, sout raw, serr raw, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.CYsC8J/build.6mf/src already exists
+ 66s autopkgtest [10:39:43]: test tests: [-----------------------
+ 66s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.CYsC8J/wrapper.sh --debug --artifacts=/tmp/autopkgtest.CYsC8J/tests-artifacts --chdir=/tmp/autopkgtest.CYsC8J/build.6mf/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.CYsC8J/tests-stderr --stdout=/tmp/autopkgtest.CYsC8J/tests-stdout --tmp=/tmp/autopkgtest.CYsC8J/autopkgtest_tmp --make-executable=/tmp/autopkgtest.CYsC8J/build.6mf/src/debian/tests/tests -- /tmp/autopkgtest.CYsC8J/build.6mf/src/debian/tests/tests'], kind test, sout raw, serr raw, env []
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.CYsC8J/tests-artifacts
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: changing to directory: /tmp/autopkgtest.CYsC8J/build.6mf/src
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: setting environment: LANG=C.UTF-8
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LANGUAGE
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_ADDRESS
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_ALL
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_COLLATE
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_CTYPE
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_MESSAGES
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_MONETARY
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_NAME
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_NUMERIC
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_PAPER
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: unsetting environment: LC_TIME
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: pretending to be a login shell
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: will write standard error to /tmp/autopkgtest.CYsC8J/tests-stderr
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: will write stdout to /tmp/autopkgtest.CYsC8J/tests-stdout
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.CYsC8J/autopkgtest_tmp
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: marking as executable: /tmp/autopkgtest.CYsC8J/build.6mf/src/debian/tests/tests
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: command to run: /tmp/autopkgtest.CYsC8J/build.6mf/src/debian/tests/tests
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: copying /tmp/tmp.fshNABF1pA/out to stdout and file: /tmp/autopkgtest.CYsC8J/tests-stdout
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: copying /tmp/tmp.fshNABF1pA/err to standard error and file: /tmp/autopkgtest.CYsC8J/tests-stdout
+ 66s /tmp/autopkgtest.CYsC8J/wrapper.sh: writing script pid 1130059 to /tmp/autopkgtest_script_pid
+ 66s patching file doc/examples/Makefile.am
+ 66s patching file utils/hwloc/test-hwloc-annotate.sh.in
+ 66s patching file utils/hwloc/test-hwloc-calc.sh.in
+ 66s patching file utils/hwloc/test-hwloc-compress-dir.sh.in
+ 66s patching file utils/hwloc/test-hwloc-diffpatch.sh.in
+ 66s patching file utils/hwloc/test-hwloc-distrib.sh.in
+ 66s patching file utils/hwloc/test-hwloc-info.sh.in
+ 66s patching file utils/hwloc/test-fake-plugin.sh.in
+ 66s patching file tests/hwloc/Makefile.am
+ 66s Hunk #1 succeeded at 128 (offset 1 line).
+ 66s patching file tests/hwloc/x86+linux/test-topology.sh.in
+ 66s patching file tests/hwloc/xml/test-topology.sh.in
+ 66s patching file tests/hwloc/linux/allowed/test-topology.sh.in
+ 66s patching file tests/hwloc/linux/gather/test-gather-topology.sh.in
+ 66s patching file tests/hwloc/linux/test-topology.sh.in
+ 66s patching file tests/hwloc/x86/test-topology.sh.in
+ 66s patching file utils/hwloc/test-hwloc-dump-hwdata/test-hwloc-dump-hwdata.sh.in
+ 66s patching file utils/lstopo/test-lstopo-shmem.sh.in
+ 66s patching file utils/lstopo/test-lstopo.sh.in
+ 66s patching file utils/hwloc/Makefile.am
+ 66s Hunk #1 succeeded at 11 (offset 1 line).
+ 66s Hunk #2 succeeded at 29 (offset 1 line).
+ 66s patching file utils/lstopo/Makefile.am
+ 66s Hunk #1 succeeded at 16 (offset 1 line).
+ 66s Hunk #2 succeeded at 42 (offset 1 line).
+ 66s patching file hwloc/Makefile.am
+ 66s patching file configure.ac
+ 66s patching file contrib/misc/Makefile.am
+ 66s patching file tests/hwloc/wrapper.sh.in
+ 66s patching file utils/hwloc/test-build-custom-topology.sh.in
+ 76s libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, './config'.
+ 76s libtoolize: copying file './config/ltmain.sh'
+ 76s libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, './config'.
+ 76s libtoolize: copying file './config/libtool.m4'
+ 76s libtoolize: copying file './config/ltoptions.m4'
+ 76s libtoolize: copying file './config/ltsugar.m4'
+ 77s libtoolize: copying file './config/ltversion.m4'
+ 77s libtoolize: copying file './config/lt~obsolete.m4'
+ 90s configure.ac:44: installing './config/compile'
+ 90s configure.ac:40: installing './config/missing'
+ 90s contrib/misc/Makefile.am: installing './config/depcomp'
+ 91s hwloc/Makefile.am:225: warning: variable 'libhwloc_embedded_la_SOURCES' is defined but no program or
+ 91s hwloc/Makefile.am:225: library has 'libhwloc_embedded_la' as canonical name (possible typo)
+ 91s hwloc/Makefile.am:213: warning: variable 'libhwloc_la_SOURCES' is defined but no program or
+ 91s hwloc/Makefile.am:213: library has 'libhwloc_la' as canonical name (possible typo)
+ 91s hwloc/Makefile.am:214: warning: variable 'libhwloc_la_LDFLAGS' is defined but no program or
+ 91s hwloc/Makefile.am:214: library has 'libhwloc_la' as canonical name (possible typo)
+ 94s utils/hwloc/Makefile.am:51: warning: variable 'hwloc_calc_SOURCES' is defined but no program or
+ 94s utils/hwloc/Makefile.am:51: library has 'hwloc_calc' as canonical name (possible typo)
+ 94s utils/hwloc/Makefile.am:46: warning: variable 'hwloc_dump_hwdata_SOURCES' is defined but no program or
+ 94s utils/hwloc/Makefile.am:46: library has 'hwloc_dump_hwdata' as canonical name (possible typo)
+ 94s utils/hwloc/Makefile.am:55: warning: variable 'hwloc_ps_SOURCES' is defined but no program or
+ 94s utils/hwloc/Makefile.am:55: library has 'hwloc_ps' as canonical name (possible typo)
+ 94s utils/hwloc/Makefile.am:57: warning: variable 'hwloc_ps_LDADD' is defined but no program or
+ 94s utils/hwloc/Makefile.am:57: library has 'hwloc_ps' as canonical name (possible typo)
+ 94s utils/lstopo/Makefile.am:41: warning: variable 'lstopo_SOURCES' is defined but no program or
+ 94s utils/lstopo/Makefile.am:41: library has 'lstopo' as canonical name (possible typo)
+ 94s utils/lstopo/Makefile.am:23: warning: variable 'lstopo_no_graphics_SOURCES' is defined but no program or
+ 94s utils/lstopo/Makefile.am:23: library has 'lstopo_no_graphics' as canonical name (possible typo)
+ 94s utils/lstopo/Makefile.am:56: warning: variable 'lstopo_win_SOURCES' is defined but no program or
+ 94s utils/lstopo/Makefile.am:56: library has 'lstopo_win' as canonical name (possible typo)
+ 94s utils/lstopo/Makefile.am:43: warning: variable 'lstopo_LDADD' is defined but no program or
+ 94s utils/lstopo/Makefile.am:43: library has 'lstopo' as canonical name (possible typo)
+ 94s utils/lstopo/Makefile.am:39: warning: variable 'lstopo_no_graphics_LDADD' is defined but no program or
+ 94s utils/lstopo/Makefile.am:39: library has 'lstopo_no_graphics' as canonical name (possible typo)
+ 94s utils/lstopo/Makefile.am:59: warning: variable 'lstopo_win_LDADD' is defined but no program or
+ 94s utils/lstopo/Makefile.am:59: library has 'lstopo_win' as canonical name (possible typo)
+ 95s 	./configure --build=riscv64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-option-checking --disable-silent-rules --libdir=\${prefix}/lib/riscv64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking
+ 96s 
+ 96s ###
+ 96s ### Configuring hwloc distribution tarball
+ 96s ### Startup tests
+ 96s ###
+ 96s checking build system type... riscv64-unknown-linux-gnu
+ 96s checking host system type... riscv64-unknown-linux-gnu
+ 96s checking target system type... riscv64-unknown-linux-gnu
+ 96s checking for a BSD-compatible install... /usr/bin/install -c
+ 96s checking whether build environment is sane... yes
+ 96s checking for a race-free mkdir -p... /usr/bin/mkdir -p
+ 96s checking for gawk... gawk
+ 96s checking whether make sets $(MAKE)... yes
+ 96s checking whether make supports nested variables... yes
+ 96s checking whether UID '0' is supported by ustar format... yes
+ 96s checking whether GID '0' is supported by ustar format... yes
+ 96s checking how to create a ustar tar archive... gnutar
+ 96s checking whether make supports nested variables... (cached) yes
+ 96s checking whether make supports the include directive... yes (GNU style)
+ 96s checking for gcc... gcc
+ 96s checking whether the C compiler works... yes
+ 96s checking for C compiler default output file name... a.out
+ 96s checking for suffix of executables... 
+ 96s checking whether we are cross compiling... no
+ 96s checking for suffix of object files... o
+ 97s checking whether the compiler supports GNU C... yes
+ 97s checking whether gcc accepts -g... yes
+ 97s checking for gcc option to enable C11 features... none needed
+ 97s checking whether gcc understands -c and -o together... yes
+ 97s checking dependency style of gcc... none
+ 97s checking for stdio.h... yes
+ 97s checking for stdlib.h... yes
+ 97s checking for string.h... yes
+ 97s checking for inttypes.h... yes
+ 97s checking for stdint.h... yes
+ 98s checking for strings.h... yes
+ 98s checking for sys/stat.h... yes
+ 98s checking for sys/types.h... yes
+ 98s checking for unistd.h... yes
+ 98s checking for wchar.h... yes
+ 98s checking for minix/config.h... no
+ 99s checking whether it is safe to define __EXTENSIONS__... yes
+ 99s checking whether _XOPEN_SOURCE should be defined... no
+ 99s checking for ar... ar
+ 99s checking the archiver (ar) interface... ar
+ 99s checking how to print strings... printf
+ 99s checking for a sed that does not truncate output... /usr/bin/sed
+ 99s checking for grep that handles long lines and -e... /usr/bin/grep
+ 99s checking for egrep... /usr/bin/grep -E
+ 99s checking for fgrep... /usr/bin/grep -F
+ 99s checking for ld used by gcc... /usr/bin/ld
+ 99s checking if the linker (/usr/bin/ld) is GNU ld... yes
+ 99s checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+ 99s checking the name lister (/usr/bin/nm -B) interface... BSD nm
+ 99s checking whether ln -s works... yes
+ 99s checking the maximum length of command line arguments... 1572864
+ 99s checking how to convert riscv64-unknown-linux-gnu file names to riscv64-unknown-linux-gnu format... func_convert_file_noop
+ 99s checking how to convert riscv64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+ 99s checking for /usr/bin/ld option to reload object files... -r
+ 99s checking for file... file
+ 99s checking for objdump... objdump
+ 99s checking how to recognize dependent libraries... pass_all
+ 99s checking for dlltool... no
+ 99s checking how to associate runtime and link libraries... printf %s\n
+ 99s checking for archiver @FILE support... @
+ 99s checking for strip... strip
+ 99s checking for ranlib... ranlib
+100s checking command to parse /usr/bin/nm -B output from gcc object... ok
+100s checking for sysroot... no
+100s checking for a working dd... /usr/bin/dd
+100s checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+100s checking for mt... mt
+100s checking if mt is a manifest tool... no
+100s checking for dlfcn.h... yes
+100s checking for objdir... .libs
+100s checking if gcc supports -fno-rtti -fno-exceptions... no
+100s checking for gcc option to produce PIC... -fPIC -DPIC
+100s checking if gcc PIC flag -fPIC -DPIC works... yes
+100s checking if gcc static flag -static works... yes
+101s checking if gcc supports -c -o file.o... yes
+101s checking if gcc supports -c -o file.o... (cached) yes
+101s checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+101s checking whether -lc should be explicitly linked in... no
+101s checking dynamic linker characteristics... GNU/Linux ld.so
+101s checking how to hardcode library paths into programs... immediate
+101s checking for shl_load... no
+101s checking for shl_load in -ldld... no
+101s checking for dlopen... yes
+102s checking whether a program can dlopen itself... yes
+102s checking whether a statically linked program can dlopen itself... no
+102s checking whether stripping libraries is possible... yes
+102s checking if libtool supports shared libraries... yes
+102s checking whether to build shared libraries... yes
+102s checking whether to build static libraries... no
+102s checking for g++... g++
+102s checking whether the compiler supports GNU C++... yes
+102s checking whether g++ accepts -g... yes
+103s checking for g++ option to enable C++11 features... none needed
+103s checking dependency style of g++... none
+103s checking how to run the C++ preprocessor... g++ -E
+103s checking for ld used by g++... /usr/bin/ld
+103s checking if the linker (/usr/bin/ld) is GNU ld... yes
+103s checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+103s checking for g++ option to produce PIC... -fPIC -DPIC
+104s checking if g++ PIC flag -fPIC -DPIC works... yes
+104s checking if g++ static flag -static works... yes
+104s checking if g++ supports -c -o file.o... yes
+104s checking if g++ supports -c -o file.o... (cached) yes
+104s checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+104s checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+104s checking how to hardcode library paths into programs... immediate
+104s checking for gcc... (cached) gcc
+104s checking whether the compiler supports GNU C... (cached) yes
+104s checking whether gcc accepts -g... (cached) yes
+104s checking for gcc option to enable C11 features... (cached) none needed
+104s checking whether gcc understands -c and -o together... (cached) yes
+104s checking dependency style of gcc... (cached) none
+104s checking for gcc options needed to detect all undeclared functions... none needed
+104s checking for pkg-config... /usr/bin/pkg-config
+104s checking pkg-config is at least version 0.9.0... yes
+104s checking how to run the C preprocessor... gcc -E
+105s checking for X... no
+105s 
+105s ###
+105s ### Configuring hwloc core
+105s ###
+105s checking hwloc building mode... standalone
+105s configure: hwloc builddir: /tmp/autopkgtest.CYsC8J/build.6mf/src
+105s configure: hwloc srcdir: /tmp/autopkgtest.CYsC8J/build.6mf/src
+105s checking for hwloc version... 2.10.0
+105s checking if want hwloc maintainer support... disabled
+105s checking for hwloc directory prefix... (none)
+105s checking for hwloc symbol prefix... hwloc_
+107s checking for the C compiler vendor... gnu
+107s checking size of void *... 8
+107s checking which OS support to include... Linux
+107s checking which CPU support to include... unknown
+108s checking size of unsigned long... 8
+108s checking size of unsigned int... 4
+108s checking for __attribute__... yes
+108s checking for __attribute__(aligned)... yes
+108s checking for __attribute__(always_inline)... yes
+108s checking for __attribute__(cold)... yes
+108s checking for __attribute__(const)... yes
+108s checking for __attribute__(deprecated)... yes
+108s checking for __attribute__(constructor)... yes
+109s checking for __attribute__(format)... yes
+109s checking for __attribute__(hot)... yes
+109s checking for __attribute__(malloc)... yes
+109s checking for __attribute__(may_alias)... yes
+109s checking for __attribute__(no_instrument_function)... yes
+109s checking for __attribute__(nonnull)... yes
+109s checking for __attribute__(noreturn)... yes
+109s checking for __attribute__(packed)... yes
+109s checking for __attribute__(pure)... yes
+110s checking for __attribute__(sentinel)... yes
+110s checking for __attribute__(unused)... yes
+110s checking for __attribute__(warn_unused_result)... yes
+110s checking for __attribute__(weak_alias)... yes
+110s checking if gcc supports -fvisibility=hidden... yes
+110s checking whether to enable symbol visibility... yes (via -fvisibility=hidden)
+110s configure: WARNING: "-fvisibility=hidden" has been added to the hwloc CFLAGS
+110s checking whether the C compiler rejects function calls with too many arguments... yes
+110s checking whether the C compiler rejects function calls with too few arguments... yes
+110s checking whether to enable "picky" compiler mode... no (default)
+110s checking for unistd.h... (cached) yes
+110s checking for dirent.h... yes
+110s checking for strings.h... (cached) yes
+111s checking for ctype.h... yes
+111s checking for strcasecmp... yes
+111s checking whether strcasecmp is declared... yes
+111s checking whether function strcasecmp has a complete prototype... yes
+111s checking for strncasecmp... yes
+112s checking whether strncasecmp is declared... yes
+112s checking whether function strncasecmp has a complete prototype... yes
+112s checking for strftime... yes
+112s checking for setlocale... yes
+112s checking for stdint.h... (cached) yes
+112s checking for sys/mman.h... yes
+112s 
+112s **** Linux-specific checks
+112s checking whether sched_getcpu is declared... yes
+112s checking whether sched_setaffinity is declared... yes
+113s checking whether function sched_setaffinity has a complete prototype... yes
+113s checking for old prototype of sched_setaffinity... no
+113s checking for working CPU_SET... yes
+113s checking for working CPU_SET_S... yes
+113s checking for working syscall with 6 parameters... yes
+113s checking for libudev.h... no
+113s **** end of Linux-specific checks
+113s 
+113s checking whether pthread_setaffinity_np is declared... yes
+114s checking whether pthread_getaffinity_np is declared... yes
+114s checking whether fabsf is declared... yes
+114s checking for fabsf in -lm... yes
+114s checking whether modff is declared... yes
+114s checking for modff in -lm... yes
+114s checking whether _SC_NPROCESSORS_ONLN is declared... yes
+115s checking whether _SC_NPROCESSORS_CONF is declared... yes
+115s checking whether _SC_NPROC_ONLN is declared... no
+115s checking whether _SC_NPROC_CONF is declared... no
+115s checking whether _SC_PAGESIZE is declared... yes
+115s checking whether _SC_PAGE_SIZE is declared... yes
+115s checking whether _SC_LARGE_PAGESIZE is declared... no
+115s checking for mach/mach_init.h... no
+116s checking for mach_init.h... no
+116s checking for mach/mach_host.h... no
+116s checking whether strtoull is declared... yes
+116s checking for ssize_t... yes
+117s checking whether snprintf is declared... yes
+117s checking whether _strdup is declared... no
+117s checking whether _putenv is declared... no
+117s checking whether snprintf is correct... yes
+118s checking whether getprogname is declared... no
+118s checking whether getexecname is declared... no
+118s checking for program_invocation_name... yes
+118s checking for __progname... yes
+118s checking for pthread_t... yes
+118s checking for bash... /bin/bash
+119s checking for ffs... yes
+119s checking whether ffs is declared... yes
+119s checking whether function ffs has a complete prototype... yes
+119s checking for ffsl... yes
+119s checking whether ffsl is declared... yes
+119s checking whether function ffsl has a complete prototype... yes
+120s checking for fls... no
+120s checking for flsl... no
+120s checking for clz... no
+120s checking for clzl... no
+120s checking for openat... yes
+121s checking for malloc.h... yes
+121s checking for getpagesize... yes
+121s checking for memalign... yes
+121s checking for posix_memalign... yes
+121s checking for sys/utsname.h... yes
+121s checking for uname... yes
+121s checking for pthread_mutex_lock... yes
+122s checking for valgrind/valgrind.h... no
+122s checking whether RUNNING_ON_VALGRIND is declared... no
+122s 
+122s **** pciaccess configuration
+122s checking for PCIACCESS... no
+122s checking for pciaccess.h... no
+122s **** end of pciaccess configuration
+122s 
+122s **** NVIDIA-common configuration
+122s configure: common CUDA/OpenCL/NVML CPPFLAGS: 
+122s configure: common CUDA/OpenCL/NVML LDFLAGS: 
+122s **** end of NVIDIA-common configuration
+122s 
+122s **** CUDA configuration
+122s checking for cuda.h... no
+122s checking for cuda_runtime_api.h... no
+122s **** end of CUDA configuration
+122s 
+122s **** NVML configuration
+123s checking for nvml.h... no
+123s **** end of NVML configuration
+123s 
+123s **** RSMI configuration
+123s configure: assuming ROCm is installed in standard directories ...
+123s checking for rocm_smi/rocm_smi.h... no
+123s **** end of RSMI configuration
+123s 
+123s **** OpenCL configuration
+123s checking for CL/cl_ext.h... no
+123s **** end of OpenCL configuration
+123s 
+123s **** LevelZero configuration
+123s checking for LEVELZERO... no
+123s checking for level_zero/ze_api.h... no
+123s **** end of LevelZero configuration
+123s 
+123s **** NVIDIA GL configuration
+123s checking for X11/Xlib.h... no
+123s configure: WARNING: X11 not found; GL disabled
+124s checking for NVCtrl/NVCtrl.h... no
+124s **** end of NVIDIA GL configuration
+124s 
+124s **** libxml2 configuration
+124s checking for LIBXML2... yes
+124s checking for libxml/parser.h... yes
+124s checking for xmlNewDoc... yes
+124s checking for final LIBXML2 support... yes
+124s **** end of libxml2 configuration
+124s 
+124s **** x86 CPUID configuration
+124s checking for x86 cpuid... no
+124s **** end of x86 CPUID configuration
+124s 
+124s **** component and plugin-specific configuration
+124s checking if plugin support is enabled... no
+124s checking components to build statically...  noos xml synthetic xml_nolibxml linux xml_libxml
+124s checking components to build as plugins... 
+124s **** end of component and plugin configuration
+124s checking for diff... /usr/bin/diff
+124s 
+124s ###
+124s ### Configuring hwloc documentation
+124s ###
+124s checking if this is a developer build... no (doxygen generation is optional)
+124s checking for doxygen... no
+124s checking for pdflatex... no
+124s checking for makeindex... no
+124s checking for fig2dev... no
+124s checking for gs... /usr/bin/gs
+124s checking for epstopdf... no
+124s checking if can build doxygen docs... no
+124s checking for w3m... no
+124s checking for lynx... no
+124s checking if can build top-level README... no
+124s checking if will build top-level README... no
+124s checking if will build doxygen docs... no
+124s checking if will install doxygen docs... no
+124s 
+124s ###
+124s ### Configuring hwloc command line utilities
+124s ###
+124s checking for X11/Xlib.h... (cached) no
+124s checking for CAIRO... no
+125s checking for wchar_t... yes
+125s checking for putwc... yes
+125s checking for locale.h... yes
+125s checking for setlocale... (cached) yes
+125s checking for uselocale... yes
+125s checking for xlocale.h... no
+126s checking for langinfo.h... yes
+126s checking for nl_langinfo... yes
+126s checking termcap support using ncurses and ... no
+126s checking termcap support using ncurses and -lncursesw... no
+126s checking termcap support using ncurses and -lncurses... no
+126s checking termcap support using ncurses and -ltinfo... no
+126s checking termcap support using ncurses and -ltermcap... no
+126s checking termcap support using curses and ... no
+126s checking termcap support using curses and -lcursesw... no
+126s checking termcap support using curses and -lcurses... no
+126s checking termcap support using curses and -ltinfo... no
+126s checking termcap support using curses and -ltermcap... no
+126s checking whether diff accepts -u... yes
+126s checking whether diff accepts -w... yes
+127s checking whether bind is declared... yes
+127s checking for bind in -lsocket... no
+127s checking for isatty... yes
+127s checking for tcgetpgrp... yes
+127s checking for time.h... yes
+127s checking for clock_gettime... yes
+127s 
+127s ###
+127s ### Configuring tests
+127s ###
+127s checking for pthread_self in -lpthread... yes
+127s checking for NUMA... yes
+128s checking for numa.h... yes
+128s checking for numa_available... yes
+128s checking for final NUMA support... yes
+128s checking for stdlib.h... (cached) yes
+128s checking for mkstemp... yes
+128s checking for infiniband/verbs.h... no
+128s checking for xmllint... xmllint
+128s checking for bunzip2... bunzip2
+130s checking if CXX works... yes
+130s checking whether diff accepts -u... yes
+130s 
+130s ###
+130s ### Performing final hwloc configuration
+130s ###
+130s checking that generated files are newer than configure... done
+130s configure: creating ./config.status
+133s config.status: creating Makefile
+133s config.status: creating include/Makefile
+133s config.status: creating hwloc/Makefile
+133s config.status: creating doc/Makefile
+133s config.status: creating doc/examples/Makefile
+133s config.status: creating doc/doxygen-config.cfg
+133s config.status: creating utils/Makefile
+133s config.status: creating utils/hwloc/Makefile
+134s config.status: creating utils/lstopo/Makefile
+134s config.status: creating hwloc.pc
+134s config.status: creating tests/Makefile
+134s config.status: creating tests/hwloc/Makefile
+134s config.status: creating tests/hwloc/linux/Makefile
+134s config.status: creating tests/hwloc/linux/allowed/Makefile
+134s config.status: creating tests/hwloc/linux/gather/Makefile
+134s config.status: creating tests/hwloc/x86/Makefile
+134s config.status: creating tests/hwloc/x86+linux/Makefile
+134s config.status: creating tests/hwloc/xml/Makefile
+134s config.status: creating tests/hwloc/ports/Makefile
+134s config.status: creating tests/hwloc/rename/Makefile
+134s config.status: creating tests/hwloc/linux/allowed/test-topology.sh
+134s config.status: creating tests/hwloc/linux/gather/test-gather-topology.sh
+134s config.status: creating tests/hwloc/linux/test-topology.sh
+135s config.status: creating tests/hwloc/x86/test-topology.sh
+135s config.status: creating tests/hwloc/x86+linux/test-topology.sh
+135s config.status: creating tests/hwloc/xml/test-topology.sh
+135s config.status: creating tests/hwloc/wrapper.sh
+135s config.status: creating utils/hwloc/hwloc-compress-dir
+135s config.status: creating utils/hwloc/hwloc-gather-topology
+135s config.status: creating utils/hwloc/test-hwloc-annotate.sh
+135s config.status: creating utils/hwloc/test-hwloc-calc.sh
+135s config.status: creating utils/hwloc/test-hwloc-compress-dir.sh
+135s config.status: creating utils/hwloc/test-hwloc-diffpatch.sh
+135s config.status: creating utils/hwloc/test-hwloc-distrib.sh
+135s config.status: creating utils/hwloc/test-hwloc-info.sh
+135s config.status: creating utils/hwloc/test-build-custom-topology.sh
+135s config.status: creating utils/hwloc/test-fake-plugin.sh
+135s config.status: creating utils/hwloc/test-parsing-flags.sh
+136s config.status: creating utils/hwloc/test-hwloc-dump-hwdata/Makefile
+136s config.status: creating utils/hwloc/test-hwloc-dump-hwdata/test-hwloc-dump-hwdata.sh
+136s config.status: creating utils/lstopo/test-lstopo.sh
+136s config.status: creating utils/lstopo/test-lstopo-shmem.sh
+136s config.status: creating contrib/hwloc-ps.www/Makefile
+136s config.status: creating contrib/systemd/Makefile
+136s config.status: creating contrib/completion/Makefile
+136s config.status: creating contrib/misc/Makefile
+136s config.status: creating contrib/windows/Makefile
+136s config.status: creating include/private/autogen/config.h
+136s config.status: creating include/hwloc/autogen/config.h
+136s config.status: linking hwloc/topology-solaris.c to tests/hwloc/ports/topology-solaris.c
+136s config.status: linking hwloc/topology-solaris-chiptype.c to tests/hwloc/ports/topology-solaris-chiptype.c
+136s config.status: linking hwloc/topology-aix.c to tests/hwloc/ports/topology-aix.c
+136s config.status: linking hwloc/topology-windows.c to tests/hwloc/ports/topology-windows.c
+136s config.status: linking hwloc/topology-darwin.c to tests/hwloc/ports/topology-darwin.c
+136s config.status: linking hwloc/topology-freebsd.c to tests/hwloc/ports/topology-freebsd.c
+136s config.status: linking hwloc/topology-netbsd.c to tests/hwloc/ports/topology-netbsd.c
+136s config.status: linking hwloc/topology-hpux.c to tests/hwloc/ports/topology-hpux.c
+137s config.status: linking hwloc/topology-bgq.c to tests/hwloc/ports/topology-bgq.c
+137s config.status: linking hwloc/topology-opencl.c to tests/hwloc/ports/topology-opencl.c
+137s config.status: linking hwloc/topology-cuda.c to tests/hwloc/ports/topology-cuda.c
+137s config.status: linking hwloc/topology-nvml.c to tests/hwloc/ports/topology-nvml.c
+137s config.status: linking hwloc/topology-rsmi.c to tests/hwloc/ports/topology-rsmi.c
+137s config.status: linking hwloc/topology-levelzero.c to tests/hwloc/ports/topology-levelzero.c
+137s config.status: linking hwloc/topology-gl.c to tests/hwloc/ports/topology-gl.c
+137s config.status: linking utils/lstopo/lstopo-windows.c to tests/hwloc/ports/lstopo-windows.c
+137s config.status: linking utils/lstopo/lstopo-android.c to tests/hwloc/ports/lstopo-android.c
+137s config.status: executing depfiles commands
+137s config.status: executing libtool commands
+137s config.status: executing chmoding-scripts commands
+137s 
+137s -----------------------------------------------------------------------------
+137s Hwloc optional build support status (more details can be found above):
+137s 
+137s Probe / display I/O devices: PCI(linux) LinuxIO
+137s Graphical output:            no
+137s XML input / output:          full
+137s Plugin support:              no
+137s -----------------------------------------------------------------------------
+137s 
+138s 	make -j128
+138s Making all in include
+138s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/include'
+138s make[1]: Nothing to be done for 'all'.
+138s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/include'
+138s Making all in hwloc
+138s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/hwloc'
+138s make[1]: Nothing to be done for 'all'.
+138s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/hwloc'
+138s Making all in utils
+138s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+138s Making all in hwloc
+138s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+138s Making all in .
+138s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+138s /bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o common-ps.lo common-ps.c
+138s Creating hwloc.7 man page...
+138s Creating hwloc-annotate.1 man page...
+138s Creating hwloc-bind.1 man page...
+138s Creating hwloc-calc.1 man page...
+138s Creating hwloc-compress-dir.1 man page...
+138s Creating hwloc-diff.1 man page...
+138s Creating hwloc-distrib.1 man page...
+138s Creating hwloc-info.1 man page...
+138s Creating hwloc-patch.1 man page...
+138s Creating hwloc-gather-topology.1 man page...
+138s Creating hwloc-ps.1 man page...
+138s libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen -I/tmp/autopkgtest.CYsC8J/build.6mf/src/include -I/tmp/autopkgtest.CYsC8J/build.6mf/src/include -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c common-ps.c  -fPIC -DPIC -o .libs/common-ps.o
+139s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o libutils_common.la  common-ps.lo -lhwloc 
+139s libtool: link: ar cr .libs/libutils_common.a .libs/common-ps.o 
+139s libtool: link: ranlib .libs/libutils_common.a
+139s libtool: link: ( cd ".libs" && rm -f "libutils_common.la" && ln -s "../libutils_common.la" "libutils_common.la" )
+139s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+139s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+139s Making all in lstopo
+139s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+139s Creating lstopo-no-graphics.1 man page...
+139s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+139s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+139s make[2]: Nothing to be done for 'all-am'.
+139s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+139s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+139s Making all in tests
+139s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests'
+139s Making all in hwloc
+139s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+139s Making all in .
+139s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+139s make[3]: Nothing to be done for 'all-am'.
+139s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+139s Making all in ports
+139s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/ports'
+139s make[3]: Nothing to be done for 'all'.
+139s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/ports'
+139s Making all in xml
+139s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml'
+139s make[3]: Nothing to be done for 'all'.
+139s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml'
+139s Making all in linux
+139s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux'
+139s Making all in .
+139s make[4]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux'
+139s make[4]: Nothing to be done for 'all-am'.
+139s make[4]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux'
+139s Making all in allowed
+139s make[4]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux/allowed'
+139s make[4]: Nothing to be done for 'all'.
+139s make[4]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux/allowed'
+139s Making all in gather
+139s make[4]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux/gather'
+139s make[4]: Nothing to be done for 'all'.
+139s make[4]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux/gather'
+139s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/linux'
+139s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+139s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests'
+139s make[2]: Nothing to be done for 'all-am'.
+139s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests'
+139s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests'
+139s Making all in contrib/systemd
+139s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/systemd'
+139s Creating hwloc-dump-hwdata.service...
+139s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/systemd'
+139s Making all in contrib/completion
+139s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/completion'
+139s make[1]: Nothing to be done for 'all'.
+139s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/completion'
+139s Making all in contrib/misc
+139s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/misc'
+139s make[1]: Nothing to be done for 'all'.
+139s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/misc'
+139s Making all in contrib/hwloc-ps.www
+139s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/hwloc-ps.www'
+139s make[1]: Nothing to be done for 'all'.
+139s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/contrib/hwloc-ps.www'
+139s Making all in doc
+139s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc'
+139s make  all-recursive
+139s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc'
+139s Making all in examples
+140s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc/examples'
+140s make[3]: Nothing to be done for 'all'.
+140s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc/examples'
+140s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc'
+140s make[3]: Nothing to be done for 'all-am'.
+140s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc'
+140s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc'
+140s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/doc'
+140s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src'
+140s make[1]: Nothing to be done for 'all-am'.
+140s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src'
+141s 	make -j128 check "TESTSUITEFLAGS=-j128 --verbose" VERBOSE=1
+141s Making check in include
+141s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/include'
+141s make[1]: Nothing to be done for 'check'.
+141s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/include'
+141s Making check in hwloc
+141s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/hwloc'
+141s make  
+141s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/hwloc'
+141s make[2]: Nothing to be done for 'all'.
+141s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/hwloc'
+141s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/hwloc'
+141s Making check in utils
+141s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+141s Making check in hwloc
+141s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+141s Making check in .
+141s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+141s make  check-TESTS
+142s make[4]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+142s make[5]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+142s PASS: test-build-custom-topology.sh
+142s PASS: test-hwloc-diffpatch.sh
+142s PASS: test-hwloc-distrib.sh
+142s PASS: test-parsing-flags.sh
+142s PASS: test-hwloc-info.sh
+142s PASS: test-hwloc-annotate.sh
+143s PASS: test-hwloc-calc.sh
+147s PASS: test-hwloc-compress-dir.sh
+147s ============================================================================
+147s Testsuite summary for hwloc 2.10.0
+147s ============================================================================
+147s # TOTAL: 8
+147s # PASS:  8
+147s # SKIP:  0
+147s # XFAIL: 0
+147s # FAIL:  0
+147s # XPASS: 0
+147s # ERROR: 0
+147s ============================================================================
+147s make[5]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+147s make[4]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+147s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+147s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/hwloc'
+147s Making check in lstopo
+147s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+147s make  check-TESTS
+147s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+147s make[4]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+147s PASS: test-lstopo-shmem.sh
+153s PASS: test-lstopo.sh
+153s ============================================================================
+153s Testsuite summary for hwloc 2.10.0
+153s ============================================================================
+153s # TOTAL: 2
+153s # PASS:  2
+153s # SKIP:  0
+153s # XFAIL: 0
+153s # FAIL:  0
+153s # XPASS: 0
+153s # ERROR: 0
+153s ============================================================================
+153s make[4]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+153s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+153s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils/lstopo'
+153s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+153s make[2]: Nothing to be done for 'check-am'.
+153s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+153s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/utils'
+153s Making check in tests
+153s make[1]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests'
+153s Making check in hwloc
+153s make[2]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+153s Making check in .
+153s make[3]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+153s make  hwloc_api_version hwloc_list_components hwloc_bitmap hwloc_bitmap_string hwloc_bitmap_compare_inclusion hwloc_get_closest_objs hwloc_get_obj_covering_cpuset hwloc_get_cache_covering_cpuset hwloc_get_largest_objs_inside_cpuset hwloc_get_next_obj_covering_cpuset hwloc_get_obj_inside_cpuset hwloc_get_shared_cache_covering_obj hwloc_get_obj_below_array_by_type hwloc_get_obj_with_same_locality hwloc_bitmap_first_last_weight hwloc_bitmap_singlify hwloc_type_depth hwloc_type_sscanf hwloc_bind hwloc_get_last_cpu_location hwloc_get_area_memlocation hwloc_object_userdata hwloc_synthetic hwloc_backends hwloc_pci_backend hwloc_is_thissystem hwloc_distances hwloc_groups hwloc_insert_misc hwloc_topology_allow hwloc_topology_restrict hwloc_topology_dup hwloc_topology_diff hwloc_topology_abi hwloc_obj_infos hwloc_iodevs cpuset_nodeset memattrs memtiers cpukinds xmlbuffer gl  shmem linux-libnuma glibc-sched       
+153s make[4]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_api_version.o hwloc_api_version.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_list_components.o hwloc_list_components.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_bitmap.o hwloc_bitmap.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_bitmap_string.o hwloc_bitmap_string.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_bitmap_compare_inclusion.o hwloc_bitmap_compare_inclusion.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_closest_objs.o hwloc_get_closest_objs.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_obj_covering_cpuset.o hwloc_get_obj_covering_cpuset.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_cache_covering_cpuset.o hwloc_get_cache_covering_cpuset.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_largest_objs_inside_cpuset.o hwloc_get_largest_objs_inside_cpuset.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_next_obj_covering_cpuset.o hwloc_get_next_obj_covering_cpuset.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_obj_inside_cpuset.o hwloc_get_obj_inside_cpuset.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_shared_cache_covering_obj.o hwloc_get_shared_cache_covering_obj.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_obj_below_array_by_type.o hwloc_get_obj_below_array_by_type.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_obj_with_same_locality.o hwloc_get_obj_with_same_locality.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_bitmap_first_last_weight.o hwloc_bitmap_first_last_weight.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_bitmap_singlify.o hwloc_bitmap_singlify.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_type_depth.o hwloc_type_depth.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_type_sscanf.o hwloc_type_sscanf.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_bind.o hwloc_bind.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_last_cpu_location.o hwloc_get_last_cpu_location.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_get_area_memlocation.o hwloc_get_area_memlocation.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_object_userdata.o hwloc_object_userdata.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_synthetic.o hwloc_synthetic.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_backends.o hwloc_backends.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_pci_backend.o hwloc_pci_backend.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_is_thissystem.o hwloc_is_thissystem.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_distances.o hwloc_distances.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_groups.o hwloc_groups.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_insert_misc.o hwloc_insert_misc.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_topology_allow.o hwloc_topology_allow.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_topology_restrict.o hwloc_topology_restrict.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_topology_dup.o hwloc_topology_dup.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_topology_diff.o hwloc_topology_diff.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_topology_abi.o hwloc_topology_abi.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_obj_infos.o hwloc_obj_infos.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o hwloc_iodevs.o hwloc_iodevs.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o cpuset_nodeset.o cpuset_nodeset.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o memattrs.o memattrs.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o memtiers.o memtiers.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o cpukinds.o cpukinds.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o xmlbuffer.o xmlbuffer.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o gl.o gl.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o shmem.o shmem.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2   -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o linux_libnuma-linux-libnuma.o `test -f 'linux-libnuma.c' || echo './'`linux-libnuma.c
+153s gcc -DHAVE_CONFIG_H -I. -I../../include/private/autogen -I../../include/hwloc/autogen  -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -I"/tmp/autopkgtest.CYsC8J/build.6mf/src"/include -DXMLTESTDIR=\"/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc/xml/\" -Wdate-time -D_FORTIFY_SOURCE=2 -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -c -o glibc-sched.o glibc-sched.c
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_api_version hwloc_api_version.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_list_components hwloc_list_components.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_bitmap_singlify hwloc_bitmap_singlify.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_topology_abi hwloc_topology_abi.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_obj_infos hwloc_obj_infos.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_is_thissystem hwloc_is_thissystem.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_pci_backend hwloc_pci_backend.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_obj_covering_cpuset hwloc_get_obj_covering_cpuset.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_next_obj_covering_cpuset hwloc_get_next_obj_covering_cpuset.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_shared_cache_covering_obj hwloc_get_shared_cache_covering_obj.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_cache_covering_cpuset hwloc_get_cache_covering_cpuset.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_bitmap_compare_inclusion hwloc_bitmap_compare_inclusion.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_closest_objs hwloc_get_closest_objs.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_obj_below_array_by_type hwloc_get_obj_below_array_by_type.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o glibc-sched glibc-sched.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_iodevs hwloc_iodevs.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o xmlbuffer xmlbuffer.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_largest_objs_inside_cpuset hwloc_get_largest_objs_inside_cpuset.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_obj_inside_cpuset hwloc_get_obj_inside_cpuset.o -lhwloc 
+153s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_topology_dup hwloc_topology_dup.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_area_memlocation hwloc_get_area_memlocation.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_api_version hwloc_api_version.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_object_userdata hwloc_object_userdata.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_list_components hwloc_list_components.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_last_cpu_location hwloc_get_last_cpu_location.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_insert_misc hwloc_insert_misc.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_type_depth hwloc_type_depth.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_bitmap_singlify hwloc_bitmap_singlify.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_topology_abi hwloc_topology_abi.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_obj_infos hwloc_obj_infos.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o cpuset_nodeset cpuset_nodeset.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_bitmap_string hwloc_bitmap_string.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_type_sscanf hwloc_type_sscanf.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_obj_covering_cpuset hwloc_get_obj_covering_cpuset.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_is_thissystem hwloc_is_thissystem.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_pci_backend hwloc_pci_backend.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_shared_cache_covering_obj hwloc_get_shared_cache_covering_obj.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_cache_covering_cpuset hwloc_get_cache_covering_cpuset.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_bitmap_compare_inclusion hwloc_bitmap_compare_inclusion.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_backends hwloc_backends.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_next_obj_covering_cpuset hwloc_get_next_obj_covering_cpuset.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_closest_objs hwloc_get_closest_objs.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_synthetic hwloc_synthetic.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_bitmap_first_last_weight hwloc_bitmap_first_last_weight.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_bind hwloc_bind.o -lhwloc -lpthread 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_obj_below_array_by_type hwloc_get_obj_below_array_by_type.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_topology_allow hwloc_topology_allow.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o glibc-sched glibc-sched.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_iodevs hwloc_iodevs.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o xmlbuffer xmlbuffer.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_topology_diff hwloc_topology_diff.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_largest_objs_inside_cpuset hwloc_get_largest_objs_inside_cpuset.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_obj_inside_cpuset hwloc_get_obj_inside_cpuset.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_object_userdata hwloc_object_userdata.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o memtiers memtiers.o -lhwloc 
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o shmem shmem.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_insert_misc hwloc_insert_misc.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_get_obj_with_same_locality hwloc_get_obj_with_same_locality.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_type_depth hwloc_type_depth.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_last_cpu_location hwloc_get_last_cpu_location.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_topology_restrict hwloc_topology_restrict.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_bitmap_string hwloc_bitmap_string.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o gl gl.o -lhwloc 
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_backends hwloc_backends.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_bitmap_first_last_weight hwloc_bitmap_first_last_weight.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_synthetic hwloc_synthetic.o  -lhwloc
+154s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2   -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o linux-libnuma linux_libnuma-linux-libnuma.o -lhwloc -lnuma  
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_topology_dup hwloc_topology_dup.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_area_memlocation hwloc_get_area_memlocation.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_topology_allow hwloc_topology_allow.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_bind hwloc_bind.o  -lhwloc -lpthread
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_topology_diff hwloc_topology_diff.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o memtiers memtiers.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o shmem shmem.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_get_obj_with_same_locality hwloc_get_obj_with_same_locality.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_topology_restrict hwloc_topology_restrict.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o cpuset_nodeset cpuset_nodeset.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o gl gl.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_type_sscanf hwloc_type_sscanf.o  -lhwloc
+154s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o linux-libnuma linux_libnuma-linux-libnuma.o  -lhwloc -lnuma
+155s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o cpukinds cpukinds.o -lhwloc 
+155s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_distances hwloc_distances.o -lhwloc 
+155s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o cpukinds cpukinds.o  -lhwloc
+155s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_distances hwloc_distances.o  -lhwloc
+155s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_groups hwloc_groups.o -lhwloc 
+155s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_groups hwloc_groups.o  -lhwloc
+156s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o hwloc_bitmap hwloc_bitmap.o -lhwloc 
+156s /bin/bash ../../libtool  --tag=CC   --mode=link gcc -fvisibility=hidden  -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-Bsymbolic-functions -Wl,-z,relro -o memattrs memattrs.o -lhwloc 
+156s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o hwloc_bitmap hwloc_bitmap.o  -lhwloc
+157s libtool: link: gcc -fvisibility=hidden -I/usr/include/libxml2 -g -O2 -ffile-prefix-map=/tmp/autopkgtest.CYsC8J/build.6mf/src=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z -Wl,relro -o memattrs memattrs.o  -lhwloc
+157s make[4]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+157s make  check-TESTS
+157s make[4]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+157s make[5]: Entering directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+157s PASS: hwloc_api_version
+157s PASS: hwloc_bitmap_compare_inclusion
+157s PASS: hwloc_bitmap
+157s PASS: hwloc_list_components
+157s PASS: hwloc_bitmap_first_last_weight
+157s PASS: hwloc_bitmap_singlify
+157s PASS: hwloc_get_closest_objs
+157s PASS: hwloc_get_obj_below_array_by_type
+157s PASS: hwloc_get_cache_covering_cpuset
+157s PASS: hwloc_get_obj_inside_cpuset
+157s PASS: hwloc_get_obj_covering_cpuset
+157s PASS: hwloc_get_largest_objs_inside_cpuset
+157s PASS: hwloc_bitmap_string
+157s PASS: hwloc_get_obj_with_same_locality
+157s PASS: hwloc_get_next_obj_covering_cpuset
+157s PASS: hwloc_type_depth
+157s PASS: hwloc_distances
+157s PASS: hwloc_insert_misc
+157s PASS: hwloc_get_shared_cache_covering_obj
+157s PASS: hwloc_topology_dup
+157s PASS: cpuset_nodeset
+157s PASS: cpukinds
+157s PASS: memattrs
+157s PASS: hwloc_topology_allow
+157s PASS: memtiers
+157s PASS: hwloc_topology_restrict
+157s PASS: hwloc_synthetic
+157s PASS: hwloc_groups
+158s PASS: hwloc_get_area_memlocation
+158s PASS: hwloc_bind
+158s PASS: hwloc_is_thissystem
+158s PASS: hwloc_topology_diff
+158s PASS: hwloc_obj_infos
+158s PASS: glibc-sched
+158s PASS: hwloc_topology_abi
+158s PASS: linux-libnuma
+158s PASS: hwloc_object_userdata
+158s PASS: hwloc_get_last_cpu_location
+158s PASS: hwloc_backends
+158s PASS: hwloc_iodevs
+158s PASS: gl
+158s PASS: shmem
+158s FAIL: hwloc_type_sscanf
+159s PASS: hwloc_pci_backend
+159s PASS: xmlbuffer
+159s ==============================================
+159s    hwloc 2.10.0: tests/hwloc/test-suite.log
+159s ==============================================
+159s 
+159s # TOTAL: 45
+159s # PASS:  44
+159s # SKIP:  0
+159s # XFAIL: 0
+159s # FAIL:  1
+159s # XPASS: 0
+159s # ERROR: 0
+159s 
+159s .. contents:: :depth: 2
+159s 
+159s FAIL: hwloc_type_sscanf
+159s =======================
+159s 
+159s hwloc_type_sscanf: hwloc_type_sscanf.c:40: _check: Assertion `depth == (int) obj->depth' failed.
+159s Aborted (core dumped)
+159s FAIL hwloc_type_sscanf (exit status: 134)
+159s 
+159s ============================================================================
+159s Testsuite summary for hwloc 2.10.0
+159s ============================================================================
+159s # TOTAL: 45
+159s # PASS:  44
+159s # SKIP:  0
+159s # XFAIL: 0
+159s # FAIL:  1
+159s # XPASS: 0
+159s # ERROR: 0
+159s ============================================================================
+159s See tests/hwloc/test-suite.log
+159s Please report to https://github.com/open-mpi/hwloc/issues
+159s ============================================================================
+159s make[5]: *** [Makefile:1676: test-suite.log] Error 1
+159s make[5]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+159s make[4]: *** [Makefile:1784: check-TESTS] Error 2
+159s make[4]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+159s make[3]: *** [Makefile:2246: check-am] Error 2
+159s make[3]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+159s make[2]: *** [Makefile:1568: check-recursive] Error 1
+159s make[2]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests/hwloc'
+159s make[1]: *** [Makefile:465: check-recursive] Error 1
+159s make[1]: Leaving directory '/tmp/autopkgtest.CYsC8J/build.6mf/src/tests'
+159s make: *** [Makefile:635: check-recursive] Error 1
+159s dh_auto_test: error: make -j128 check "TESTSUITEFLAGS=-j128 --verbose" VERBOSE=1 returned exit code 2
+159s /tmp/autopkgtest.CYsC8J/wrapper.sh: checking for leaked background processes...
+159s /tmp/autopkgtest.CYsC8J/wrapper.sh: waiting for tee/cat subprocesses...
+159s /tmp/autopkgtest.CYsC8J/wrapper.sh: cleaning up...
+159s /tmp/autopkgtest.CYsC8J/wrapper.sh: Exit status: 25
+160s autopkgtest: DBG: testbed command exited with code 25
+160s autopkgtest [10:41:17]: test tests: -----------------------]
+160s autopkgtest: DBG: testbed executing test finished with exit status 25
+160s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYsC8J/tests-stdout /home/hachi/openkylin_test/sharefolder/results/hwloc/tests-stdout
+160s autopkgtest: DBG: got reply from testbed: ok
+160s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYsC8J/tests-stderr /home/hachi/openkylin_test/sharefolder/results/hwloc/tests-stderr
+160s autopkgtest: DBG: got reply from testbed: ok
+160s autopkgtest [10:41:17]: test tests:  - - - - - - - - - - results - - - - - - - - - -
+160s tests                FAIL non-zero exit status 25
+160s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYsC8J/tests-artifacts/ /home/hachi/openkylin_test/sharefolder/results/hwloc/artifacts/
+160s autopkgtest: DBG: got reply from testbed: ok
+160s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.CYsC8J/tests-artifacts', '/tmp/autopkgtest.CYsC8J/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+160s autopkgtest: DBG: testbed command exited with code 0
+160s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+160s autopkgtest [10:41:17]: @@@@@@@@@@@@@@@@@@@@ summary
+160s tests                FAIL non-zero exit status 25
+160s autopkgtest: DBG: testbed stop
+160s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.CYsC8J
+160s autopkgtest: DBG: sending command to testbed: close
+160s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+161s autopkgtest: DBG: got reply from testbed: ok
+161s autopkgtest: DBG: sending command to testbed: quit

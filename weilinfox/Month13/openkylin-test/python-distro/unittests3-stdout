@@ -1,0 +1,691 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.2, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tmp/autopkgtest.oPlupC/autopkgtest_tmp
+collected 234 items
+
+tests/test_distro.py ............FFF..........FF..................FFF... [ 21%]
+.......FF...........................................................FF.. [ 52%]
+.........FF.........................FF...........FF..................F.. [ 83%]
+.......................................                                  [100%]
+
+=================================== FAILURES ===================================
+____________________ TestOSRelease.test_debian8_os_release _____________________
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db68a70>
+
+    def test_debian8_os_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 8 (jessie)",
+            "version": "8",
+            "pretty_version": "8 (jessie)",
+            "best_version": "8.2",
+            "codename": "jessie",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:222: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db68a70>
+outcome = {'best_version': '8.2', 'codename': 'jessie', 'id': 'debian', 'name': 'Debian GNU/Linux', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '8' == '8.2'
+E         - 8.2
+E         + 8
+
+tests/test_distro.py:153: AssertionError
+____________________ TestOSRelease.test_debian10_os_release ____________________
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db69340>
+
+    def test_debian10_os_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 10 (buster)",
+            "version": "10",
+            "pretty_version": "10 (buster)",
+            "best_version": "10.11",
+            "codename": "buster",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:234: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db69340>
+outcome = {'best_version': '10.11', 'codename': 'buster', 'id': 'debian', 'name': 'Debian GNU/Linux', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '10' == '10.11'
+E         - 10.11
+E         + 10
+
+tests/test_distro.py:153: AssertionError
+_________________ TestOSRelease.test_debiantesting_os_release __________________
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db69a30>
+
+    def test_debiantesting_os_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux bookworm/sid",
+            "version": "bookworm/sid",
+            "pretty_version": "bookworm/sid (bookworm)",
+            "best_version": "bookworm/sid",
+            "codename": "bookworm",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:246: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db69a30>
+outcome = {'best_version': 'bookworm/sid', 'codename': 'bookworm', 'id': 'debian', 'name': 'Debian GNU/Linux', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+>       assert self.distro.version() == outcome.get("version", "")
+E       AssertionError: assert '' == 'bookworm/sid'
+E         - bookworm/sid
+
+tests/test_distro.py:151: AssertionError
+___________________ TestOSRelease.test_raspbian7_os_release ____________________
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db68f20>
+
+    def test_raspbian7_os_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 7 (wheezy)",
+            "version": "7",
+            "pretty_version": "7 (wheezy)",
+            "best_version": "7.1",
+            "like": "debian",
+            "codename": "wheezy",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:376: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db68f20>
+outcome = {'best_version': '7.1', 'codename': 'wheezy', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '7' == '7.1'
+E         - 7.1
+E         + 7
+
+tests/test_distro.py:153: AssertionError
+___________________ TestOSRelease.test_raspbian8_os_release ____________________
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db69070>
+
+    def test_raspbian8_os_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 8 (jessie)",
+            "version": "8",
+            "pretty_version": "8 (jessie)",
+            "best_version": "8.0",
+            "like": "debian",
+            "codename": "jessie",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:389: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOSRelease object at 0x3f9db69070>
+outcome = {'best_version': '8.0', 'codename': 'jessie', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '8' == '8.0'
+E         - 8.0
+E         + 8
+
+tests/test_distro.py:153: AssertionError
+___________________ TestWithRootDir.test_debian8_os_release ____________________
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db57710>
+
+    def test_debian8_os_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 8 (jessie)",
+            "version": "8",
+            "pretty_version": "8 (jessie)",
+            "best_version": "8.2",
+            "codename": "jessie",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:222: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db57710>
+outcome = {'best_version': '8.2', 'codename': 'jessie', 'id': 'debian', 'name': 'Debian GNU/Linux', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '8' == '8.2'
+E         - 8.2
+E         + 8
+
+tests/test_distro.py:153: AssertionError
+___________________ TestWithRootDir.test_debian10_os_release ___________________
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db57ef0>
+
+    def test_debian10_os_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 10 (buster)",
+            "version": "10",
+            "pretty_version": "10 (buster)",
+            "best_version": "10.11",
+            "codename": "buster",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:234: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db57ef0>
+outcome = {'best_version': '10.11', 'codename': 'buster', 'id': 'debian', 'name': 'Debian GNU/Linux', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '10' == '10.11'
+E         - 10.11
+E         + 10
+
+tests/test_distro.py:153: AssertionError
+________________ TestWithRootDir.test_debiantesting_os_release _________________
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db56990>
+
+    def test_debiantesting_os_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux bookworm/sid",
+            "version": "bookworm/sid",
+            "pretty_version": "bookworm/sid (bookworm)",
+            "best_version": "bookworm/sid",
+            "codename": "bookworm",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:246: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db56990>
+outcome = {'best_version': 'bookworm/sid', 'codename': 'bookworm', 'id': 'debian', 'name': 'Debian GNU/Linux', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+>       assert self.distro.version() == outcome.get("version", "")
+E       AssertionError: assert '' == 'bookworm/sid'
+E         - bookworm/sid
+
+tests/test_distro.py:151: AssertionError
+__________________ TestWithRootDir.test_raspbian7_os_release ___________________
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db567b0>
+
+    def test_raspbian7_os_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 7 (wheezy)",
+            "version": "7",
+            "pretty_version": "7 (wheezy)",
+            "best_version": "7.1",
+            "like": "debian",
+            "codename": "wheezy",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:376: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db567b0>
+outcome = {'best_version': '7.1', 'codename': 'wheezy', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '7' == '7.1'
+E         - 7.1
+E         + 7
+
+tests/test_distro.py:153: AssertionError
+__________________ TestWithRootDir.test_raspbian8_os_release ___________________
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db57320>
+
+    def test_raspbian8_os_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 8 (jessie)",
+            "version": "8",
+            "pretty_version": "8 (jessie)",
+            "best_version": "8.0",
+            "like": "debian",
+            "codename": "jessie",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:389: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestWithRootDir object at 0x3f9db57320>
+outcome = {'best_version': '8.0', 'codename': 'jessie', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '8' == '8.0'
+E         - 8.0
+E         + 8
+
+tests/test_distro.py:153: AssertionError
+______________________ TestOverall.test_debian10_release _______________________
+
+self = <tests.test_distro.TestOverall object at 0x3f9db43b90>
+
+    def test_debian10_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 10 (buster)",
+            "version": "10",
+            "pretty_version": "10 (buster)",
+            "best_version": "10.11",
+            "codename": "buster",
+            "major_version": "10",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1309: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverall object at 0x3f9db43b90>
+outcome = {'best_version': '10.11', 'codename': 'buster', 'id': 'debian', 'major_version': '10', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '10' == '10.11'
+E         - 10.11
+E         + 10
+
+tests/test_distro.py:1175: AssertionError
+____________________ TestOverall.test_debiantesting_release ____________________
+
+self = <tests.test_distro.TestOverall object at 0x3f9db566f0>
+
+    def test_debiantesting_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux bookworm/sid",
+            "version": "bookworm/sid",
+            "pretty_version": "bookworm/sid (bookworm)",
+            "best_version": "bookworm/sid",
+            "codename": "bookworm",
+            "major_version": "",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1323: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverall object at 0x3f9db566f0>
+outcome = {'best_version': 'bookworm/sid', 'codename': 'bookworm', 'id': 'debian', 'major_version': '', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+>       assert self.distro.version() == outcome.get("version", "")
+E       AssertionError: assert '' == 'bookworm/sid'
+E         - bookworm/sid
+
+tests/test_distro.py:1173: AssertionError
+______________________ TestOverall.test_raspbian7_release ______________________
+
+self = <tests.test_distro.TestOverall object at 0x3f9db420c0>
+
+    def test_raspbian7_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 7 (wheezy)",
+            "version": "7",
+            "pretty_version": "7 (wheezy)",
+            "best_version": "7.1",
+            "like": "debian",
+            "codename": "wheezy",
+            "major_version": "7",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1549: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverall object at 0x3f9db420c0>
+outcome = {'best_version': '7.1', 'codename': 'wheezy', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '7' == '7.1'
+E         - 7.1
+E         + 7
+
+tests/test_distro.py:1175: AssertionError
+______________________ TestOverall.test_raspbian8_release ______________________
+
+self = <tests.test_distro.TestOverall object at 0x3f9db41e20>
+
+    def test_raspbian8_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 8 (jessie)",
+            "version": "8",
+            "pretty_version": "8 (jessie)",
+            "best_version": "8.0",
+            "like": "debian",
+            "codename": "jessie",
+            "major_version": "8",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1564: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverall object at 0x3f9db41e20>
+outcome = {'best_version': '8.0', 'codename': 'jessie', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '8' == '8.0'
+E         - 8.0
+E         + 8
+
+tests/test_distro.py:1175: AssertionError
+_____________ TestOverallWithEtcNotReadable.test_debian10_release ______________
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9dc1db50>
+
+    def test_debian10_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 10 (buster)",
+            "version": "10",
+            "pretty_version": "10 (buster)",
+            "best_version": "10.11",
+            "codename": "buster",
+            "major_version": "10",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1309: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9dc1db50>
+outcome = {'best_version': '10.11', 'codename': 'buster', 'id': 'debian', 'major_version': '10', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '10' == '10.11'
+E         - 10.11
+E         + 10
+
+tests/test_distro.py:1175: AssertionError
+___________ TestOverallWithEtcNotReadable.test_debiantesting_release ___________
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9de6d370>
+
+    def test_debiantesting_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux bookworm/sid",
+            "version": "bookworm/sid",
+            "pretty_version": "bookworm/sid (bookworm)",
+            "best_version": "bookworm/sid",
+            "codename": "bookworm",
+            "major_version": "",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1323: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9de6d370>
+outcome = {'best_version': 'bookworm/sid', 'codename': 'bookworm', 'id': 'debian', 'major_version': '', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+>       assert self.distro.version() == outcome.get("version", "")
+E       AssertionError: assert '' == 'bookworm/sid'
+E         - bookworm/sid
+
+tests/test_distro.py:1173: AssertionError
+_____________ TestOverallWithEtcNotReadable.test_raspbian7_release _____________
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9db13e60>
+
+    def test_raspbian7_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 7 (wheezy)",
+            "version": "7",
+            "pretty_version": "7 (wheezy)",
+            "best_version": "7.1",
+            "like": "debian",
+            "codename": "wheezy",
+            "major_version": "7",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1549: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9db13e60>
+outcome = {'best_version': '7.1', 'codename': 'wheezy', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '7' == '7.1'
+E         - 7.1
+E         + 7
+
+tests/test_distro.py:1175: AssertionError
+_____________ TestOverallWithEtcNotReadable.test_raspbian8_release _____________
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9db13ce0>
+
+    def test_raspbian8_release(self) -> None:
+        desired_outcome = {
+            "id": "raspbian",
+            "name": "Raspbian GNU/Linux",
+            "pretty_name": "Raspbian GNU/Linux 8 (jessie)",
+            "version": "8",
+            "pretty_version": "8 (jessie)",
+            "best_version": "8.0",
+            "like": "debian",
+            "codename": "jessie",
+            "major_version": "8",
+        }
+>       self._test_outcome(desired_outcome)
+
+tests/test_distro.py:1564: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9db13ce0>
+outcome = {'best_version': '8.0', 'codename': 'jessie', 'id': 'raspbian', 'like': 'debian', ...}
+
+    def _test_outcome(self, outcome: Dict[str, str]) -> None:
+        assert self.distro.id() == outcome.get("id", "")
+        assert self.distro.name() == outcome.get("name", "")
+        assert self.distro.name(pretty=True) == outcome.get("pretty_name", "")
+        assert self.distro.version() == outcome.get("version", "")
+        assert self.distro.version(pretty=True) == outcome.get("pretty_version", "")
+>       assert self.distro.version(best=True) == outcome.get("best_version", "")
+E       AssertionError: assert '8' == '8.0'
+E         - 8.0
+E         + 8
+
+tests/test_distro.py:1175: AssertionError
+____________ TestOverallWithEtcNotReadable.test_altlinux10_release _____________
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9db13a70>
+
+    def test_altlinux10_release(self) -> None:
+        desired_outcome = {
+            "id": "altlinux",
+            "name": "ALT Server",
+            "codename": "Mendelevium",
+            "pretty_name": "ALT Server 10.1 (Mendelevium)",
+            "version": "10.1",
+            "pretty_version": "10.1 (Mendelevium)",
+            "best_version": "10.1",
+            "major_version": "10",
+            "minor_version": "1",
+        }
+        self._test_outcome(desired_outcome)
+    
+        desired_info = {
+            "id": "altlinux",
+            "name": "ALT Server",
+            "version_id": "10.1",
+            "codename": "Mendelevium",
+        }
+>       self._test_release_file_info("altlinux-release", desired_info)
+
+tests/test_distro.py:1920: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.test_distro.TestOverallWithEtcNotReadable object at 0x3f9db13a70>
+filename = 'altlinux-release'
+outcome = {'codename': 'Mendelevium', 'id': 'altlinux', 'name': 'ALT Server', 'version_id': '10.1'}
+
+    def _test_release_file_info(
+        self, filename: str, outcome: Dict[str, str]
+    ) -> Dict[str, str]:
+        # Test the info from the searched distro release file
+>       assert os.path.basename(self.distro.distro_release_file) == filename
+E       AssertionError: assert 'fedora-release' == 'altlinux-release'
+E         - altlinux-release
+E         + fedora-release
+
+tests/test_distro.py:1192: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_distro.py::TestOSRelease::test_debian8_os_release - Asserti...
+FAILED tests/test_distro.py::TestOSRelease::test_debian10_os_release - Assert...
+FAILED tests/test_distro.py::TestOSRelease::test_debiantesting_os_release - A...
+FAILED tests/test_distro.py::TestOSRelease::test_raspbian7_os_release - Asser...
+FAILED tests/test_distro.py::TestOSRelease::test_raspbian8_os_release - Asser...
+FAILED tests/test_distro.py::TestWithRootDir::test_debian8_os_release - Asser...
+FAILED tests/test_distro.py::TestWithRootDir::test_debian10_os_release - Asse...
+FAILED tests/test_distro.py::TestWithRootDir::test_debiantesting_os_release
+FAILED tests/test_distro.py::TestWithRootDir::test_raspbian7_os_release - Ass...
+FAILED tests/test_distro.py::TestWithRootDir::test_raspbian8_os_release - Ass...
+FAILED tests/test_distro.py::TestOverall::test_debian10_release - AssertionEr...
+FAILED tests/test_distro.py::TestOverall::test_debiantesting_release - Assert...
+FAILED tests/test_distro.py::TestOverall::test_raspbian7_release - AssertionE...
+FAILED tests/test_distro.py::TestOverall::test_raspbian8_release - AssertionE...
+FAILED tests/test_distro.py::TestOverallWithEtcNotReadable::test_debian10_release
+FAILED tests/test_distro.py::TestOverallWithEtcNotReadable::test_debiantesting_release
+FAILED tests/test_distro.py::TestOverallWithEtcNotReadable::test_raspbian7_release
+FAILED tests/test_distro.py::TestOverallWithEtcNotReadable::test_raspbian8_release
+FAILED tests/test_distro.py::TestOverallWithEtcNotReadable::test_altlinux10_release
+======================= 19 failed, 215 passed in 11.29s ========================

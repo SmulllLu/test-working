@@ -1,0 +1,103 @@
++ readonly test_type=with-debian-patches
++ test_type=with-debian-patches
++ shift
+++ dpkg-architecture -q DEB_HOST_ARCH
++ readonly arch=riscv64
++ arch=riscv64
++ readonly tmpdir=/tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ tmpdir=/tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ trap 'rm -rf /tmp/autopkgtest.3PAiC2/autopkgtest_tmp' EXIT INT QUIT TERM
++++ dirname ./debian/tests/upstream-tests
+++ readlink -e ./debian/tests/../..
++ cd /tmp/autopkgtest.3PAiC2/build.qhi/src
++ tar cf - --exclude '*.bak' --exclude '*.gmo' --exclude '*.o' --exclude '*.so' --exclude '*.tmp' --exclude '*~' --exclude '.debhelper*' --exclude '.git*' .
++ tar xvf - -C /tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ cd /tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ '[' with-debian-patches = pristine-source ']'
++ '[' with-debian-patches = with-debian-patches ']'
++ dpkg-source --before-build .
++ echo 'SADC_OPTIONS="@COLLECT_ALL@ @SADC_OPT@"'
+++ dpkg-buildflags --get CFLAGS
++ export 'CFLAGS=-g -O2 -ffile-prefix-map=/tmp/autopkgtest.3PAiC2/autopkgtest_tmp=. -fstack-protector-strong -Wformat -Werror=format-security'
++ CFLAGS='-g -O2 -ffile-prefix-map=/tmp/autopkgtest.3PAiC2/autopkgtest_tmp=. -fstack-protector-strong -Wformat -Werror=format-security'
+++ dpkg-buildflags --get CPPFLAGS
++ export 'DFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2'
++ DFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2'
+++ dpkg-buildflags --get LDFLAGS
++ export 'LFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
++ LFLAGS='-Wl,-Bsymbolic-functions -Wl,-z,relro'
++ autoreconf -i -s
+autoreconf: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+configure.in:21: warning: The macro `AC_GNU_SOURCE' is obsolete.
+configure.in:21: You should run autoupdate.
+./lib/autoconf/specific.m4:312: AC_GNU_SOURCE is expanded from...
+configure.in:21: the top level
+configure.in:104: warning: The macro `AC_TYPE_SIGNAL' is obsolete.
+configure.in:104: You should run autoupdate.
+./lib/autoconf/types.m4:776: AC_TYPE_SIGNAL is expanded from...
+configure.in:104: the top level
+configure.in:119: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:119: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:119: the top level
+configure.in:160: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:160: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:160: the top level
+configure.in:425: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:425: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:425: the top level
+configure.in:460: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:460: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:460: the top level
+configure.in:538: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:538: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:538: the top level
+configure.in:554: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:554: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:554: the top level
+configure.in:568: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:568: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:568: the top level
+configure.in:583: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:583: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:583: the top level
+configure.in:630: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:630: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:630: the top level
+configure.in:657: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:657: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:657: the top level
+configure.in:682: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:682: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:682: the top level
+configure.in:716: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:716: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:716: the top level
+configure.in:735: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:735: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:735: the top level
+configure.in:745: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.in:745: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.in:745: the top level
+configure.in:789: warning: AC_OUTPUT should be used without arguments.
+configure.in:789: You should run autoupdate.
++ ln -svf sar sar.sysstat
++ set -o pipefail
++ ./do_test
++ tee tests/do_test.log
++ exit 0
++ rm -rf /tmp/autopkgtest.3PAiC2/autopkgtest_tmp

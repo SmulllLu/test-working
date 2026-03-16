@@ -1,0 +1,13 @@
++ mktemp -d
++ WORKDIR=/tmp/tmp.XHKWpTxWsV
++ export XDG_RUNTIME_DIR=/tmp/tmp.XHKWpTxWsV
++ trap rm -rf "$WORKDIR" 0 INT QUIT ABRT PIPE TERM
++ [ -n  ]
++ CROSS_COMPILE=
++ cp src/examples/list-accounts.c /tmp/tmp.XHKWpTxWsV
++ cd /tmp/tmp.XHKWpTxWsV
++ touch /tmp/tmp.XHKWpTxWsV/config.h
++ pkg-config --cflags --libs goa-1.0
++ gcc -o list-accounts -I. list-accounts.c -I/usr/include/goa-1.0 -I/usr/lib/riscv64-linux-gnu/goa-1.0/include -I/usr/include/glib-2.0 -I/usr/lib/riscv64-linux-gnu/glib-2.0/include -pthread -I/usr/include/libmount -I/usr/include/blkid -lgoa-1.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
++ [ -x list-accounts ]
++ rm -rf /tmp/tmp.XHKWpTxWsV

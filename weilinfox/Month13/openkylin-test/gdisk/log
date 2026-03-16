@@ -1,0 +1,574 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [05:46:27]: starting date and time: 2024-07-18 05:46:27+0800
+  0s autopkgtest [05:46:27]: version @version@
+  0s autopkgtest [05:46:27]: host lili; command line: /usr/bin/autopkgtest gdisk_1.0.10-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/gdisk -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.rdAkeK
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-7d50d082-8f44-4215-a231-560aa26ca0c7,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-7d50d082-8f44-4215-a231-560aa26ca0c7//tmp/autopkgtest.rdAkeK
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-7d50d082-8f44-4215-a231-560aa26ca0c7//tmp/autopkgtest.rdAkeK', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.rdAkeK'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.rdAkeK/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.rdAkeK/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [05:46:28]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [05:46:29]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.rdAkeK/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.rdAkeK/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gdisk/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [05:46:29]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [05:46:29]: @@@@@@@@@@@@@@@@@@@@ source gdisk_1.0.10-ok1.dsc
+  2s autopkgtest: DBG: blame += gdisk_1.0.10-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.rdAkeK'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown gdisk_1.0.10-ok1.dsc /tmp/autopkgtest.rdAkeK/gdisk_1.0.10-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.rdAkeK'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown gdisk_1.0.10.orig.tar.gz /tmp/autopkgtest.rdAkeK/gdisk_1.0.10.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.rdAkeK'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown gdisk_1.0.10-ok1.debian.tar.xz /tmp/autopkgtest.rdAkeK/gdisk_1.0.10-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.rdAkeK/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.rdAkeK/gdisk_1.0.10-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.rdAkeK/build.XXX
+  3s + builddir=/tmp/autopkgtest.rdAkeK/build.jJA
+  3s + cd /tmp/autopkgtest.rdAkeK/build.jJA
+  3s + dpkg-source -x /tmp/autopkgtest.rdAkeK/gdisk_1.0.10-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.1h2V2nkr/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 24 Apr 2024 11:11:27 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.rdAkeK/gdisk_1.0.10-ok1.dsc
+  3s dpkg-source: info: extracting gdisk in src
+  3s dpkg-source: info: unpacking gdisk_1.0.10.orig.tar.gz
+  3s dpkg-source: info: unpacking gdisk_1.0.10-ok1.debian.tar.xz
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [05:46:30]: testing package gdisk version 1.0.10-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.rdAkeK/build.jJA/src/debian/ /home/hachi/openkylin_test/sharefolder/results/gdisk/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency gdisk
+  3s autopkgtest: DBG: marked alternatives ['gdisk'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name command1 path None command "sed -i "s|^\(.*\)GDISK_BIN=./\(.*\)|\\1GDISK_BIN=/sbin/\\2|" ./gdisk_test.sh && ./gdisk_test.sh" restrictions ['allow-stderr'] features [] depends ['gdisk'] 
+  3s autopkgtest [05:46:30]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.rdAkeK/build.jJA/src/ /home/hachi/openkylin_test/sharefolder/results/gdisk/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency gdisk
+  3s autopkgtest: DBG: marked alternatives ['gdisk'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name command1 path None command "sed -i "s|^\(.*\)GDISK_BIN=./\(.*\)|\\1GDISK_BIN=/sbin/\\2|" ./gdisk_test.sh && ./gdisk_test.sh" restrictions ['allow-stderr'] features [] depends ['gdisk'] 
+  3s autopkgtest [05:46:30]: test command1: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['gdisk']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['gdisk']
+  3s autopkgtest: DBG: install-deps: satisfying gdisk
+  4s autopkgtest: DBG: install-deps: architecture resolved: gdisk
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.rdAkeK'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-7d50d082-8f44-4215-a231-560aa26ca0c7//tmp/autopkgtest.rdAkeK/1-autopkgtest-satdep.deb /tmp/autopkgtest.rdAkeK/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.rdAkeK/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following NEW packages will be installed:
+  6s   autopkgtest-satdep
+  6s 0 upgraded, 1 newly installed, 0 to remove and 1066 not upgraded.
+  6s Need to get 0 B/700 B of archives.
+  6s After this operation, 0 B of additional disk space will be used.
+  6s Get:1 /tmp/autopkgtest.rdAkeK/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [700 B]
+  9s Selecting previously unselected package autopkgtest-satdep.
+  9s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+  9s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+  9s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+  9s Unpacking autopkgtest-satdep (0) ...
+  9s Setting up autopkgtest-satdep (0) ...
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'gdisk'], kind short, sout pipe, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 14s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 15s autopkgtest: DBG: testbed command exited with code 0
+ 15s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 20s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 21s (Reading database ... 193809 files and directories currently installed.)
+ 21s Removing autopkgtest-satdep (0) ...
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.rdAkeK/command1-packages.all"], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.rdAkeK/command1-packages.all /home/hachi/openkylin_test/sharefolder/results/gdisk/command1-packages.all
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.rdAkeK/build.jJA/src'], kind short, sout raw, serr raw, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.rdAkeK/build.jJA/src already exists
+ 21s autopkgtest [05:46:48]: test command1: sed -i "s|^\(.*\)GDISK_BIN=./\(.*\)|\\1GDISK_BIN=/sbin/\\2|" ./gdisk_test.sh && ./gdisk_test.sh
+ 21s autopkgtest [05:46:48]: test command1: [-----------------------
+ 21s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.rdAkeK/wrapper.sh --debug --artifacts=/tmp/autopkgtest.rdAkeK/command1-artifacts --chdir=/tmp/autopkgtest.rdAkeK/build.jJA/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.rdAkeK/command1-stderr --stdout=/tmp/autopkgtest.rdAkeK/command1-stdout --tmp=/tmp/autopkgtest.rdAkeK/autopkgtest_tmp -- bash -ec \'sed -i "s|^\\(.*\\)GDISK_BIN=./\\(.*\\)|\\\\1GDISK_BIN=/sbin/\\\\2|" ./gdisk_test.sh && ./gdisk_test.sh\''], kind test, sout raw, serr raw, env []
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.rdAkeK/command1-artifacts
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: changing to directory: /tmp/autopkgtest.rdAkeK/build.jJA/src
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: setting environment: LANG=C.UTF-8
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LANGUAGE
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_ADDRESS
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_ALL
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_COLLATE
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_CTYPE
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_MESSAGES
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_MONETARY
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_NAME
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_NUMERIC
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_PAPER
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: unsetting environment: LC_TIME
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: pretending to be a login shell
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: will write standard error to /tmp/autopkgtest.rdAkeK/command1-stderr
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: will write stdout to /tmp/autopkgtest.rdAkeK/command1-stdout
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.rdAkeK/autopkgtest_tmp
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: command to run: bash -ec sed -i "s|^\(.*\)GDISK_BIN=./\(.*\)|\1GDISK_BIN=/sbin/\2|" ./gdisk_test.sh && ./gdisk_test.sh
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: copying /tmp/tmp.zXCGec5XQs/out to stdout and file: /tmp/autopkgtest.rdAkeK/command1-stdout
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: copying /tmp/tmp.zXCGec5XQs/err to standard error and file: /tmp/autopkgtest.rdAkeK/command1-stdout
+ 21s /tmp/autopkgtest.rdAkeK/wrapper.sh: writing script pid 905811 to /tmp/autopkgtest_script_pid
+ 22s [0;32m**SUCCESS**[m Temp disk sucessfully created
+ 22s 
+ 22s [0;34m**Testing gdisk binary**[m
+ 22s 
+ 22s GPT fdisk (gdisk) version 1.0.9
+ 22s 
+ 22s Partition table scan:
+ 22s   MBR: not present
+ 22s   BSD: not present
+ 22s   APM: not present
+ 22s   GPT: not present
+ 22s 
+ 22s Creating new GPT entries in memory.
+ 22s 
+ 22s Command (? for help): This option deletes all partitions and creates a new protective MBR.
+ 22s Proceed? (Y/N): 
+ 22s Command (? for help): 
+ 22s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 22s PARTITIONS!!
+ 22s 
+ 23s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 23s Warning: The kernel is still using the old partition table.
+ 23s The new table will be used at the next reboot or after you
+ 23s run partprobe(8) or kpartx(8)
+ 23s The operation has completed successfully.
+ 23s [0;32m**SUCCESS**[m Create new empty GPT table
+ 23s 
+ 23s GPT fdisk (gdisk) version 1.0.9
+ 23s 
+ 23s Partition table scan:
+ 23s   MBR: protective
+ 23s   BSD: not present
+ 23s   APM: not present
+ 23s   GPT: present
+ 23s 
+ 23s Found valid GPT with protective MBR; using GPT.
+ 23s 
+ 23s Command (? for help): Partition number (1-128, default 1): First sector (34-131038, default = 2048) or {+-}size{KMGTP}: Last sector (2048-131038, default = 129023) or {+-}size{KMGTP}: Current type is 8300 (Linux filesystem)
+ 23s Hex code or GUID (L to show codes, Enter = 8300): Changed type of partition to 'Linux filesystem'
+ 23s 
+ 23s Command (? for help): 
+ 23s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 23s PARTITIONS!!
+ 23s 
+ 24s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 24s Warning: The kernel is still using the old partition table.
+ 24s The new table will be used at the next reboot or after you
+ 24s run partprobe(8) or kpartx(8)
+ 24s The operation has completed successfully.
+ 24s [0;32m**SUCCESS**[m Create new partition
+ 24s 
+ 24s GPT fdisk (gdisk) version 1.0.9
+ 24s 
+ 24s Partition table scan:
+ 24s   MBR: protective
+ 24s   BSD: not present
+ 24s   APM: not present
+ 24s   GPT: present
+ 24s 
+ 24s Found valid GPT with protective MBR; using GPT.
+ 24s 
+ 24s Command (? for help): Using 1
+ 24s Enter name: 
+ 24s Command (? for help): 
+ 24s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 24s PARTITIONS!!
+ 24s 
+ 25s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 25s Warning: The kernel is still using the old partition table.
+ 25s The new table will be used at the next reboot or after you
+ 25s run partprobe(8) or kpartx(8)
+ 25s The operation has completed successfully.
+ 25s [0;32m**SUCCESS**[m Change partition 1 name (Linux filesystem -> nbLoqkAX)
+ 25s 
+ 25s GPT fdisk (gdisk) version 1.0.9
+ 25s 
+ 25s Partition table scan:
+ 25s   MBR: protective
+ 25s   BSD: not present
+ 25s   APM: not present
+ 25s   GPT: present
+ 25s 
+ 25s Found valid GPT with protective MBR; using GPT.
+ 25s 
+ 25s Command (? for help): Using 1
+ 25s Current type is 8300 (Linux filesystem)
+ 25s Hex code or GUID (L to show codes, Enter = 8300): Changed type of partition to 'Linux swap'
+ 25s 
+ 25s Command (? for help): 
+ 25s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 25s PARTITIONS!!
+ 25s 
+ 26s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 26s Warning: The kernel is still using the old partition table.
+ 26s The new table will be used at the next reboot or after you
+ 26s run partprobe(8) or kpartx(8)
+ 26s The operation has completed successfully.
+ 26s [0;32m**SUCCESS**[m Change partition 1 type (8300 -> 8200)
+ 26s 
+ 26s GPT fdisk (gdisk) version 1.0.9
+ 26s 
+ 26s Partition table scan:
+ 26s   MBR: protective
+ 26s   BSD: not present
+ 26s   APM: not present
+ 26s   GPT: present
+ 26s 
+ 26s Found valid GPT with protective MBR; using GPT.
+ 26s 
+ 26s Command (? for help): Enter backup filename to save: The operation has completed successfully.
+ 26s 
+ 26s Command (? for help): 
+ 26s [0;32m**SUCCESS**[m GPT data backuped sucessfully
+ 26s GPT fdisk (gdisk) version 1.0.9
+ 26s 
+ 26s Partition table scan:
+ 26s   MBR: protective
+ 26s   BSD: not present
+ 26s   APM: not present
+ 26s   GPT: present
+ 26s 
+ 26s Found valid GPT with protective MBR; using GPT.
+ 26s 
+ 26s Command (? for help): Using 1
+ 26s 
+ 26s Command (? for help): 
+ 26s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 26s PARTITIONS!!
+ 26s 
+ 27s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 27s Warning: The kernel is still using the old partition table.
+ 27s The new table will be used at the next reboot or after you
+ 27s run partprobe(8) or kpartx(8)
+ 27s The operation has completed successfully.
+ 27s [0;32m**SUCCESS**[m Delete partition 1
+ 27s 
+ 27s GPT fdisk (gdisk) version 1.0.9
+ 27s 
+ 27s Partition table scan:
+ 27s   MBR: protective
+ 27s   BSD: not present
+ 27s   APM: not present
+ 27s   GPT: present
+ 27s 
+ 27s Found valid GPT with protective MBR; using GPT.
+ 27s 
+ 27s Command (? for help): 
+ 27s Recovery/transformation command (? for help): b	use backup GPT header (rebuilding main)
+ 27s c	load backup partition table from disk (rebuilding main)
+ 27s d	use main GPT header (rebuilding backup)
+ 27s e	load main partition table from disk (rebuilding backup)
+ 27s f	load MBR and build fresh GPT from it
+ 27s g	convert GPT into MBR and exit
+ 27s h	make hybrid MBR
+ 27s i	show detailed information on a partition
+ 27s l	load partition data from a backup file
+ 27s m	return to main menu
+ 27s o	print protective MBR data
+ 27s p	print the partition table
+ 27s q	quit without saving changes
+ 27s t	transform BSD disklabel partition
+ 27s v	verify disk
+ 27s w	write table to disk and exit
+ 27s x	extra functionality (experts only)
+ 27s ?	print this menu
+ 27s 
+ 27s Recovery/transformation command (? for help): Enter backup filename to load: 
+ 27s Recovery/transformation command (? for help): 
+ 27s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 27s PARTITIONS!!
+ 27s 
+ 28s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 28s Warning: The kernel is still using the old partition table.
+ 28s The new table will be used at the next reboot or after you
+ 28s run partprobe(8) or kpartx(8)
+ 28s The operation has completed successfully.
+ 28s [0;32m**SUCCESS**[m Restore the GPT backup
+ 28s 
+ 28s GPT fdisk (gdisk) version 1.0.9
+ 28s 
+ 28s Partition table scan:
+ 28s   MBR: protective
+ 28s   BSD: not present
+ 28s   APM: not present
+ 28s   GPT: present
+ 28s 
+ 28s Found valid GPT with protective MBR; using GPT.
+ 28s 
+ 28s Command (? for help): 
+ 28s Expert command (? for help): Enter the disk's unique GUID ('R' to randomize): The new disk GUID is BBA70E90-32C1-4612-BE94-FCAA51E778F4
+ 28s 
+ 28s Expert command (? for help): 
+ 28s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 28s PARTITIONS!!
+ 28s 
+ 29s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 29s Warning: The kernel is still using the old partition table.
+ 29s The new table will be used at the next reboot or after you
+ 29s run partprobe(8) or kpartx(8)
+ 29s The operation has completed successfully.
+ 29s [0;32m**SUCCESS**[m GUID of disk has been sucessfully changed
+ 29s GPT fdisk (gdisk) version 1.0.9
+ 29s 
+ 29s Partition table scan:
+ 29s   MBR: protective
+ 29s   BSD: not present
+ 29s   APM: not present
+ 29s   GPT: present
+ 29s 
+ 29s Found valid GPT with protective MBR; using GPT.
+ 29s 
+ 29s Command (? for help): 
+ 30s Expert command (? for help): About to wipe out GPT on /tmp/tmp.xmAty7R7HH. Proceed? (Y/N): Warning: The kernel is still using the old partition table.
+ 30s The new table will be used at the next reboot or after you
+ 30s run partprobe(8) or kpartx(8)
+ 30s GPT data structures destroyed! You may now partition the disk using fdisk or
+ 30s other utilities.
+ 30s Blank out MBR? (Y/N): [0;32m**SUCCESS**[m Wipe GPT table
+ 30s 
+ 30s Creating new GPT entries in memory.
+ 30s [0;32m**SUCCESS**[m EOF successfully exit gdisk
+ 30s 
+ 30s [0;34m**Testing sgdisk binary**[m
+ 30s 
+ 31s Creating new GPT entries in memory.
+ 31s Warning: The kernel is still using the old partition table.
+ 31s The new table will be used at the next reboot or after you
+ 31s run partprobe(8) or kpartx(8)
+ 31s The operation has completed successfully.
+ 31s [0;32m**SUCCESS**[m Create new empty GPT table
+ 31s 
+ 32s Warning: The kernel is still using the old partition table.
+ 32s The new table will be used at the next reboot or after you
+ 32s run partprobe(8) or kpartx(8)
+ 32s The operation has completed successfully.
+ 32s [0;32m**SUCCESS**[m Create new partition
+ 32s 
+ 33s Warning: The kernel is still using the old partition table.
+ 33s The new table will be used at the next reboot or after you
+ 33s run partprobe(8) or kpartx(8)
+ 33s The operation has completed successfully.
+ 33s [0;32m**SUCCESS**[m Change partition 1 name (Linux filesystem -> nbLoqkAX)
+ 33s 
+ 34s Warning: The kernel is still using the old partition table.
+ 34s The new table will be used at the next reboot or after you
+ 34s run partprobe(8) or kpartx(8)
+ 34s The operation has completed successfully.
+ 34s [0;32m**SUCCESS**[m Change partition 1 type (8300 -> 8200)
+ 34s 
+ 34s The operation has completed successfully.
+ 34s [0;32m**SUCCESS**[m GPT data backuped sucessfully
+ 35s Warning: The kernel is still using the old partition table.
+ 35s The new table will be used at the next reboot or after you
+ 35s run partprobe(8) or kpartx(8)
+ 35s The operation has completed successfully.
+ 35s [0;32m**SUCCESS**[m Delete partition 1
+ 35s 
+ 35s GPT fdisk (gdisk) version 1.0.9
+ 35s 
+ 35s Partition table scan:
+ 35s   MBR: protective
+ 35s   BSD: not present
+ 35s   APM: not present
+ 35s   GPT: present
+ 35s 
+ 35s Found valid GPT with protective MBR; using GPT.
+ 35s 
+ 35s Command (? for help): 
+ 35s Recovery/transformation command (? for help): b	use backup GPT header (rebuilding main)
+ 35s c	load backup partition table from disk (rebuilding main)
+ 35s d	use main GPT header (rebuilding backup)
+ 35s e	load main partition table from disk (rebuilding backup)
+ 35s f	load MBR and build fresh GPT from it
+ 35s g	convert GPT into MBR and exit
+ 35s h	make hybrid MBR
+ 35s i	show detailed information on a partition
+ 35s l	load partition data from a backup file
+ 35s m	return to main menu
+ 35s o	print protective MBR data
+ 35s p	print the partition table
+ 35s q	quit without saving changes
+ 35s t	transform BSD disklabel partition
+ 35s v	verify disk
+ 35s w	write table to disk and exit
+ 35s x	extra functionality (experts only)
+ 35s ?	print this menu
+ 35s 
+ 35s Recovery/transformation command (? for help): Enter backup filename to load: 
+ 35s Recovery/transformation command (? for help): 
+ 35s Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ 35s PARTITIONS!!
+ 35s 
+ 36s Do you want to proceed? (Y/N): OK; writing new GUID partition table (GPT) to /tmp/tmp.xmAty7R7HH.
+ 36s Warning: The kernel is still using the old partition table.
+ 36s The new table will be used at the next reboot or after you
+ 36s run partprobe(8) or kpartx(8)
+ 36s The operation has completed successfully.
+ 36s [0;32m**SUCCESS**[m Restore the GPT backup
+ 36s 
+ 37s Warning: The kernel is still using the old partition table.
+ 37s The new table will be used at the next reboot or after you
+ 37s run partprobe(8) or kpartx(8)
+ 37s The operation has completed successfully.
+ 37s [0;32m**SUCCESS**[m GUID of disk has been sucessfully changed
+ 38s Warning: The kernel is still using the old partition table.
+ 38s The new table will be used at the next reboot or after you
+ 38s run partprobe(8) or kpartx(8)
+ 38s GPT data structures destroyed! You may now partition the disk using fdisk or
+ 38s other utilities.
+ 38s [0;32m**SUCCESS**[m Wipe GPT table
+ 38s 
+ 38s Creating new GPT entries in memory.
+ 38s [0;32m**SUCCESS**[m EOF successfully exit gdisk
+ 39s /tmp/autopkgtest.rdAkeK/wrapper.sh: checking for leaked background processes...
+ 39s /tmp/autopkgtest.rdAkeK/wrapper.sh: waiting for tee/cat subprocesses...
+ 39s /tmp/autopkgtest.rdAkeK/wrapper.sh: cleaning up...
+ 39s /tmp/autopkgtest.rdAkeK/wrapper.sh: Exit status: 0
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest [05:47:06]: test command1: -----------------------]
+ 39s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 39s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.rdAkeK/command1-stdout /home/hachi/openkylin_test/sharefolder/results/gdisk/command1-stdout
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.rdAkeK/command1-stderr /home/hachi/openkylin_test/sharefolder/results/gdisk/command1-stderr
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest [05:47:06]: test command1:  - - - - - - - - - - results - - - - - - - - - -
+ 39s command1             PASS
+ 39s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.rdAkeK/command1-artifacts/ /home/hachi/openkylin_test/sharefolder/results/gdisk/artifacts/
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.rdAkeK/command1-artifacts', '/tmp/autopkgtest.rdAkeK/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 39s autopkgtest [05:47:06]: @@@@@@@@@@@@@@@@@@@@ summary
+ 39s command1             PASS
+ 39s autopkgtest: DBG: testbed stop
+ 39s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.rdAkeK
+ 39s autopkgtest: DBG: sending command to testbed: close
+ 39s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: sending command to testbed: quit

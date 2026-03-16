@@ -1,0 +1,1045 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [05:26:03]: starting date and time: 2024-07-18 05:26:03+0800
+  0s autopkgtest [05:26:03]: version @version@
+  0s autopkgtest [05:26:03]: host lili; command line: /usr/bin/autopkgtest gcc-7_7.5.0-ok2.dsc -o /home/hachi/openkylin_test/sharefolder/results/gcc-7 -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [05:26:04]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [05:26:04]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [05:26:05]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [05:26:05]: @@@@@@@@@@@@@@@@@@@@ source gcc-7_7.5.0-ok2.dsc
+  2s autopkgtest: DBG: blame += gcc-7_7.5.0-ok2.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown gcc-7_7.5.0-ok2.dsc /tmp/autopkgtest.L2ZD8Z/gcc-7_7.5.0-ok2.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown gcc-7_7.5.0.orig.tar.gz /tmp/autopkgtest.L2ZD8Z/gcc-7_7.5.0.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown gcc-7_7.5.0-ok2.debian.tar.xz /tmp/autopkgtest.L2ZD8Z/gcc-7_7.5.0-ok2.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.L2ZD8Z/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.L2ZD8Z/gcc-7_7.5.0-ok2.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.L2ZD8Z/build.XXX
+  3s + builddir=/tmp/autopkgtest.L2ZD8Z/build.hZr
+  3s + cd /tmp/autopkgtest.L2ZD8Z/build.hZr
+  3s + dpkg-source -x /tmp/autopkgtest.L2ZD8Z/gcc-7_7.5.0-ok2.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.ZWoKq3aK/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 24 May 2022 04:20:07 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.L2ZD8Z/gcc-7_7.5.0-ok2.dsc
+  6s dpkg-source: info: extracting gcc-7 in src
+  6s dpkg-source: info: unpacking gcc-7_7.5.0.orig.tar.gz
+  7s dpkg-source: info: unpacking gcc-7_7.5.0-ok2.debian.tar.xz
+  7s + chmod -R a+rX .
+  7s + cd src/.
+  7s + pwd
+  7s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest [05:26:10]: testing package gcc-7 version 7.5.0-ok2
+  7s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/build.hZr/src/debian/ /home/hachi/openkylin_test/sharefolder/results/gcc-7/pkg/debian/
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: processing dependency apt
+  7s autopkgtest: DBG: processing dependency python3-minimal
+  7s autopkgtest: DBG: Test defined: name runtime-libs path debian/tests/runtime-libs command "None" restrictions ['allow-stderr'] features [] depends ['apt', 'python3-minimal'] 
+  7s autopkgtest: DBG: processing dependency gcc-7
+  7s autopkgtest: DBG: marked alternatives ['gcc-7'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency libc6-dev | libc-dev
+  7s autopkgtest: DBG: Test defined: name libc-link path debian/tests/libc-link command "None" restrictions [] features [] depends ['gcc-7', 'libc6-dev | libc-dev'] 
+  7s autopkgtest: DBG: processing dependency g++-7
+  7s autopkgtest: DBG: marked alternatives ['g++-7'] as a synthesised dependency
+  7s autopkgtest: DBG: Test defined: name libstdcxx-link path debian/tests/libstdcxx-link command "None" restrictions [] features [] depends ['g++-7'] 
+  7s autopkgtest: DBG: processing dependency gfortran-7
+  7s autopkgtest: DBG: marked alternatives ['gfortran-7'] as a synthesised dependency
+  7s autopkgtest: DBG: Test defined: name libgfortran-link path debian/tests/libgfortran-link command "None" restrictions [] features [] depends ['gfortran-7'] 
+  7s autopkgtest: DBG: processing dependency gccgo-7
+  7s autopkgtest: DBG: marked alternatives ['gccgo-7'] as a synthesised dependency
+  7s autopkgtest: DBG: Test defined: name libgo-link path debian/tests/libgo-link command "None" restrictions [] features [] depends ['gccgo-7'] 
+  7s autopkgtest: DBG: processing dependency gcc-7
+  7s autopkgtest: DBG: marked alternatives ['gcc-7'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency gfortran-7
+  7s autopkgtest: DBG: marked alternatives ['gfortran-7'] as a synthesised dependency
+  7s autopkgtest: DBG: Test defined: name libgomp-link path debian/tests/libgomp-link command "None" restrictions [] features [] depends ['gcc-7', 'gfortran-7'] 
+  7s autopkgtest: DBG: processing dependency gnat-7
+  7s autopkgtest: DBG: marked alternatives ['gnat-7'] as a synthesised dependency
+  7s autopkgtest: DBG: Test defined: name libgnat-link path debian/tests/libgnat-link command "None" restrictions [] features [] depends ['gnat-7'] 
+  7s autopkgtest: DBG: processing dependency gcc-7
+  7s autopkgtest: DBG: marked alternatives ['gcc-7'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency libc6-dev | libc-dev
+  7s autopkgtest: DBG: Test defined: name shlib-build path debian/tests/shlib-build command "None" restrictions [] features [] depends ['gcc-7', 'libc6-dev | libc-dev'] 
+  7s autopkgtest [05:26:10]: build not needed
+  7s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/build.hZr/src/ /home/hachi/openkylin_test/sharefolder/results/gcc-7/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency apt
+  8s autopkgtest: DBG: processing dependency python3-minimal
+  8s autopkgtest: DBG: Test defined: name runtime-libs path debian/tests/runtime-libs command "None" restrictions ['allow-stderr'] features [] depends ['apt', 'python3-minimal'] 
+  8s autopkgtest: DBG: processing dependency gcc-7
+  8s autopkgtest: DBG: marked alternatives ['gcc-7'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency libc6-dev | libc-dev
+  8s autopkgtest: DBG: Test defined: name libc-link path debian/tests/libc-link command "None" restrictions [] features [] depends ['gcc-7', 'libc6-dev | libc-dev'] 
+  8s autopkgtest: DBG: processing dependency g++-7
+  8s autopkgtest: DBG: marked alternatives ['g++-7'] as a synthesised dependency
+  8s autopkgtest: DBG: Test defined: name libstdcxx-link path debian/tests/libstdcxx-link command "None" restrictions [] features [] depends ['g++-7'] 
+  8s autopkgtest: DBG: processing dependency gfortran-7
+  8s autopkgtest: DBG: marked alternatives ['gfortran-7'] as a synthesised dependency
+  8s autopkgtest: DBG: Test defined: name libgfortran-link path debian/tests/libgfortran-link command "None" restrictions [] features [] depends ['gfortran-7'] 
+  8s autopkgtest: DBG: processing dependency gccgo-7
+  8s autopkgtest: DBG: marked alternatives ['gccgo-7'] as a synthesised dependency
+  8s autopkgtest: DBG: Test defined: name libgo-link path debian/tests/libgo-link command "None" restrictions [] features [] depends ['gccgo-7'] 
+  8s autopkgtest: DBG: processing dependency gcc-7
+  8s autopkgtest: DBG: marked alternatives ['gcc-7'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency gfortran-7
+  8s autopkgtest: DBG: marked alternatives ['gfortran-7'] as a synthesised dependency
+  8s autopkgtest: DBG: Test defined: name libgomp-link path debian/tests/libgomp-link command "None" restrictions [] features [] depends ['gcc-7', 'gfortran-7'] 
+  8s autopkgtest: DBG: processing dependency gnat-7
+  8s autopkgtest: DBG: marked alternatives ['gnat-7'] as a synthesised dependency
+  8s autopkgtest: DBG: Test defined: name libgnat-link path debian/tests/libgnat-link command "None" restrictions [] features [] depends ['gnat-7'] 
+  8s autopkgtest: DBG: processing dependency gcc-7
+  8s autopkgtest: DBG: marked alternatives ['gcc-7'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency libc6-dev | libc-dev
+  8s autopkgtest: DBG: Test defined: name shlib-build path debian/tests/shlib-build command "None" restrictions [] features [] depends ['gcc-7', 'libc6-dev | libc-dev'] 
+  8s autopkgtest [05:26:11]: test runtime-libs: preparing testbed
+  8s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['apt', 'python3-minimal']
+  8s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  8s autopkgtest: DBG: install_deps: deps_new=['apt', 'python3-minimal']
+  8s autopkgtest: DBG: install-deps: satisfying apt, python3-minimal
+  9s autopkgtest: DBG: install-deps: architecture resolved: apt, python3-minimal
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/1-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  9s Reading package lists...
+ 10s Building dependency tree...
+ 10s Reading state information...
+ 10s Starting pkgProblemResolver with broken count: 0
+ 11s Starting 2 pkgProblemResolver with broken count: 0
+ 11s Done
+ 11s The following packages were automatically installed and are no longer required:
+ 11s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 11s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 11s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 11s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 11s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 11s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 11s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 11s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 11s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 11s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 11s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 11s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 11s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 11s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 11s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 11s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 11s   language-selector-common language-selector-gnome libatrildocument3
+ 11s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 11s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 11s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 11s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 11s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 11s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 11s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 11s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 11s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 11s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 11s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 11s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 11s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 11s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 11s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 11s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 11s Use 'sudo apt autoremove' to remove them.
+ 12s The following NEW packages will be installed:
+ 12s   autopkgtest-satdep
+ 12s 0 upgraded, 1 newly installed, 0 to remove and 1066 not upgraded.
+ 12s Need to get 0 B/712 B of archives.
+ 12s After this operation, 0 B of additional disk space will be used.
+ 12s Get:1 /tmp/autopkgtest.L2ZD8Z/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [712 B]
+ 14s Selecting previously unselected package autopkgtest-satdep.
+ 14s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 14s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 14s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 14s Unpacking autopkgtest-satdep (0) ...
+ 15s Setting up autopkgtest-satdep (0) ...
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 26s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 26s (Reading database ... 193809 files and directories currently installed.)
+ 26s Removing autopkgtest-satdep (0) ...
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/runtime-libs-packages.all"], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/runtime-libs-packages.all /home/hachi/openkylin_test/sharefolder/results/gcc-7/runtime-libs-packages.all
+ 27s autopkgtest: DBG: got reply from testbed: ok
+ 27s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.L2ZD8Z/build.hZr/src'], kind short, sout raw, serr raw, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.L2ZD8Z/build.hZr/src already exists
+ 27s autopkgtest [05:26:30]: test runtime-libs: [-----------------------
+ 27s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.L2ZD8Z/wrapper.sh --debug --artifacts=/tmp/autopkgtest.L2ZD8Z/runtime-libs-artifacts --chdir=/tmp/autopkgtest.L2ZD8Z/build.hZr/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.L2ZD8Z/runtime-libs-stderr --stdout=/tmp/autopkgtest.L2ZD8Z/runtime-libs-stdout --tmp=/tmp/autopkgtest.L2ZD8Z/autopkgtest_tmp --make-executable=/tmp/autopkgtest.L2ZD8Z/build.hZr/src/debian/tests/runtime-libs -- /tmp/autopkgtest.L2ZD8Z/build.hZr/src/debian/tests/runtime-libs'], kind test, sout raw, serr raw, env []
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.L2ZD8Z/runtime-libs-artifacts
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: changing to directory: /tmp/autopkgtest.L2ZD8Z/build.hZr/src
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: setting environment: LANG=C.UTF-8
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LANGUAGE
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_ADDRESS
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_ALL
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_COLLATE
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_CTYPE
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_MESSAGES
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_MONETARY
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_NAME
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_NUMERIC
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_PAPER
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: unsetting environment: LC_TIME
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: pretending to be a login shell
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: will write standard error to /tmp/autopkgtest.L2ZD8Z/runtime-libs-stderr
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: will write stdout to /tmp/autopkgtest.L2ZD8Z/runtime-libs-stdout
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.L2ZD8Z/autopkgtest_tmp
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: marking as executable: /tmp/autopkgtest.L2ZD8Z/build.hZr/src/debian/tests/runtime-libs
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: command to run: /tmp/autopkgtest.L2ZD8Z/build.hZr/src/debian/tests/runtime-libs
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: copying /tmp/tmp.3YoHmwr8ze/out to stdout and file: /tmp/autopkgtest.L2ZD8Z/runtime-libs-stdout
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: copying /tmp/tmp.3YoHmwr8ze/err to standard error and file: /tmp/autopkgtest.L2ZD8Z/runtime-libs-stdout
+ 27s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: writing script pid 890052 to /tmp/autopkgtest_script_pid
+ 27s Running exexutable linked with libgcc and libstdc++ (apt)...
+ 27s 	linux-vdso.so.1 (0x0000003f8203a000)
+ 27s 	libapt-private.so.0.0 => /lib/riscv64-linux-gnu/libapt-private.so.0.0 (0x0000003f81f6e000)
+ 27s 	libapt-pkg.so.6.0 => /lib/riscv64-linux-gnu/libapt-pkg.so.6.0 (0x0000003f81c99000)
+ 27s 	libstdc++.so.6 => /lib/riscv64-linux-gnu/libstdc++.so.6 (0x0000003f81ac5000)
+ 27s 	libgcc_s.so.1 => /lib/riscv64-linux-gnu/libgcc_s.so.1 (0x0000003f81ab1000)
+ 27s 	libc.so.6 => /lib/riscv64-linux-gnu/libc.so.6 (0x0000003f8197d000)
+ 27s 	libz.so.1 => /lib/riscv64-linux-gnu/libz.so.1 (0x0000003f81967000)
+ 27s 	libbz2.so.1.0 => /lib/riscv64-linux-gnu/libbz2.so.1.0 (0x0000003f81956000)
+ 27s 	liblzma.so.5 => /lib/riscv64-linux-gnu/liblzma.so.5 (0x0000003f81937000)
+ 27s 	liblz4.so.1 => /lib/riscv64-linux-gnu/liblz4.so.1 (0x0000003f81914000)
+ 27s 	libzstd.so.1 => /lib/riscv64-linux-gnu/libzstd.so.1 (0x0000003f81869000)
+ 27s 	libudev.so.1 => /lib/riscv64-linux-gnu/libudev.so.1 (0x0000003f81775000)
+ 27s 	libsystemd.so.0 => /lib/riscv64-linux-gnu/libsystemd.so.0 (0x0000003f815cf000)
+ 27s 	libgcrypt.so.20 => /lib/riscv64-linux-gnu/libgcrypt.so.20 (0x0000003f8149d000)
+ 27s 	libxxhash.so.0 => /lib/riscv64-linux-gnu/libxxhash.so.0 (0x0000003f8148e000)
+ 27s 	libm.so.6 => /lib/riscv64-linux-gnu/libm.so.6 (0x0000003f81421000)
+ 27s 	/lib/ld-linux-riscv64-lp64d.so.1 (0x0000003f8203b000)
+ 27s 	libcap.so.2 => /lib/riscv64-linux-gnu/libcap.so.2 (0x0000003f81419000)
+ 27s 	libgpg-error.so.0 => /lib/riscv64-linux-gnu/libgpg-error.so.0 (0x0000003f813fd000)
+ 27s 
+ 27s WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+ 27s 
+ 28s Package: libgcc1
+ 28s Version: 1:10-20200411-ok5
+ 28s Priority: optional
+ 28s Section: libs
+ 28s Source: gcc-10 (10-20200411-ok5)
+ 28s Origin: openKylin
+ 28s Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
+ 28s Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+ 28s Installed-Size: 94.2 kB
+ 28s Depends: gcc-10-base (= 10-20200411-ok5), libgcc-s1 (>= 10-20200411-ok5), libc6 (>= 2.27)
+ 28s Homepage: http://gcc.gnu.org/
+ 28s Download-Size: 43.7 kB
+ 28s APT-Sources: http://archive.build.openkylin.top/openkylin nile/main riscv64 Packages
+ 28s Description: GCC support library (dependency package)
+ 28s  This is a dependency package, and can be safely removed after upgrade.
+ 28s 
+ 28s Package: libstdc++6
+ 28s Version: 13.2.0-4ok3.3
+ 28s Priority: optional
+ 28s Section: libs
+ 28s Source: gcc-13
+ 28s Origin: openKylin
+ 28s Maintainer: openKylin Developers <developers@lists.openkylin.top>
+ 28s Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+ 28s Installed-Size: 2716 kB
+ 28s Depends: gcc-13-base (= 13.2.0-4ok3.3), libc6 (>= 2.38), libgcc-s1 (>= 4.5)
+ 28s Conflicts: scim (<< 1.4.2-1)
+ 28s Breaks: gcc-4.3 (<< 4.3.6-1), gcc-4.4 (<< 4.4.6-4), gcc-4.5 (<< 4.5.3-2)
+ 28s Replaces: libstdc++6-13-dbg (<< 4.9.0-3)
+ 28s Homepage: http://gcc.gnu.org/
+ 28s Download-Size: 753 kB
+ 28s APT-Sources: http://archive.build.openkylin.top/openkylin nile/main riscv64 Packages
+ 28s Description: GNU Standard C++ Library v3
+ 28s  This package contains an additional runtime library for C++ programs
+ 28s  built with the GNU compiler.
+ 28s  .
+ 28s  libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ 28s  was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ 28s  in g++-3.0.
+ 28s 
+ 28s Running dynamically linked executable (python3)...
+ 28s Hello World!
+ 28s OK
+ 28s Loading extension module...
+ 28s {'__name__': '_hashlib', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.ExtensionFileLoader object at 0x3fb6a20190>, '__spec__': ModuleSpec(name='_hashlib', loader=<_frozen_importlib_external.ExtensionFileLoader object at 0x3fb6a20190>, origin='/usr/lib/python3.8/lib-dynload/_hashlib.cpython-38-riscv64-linux-gnu.so'), 'new': <built-in function new>, 'pbkdf2_hmac': <built-in function pbkdf2_hmac>, 'scrypt': <built-in function scrypt>, 'hmac_digest': <built-in function hmac_digest>, 'openssl_md5': <built-in function openssl_md5>, 'openssl_sha1': <built-in function openssl_sha1>, 'openssl_sha224': <built-in function openssl_sha224>, 'openssl_sha256': <built-in function openssl_sha256>, 'openssl_sha384': <built-in function openssl_sha384>, 'openssl_sha512': <built-in function openssl_sha512>, 'openssl_md_meth_names': frozenset({'blake2b', 'shake_128', 'sm3', 'sha3_256', 'sha512_256', 'shake_256', 'sha384', 'sha512_224', 'sha3_224', 'sha1', 'sha3_512', 'blake2s', 'md5-sha1', 'md5', 'sha512', 'whirlpool', 'md4', 'sha256', 'sha3_384', 'ripemd160', 'sha224'}), 'HASH': <class '_hashlib.HASH'>, '__file__': '/usr/lib/python3.8/lib-dynload/_hashlib.cpython-38-riscv64-linux-gnu.so'}
+ 28s OK
+ 28s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: checking for leaked background processes...
+ 29s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: waiting for tee/cat subprocesses...
+ 29s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: cleaning up...
+ 29s /tmp/autopkgtest.L2ZD8Z/wrapper.sh: Exit status: 0
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest [05:26:32]: test runtime-libs: -----------------------]
+ 29s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 29s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/runtime-libs-stdout /home/hachi/openkylin_test/sharefolder/results/gcc-7/runtime-libs-stdout
+ 29s autopkgtest: DBG: got reply from testbed: ok
+ 29s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/runtime-libs-stderr /home/hachi/openkylin_test/sharefolder/results/gcc-7/runtime-libs-stderr
+ 29s autopkgtest: DBG: got reply from testbed: ok
+ 29s autopkgtest [05:26:32]: test runtime-libs:  - - - - - - - - - - results - - - - - - - - - -
+ 29s runtime-libs         PASS
+ 29s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/runtime-libs-artifacts/ /home/hachi/openkylin_test/sharefolder/results/gcc-7/artifacts/
+ 29s autopkgtest: DBG: got reply from testbed: ok
+ 29s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.L2ZD8Z/runtime-libs-artifacts', '/tmp/autopkgtest.L2ZD8Z/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest [05:26:32]: test libc-link: preparing testbed
+ 29s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['apt', 'python3-minimal'], deps_new=['gcc-7', 'libc6-dev | libc-dev']
+ 29s autopkgtest: DBG: testbed reset
+ 29s autopkgtest: DBG: sending command to testbed: revert
+ 30s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 31s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+ 31s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 31s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+ 31s autopkgtest: DBG: sending command to testbed: capabilities
+ 31s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+ 31s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+ 31s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest [05:26:34]: testbed dpkg architecture: riscv64
+ 31s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest [05:26:34]: testbed apt version: 2.7.3-ok3
+ 31s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 127
+ 31s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+ 32s autopkgtest: DBG: got reply from testbed: ok
+ 32s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 32s autopkgtest: DBG: install_deps: deps_new=['gcc-7', 'libc6-dev | libc-dev']
+ 32s autopkgtest: DBG: install-deps: satisfying gcc-7, libc6-dev | libc-dev
+ 32s autopkgtest: DBG: install-deps: architecture resolved: gcc-7, libc6-dev | libc-dev
+ 32s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: can use apt-get on testbed: True
+ 32s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/2-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/2-autopkgtest-satdep.deb
+ 32s autopkgtest: DBG: got reply from testbed: ok
+ 32s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 32s Reading package lists...
+ 33s Building dependency tree...
+ 33s Reading state information...
+ 33s Starting pkgProblemResolver with broken count: 1
+ 34s Starting 2 pkgProblemResolver with broken count: 1
+ 34s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 34s Broken autopkgtest-satdep:riscv64 Depends on gcc-7:riscv64 < none @un H >
+ 34s Done
+ 34s Some packages could not be installed. This may mean that you have
+ 34s requested an impossible situation or if you are using the unstable
+ 34s distribution that some required packages have not yet been created
+ 34s or been moved out of Incoming.
+ 34s The following information may help to resolve the situation:
+ 34s 
+ 34s The following packages have unmet dependencies:
+ 34s  autopkgtest-satdep : Depends: gcc-7 but it is not installable
+ 34s E: Unable to correct problems, you have held broken packages.
+ 34s autopkgtest: DBG: testbed command exited with code 100
+ 34s autopkgtest: DBG: apt-get install /tmp/autopkgtest.L2ZD8Z/2-autopkgtest-satdep.deb failed; status-fd:
+ 34s 
+ 34s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gcc-7 libc6-dev | libc-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 34s /bin/sh: 1: libc-dev: not found
+ 35s autopkgtest: DBG: testbed command exited with code 127
+ 35s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s libc-link            FAIL badpkg
+ 35s blame: gcc-7_7.5.0-ok2.dsc
+ 35s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s autopkgtest [05:26:38]: test libstdcxx-link: preparing testbed
+ 35s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gcc-7', 'libc6-dev | libc-dev'], deps_new=['g++-7']
+ 35s autopkgtest: DBG: testbed reset
+ 35s autopkgtest: DBG: sending command to testbed: revert
+ 35s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 36s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+ 36s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 36s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+ 36s autopkgtest: DBG: sending command to testbed: capabilities
+ 36s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+ 36s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+ 36s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+ 36s autopkgtest: DBG: got reply from testbed: ok
+ 36s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest [05:26:39]: testbed dpkg architecture: riscv64
+ 36s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest [05:26:40]: testbed apt version: 2.7.3-ok3
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 127
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 37s autopkgtest: DBG: install_deps: deps_new=['g++-7']
+ 37s autopkgtest: DBG: install-deps: satisfying g++-7
+ 37s autopkgtest: DBG: install-deps: architecture resolved: g++-7
+ 37s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: can use apt-get on testbed: True
+ 37s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/3-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/3-autopkgtest-satdep.deb
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s Reading package lists...
+ 38s Building dependency tree...
+ 38s Reading state information...
+ 39s Starting pkgProblemResolver with broken count: 1
+ 39s Starting 2 pkgProblemResolver with broken count: 1
+ 39s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 39s Broken autopkgtest-satdep:riscv64 Depends on g++-7:riscv64 < none @un H >
+ 39s Done
+ 39s Some packages could not be installed. This may mean that you have
+ 39s requested an impossible situation or if you are using the unstable
+ 39s distribution that some required packages have not yet been created
+ 39s or been moved out of Incoming.
+ 39s The following information may help to resolve the situation:
+ 39s 
+ 39s The following packages have unmet dependencies:
+ 39s  autopkgtest-satdep : Depends: g++-7 but it is not installable
+ 39s E: Unable to correct problems, you have held broken packages.
+ 39s autopkgtest: DBG: testbed command exited with code 100
+ 39s autopkgtest: DBG: apt-get install /tmp/autopkgtest.L2ZD8Z/3-autopkgtest-satdep.deb failed; status-fd:
+ 39s 
+ 39s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate g++-7 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 40s Building dependency tree...
+ 40s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 41s Starting 2 pkgProblemResolver with broken count: 1
+ 41s Investigating (0) librust-clang-sys-dev:riscv64 < none -> 1.3.0-2-ok1 @un puN Ib >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on librust-glob-0.3+default-dev:riscv64 < none @un H >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on librust-libc-0.2-dev:riscv64 < none @un H > (>= 0.2.39-~~)
+ 41s   Considering librust-libc-dev:riscv64 0 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s   Re-Instated librust-libc-dev:riscv64
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on libclang-dev:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering libclang-dev:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s   Re-Instated gcc-12-base:riscv64
+ 41s   Re-Instated gcc-13-base:riscv64
+ 41s   Re-Instated libgcc-s1:riscv64
+ 41s   Re-Instated libgomp1:riscv64
+ 41s   Re-Instated libatomic1:riscv64
+ 41s   Re-Instated libasan8:riscv64
+ 41s   Re-Instated libgcc-12-dev:riscv64
+ 41s   Re-Instated libgc1c2:riscv64
+ 41s   Re-Instated libobjc4:riscv64
+ 41s   Re-Instated libobjc-12-dev:riscv64
+ 41s   Re-Instated libzstd1:riscv64
+ 41s   Re-Instated libllvm17t64:riscv64
+ 41s   Re-Instated libclang1-17t64:riscv64
+ 41s   Re-Instated libclang-common-17-dev:riscv64
+ 41s   Re-Instated libclang-17-dev:riscv64
+ 41s   Re-Instated libclang-dev:riscv64
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on llvm:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering llvm:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s   Re-Instated llvm-17-runtime:riscv64
+ 41s   Re-Instated llvm-runtime:riscv64
+ 41s   Re-Instated llvm-17-linker-tools:riscv64
+ 41s     Reinst Failed early because of libpfm4:riscv64
+ 41s     Reinst Failed because of llvm-17:riscv64
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on clang:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering clang:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s   Re-Instated libclang-cpp17t64:riscv64
+ 41s   Re-Instated clang-17:riscv64
+ 41s   Re-Instated clang:riscv64
+ 41s Investigating (0) libstdc++6:riscv64 < 12.2.0-ok7 | 13.2.0-4ok3.3 @ii uH Ib >
+ 41s Broken libstdc++6:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU > (= 12.2.0-ok7)
+ 41s   Considering gcc-12-base:riscv64 812 as a solution to libstdc++6:riscv64 2414
+ 41s   Added gcc-12-base:riscv64 to the remove list
+ 41s   Fixing libstdc++6:riscv64 via keep of gcc-12-base:riscv64
+ 41s Investigating (0) gcc-12:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH Ib >
+ 41s Broken gcc-12:riscv64 Depends on libgcc-12-dev:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU Ib > (= 12.2.0-ok7)
+ 41s   Considering libgcc-12-dev:riscv64 4 as a solution to gcc-12:riscv64 8
+ 41s   Added libgcc-12-dev:riscv64 to the remove list
+ 41s   Fixing gcc-12:riscv64 via keep of libgcc-12-dev:riscv64
+ 41s Investigating (0) libobjc-12-dev:riscv64 < none -> 12.3.0-1ok3 @un uN Ib >
+ 41s Broken libobjc-12-dev:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH > (= 12.3.0-1ok3)
+ 41s   Considering gcc-12-base:riscv64 812 as a solution to libobjc-12-dev:riscv64 0
+ 41s   Holding Back libobjc-12-dev:riscv64 rather than change gcc-12-base:riscv64
+ 41s Investigating (1) librust-clang-sys-dev:riscv64 < none -> 1.3.0-2-ok1 @un puN Ib >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on librust-glob-0.3+default-dev:riscv64 < none @un H >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on llvm:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering llvm:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s Investigating (1) clang-17:riscv64 < none -> 1:17.0.6-9ok4 @un uN Ib >
+ 41s Broken clang-17:riscv64 Depends on libobjc-12-dev:riscv64 < none | 12.3.0-1ok3 @un uH >
+ 41s   Considering libobjc-12-dev:riscv64 0 as a solution to clang-17:riscv64 0
+ 41s   Holding Back clang-17:riscv64 rather than change libobjc-12-dev:riscv64
+ 41s Investigating (1) libclang-17-dev:riscv64 < none -> 1:17.0.6-9ok4 @un uN Ib >
+ 41s Broken libclang-17-dev:riscv64 Depends on libobjc-12-dev:riscv64 < none | 12.3.0-1ok3 @un uH >
+ 41s   Considering libobjc-12-dev:riscv64 0 as a solution to libclang-17-dev:riscv64 0
+ 41s   Holding Back libclang-17-dev:riscv64 rather than change libobjc-12-dev:riscv64
+ 41s Investigating (2) librust-clang-sys-dev:riscv64 < none -> 1.3.0-2-ok1 @un puN Ib >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on librust-glob-0.3+default-dev:riscv64 < none @un H >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on llvm:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering llvm:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s Investigating (2) libclang-dev:riscv64 < none -> 1:17.0-58~exp1-ok1 @un uN Ib >
+ 41s Broken libclang-dev:riscv64 Depends on libclang-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 17~)
+ 41s   Considering libclang-17-dev:riscv64 0 as a solution to libclang-dev:riscv64 1
+ 41s   Holding Back libclang-dev:riscv64 rather than change libclang-17-dev:riscv64
+ 41s Investigating (2) clang:riscv64 < none -> 1:17.0-58~exp1-ok1 @un uN Ib >
+ 41s Broken clang:riscv64 Depends on clang-17:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 17~)
+ 41s   Considering clang-17:riscv64 0 as a solution to clang:riscv64 1
+ 41s   Holding Back clang:riscv64 rather than change clang-17:riscv64
+ 41s Investigating (3) librust-clang-sys-dev:riscv64 < none -> 1.3.0-2-ok1 @un puN Ib >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on librust-glob-0.3+default-dev:riscv64 < none @un H >
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on libclang-dev:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering libclang-dev:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on llvm:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering llvm:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s Broken librust-clang-sys-dev:riscv64 Depends on clang:riscv64 < none | 1:17.0-58~exp1-ok1 @un uH >
+ 41s   Considering clang:riscv64 1 as a solution to librust-clang-sys-dev:riscv64 9999
+ 41s Done
+ 41s Some packages could not be installed. This may mean that you have
+ 41s requested an impossible situation or if you are using the unstable
+ 41s distribution that some required packages have not yet been created
+ 41s or been moved out of Incoming.
+ 41s The following information may help to resolve the situation:
+ 41s 
+ 41s The following packages have unmet dependencies:
+ 41s  librust-clang-sys-dev : Depends: librust-glob-0.3+default-dev but it is not installable
+ 41s                          Depends: libclang-dev but it is not going to be installed
+ 41s                          Depends: llvm but it is not going to be installed
+ 41s                          Depends: clang but it is not going to be installed
+ 41s E: Unable to correct problems, you have held broken packages.
+ 41s autopkgtest: DBG: testbed command exited with code 100
+ 41s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s libstdcxx-link       FAIL badpkg
+ 41s blame: gcc-7_7.5.0-ok2.dsc
+ 41s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s autopkgtest [05:26:44]: test libgfortran-link: preparing testbed
+ 41s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['g++-7'], deps_new=['gfortran-7']
+ 41s autopkgtest: DBG: testbed reset
+ 41s autopkgtest: DBG: sending command to testbed: revert
+ 42s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 43s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+ 43s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 43s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+ 43s autopkgtest: DBG: sending command to testbed: capabilities
+ 43s autopkgtest: DBG: got reply from testbed: ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+ 43s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+ 43s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest [05:26:46]: testbed dpkg architecture: riscv64
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest [05:26:46]: testbed apt version: 2.7.3-ok3
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 127
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+ 44s autopkgtest: DBG: got reply from testbed: ok
+ 44s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 44s autopkgtest: DBG: install_deps: deps_new=['gfortran-7']
+ 44s autopkgtest: DBG: install-deps: satisfying gfortran-7
+ 44s autopkgtest: DBG: install-deps: architecture resolved: gfortran-7
+ 44s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: can use apt-get on testbed: True
+ 44s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/4-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/4-autopkgtest-satdep.deb
+ 44s autopkgtest: DBG: got reply from testbed: ok
+ 44s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 45s Reading package lists...
+ 45s Building dependency tree...
+ 45s Reading state information...
+ 46s Starting pkgProblemResolver with broken count: 1
+ 46s Starting 2 pkgProblemResolver with broken count: 1
+ 46s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 46s Broken autopkgtest-satdep:riscv64 Depends on gfortran-7:riscv64 < none @un H >
+ 46s Done
+ 46s Some packages could not be installed. This may mean that you have
+ 46s requested an impossible situation or if you are using the unstable
+ 46s distribution that some required packages have not yet been created
+ 46s or been moved out of Incoming.
+ 46s The following information may help to resolve the situation:
+ 46s 
+ 46s The following packages have unmet dependencies:
+ 46s  autopkgtest-satdep : Depends: gfortran-7 but it is not installable
+ 46s E: Unable to correct problems, you have held broken packages.
+ 46s autopkgtest: DBG: testbed command exited with code 100
+ 46s autopkgtest: DBG: apt-get install /tmp/autopkgtest.L2ZD8Z/4-autopkgtest-satdep.deb failed; status-fd:
+ 46s 
+ 46s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 46s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gfortran-7 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 47s Reading package lists...
+ 47s Building dependency tree...
+ 47s Reading state information...
+ 47s E: Unable to locate package gfortran-7
+ 47s autopkgtest: DBG: testbed command exited with code 100
+ 47s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 47s libgfortran-link     FAIL badpkg
+ 47s blame: gcc-7_7.5.0-ok2.dsc
+ 47s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 47s autopkgtest [05:26:50]: test libgo-link: preparing testbed
+ 47s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gfortran-7'], deps_new=['gccgo-7']
+ 47s autopkgtest: DBG: testbed reset
+ 47s autopkgtest: DBG: sending command to testbed: revert
+ 47s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 48s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+ 48s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 48s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+ 48s autopkgtest: DBG: sending command to testbed: capabilities
+ 48s autopkgtest: DBG: got reply from testbed: ok ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+ 48s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+ 48s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+ 48s autopkgtest: DBG: got reply from testbed: ok
+ 48s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest [05:26:52]: testbed dpkg architecture: riscv64
+ 49s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest [05:26:52]: testbed apt version: 2.7.3-ok3
+ 49s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 127
+ 49s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 49s autopkgtest: DBG: install_deps: deps_new=['gccgo-7']
+ 49s autopkgtest: DBG: install-deps: satisfying gccgo-7
+ 49s autopkgtest: DBG: install-deps: architecture resolved: gccgo-7
+ 49s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: can use apt-get on testbed: True
+ 50s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/5-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/5-autopkgtest-satdep.deb
+ 50s autopkgtest: DBG: got reply from testbed: ok
+ 50s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 50s Reading package lists...
+ 51s Building dependency tree...
+ 51s Reading state information...
+ 51s Starting pkgProblemResolver with broken count: 1
+ 51s Starting 2 pkgProblemResolver with broken count: 1
+ 51s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 51s Broken autopkgtest-satdep:riscv64 Depends on gccgo-7:riscv64 < none @un H >
+ 51s Done
+ 51s Some packages could not be installed. This may mean that you have
+ 51s requested an impossible situation or if you are using the unstable
+ 51s distribution that some required packages have not yet been created
+ 51s or been moved out of Incoming.
+ 51s The following information may help to resolve the situation:
+ 51s 
+ 51s The following packages have unmet dependencies:
+ 52s  autopkgtest-satdep : Depends: gccgo-7 but it is not installable
+ 52s E: Unable to correct problems, you have held broken packages.
+ 52s autopkgtest: DBG: testbed command exited with code 100
+ 52s autopkgtest: DBG: apt-get install /tmp/autopkgtest.L2ZD8Z/5-autopkgtest-satdep.deb failed; status-fd:
+ 52s 
+ 52s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 52s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gccgo-7 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 52s Reading package lists...
+ 52s Building dependency tree...
+ 52s Reading state information...
+ 52s E: Unable to locate package gccgo-7
+ 52s autopkgtest: DBG: testbed command exited with code 100
+ 52s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 52s libgo-link           FAIL badpkg
+ 52s blame: gcc-7_7.5.0-ok2.dsc
+ 52s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 52s autopkgtest [05:26:55]: test libgomp-link: preparing testbed
+ 52s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gccgo-7'], deps_new=['gcc-7', 'gfortran-7']
+ 52s autopkgtest: DBG: testbed reset
+ 52s autopkgtest: DBG: sending command to testbed: revert
+ 53s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 54s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+ 54s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 54s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+ 54s autopkgtest: DBG: sending command to testbed: capabilities
+ 54s autopkgtest: DBG: got reply from testbed: ok ok ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+ 54s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+ 54s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+ 54s autopkgtest: DBG: got reply from testbed: ok
+ 54s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest [05:26:57]: testbed dpkg architecture: riscv64
+ 54s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest [05:26:57]: testbed apt version: 2.7.3-ok3
+ 54s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 127
+ 54s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 55s autopkgtest: DBG: install_deps: deps_new=['gcc-7', 'gfortran-7']
+ 55s autopkgtest: DBG: install-deps: satisfying gcc-7, gfortran-7
+ 55s autopkgtest: DBG: install-deps: architecture resolved: gcc-7, gfortran-7
+ 55s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: can use apt-get on testbed: True
+ 55s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/6-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/6-autopkgtest-satdep.deb
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 56s Reading package lists...
+ 56s Building dependency tree...
+ 56s Reading state information...
+ 56s Starting pkgProblemResolver with broken count: 1
+ 57s Starting 2 pkgProblemResolver with broken count: 1
+ 57s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 57s Broken autopkgtest-satdep:riscv64 Depends on gcc-7:riscv64 < none @un H >
+ 57s Broken autopkgtest-satdep:riscv64 Depends on gfortran-7:riscv64 < none @un H >
+ 57s Done
+ 57s Some packages could not be installed. This may mean that you have
+ 57s requested an impossible situation or if you are using the unstable
+ 57s distribution that some required packages have not yet been created
+ 57s or been moved out of Incoming.
+ 57s The following information may help to resolve the situation:
+ 57s 
+ 57s The following packages have unmet dependencies:
+ 57s  autopkgtest-satdep : Depends: gcc-7 but it is not installable
+ 57s                       Depends: gfortran-7 but it is not installable
+ 57s E: Unable to correct problems, you have held broken packages.
+ 57s autopkgtest: DBG: testbed command exited with code 100
+ 57s autopkgtest: DBG: apt-get install /tmp/autopkgtest.L2ZD8Z/6-autopkgtest-satdep.deb failed; status-fd:
+ 57s 
+ 57s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 57s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gcc-7 gfortran-7 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 57s Reading package lists...
+ 58s Building dependency tree...
+ 58s Reading state information...
+ 58s Package gcc-7 is not available, but is referred to by another package.
+ 58s This may mean that the package is missing, has been obsoleted, or
+ 58s is only available from another source
+ 58s 
+ 58s E: Package 'gcc-7' has no installation candidate
+ 58s E: Unable to locate package gfortran-7
+ 58s autopkgtest: DBG: testbed command exited with code 100
+ 58s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 58s libgomp-link         FAIL badpkg
+ 58s blame: gcc-7_7.5.0-ok2.dsc
+ 58s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 58s autopkgtest [05:27:01]: test libgnat-link: preparing testbed
+ 58s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gcc-7', 'gfortran-7'], deps_new=['gnat-7']
+ 58s autopkgtest: DBG: testbed reset
+ 58s autopkgtest: DBG: sending command to testbed: revert
+ 58s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 59s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+ 59s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 59s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+ 59s autopkgtest: DBG: sending command to testbed: capabilities
+ 59s autopkgtest: DBG: got reply from testbed: ok ok ok ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+ 59s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+ 59s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+ 59s autopkgtest: DBG: got reply from testbed: ok
+ 59s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest [05:27:02]: testbed dpkg architecture: riscv64
+ 59s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest [05:27:03]: testbed apt version: 2.7.3-ok3
+ 60s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 127
+ 60s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+ 60s autopkgtest: DBG: got reply from testbed: ok
+ 60s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 60s autopkgtest: DBG: install_deps: deps_new=['gnat-7']
+ 60s autopkgtest: DBG: install-deps: satisfying gnat-7
+ 60s autopkgtest: DBG: install-deps: architecture resolved: gnat-7
+ 60s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: can use apt-get on testbed: True
+ 60s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/7-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/7-autopkgtest-satdep.deb
+ 61s autopkgtest: DBG: got reply from testbed: ok
+ 61s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/7-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 61s Reading package lists...
+ 62s Building dependency tree...
+ 62s Reading state information...
+ 62s Starting pkgProblemResolver with broken count: 1
+ 62s Starting 2 pkgProblemResolver with broken count: 1
+ 62s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 62s Broken autopkgtest-satdep:riscv64 Depends on gnat-7:riscv64 < none @un H >
+ 62s Done
+ 62s Some packages could not be installed. This may mean that you have
+ 62s requested an impossible situation or if you are using the unstable
+ 62s distribution that some required packages have not yet been created
+ 62s or been moved out of Incoming.
+ 62s The following information may help to resolve the situation:
+ 62s 
+ 62s The following packages have unmet dependencies:
+ 63s  autopkgtest-satdep : Depends: gnat-7 but it is not installable
+ 63s E: Unable to correct problems, you have held broken packages.
+ 63s autopkgtest: DBG: testbed command exited with code 100
+ 63s autopkgtest: DBG: apt-get install /tmp/autopkgtest.L2ZD8Z/7-autopkgtest-satdep.deb failed; status-fd:
+ 63s 
+ 63s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 63s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gnat-7 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 63s Reading package lists...
+ 63s Building dependency tree...
+ 63s Reading state information...
+ 63s Package gnat-7 is not available, but is referred to by another package.
+ 63s This may mean that the package is missing, has been obsoleted, or
+ 63s is only available from another source
+ 63s 
+ 63s E: Package 'gnat-7' has no installation candidate
+ 63s autopkgtest: DBG: testbed command exited with code 100
+ 63s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 63s libgnat-link         FAIL badpkg
+ 63s blame: gcc-7_7.5.0-ok2.dsc
+ 63s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 63s autopkgtest [05:27:06]: test shlib-build: preparing testbed
+ 63s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gnat-7'], deps_new=['gcc-7', 'libc6-dev | libc-dev']
+ 63s autopkgtest: DBG: testbed reset
+ 63s autopkgtest: DBG: sending command to testbed: revert
+ 64s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 65s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.L2ZD8Z
+ 65s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 65s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea,--user%3Droot,--
+ 65s autopkgtest: DBG: sending command to testbed: capabilities
+ 65s autopkgtest: DBG: got reply from testbed: ok ok ok ok ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z
+ 65s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z', 'has_internet']
+ 65s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.L2ZD8Z/wrapper.sh
+ 65s autopkgtest: DBG: got reply from testbed: ok
+ 65s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.L2ZD8Z/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest [05:27:08]: testbed dpkg architecture: riscv64
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest [05:27:08]: testbed apt version: 2.7.3-ok3
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 127
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.L2ZD8Z/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.L2ZD8Z/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gcc-7/testbed-packages
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 66s autopkgtest: DBG: install_deps: deps_new=['gcc-7', 'libc6-dev | libc-dev']
+ 66s autopkgtest: DBG: install-deps: satisfying gcc-7, libc6-dev | libc-dev
+ 66s autopkgtest: DBG: install-deps: architecture resolved: gcc-7, libc6-dev | libc-dev
+ 66s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: can use apt-get on testbed: True
+ 66s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.L2ZD8Z'], kind short, sout raw, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-3c6125a4-1975-43b6-a83b-db23330e8dea//tmp/autopkgtest.L2ZD8Z/8-autopkgtest-satdep.deb /tmp/autopkgtest.L2ZD8Z/8-autopkgtest-satdep.deb
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.L2ZD8Z/8-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 67s Reading package lists...
+ 67s Building dependency tree...
+ 67s Reading state information...
+ 67s Starting pkgProblemResolver with broken count: 1
+ 68s Starting 2 pkgProblemResolver with broken count: 1
+ 68s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 68s Broken autopkgtest-satdep:riscv64 Depends on gcc-7:riscv64 < none @un H >
+ 68s Done
+ 68s Some packages could not be installed. This may mean that you have
+ 68s requested an impossible situation or if you are using the unstable
+ 68s distribution that some required packages have not yet been created
+ 68s or been moved out of Incoming.
+ 68s The following information may help to resolve the situation:
+ 68s 
+ 68s The following packages have unmet dependencies:
+ 68s  autopkgtest-satdep : Depends: gcc-7 but it is not installable
+ 68s E: Unable to correct problems, you have held broken packages.
+ 68s autopkgtest: DBG: testbed command exited with code 100
+ 68s autopkgtest: DBG: apt-get install /tmp/autopkgtest.L2ZD8Z/8-autopkgtest-satdep.deb failed; status-fd:
+ 68s 
+ 68s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 68s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gcc-7 libc6-dev | libc-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 68s /bin/sh: 1: libc-dev: not found
+ 69s autopkgtest: DBG: testbed command exited with code 127
+ 69s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s shlib-build          FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 69s autopkgtest [05:27:12]: @@@@@@@@@@@@@@@@@@@@ summary
+ 69s runtime-libs         PASS
+ 69s libc-link            FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s libstdcxx-link       FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s libgfortran-link     FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s libgo-link           FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s libgomp-link         FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s libgnat-link         FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s shlib-build          FAIL badpkg
+ 69s blame: gcc-7_7.5.0-ok2.dsc
+ 69s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 69s autopkgtest: DBG: testbed stop
+ 69s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.L2ZD8Z
+ 69s autopkgtest: DBG: sending command to testbed: close
+ 69s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 69s autopkgtest: DBG: got reply from testbed: ok
+ 69s autopkgtest: DBG: sending command to testbed: quit

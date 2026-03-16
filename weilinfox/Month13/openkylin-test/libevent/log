@@ -1,0 +1,792 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:06:02]: starting date and time: 2024-07-18 00:06:02+0800
+  0s autopkgtest [00:06:02]: version @version@
+  0s autopkgtest [00:06:02]: host nana; command line: /usr/bin/autopkgtest libevent_2.1.12-stable-ok2.dsc -o /home/hachi/openkylin_test/sharefolder/results/libevent -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  2s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.CBSe2w
+  2s autopkgtest: DBG: sending command to testbed: print-execute-command
+  2s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-63cdb065-db57-4cde-bb98-9203e49858ce,--user%3Droot,--
+  2s autopkgtest: DBG: sending command to testbed: capabilities
+  2s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-63cdb065-db57-4cde-bb98-9203e49858ce//tmp/autopkgtest.CBSe2w
+  2s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-63cdb065-db57-4cde-bb98-9203e49858ce//tmp/autopkgtest.CBSe2w', 'has_internet']
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CBSe2w'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.CBSe2w/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.CBSe2w/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:06:04]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:06:04]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CBSe2w/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CBSe2w/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libevent/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [00:06:05]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  3s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [00:06:05]: @@@@@@@@@@@@@@@@@@@@ source libevent_2.1.12-stable-ok2.dsc
+  3s autopkgtest: DBG: blame += libevent_2.1.12-stable-ok2.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CBSe2w'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libevent_2.1.12-stable-ok2.dsc /tmp/autopkgtest.CBSe2w/libevent_2.1.12-stable-ok2.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CBSe2w'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libevent_2.1.12-stable.orig.tar.gz /tmp/autopkgtest.CBSe2w/libevent_2.1.12-stable.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CBSe2w'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libevent_2.1.12-stable-ok2.debian.tar.xz /tmp/autopkgtest.CBSe2w/libevent_2.1.12-stable-ok2.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.CBSe2w/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.CBSe2w/libevent_2.1.12-stable-ok2.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.CBSe2w/build.XXX
+  3s + builddir=/tmp/autopkgtest.CBSe2w/build.a2Z
+  3s + cd /tmp/autopkgtest.CBSe2w/build.a2Z
+  3s + dpkg-source -x /tmp/autopkgtest.CBSe2w/libevent_2.1.12-stable-ok2.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.Ggz8TpAA/trustedkeys.kbx': General error
+  4s gpgv: Signature made Sat 18 May 2024 11:19:32 AM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.CBSe2w/libevent_2.1.12-stable-ok2.dsc
+  4s dpkg-source: info: extracting libevent in src
+  4s dpkg-source: info: unpacking libevent_2.1.12-stable.orig.tar.gz
+  4s dpkg-source: info: unpacking libevent_2.1.12-stable-ok2.debian.tar.xz
+  4s dpkg-source: info: using patch list from debian/patches/series
+  4s dpkg-source: info: applying 0001-Always-build-with-no-undefined.patch
+  4s dpkg-source: info: applying evutil_secure_rng_add_bytes_noop.patch
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [00:06:06]: testing package libevent version 2.1.12-stable-ok2
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CBSe2w/build.a2Z/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libevent/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libevent-dev
+  4s autopkgtest: DBG: synthesised dependency libevent-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-core-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-extra-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-pthreads-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-openssl-2.1-7t64
+  4s autopkgtest: DBG: processing dependency gcc
+  4s autopkgtest: DBG: processing dependency libc-dev
+  4s autopkgtest: DBG: processing dependency libssl-dev
+  4s autopkgtest: DBG: processing dependency automake
+  4s autopkgtest: DBG: processing dependency autoconf
+  4s autopkgtest: DBG: processing dependency libtool
+  4s autopkgtest: DBG: Test defined: name unit-test path debian/tests/unit-test command "None" restrictions [] features [] depends ['libevent-dev', 'libevent-2.1-7t64', 'libevent-core-2.1-7t64', 'libevent-extra-2.1-7t64', 'libevent-pthreads-2.1-7t64', 'libevent-openssl-2.1-7t64', 'gcc', 'libc-dev', 'libssl-dev', 'automake', 'autoconf', 'libtool'] 
+  4s autopkgtest [00:06:06]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CBSe2w/build.a2Z/src/ /home/hachi/openkylin_test/sharefolder/results/libevent/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libevent-dev
+  4s autopkgtest: DBG: synthesised dependency libevent-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-core-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-extra-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-pthreads-2.1-7t64
+  4s autopkgtest: DBG: synthesised dependency libevent-openssl-2.1-7t64
+  4s autopkgtest: DBG: processing dependency gcc
+  4s autopkgtest: DBG: processing dependency libc-dev
+  4s autopkgtest: DBG: processing dependency libssl-dev
+  4s autopkgtest: DBG: processing dependency automake
+  4s autopkgtest: DBG: processing dependency autoconf
+  4s autopkgtest: DBG: processing dependency libtool
+  4s autopkgtest: DBG: Test defined: name unit-test path debian/tests/unit-test command "None" restrictions [] features [] depends ['libevent-dev', 'libevent-2.1-7t64', 'libevent-core-2.1-7t64', 'libevent-extra-2.1-7t64', 'libevent-pthreads-2.1-7t64', 'libevent-openssl-2.1-7t64', 'gcc', 'libc-dev', 'libssl-dev', 'automake', 'autoconf', 'libtool'] 
+  4s autopkgtest [00:06:06]: test unit-test: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libevent-dev', 'libevent-2.1-7t64', 'libevent-core-2.1-7t64', 'libevent-extra-2.1-7t64', 'libevent-pthreads-2.1-7t64', 'libevent-openssl-2.1-7t64', 'gcc', 'libc-dev', 'libssl-dev', 'automake', 'autoconf', 'libtool']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['libevent-dev', 'libevent-2.1-7t64', 'libevent-core-2.1-7t64', 'libevent-extra-2.1-7t64', 'libevent-pthreads-2.1-7t64', 'libevent-openssl-2.1-7t64', 'gcc', 'libc-dev', 'libssl-dev', 'automake', 'autoconf', 'libtool']
+  4s autopkgtest: DBG: install-deps: satisfying libevent-dev, libevent-2.1-7t64, libevent-core-2.1-7t64, libevent-extra-2.1-7t64, libevent-pthreads-2.1-7t64, libevent-openssl-2.1-7t64, gcc, libc-dev, libssl-dev, automake, autoconf, libtool
+  4s autopkgtest: DBG: install-deps: architecture resolved: libevent-dev, libevent-2.1-7t64, libevent-core-2.1-7t64, libevent-extra-2.1-7t64, libevent-pthreads-2.1-7t64, libevent-openssl-2.1-7t64, gcc, libc-dev, libssl-dev, automake, autoconf, libtool
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CBSe2w'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-63cdb065-db57-4cde-bb98-9203e49858ce//tmp/autopkgtest.CBSe2w/1-autopkgtest-satdep.deb /tmp/autopkgtest.CBSe2w/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.CBSe2w/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 0
+  6s Starting 2 pkgProblemResolver with broken count: 0
+  6s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  7s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  7s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  7s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  7s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  7s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatrildocument3
+  7s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  7s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  7s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  7s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  7s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  7s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  7s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  7s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  7s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  7s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  7s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  7s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  7s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  7s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  7s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  7s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   autoconf automake autotools-dev libevent-2.1-7t64 libevent-core-2.1-7t64
+  7s   libevent-dev libevent-extra-2.1-7t64 libevent-openssl-2.1-7t64
+  7s   libevent-pthreads-2.1-7t64 libssl-dev libtool m4
+  7s Suggested packages:
+  7s   autoconf-archive gnu-standards autoconf-doc libssl-doc libtool-doc gfortran
+  7s   | fortran95-compiler gcj-jdk m4-doc
+  7s Recommended packages:
+  7s   libltdl-dev
+  7s The following packages will be REMOVED:
+  7s   libevent-core-2.1-7
+  7s The following NEW packages will be installed:
+  7s   autoconf automake autopkgtest-satdep autotools-dev libevent-2.1-7t64
+  7s   libevent-core-2.1-7t64 libevent-dev libevent-extra-2.1-7t64
+  7s   libevent-openssl-2.1-7t64 libevent-pthreads-2.1-7t64 libssl-dev libtool m4
+  7s 0 upgraded, 13 newly installed, 1 to remove and 1066 not upgraded.
+  7s Need to get 6,277 kB/6,277 kB of archives.
+  7s After this operation, 52.8 MB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.CBSe2w/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [768 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-core-2.1-7t64 riscv64 2.1.12-stable-ok2 [72.4 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 m4 riscv64 1.4.19-ok1 [259 kB]
+  8s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 autoconf all 2.71-ok2 [390 kB]
+  8s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 autotools-dev all 20220506-ok1 [41.6 kB]
+  8s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 automake all 1:1.16.5-ok1 [557 kB]
+  8s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-2.1-7t64 riscv64 2.1.12-stable-ok2 [115 kB]
+  8s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-extra-2.1-7t64 riscv64 2.1.12-stable-ok2 [52.4 kB]
+  8s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-pthreads-2.1-7t64 riscv64 2.1.12-stable-ok2 [7,204 B]
+  8s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-openssl-2.1-7t64 riscv64 2.1.12-stable-ok2 [12.5 kB]
+  8s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-dev riscv64 2.1.12-stable-ok2 [423 kB]
+  8s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 libssl-dev riscv64 3.2.1-ok3 [4,182 kB]
+ 10s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtool all 2.4.7-ok2 [164 kB]
+ 12s Fetched 6,277 kB in 3s (2,207 kB/s)
+ 12s dpkg: libevent-core-2.1-7:riscv64: dependency problems, but removing anyway as you requested:
+ 12s  tmux depends on libevent-core-2.1-7 (>= 2.1.8-stable).
+ 12s 
+ 13s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 13s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 13s Removing libevent-core-2.1-7:riscv64 (2.1.11-stable-ok1) ...
+ 13s Selecting previously unselected package libevent-core-2.1-7t64:riscv64.
+ 13s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 13s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 13s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193804 files and directories currently installed.)
+ 13s Preparing to unpack .../00-libevent-core-2.1-7t64_2.1.12-stable-ok2_riscv64.deb ...
+ 14s Unpacking libevent-core-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 14s Selecting previously unselected package m4.
+ 14s Preparing to unpack .../01-m4_1.4.19-ok1_riscv64.deb ...
+ 14s Unpacking m4 (1.4.19-ok1) ...
+ 14s Selecting previously unselected package autoconf.
+ 14s Preparing to unpack .../02-autoconf_2.71-ok2_all.deb ...
+ 14s Unpacking autoconf (2.71-ok2) ...
+ 15s Selecting previously unselected package autotools-dev.
+ 15s Preparing to unpack .../03-autotools-dev_20220506-ok1_all.deb ...
+ 15s Unpacking autotools-dev (20220506-ok1) ...
+ 15s Selecting previously unselected package automake.
+ 15s Preparing to unpack .../04-automake_1%3a1.16.5-ok1_all.deb ...
+ 15s Unpacking automake (1:1.16.5-ok1) ...
+ 15s Selecting previously unselected package libevent-2.1-7t64:riscv64.
+ 15s Preparing to unpack .../05-libevent-2.1-7t64_2.1.12-stable-ok2_riscv64.deb ...
+ 15s Unpacking libevent-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 16s Selecting previously unselected package libevent-extra-2.1-7t64:riscv64.
+ 16s Preparing to unpack .../06-libevent-extra-2.1-7t64_2.1.12-stable-ok2_riscv64.deb ...
+ 16s Unpacking libevent-extra-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 16s Selecting previously unselected package libevent-pthreads-2.1-7t64:riscv64.
+ 16s Preparing to unpack .../07-libevent-pthreads-2.1-7t64_2.1.12-stable-ok2_riscv64.deb ...
+ 16s Unpacking libevent-pthreads-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 16s Selecting previously unselected package libevent-openssl-2.1-7t64:riscv64.
+ 16s Preparing to unpack .../08-libevent-openssl-2.1-7t64_2.1.12-stable-ok2_riscv64.deb ...
+ 16s Unpacking libevent-openssl-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 16s Selecting previously unselected package libevent-dev.
+ 16s Preparing to unpack .../09-libevent-dev_2.1.12-stable-ok2_riscv64.deb ...
+ 16s Unpacking libevent-dev (2.1.12-stable-ok2) ...
+ 17s Selecting previously unselected package libssl-dev:riscv64.
+ 17s Preparing to unpack .../10-libssl-dev_3.2.1-ok3_riscv64.deb ...
+ 17s Unpacking libssl-dev:riscv64 (3.2.1-ok3) ...
+ 19s Selecting previously unselected package libtool.
+ 19s Preparing to unpack .../11-libtool_2.4.7-ok2_all.deb ...
+ 19s Unpacking libtool (2.4.7-ok2) ...
+ 19s Selecting previously unselected package autopkgtest-satdep.
+ 20s Preparing to unpack .../12-1-autopkgtest-satdep.deb ...
+ 20s Unpacking autopkgtest-satdep (0) ...
+ 20s Setting up m4 (1.4.19-ok1) ...
+ 20s Setting up libevent-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 20s Setting up autotools-dev (20220506-ok1) ...
+ 20s Setting up libssl-dev:riscv64 (3.2.1-ok3) ...
+ 20s Setting up autoconf (2.71-ok2) ...
+ 20s Setting up libevent-core-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 20s Setting up automake (1:1.16.5-ok1) ...
+ 20s update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+ 20s Setting up libtool (2.4.7-ok2) ...
+ 20s Setting up libevent-pthreads-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 20s Setting up libevent-openssl-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 20s Setting up libevent-extra-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 20s Setting up libevent-dev (2.1.12-stable-ok2) ...
+ 20s Setting up autopkgtest-satdep (0) ...
+ 20s Processing triggers for man-db (2.10.2-2) ...
+ 21s Processing triggers for install-info (6.8-6ok1.1) ...
+ 21s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libevent-dev'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libevent-2.1-7t64'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libevent-core-2.1-7t64'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libevent-extra-2.1-7t64'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libevent-pthreads-2.1-7t64'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libevent-openssl-2.1-7t64'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libevent-dev libevent-2.1-7t64 libevent-extra-2.1-7t64 libevent-openssl-2.1-7t64 libevent-pthreads-2.1-7t64 libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libssl-dev libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 27s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libevent-dev', 'libevent-2.1-7t64', 'libevent-extra-2.1-7t64', 'libevent-openssl-2.1-7t64', 'libevent-pthreads-2.1-7t64', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libssl-dev', 'libsynctex2', 'libwhoopsie0', 'nautilus-data'], kind short, sout raw, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 34s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 34s (Reading database ... 194381 files and directories currently installed.)
+ 34s Removing autopkgtest-satdep (0) ...
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CBSe2w/unit-test-packages.all"], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CBSe2w/unit-test-packages.all /home/hachi/openkylin_test/sharefolder/results/libevent/unit-test-packages.all
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.CBSe2w/build.a2Z/src'], kind short, sout raw, serr raw, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.CBSe2w/build.a2Z/src already exists
+ 34s autopkgtest [00:06:36]: test unit-test: [-----------------------
+ 34s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.CBSe2w/wrapper.sh --debug --artifacts=/tmp/autopkgtest.CBSe2w/unit-test-artifacts --chdir=/tmp/autopkgtest.CBSe2w/build.a2Z/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.CBSe2w/unit-test-stderr --stdout=/tmp/autopkgtest.CBSe2w/unit-test-stdout --tmp=/tmp/autopkgtest.CBSe2w/autopkgtest_tmp --make-executable=/tmp/autopkgtest.CBSe2w/build.a2Z/src/debian/tests/unit-test -- /tmp/autopkgtest.CBSe2w/build.a2Z/src/debian/tests/unit-test'], kind test, sout raw, serr raw, env []
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.CBSe2w/unit-test-artifacts
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: changing to directory: /tmp/autopkgtest.CBSe2w/build.a2Z/src
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: setting environment: LANG=C.UTF-8
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LANGUAGE
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_ADDRESS
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_ALL
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_COLLATE
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_CTYPE
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_MESSAGES
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_MONETARY
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_NAME
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_NUMERIC
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_PAPER
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: unsetting environment: LC_TIME
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: pretending to be a login shell
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: will write standard error to /tmp/autopkgtest.CBSe2w/unit-test-stderr
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: will write stdout to /tmp/autopkgtest.CBSe2w/unit-test-stdout
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.CBSe2w/autopkgtest_tmp
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: marking as executable: /tmp/autopkgtest.CBSe2w/build.a2Z/src/debian/tests/unit-test
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: command to run: /tmp/autopkgtest.CBSe2w/build.a2Z/src/debian/tests/unit-test
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: copying /tmp/tmp.irWHmPispt/out to stdout and file: /tmp/autopkgtest.CBSe2w/unit-test-stdout
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: copying /tmp/tmp.irWHmPispt/err to standard error and file: /tmp/autopkgtest.CBSe2w/unit-test-stdout
+ 35s /tmp/autopkgtest.CBSe2w/wrapper.sh: writing script pid 684405 to /tmp/autopkgtest_script_pid
+ 42s libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+ 42s libtoolize: copying file 'build-aux/ltmain.sh'
+ 42s libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+ 42s libtoolize: copying file 'm4/libtool.m4'
+ 43s libtoolize: copying file 'm4/ltversion.m4'
+ 49s configure.ac:351: warning: The macro `AC_HAVE_LIBRARY' is obsolete.
+ 49s configure.ac:351: You should run autoupdate.
+ 49s ./lib/autoconf/libs.m4:138: AC_HAVE_LIBRARY is expanded from...
+ 49s configure.ac:351: the top level
+ 49s configure.ac:357: warning: The macro `AC_HEADER_TIME' is obsolete.
+ 49s configure.ac:357: You should run autoupdate.
+ 49s ./lib/autoconf/headers.m4:743: AC_HEADER_TIME is expanded from...
+ 49s configure.ac:357: the top level
+ 49s configure.ac:805: warning: The macro `AC_LANG_C' is obsolete.
+ 49s configure.ac:805: You should run autoupdate.
+ 49s ./lib/autoconf/c.m4:72: AC_LANG_C is expanded from...
+ 49s m4/acx_pthread.m4:86: ACX_PTHREAD is expanded from...
+ 49s configure.ac:805: the top level
+ 49s configure.ac:805: warning: The macro `AC_TRY_LINK' is obsolete.
+ 49s configure.ac:805: You should run autoupdate.
+ 49s ./lib/autoconf/general.m4:2920: AC_TRY_LINK is expanded from...
+ 49s m4/acx_pthread.m4:86: ACX_PTHREAD is expanded from...
+ 49s configure.ac:805: the top level
+ 49s configure.ac:1007: warning: AC_OUTPUT should be used without arguments.
+ 49s configure.ac:1007: You should run autoupdate.
+ 53s checking for a BSD-compatible install... /usr/bin/install -c
+ 53s checking whether build environment is sane... yes
+ 53s checking for a race-free mkdir -p... /usr/bin/mkdir -p
+ 53s checking for gawk... gawk
+ 53s checking whether make sets $(MAKE)... yes
+ 53s checking whether make supports nested variables... yes
+ 53s checking whether make supports nested variables... (cached) yes
+ 53s checking whether make supports the include directive... yes (GNU style)
+ 53s checking for gcc... gcc
+ 54s checking whether the C compiler works... yes
+ 54s checking for C compiler default output file name... a.out
+ 54s checking for suffix of executables... 
+ 54s checking whether we are cross compiling... no
+ 54s checking for suffix of object files... o
+ 54s checking whether the compiler supports GNU C... yes
+ 54s checking whether gcc accepts -g... yes
+ 54s checking for gcc option to enable C11 features... none needed
+ 54s checking whether gcc understands -c and -o together... yes
+ 54s checking dependency style of gcc... gcc3
+ 55s checking for stdio.h... yes
+ 55s checking for stdlib.h... yes
+ 55s checking for string.h... yes
+ 55s checking for inttypes.h... yes
+ 55s checking for stdint.h... yes
+ 55s checking for strings.h... yes
+ 55s checking for sys/stat.h... yes
+ 55s checking for sys/types.h... yes
+ 55s checking for unistd.h... yes
+ 56s checking for wchar.h... yes
+ 56s checking for minix/config.h... no
+ 56s checking for sys/time.h... yes
+ 56s checking whether it is safe to define __EXTENSIONS__... yes
+ 56s checking whether _XOPEN_SOURCE should be defined... no
+ 56s checking build system type... riscv64-unknown-linux-gnu
+ 56s checking host system type... riscv64-unknown-linux-gnu
+ 56s checking whether ln -s works... yes
+ 56s checking for a sed that does not truncate output... /usr/bin/sed
+ 56s checking how to run the C preprocessor... gcc -E
+ 56s checking for grep that handles long lines and -e... /usr/bin/grep
+ 56s checking for egrep... /usr/bin/grep -E
+ 57s checking whether gcc needs -traditional... no
+ 57s checking how to print strings... printf
+ 57s checking for a sed that does not truncate output... (cached) /usr/bin/sed
+ 57s checking for fgrep... /usr/bin/grep -F
+ 57s checking for ld used by gcc... /usr/bin/ld
+ 57s checking if the linker (/usr/bin/ld) is GNU ld... yes
+ 57s checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+ 57s checking the name lister (/usr/bin/nm -B) interface... BSD nm
+ 57s checking the maximum length of command line arguments... 1572864
+ 57s checking how to convert riscv64-unknown-linux-gnu file names to riscv64-unknown-linux-gnu format... func_convert_file_noop
+ 57s checking how to convert riscv64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+ 57s checking for /usr/bin/ld option to reload object files... -r
+ 57s checking for file... file
+ 57s checking for objdump... objdump
+ 57s checking how to recognize dependent libraries... pass_all
+ 57s checking for dlltool... no
+ 57s checking how to associate runtime and link libraries... printf %s\n
+ 57s checking for ar... ar
+ 57s checking for archiver @FILE support... @
+ 57s checking for strip... strip
+ 57s checking for ranlib... ranlib
+ 57s checking command to parse /usr/bin/nm -B output from gcc object... ok
+ 57s checking for sysroot... no
+ 57s checking for a working dd... /usr/bin/dd
+ 57s checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+ 57s checking for mt... mt
+ 57s checking if mt is a manifest tool... no
+ 57s checking for dlfcn.h... yes
+ 57s checking for objdir... .libs
+ 58s checking if gcc supports -fno-rtti -fno-exceptions... no
+ 58s checking for gcc option to produce PIC... -fPIC -DPIC
+ 58s checking if gcc PIC flag -fPIC -DPIC works... yes
+ 58s checking if gcc static flag -static works... yes
+ 58s checking if gcc supports -c -o file.o... yes
+ 58s checking if gcc supports -c -o file.o... (cached) yes
+ 58s checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+ 58s checking whether -lc should be explicitly linked in... no
+ 59s checking dynamic linker characteristics... GNU/Linux ld.so
+ 59s checking how to hardcode library paths into programs... immediate
+ 59s checking whether stripping libraries is possible... yes
+ 59s checking if libtool supports shared libraries... yes
+ 59s checking whether to build shared libraries... yes
+ 59s checking whether to build static libraries... yes
+ 59s checking for library containing inet_ntoa... none required
+ 59s checking for library containing socket... none required
+ 59s checking for library containing inet_aton... none required
+ 59s checking for library containing clock_gettime... none required
+ 59s checking for clock_gettime... yes
+ 59s checking for library containing sendfile... none required
+ 59s checking for WIN32... no
+ 60s checking for MIDIPIX... no
+ 60s checking for CYGWIN... no
+ 60s checking for zlib.h... yes
+ 60s checking for library containing inflateEnd... -lz
+ 60s checking for special C compiler options needed for large files... no
+ 60s checking for _FILE_OFFSET_BITS value needed for large files... no
+ 60s checking for pkg-config... /usr/bin/pkg-config
+ 60s checking if pkg-config is at least version 0.15.0... yes
+ 61s checking for openssl/ssl.h... yes
+ 61s checking for arpa/inet.h... yes
+ 61s checking for fcntl.h... yes
+ 61s checking for ifaddrs.h... yes
+ 61s checking for mach/mach_time.h... no
+ 61s checking for mach/mach.h... no
+ 62s checking for netdb.h... yes
+ 62s checking for netinet/in.h... yes
+ 62s checking for netinet/in6.h... no
+ 62s checking for netinet/tcp.h... yes
+ 62s checking for sys/un.h... yes
+ 62s checking for poll.h... yes
+ 62s checking for port.h... no
+ 63s checking for stdarg.h... yes
+ 63s checking for stddef.h... yes
+ 63s checking for sys/devpoll.h... no
+ 63s checking for sys/epoll.h... yes
+ 63s checking for sys/event.h... no
+ 63s checking for sys/eventfd.h... yes
+ 63s checking for sys/ioctl.h... yes
+ 63s checking for sys/mman.h... yes
+ 64s checking for sys/param.h... yes
+ 64s checking for sys/queue.h... yes
+ 64s checking for sys/resource.h... yes
+ 64s checking for sys/select.h... yes
+ 64s checking for sys/sendfile.h... yes
+ 64s checking for sys/socket.h... yes
+ 64s checking for sys/stat.h... (cached) yes
+ 64s checking for sys/time.h... (cached) yes
+ 64s checking for sys/timerfd.h... yes
+ 65s checking for sys/uio.h... yes
+ 65s checking for sys/wait.h... yes
+ 65s checking for sys/random.h... yes
+ 65s checking for errno.h... yes
+ 65s checking for afunix.h... no
+ 65s checking for TAILQ_FOREACH in sys/queue.h... yes
+ 65s checking for timeradd in sys/time.h... yes
+ 65s checking for timercmp in sys/time.h... yes
+ 65s checking for timerclear in sys/time.h... yes
+ 65s checking for timerisset in sys/time.h... yes
+ 65s checking for an ANSI C-conforming const... yes
+ 66s checking for inline... inline
+ 66s checking for accept4... yes
+ 66s checking for arc4random... yes
+ 66s checking for arc4random_buf... yes
+ 66s checking for arc4random_addrandom... no
+ 66s checking for eventfd... yes
+ 66s checking for epoll_create1... yes
+ 67s checking for fcntl... yes
+ 67s checking for getegid... yes
+ 67s checking for geteuid... yes
+ 67s checking for getifaddrs... yes
+ 67s checking for gettimeofday... yes
+ 67s checking for issetugid... no
+ 67s checking for mach_absolute_time... no
+ 68s checking for mmap... yes
+ 68s checking for nanosleep... yes
+ 68s checking for pipe... yes
+ 68s checking for pipe2... yes
+ 68s checking for putenv... yes
+ 68s checking for sendfile... yes
+ 68s checking for setenv... yes
+ 69s checking for setrlimit... yes
+ 69s checking for sigaction... yes
+ 69s checking for signal... yes
+ 69s checking for splice... yes
+ 69s checking for strlcpy... yes
+ 69s checking for strsep... yes
+ 69s checking for strtok_r... yes
+ 69s checking for strtoll... yes
+ 70s checking for sysctl... no
+ 70s checking for timerfd_create... yes
+ 70s checking for umask... yes
+ 70s checking for unsetenv... yes
+ 70s checking for usleep... yes
+ 70s checking for vasprintf... yes
+ 71s checking for getrandom... yes
+ 71s checking for getnameinfo... yes
+ 71s checking for getprotobynumber... yes
+ 71s checking for getservbyname... yes
+ 71s checking for inet_ntop... yes
+ 71s checking for inet_pton... yes
+ 71s checking for getaddrinfo... yes
+ 71s checking for F_SETFD in fcntl.h... yes
+ 72s checking for select... yes
+ 72s checking for poll... yes
+ 72s checking for epoll_ctl... yes
+ 72s checking for port_create... no
+ 72s checking for pid_t... yes
+ 73s checking for size_t... yes
+ 73s checking for ssize_t... yes
+ 73s checking for uint64_t... yes
+ 73s checking for uint32_t... yes
+ 73s checking for uint16_t... yes
+ 74s checking for uint8_t... yes
+ 74s checking for uintptr_t... yes
+ 74s checking for fd_mask... yes
+ 74s checking size of long long... 8
+ 74s checking size of long... 8
+ 75s checking size of int... 4
+ 75s checking size of short... 2
+ 75s checking size of size_t... 8
+ 75s checking size of void *... 8
+ 75s checking size of off_t... 8
+ 76s checking size of time_t... 8
+ 76s checking for struct in6_addr... yes
+ 76s checking for struct sockaddr_in6... yes
+ 76s checking for struct sockaddr_un... yes
+ 77s checking for sa_family_t... yes
+ 77s checking for struct addrinfo... yes
+ 77s checking for struct sockaddr_storage... yes
+ 77s checking for struct in6_addr.s6_addr32... yes
+ 77s checking for struct in6_addr.s6_addr16... yes
+ 78s checking for struct sockaddr_in.sin_len... no
+ 78s checking for struct sockaddr_in6.sin6_len... no
+ 78s checking for struct sockaddr_storage.ss_family... yes
+ 78s checking for struct sockaddr_storage.__ss_family... no
+ 78s checking for struct linger... yes
+ 78s checking for socklen_t... yes
+ 78s checking whether our compiler supports __func__... yes
+ 78s checking whether our compiler supports __FUNCTION__... yes
+ 79s checking for the pthreads library -lpthreads... no
+ 79s checking whether pthreads work without any flags... yes
+ 79s checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+ 79s checking if more special flags are required for pthreads... no
+ 79s checking size of pthread_t... 8
+ 80s checking that generated files are newer than configure... done
+ 80s configure: creating ./config.status
+ 82s config.status: creating libevent.pc
+ 82s config.status: creating libevent_openssl.pc
+ 82s config.status: creating libevent_pthreads.pc
+ 82s config.status: creating libevent_core.pc
+ 82s config.status: creating libevent_extra.pc
+ 82s config.status: creating Makefile
+ 82s config.status: creating config.h
+ 82s config.status: creating evconfig-private.h
+ 82s config.status: executing depfiles commands
+ 83s config.status: executing libtool commands
+ 83s   GEN      include/event2/event-config.h
+ 83s make  all-am
+ 83s make[1]: Entering directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+ 83s   CC       sample/dns-example.o
+ 84s   CC       buffer.lo
+ 93s   CC       bufferevent.lo
+ 96s   CC       bufferevent_filter.lo
+ 98s   CC       bufferevent_pair.lo
+100s   CC       bufferevent_ratelim.lo
+103s   CC       bufferevent_sock.lo
+104s   CC       event.lo
+105s event.c: In function 'event_signal_closure':
+105s event.c:1362:32: warning: storing the address of local variable 'ncalls' in '*ev.ev_.ev_signal.ev_pncalls' [-Wdangling-pointer=]
+105s  1362 |                 ev->ev_pncalls = &ncalls;
+105s       |                 ~~~~~~~~~~~~~~~^~~~~~~~~
+105s event.c:1356:15: note: 'ncalls' declared here
+105s  1356 |         short ncalls;
+105s       |               ^~~~~~
+105s event.c:1356:15: note: 'ev' declared here
+116s   CC       evmap.lo
+118s   CC       evthread.lo
+120s   CC       evutil.lo
+120s evutil.c:213:21: warning: argument 4 of type 'int[2]' with mismatched bound [-Warray-parameter=]
+120s   213 |     evutil_socket_t fd[2])
+120s In file included from evutil.c:85:
+120s ./include/event2/util.h:310:25: note: previously declared as 'int[]'
+120s   310 | #define evutil_socket_t int
+120s util-internal.h:306:47: note: in expansion of macro 'evutil_socket_t'
+120s   306 | int evutil_ersatz_socketpair_(int, int , int, evutil_socket_t[]);
+120s       |                                               ^~~~~~~~~~~~~~~
+124s   CC       evutil_rand.lo
+125s   CC       evutil_time.lo
+126s   CC       listener.lo
+127s   CC       log.lo
+128s   CC       select.lo
+129s   CC       poll.lo
+130s   CC       epoll.lo
+131s   CC       signal.lo
+133s   CC       evdns.lo
+144s   CC       event_tagging.lo
+146s   CC       evrpc.lo
+149s   CC       http.lo
+166s   CCLD     libevent.la
+167s   CCLD     sample/dns-example
+167s   CC       sample/event-read-fifo.o
+167s   CCLD     sample/event-read-fifo
+168s   CC       sample/hello-world.o
+168s   CCLD     sample/hello-world
+169s   CC       sample/http-server.o
+169s   CCLD     sample/http-server
+170s   CC       sample/http-connect.o
+170s   CCLD     sample/http-connect
+171s   CC       sample/signal-test.o
+171s   CCLD     sample/signal-test
+171s   CC       sample/time-test.o
+172s   CCLD     sample/time-test
+172s   CC       sample/le_proxy-le-proxy.o
+173s sample/le-proxy.c: In function ‘eventcb’:
+173s sample/le-proxy.c:116:37: warning: ‘ERR_func_error_string’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+173s   116 |                                     ERR_func_error_string(err);
+173s       |                                     ^~~~~~~~~~~~~~~~~~~~~
+173s In file included from sample/le-proxy.c:35:
+173s /usr/include/openssl/err.h:459:35: note: declared here
+173s   459 | OSSL_DEPRECATEDIN_3_0 const char *ERR_func_error_string(unsigned long e);
+173s       |                                   ^~~~~~~~~~~~~~~~~~~~~
+173s   CC       libevent_openssl_la-bufferevent_openssl.lo
+177s   CCLD     libevent_core.la
+178s   CCLD     libevent_openssl.la
+179s   CCLD     sample/le-proxy
+179s   CC       sample/https_client-https-client.o
+180s   CC       sample/https_client-hostcheck.o
+181s   CC       sample/https_client-openssl_hostname_validation.o
+181s   CCLD     sample/https-client
+182s   CCLD     libevent_extra.la
+183s   CC       evthread_pthread.lo
+183s   CCLD     libevent_pthreads.la
+184s make[1]: Leaving directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+184s make  check-am
+184s make[1]: Entering directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+184s make  check-TESTS
+184s make[2]: Entering directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+185s make[3]: Entering directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+185s ./test/test.sh -b EPOLL
+185s Running tests:
+185s EPOLL 
+185s Skipping test
+185s PASS: test_runner_epoll
+185s ./test/test.sh -b SELECT
+185s Running tests:
+185s SELECT 
+185s Skipping test
+185s PASS: test_runner_select
+185s ./test/test.sh -b KQUEUE
+185s Running tests:
+185s KQUEUE 
+185s Skipping test
+185s PASS: test_runner_kqueue
+185s ./test/test.sh -b EVPORT
+185s Running tests:
+185s EVPORT 
+185s Skipping test
+185s PASS: test_runner_evport
+185s ./test/test.sh -b DEVPOLL
+185s Running tests:
+185s DEVPOLL 
+185s Skipping test
+185s PASS: test_runner_devpoll
+185s ./test/test.sh -b POLL
+185s Running tests:
+185s POLL 
+185s Skipping test
+185s PASS: test_runner_poll
+185s ./test/test.sh -b WIN32
+185s Running tests:
+185s WIN32 
+185s Skipping test
+185s PASS: test_runner_win32
+185s ./test/test.sh -b "" -t
+185s Running tests:
+185s EPOLL (timerfd)
+185s Skipping test
+185s PASS: test_runner_timerfd
+185s ./test/test.sh -b "" -c
+185s Running tests:
+185s EPOLL (changelist)
+185s Skipping test
+185s PASS: test_runner_changelist
+185s ./test/test.sh -b "" -T
+185s Running tests:
+185s EPOLL (timerfd+changelist)
+185s Skipping test
+185s PASS: test_runner_timerfd_changelist
+185s ============================================================================
+185s Testsuite summary for libevent 2.1.12-stable
+185s ============================================================================
+185s # TOTAL: 10
+185s # PASS:  10
+185s # SKIP:  0
+185s # XFAIL: 0
+185s # FAIL:  0
+185s # XPASS: 0
+185s # ERROR: 0
+185s ============================================================================
+185s make[3]: Leaving directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+185s make[2]: Leaving directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+185s make[1]: Leaving directory '/tmp/autopkgtest.CBSe2w/build.a2Z/src'
+185s /tmp/autopkgtest.CBSe2w/wrapper.sh: checking for leaked background processes...
+185s /tmp/autopkgtest.CBSe2w/wrapper.sh: waiting for tee/cat subprocesses...
+185s /tmp/autopkgtest.CBSe2w/wrapper.sh: cleaning up...
+185s /tmp/autopkgtest.CBSe2w/wrapper.sh: Exit status: 0
+185s autopkgtest: DBG: testbed command exited with code 0
+186s autopkgtest [00:09:08]: test unit-test: -----------------------]
+186s autopkgtest: DBG: testbed executing test finished with exit status 0
+186s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CBSe2w/unit-test-stdout /home/hachi/openkylin_test/sharefolder/results/libevent/unit-test-stdout
+186s autopkgtest: DBG: got reply from testbed: ok
+186s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CBSe2w/unit-test-stderr /home/hachi/openkylin_test/sharefolder/results/libevent/unit-test-stderr
+186s autopkgtest: DBG: got reply from testbed: ok
+186s autopkgtest [00:09:08]: test unit-test:  - - - - - - - - - - results - - - - - - - - - -
+186s unit-test            PASS
+186s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CBSe2w/unit-test-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libevent/artifacts/
+186s autopkgtest: DBG: got reply from testbed: ok
+186s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.CBSe2w/unit-test-artifacts', '/tmp/autopkgtest.CBSe2w/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+186s autopkgtest: DBG: testbed command exited with code 0
+186s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+186s autopkgtest [00:09:08]: @@@@@@@@@@@@@@@@@@@@ summary
+186s unit-test            PASS
+186s autopkgtest: DBG: testbed stop
+186s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.CBSe2w
+186s autopkgtest: DBG: sending command to testbed: close
+186s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+187s autopkgtest: DBG: got reply from testbed: ok
+187s autopkgtest: DBG: sending command to testbed: quit

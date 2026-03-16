@@ -1,0 +1,22 @@
++ pkg-config --cflags wlroots
++ CFLAGS=-I/usr/include/pixman-1 -I/usr/include/libdrm
++ pkg-config --libs wlroots
++ pkg-config --libs wayland-server
++ LIBS=-lwlroots
+-lwayland-server
++ gcc -I/usr/include/pixman-1 -I/usr/include/libdrm debian/tests/test.c -lwlroots -lwayland-server
+In file included from debian/tests/test.c:5:
+debian/tests/test.c: In function ‘main’:
+debian/tests/test.c:13:12: error: too few arguments to function ‘wlr_backend_autocreate’
+   13 |     assert(wlr_backend_autocreate(wld));
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+In file included from debian/tests/test.c:4:
+/usr/include/wlr/backend.h:41:21: note: declared here
+   41 | struct wlr_backend *wlr_backend_autocreate(struct wl_display *display,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+debian/tests/test.c:13:12: error: too few arguments to function ‘wlr_backend_autocreate’
+   13 |     assert(wlr_backend_autocreate(wld));
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+/usr/include/wlr/backend.h:41:21: note: declared here
+   41 | struct wlr_backend *wlr_backend_autocreate(struct wl_display *display,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~

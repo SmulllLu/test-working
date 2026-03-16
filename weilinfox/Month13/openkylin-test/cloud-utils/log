@@ -1,0 +1,852 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:56:37]: starting date and time: 2024-07-18 01:56:37+0800
+  0s autopkgtest [01:56:37]: version @version@
+  0s autopkgtest [01:56:37]: host lili; command line: /usr/bin/autopkgtest cloud-utils_0.33-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/cloud-utils -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.dsKomu
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-9d3095a5-b713-451d-b814-320b00d0aa86,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-9d3095a5-b713-451d-b814-320b00d0aa86//tmp/autopkgtest.dsKomu
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-9d3095a5-b713-451d-b814-320b00d0aa86//tmp/autopkgtest.dsKomu', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dsKomu'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.dsKomu/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.dsKomu/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [01:56:38]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [01:56:38]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.dsKomu/testbed-packages"], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/testbed-packages /home/hachi/openkylin_test/sharefolder/results/cloud-utils/testbed-packages
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:56:39]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [01:56:39]: @@@@@@@@@@@@@@@@@@@@ source cloud-utils_0.33-ok1.dsc
+  2s autopkgtest: DBG: blame += cloud-utils_0.33-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dsKomu'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown cloud-utils_0.33-ok1.dsc /tmp/autopkgtest.dsKomu/cloud-utils_0.33-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dsKomu'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown cloud-utils_0.33.orig.tar.gz /tmp/autopkgtest.dsKomu/cloud-utils_0.33.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dsKomu'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown cloud-utils_0.33-ok1.debian.tar.xz /tmp/autopkgtest.dsKomu/cloud-utils_0.33-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.dsKomu/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.dsKomu/cloud-utils_0.33-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.dsKomu/build.XXX
+  2s + builddir=/tmp/autopkgtest.dsKomu/build.tan
+  2s + cd /tmp/autopkgtest.dsKomu/build.tan
+  2s + dpkg-source -x /tmp/autopkgtest.dsKomu/cloud-utils_0.33-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.8dGpSVw2/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 08 May 2024 10:06:48 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.dsKomu/cloud-utils_0.33-ok1.dsc
+  3s dpkg-source: info: extracting cloud-utils in src
+  3s dpkg-source: info: unpacking cloud-utils_0.33.orig.tar.gz
+  3s dpkg-source: info: unpacking cloud-utils_0.33-ok1.debian.tar.xz
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [01:56:40]: testing package cloud-utils version 0.33-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/build.tan/src/debian/ /home/hachi/openkylin_test/sharefolder/results/cloud-utils/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency cloud-guest-utils
+  3s autopkgtest: DBG: marked alternatives ['cloud-guest-utils'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency fdisk
+  3s autopkgtest: DBG: processing dependency gdisk
+  3s autopkgtest: DBG: processing dependency lvm2
+  3s autopkgtest: DBG: Test defined: name growpart-loop path debian/tests/growpart-loop command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk', 'lvm2'] 
+  3s growpart-loop        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  3s autopkgtest: DBG: Test defined: name growpart-lvm path debian/tests/growpart-lvm command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk', 'lvm2'] 
+  3s growpart-lvm         SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  3s autopkgtest: DBG: processing dependency cloud-guest-utils
+  3s autopkgtest: DBG: marked alternatives ['cloud-guest-utils'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency fdisk
+  3s autopkgtest: DBG: processing dependency gdisk
+  3s autopkgtest: DBG: Test defined: name growpart-fsimage path debian/tests/growpart-fsimage command "None" restrictions ['allow-stderr'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk'] 
+  3s autopkgtest: DBG: Test defined: name growpart-fsimage-middle path debian/tests/growpart-fsimage-middle command "None" restrictions ['allow-stderr'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk'] 
+  3s autopkgtest: DBG: Test defined: name growpart-start-matches-size path debian/tests/growpart-start-matches-size command "None" restrictions ['allow-stderr'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk'] 
+  3s autopkgtest: DBG: processing dependency cloud-image-utils
+  3s autopkgtest: DBG: marked alternatives ['cloud-image-utils'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name mic path debian/tests/mic command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root'] features [] depends ['cloud-image-utils'] 
+  3s mic                  SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  3s autopkgtest [01:56:40]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/build.tan/src/ /home/hachi/openkylin_test/sharefolder/results/cloud-utils/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency cloud-guest-utils
+  3s autopkgtest: DBG: marked alternatives ['cloud-guest-utils'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency fdisk
+  3s autopkgtest: DBG: processing dependency gdisk
+  3s autopkgtest: DBG: processing dependency lvm2
+  3s autopkgtest: DBG: Test defined: name growpart-loop path debian/tests/growpart-loop command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk', 'lvm2'] 
+  3s growpart-loop        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  3s autopkgtest: DBG: Test defined: name growpart-lvm path debian/tests/growpart-lvm command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk', 'lvm2'] 
+  3s growpart-lvm         SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  3s autopkgtest: DBG: processing dependency cloud-guest-utils
+  3s autopkgtest: DBG: marked alternatives ['cloud-guest-utils'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency fdisk
+  3s autopkgtest: DBG: processing dependency gdisk
+  3s autopkgtest: DBG: Test defined: name growpart-fsimage path debian/tests/growpart-fsimage command "None" restrictions ['allow-stderr'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk'] 
+  3s autopkgtest: DBG: Test defined: name growpart-fsimage-middle path debian/tests/growpart-fsimage-middle command "None" restrictions ['allow-stderr'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk'] 
+  3s autopkgtest: DBG: Test defined: name growpart-start-matches-size path debian/tests/growpart-start-matches-size command "None" restrictions ['allow-stderr'] features [] depends ['cloud-guest-utils', 'fdisk', 'gdisk'] 
+  3s autopkgtest: DBG: processing dependency cloud-image-utils
+  3s autopkgtest: DBG: marked alternatives ['cloud-image-utils'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name mic path debian/tests/mic command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root'] features [] depends ['cloud-image-utils'] 
+  3s mic                  SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  3s autopkgtest [01:56:40]: test growpart-fsimage: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['cloud-guest-utils', 'fdisk', 'gdisk']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['cloud-guest-utils', 'fdisk', 'gdisk']
+  3s autopkgtest: DBG: install-deps: satisfying cloud-guest-utils, fdisk, gdisk
+  3s autopkgtest: DBG: install-deps: architecture resolved: cloud-guest-utils, fdisk, gdisk
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: can use apt-get on testbed: True
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dsKomu'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-9d3095a5-b713-451d-b814-320b00d0aa86//tmp/autopkgtest.dsKomu/1-autopkgtest-satdep.deb /tmp/autopkgtest.dsKomu/1-autopkgtest-satdep.deb
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.dsKomu/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  4s Building dependency tree...
+  4s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following NEW packages will be installed:
+  6s   autopkgtest-satdep
+  6s 0 upgraded, 1 newly installed, 0 to remove and 1066 not upgraded.
+  6s Need to get 0 B/716 B of archives.
+  6s After this operation, 0 B of additional disk space will be used.
+  6s Get:1 /tmp/autopkgtest.dsKomu/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [716 B]
+  8s Selecting previously unselected package autopkgtest-satdep.
+  8s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+  8s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+  8s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+  8s Unpacking autopkgtest-satdep (0) ...
+  9s Setting up autopkgtest-satdep (0) ...
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'cloud-guest-utils'], kind short, sout pipe, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 13s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 15s autopkgtest: DBG: testbed command exited with code 0
+ 15s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 20s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 20s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 20s (Reading database ... 193809 files and directories currently installed.)
+ 20s Removing autopkgtest-satdep (0) ...
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.dsKomu/growpart-fsimage-packages.all"], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-packages.all /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-fsimage-packages.all
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.dsKomu/build.tan/src'], kind short, sout raw, serr raw, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.dsKomu/build.tan/src already exists
+ 21s autopkgtest [01:56:58]: test growpart-fsimage: [-----------------------
+ 21s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.dsKomu/wrapper.sh --debug --artifacts=/tmp/autopkgtest.dsKomu/growpart-fsimage-artifacts --chdir=/tmp/autopkgtest.dsKomu/build.tan/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.dsKomu/growpart-fsimage-stderr --stdout=/tmp/autopkgtest.dsKomu/growpart-fsimage-stdout --tmp=/tmp/autopkgtest.dsKomu/autopkgtest_tmp --make-executable=/tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage -- /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage'], kind test, sout raw, serr raw, env []
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.dsKomu/growpart-fsimage-artifacts
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: changing to directory: /tmp/autopkgtest.dsKomu/build.tan/src
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: LANG=C.UTF-8
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LANGUAGE
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_ADDRESS
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_ALL
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_COLLATE
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_CTYPE
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MESSAGES
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MONETARY
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_NAME
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_NUMERIC
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_PAPER
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_TIME
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: pretending to be a login shell
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: will write standard error to /tmp/autopkgtest.dsKomu/growpart-fsimage-stderr
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: will write stdout to /tmp/autopkgtest.dsKomu/growpart-fsimage-stdout
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.dsKomu/autopkgtest_tmp
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: marking as executable: /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: command to run: /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: copying /tmp/tmp.HyscrjgDqE/out to stdout and file: /tmp/autopkgtest.dsKomu/growpart-fsimage-stdout
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: copying /tmp/tmp.HyscrjgDqE/err to standard error and file: /tmp/autopkgtest.dsKomu/growpart-fsimage-stdout
+ 21s /tmp/autopkgtest.dsKomu/wrapper.sh: writing script pid 251189 to /tmp/autopkgtest_script_pid
+ 21s -- PT_TYPE=gpt GROWPART_RESIZER=auto --
+ 21s ==== before ====
+ 21s GPT PMBR size mismatch (1023999 != 2047999) will be corrected by write.
+ 21s The backup GPT table is not on the end of the device.
+ 21s Disk /tmp/test-growpart-fsimage.ND2fQe/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 21s Units: sectors of 1 * 512 = 512 bytes
+ 21s Sector size (logical/physical): 512 bytes / 512 bytes
+ 21s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 21s Disklabel type: gpt
+ 21s Disk identifier: E4BC7FFD-3DB0-6E4F-BC11-9D6DC6F2DA0A
+ 21s 
+ 21s Device                                      Start     End Sectors  Size Type
+ 21s /tmp/test-growpart-fsimage.ND2fQe/disk.img1  2048 1021951 1019904  498M Linux filesystem
+ 22s ==== growpart-stderr ===
+ 22s update-partition set to true
+ 22s resizing 1 on /tmp/test-growpart-fsimage.ND2fQe/disk.img using resize_sfdisk_gpt
+ 22s running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.ND2fQe/disk.img
+ 22s 2048000 sectors of 512. total size=1048576000 bytes
+ 22s running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.ND2fQe/disk.img
+ 22s ## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.ND2fQe/disk.img
+ 22s label: gpt
+ 22s label-id: E4BC7FFD-3DB0-6E4F-BC11-9D6DC6F2DA0A
+ 22s device: /tmp/test-growpart-fsimage.ND2fQe/disk.img
+ 22s unit: sectors
+ 22s first-lba: 2048
+ 22s last-lba: 1023966
+ 22s sector-size: 512
+ 22s 
+ 22s /tmp/test-growpart-fsimage.ND2fQe/disk.img1 : start=        2048, size=     1019904, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=CE2F9AA2-AD30-FB45-8288-210949CBBC05
+ 22s padding 33 sectors for gpt secondary header
+ 22s max_end=2047967 tot=2048000 pt_end=1021952 pt_start=2048 pt_size=1019904
+ 22s resize of /tmp/test-growpart-fsimage.ND2fQe/disk.img returned 0.
+ 22s running[pt_update][] pt_update /tmp/test-growpart-fsimage.ND2fQe/disk.img 1
+ 22s ==== growpart-stdout ====
+ 22s CHANGED: partition=1 start=2048 old: size=1019904 end=1021952 new: size=2045919 end=2047967
+ 22s ==== after ====
+ 22s Disk /tmp/test-growpart-fsimage.ND2fQe/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 22s Units: sectors of 1 * 512 = 512 bytes
+ 22s Sector size (logical/physical): 512 bytes / 512 bytes
+ 22s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 22s Disklabel type: gpt
+ 22s Disk identifier: E4BC7FFD-3DB0-6E4F-BC11-9D6DC6F2DA0A
+ 22s 
+ 22s Device                                      Start     End Sectors  Size Type
+ 22s /tmp/test-growpart-fsimage.ND2fQe/disk.img1  2048 2047966 2045919  999M Linux filesystem
+ 22s 
+ 22s 
+ 22s -- PT_TYPE=gpt GROWPART_RESIZER=sfdisk --
+ 22s ==== before ====
+ 22s GPT PMBR size mismatch (1023999 != 2047999) will be corrected by write.
+ 22s The backup GPT table is not on the end of the device.
+ 22s Disk /tmp/test-growpart-fsimage.vkN1bN/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 22s Units: sectors of 1 * 512 = 512 bytes
+ 22s Sector size (logical/physical): 512 bytes / 512 bytes
+ 22s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 22s Disklabel type: gpt
+ 22s Disk identifier: 47E7B4F9-CBAF-8B4F-8F86-C9515B049753
+ 22s 
+ 22s Device                                      Start     End Sectors  Size Type
+ 22s /tmp/test-growpart-fsimage.vkN1bN/disk.img1  2048 1021951 1019904  498M Linux filesystem
+ 23s ==== growpart-stderr ===
+ 23s update-partition set to true
+ 23s resizing 1 on /tmp/test-growpart-fsimage.vkN1bN/disk.img using resize_sfdisk_gpt
+ 23s running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.vkN1bN/disk.img
+ 23s 2048000 sectors of 512. total size=1048576000 bytes
+ 23s running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.vkN1bN/disk.img
+ 23s ## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.vkN1bN/disk.img
+ 23s label: gpt
+ 23s label-id: 47E7B4F9-CBAF-8B4F-8F86-C9515B049753
+ 23s device: /tmp/test-growpart-fsimage.vkN1bN/disk.img
+ 23s unit: sectors
+ 23s first-lba: 2048
+ 23s last-lba: 1023966
+ 23s sector-size: 512
+ 23s 
+ 23s /tmp/test-growpart-fsimage.vkN1bN/disk.img1 : start=        2048, size=     1019904, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=17A6E99D-98C4-044C-A94C-23DB44AB938E
+ 23s padding 33 sectors for gpt secondary header
+ 23s max_end=2047967 tot=2048000 pt_end=1021952 pt_start=2048 pt_size=1019904
+ 23s resize of /tmp/test-growpart-fsimage.vkN1bN/disk.img returned 0.
+ 23s running[pt_update][] pt_update /tmp/test-growpart-fsimage.vkN1bN/disk.img 1
+ 23s ==== growpart-stdout ====
+ 23s CHANGED: partition=1 start=2048 old: size=1019904 end=1021952 new: size=2045919 end=2047967
+ 23s ==== after ====
+ 23s Disk /tmp/test-growpart-fsimage.vkN1bN/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 23s Units: sectors of 1 * 512 = 512 bytes
+ 23s Sector size (logical/physical): 512 bytes / 512 bytes
+ 23s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 23s Disklabel type: gpt
+ 23s Disk identifier: 47E7B4F9-CBAF-8B4F-8F86-C9515B049753
+ 23s 
+ 23s Device                                      Start     End Sectors  Size Type
+ 23s /tmp/test-growpart-fsimage.vkN1bN/disk.img1  2048 2047966 2045919  999M Linux filesystem
+ 23s 
+ 23s 
+ 23s -- PT_TYPE=gpt GROWPART_RESIZER=sgdisk --
+ 23s ==== before ====
+ 23s GPT PMBR size mismatch (1023999 != 2047999) will be corrected by write.
+ 23s The backup GPT table is not on the end of the device.
+ 23s Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 23s Units: sectors of 1 * 512 = 512 bytes
+ 23s Sector size (logical/physical): 512 bytes / 512 bytes
+ 23s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 23s Disklabel type: gpt
+ 23s Disk identifier: DFBED207-7E95-934A-A39F-A78379205EBC
+ 23s 
+ 23s Device                                      Start     End Sectors  Size Type
+ 23s /tmp/test-growpart-fsimage.DBdIxI/disk.img1  2048 1021951 1019904  498M Linux filesystem
+ 24s ==== growpart-stderr ===
+ 24s update-partition set to true
+ 24s resizing 1 on /tmp/test-growpart-fsimage.DBdIxI/disk.img using resize_sgdisk_gpt
+ 24s running[sgd_info][erronly] sgdisk --info=1 --print /tmp/test-growpart-fsimage.DBdIxI/disk.img
+ 24s WARN: did not find sector size, assuming 512
+ 24s disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: original sgdisk info:
+ 24s Partition GUID code: 0FC63DAF-8483-4772-8E79-3D69D8477DE4 (Linux filesystem)
+ 24s Partition unique GUID: 45803A3E-7F52-F340-822C-CD63CBAD7EB1
+ 24s First sector: 2048 (at 1024.0 KiB)
+ 24s Last sector: 1021951 (at 499.0 MiB)
+ 24s Partition size: 1019904 sectors (498.0 MiB)
+ 24s Attribute flags: 0000000000000000
+ 24s Partition name: ''
+ 24s Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 2048000 sectors, 1000.0 MiB
+ 24s Sector size (logical): 512 bytes
+ 24s Disk identifier (GUID): DFBED207-7E95-934A-A39F-A78379205EBC
+ 24s Partition table holds up to 128 entries
+ 24s Main partition table begins at sector 2 and ends at sector 33
+ 24s First usable sector is 2048, last usable sector is 1023966
+ 24s Partitions will be aligned on 2048-sector boundaries
+ 24s Total free space is 2015 sectors (1007.5 KiB)
+ 24s 
+ 24s Number  Start (sector)    End (sector)  Size       Code  Name
+ 24s    1            2048         1021951   498.0 MiB   8300  
+ 24s running[sgd_pretend][erronly] sgdisk --pretend --move-second-header --print /tmp/test-growpart-fsimage.DBdIxI/disk.img
+ 24s disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: pretend sgdisk info
+ 24s Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 2048000 sectors, 1000.0 MiB
+ 24s Sector size (logical): 512 bytes
+ 24s Disk identifier (GUID): DFBED207-7E95-934A-A39F-A78379205EBC
+ 24s Partition table holds up to 128 entries
+ 24s Main partition table begins at sector 2 and ends at sector 33
+ 24s First usable sector is 2048, last usable sector is 2045952
+ 24s Partitions will be aligned on 2048-sector boundaries
+ 24s Total free space is 1024001 sectors (500.0 MiB)
+ 24s 
+ 24s Number  Start (sector)    End (sector)  Size       Code  Name
+ 24s    1            2048         1021951   498.0 MiB   8300  
+ 24s disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: pt_start=2048 pt_end=1021952 pt_size=1019904 pt_max=2045952 last=2045952
+ 24s disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: code=0FC63DAF-8483-4772-8E79-3D69D8477DE4 guid=45803A3E-7F52-F340-822C-CD63CBAD7EB1 name=''
+ 24s running[sgd_backup][] sgdisk --backup=/tmp/growpart.MwUkxf/pt.backup /tmp/test-growpart-fsimage.DBdIxI/disk.img
+ 24s running[sgdisk_mod][] sgdisk --move-second-header --delete=1 --new=1:2048:2045951 --typecode=1:0FC63DAF-8483-4772-8E79-3D69D8477DE4 --partition-guid=1:45803A3E-7F52-F340-822C-CD63CBAD7EB1 --change-name=1: /tmp/test-growpart-fsimage.DBdIxI/disk.img
+ 24s running[pt_update][] pt_update /tmp/test-growpart-fsimage.DBdIxI/disk.img 1
+ 24s ==== growpart-stdout ====
+ 24s CHANGED: partition=1 start=2048 old: size=1019904 end=1021952 new: size=2043904 end=2045952
+ 24s ==== after ====
+ 24s Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 24s Units: sectors of 1 * 512 = 512 bytes
+ 24s Sector size (logical/physical): 512 bytes / 512 bytes
+ 24s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 24s Disklabel type: gpt
+ 24s Disk identifier: DFBED207-7E95-934A-A39F-A78379205EBC
+ 24s 
+ 24s Device                                      Start     End Sectors  Size Type
+ 24s /tmp/test-growpart-fsimage.DBdIxI/disk.img1  2048 2045951 2043904  998M Linux filesystem
+ 24s 
+ 24s 
+ 24s -- PT_TYPE=dos GROWPART_RESIZER=auto --
+ 25s ==== before ====
+ 25s Disk /tmp/test-growpart-fsimage.LTrDTS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 25s Units: sectors of 1 * 512 = 512 bytes
+ 25s Sector size (logical/physical): 512 bytes / 512 bytes
+ 25s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 25s Disklabel type: dos
+ 25s Disk identifier: 0x65bdb467
+ 25s 
+ 25s Device                                      Boot Start     End Sectors  Size Id Type
+ 25s /tmp/test-growpart-fsimage.LTrDTS/disk.img1       2048 1023999 1021952  499M 83 Linux
+ 25s ==== growpart-stderr ===
+ 25s update-partition set to true
+ 25s resizing 1 on /tmp/test-growpart-fsimage.LTrDTS/disk.img using resize_sfdisk_dos
+ 25s running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.LTrDTS/disk.img
+ 25s 2048000 sectors of 512. total size=1048576000 bytes
+ 25s running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.LTrDTS/disk.img
+ 25s ## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.LTrDTS/disk.img
+ 25s label: dos
+ 25s label-id: 0x65bdb467
+ 25s device: /tmp/test-growpart-fsimage.LTrDTS/disk.img
+ 25s unit: sectors
+ 25s sector-size: 512
+ 25s 
+ 25s /tmp/test-growpart-fsimage.LTrDTS/disk.img1 : start=        2048, size=     1021952, type=83
+ 25s padding 33 sectors for gpt secondary header
+ 25s max_end=2047967 tot=2048000 pt_end=1024000 pt_start=2048 pt_size=1021952
+ 25s resize of /tmp/test-growpart-fsimage.LTrDTS/disk.img returned 0.
+ 25s running[pt_update][] pt_update /tmp/test-growpart-fsimage.LTrDTS/disk.img 1
+ 25s ==== growpart-stdout ====
+ 25s CHANGED: partition=1 start=2048 old: size=1021952 end=1024000 new: size=2045919 end=2047967
+ 25s ==== after ====
+ 25s Disk /tmp/test-growpart-fsimage.LTrDTS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 25s Units: sectors of 1 * 512 = 512 bytes
+ 25s Sector size (logical/physical): 512 bytes / 512 bytes
+ 25s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 25s Disklabel type: dos
+ 25s Disk identifier: 0x65bdb467
+ 25s 
+ 25s Device                                      Boot Start     End Sectors  Size Id Type
+ 25s /tmp/test-growpart-fsimage.LTrDTS/disk.img1       2048 2047966 2045919  999M 83 Linux
+ 25s 
+ 25s 
+ 25s -- PT_TYPE=dos GROWPART_RESIZER=sfdisk --
+ 25s ==== before ====
+ 25s Disk /tmp/test-growpart-fsimage.mNv4eS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 25s Units: sectors of 1 * 512 = 512 bytes
+ 25s Sector size (logical/physical): 512 bytes / 512 bytes
+ 25s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 25s Disklabel type: dos
+ 25s Disk identifier: 0xee045153
+ 25s 
+ 25s Device                                      Boot Start     End Sectors  Size Id Type
+ 25s /tmp/test-growpart-fsimage.mNv4eS/disk.img1       2048 1023999 1021952  499M 83 Linux
+ 26s ==== growpart-stderr ===
+ 26s update-partition set to true
+ 26s resizing 1 on /tmp/test-growpart-fsimage.mNv4eS/disk.img using resize_sfdisk_dos
+ 26s running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.mNv4eS/disk.img
+ 26s 2048000 sectors of 512. total size=1048576000 bytes
+ 26s running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.mNv4eS/disk.img
+ 26s ## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.mNv4eS/disk.img
+ 26s label: dos
+ 26s label-id: 0xee045153
+ 26s device: /tmp/test-growpart-fsimage.mNv4eS/disk.img
+ 26s unit: sectors
+ 26s sector-size: 512
+ 26s 
+ 26s /tmp/test-growpart-fsimage.mNv4eS/disk.img1 : start=        2048, size=     1021952, type=83
+ 26s padding 33 sectors for gpt secondary header
+ 26s max_end=2047967 tot=2048000 pt_end=1024000 pt_start=2048 pt_size=1021952
+ 26s resize of /tmp/test-growpart-fsimage.mNv4eS/disk.img returned 0.
+ 26s running[pt_update][] pt_update /tmp/test-growpart-fsimage.mNv4eS/disk.img 1
+ 26s ==== growpart-stdout ====
+ 26s CHANGED: partition=1 start=2048 old: size=1021952 end=1024000 new: size=2045919 end=2047967
+ 26s ==== after ====
+ 26s Disk /tmp/test-growpart-fsimage.mNv4eS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+ 26s Units: sectors of 1 * 512 = 512 bytes
+ 26s Sector size (logical/physical): 512 bytes / 512 bytes
+ 26s I/O size (minimum/optimal): 512 bytes / 512 bytes
+ 26s Disklabel type: dos
+ 26s Disk identifier: 0xee045153
+ 26s 
+ 26s Device                                      Boot Start     End Sectors  Size Id Type
+ 26s /tmp/test-growpart-fsimage.mNv4eS/disk.img1       2048 2047966 2045919  999M 83 Linux
+ 26s 
+ 26s 
+ 26s -- PT_TYPE=dos GROWPART_RESIZER=sgdisk --
+ 26s Skipping resize test for dos/sgdisk. not supported.
+ 26s /tmp/autopkgtest.dsKomu/wrapper.sh: checking for leaked background processes...
+ 26s /tmp/autopkgtest.dsKomu/wrapper.sh: waiting for tee/cat subprocesses...
+ 26s /tmp/autopkgtest.dsKomu/wrapper.sh: cleaning up...
+ 26s /tmp/autopkgtest.dsKomu/wrapper.sh: Exit status: 0
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest [01:57:03]: test growpart-fsimage: -----------------------]
+ 26s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 26s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-stdout /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-fsimage-stdout
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-stderr /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-fsimage-stderr
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest [01:57:03]: test growpart-fsimage:  - - - - - - - - - - results - - - - - - - - - -
+ 26s growpart-fsimage     PASS
+ 26s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-artifacts/ /home/hachi/openkylin_test/sharefolder/results/cloud-utils/artifacts/
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.dsKomu/growpart-fsimage-artifacts', '/tmp/autopkgtest.dsKomu/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest [01:57:03]: test growpart-fsimage-middle: preparing testbed
+ 26s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['cloud-guest-utils', 'fdisk', 'gdisk'], deps_new=['cloud-guest-utils', 'fdisk', 'gdisk']
+ 26s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 26s autopkgtest: DBG: install_deps: deps_new=['cloud-guest-utils', 'fdisk', 'gdisk']
+ 26s autopkgtest: DBG: install-deps: satisfying cloud-guest-utils, fdisk, gdisk
+ 26s autopkgtest: DBG: install-deps: architecture resolved: cloud-guest-utils, fdisk, gdisk
+ 26s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: can use apt-get on testbed: True
+ 27s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dsKomu'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-9d3095a5-b713-451d-b814-320b00d0aa86//tmp/autopkgtest.dsKomu/2-autopkgtest-satdep.deb /tmp/autopkgtest.dsKomu/2-autopkgtest-satdep.deb
+ 27s autopkgtest: DBG: got reply from testbed: ok
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.dsKomu/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 28s Reading package lists...
+ 28s Building dependency tree...
+ 28s Reading state information...
+ 29s Starting pkgProblemResolver with broken count: 0
+ 29s Starting 2 pkgProblemResolver with broken count: 0
+ 29s Done
+ 30s The following NEW packages will be installed:
+ 30s   autopkgtest-satdep
+ 30s 0 upgraded, 1 newly installed, 0 to remove and 1066 not upgraded.
+ 30s Need to get 0 B/716 B of archives.
+ 30s After this operation, 0 B of additional disk space will be used.
+ 30s Get:1 /tmp/autopkgtest.dsKomu/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [716 B]
+ 32s Selecting previously unselected package autopkgtest-satdep.
+ 32s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 32s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 32s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 32s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 32s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 32s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 32s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 32s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 32s Unpacking autopkgtest-satdep (0) ...
+ 33s Setting up autopkgtest-satdep (0) ...
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'cloud-guest-utils'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 37s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 38s (Reading database ... 193809 files and directories currently installed.)
+ 38s Removing autopkgtest-satdep (0) ...
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-packages.all"], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-packages.all /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-fsimage-middle-packages.all
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.dsKomu/build.tan/src'], kind short, sout raw, serr raw, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.dsKomu/build.tan/src already exists
+ 39s autopkgtest [01:57:16]: test growpart-fsimage-middle: [-----------------------
+ 39s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.dsKomu/wrapper.sh --debug --artifacts=/tmp/autopkgtest.dsKomu/growpart-fsimage-middle-artifacts --chdir=/tmp/autopkgtest.dsKomu/build.tan/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stderr --stdout=/tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stdout --tmp=/tmp/autopkgtest.dsKomu/autopkgtest_tmp --make-executable=/tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage-middle -- /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage-middle'], kind test, sout raw, serr raw, env []
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-artifacts
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: changing to directory: /tmp/autopkgtest.dsKomu/build.tan/src
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: LANG=C.UTF-8
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LANGUAGE
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_ADDRESS
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_ALL
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_COLLATE
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_CTYPE
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MESSAGES
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MONETARY
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_NAME
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_NUMERIC
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_PAPER
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_TIME
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: pretending to be a login shell
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: will write standard error to /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stderr
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: will write stdout to /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stdout
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.dsKomu/autopkgtest_tmp
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: marking as executable: /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage-middle
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: command to run: /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-fsimage-middle
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: copying /tmp/tmp.YEmBw4f345/out to stdout and file: /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stdout
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: copying /tmp/tmp.YEmBw4f345/err to standard error and file: /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stdout
+ 39s /tmp/autopkgtest.dsKomu/wrapper.sh: writing script pid 251486 to /tmp/autopkgtest_script_pid
+ 39s ====== Testing with resizer=sfdisk =====
+ 39s ==== before ====
+ 39s label: gpt
+ 39s label-id: 67CCB7DB-DEE7-4A7F-8F67-4DAC2B2F09A9
+ 39s device: disk-sfdisk.img
+ 39s unit: sectors
+ 39s first-lba: 34
+ 39s last-lba: 4194270
+ 39s sector-size: 512
+ 39s 
+ 39s disk-sfdisk.img1 : start=        2048, size=      204800, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=5ADB0402-936C-4AF3-8E56-74C161BCF925, name="misc fs"
+ 39s disk-sfdisk.img2 : start=      206848, size=      524288, type=0657FD6D-A4AB-43C4-84E5-0933C84B4F4F, uuid=72174002-4428-427C-9DED-92479F1CDB4A, name="my swap"
+ 39s disk-sfdisk.img3 : start=      731136, size=      819200, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=EE4FB792-DA02-4E1E-90DA-961D3A603225, name="root filesystem"
+ 39s disk-sfdisk.img4 : start=          34, size=        2014, type=21686148-6449-6E6F-744E-656564454649, uuid=AC2AF951-6AD2-4B14-818F-BF457A4386AD, name="BIOS boot partition"
+ 39s disk-sfdisk.img5 : start=     4061184, size=      133087, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=FC3742E9-53E2-410C-8036-8B64DD9F2ED6, name="config drive"
+ 40s ==== after ====
+ 40s label: gpt
+ 40s label-id: 67CCB7DB-DEE7-4A7F-8F67-4DAC2B2F09A9
+ 40s device: disk-sfdisk.img
+ 40s unit: sectors
+ 40s first-lba: 34
+ 40s last-lba: 4194270
+ 40s sector-size: 512
+ 40s 
+ 40s disk-sfdisk.img1 : start=        2048, size=      204800, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=5ADB0402-936C-4AF3-8E56-74C161BCF925, name="misc fs"
+ 40s disk-sfdisk.img2 : start=      206848, size=      524288, type=0657FD6D-A4AB-43C4-84E5-0933C84B4F4F, uuid=72174002-4428-427C-9DED-92479F1CDB4A, name="my swap"
+ 40s disk-sfdisk.img3 : start=      731136, size=     3330048, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=EE4FB792-DA02-4E1E-90DA-961D3A603225, name="root filesystem"
+ 40s disk-sfdisk.img4 : start=          34, size=        2014, type=21686148-6449-6E6F-744E-656564454649, uuid=AC2AF951-6AD2-4B14-818F-BF457A4386AD, name="BIOS boot partition"
+ 40s disk-sfdisk.img5 : start=     4061184, size=      133087, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=FC3742E9-53E2-410C-8036-8B64DD9F2ED6, name="config drive"
+ 40s 
+ 40s ==== after sgdisk ===
+ 40s Disk disk-sfdisk.img: 4194304 sectors, 2.0 GiB
+ 40s Sector size (logical): 512 bytes
+ 40s Disk identifier (GUID): 67CCB7DB-DEE7-4A7F-8F67-4DAC2B2F09A9
+ 40s Partition table holds up to 128 entries
+ 40s Main partition table begins at sector 2 and ends at sector 33
+ 40s First usable sector is 34, last usable sector is 4194270
+ 40s Partitions will be aligned on 2-sector boundaries
+ 40s Total free space is 0 sectors (0 bytes)
+ 40s 
+ 40s Number  Start (sector)    End (sector)  Size       Code  Name
+ 40s    1            2048          206847   100.0 MiB   8300  misc fs
+ 40s    2          206848          731135   256.0 MiB   8200  my swap
+ 40s    3          731136         4061183   1.6 GiB     8300  root filesystem
+ 40s    4              34            2047   1007.0 KiB  EF02  BIOS boot partition
+ 40s    5         4061184         4194270   65.0 MiB    8300  config drive
+ 40s ==== growpart-stderr ===
+ 40s update-partition set to true
+ 40s resizing 3 on /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img using resize_sfdisk_gpt
+ 40s running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img
+ 40s 4194304 sectors of 512. total size=2147483648 bytes
+ 40s running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img
+ 40s ## sfdisk --unit=S --dump /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img
+ 40s label: gpt
+ 40s label-id: 67CCB7DB-DEE7-4A7F-8F67-4DAC2B2F09A9
+ 40s device: /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img
+ 40s unit: sectors
+ 40s first-lba: 34
+ 40s last-lba: 4194270
+ 40s sector-size: 512
+ 40s 
+ 40s /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img1 : start=        2048, size=      204800, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=5ADB0402-936C-4AF3-8E56-74C161BCF925, name="misc fs"
+ 40s /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img2 : start=      206848, size=      524288, type=0657FD6D-A4AB-43C4-84E5-0933C84B4F4F, uuid=72174002-4428-427C-9DED-92479F1CDB4A, name="my swap"
+ 40s /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img3 : start=      731136, size=      819200, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=EE4FB792-DA02-4E1E-90DA-961D3A603225, name="root filesystem"
+ 40s /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img4 : start=          34, size=        2014, type=21686148-6449-6E6F-744E-656564454649, uuid=AC2AF951-6AD2-4B14-818F-BF457A4386AD, name="BIOS boot partition"
+ 40s /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img5 : start=     4061184, size=      133087, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=FC3742E9-53E2-410C-8036-8B64DD9F2ED6, name="config drive"
+ 40s max_end=4061184 tot=4194304 pt_end=1550336 pt_start=731136 pt_size=819200
+ 40s resize of /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img returned 0.
+ 40s running[pt_update][] pt_update /tmp/test-growpart-fsimage-middle.LfFPzG/disk-sfdisk.img 3
+ 40s ==== growpart-stdout ====
+ 40s CHANGED: partition=3 start=731136 old: size=819200 end=1550336 new: size=3330048 end=4061184
+ 40s FAILED: [resizer=sfdisk] output ^^^ did not match expected vvv:
+ 40s CHANGED: partition=3 start=731136 old: size=819200 end=1550335 new: size=3330048 end=4061183
+ 40s /tmp/autopkgtest.dsKomu/wrapper.sh: checking for leaked background processes...
+ 40s /tmp/autopkgtest.dsKomu/wrapper.sh: waiting for tee/cat subprocesses...
+ 40s /tmp/autopkgtest.dsKomu/wrapper.sh: cleaning up...
+ 40s /tmp/autopkgtest.dsKomu/wrapper.sh: Exit status: 1
+ 40s autopkgtest: DBG: testbed command exited with code 1
+ 40s autopkgtest [01:57:17]: test growpart-fsimage-middle: -----------------------]
+ 40s autopkgtest: DBG: testbed executing test finished with exit status 1
+ 40s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stdout /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-fsimage-middle-stdout
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-stderr /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-fsimage-middle-stderr
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest [01:57:17]: test growpart-fsimage-middle:  - - - - - - - - - - results - - - - - - - - - -
+ 40s growpart-fsimage-middle FAIL non-zero exit status 1
+ 40s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-fsimage-middle-artifacts/ /home/hachi/openkylin_test/sharefolder/results/cloud-utils/artifacts/
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.dsKomu/growpart-fsimage-middle-artifacts', '/tmp/autopkgtest.dsKomu/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest [01:57:17]: test growpart-start-matches-size: preparing testbed
+ 40s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['cloud-guest-utils', 'fdisk', 'gdisk'], deps_new=['cloud-guest-utils', 'fdisk', 'gdisk']
+ 40s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 40s autopkgtest: DBG: install_deps: deps_new=['cloud-guest-utils', 'fdisk', 'gdisk']
+ 40s autopkgtest: DBG: install-deps: satisfying cloud-guest-utils, fdisk, gdisk
+ 40s autopkgtest: DBG: install-deps: architecture resolved: cloud-guest-utils, fdisk, gdisk
+ 40s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 41s autopkgtest: DBG: testbed command exited with code 0
+ 41s autopkgtest: DBG: can use apt-get on testbed: True
+ 41s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dsKomu'], kind short, sout raw, serr pipe, env []
+ 41s autopkgtest: DBG: testbed command exited with code 0
+ 41s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-9d3095a5-b713-451d-b814-320b00d0aa86//tmp/autopkgtest.dsKomu/3-autopkgtest-satdep.deb /tmp/autopkgtest.dsKomu/3-autopkgtest-satdep.deb
+ 41s autopkgtest: DBG: got reply from testbed: ok
+ 41s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.dsKomu/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 42s Reading package lists...
+ 42s Building dependency tree...
+ 42s Reading state information...
+ 43s Starting pkgProblemResolver with broken count: 0
+ 43s Starting 2 pkgProblemResolver with broken count: 0
+ 43s Done
+ 44s The following NEW packages will be installed:
+ 44s   autopkgtest-satdep
+ 44s 0 upgraded, 1 newly installed, 0 to remove and 1066 not upgraded.
+ 44s Need to get 0 B/716 B of archives.
+ 44s After this operation, 0 B of additional disk space will be used.
+ 44s Get:1 /tmp/autopkgtest.dsKomu/3-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [716 B]
+ 46s Selecting previously unselected package autopkgtest-satdep.
+ 46s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 46s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 46s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 46s Preparing to unpack .../3-autopkgtest-satdep.deb ...
+ 46s Unpacking autopkgtest-satdep (0) ...
+ 46s Setting up autopkgtest-satdep (0) ...
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'cloud-guest-utils'], kind short, sout pipe, serr pipe, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 51s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 51s (Reading database ... 193809 files and directories currently installed.)
+ 51s Removing autopkgtest-satdep (0) ...
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.dsKomu/growpart-start-matches-size-packages.all"], kind short, sout raw, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-start-matches-size-packages.all /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-start-matches-size-packages.all
+ 52s autopkgtest: DBG: got reply from testbed: ok
+ 52s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.dsKomu/build.tan/src'], kind short, sout raw, serr raw, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.dsKomu/build.tan/src already exists
+ 52s autopkgtest [01:57:29]: test growpart-start-matches-size: [-----------------------
+ 52s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.dsKomu/wrapper.sh --debug --artifacts=/tmp/autopkgtest.dsKomu/growpart-start-matches-size-artifacts --chdir=/tmp/autopkgtest.dsKomu/build.tan/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.dsKomu/growpart-start-matches-size-stderr --stdout=/tmp/autopkgtest.dsKomu/growpart-start-matches-size-stdout --tmp=/tmp/autopkgtest.dsKomu/autopkgtest_tmp --make-executable=/tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-start-matches-size -- /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-start-matches-size'], kind test, sout raw, serr raw, env []
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.dsKomu/growpart-start-matches-size-artifacts
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: changing to directory: /tmp/autopkgtest.dsKomu/build.tan/src
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: setting environment: LANG=C.UTF-8
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LANGUAGE
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_ADDRESS
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_ALL
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_COLLATE
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_CTYPE
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MESSAGES
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_MONETARY
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_NAME
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_NUMERIC
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_PAPER
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: unsetting environment: LC_TIME
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: pretending to be a login shell
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: will write standard error to /tmp/autopkgtest.dsKomu/growpart-start-matches-size-stderr
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: will write stdout to /tmp/autopkgtest.dsKomu/growpart-start-matches-size-stdout
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.dsKomu/autopkgtest_tmp
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: marking as executable: /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-start-matches-size
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: command to run: /tmp/autopkgtest.dsKomu/build.tan/src/debian/tests/growpart-start-matches-size
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: copying /tmp/tmp.IzpGwbPfKp/out to stdout and file: /tmp/autopkgtest.dsKomu/growpart-start-matches-size-stdout
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: copying /tmp/tmp.IzpGwbPfKp/err to standard error and file: /tmp/autopkgtest.dsKomu/growpart-start-matches-size-stdout
+ 52s /tmp/autopkgtest.dsKomu/wrapper.sh: writing script pid 251640 to /tmp/autopkgtest_script_pid
+ 52s ====== Testing with resizer=sfdisk =====
+ 53s ====== Testing with resizer=sgdisk =====
+ 54s FAILED: sgdisk failed. expected start/size != found start/size (1026048/3166207 != 1026048/3166208)
+ 54s /tmp/autopkgtest.dsKomu/wrapper.sh: checking for leaked background processes...
+ 55s /tmp/autopkgtest.dsKomu/wrapper.sh: waiting for tee/cat subprocesses...
+ 55s /tmp/autopkgtest.dsKomu/wrapper.sh: cleaning up...
+ 55s /tmp/autopkgtest.dsKomu/wrapper.sh: Exit status: 1
+ 55s autopkgtest: DBG: testbed command exited with code 1
+ 55s autopkgtest [01:57:32]: test growpart-start-matches-size: -----------------------]
+ 55s autopkgtest: DBG: testbed executing test finished with exit status 1
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-start-matches-size-stdout /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-start-matches-size-stdout
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-start-matches-size-stderr /home/hachi/openkylin_test/sharefolder/results/cloud-utils/growpart-start-matches-size-stderr
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest [01:57:32]: test growpart-start-matches-size:  - - - - - - - - - - results - - - - - - - - - -
+ 55s growpart-start-matches-size FAIL non-zero exit status 1
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dsKomu/growpart-start-matches-size-artifacts/ /home/hachi/openkylin_test/sharefolder/results/cloud-utils/artifacts/
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.dsKomu/growpart-start-matches-size-artifacts', '/tmp/autopkgtest.dsKomu/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 55s autopkgtest [01:57:32]: @@@@@@@@@@@@@@@@@@@@ summary
+ 55s growpart-loop        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 55s growpart-lvm         SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 55s mic                  SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 55s growpart-loop        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 55s growpart-lvm         SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 55s mic                  SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 55s growpart-fsimage     PASS
+ 55s growpart-fsimage-middle FAIL non-zero exit status 1
+ 55s growpart-start-matches-size FAIL non-zero exit status 1
+ 55s autopkgtest: DBG: testbed stop
+ 55s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.dsKomu
+ 55s autopkgtest: DBG: sending command to testbed: close
+ 55s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 56s autopkgtest: DBG: got reply from testbed: ok
+ 56s autopkgtest: DBG: sending command to testbed: quit

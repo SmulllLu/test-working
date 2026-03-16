@@ -1,0 +1,26 @@
+++++ BEGINNING TEST
+keyctl add -x user dh:prime 00b6894d8ff7af56d446c950c7e91d298a078daea77966f11fc16f229211737f1f39cef3dad7872a538f6c8f9a276a7cf77bb2d63a872a4db9ed12ae0f1c69af9bf2f2e3691d3615a1d7d577a87d1cb4aba0494bae0c249b0cceef6b7ab9a7be70b5b45e4cf7cb71ad8feb7a4d6c7ccb96d5298f0feeb47877605e80a0338691e35862f0f4cbb209e17dd9febcce4c21577006ceb1157b181592d2f784ba44e006c314df5306bdbb17a010b3660d479356d8d52c5af014536c20897e7653218e2c7a650a73dc27584598de92de5c62706771fa2d67f625441d911ca03f2149b6d4c76b5ecd9896e9d799a3a500ececc519e31b71154d7b361bd0dd15f7ce8dfc63 @s
+563508163
+keyctl add -x user dh:generator 02 @s
+702704464
+keyctl add -x user dh:private 40949da2ca2b7c353de38fefb06ddd0d67479a6361c89e77b980d2486c4d31971eb88f6572069973e3ae5a43ce76bccb35ea05ac6538eb0ea6adee4937600435dd7940885d2e3f78c7280834f878d3d550cc9305330bb8f02085ee6c230d42d84eb67a245b92817fd154bcb1394a289d11afb5a1e50e13950908af70756704e9bf03dff0e5d490743841c534cb7e2cf4b9f0493a730b0d71096a16bdc0e852f175755134b2b41112280a88212728afbe16d417f31893cbe442e06d212d8efe227aa0039a65ce998107fae278511c6bf4d59932534ae9fc39db80635163c0546657500866d5461c5fa3540238324a29f316e068f3ba1737d042cb51a8971bc7a2 @s
+200970077
+keyctl add -x logon dh:logon 00 @s
+811351955
++++ CHECK WRONG KEY TYPE
+keyctl dh_compute 200970077 563508163 811351955
+keyctl_dh_compute_alloc: Required key not available
+keyctl dh_compute 200970077 563508163 @s
+keyctl_dh_compute_alloc: Operation not supported
++++ CHECK MISSING KEY
+keyctl dh_compute 200970077 563508163 0
+keyctl_dh_compute_alloc: Required key not available
+keyctl unlink 702704464 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 702704464 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 702704464 @s
+keyctl_unlink: Required key not available
+keyctl dh_compute 200970077 563508163 702704464
+keyctl_dh_compute_alloc: Required key not available
+++++ FINISHED TEST: PASS

@@ -1,0 +1,734 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [02:24:49]: starting date and time: 2024-07-18 02:24:49+0800
+  0s autopkgtest [02:24:49]: version @version@
+  0s autopkgtest [02:24:49]: host lili; command line: /usr/bin/autopkgtest curl_8.5.0-ok1.8.dsc -o /home/hachi/openkylin_test/sharefolder/results/curl -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.CajqxY
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a//tmp/autopkgtest.CajqxY
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a//tmp/autopkgtest.CajqxY', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CajqxY'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.CajqxY/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.CajqxY/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [02:24:50]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:24:51]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CajqxY/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CajqxY/testbed-packages /home/hachi/openkylin_test/sharefolder/results/curl/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:24:51]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [02:24:51]: @@@@@@@@@@@@@@@@@@@@ source curl_8.5.0-ok1.8.dsc
+  2s autopkgtest: DBG: blame += curl_8.5.0-ok1.8.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CajqxY'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown curl_8.5.0-ok1.8.dsc /tmp/autopkgtest.CajqxY/curl_8.5.0-ok1.8.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CajqxY'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown curl_8.5.0.orig.tar.gz /tmp/autopkgtest.CajqxY/curl_8.5.0.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CajqxY'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown curl_8.5.0-ok1.8.debian.tar.xz /tmp/autopkgtest.CajqxY/curl_8.5.0-ok1.8.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.CajqxY/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.CajqxY/curl_8.5.0-ok1.8.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.CajqxY/build.XXX
+  3s + builddir=/tmp/autopkgtest.CajqxY/build.iWs
+  3s + cd /tmp/autopkgtest.CajqxY/build.iWs
+  3s + dpkg-source -x /tmp/autopkgtest.CajqxY/curl_8.5.0-ok1.8.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.YkkJh3ig/trustedkeys.kbx': General error
+  3s gpgv: Signature made Thu 28 Mar 2024 07:17:42 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.CajqxY/curl_8.5.0-ok1.8.dsc
+  3s dpkg-source: info: extracting curl in src
+  3s dpkg-source: info: unpacking curl_8.5.0.orig.tar.gz
+  4s dpkg-source: info: unpacking curl_8.5.0-ok1.8.debian.tar.xz
+  4s dpkg-source: info: using patch list from debian/patches/series
+  4s dpkg-source: info: applying 04_workaround_as_needed_bug.patch
+  4s dpkg-source: info: applying 08_enable-zsh.patch
+  4s dpkg-source: info: applying build-Divide-mit-krb5-gssapi-link-flags-between-LDFLAGS-a.patch
+  4s dpkg-source: info: applying 11_omit-directories-from-config.patch
+  4s dpkg-source: info: applying Remove-curl-s-LDFLAGS-from-curl-config-static-libs.patch
+  4s dpkg-source: info: applying dist_add_tests_errorcodes_pl_to_the_tarball.patch
+  4s dpkg-source: info: applying openldap_fix_an_LDAP_crash.patch
+  4s dpkg-source: info: applying CVE-2024-0853.patch
+  4s dpkg-source: info: applying add_errorcodes_upstream_file.patch
+  4s dpkg-source: info: applying 90_gnutls.patch
+  4s dpkg-source: info: applying fix-debian-format-quilt-native.patch
+  4s dpkg-source: info: applying feat-build-websockets-websocks.patch
+  4s dpkg-source: info: applying fix-build-apply-08_enable-zsh.patch-install-patch-by-buil.patch
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [02:24:53]: testing package curl version 8.5.0-ok1.8
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CajqxY/build.iWs/src/debian/ /home/hachi/openkylin_test/sharefolder/results/curl/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency curl
+  4s autopkgtest: DBG: marked alternatives ['curl'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  4s autopkgtest: DBG: synthesised dependency autoconf
+  4s autopkgtest: DBG: synthesised dependency automake
+  4s autopkgtest: DBG: synthesised dependency ca-certificates
+  4s autopkgtest: DBG: synthesised dependency dh-exec
+  4s autopkgtest: DBG: synthesised dependency groff-base
+  4s autopkgtest: DBG: synthesised dependency libbrotli-dev
+  4s autopkgtest: DBG: synthesised dependency libgnutls28-dev
+  4s autopkgtest: DBG: synthesised dependency libidn2-dev
+  4s autopkgtest: DBG: synthesised dependency libkrb5-dev
+  4s autopkgtest: DBG: synthesised dependency libldap2-dev
+  4s autopkgtest: DBG: synthesised dependency libnghttp2-dev
+  4s autopkgtest: DBG: synthesised dependency libpsl-dev
+  4s autopkgtest: DBG: synthesised dependency librtmp-dev
+  4s autopkgtest: DBG: synthesised dependency libssh-dev
+  4s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+  4s autopkgtest: DBG: synthesised dependency libssl-dev
+  4s autopkgtest: DBG: synthesised dependency libtool
+  4s autopkgtest: DBG: synthesised dependency libzstd-dev
+  4s autopkgtest: DBG: synthesised dependency locales-all
+  4s autopkgtest: DBG: synthesised dependency openssh-server
+  4s autopkgtest: DBG: synthesised dependency python3:native
+  4s autopkgtest: DBG: synthesised dependency python3-impacket
+  4s autopkgtest: DBG: synthesised dependency gnutls-bin
+  4s autopkgtest: DBG: synthesised dependency quilt
+  4s autopkgtest: DBG: synthesised dependency stunnel4
+  4s autopkgtest: DBG: synthesised dependency zlib1g-dev
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: Test defined: name upstream-tests-openssl path debian/tests/upstream-tests-openssl command "None" restrictions ['allow-stderr'] features [] depends ['curl', 'debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential'] 
+  4s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  4s autopkgtest: DBG: synthesised dependency autoconf
+  4s autopkgtest: DBG: synthesised dependency automake
+  4s autopkgtest: DBG: synthesised dependency ca-certificates
+  4s autopkgtest: DBG: synthesised dependency dh-exec
+  4s autopkgtest: DBG: synthesised dependency groff-base
+  4s autopkgtest: DBG: synthesised dependency libbrotli-dev
+  4s autopkgtest: DBG: synthesised dependency libgnutls28-dev
+  4s autopkgtest: DBG: synthesised dependency libidn2-dev
+  4s autopkgtest: DBG: synthesised dependency libkrb5-dev
+  4s autopkgtest: DBG: synthesised dependency libldap2-dev
+  4s autopkgtest: DBG: synthesised dependency libnghttp2-dev
+  4s autopkgtest: DBG: synthesised dependency libpsl-dev
+  4s autopkgtest: DBG: synthesised dependency librtmp-dev
+  4s autopkgtest: DBG: synthesised dependency libssh-dev
+  4s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+  4s autopkgtest: DBG: synthesised dependency libssl-dev
+  4s autopkgtest: DBG: synthesised dependency libtool
+  4s autopkgtest: DBG: synthesised dependency libzstd-dev
+  4s autopkgtest: DBG: synthesised dependency locales-all
+  4s autopkgtest: DBG: synthesised dependency openssh-server
+  4s autopkgtest: DBG: synthesised dependency python3:native
+  4s autopkgtest: DBG: synthesised dependency python3-impacket
+  4s autopkgtest: DBG: synthesised dependency gnutls-bin
+  4s autopkgtest: DBG: synthesised dependency quilt
+  4s autopkgtest: DBG: synthesised dependency stunnel4
+  4s autopkgtest: DBG: synthesised dependency zlib1g-dev
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: Test defined: name upstream-tests-gnutls path debian/tests/upstream-tests-gnutls command "None" restrictions ['allow-stderr'] features [] depends ['debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential'] 
+  4s autopkgtest: DBG: processing dependency gcc
+  4s autopkgtest: DBG: processing dependency libc-dev
+  4s autopkgtest: DBG: processing dependency libcurl4-openssl-dev | libcurl-dev
+  4s autopkgtest: DBG: processing dependency libldap-dev
+  4s autopkgtest: DBG: processing dependency slapd
+  4s autopkgtest: DBG: processing dependency pkgconf
+  4s autopkgtest: DBG: Test defined: name curl-ldapi-test path debian/tests/curl-ldapi-test command "None" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features [] depends ['gcc', 'libc-dev', 'libcurl4-openssl-dev | libcurl-dev', 'libldap-dev', 'slapd', 'pkgconf'] 
+  4s curl-ldapi-test      SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  4s autopkgtest [02:24:53]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CajqxY/build.iWs/src/ /home/hachi/openkylin_test/sharefolder/results/curl/tests-tree/
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: processing dependency curl
+  7s autopkgtest: DBG: marked alternatives ['curl'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency @builddeps@
+  7s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  7s autopkgtest: DBG: synthesised dependency autoconf
+  7s autopkgtest: DBG: synthesised dependency automake
+  7s autopkgtest: DBG: synthesised dependency ca-certificates
+  7s autopkgtest: DBG: synthesised dependency dh-exec
+  7s autopkgtest: DBG: synthesised dependency groff-base
+  7s autopkgtest: DBG: synthesised dependency libbrotli-dev
+  7s autopkgtest: DBG: synthesised dependency libgnutls28-dev
+  7s autopkgtest: DBG: synthesised dependency libidn2-dev
+  7s autopkgtest: DBG: synthesised dependency libkrb5-dev
+  7s autopkgtest: DBG: synthesised dependency libldap2-dev
+  7s autopkgtest: DBG: synthesised dependency libnghttp2-dev
+  7s autopkgtest: DBG: synthesised dependency libpsl-dev
+  7s autopkgtest: DBG: synthesised dependency librtmp-dev
+  7s autopkgtest: DBG: synthesised dependency libssh-dev
+  7s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+  7s autopkgtest: DBG: synthesised dependency libssl-dev
+  7s autopkgtest: DBG: synthesised dependency libtool
+  7s autopkgtest: DBG: synthesised dependency libzstd-dev
+  7s autopkgtest: DBG: synthesised dependency locales-all
+  7s autopkgtest: DBG: synthesised dependency openssh-server
+  7s autopkgtest: DBG: synthesised dependency python3:native
+  7s autopkgtest: DBG: synthesised dependency python3-impacket
+  7s autopkgtest: DBG: synthesised dependency gnutls-bin
+  7s autopkgtest: DBG: synthesised dependency quilt
+  7s autopkgtest: DBG: synthesised dependency stunnel4
+  7s autopkgtest: DBG: synthesised dependency zlib1g-dev
+  7s autopkgtest: DBG: synthesised dependency build-essential
+  7s autopkgtest: DBG: Test defined: name upstream-tests-openssl path debian/tests/upstream-tests-openssl command "None" restrictions ['allow-stderr'] features [] depends ['curl', 'debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential'] 
+  7s autopkgtest: DBG: processing dependency @builddeps@
+  7s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  7s autopkgtest: DBG: synthesised dependency autoconf
+  7s autopkgtest: DBG: synthesised dependency automake
+  7s autopkgtest: DBG: synthesised dependency ca-certificates
+  7s autopkgtest: DBG: synthesised dependency dh-exec
+  7s autopkgtest: DBG: synthesised dependency groff-base
+  7s autopkgtest: DBG: synthesised dependency libbrotli-dev
+  7s autopkgtest: DBG: synthesised dependency libgnutls28-dev
+  7s autopkgtest: DBG: synthesised dependency libidn2-dev
+  7s autopkgtest: DBG: synthesised dependency libkrb5-dev
+  7s autopkgtest: DBG: synthesised dependency libldap2-dev
+  7s autopkgtest: DBG: synthesised dependency libnghttp2-dev
+  7s autopkgtest: DBG: synthesised dependency libpsl-dev
+  7s autopkgtest: DBG: synthesised dependency librtmp-dev
+  7s autopkgtest: DBG: synthesised dependency libssh-dev
+  7s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+  7s autopkgtest: DBG: synthesised dependency libssl-dev
+  7s autopkgtest: DBG: synthesised dependency libtool
+  7s autopkgtest: DBG: synthesised dependency libzstd-dev
+  7s autopkgtest: DBG: synthesised dependency locales-all
+  7s autopkgtest: DBG: synthesised dependency openssh-server
+  7s autopkgtest: DBG: synthesised dependency python3:native
+  7s autopkgtest: DBG: synthesised dependency python3-impacket
+  7s autopkgtest: DBG: synthesised dependency gnutls-bin
+  7s autopkgtest: DBG: synthesised dependency quilt
+  7s autopkgtest: DBG: synthesised dependency stunnel4
+  7s autopkgtest: DBG: synthesised dependency zlib1g-dev
+  7s autopkgtest: DBG: synthesised dependency build-essential
+  7s autopkgtest: DBG: Test defined: name upstream-tests-gnutls path debian/tests/upstream-tests-gnutls command "None" restrictions ['allow-stderr'] features [] depends ['debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential'] 
+  7s autopkgtest: DBG: processing dependency gcc
+  7s autopkgtest: DBG: processing dependency libc-dev
+  7s autopkgtest: DBG: processing dependency libcurl4-openssl-dev | libcurl-dev
+  7s autopkgtest: DBG: processing dependency libldap-dev
+  7s autopkgtest: DBG: processing dependency slapd
+  7s autopkgtest: DBG: processing dependency pkgconf
+  7s autopkgtest: DBG: Test defined: name curl-ldapi-test path debian/tests/curl-ldapi-test command "None" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features [] depends ['gcc', 'libc-dev', 'libcurl4-openssl-dev | libcurl-dev', 'libldap-dev', 'slapd', 'pkgconf'] 
+  7s curl-ldapi-test      SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  7s autopkgtest [02:24:56]: test upstream-tests-openssl: preparing testbed
+  7s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['curl', 'debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential']
+  7s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  7s autopkgtest: DBG: install_deps: deps_new=['curl', 'debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential']
+  7s autopkgtest: DBG: install-deps: satisfying curl, debhelper-compat (= 13), autoconf, automake, ca-certificates, dh-exec, groff-base, libbrotli-dev, libgnutls28-dev, libidn2-dev, libkrb5-dev, libldap2-dev, libnghttp2-dev, libpsl-dev, librtmp-dev, libssh-dev, libssh2-1-dev, libssl-dev, libtool, libzstd-dev, locales-all, openssh-server, python3:native, python3-impacket, gnutls-bin, quilt, stunnel4, zlib1g-dev, build-essential
+  7s autopkgtest: DBG: install-deps: architecture resolved: curl, debhelper-compat (= 13), autoconf, automake, ca-certificates, dh-exec, groff-base, libbrotli-dev, libgnutls28-dev, libidn2-dev, libkrb5-dev, libldap2-dev, libnghttp2-dev, libpsl-dev, librtmp-dev, libssh-dev, libssh2-1-dev, libssl-dev, libtool, libzstd-dev, locales-all, openssh-server, python3, python3-impacket, gnutls-bin, quilt, stunnel4, zlib1g-dev, build-essential
+  7s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: can use apt-get on testbed: True
+  7s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CajqxY'], kind short, sout raw, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a//tmp/autopkgtest.CajqxY/1-autopkgtest-satdep.deb /tmp/autopkgtest.CajqxY/1-autopkgtest-satdep.deb
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.CajqxY/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  8s Reading package lists...
+  8s Building dependency tree...
+  8s Reading state information...
+  9s Starting pkgProblemResolver with broken count: 1
+  9s Starting 2 pkgProblemResolver with broken count: 1
+  9s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  9s Broken autopkgtest-satdep:riscv64 Depends on debhelper-compat:riscv64 < none @un H > (= 13)
+  9s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated autotools-dev:riscv64
+  9s   Re-Instated m4:riscv64
+  9s   Re-Instated autoconf:riscv64
+  9s   Re-Instated automake:riscv64
+  9s   Re-Instated autopoint:riscv64
+  9s   Re-Instated libdebhelper-perl:riscv64
+  9s   Re-Instated libtool:riscv64
+  9s   Re-Instated dh-autoreconf:riscv64
+  9s   Re-Instated libarchive-zip-perl:riscv64
+  9s   Re-Instated libsub-override-perl:riscv64
+  9s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+  9s   Re-Instated dh-strip-nondeterminism:riscv64
+  9s   Re-Instated dwz:riscv64
+  9s   Re-Instated intltool-debian:riscv64
+  9s   Re-Instated po-debconf:riscv64
+  9s   Re-Instated debhelper:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on dh-exec:riscv64 < none | 0.29-ok1 @un uH >
+  9s   Considering dh-exec:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated dh-exec:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libbrotli-dev:riscv64 < none | 1.1.0-ok1 @un uH >
+  9s   Considering libbrotli-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libbrotli1:riscv64
+  9s   Re-Instated libbrotli-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+  9s   Considering libgnutls28-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libnettle8t64:riscv64
+  9s   Re-Instated libhogweed6t64:riscv64
+  9s   Re-Instated libunistring5:riscv64
+  9s   Re-Instated libgnutls30t64:riscv64
+  9s   Re-Instated libevent-2.1-7t64:riscv64
+  9s   Re-Instated libunbound8:riscv64
+  9s   Re-Instated libgnutls-dane0t64:riscv64
+  9s   Re-Instated libgnutls-openssl27t64:riscv64
+  9s   Re-Instated libidn2-0:riscv64
+  9s   Re-Instated libidn2-dev:riscv64
+  9s   Re-Instated libp11-kit0:riscv64
+  9s   Re-Instated libp11-kit-dev:riscv64
+  9s   Re-Instated libtasn1-6:riscv64
+  9s   Re-Instated libtasn1-6-dev:riscv64
+  9s   Re-Instated libgmp10:riscv64
+  9s   Re-Instated libgmpxx4ldbl:riscv64
+  9s   Re-Instated libgmp-dev:riscv64
+  9s   Re-Instated nettle-dev:riscv64
+  9s   Re-Instated libgnutls28-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libkrb5-dev:riscv64 < none | 1.20.1-ok1 @un uH >
+  9s   Considering libkrb5-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libgssrpc4:riscv64
+  9s   Re-Instated libkdb5-10:riscv64
+  9s   Re-Instated libkadm5srv-mit12:riscv64
+  9s   Re-Instated libkadm5clnt-mit12:riscv64
+  9s   Re-Instated libcom-err2:riscv64
+  9s   Re-Instated comerr-dev:riscv64
+  9s   Re-Instated krb5-multidev:riscv64
+  9s   Re-Instated libkrb5-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libldap2-dev:riscv64 < none | 2.6.7+dfsg-ok1 @un uH >
+  9s   Considering libldap2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libsasl2-modules-db:riscv64
+  9s   Re-Instated libsasl2-2:riscv64
+  9s   Re-Instated libldap2:riscv64
+  9s   Re-Instated libldap-dev:riscv64
+  9s   Re-Instated libldap2-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libnghttp2-dev:riscv64 < none | 1.59.0-ok2 @un uH >
+  9s   Considering libnghttp2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libnghttp2-14:riscv64
+  9s   Re-Instated libnghttp2-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libpsl-dev:riscv64 < none | 0.21.2-ok1.2 @un uH >
+  9s   Considering libpsl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libpsl5t64:riscv64
+  9s   Re-Instated libpsl-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on librtmp-dev:riscv64 < none | 2.4+20151223.gitfa8646d.1-ok1 @un uH >
+  9s   Considering librtmp-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated librtmp-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libssh-dev:riscv64 < none | 0.10.6-ok1 @un uH >
+  9s   Considering libssh-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libssh-4:riscv64
+  9s   Re-Instated libssl-dev:riscv64
+  9s   Re-Instated libssh-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libssh2-1-dev:riscv64 < none | 1.11.0-ok1 @un uH >
+  9s   Considering libssh2-1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libssh2-1t64:riscv64
+  9s   Re-Instated libssh2-1-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on libzstd-dev:riscv64 < none | 1.5.5-ok3 @un uH >
+  9s   Considering libzstd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated libzstd1:riscv64
+  9s   Re-Instated libzstd-dev:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on locales-all:riscv64 < none | 2.38-1ok6.9 @un uH >
+  9s   Considering locales-all:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated locales-all:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+  9s Broken autopkgtest-satdep:riscv64 Depends on gnutls-bin:riscv64 < none | 3.8.3-ok3 @un uH >
+  9s   Considering gnutls-bin:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated gnutls-bin:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on quilt:riscv64 < none | 0.67+really0.67-ok1 @un uH >
+  9s   Considering quilt:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Re-Instated diffstat:riscv64
+  9s   Re-Instated quilt:riscv64
+  9s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+  9s Investigating (0) p11-kit-modules:riscv64 < 0.23.20-ok1 | 0.25.3-ok1 @ii uH Ib >
+  9s Broken p11-kit-modules:riscv64 Depends on libp11-kit0:riscv64 < 0.23.20-ok1 -> 0.25.3-ok1 @ii uU > (= 0.23.20-ok1)
+  9s   Considering libp11-kit0:riscv64 40 as a solution to p11-kit-modules:riscv64 2
+  9s   Re-Instated p11-kit-modules:riscv64
+  9s Investigating (0) libgnutls30t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+  9s Broken libgnutls30t64:riscv64 Breaks on libgnutls30:riscv64 < 3.6.13-ok3 @ii K > (< 3.8.3-ok3)
+  9s   Considering libgnutls30:riscv64 217 as a solution to libgnutls30t64:riscv64 0
+  9s   Holding Back libgnutls30t64:riscv64 rather than change libgnutls30:riscv64
+  9s Investigating (0) libpsl5t64:riscv64 < none -> 0.21.2-ok1.2 @un uN Ib >
+  9s Broken libpsl5t64:riscv64 Breaks on libpsl5:riscv64 < 0.21.0-ok2 @ii K > (< 0.21.2-ok1.2)
+  9s   Considering libpsl5:riscv64 31 as a solution to libpsl5t64:riscv64 0
+  9s   Holding Back libpsl5t64:riscv64 rather than change libpsl5:riscv64
+  9s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  9s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+  9s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+  9s Investigating (1) libldap2:riscv64 < 2.6.3+dfsg-ok2 -> 2.6.7+dfsg-ok1 @ii uU Ib >
+  9s Broken libldap2:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.3-ok3)
+  9s   Considering libgnutls30t64:riscv64 0 as a solution to libldap2:riscv64 32
+  9s   Holding Back libldap2:riscv64 rather than change libgnutls30t64:riscv64
+  9s Investigating (1) libgnutls28-dev:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+  9s Broken libgnutls28-dev:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (= 3.8.3-ok3)
+  9s   Considering libgnutls30t64:riscv64 0 as a solution to libgnutls28-dev:riscv64 1
+  9s   Holding Back libgnutls28-dev:riscv64 rather than change libgnutls30t64:riscv64
+  9s Investigating (1) gnutls-bin:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+  9s Broken gnutls-bin:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.3-ok3)
+  9s   Considering libgnutls30t64:riscv64 0 as a solution to gnutls-bin:riscv64 1
+  9s   Holding Back gnutls-bin:riscv64 rather than change libgnutls30t64:riscv64
+  9s Investigating (1) libpsl-dev:riscv64 < none -> 0.21.2-ok1.2 @un uN Ib >
+  9s Broken libpsl-dev:riscv64 Depends on libpsl5t64:riscv64 < none | 0.21.2-ok1.2 @un uH > (= 0.21.2-ok1.2)
+  9s   Considering libpsl5t64:riscv64 0 as a solution to libpsl-dev:riscv64 1
+  9s   Holding Back libpsl-dev:riscv64 rather than change libpsl5t64:riscv64
+  9s Investigating (1) librtmp-dev:riscv64 < none -> 2.4+20151223.gitfa8646d.1-ok1 @un uN Ib >
+  9s Broken librtmp-dev:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+  9s   Considering libgnutls28-dev:riscv64 1 as a solution to librtmp-dev:riscv64 1
+  9s   Holding Back librtmp-dev:riscv64 rather than change libgnutls28-dev:riscv64
+  9s Investigating (1) libgnutls-dane0t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+  9s Broken libgnutls-dane0t64:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (= 3.8.3-ok3)
+  9s   Considering libgnutls30t64:riscv64 0 as a solution to libgnutls-dane0t64:riscv64 0
+  9s   Holding Back libgnutls-dane0t64:riscv64 rather than change libgnutls30t64:riscv64
+  9s Investigating (1) libgnutls-openssl27t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+  9s Broken libgnutls-openssl27t64:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (= 3.8.3-ok3)
+  9s   Considering libgnutls30t64:riscv64 0 as a solution to libgnutls-openssl27t64:riscv64 0
+  9s   Holding Back libgnutls-openssl27t64:riscv64 rather than change libgnutls30t64:riscv64
+  9s Investigating (1) libldap-dev:riscv64 < none -> 2.6.7+dfsg-ok1 @un uN Ib >
+  9s Broken libldap-dev:riscv64 Depends on libldap2:riscv64 < 2.6.3+dfsg-ok2 | 2.6.7+dfsg-ok1 @ii uH > (= 2.6.7+dfsg-ok1)
+  9s   Considering libldap2:riscv64 32 as a solution to libldap-dev:riscv64 0
+  9s   Holding Back libldap-dev:riscv64 rather than change libldap2:riscv64
+  9s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  9s Broken autopkgtest-satdep:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+  9s   Considering libgnutls28-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on libpsl-dev:riscv64 < none | 0.21.2-ok1.2 @un uH >
+  9s   Considering libpsl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on librtmp-dev:riscv64 < none | 2.4+20151223.gitfa8646d.1-ok1 @un uH >
+  9s   Considering librtmp-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+  9s Broken autopkgtest-satdep:riscv64 Depends on gnutls-bin:riscv64 < none | 3.8.3-ok3 @un uH >
+  9s   Considering gnutls-bin:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+  9s Investigating (2) libldap2-dev:riscv64 < none -> 2.6.7+dfsg-ok1 @un uN Ib >
+  9s Broken libldap2-dev:riscv64 Depends on libldap-dev:riscv64 < none | 2.6.7+dfsg-ok1 @un uH >
+  9s   Considering libldap-dev:riscv64 0 as a solution to libldap2-dev:riscv64 1
+  9s   Holding Back libldap2-dev:riscv64 rather than change libldap-dev:riscv64
+  9s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  9s Broken autopkgtest-satdep:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+  9s   Considering libgnutls28-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on libldap2-dev:riscv64 < none | 2.6.7+dfsg-ok1 @un uH >
+  9s   Considering libldap2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Considering libldap2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Considering libldap-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  9s   Considering libldap-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on libpsl-dev:riscv64 < none | 0.21.2-ok1.2 @un uH >
+  9s   Considering libpsl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on librtmp-dev:riscv64 < none | 2.4+20151223.gitfa8646d.1-ok1 @un uH >
+  9s   Considering librtmp-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+  9s Broken autopkgtest-satdep:riscv64 Depends on gnutls-bin:riscv64 < none | 3.8.3-ok3 @un uH >
+  9s   Considering gnutls-bin:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  9s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+  9s Done
+  9s Some packages could not be installed. This may mean that you have
+  9s requested an impossible situation or if you are using the unstable
+  9s distribution that some required packages have not yet been created
+  9s or been moved out of Incoming.
+  9s The following information may help to resolve the situation:
+  9s 
+  9s The following packages have unmet dependencies:
+  9s  autopkgtest-satdep : Depends: libgnutls28-dev but it is not going to be installed
+  9s                       Depends: libldap2-dev
+  9s                       Depends: libpsl-dev but it is not going to be installed
+  9s                       Depends: librtmp-dev but it is not going to be installed
+  9s                       Depends: python3-impacket but it is not installable
+  9s                       Depends: gnutls-bin but it is not going to be installed
+  9s                       Depends: stunnel4 but it is not installable
+  9s E: Unable to correct problems, you have held broken packages.
+  9s autopkgtest: DBG: testbed command exited with code 100
+  9s autopkgtest: DBG: apt-get install /tmp/autopkgtest.CajqxY/1-autopkgtest-satdep.deb failed; status-fd:
+  9s 
+  9s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate curl debhelper-compat (= 13) autoconf automake ca-certificates dh-exec groff-base libbrotli-dev libgnutls28-dev libidn2-dev libkrb5-dev libldap2-dev libnghttp2-dev libpsl-dev librtmp-dev libssh-dev libssh2-1-dev libssl-dev libtool libzstd-dev locales-all openssh-server python3 python3-impacket gnutls-bin quilt stunnel4 zlib1g-dev build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  9s autopkgtest: DBG: testbed command exited with code 2
+  9s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  9s upstream-tests-openssl FAIL badpkg
+  9s blame: curl_8.5.0-ok1.8.dsc
+  9s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  9s autopkgtest [02:24:58]: test upstream-tests-gnutls: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['curl', 'debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential'], deps_new=['debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential']
+  9s autopkgtest: DBG: testbed reset
+  9s autopkgtest: DBG: sending command to testbed: revert
+ 10s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 11s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.CajqxY
+ 11s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 11s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a,--user%3Droot,--
+ 11s autopkgtest: DBG: sending command to testbed: capabilities
+ 11s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a//tmp/autopkgtest.CajqxY
+ 11s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a//tmp/autopkgtest.CajqxY', 'has_internet']
+ 11s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CajqxY'], kind short, sout raw, serr pipe, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.CajqxY/wrapper.sh
+ 11s autopkgtest: DBG: got reply from testbed: ok
+ 11s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.CajqxY/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest [02:25:00]: testbed dpkg architecture: riscv64
+ 11s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest [02:25:01]: testbed apt version: 2.7.3-ok3
+ 12s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 127
+ 12s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CajqxY/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CajqxY/testbed-packages /home/hachi/openkylin_test/sharefolder/results/curl/testbed-packages
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['debhelper-compat (= 13)', 'autoconf', 'automake', 'ca-certificates', 'dh-exec', 'groff-base', 'libbrotli-dev', 'libgnutls28-dev', 'libidn2-dev', 'libkrb5-dev', 'libldap2-dev', 'libnghttp2-dev', 'libpsl-dev', 'librtmp-dev', 'libssh-dev', 'libssh2-1-dev', 'libssl-dev', 'libtool', 'libzstd-dev', 'locales-all', 'openssh-server', 'python3:native', 'python3-impacket', 'gnutls-bin', 'quilt', 'stunnel4', 'zlib1g-dev', 'build-essential']
+ 12s autopkgtest: DBG: install-deps: satisfying debhelper-compat (= 13), autoconf, automake, ca-certificates, dh-exec, groff-base, libbrotli-dev, libgnutls28-dev, libidn2-dev, libkrb5-dev, libldap2-dev, libnghttp2-dev, libpsl-dev, librtmp-dev, libssh-dev, libssh2-1-dev, libssl-dev, libtool, libzstd-dev, locales-all, openssh-server, python3:native, python3-impacket, gnutls-bin, quilt, stunnel4, zlib1g-dev, build-essential
+ 12s autopkgtest: DBG: install-deps: architecture resolved: debhelper-compat (= 13), autoconf, automake, ca-certificates, dh-exec, groff-base, libbrotli-dev, libgnutls28-dev, libidn2-dev, libkrb5-dev, libldap2-dev, libnghttp2-dev, libpsl-dev, librtmp-dev, libssh-dev, libssh2-1-dev, libssl-dev, libtool, libzstd-dev, locales-all, openssh-server, python3, python3-impacket, gnutls-bin, quilt, stunnel4, zlib1g-dev, build-essential
+ 12s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: can use apt-get on testbed: True
+ 12s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CajqxY'], kind short, sout raw, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-d12460ea-0dcd-4b3f-a749-7f231031a91a//tmp/autopkgtest.CajqxY/2-autopkgtest-satdep.deb /tmp/autopkgtest.CajqxY/2-autopkgtest-satdep.deb
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.CajqxY/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 13s Reading package lists...
+ 13s Building dependency tree...
+ 13s Reading state information...
+ 14s Starting pkgProblemResolver with broken count: 1
+ 14s Starting 2 pkgProblemResolver with broken count: 1
+ 14s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on debhelper-compat:riscv64 < none @un H > (= 13)
+ 14s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated autotools-dev:riscv64
+ 14s   Re-Instated m4:riscv64
+ 14s   Re-Instated autoconf:riscv64
+ 14s   Re-Instated automake:riscv64
+ 14s   Re-Instated autopoint:riscv64
+ 14s   Re-Instated libdebhelper-perl:riscv64
+ 14s   Re-Instated libtool:riscv64
+ 14s   Re-Instated dh-autoreconf:riscv64
+ 14s   Re-Instated libarchive-zip-perl:riscv64
+ 14s   Re-Instated libsub-override-perl:riscv64
+ 14s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+ 14s   Re-Instated dh-strip-nondeterminism:riscv64
+ 14s   Re-Instated dwz:riscv64
+ 14s   Re-Instated intltool-debian:riscv64
+ 14s   Re-Instated po-debconf:riscv64
+ 14s   Re-Instated debhelper:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on dh-exec:riscv64 < none | 0.29-ok1 @un uH >
+ 14s   Considering dh-exec:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated dh-exec:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libbrotli-dev:riscv64 < none | 1.1.0-ok1 @un uH >
+ 14s   Considering libbrotli-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libbrotli1:riscv64
+ 14s   Re-Instated libbrotli-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+ 14s   Considering libgnutls28-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libnettle8t64:riscv64
+ 14s   Re-Instated libhogweed6t64:riscv64
+ 14s   Re-Instated libunistring5:riscv64
+ 14s   Re-Instated libgnutls30t64:riscv64
+ 14s   Re-Instated libevent-2.1-7t64:riscv64
+ 14s   Re-Instated libunbound8:riscv64
+ 14s   Re-Instated libgnutls-dane0t64:riscv64
+ 14s   Re-Instated libgnutls-openssl27t64:riscv64
+ 14s   Re-Instated libidn2-0:riscv64
+ 14s   Re-Instated libidn2-dev:riscv64
+ 14s   Re-Instated libp11-kit0:riscv64
+ 14s   Re-Instated libp11-kit-dev:riscv64
+ 14s   Re-Instated libtasn1-6:riscv64
+ 14s   Re-Instated libtasn1-6-dev:riscv64
+ 14s   Re-Instated libgmp10:riscv64
+ 14s   Re-Instated libgmpxx4ldbl:riscv64
+ 14s   Re-Instated libgmp-dev:riscv64
+ 14s   Re-Instated nettle-dev:riscv64
+ 14s   Re-Instated libgnutls28-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libkrb5-dev:riscv64 < none | 1.20.1-ok1 @un uH >
+ 14s   Considering libkrb5-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libgssrpc4:riscv64
+ 14s   Re-Instated libkdb5-10:riscv64
+ 14s   Re-Instated libkadm5srv-mit12:riscv64
+ 14s   Re-Instated libkadm5clnt-mit12:riscv64
+ 14s   Re-Instated libcom-err2:riscv64
+ 14s   Re-Instated comerr-dev:riscv64
+ 14s   Re-Instated krb5-multidev:riscv64
+ 14s   Re-Instated libkrb5-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libldap2-dev:riscv64 < none | 2.6.7+dfsg-ok1 @un uH >
+ 14s   Considering libldap2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libsasl2-modules-db:riscv64
+ 14s   Re-Instated libsasl2-2:riscv64
+ 14s   Re-Instated libldap2:riscv64
+ 14s   Re-Instated libldap-dev:riscv64
+ 14s   Re-Instated libldap2-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libnghttp2-dev:riscv64 < none | 1.59.0-ok2 @un uH >
+ 14s   Considering libnghttp2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libnghttp2-14:riscv64
+ 14s   Re-Instated libnghttp2-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libpsl-dev:riscv64 < none | 0.21.2-ok1.2 @un uH >
+ 14s   Considering libpsl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libpsl5t64:riscv64
+ 14s   Re-Instated libpsl-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on librtmp-dev:riscv64 < none | 2.4+20151223.gitfa8646d.1-ok1 @un uH >
+ 14s   Considering librtmp-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated librtmp-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libssh-dev:riscv64 < none | 0.10.6-ok1 @un uH >
+ 14s   Considering libssh-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libssh-4:riscv64
+ 14s   Re-Instated libssl-dev:riscv64
+ 14s   Re-Instated libssh-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libssh2-1-dev:riscv64 < none | 1.11.0-ok1 @un uH >
+ 14s   Considering libssh2-1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libssh2-1t64:riscv64
+ 14s   Re-Instated libssh2-1-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libzstd-dev:riscv64 < none | 1.5.5-ok3 @un uH >
+ 14s   Considering libzstd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated libzstd1:riscv64
+ 14s   Re-Instated libzstd-dev:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on locales-all:riscv64 < none | 2.38-1ok6.9 @un uH >
+ 14s   Considering locales-all:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated locales-all:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on gnutls-bin:riscv64 < none | 3.8.3-ok3 @un uH >
+ 14s   Considering gnutls-bin:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated gnutls-bin:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on quilt:riscv64 < none | 0.67+really0.67-ok1 @un uH >
+ 14s   Considering quilt:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Re-Instated diffstat:riscv64
+ 14s   Re-Instated quilt:riscv64
+ 14s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+ 14s Investigating (0) p11-kit-modules:riscv64 < 0.23.20-ok1 | 0.25.3-ok1 @ii uH Ib >
+ 14s Broken p11-kit-modules:riscv64 Depends on libp11-kit0:riscv64 < 0.23.20-ok1 -> 0.25.3-ok1 @ii uU > (= 0.23.20-ok1)
+ 14s   Considering libp11-kit0:riscv64 40 as a solution to p11-kit-modules:riscv64 2
+ 14s   Re-Instated p11-kit-modules:riscv64
+ 14s Investigating (0) libgnutls30t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 14s Broken libgnutls30t64:riscv64 Breaks on libgnutls30:riscv64 < 3.6.13-ok3 @ii K > (< 3.8.3-ok3)
+ 14s   Considering libgnutls30:riscv64 217 as a solution to libgnutls30t64:riscv64 0
+ 14s   Holding Back libgnutls30t64:riscv64 rather than change libgnutls30:riscv64
+ 14s Investigating (0) libpsl5t64:riscv64 < none -> 0.21.2-ok1.2 @un uN Ib >
+ 14s Broken libpsl5t64:riscv64 Breaks on libpsl5:riscv64 < 0.21.0-ok2 @ii K > (< 0.21.2-ok1.2)
+ 14s   Considering libpsl5:riscv64 31 as a solution to libpsl5t64:riscv64 0
+ 14s   Holding Back libpsl5t64:riscv64 rather than change libpsl5:riscv64
+ 14s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+ 14s Investigating (1) libldap2:riscv64 < 2.6.3+dfsg-ok2 -> 2.6.7+dfsg-ok1 @ii uU Ib >
+ 14s Broken libldap2:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.3-ok3)
+ 14s   Considering libgnutls30t64:riscv64 0 as a solution to libldap2:riscv64 32
+ 14s   Holding Back libldap2:riscv64 rather than change libgnutls30t64:riscv64
+ 14s Investigating (1) libgnutls28-dev:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 14s Broken libgnutls28-dev:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (= 3.8.3-ok3)
+ 14s   Considering libgnutls30t64:riscv64 0 as a solution to libgnutls28-dev:riscv64 1
+ 14s   Holding Back libgnutls28-dev:riscv64 rather than change libgnutls30t64:riscv64
+ 14s Investigating (1) gnutls-bin:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 14s Broken gnutls-bin:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.3-ok3)
+ 14s   Considering libgnutls30t64:riscv64 0 as a solution to gnutls-bin:riscv64 1
+ 14s   Holding Back gnutls-bin:riscv64 rather than change libgnutls30t64:riscv64
+ 14s Investigating (1) libpsl-dev:riscv64 < none -> 0.21.2-ok1.2 @un uN Ib >
+ 14s Broken libpsl-dev:riscv64 Depends on libpsl5t64:riscv64 < none | 0.21.2-ok1.2 @un uH > (= 0.21.2-ok1.2)
+ 14s   Considering libpsl5t64:riscv64 0 as a solution to libpsl-dev:riscv64 1
+ 14s   Holding Back libpsl-dev:riscv64 rather than change libpsl5t64:riscv64
+ 14s Investigating (1) librtmp-dev:riscv64 < none -> 2.4+20151223.gitfa8646d.1-ok1 @un uN Ib >
+ 14s Broken librtmp-dev:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+ 14s   Considering libgnutls28-dev:riscv64 1 as a solution to librtmp-dev:riscv64 1
+ 14s   Holding Back librtmp-dev:riscv64 rather than change libgnutls28-dev:riscv64
+ 14s Investigating (1) libgnutls-dane0t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 14s Broken libgnutls-dane0t64:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (= 3.8.3-ok3)
+ 14s   Considering libgnutls30t64:riscv64 0 as a solution to libgnutls-dane0t64:riscv64 0
+ 14s   Holding Back libgnutls-dane0t64:riscv64 rather than change libgnutls30t64:riscv64
+ 14s Investigating (1) libgnutls-openssl27t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 14s Broken libgnutls-openssl27t64:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (= 3.8.3-ok3)
+ 14s   Considering libgnutls30t64:riscv64 0 as a solution to libgnutls-openssl27t64:riscv64 0
+ 14s   Holding Back libgnutls-openssl27t64:riscv64 rather than change libgnutls30t64:riscv64
+ 14s Investigating (1) libldap-dev:riscv64 < none -> 2.6.7+dfsg-ok1 @un uN Ib >
+ 14s Broken libldap-dev:riscv64 Depends on libldap2:riscv64 < 2.6.3+dfsg-ok2 | 2.6.7+dfsg-ok1 @ii uH > (= 2.6.7+dfsg-ok1)
+ 14s   Considering libldap2:riscv64 32 as a solution to libldap-dev:riscv64 0
+ 14s   Holding Back libldap-dev:riscv64 rather than change libldap2:riscv64
+ 14s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+ 14s   Considering libgnutls28-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libpsl-dev:riscv64 < none | 0.21.2-ok1.2 @un uH >
+ 14s   Considering libpsl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on librtmp-dev:riscv64 < none | 2.4+20151223.gitfa8646d.1-ok1 @un uH >
+ 14s   Considering librtmp-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on gnutls-bin:riscv64 < none | 3.8.3-ok3 @un uH >
+ 14s   Considering gnutls-bin:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+ 14s Investigating (2) libldap2-dev:riscv64 < none -> 2.6.7+dfsg-ok1 @un uN Ib >
+ 14s Broken libldap2-dev:riscv64 Depends on libldap-dev:riscv64 < none | 2.6.7+dfsg-ok1 @un uH >
+ 14s   Considering libldap-dev:riscv64 0 as a solution to libldap2-dev:riscv64 1
+ 14s   Holding Back libldap2-dev:riscv64 rather than change libldap-dev:riscv64
+ 14s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libgnutls28-dev:riscv64 < none | 3.8.3-ok3 @un uH >
+ 14s   Considering libgnutls28-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libldap2-dev:riscv64 < none | 2.6.7+dfsg-ok1 @un uH >
+ 14s   Considering libldap2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Considering libldap2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Considering libldap-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s   Considering libldap-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on libpsl-dev:riscv64 < none | 0.21.2-ok1.2 @un uH >
+ 14s   Considering libpsl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on librtmp-dev:riscv64 < none | 2.4+20151223.gitfa8646d.1-ok1 @un uH >
+ 14s   Considering librtmp-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on python3-impacket:riscv64 < none @un H >
+ 14s Broken autopkgtest-satdep:riscv64 Depends on gnutls-bin:riscv64 < none | 3.8.3-ok3 @un uH >
+ 14s   Considering gnutls-bin:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 14s Broken autopkgtest-satdep:riscv64 Depends on stunnel4:riscv64 < none @un H >
+ 14s Done
+ 14s Some packages could not be installed. This may mean that you have
+ 14s requested an impossible situation or if you are using the unstable
+ 14s distribution that some required packages have not yet been created
+ 14s or been moved out of Incoming.
+ 14s The following information may help to resolve the situation:
+ 14s 
+ 14s The following packages have unmet dependencies:
+ 14s  autopkgtest-satdep : Depends: libgnutls28-dev but it is not going to be installed
+ 14s                       Depends: libldap2-dev
+ 14s                       Depends: libpsl-dev but it is not going to be installed
+ 14s                       Depends: librtmp-dev but it is not going to be installed
+ 14s                       Depends: python3-impacket but it is not installable
+ 14s                       Depends: gnutls-bin but it is not going to be installed
+ 14s                       Depends: stunnel4 but it is not installable
+ 14s E: Unable to correct problems, you have held broken packages.
+ 14s autopkgtest: DBG: testbed command exited with code 100
+ 14s autopkgtest: DBG: apt-get install /tmp/autopkgtest.CajqxY/2-autopkgtest-satdep.deb failed; status-fd:
+ 14s 
+ 14s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 14s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate debhelper-compat (= 13) autoconf automake ca-certificates dh-exec groff-base libbrotli-dev libgnutls28-dev libidn2-dev libkrb5-dev libldap2-dev libnghttp2-dev libpsl-dev librtmp-dev libssh-dev libssh2-1-dev libssl-dev libtool libzstd-dev locales-all openssh-server python3 python3-impacket gnutls-bin quilt stunnel4 zlib1g-dev build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s autopkgtest: DBG: testbed command exited with code 2
+ 14s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s upstream-tests-gnutls FAIL badpkg
+ 14s blame: curl_8.5.0-ok1.8.dsc
+ 14s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 14s autopkgtest [02:25:03]: @@@@@@@@@@@@@@@@@@@@ summary
+ 14s curl-ldapi-test      SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 14s curl-ldapi-test      SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 14s upstream-tests-openssl FAIL badpkg
+ 14s blame: curl_8.5.0-ok1.8.dsc
+ 14s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s upstream-tests-gnutls FAIL badpkg
+ 14s blame: curl_8.5.0-ok1.8.dsc
+ 14s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s autopkgtest: DBG: testbed stop
+ 14s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.CajqxY
+ 14s autopkgtest: DBG: sending command to testbed: close
+ 15s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 15s autopkgtest: DBG: got reply from testbed: ok
+ 15s autopkgtest: DBG: sending command to testbed: quit

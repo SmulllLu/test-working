@@ -1,0 +1,53 @@
+++++ BEGINNING TEST
++++ ADD KEYRING
+keyctl newring wibble @s
+316304214
++++ VALIDATE KEYRING
+keyctl rdescribe 316304214 @
+keyring@0@0@3f010000@wibble
++++ LIST KEYRING
+keyctl rlist 316304214
+
++++ PRETTY LIST KEYRING
+keyctl list 316304214
+keyring is empty
++++ ADD KEY
+keyctl add user lizard gizzard 316304214
+885999581
++++ LIST KEYRING WITH ONE
+keyctl rlist 316304214
+885999581
++++ PRETTY LIST KEYRING WITH ONE
+keyctl list 316304214
+1 key in keyring:
+885999581: --alswrv     0     0 user: lizard
++++ ADD KEY 2
+keyctl add user snake skin 316304214
+1067045163
++++ LIST KEYRING WITH TWO
+keyctl rlist 316304214
+885999581 1067045163
++++ PRETTY LIST KEYRING WITH TWO
+keyctl list 316304214
+2 keys in keyring:
+885999581: --alswrv     0     0 user: lizard
+1067045163: --alswrv     0     0 user: snake
++++ DISABLE READ PERM
+keyctl setperm 316304214 0x3d0000
+keyctl rlist 316304214
+885999581 1067045163
++++ DISABLE SEARCH PERM
+keyctl setperm 316304214 0x350000
+keyctl rlist 316304214
+keyctl_read_alloc: Permission denied
++++ REINSTATE READ PERM
+keyctl setperm 316304214 0x370000
+keyctl rlist 316304214
+885999581 1067045163
++++ REVOKE KEYRING
+keyctl revoke 316304214
+keyctl rlist 316304214
+keyctl_read_alloc: Key has been revoked
++++ UNLINK KEY
+keyctl unlink 316304214 @s
+++++ FINISHED TEST: PASS

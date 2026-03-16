@@ -1,0 +1,945 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:12:15]: starting date and time: 2024-07-19 00:12:15+0800
+  0s autopkgtest [00:12:15]: version @version@
+  0s autopkgtest [00:12:15]: host nana; command line: /usr/bin/autopkgtest rust-parking-lot_0.12.1-ok3.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-parking-lot -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.NiZ7lg
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.NiZ7lg/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.NiZ7lg/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [00:12:19]: testbed dpkg architecture: riscv64
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [00:12:19]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 127
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.NiZ7lg/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.NiZ7lg/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-parking-lot/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest [00:12:21]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  6s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: Binaries: initialising
+  6s autopkgtest [00:12:21]: @@@@@@@@@@@@@@@@@@@@ source rust-parking-lot_0.12.1-ok3.dsc
+  6s autopkgtest: DBG: blame += rust-parking-lot_0.12.1-ok3.dsc
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-parking-lot_0.12.1-ok3.dsc /tmp/autopkgtest.NiZ7lg/rust-parking-lot_0.12.1-ok3.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-parking-lot_0.12.1.orig.tar.gz /tmp/autopkgtest.NiZ7lg/rust-parking-lot_0.12.1.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: sending command to testbed: copydown rust-parking-lot_0.12.1-ok3.debian.tar.xz /tmp/autopkgtest.NiZ7lg/rust-parking-lot_0.12.1-ok3.debian.tar.xz
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: install_deps: deps_new=[]
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.NiZ7lg/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.NiZ7lg/rust-parking-lot_0.12.1-ok3.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.NiZ7lg/build.XXX
+  7s + builddir=/tmp/autopkgtest.NiZ7lg/build.TW1
+  7s + cd /tmp/autopkgtest.NiZ7lg/build.TW1
+  7s + dpkg-source -x /tmp/autopkgtest.NiZ7lg/rust-parking-lot_0.12.1-ok3.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.1b82DzB3/trustedkeys.kbx': General error
+  8s gpgv: Signature made Mon 17 Jun 2024 02:56:46 PM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.NiZ7lg/rust-parking-lot_0.12.1-ok3.dsc
+  8s dpkg-source: info: extracting rust-parking-lot in src
+  8s dpkg-source: info: unpacking rust-parking-lot_0.12.1.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-parking-lot_0.12.1-ok3.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying 0001-update-version.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [00:12:23]: testing package rust-parking-lot version 0.12.1-ok3
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.NiZ7lg/build.TW1/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-parking-lot/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name rust-parking-lot:@ path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-parking-lot:@'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:arc_lock path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features arc_lock" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:arc_lock'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:deadlock_detection path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features deadlock_detection" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:deadlock_detection'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:default'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:hardware-lock-elision path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features hardware-lock-elision" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:hardware-lock-elision'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:nightly path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features nightly" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:nightly'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:owning_ref path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features owning_ref" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:owning_ref'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:send_guard path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features send_guard" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:send_guard'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:serde path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features serde" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:serde'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  8s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  8s autopkgtest: DBG: Test defined: name librust-parking-lot-dev: path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  8s autopkgtest [00:12:23]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.NiZ7lg/build.TW1/src/ /home/hachi/openkylin_test/sharefolder/results/rust-parking-lot/tests-tree/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name rust-parking-lot:@ path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-parking-lot:@'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:arc_lock path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features arc_lock" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:arc_lock'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:deadlock_detection path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features deadlock_detection" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:deadlock_detection'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:default'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:hardware-lock-elision path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features hardware-lock-elision" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:hardware-lock-elision'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:nightly path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features nightly" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:nightly'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:owning_ref path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features owning_ref" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:owning_ref'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:send_guard path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features send_guard" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:send_guard'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev:serde path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features --features serde" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:serde'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-bincode-1+default-dev (>= 1.3.3-~~)
+  9s autopkgtest: DBG: processing dependency librust-rand-0.8+default-dev (>= 0.8.3-~~)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-parking-lot-dev
+  9s autopkgtest: DBG: Test defined: name librust-parking-lot-dev: path None command "/usr/share/cargo/bin/cargo-auto-test parking_lot 0.12.1 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-parking-lot-dev:'] depends ['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'] 
+  9s autopkgtest [00:12:24]: test rust-parking-lot:@: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+  9s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+  9s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/1-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 1
+ 12s Starting 2 pkgProblemResolver with broken count: 1
+ 12s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 12s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 12s     Reinst Failed because of libgit2-1.7:riscv64
+ 12s     Reinst Failed because of cargo:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 12s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated librust-libc-dev:riscv64
+ 12s   Re-Instated librust-unicode-ident-dev:riscv64
+ 12s   Re-Instated librust-proc-macro2-dev:riscv64
+ 12s   Re-Instated librust-quote-dev:riscv64
+ 12s   Re-Instated librust-syn-dev:riscv64
+ 12s   Re-Instated librust-serde-derive-dev:riscv64
+ 12s   Re-Instated librust-serde-dev:riscv64
+ 12s   Re-Instated librust-sval-derive-dev:riscv64
+ 12s   Re-Instated librust-sval-dev:riscv64
+ 12s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 12s     Reinst Failed because of librust-log-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 12s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s   Re-Instated librust-autocfg-dev:riscv64
+ 12s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 12s   Re-Instated librust-owning-ref-dev:riscv64
+ 12s   Re-Instated librust-scopeguard-dev:riscv64
+ 12s   Re-Instated librust-lock-api-dev:riscv64
+ 12s   Re-Instated librust-cfg-if-dev:riscv64
+ 12s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 12s   Re-Instated librust-arbitrary-dev:riscv64
+ 12s   Re-Instated librust-smallvec-dev:riscv64
+ 12s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 12s   Re-Instated librust-parking-lot-dev:riscv64
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 12s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 12s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s autopkgtest: DBG: testbed command exited with code 2
+ 12s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 12s rust-parking-lot:@   SKIP installation fails and skip-not-installable set
+ 12s autopkgtest [00:12:27]: test librust-parking-lot-dev:arc_lock: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 13s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 13s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: can use apt-get on testbed: True
+ 13s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/2-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/2-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 15s Building dependency tree...
+ 15s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 15s Starting 2 pkgProblemResolver with broken count: 1
+ 15s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 15s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 15s     Reinst Failed because of libgit2-1.7:riscv64
+ 15s     Reinst Failed because of cargo:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 15s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated librust-libc-dev:riscv64
+ 15s   Re-Instated librust-unicode-ident-dev:riscv64
+ 15s   Re-Instated librust-proc-macro2-dev:riscv64
+ 15s   Re-Instated librust-quote-dev:riscv64
+ 15s   Re-Instated librust-syn-dev:riscv64
+ 15s   Re-Instated librust-serde-derive-dev:riscv64
+ 15s   Re-Instated librust-serde-dev:riscv64
+ 15s   Re-Instated librust-sval-derive-dev:riscv64
+ 15s   Re-Instated librust-sval-dev:riscv64
+ 15s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 15s     Reinst Failed because of librust-log-dev:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 15s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated librust-autocfg-dev:riscv64
+ 15s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 15s   Re-Instated librust-owning-ref-dev:riscv64
+ 15s   Re-Instated librust-scopeguard-dev:riscv64
+ 15s   Re-Instated librust-lock-api-dev:riscv64
+ 15s   Re-Instated librust-cfg-if-dev:riscv64
+ 15s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 15s   Re-Instated librust-arbitrary-dev:riscv64
+ 15s   Re-Instated librust-smallvec-dev:riscv64
+ 15s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 15s   Re-Instated librust-parking-lot-dev:riscv64
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 16s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 16s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 16s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 16s E: Unable to correct problems, you have held broken packages.
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/2-autopkgtest-satdep.deb failed; status-fd:
+ 16s 
+ 16s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s autopkgtest: DBG: testbed command exited with code 2
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s librust-parking-lot-dev:arc_lock SKIP installation fails and skip-not-installable set
+ 16s autopkgtest [00:12:31]: test librust-parking-lot-dev:deadlock_detection: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 16s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 16s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: can use apt-get on testbed: True
+ 17s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/3-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/3-autopkgtest-satdep.deb
+ 17s autopkgtest: DBG: got reply from testbed: ok
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 18s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 19s Starting pkgProblemResolver with broken count: 1
+ 19s Starting 2 pkgProblemResolver with broken count: 1
+ 19s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 19s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 19s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 19s     Reinst Failed because of libgit2-1.7:riscv64
+ 19s     Reinst Failed because of cargo:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 19s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s   Re-Instated librust-libc-dev:riscv64
+ 19s   Re-Instated librust-unicode-ident-dev:riscv64
+ 19s   Re-Instated librust-proc-macro2-dev:riscv64
+ 19s   Re-Instated librust-quote-dev:riscv64
+ 19s   Re-Instated librust-syn-dev:riscv64
+ 19s   Re-Instated librust-serde-derive-dev:riscv64
+ 19s   Re-Instated librust-serde-dev:riscv64
+ 19s   Re-Instated librust-sval-derive-dev:riscv64
+ 19s   Re-Instated librust-sval-dev:riscv64
+ 19s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 19s     Reinst Failed because of librust-log-dev:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 19s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s   Re-Instated librust-autocfg-dev:riscv64
+ 19s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 19s   Re-Instated librust-owning-ref-dev:riscv64
+ 19s   Re-Instated librust-scopeguard-dev:riscv64
+ 19s   Re-Instated librust-lock-api-dev:riscv64
+ 19s   Re-Instated librust-cfg-if-dev:riscv64
+ 19s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 19s   Re-Instated librust-arbitrary-dev:riscv64
+ 19s   Re-Instated librust-smallvec-dev:riscv64
+ 19s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 19s   Re-Instated librust-parking-lot-dev:riscv64
+ 19s Done
+ 19s Some packages could not be installed. This may mean that you have
+ 19s requested an impossible situation or if you are using the unstable
+ 19s distribution that some required packages have not yet been created
+ 19s or been moved out of Incoming.
+ 19s The following information may help to resolve the situation:
+ 19s 
+ 19s The following packages have unmet dependencies:
+ 19s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 19s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 19s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 19s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/3-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 20s autopkgtest: DBG: testbed command exited with code 2
+ 20s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s librust-parking-lot-dev:deadlock_detection SKIP installation fails and skip-not-installable set
+ 20s autopkgtest [00:12:35]: test librust-parking-lot-dev:default: preparing testbed
+ 20s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 20s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 20s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 20s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/4-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/4-autopkgtest-satdep.deb
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 22s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 23s Starting pkgProblemResolver with broken count: 1
+ 23s Starting 2 pkgProblemResolver with broken count: 1
+ 23s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 23s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 23s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 23s     Reinst Failed because of libgit2-1.7:riscv64
+ 23s     Reinst Failed because of cargo:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 23s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s   Re-Instated librust-libc-dev:riscv64
+ 23s   Re-Instated librust-unicode-ident-dev:riscv64
+ 23s   Re-Instated librust-proc-macro2-dev:riscv64
+ 23s   Re-Instated librust-quote-dev:riscv64
+ 23s   Re-Instated librust-syn-dev:riscv64
+ 23s   Re-Instated librust-serde-derive-dev:riscv64
+ 23s   Re-Instated librust-serde-dev:riscv64
+ 23s   Re-Instated librust-sval-derive-dev:riscv64
+ 23s   Re-Instated librust-sval-dev:riscv64
+ 23s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 23s     Reinst Failed because of librust-log-dev:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 23s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s   Re-Instated librust-autocfg-dev:riscv64
+ 23s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 23s   Re-Instated librust-owning-ref-dev:riscv64
+ 23s   Re-Instated librust-scopeguard-dev:riscv64
+ 23s   Re-Instated librust-lock-api-dev:riscv64
+ 23s   Re-Instated librust-cfg-if-dev:riscv64
+ 23s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 23s   Re-Instated librust-arbitrary-dev:riscv64
+ 23s   Re-Instated librust-smallvec-dev:riscv64
+ 23s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 23s   Re-Instated librust-parking-lot-dev:riscv64
+ 23s Done
+ 23s Some packages could not be installed. This may mean that you have
+ 23s requested an impossible situation or if you are using the unstable
+ 23s distribution that some required packages have not yet been created
+ 23s or been moved out of Incoming.
+ 23s The following information may help to resolve the situation:
+ 23s 
+ 23s The following packages have unmet dependencies:
+ 23s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 23s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 23s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/4-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s autopkgtest: DBG: testbed command exited with code 2
+ 23s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s librust-parking-lot-dev:default SKIP installation fails and skip-not-installable set
+ 23s autopkgtest [00:12:38]: test librust-parking-lot-dev:hardware-lock-elision: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 23s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 23s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 23s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 24s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 24s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: can use apt-get on testbed: True
+ 24s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/5-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/5-autopkgtest-satdep.deb
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 25s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 26s Starting pkgProblemResolver with broken count: 1
+ 26s Starting 2 pkgProblemResolver with broken count: 1
+ 26s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 26s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 26s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 26s     Reinst Failed because of libgit2-1.7:riscv64
+ 26s     Reinst Failed because of cargo:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 26s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s   Re-Instated librust-libc-dev:riscv64
+ 26s   Re-Instated librust-unicode-ident-dev:riscv64
+ 26s   Re-Instated librust-proc-macro2-dev:riscv64
+ 26s   Re-Instated librust-quote-dev:riscv64
+ 26s   Re-Instated librust-syn-dev:riscv64
+ 26s   Re-Instated librust-serde-derive-dev:riscv64
+ 26s   Re-Instated librust-serde-dev:riscv64
+ 26s   Re-Instated librust-sval-derive-dev:riscv64
+ 26s   Re-Instated librust-sval-dev:riscv64
+ 26s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 26s     Reinst Failed because of librust-log-dev:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 26s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s   Re-Instated librust-autocfg-dev:riscv64
+ 26s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 26s   Re-Instated librust-owning-ref-dev:riscv64
+ 26s   Re-Instated librust-scopeguard-dev:riscv64
+ 26s   Re-Instated librust-lock-api-dev:riscv64
+ 26s   Re-Instated librust-cfg-if-dev:riscv64
+ 26s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 26s   Re-Instated librust-arbitrary-dev:riscv64
+ 26s   Re-Instated librust-smallvec-dev:riscv64
+ 26s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 26s   Re-Instated librust-parking-lot-dev:riscv64
+ 26s Done
+ 26s Some packages could not be installed. This may mean that you have
+ 26s requested an impossible situation or if you are using the unstable
+ 26s distribution that some required packages have not yet been created
+ 26s or been moved out of Incoming.
+ 26s The following information may help to resolve the situation:
+ 26s 
+ 26s The following packages have unmet dependencies:
+ 27s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 27s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 27s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 27s E: Unable to correct problems, you have held broken packages.
+ 27s autopkgtest: DBG: testbed command exited with code 100
+ 27s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/5-autopkgtest-satdep.deb failed; status-fd:
+ 27s 
+ 27s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s autopkgtest: DBG: testbed command exited with code 2
+ 27s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s librust-parking-lot-dev:hardware-lock-elision SKIP installation fails and skip-not-installable set
+ 27s autopkgtest [00:12:42]: test librust-parking-lot-dev:nightly: preparing testbed
+ 27s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 27s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 27s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 27s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 27s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 27s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: can use apt-get on testbed: True
+ 28s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/6-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/6-autopkgtest-satdep.deb
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 29s Building dependency tree...
+ 29s Reading state information...
+ 30s Starting pkgProblemResolver with broken count: 1
+ 30s Starting 2 pkgProblemResolver with broken count: 1
+ 30s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 30s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 30s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 30s     Reinst Failed because of libgit2-1.7:riscv64
+ 30s     Reinst Failed because of cargo:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 30s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s   Re-Instated librust-libc-dev:riscv64
+ 30s   Re-Instated librust-unicode-ident-dev:riscv64
+ 30s   Re-Instated librust-proc-macro2-dev:riscv64
+ 30s   Re-Instated librust-quote-dev:riscv64
+ 30s   Re-Instated librust-syn-dev:riscv64
+ 30s   Re-Instated librust-serde-derive-dev:riscv64
+ 30s   Re-Instated librust-serde-dev:riscv64
+ 30s   Re-Instated librust-sval-derive-dev:riscv64
+ 30s   Re-Instated librust-sval-dev:riscv64
+ 30s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 30s     Reinst Failed because of librust-log-dev:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 30s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s   Re-Instated librust-autocfg-dev:riscv64
+ 30s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 30s   Re-Instated librust-owning-ref-dev:riscv64
+ 30s   Re-Instated librust-scopeguard-dev:riscv64
+ 30s   Re-Instated librust-lock-api-dev:riscv64
+ 30s   Re-Instated librust-cfg-if-dev:riscv64
+ 30s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 30s   Re-Instated librust-arbitrary-dev:riscv64
+ 30s   Re-Instated librust-smallvec-dev:riscv64
+ 30s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 30s   Re-Instated librust-parking-lot-dev:riscv64
+ 30s Done
+ 30s Some packages could not be installed. This may mean that you have
+ 30s requested an impossible situation or if you are using the unstable
+ 30s distribution that some required packages have not yet been created
+ 30s or been moved out of Incoming.
+ 30s The following information may help to resolve the situation:
+ 30s 
+ 30s The following packages have unmet dependencies:
+ 30s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 30s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 30s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 30s E: Unable to correct problems, you have held broken packages.
+ 30s autopkgtest: DBG: testbed command exited with code 100
+ 30s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/6-autopkgtest-satdep.deb failed; status-fd:
+ 30s 
+ 30s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 30s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s autopkgtest: DBG: testbed command exited with code 2
+ 31s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 31s librust-parking-lot-dev:nightly SKIP installation fails and skip-not-installable set
+ 31s autopkgtest [00:12:46]: test librust-parking-lot-dev:owning_ref: preparing testbed
+ 31s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 31s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 31s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 31s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 31s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 31s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: can use apt-get on testbed: True
+ 31s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/7-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/7-autopkgtest-satdep.deb
+ 32s autopkgtest: DBG: got reply from testbed: ok
+ 32s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/7-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 32s Reading package lists...
+ 33s Building dependency tree...
+ 33s Reading state information...
+ 33s Starting pkgProblemResolver with broken count: 1
+ 34s Starting 2 pkgProblemResolver with broken count: 1
+ 34s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 34s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 34s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 34s     Reinst Failed because of libgit2-1.7:riscv64
+ 34s     Reinst Failed because of cargo:riscv64
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 34s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s   Re-Instated librust-libc-dev:riscv64
+ 34s   Re-Instated librust-unicode-ident-dev:riscv64
+ 34s   Re-Instated librust-proc-macro2-dev:riscv64
+ 34s   Re-Instated librust-quote-dev:riscv64
+ 34s   Re-Instated librust-syn-dev:riscv64
+ 34s   Re-Instated librust-serde-derive-dev:riscv64
+ 34s   Re-Instated librust-serde-dev:riscv64
+ 34s   Re-Instated librust-sval-derive-dev:riscv64
+ 34s   Re-Instated librust-sval-dev:riscv64
+ 34s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 34s     Reinst Failed because of librust-log-dev:riscv64
+ 34s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 34s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 34s   Re-Instated librust-autocfg-dev:riscv64
+ 34s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 34s   Re-Instated librust-owning-ref-dev:riscv64
+ 34s   Re-Instated librust-scopeguard-dev:riscv64
+ 34s   Re-Instated librust-lock-api-dev:riscv64
+ 34s   Re-Instated librust-cfg-if-dev:riscv64
+ 34s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 34s   Re-Instated librust-arbitrary-dev:riscv64
+ 34s   Re-Instated librust-smallvec-dev:riscv64
+ 34s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 34s   Re-Instated librust-parking-lot-dev:riscv64
+ 34s Done
+ 34s Some packages could not be installed. This may mean that you have
+ 34s requested an impossible situation or if you are using the unstable
+ 34s distribution that some required packages have not yet been created
+ 34s or been moved out of Incoming.
+ 34s The following information may help to resolve the situation:
+ 34s 
+ 34s The following packages have unmet dependencies:
+ 34s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 34s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 34s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 34s E: Unable to correct problems, you have held broken packages.
+ 34s autopkgtest: DBG: testbed command exited with code 100
+ 34s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/7-autopkgtest-satdep.deb failed; status-fd:
+ 34s 
+ 34s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 34s autopkgtest: DBG: testbed command exited with code 2
+ 34s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 34s librust-parking-lot-dev:owning_ref SKIP installation fails and skip-not-installable set
+ 34s autopkgtest [00:12:49]: test librust-parking-lot-dev:send_guard: preparing testbed
+ 34s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 34s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 34s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 34s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 35s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 35s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: can use apt-get on testbed: True
+ 35s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/8-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/8-autopkgtest-satdep.deb
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/8-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 36s Reading package lists...
+ 37s Building dependency tree...
+ 37s Reading state information...
+ 37s Starting pkgProblemResolver with broken count: 1
+ 37s Starting 2 pkgProblemResolver with broken count: 1
+ 37s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 37s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 37s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 37s     Reinst Failed because of libgit2-1.7:riscv64
+ 37s     Reinst Failed because of cargo:riscv64
+ 37s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 37s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 37s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s   Re-Instated librust-libc-dev:riscv64
+ 37s   Re-Instated librust-unicode-ident-dev:riscv64
+ 37s   Re-Instated librust-proc-macro2-dev:riscv64
+ 37s   Re-Instated librust-quote-dev:riscv64
+ 37s   Re-Instated librust-syn-dev:riscv64
+ 37s   Re-Instated librust-serde-derive-dev:riscv64
+ 37s   Re-Instated librust-serde-dev:riscv64
+ 37s   Re-Instated librust-sval-derive-dev:riscv64
+ 37s   Re-Instated librust-sval-dev:riscv64
+ 37s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 37s     Reinst Failed because of librust-log-dev:riscv64
+ 37s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 37s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s   Re-Instated librust-autocfg-dev:riscv64
+ 37s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 37s   Re-Instated librust-owning-ref-dev:riscv64
+ 37s   Re-Instated librust-scopeguard-dev:riscv64
+ 37s   Re-Instated librust-lock-api-dev:riscv64
+ 37s   Re-Instated librust-cfg-if-dev:riscv64
+ 37s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 37s   Re-Instated librust-arbitrary-dev:riscv64
+ 37s   Re-Instated librust-smallvec-dev:riscv64
+ 37s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 37s   Re-Instated librust-parking-lot-dev:riscv64
+ 37s Done
+ 37s Some packages could not be installed. This may mean that you have
+ 37s requested an impossible situation or if you are using the unstable
+ 37s distribution that some required packages have not yet been created
+ 37s or been moved out of Incoming.
+ 37s The following information may help to resolve the situation:
+ 37s 
+ 37s The following packages have unmet dependencies:
+ 38s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 38s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 38s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 38s E: Unable to correct problems, you have held broken packages.
+ 38s autopkgtest: DBG: testbed command exited with code 100
+ 38s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/8-autopkgtest-satdep.deb failed; status-fd:
+ 38s 
+ 38s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 38s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s autopkgtest: DBG: testbed command exited with code 2
+ 38s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 38s librust-parking-lot-dev:send_guard SKIP installation fails and skip-not-installable set
+ 38s autopkgtest [00:12:53]: test librust-parking-lot-dev:serde: preparing testbed
+ 38s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 38s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 38s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 38s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 38s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 38s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: can use apt-get on testbed: True
+ 39s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/9-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/9-autopkgtest-satdep.deb
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/9-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 40s Building dependency tree...
+ 40s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 41s Starting 2 pkgProblemResolver with broken count: 1
+ 41s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 41s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 41s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 41s     Reinst Failed because of libgit2-1.7:riscv64
+ 41s     Reinst Failed because of cargo:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 41s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s   Re-Instated librust-libc-dev:riscv64
+ 41s   Re-Instated librust-unicode-ident-dev:riscv64
+ 41s   Re-Instated librust-proc-macro2-dev:riscv64
+ 41s   Re-Instated librust-quote-dev:riscv64
+ 41s   Re-Instated librust-syn-dev:riscv64
+ 41s   Re-Instated librust-serde-derive-dev:riscv64
+ 41s   Re-Instated librust-serde-dev:riscv64
+ 41s   Re-Instated librust-sval-derive-dev:riscv64
+ 41s   Re-Instated librust-sval-dev:riscv64
+ 41s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 41s     Reinst Failed because of librust-log-dev:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 41s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s   Re-Instated librust-autocfg-dev:riscv64
+ 41s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 41s   Re-Instated librust-owning-ref-dev:riscv64
+ 41s   Re-Instated librust-scopeguard-dev:riscv64
+ 41s   Re-Instated librust-lock-api-dev:riscv64
+ 41s   Re-Instated librust-cfg-if-dev:riscv64
+ 41s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 41s   Re-Instated librust-arbitrary-dev:riscv64
+ 41s   Re-Instated librust-smallvec-dev:riscv64
+ 41s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 41s   Re-Instated librust-parking-lot-dev:riscv64
+ 41s Done
+ 41s Some packages could not be installed. This may mean that you have
+ 41s requested an impossible situation or if you are using the unstable
+ 41s distribution that some required packages have not yet been created
+ 41s or been moved out of Incoming.
+ 41s The following information may help to resolve the situation:
+ 41s 
+ 41s The following packages have unmet dependencies:
+ 41s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 41s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 41s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 41s E: Unable to correct problems, you have held broken packages.
+ 41s autopkgtest: DBG: testbed command exited with code 100
+ 41s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/9-autopkgtest-satdep.deb failed; status-fd:
+ 41s 
+ 41s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 41s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 42s autopkgtest: DBG: testbed command exited with code 2
+ 42s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 42s librust-parking-lot-dev:serde SKIP installation fails and skip-not-installable set
+ 42s autopkgtest [00:12:57]: test librust-parking-lot-dev:: preparing testbed
+ 42s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev'], deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 42s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 42s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-bincode-1+default-dev (>= 1.3.3-~~)', 'librust-rand-0.8+default-dev (>= 0.8.3-~~)', 'librust-parking-lot-dev']
+ 42s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 42s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-bincode-1+default-dev (>= 1.3.3-~~), librust-rand-0.8+default-dev (>= 0.8.3-~~), librust-parking-lot-dev
+ 42s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: can use apt-get on testbed: True
+ 42s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.NiZ7lg'], kind short, sout raw, serr pipe, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2234a5a5-39fd-46f9-aab1-eabe11325e19//tmp/autopkgtest.NiZ7lg/10-autopkgtest-satdep.deb /tmp/autopkgtest.NiZ7lg/10-autopkgtest-satdep.deb
+ 42s autopkgtest: DBG: got reply from testbed: ok
+ 42s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.NiZ7lg/10-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 43s Reading package lists...
+ 44s Building dependency tree...
+ 44s Reading state information...
+ 44s Starting pkgProblemResolver with broken count: 1
+ 44s Starting 2 pkgProblemResolver with broken count: 1
+ 44s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 44s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 44s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 44s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 44s     Reinst Failed because of libgit2-1.7:riscv64
+ 44s     Reinst Failed because of cargo:riscv64
+ 44s Broken autopkgtest-satdep:riscv64 Depends on librust-bincode-1+default-dev:riscv64 < none @un H > (>= 1.3.3-~~)
+ 44s Broken autopkgtest-satdep:riscv64 Depends on librust-rand-0.8+default-dev:riscv64 < none @un H > (>= 0.8.3-~~)
+ 44s   Considering librust-rand-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 44s   Re-Instated librust-libc-dev:riscv64
+ 44s   Re-Instated librust-unicode-ident-dev:riscv64
+ 45s   Re-Instated librust-proc-macro2-dev:riscv64
+ 45s   Re-Instated librust-quote-dev:riscv64
+ 45s   Re-Instated librust-syn-dev:riscv64
+ 45s   Re-Instated librust-serde-derive-dev:riscv64
+ 45s   Re-Instated librust-serde-dev:riscv64
+ 45s   Re-Instated librust-sval-derive-dev:riscv64
+ 45s   Re-Instated librust-sval-dev:riscv64
+ 45s     Reinst Failed early because of librust-sval-ref-2-dev:riscv64
+ 45s     Reinst Failed because of librust-log-dev:riscv64
+ 45s Broken autopkgtest-satdep:riscv64 Depends on librust-parking-lot-dev:riscv64 < none | 0.12.1-ok3 @un uH >
+ 45s   Considering librust-parking-lot-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 45s   Re-Instated librust-autocfg-dev:riscv64
+ 45s   Re-Instated librust-stable-deref-trait-dev:riscv64
+ 45s   Re-Instated librust-owning-ref-dev:riscv64
+ 45s   Re-Instated librust-scopeguard-dev:riscv64
+ 45s   Re-Instated librust-lock-api-dev:riscv64
+ 45s   Re-Instated librust-cfg-if-dev:riscv64
+ 45s   Re-Instated librust-derive-arbitrary-dev:riscv64
+ 45s   Re-Instated librust-arbitrary-dev:riscv64
+ 45s   Re-Instated librust-smallvec-dev:riscv64
+ 45s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 45s   Re-Instated librust-parking-lot-dev:riscv64
+ 45s Done
+ 45s Some packages could not be installed. This may mean that you have
+ 45s requested an impossible situation or if you are using the unstable
+ 45s distribution that some required packages have not yet been created
+ 45s or been moved out of Incoming.
+ 45s The following information may help to resolve the situation:
+ 45s 
+ 45s The following packages have unmet dependencies:
+ 45s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 45s                       Depends: librust-bincode-1+default-dev (>= 1.3.3-~~) but it is not installable
+ 45s                       Depends: librust-rand-0.8+default-dev (>= 0.8.3-~~)
+ 45s E: Unable to correct problems, you have held broken packages.
+ 45s autopkgtest: DBG: testbed command exited with code 100
+ 45s autopkgtest: DBG: apt-get install /tmp/autopkgtest.NiZ7lg/10-autopkgtest-satdep.deb failed; status-fd:
+ 45s 
+ 45s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 45s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-bincode-1+default-dev (>= 1.3.3-~~) librust-rand-0.8+default-dev (>= 0.8.3-~~) librust-parking-lot-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 45s autopkgtest: DBG: testbed command exited with code 2
+ 45s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 45s librust-parking-lot-dev: SKIP installation fails and skip-not-installable set
+ 45s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 45s autopkgtest [00:13:00]: @@@@@@@@@@@@@@@@@@@@ summary
+ 45s rust-parking-lot:@   SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:arc_lock SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:deadlock_detection SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:default SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:hardware-lock-elision SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:nightly SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:owning_ref SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:send_guard SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev:serde SKIP installation fails and skip-not-installable set
+ 45s librust-parking-lot-dev: SKIP installation fails and skip-not-installable set
+ 45s autopkgtest: DBG: testbed stop
+ 45s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.NiZ7lg
+ 45s autopkgtest: DBG: sending command to testbed: close
+ 46s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 47s autopkgtest: DBG: got reply from testbed: ok
+ 47s autopkgtest: DBG: sending command to testbed: quit

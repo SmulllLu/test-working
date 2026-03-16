@@ -1,0 +1,643 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [22:19:34]: starting date and time: 2024-07-18 22:19:34+0800
+  0s autopkgtest [22:19:34]: version @version@
+  0s autopkgtest [22:19:34]: host nana; command line: /usr/bin/autopkgtest rust-async-executor_1.5.4-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-async-executor -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.6qXKOi
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86//tmp/autopkgtest.6qXKOi
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86//tmp/autopkgtest.6qXKOi', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.6qXKOi/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.6qXKOi/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [22:19:38]: testbed dpkg architecture: riscv64
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [22:19:38]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 127
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.6qXKOi/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.6qXKOi/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-async-executor/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest [22:19:40]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  6s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: Binaries: initialising
+  6s autopkgtest [22:19:40]: @@@@@@@@@@@@@@@@@@@@ source rust-async-executor_1.5.4-ok1.dsc
+  6s autopkgtest: DBG: blame += rust-async-executor_1.5.4-ok1.dsc
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-async-executor_1.5.4-ok1.dsc /tmp/autopkgtest.6qXKOi/rust-async-executor_1.5.4-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-async-executor_1.5.4.orig.tar.gz /tmp/autopkgtest.6qXKOi/rust-async-executor_1.5.4.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: sending command to testbed: copydown rust-async-executor_1.5.4-ok1.debian.tar.xz /tmp/autopkgtest.6qXKOi/rust-async-executor_1.5.4-ok1.debian.tar.xz
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: install_deps: deps_new=[]
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.6qXKOi/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.6qXKOi/rust-async-executor_1.5.4-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.6qXKOi/build.XXX
+  7s + builddir=/tmp/autopkgtest.6qXKOi/build.SWP
+  7s + cd /tmp/autopkgtest.6qXKOi/build.SWP
+  7s + dpkg-source -x /tmp/autopkgtest.6qXKOi/rust-async-executor_1.5.4-ok1.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.3UUTF_Sg/trustedkeys.kbx': General error
+  8s gpgv: Signature made Tue 07 May 2024 04:10:42 PM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.6qXKOi/rust-async-executor_1.5.4-ok1.dsc
+  8s dpkg-source: info: extracting rust-async-executor in src
+  8s dpkg-source: info: unpacking rust-async-executor_1.5.4.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-async-executor_1.5.4-ok1.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying 1001_async-io.patch
+  8s dpkg-source: info: applying 2001_no_bench.patch
+  8s dpkg-source: info: applying 2002_fastrand.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [22:19:42]: testing package rust-async-executor version 1.5.4-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.6qXKOi/build.SWP/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-async-executor/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-async-channel-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-async-executor-1-dev
+  8s autopkgtest: DBG: processing dependency librust-async-io-2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-easy-parallel-3+default-dev
+  8s autopkgtest: DBG: processing dependency librust-once-cell-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-async-executor-1:@ path None command "/usr/share/cargo/bin/cargo-auto-test async-executor 1.5.4 --all-targets --all-features" restrictions ['allow-stderr'] features ['test-name=rust-async-executor-1:@'] depends ['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-async-channel-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-async-executor-1-dev
+  8s autopkgtest: DBG: processing dependency librust-async-io-2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-easy-parallel-3+default-dev
+  8s autopkgtest: DBG: processing dependency librust-once-cell-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-async-executor-1: path None command "/usr/share/cargo/bin/cargo-auto-test async-executor 1.5.4 --all-targets --no-default-features" restrictions ['allow-stderr'] features ['test-name=rust-async-executor-1:'] depends ['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-async-channel-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-async-executor-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-async-io-2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-easy-parallel-3+default-dev
+  8s autopkgtest: DBG: processing dependency librust-once-cell-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-async-executor-1:default path None command "/usr/share/cargo/bin/cargo-auto-test async-executor 1.5.4 --all-targets" restrictions ['allow-stderr'] features ['test-name=rust-async-executor-1:default'] depends ['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1+default-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'] 
+  9s autopkgtest [22:19:43]: build not needed
+  9s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.6qXKOi/build.SWP/src/ /home/hachi/openkylin_test/sharefolder/results/rust-async-executor/tests-tree/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency dh-cargo
+  9s autopkgtest: DBG: processing dependency librust-async-channel-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-async-executor-1-dev
+  9s autopkgtest: DBG: processing dependency librust-async-io-2+default-dev
+  9s autopkgtest: DBG: processing dependency librust-easy-parallel-3+default-dev
+  9s autopkgtest: DBG: processing dependency librust-once-cell-1+default-dev
+  9s autopkgtest: DBG: Test defined: name rust-async-executor-1:@ path None command "/usr/share/cargo/bin/cargo-auto-test async-executor 1.5.4 --all-targets --all-features" restrictions ['allow-stderr'] features ['test-name=rust-async-executor-1:@'] depends ['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo
+  9s autopkgtest: DBG: processing dependency librust-async-channel-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-async-executor-1-dev
+  9s autopkgtest: DBG: processing dependency librust-async-io-2+default-dev
+  9s autopkgtest: DBG: processing dependency librust-easy-parallel-3+default-dev
+  9s autopkgtest: DBG: processing dependency librust-once-cell-1+default-dev
+  9s autopkgtest: DBG: Test defined: name rust-async-executor-1: path None command "/usr/share/cargo/bin/cargo-auto-test async-executor 1.5.4 --all-targets --no-default-features" restrictions ['allow-stderr'] features ['test-name=rust-async-executor-1:'] depends ['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo
+  9s autopkgtest: DBG: processing dependency librust-async-channel-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-async-executor-1+default-dev
+  9s autopkgtest: DBG: processing dependency librust-async-io-2+default-dev
+  9s autopkgtest: DBG: processing dependency librust-easy-parallel-3+default-dev
+  9s autopkgtest: DBG: processing dependency librust-once-cell-1+default-dev
+  9s autopkgtest: DBG: Test defined: name rust-async-executor-1:default path None command "/usr/share/cargo/bin/cargo-auto-test async-executor 1.5.4 --all-targets" restrictions ['allow-stderr'] features ['test-name=rust-async-executor-1:default'] depends ['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1+default-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'] 
+  9s autopkgtest [22:19:43]: test rust-async-executor-1:@: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev']
+  9s autopkgtest: DBG: install-deps: satisfying dh-cargo, librust-async-channel-1+default-dev, librust-async-executor-1-dev, librust-async-io-2+default-dev, librust-easy-parallel-3+default-dev, librust-once-cell-1+default-dev
+  9s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo, librust-async-channel-1+default-dev, librust-async-executor-1-dev, librust-async-io-2+default-dev, librust-easy-parallel-3+default-dev, librust-once-cell-1+default-dev
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86//tmp/autopkgtest.6qXKOi/1-autopkgtest-satdep.deb /tmp/autopkgtest.6qXKOi/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.6qXKOi/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 8
+ 12s Starting 2 pkgProblemResolver with broken count: 8
+ 12s Investigating (0) librust-futures-core-dev:riscv64 < none -> 0.3.30-ok1 @un puN Ib >
+ 12s Broken librust-futures-core-dev:riscv64 Depends on librust-portable-atomic-1+require-cas-dev:riscv64 < none @un H > (>= 1.3-~~)
+ 12s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 12s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 12s Investigating (0) librust-async-executor-dev:riscv64 < none -> 1.5.4-ok1 @un puN Ib >
+ 12s Broken librust-async-executor-dev:riscv64 Depends on librust-async-task-4+default-dev:riscv64 < none @un H >
+ 12s Investigating (0) librust-no-panic-dev:riscv64 < none -> 0.1.13-ok1 @un puN Ib >
+ 12s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+default-dev:riscv64 < none @un H >
+ 12s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+full-dev:riscv64 < none @un H >
+ 12s Investigating (0) librust-bytemuck-dev:riscv64 < none -> 1.14.0-ok1 @un puN Ib >
+ 12s Broken librust-bytemuck-dev:riscv64 Depends on librust-bytemuck-derive-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 12s Investigating (0) librust-once-cell-dev:riscv64 < none -> 1.19.0-ok1 @un puN Ib >
+ 12s Broken librust-once-cell-dev:riscv64 Depends on librust-critical-section-1+default-dev:riscv64 < none @un H >
+ 12s Broken librust-once-cell-dev:riscv64 Depends on librust-parking-lot-core-0.9-dev:riscv64 < none @un H > (>= 0.9.3-~~)
+ 12s   Considering librust-parking-lot-core-dev:riscv64 0 as a solution to librust-once-cell-dev:riscv64 0
+ 12s   Re-Instated librust-smallvec-dev:riscv64
+ 12s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 12s Broken librust-once-cell-dev:riscv64 Depends on librust-portable-atomic-1+default-dev:riscv64 < none @un H >
+ 12s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 12s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 12s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 12s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 12s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 12s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 12s   Re-Instated librust-sval-derive-dev:riscv64
+ 12s   Re-Instated librust-sval-dev:riscv64
+ 12s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 12s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 12s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 12s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 12s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 12s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 12s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 12s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 12s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 12s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 12s  librust-async-executor-dev : Depends: librust-async-task-4+default-dev but it is not installable
+ 12s  librust-bytemuck-dev : Depends: librust-bytemuck-derive-1+default-dev (>= 1.4-~~) but it is not installable
+ 12s  librust-futures-core-dev : Depends: librust-portable-atomic-1+require-cas-dev (>= 1.3-~~) but it is not installable
+ 12s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 12s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 12s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 12s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 12s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 12s  librust-no-panic-dev : Depends: librust-syn-1+default-dev but it is not installable
+ 12s                         Depends: librust-syn-1+full-dev but it is not installable
+ 12s  librust-once-cell-dev : Depends: librust-critical-section-1+default-dev but it is not installable
+ 12s                          Depends: librust-portable-atomic-1+default-dev but it is not installable
+ 12s  librust-tracing-core-dev : Depends: librust-valuable-0.1+std-dev but it is not installable
+ 12s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.6qXKOi/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo librust-async-channel-1+default-dev librust-async-executor-1-dev librust-async-io-2+default-dev librust-easy-parallel-3+default-dev librust-once-cell-1+default-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 13s Reading package lists...
+ 13s Building dependency tree...
+ 14s Reading state information...
+ 14s Starting pkgProblemResolver with broken count: 8
+ 15s Starting 2 pkgProblemResolver with broken count: 8
+ 15s Investigating (0) librust-once-cell-dev:riscv64 < none -> 1.19.0-ok1 @un puN Ib >
+ 15s Broken librust-once-cell-dev:riscv64 Depends on librust-critical-section-1+default-dev:riscv64 < none @un H >
+ 15s Broken librust-once-cell-dev:riscv64 Depends on librust-parking-lot-core-0.9-dev:riscv64 < none @un H > (>= 0.9.3-~~)
+ 15s   Considering librust-parking-lot-core-dev:riscv64 0 as a solution to librust-once-cell-dev:riscv64 9999
+ 15s   Re-Instated librust-smallvec-dev:riscv64
+ 15s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 15s Broken librust-once-cell-dev:riscv64 Depends on librust-portable-atomic-1+default-dev:riscv64 < none @un H >
+ 15s Investigating (0) librust-async-executor-dev:riscv64 < none -> 1.5.4-ok1 @un puN Ib >
+ 15s Broken librust-async-executor-dev:riscv64 Depends on librust-async-task-4+default-dev:riscv64 < none @un H >
+ 15s Investigating (0) librust-futures-core-dev:riscv64 < none -> 0.3.30-ok1 @un puN Ib >
+ 15s Broken librust-futures-core-dev:riscv64 Depends on librust-portable-atomic-1+require-cas-dev:riscv64 < none @un H > (>= 1.3-~~)
+ 15s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 15s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 15s Investigating (0) librust-no-panic-dev:riscv64 < none -> 0.1.13-ok1 @un puN Ib >
+ 15s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+default-dev:riscv64 < none @un H >
+ 15s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+full-dev:riscv64 < none @un H >
+ 15s Investigating (0) librust-bytemuck-dev:riscv64 < none -> 1.14.0-ok1 @un puN Ib >
+ 15s Broken librust-bytemuck-dev:riscv64 Depends on librust-bytemuck-derive-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 15s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 15s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s   Re-Instated librust-sval-derive-dev:riscv64
+ 15s   Re-Instated librust-sval-dev:riscv64
+ 15s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 15s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 15s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 15s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 15s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 15s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 15s  librust-async-executor-dev : Depends: librust-async-task-4+default-dev but it is not installable
+ 15s  librust-bytemuck-dev : Depends: librust-bytemuck-derive-1+default-dev (>= 1.4-~~) but it is not installable
+ 15s  librust-futures-core-dev : Depends: librust-portable-atomic-1+require-cas-dev (>= 1.3-~~) but it is not installable
+ 15s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 15s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 15s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 15s  librust-no-panic-dev : Depends: librust-syn-1+default-dev but it is not installable
+ 15s                         Depends: librust-syn-1+full-dev but it is not installable
+ 15s  librust-once-cell-dev : Depends: librust-critical-section-1+default-dev but it is not installable
+ 15s                          Depends: librust-portable-atomic-1+default-dev but it is not installable
+ 15s  librust-tracing-core-dev : Depends: librust-valuable-0.1+std-dev but it is not installable
+ 15s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 15s E: Unable to correct problems, you have held broken packages.
+ 15s autopkgtest: DBG: testbed command exited with code 100
+ 15s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 15s rust-async-executor-1:@ FAIL badpkg
+ 15s blame: rust-async-executor_1.5.4-ok1.dsc
+ 15s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 15s autopkgtest [22:19:49]: test rust-async-executor-1:: preparing testbed
+ 15s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'], deps_new=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev']
+ 15s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 15s autopkgtest: DBG: install_deps: deps_new=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev']
+ 15s autopkgtest: DBG: install-deps: satisfying dh-cargo, librust-async-channel-1+default-dev, librust-async-executor-1-dev, librust-async-io-2+default-dev, librust-easy-parallel-3+default-dev, librust-once-cell-1+default-dev
+ 16s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo, librust-async-channel-1+default-dev, librust-async-executor-1-dev, librust-async-io-2+default-dev, librust-easy-parallel-3+default-dev, librust-once-cell-1+default-dev
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 16s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86//tmp/autopkgtest.6qXKOi/2-autopkgtest-satdep.deb /tmp/autopkgtest.6qXKOi/2-autopkgtest-satdep.deb
+ 16s autopkgtest: DBG: got reply from testbed: ok
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.6qXKOi/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 18s Starting pkgProblemResolver with broken count: 8
+ 18s Starting 2 pkgProblemResolver with broken count: 8
+ 18s Investigating (0) librust-futures-core-dev:riscv64 < none -> 0.3.30-ok1 @un puN Ib >
+ 18s Broken librust-futures-core-dev:riscv64 Depends on librust-portable-atomic-1+require-cas-dev:riscv64 < none @un H > (>= 1.3-~~)
+ 18s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 18s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 18s Investigating (0) librust-async-executor-dev:riscv64 < none -> 1.5.4-ok1 @un puN Ib >
+ 18s Broken librust-async-executor-dev:riscv64 Depends on librust-async-task-4+default-dev:riscv64 < none @un H >
+ 18s Investigating (0) librust-no-panic-dev:riscv64 < none -> 0.1.13-ok1 @un puN Ib >
+ 18s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+default-dev:riscv64 < none @un H >
+ 18s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+full-dev:riscv64 < none @un H >
+ 18s Investigating (0) librust-bytemuck-dev:riscv64 < none -> 1.14.0-ok1 @un puN Ib >
+ 18s Broken librust-bytemuck-dev:riscv64 Depends on librust-bytemuck-derive-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s Investigating (0) librust-once-cell-dev:riscv64 < none -> 1.19.0-ok1 @un puN Ib >
+ 18s Broken librust-once-cell-dev:riscv64 Depends on librust-critical-section-1+default-dev:riscv64 < none @un H >
+ 18s Broken librust-once-cell-dev:riscv64 Depends on librust-parking-lot-core-0.9-dev:riscv64 < none @un H > (>= 0.9.3-~~)
+ 18s   Considering librust-parking-lot-core-dev:riscv64 0 as a solution to librust-once-cell-dev:riscv64 0
+ 18s   Re-Instated librust-smallvec-dev:riscv64
+ 18s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 18s Broken librust-once-cell-dev:riscv64 Depends on librust-portable-atomic-1+default-dev:riscv64 < none @un H >
+ 18s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 18s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 18s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s   Re-Instated librust-sval-derive-dev:riscv64
+ 18s   Re-Instated librust-sval-dev:riscv64
+ 18s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 18s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 18s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 18s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 18s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 18s Done
+ 18s Some packages could not be installed. This may mean that you have
+ 18s requested an impossible situation or if you are using the unstable
+ 18s distribution that some required packages have not yet been created
+ 18s or been moved out of Incoming.
+ 18s The following information may help to resolve the situation:
+ 18s 
+ 18s The following packages have unmet dependencies:
+ 19s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 19s  librust-async-executor-dev : Depends: librust-async-task-4+default-dev but it is not installable
+ 19s  librust-bytemuck-dev : Depends: librust-bytemuck-derive-1+default-dev (>= 1.4-~~) but it is not installable
+ 19s  librust-futures-core-dev : Depends: librust-portable-atomic-1+require-cas-dev (>= 1.3-~~) but it is not installable
+ 19s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 19s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 19s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 19s  librust-no-panic-dev : Depends: librust-syn-1+default-dev but it is not installable
+ 19s                         Depends: librust-syn-1+full-dev but it is not installable
+ 19s  librust-once-cell-dev : Depends: librust-critical-section-1+default-dev but it is not installable
+ 19s                          Depends: librust-portable-atomic-1+default-dev but it is not installable
+ 19s  librust-tracing-core-dev : Depends: librust-valuable-0.1+std-dev but it is not installable
+ 19s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 19s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.6qXKOi/2-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo librust-async-channel-1+default-dev librust-async-executor-1-dev librust-async-io-2+default-dev librust-easy-parallel-3+default-dev librust-once-cell-1+default-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 20s Reading package lists...
+ 20s Building dependency tree...
+ 20s Reading state information...
+ 21s Starting pkgProblemResolver with broken count: 8
+ 21s Starting 2 pkgProblemResolver with broken count: 8
+ 21s Investigating (0) librust-once-cell-dev:riscv64 < none -> 1.19.0-ok1 @un puN Ib >
+ 21s Broken librust-once-cell-dev:riscv64 Depends on librust-critical-section-1+default-dev:riscv64 < none @un H >
+ 21s Broken librust-once-cell-dev:riscv64 Depends on librust-parking-lot-core-0.9-dev:riscv64 < none @un H > (>= 0.9.3-~~)
+ 21s   Considering librust-parking-lot-core-dev:riscv64 0 as a solution to librust-once-cell-dev:riscv64 9999
+ 21s   Re-Instated librust-smallvec-dev:riscv64
+ 21s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 21s Broken librust-once-cell-dev:riscv64 Depends on librust-portable-atomic-1+default-dev:riscv64 < none @un H >
+ 21s Investigating (0) librust-async-executor-dev:riscv64 < none -> 1.5.4-ok1 @un puN Ib >
+ 21s Broken librust-async-executor-dev:riscv64 Depends on librust-async-task-4+default-dev:riscv64 < none @un H >
+ 21s Investigating (0) librust-futures-core-dev:riscv64 < none -> 0.3.30-ok1 @un puN Ib >
+ 21s Broken librust-futures-core-dev:riscv64 Depends on librust-portable-atomic-1+require-cas-dev:riscv64 < none @un H > (>= 1.3-~~)
+ 21s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 21s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 21s Investigating (0) librust-no-panic-dev:riscv64 < none -> 0.1.13-ok1 @un puN Ib >
+ 21s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+default-dev:riscv64 < none @un H >
+ 21s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+full-dev:riscv64 < none @un H >
+ 21s Investigating (0) librust-bytemuck-dev:riscv64 < none -> 1.14.0-ok1 @un puN Ib >
+ 21s Broken librust-bytemuck-dev:riscv64 Depends on librust-bytemuck-derive-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 21s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 21s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 21s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 21s   Re-Instated librust-sval-derive-dev:riscv64
+ 21s   Re-Instated librust-sval-dev:riscv64
+ 21s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 21s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 21s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 21s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 21s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 21s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 21s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 21s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 21s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 21s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 21s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 21s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 21s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 21s Done
+ 22s Some packages could not be installed. This may mean that you have
+ 22s requested an impossible situation or if you are using the unstable
+ 22s distribution that some required packages have not yet been created
+ 22s or been moved out of Incoming.
+ 22s The following information may help to resolve the situation:
+ 22s 
+ 22s The following packages have unmet dependencies:
+ 22s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 22s  librust-async-executor-dev : Depends: librust-async-task-4+default-dev but it is not installable
+ 22s  librust-bytemuck-dev : Depends: librust-bytemuck-derive-1+default-dev (>= 1.4-~~) but it is not installable
+ 22s  librust-futures-core-dev : Depends: librust-portable-atomic-1+require-cas-dev (>= 1.3-~~) but it is not installable
+ 22s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 22s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 22s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 22s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 22s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 22s  librust-no-panic-dev : Depends: librust-syn-1+default-dev but it is not installable
+ 22s                         Depends: librust-syn-1+full-dev but it is not installable
+ 22s  librust-once-cell-dev : Depends: librust-critical-section-1+default-dev but it is not installable
+ 22s                          Depends: librust-portable-atomic-1+default-dev but it is not installable
+ 22s  librust-tracing-core-dev : Depends: librust-valuable-0.1+std-dev but it is not installable
+ 22s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 22s E: Unable to correct problems, you have held broken packages.
+ 22s autopkgtest: DBG: testbed command exited with code 100
+ 22s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 22s rust-async-executor-1: FAIL badpkg
+ 22s blame: rust-async-executor_1.5.4-ok1.dsc
+ 22s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 22s autopkgtest [22:19:56]: test rust-async-executor-1:default: preparing testbed
+ 22s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev'], deps_new=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1+default-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev']
+ 22s autopkgtest: DBG: testbed reset
+ 22s autopkgtest: DBG: sending command to testbed: revert
+ 23s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 26s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.6qXKOi
+ 26s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 26s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86,--user%3Droot,--
+ 26s autopkgtest: DBG: sending command to testbed: capabilities
+ 26s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86//tmp/autopkgtest.6qXKOi
+ 26s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86//tmp/autopkgtest.6qXKOi', 'has_internet']
+ 26s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.6qXKOi/wrapper.sh
+ 27s autopkgtest: DBG: got reply from testbed: ok
+ 27s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.6qXKOi/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest [22:20:01]: testbed dpkg architecture: riscv64
+ 27s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest [22:20:02]: testbed apt version: 2.7.3-ok3
+ 28s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 127
+ 28s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.6qXKOi/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.6qXKOi/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-async-executor/testbed-packages
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 29s autopkgtest: DBG: install_deps: deps_new=['dh-cargo', 'librust-async-channel-1+default-dev', 'librust-async-executor-1+default-dev', 'librust-async-io-2+default-dev', 'librust-easy-parallel-3+default-dev', 'librust-once-cell-1+default-dev']
+ 29s autopkgtest: DBG: install-deps: satisfying dh-cargo, librust-async-channel-1+default-dev, librust-async-executor-1+default-dev, librust-async-io-2+default-dev, librust-easy-parallel-3+default-dev, librust-once-cell-1+default-dev
+ 29s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo, librust-async-channel-1+default-dev, librust-async-executor-1+default-dev, librust-async-io-2+default-dev, librust-easy-parallel-3+default-dev, librust-once-cell-1+default-dev
+ 29s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: can use apt-get on testbed: True
+ 29s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.6qXKOi'], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a9e296d5-c686-4014-b438-b370631b1c86//tmp/autopkgtest.6qXKOi/3-autopkgtest-satdep.deb /tmp/autopkgtest.6qXKOi/3-autopkgtest-satdep.deb
+ 30s autopkgtest: DBG: got reply from testbed: ok
+ 30s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.6qXKOi/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s Reading package lists...
+ 31s Building dependency tree...
+ 31s Reading state information...
+ 32s Starting pkgProblemResolver with broken count: 8
+ 32s Starting 2 pkgProblemResolver with broken count: 8
+ 32s Investigating (0) librust-futures-core-dev:riscv64 < none -> 0.3.30-ok1 @un puN Ib >
+ 32s Broken librust-futures-core-dev:riscv64 Depends on librust-portable-atomic-1+require-cas-dev:riscv64 < none @un H > (>= 1.3-~~)
+ 32s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 32s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 32s Investigating (0) librust-async-executor-dev:riscv64 < none -> 1.5.4-ok1 @un puN Ib >
+ 32s Broken librust-async-executor-dev:riscv64 Depends on librust-async-task-4+default-dev:riscv64 < none @un H >
+ 32s Investigating (0) librust-no-panic-dev:riscv64 < none -> 0.1.13-ok1 @un puN Ib >
+ 32s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+default-dev:riscv64 < none @un H >
+ 32s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+full-dev:riscv64 < none @un H >
+ 32s Investigating (0) librust-bytemuck-dev:riscv64 < none -> 1.14.0-ok1 @un puN Ib >
+ 32s Broken librust-bytemuck-dev:riscv64 Depends on librust-bytemuck-derive-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 32s Investigating (0) librust-once-cell-dev:riscv64 < none -> 1.19.0-ok1 @un puN Ib >
+ 32s Broken librust-once-cell-dev:riscv64 Depends on librust-critical-section-1+default-dev:riscv64 < none @un H >
+ 32s Broken librust-once-cell-dev:riscv64 Depends on librust-parking-lot-core-0.9-dev:riscv64 < none @un H > (>= 0.9.3-~~)
+ 32s   Considering librust-parking-lot-core-dev:riscv64 0 as a solution to librust-once-cell-dev:riscv64 0
+ 32s   Re-Instated librust-smallvec-dev:riscv64
+ 32s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 32s Broken librust-once-cell-dev:riscv64 Depends on librust-portable-atomic-1+default-dev:riscv64 < none @un H >
+ 32s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 32s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 32s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 32s   Re-Instated librust-sval-derive-dev:riscv64
+ 32s   Re-Instated librust-sval-dev:riscv64
+ 32s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 32s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 32s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 32s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 32s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 32s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 32s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 32s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 32s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 32s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 32s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 32s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 32s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 32s Done
+ 32s Some packages could not be installed. This may mean that you have
+ 32s requested an impossible situation or if you are using the unstable
+ 32s distribution that some required packages have not yet been created
+ 32s or been moved out of Incoming.
+ 32s The following information may help to resolve the situation:
+ 32s 
+ 32s The following packages have unmet dependencies:
+ 32s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 32s  librust-async-executor-dev : Depends: librust-async-task-4+default-dev but it is not installable
+ 32s  librust-bytemuck-dev : Depends: librust-bytemuck-derive-1+default-dev (>= 1.4-~~) but it is not installable
+ 32s  librust-futures-core-dev : Depends: librust-portable-atomic-1+require-cas-dev (>= 1.3-~~) but it is not installable
+ 32s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 32s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 32s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 32s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 32s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 32s  librust-no-panic-dev : Depends: librust-syn-1+default-dev but it is not installable
+ 32s                         Depends: librust-syn-1+full-dev but it is not installable
+ 32s  librust-once-cell-dev : Depends: librust-critical-section-1+default-dev but it is not installable
+ 32s                          Depends: librust-portable-atomic-1+default-dev but it is not installable
+ 32s  librust-tracing-core-dev : Depends: librust-valuable-0.1+std-dev but it is not installable
+ 32s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 32s E: Unable to correct problems, you have held broken packages.
+ 32s autopkgtest: DBG: testbed command exited with code 100
+ 32s autopkgtest: DBG: apt-get install /tmp/autopkgtest.6qXKOi/3-autopkgtest-satdep.deb failed; status-fd:
+ 32s 
+ 32s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 32s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo librust-async-channel-1+default-dev librust-async-executor-1+default-dev librust-async-io-2+default-dev librust-easy-parallel-3+default-dev librust-once-cell-1+default-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 33s Reading package lists...
+ 34s Building dependency tree...
+ 34s Reading state information...
+ 34s Starting pkgProblemResolver with broken count: 8
+ 35s Starting 2 pkgProblemResolver with broken count: 8
+ 35s Investigating (0) librust-once-cell-dev:riscv64 < none -> 1.19.0-ok1 @un puN Ib >
+ 35s Broken librust-once-cell-dev:riscv64 Depends on librust-critical-section-1+default-dev:riscv64 < none @un H >
+ 35s Broken librust-once-cell-dev:riscv64 Depends on librust-parking-lot-core-0.9-dev:riscv64 < none @un H > (>= 0.9.3-~~)
+ 35s   Considering librust-parking-lot-core-dev:riscv64 0 as a solution to librust-once-cell-dev:riscv64 9999
+ 35s   Re-Instated librust-smallvec-dev:riscv64
+ 35s   Re-Instated librust-parking-lot-core-dev:riscv64
+ 35s Broken librust-once-cell-dev:riscv64 Depends on librust-portable-atomic-1+default-dev:riscv64 < none @un H >
+ 35s Investigating (0) librust-async-executor-dev:riscv64 < none -> 1.5.4-ok1 @un puN Ib >
+ 35s Broken librust-async-executor-dev:riscv64 Depends on librust-async-task-4+default-dev:riscv64 < none @un H >
+ 35s Investigating (0) librust-futures-core-dev:riscv64 < none -> 0.3.30-ok1 @un puN Ib >
+ 35s Broken librust-futures-core-dev:riscv64 Depends on librust-portable-atomic-1+require-cas-dev:riscv64 < none @un H > (>= 1.3-~~)
+ 35s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 35s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 35s Investigating (0) librust-no-panic-dev:riscv64 < none -> 0.1.13-ok1 @un puN Ib >
+ 35s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+default-dev:riscv64 < none @un H >
+ 35s Broken librust-no-panic-dev:riscv64 Depends on librust-syn-1+full-dev:riscv64 < none @un H >
+ 35s Investigating (0) librust-bytemuck-dev:riscv64 < none -> 1.14.0-ok1 @un puN Ib >
+ 35s Broken librust-bytemuck-dev:riscv64 Depends on librust-bytemuck-derive-1+default-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 35s Investigating (0) librust-log-dev:riscv64 < none -> 0.4.20-ok1 @un puN Ib >
+ 35s Broken librust-log-dev:riscv64 Depends on librust-sval-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 35s   Considering librust-sval-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 35s   Re-Instated librust-sval-derive-dev:riscv64
+ 35s   Re-Instated librust-sval-dev:riscv64
+ 35s Broken librust-log-dev:riscv64 Depends on librust-sval-ref-2-dev:riscv64 < none @un H > (>= 2.1-~~)
+ 35s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+error-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 35s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 35s     Reinst Failed early because of librust-value-bag-serde1-1+alloc-dev:riscv64
+ 35s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+serde-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 35s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 35s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1+sval-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 35s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 35s Broken librust-log-dev:riscv64 Depends on librust-value-bag-1-dev:riscv64 < none @un H > (>= 1.4-~~)
+ 35s   Considering librust-value-bag-dev:riscv64 0 as a solution to librust-log-dev:riscv64 -1
+ 35s Investigating (0) librust-tracing-core-dev:riscv64 < none -> 0.1.32-ok1 @un puN Ib >
+ 35s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1+std-dev:riscv64 < none @un H >
+ 35s Broken librust-tracing-core-dev:riscv64 Depends on librust-valuable-0.1-dev:riscv64 < none @un H >
+ 35s Done
+ 35s Some packages could not be installed. This may mean that you have
+ 35s requested an impossible situation or if you are using the unstable
+ 35s distribution that some required packages have not yet been created
+ 35s or been moved out of Incoming.
+ 35s The following information may help to resolve the situation:
+ 35s 
+ 35s The following packages have unmet dependencies:
+ 36s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 36s  librust-async-executor-dev : Depends: librust-async-task-4+default-dev but it is not installable
+ 36s  librust-bytemuck-dev : Depends: librust-bytemuck-derive-1+default-dev (>= 1.4-~~) but it is not installable
+ 36s  librust-futures-core-dev : Depends: librust-portable-atomic-1+require-cas-dev (>= 1.3-~~) but it is not installable
+ 36s  librust-log-dev : Depends: librust-sval-ref-2-dev (>= 2.1-~~) but it is not installable
+ 36s                    Depends: librust-value-bag-1+error-dev (>= 1.4-~~)
+ 36s                    Depends: librust-value-bag-1+serde-dev (>= 1.4-~~)
+ 36s                    Depends: librust-value-bag-1+sval-dev (>= 1.4-~~)
+ 36s                    Depends: librust-value-bag-1-dev (>= 1.4-~~)
+ 36s  librust-no-panic-dev : Depends: librust-syn-1+default-dev but it is not installable
+ 36s                         Depends: librust-syn-1+full-dev but it is not installable
+ 36s  librust-once-cell-dev : Depends: librust-critical-section-1+default-dev but it is not installable
+ 36s                          Depends: librust-portable-atomic-1+default-dev but it is not installable
+ 36s  librust-tracing-core-dev : Depends: librust-valuable-0.1+std-dev but it is not installable
+ 36s                             Depends: librust-valuable-0.1-dev but it is not installable
+ 36s E: Unable to correct problems, you have held broken packages.
+ 36s autopkgtest: DBG: testbed command exited with code 100
+ 36s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 36s rust-async-executor-1:default FAIL badpkg
+ 36s blame: rust-async-executor_1.5.4-ok1.dsc
+ 36s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 36s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 36s autopkgtest [22:20:10]: @@@@@@@@@@@@@@@@@@@@ summary
+ 36s rust-async-executor-1:@ FAIL badpkg
+ 36s blame: rust-async-executor_1.5.4-ok1.dsc
+ 36s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 36s rust-async-executor-1: FAIL badpkg
+ 36s blame: rust-async-executor_1.5.4-ok1.dsc
+ 36s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 36s rust-async-executor-1:default FAIL badpkg
+ 36s blame: rust-async-executor_1.5.4-ok1.dsc
+ 36s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 36s autopkgtest: DBG: testbed stop
+ 36s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.6qXKOi
+ 36s autopkgtest: DBG: sending command to testbed: close
+ 36s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: sending command to testbed: quit

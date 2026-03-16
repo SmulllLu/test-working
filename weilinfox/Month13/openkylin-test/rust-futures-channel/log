@@ -1,0 +1,698 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:18:05]: starting date and time: 2024-07-18 23:18:05+0800
+  0s autopkgtest [23:18:05]: version @version@
+  0s autopkgtest [23:18:05]: host nana; command line: /usr/bin/autopkgtest rust-futures-channel_0.3.30-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-futures-channel -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.is6kxv
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.is6kxv/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.is6kxv/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [23:18:09]: testbed dpkg architecture: riscv64
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [23:18:10]: testbed apt version: 2.7.3-ok3
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 127
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.is6kxv/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.is6kxv/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-futures-channel/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest [23:18:11]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  6s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: Binaries: initialising
+  6s autopkgtest [23:18:11]: @@@@@@@@@@@@@@@@@@@@ source rust-futures-channel_0.3.30-ok1.dsc
+  6s autopkgtest: DBG: blame += rust-futures-channel_0.3.30-ok1.dsc
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-futures-channel_0.3.30-ok1.dsc /tmp/autopkgtest.is6kxv/rust-futures-channel_0.3.30-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-futures-channel_0.3.30.orig.tar.gz /tmp/autopkgtest.is6kxv/rust-futures-channel_0.3.30.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: sending command to testbed: copydown rust-futures-channel_0.3.30-ok1.debian.tar.xz /tmp/autopkgtest.is6kxv/rust-futures-channel_0.3.30-ok1.debian.tar.xz
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: install_deps: deps_new=[]
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.is6kxv/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.is6kxv/rust-futures-channel_0.3.30-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.is6kxv/build.XXX
+  7s + builddir=/tmp/autopkgtest.is6kxv/build.EO0
+  7s + cd /tmp/autopkgtest.is6kxv/build.EO0
+  7s + dpkg-source -x /tmp/autopkgtest.is6kxv/rust-futures-channel_0.3.30-ok1.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.O0ojOWsq/trustedkeys.kbx': General error
+  8s gpgv: Signature made Tue 07 May 2024 03:28:41 PM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.is6kxv/rust-futures-channel_0.3.30-ok1.dsc
+  8s dpkg-source: info: extracting rust-futures-channel in src
+  8s dpkg-source: info: unpacking rust-futures-channel_0.3.30.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-futures-channel_0.3.30-ok1.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying add-missing-dev-depends.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [23:18:13]: testing package rust-futures-channel version 0.3.30-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.is6kxv/build.EO0/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-futures-channel/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name rust-futures-channel:@ path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --all-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=rust-futures-channel:@'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:alloc path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features alloc" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:alloc'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:cfg-target-has-atomic path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features cfg-target-has-atomic" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:cfg-target-has-atomic'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:default'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:futures-sink path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features futures-sink" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:futures-sink'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:sink path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features sink" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:sink'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:std path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:std'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:unstable path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features unstable" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:unstable'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  8s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  8s autopkgtest: DBG: Test defined: name librust-futures-channel-dev: path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  8s autopkgtest [23:18:13]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.is6kxv/build.EO0/src/ /home/hachi/openkylin_test/sharefolder/results/rust-futures-channel/tests-tree/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name rust-futures-channel:@ path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --all-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=rust-futures-channel:@'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:alloc path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features alloc" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:alloc'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:cfg-target-has-atomic path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features cfg-target-has-atomic" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:cfg-target-has-atomic'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:default'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:futures-sink path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features futures-sink" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:futures-sink'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:sink path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features sink" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:sink'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:std path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:std'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev:unstable path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features --features unstable" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:unstable'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency librust-futures-0.3+default-dev (>= 0.3.11-~~)
+  9s autopkgtest: DBG: processing dependency librust-futures-test-0.3+default-dev
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-futures-channel-dev
+  9s autopkgtest: DBG: Test defined: name librust-futures-channel-dev: path None command "/usr/share/cargo/bin/cargo-auto-test futures-channel 0.3.30 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-futures-channel-dev:'] depends ['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'] 
+  9s autopkgtest [23:18:14]: test rust-futures-channel:@: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+  9s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+  9s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/1-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 1
+ 12s Starting 2 pkgProblemResolver with broken count: 1
+ 12s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 12s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 12s     Reinst Failed because of libgit2-1.7:riscv64
+ 12s     Reinst Failed because of cargo:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 12s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 12s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 12s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 12s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 12s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 12s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 12s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 12s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s autopkgtest: DBG: testbed command exited with code 2
+ 12s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 12s rust-futures-channel:@ SKIP installation fails and skip-not-installable set
+ 12s autopkgtest [23:18:17]: test librust-futures-channel-dev:alloc: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 13s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 13s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: can use apt-get on testbed: True
+ 13s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/2-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/2-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 15s Building dependency tree...
+ 15s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 15s Starting 2 pkgProblemResolver with broken count: 1
+ 15s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 15s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 15s     Reinst Failed because of libgit2-1.7:riscv64
+ 15s     Reinst Failed because of cargo:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 15s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 15s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 15s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 15s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s Done
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 16s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 16s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 16s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 16s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 16s E: Unable to correct problems, you have held broken packages.
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/2-autopkgtest-satdep.deb failed; status-fd:
+ 16s 
+ 16s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s autopkgtest: DBG: testbed command exited with code 2
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s librust-futures-channel-dev:alloc SKIP installation fails and skip-not-installable set
+ 16s autopkgtest [23:18:21]: test librust-futures-channel-dev:cfg-target-has-atomic: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 16s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 16s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 16s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/3-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/3-autopkgtest-satdep.deb
+ 17s autopkgtest: DBG: got reply from testbed: ok
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 18s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 19s Starting pkgProblemResolver with broken count: 1
+ 19s Starting 2 pkgProblemResolver with broken count: 1
+ 19s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 19s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 19s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 19s     Reinst Failed because of libgit2-1.7:riscv64
+ 19s     Reinst Failed because of cargo:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 19s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 19s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 19s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 19s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 19s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 19s Done
+ 19s Some packages could not be installed. This may mean that you have
+ 19s requested an impossible situation or if you are using the unstable
+ 19s distribution that some required packages have not yet been created
+ 19s or been moved out of Incoming.
+ 19s The following information may help to resolve the situation:
+ 19s 
+ 19s The following packages have unmet dependencies:
+ 19s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 19s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 19s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 19s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 19s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/3-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 20s autopkgtest: DBG: testbed command exited with code 2
+ 20s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s librust-futures-channel-dev:cfg-target-has-atomic SKIP installation fails and skip-not-installable set
+ 20s autopkgtest [23:18:25]: test librust-futures-channel-dev:default: preparing testbed
+ 20s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 20s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 20s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 20s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/4-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/4-autopkgtest-satdep.deb
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 21s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 22s Starting pkgProblemResolver with broken count: 1
+ 23s Starting 2 pkgProblemResolver with broken count: 1
+ 23s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 23s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 23s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 23s     Reinst Failed because of libgit2-1.7:riscv64
+ 23s     Reinst Failed because of cargo:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 23s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 23s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 23s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 23s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 23s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 23s Done
+ 23s Some packages could not be installed. This may mean that you have
+ 23s requested an impossible situation or if you are using the unstable
+ 23s distribution that some required packages have not yet been created
+ 23s or been moved out of Incoming.
+ 23s The following information may help to resolve the situation:
+ 23s 
+ 23s The following packages have unmet dependencies:
+ 23s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 23s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 23s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 23s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/4-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s autopkgtest: DBG: testbed command exited with code 2
+ 23s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s librust-futures-channel-dev:default SKIP installation fails and skip-not-installable set
+ 23s autopkgtest [23:18:28]: test librust-futures-channel-dev:futures-sink: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 23s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 23s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 23s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 23s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 23s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: can use apt-get on testbed: True
+ 24s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/5-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/5-autopkgtest-satdep.deb
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 25s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 26s Starting pkgProblemResolver with broken count: 1
+ 26s Starting 2 pkgProblemResolver with broken count: 1
+ 26s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 26s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 26s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 26s     Reinst Failed because of libgit2-1.7:riscv64
+ 26s     Reinst Failed because of cargo:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 26s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 26s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 26s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 26s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 26s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 26s Done
+ 26s Some packages could not be installed. This may mean that you have
+ 26s requested an impossible situation or if you are using the unstable
+ 26s distribution that some required packages have not yet been created
+ 26s or been moved out of Incoming.
+ 26s The following information may help to resolve the situation:
+ 26s 
+ 26s The following packages have unmet dependencies:
+ 27s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 27s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 27s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 27s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 27s E: Unable to correct problems, you have held broken packages.
+ 27s autopkgtest: DBG: testbed command exited with code 100
+ 27s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/5-autopkgtest-satdep.deb failed; status-fd:
+ 27s 
+ 27s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s autopkgtest: DBG: testbed command exited with code 2
+ 27s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s librust-futures-channel-dev:futures-sink SKIP installation fails and skip-not-installable set
+ 27s autopkgtest [23:18:32]: test librust-futures-channel-dev:sink: preparing testbed
+ 27s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 27s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 27s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 27s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 27s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 27s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: can use apt-get on testbed: True
+ 27s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/6-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/6-autopkgtest-satdep.deb
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 29s Building dependency tree...
+ 29s Reading state information...
+ 30s Starting pkgProblemResolver with broken count: 1
+ 30s Starting 2 pkgProblemResolver with broken count: 1
+ 30s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 30s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 30s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 30s     Reinst Failed because of libgit2-1.7:riscv64
+ 30s     Reinst Failed because of cargo:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 30s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 30s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 30s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 30s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 30s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 30s Done
+ 30s Some packages could not be installed. This may mean that you have
+ 30s requested an impossible situation or if you are using the unstable
+ 30s distribution that some required packages have not yet been created
+ 30s or been moved out of Incoming.
+ 30s The following information may help to resolve the situation:
+ 30s 
+ 30s The following packages have unmet dependencies:
+ 30s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 30s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 30s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 30s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 30s E: Unable to correct problems, you have held broken packages.
+ 30s autopkgtest: DBG: testbed command exited with code 100
+ 30s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/6-autopkgtest-satdep.deb failed; status-fd:
+ 30s 
+ 30s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 30s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s autopkgtest: DBG: testbed command exited with code 2
+ 31s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 31s librust-futures-channel-dev:sink SKIP installation fails and skip-not-installable set
+ 31s autopkgtest [23:18:36]: test librust-futures-channel-dev:std: preparing testbed
+ 31s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 31s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 31s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 31s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 31s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 31s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: can use apt-get on testbed: True
+ 31s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/7-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/7-autopkgtest-satdep.deb
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/7-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 32s Reading package lists...
+ 33s Building dependency tree...
+ 33s Reading state information...
+ 33s Starting pkgProblemResolver with broken count: 1
+ 33s Starting 2 pkgProblemResolver with broken count: 1
+ 33s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 33s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 33s     Reinst Failed because of libgit2-1.7:riscv64
+ 33s     Reinst Failed because of cargo:riscv64
+ 33s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 33s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 33s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 33s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 33s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 33s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 33s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 33s Done
+ 33s Some packages could not be installed. This may mean that you have
+ 33s requested an impossible situation or if you are using the unstable
+ 33s distribution that some required packages have not yet been created
+ 33s or been moved out of Incoming.
+ 33s The following information may help to resolve the situation:
+ 33s 
+ 33s The following packages have unmet dependencies:
+ 34s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 34s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 34s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 34s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 34s E: Unable to correct problems, you have held broken packages.
+ 34s autopkgtest: DBG: testbed command exited with code 100
+ 34s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/7-autopkgtest-satdep.deb failed; status-fd:
+ 34s 
+ 34s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 34s autopkgtest: DBG: testbed command exited with code 2
+ 34s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 34s librust-futures-channel-dev:std SKIP installation fails and skip-not-installable set
+ 34s autopkgtest [23:18:39]: test librust-futures-channel-dev:unstable: preparing testbed
+ 34s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 34s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 34s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 34s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 34s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 34s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: can use apt-get on testbed: True
+ 35s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/8-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/8-autopkgtest-satdep.deb
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/8-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 36s Reading package lists...
+ 36s Building dependency tree...
+ 36s Reading state information...
+ 37s Starting pkgProblemResolver with broken count: 1
+ 37s Starting 2 pkgProblemResolver with broken count: 1
+ 37s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 37s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 37s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 37s     Reinst Failed because of libgit2-1.7:riscv64
+ 37s     Reinst Failed because of cargo:riscv64
+ 37s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 37s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 37s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 37s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 37s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 37s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 37s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s Done
+ 37s Some packages could not be installed. This may mean that you have
+ 37s requested an impossible situation or if you are using the unstable
+ 37s distribution that some required packages have not yet been created
+ 37s or been moved out of Incoming.
+ 37s The following information may help to resolve the situation:
+ 37s 
+ 37s The following packages have unmet dependencies:
+ 38s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 38s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 38s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 38s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 38s E: Unable to correct problems, you have held broken packages.
+ 38s autopkgtest: DBG: testbed command exited with code 100
+ 38s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/8-autopkgtest-satdep.deb failed; status-fd:
+ 38s 
+ 38s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 38s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s autopkgtest: DBG: testbed command exited with code 2
+ 38s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 38s librust-futures-channel-dev:unstable SKIP installation fails and skip-not-installable set
+ 38s autopkgtest [23:18:43]: test librust-futures-channel-dev:: preparing testbed
+ 38s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev'], deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 38s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 38s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-futures-0.3+default-dev (>= 0.3.11-~~)', 'librust-futures-test-0.3+default-dev', 'librust-futures-channel-dev']
+ 38s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 38s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-futures-0.3+default-dev (>= 0.3.11-~~), librust-futures-test-0.3+default-dev, librust-futures-channel-dev
+ 38s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: can use apt-get on testbed: True
+ 38s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.is6kxv'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4a28b7db-f11c-4016-a7d6-3a3775fea110//tmp/autopkgtest.is6kxv/9-autopkgtest-satdep.deb /tmp/autopkgtest.is6kxv/9-autopkgtest-satdep.deb
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.is6kxv/9-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 40s Building dependency tree...
+ 40s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 41s Starting 2 pkgProblemResolver with broken count: 1
+ 41s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 41s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 18)
+ 41s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 41s     Reinst Failed because of libgit2-1.7:riscv64
+ 41s     Reinst Failed because of cargo:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-0.3+default-dev:riscv64 < none @un H > (>= 0.3.11-~~)
+ 41s   Considering librust-futures-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 41s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 41s     Reinst Failed because of librust-futures-channel-dev:riscv64
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-test-0.3+default-dev:riscv64 < none @un H >
+ 41s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-channel-dev:riscv64 < none | 0.3.30-ok1 @un uH >
+ 41s   Considering librust-futures-channel-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 41s Done
+ 41s Some packages could not be installed. This may mean that you have
+ 41s requested an impossible situation or if you are using the unstable
+ 41s distribution that some required packages have not yet been created
+ 41s or been moved out of Incoming.
+ 41s The following information may help to resolve the situation:
+ 41s 
+ 41s The following packages have unmet dependencies:
+ 41s  autopkgtest-satdep : Depends: dh-cargo (>= 18) but it is not going to be installed
+ 41s                       Depends: librust-futures-0.3+default-dev (>= 0.3.11-~~)
+ 41s                       Depends: librust-futures-test-0.3+default-dev but it is not installable
+ 41s                       Depends: librust-futures-channel-dev but it is not going to be installed
+ 41s E: Unable to correct problems, you have held broken packages.
+ 41s autopkgtest: DBG: testbed command exited with code 100
+ 41s autopkgtest: DBG: apt-get install /tmp/autopkgtest.is6kxv/9-autopkgtest-satdep.deb failed; status-fd:
+ 41s 
+ 41s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 41s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-futures-0.3+default-dev (>= 0.3.11-~~) librust-futures-test-0.3+default-dev librust-futures-channel-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 42s autopkgtest: DBG: testbed command exited with code 2
+ 42s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 42s librust-futures-channel-dev: SKIP installation fails and skip-not-installable set
+ 42s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 42s autopkgtest [23:18:47]: @@@@@@@@@@@@@@@@@@@@ summary
+ 42s rust-futures-channel:@ SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev:alloc SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev:cfg-target-has-atomic SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev:default SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev:futures-sink SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev:sink SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev:std SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev:unstable SKIP installation fails and skip-not-installable set
+ 42s librust-futures-channel-dev: SKIP installation fails and skip-not-installable set
+ 42s autopkgtest: DBG: testbed stop
+ 42s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.is6kxv
+ 42s autopkgtest: DBG: sending command to testbed: close
+ 42s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: sending command to testbed: quit

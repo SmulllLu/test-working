@@ -1,0 +1,1254 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:45:44]: starting date and time: 2024-07-18 01:45:44+0800
+  0s autopkgtest [01:45:44]: version @version@
+  0s autopkgtest [01:45:44]: host lili; command line: /usr/bin/autopkgtest ceph_19.2.0-ok2.dsc -o /home/hachi/openkylin_test/sharefolder/results/ceph -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.eNOSC0
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-21d14f89-abac-4289-989d-d1e17245dcfb,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-21d14f89-abac-4289-989d-d1e17245dcfb//tmp/autopkgtest.eNOSC0
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-21d14f89-abac-4289-989d-d1e17245dcfb//tmp/autopkgtest.eNOSC0', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.eNOSC0'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.eNOSC0/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.eNOSC0/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [01:45:45]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:45:46]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.eNOSC0/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.eNOSC0/testbed-packages /home/hachi/openkylin_test/sharefolder/results/ceph/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:45:46]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [01:45:46]: @@@@@@@@@@@@@@@@@@@@ source ceph_19.2.0-ok2.dsc
+  2s autopkgtest: DBG: blame += ceph_19.2.0-ok2.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.eNOSC0'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown ceph_19.2.0-ok2.dsc /tmp/autopkgtest.eNOSC0/ceph_19.2.0-ok2.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.eNOSC0'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown ceph_19.2.0-ok2.tar.xz /tmp/autopkgtest.eNOSC0/ceph_19.2.0-ok2.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.eNOSC0/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.eNOSC0/ceph_19.2.0-ok2.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.eNOSC0/build.XXX
+  3s + builddir=/tmp/autopkgtest.eNOSC0/build.LdL
+  3s + cd /tmp/autopkgtest.eNOSC0/build.LdL
+  3s + dpkg-source -x /tmp/autopkgtest.eNOSC0/ceph_19.2.0-ok2.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.ZQaW83If/trustedkeys.kbx': General error
+  3s gpgv: Signature made Fri 14 Jun 2024 11:07:29 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.eNOSC0/ceph_19.2.0-ok2.dsc
+  8s dpkg-source: info: extracting ceph in src
+  8s dpkg-source: info: unpacking ceph_19.2.0-ok2.tar.xz
+ 37s + chmod -R a+rX .
+ 39s + cd src/.
+ 39s + pwd
+ 39s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest [01:46:23]: testing package ceph version 19.2.0-ok2
+ 39s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.eNOSC0/build.LdL/src/debian/ /home/hachi/openkylin_test/sharefolder/results/ceph/pkg/debian/
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: processing dependency build-essential
+ 39s autopkgtest: DBG: processing dependency ceph-common
+ 39s autopkgtest: DBG: marked alternatives ['ceph-common'] as a synthesised dependency
+ 39s autopkgtest: DBG: processing dependency librados-dev
+ 39s autopkgtest: DBG: marked alternatives ['librados-dev'] as a synthesised dependency
+ 39s autopkgtest: DBG: processing dependency librbd-dev
+ 39s autopkgtest: DBG: marked alternatives ['librbd-dev'] as a synthesised dependency
+ 39s autopkgtest: DBG: processing dependency python3-rados
+ 39s autopkgtest: DBG: marked alternatives ['python3-rados'] as a synthesised dependency
+ 39s autopkgtest: DBG: processing dependency python3-rbd
+ 39s autopkgtest: DBG: marked alternatives ['python3-rbd'] as a synthesised dependency
+ 39s autopkgtest: DBG: Test defined: name ceph-client path debian/tests/ceph-client command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+ 39s autopkgtest: DBG: Test defined: name build-rados path debian/tests/build-rados command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+ 39s autopkgtest: DBG: Test defined: name build-rbd path debian/tests/build-rbd command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+ 39s autopkgtest: DBG: Test defined: name python-ceph path debian/tests/python-ceph command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+ 39s autopkgtest [01:46:23]: build not needed
+ 39s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.eNOSC0/build.LdL/src/ /home/hachi/openkylin_test/sharefolder/results/ceph/tests-tree/
+102s autopkgtest: DBG: got reply from testbed: ok
+102s autopkgtest: DBG: processing dependency build-essential
+102s autopkgtest: DBG: processing dependency ceph-common
+102s autopkgtest: DBG: marked alternatives ['ceph-common'] as a synthesised dependency
+102s autopkgtest: DBG: processing dependency librados-dev
+102s autopkgtest: DBG: marked alternatives ['librados-dev'] as a synthesised dependency
+102s autopkgtest: DBG: processing dependency librbd-dev
+102s autopkgtest: DBG: marked alternatives ['librbd-dev'] as a synthesised dependency
+102s autopkgtest: DBG: processing dependency python3-rados
+102s autopkgtest: DBG: marked alternatives ['python3-rados'] as a synthesised dependency
+102s autopkgtest: DBG: processing dependency python3-rbd
+102s autopkgtest: DBG: marked alternatives ['python3-rbd'] as a synthesised dependency
+102s autopkgtest: DBG: Test defined: name ceph-client path debian/tests/ceph-client command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+102s autopkgtest: DBG: Test defined: name build-rados path debian/tests/build-rados command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+102s autopkgtest: DBG: Test defined: name build-rbd path debian/tests/build-rbd command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+102s autopkgtest: DBG: Test defined: name python-ceph path debian/tests/python-ceph command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'] 
+102s autopkgtest [01:47:26]: test ceph-client: preparing testbed
+102s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+102s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+102s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+102s autopkgtest: DBG: install-deps: satisfying build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+102s autopkgtest: DBG: install-deps: architecture resolved: build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+102s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+102s autopkgtest: DBG: testbed command exited with code 0
+102s autopkgtest: DBG: can use apt-get on testbed: True
+102s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.eNOSC0'], kind short, sout raw, serr pipe, env []
+102s autopkgtest: DBG: testbed command exited with code 0
+102s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-21d14f89-abac-4289-989d-d1e17245dcfb//tmp/autopkgtest.eNOSC0/1-autopkgtest-satdep.deb /tmp/autopkgtest.eNOSC0/1-autopkgtest-satdep.deb
+102s autopkgtest: DBG: got reply from testbed: ok
+102s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.eNOSC0/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+103s Reading package lists...
+103s Building dependency tree...
+103s Reading state information...
+104s Starting pkgProblemResolver with broken count: 5
+104s Starting 2 pkgProblemResolver with broken count: 5
+104s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+104s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+104s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+104s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+104s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+104s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+104s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 7
+104s   Re-Instated libibverbs1:riscv64
+104s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+104s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 7
+104s   Re-Instated librdmacm1:riscv64
+104s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+104s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 0
+104s   Re-Instated python3-ceph-argparse:riscv64
+104s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+104s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 0
+104s   Re-Instated python3-ceph-common:riscv64
+104s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+104s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 0
+104s   Re-Instated libcephfs2:riscv64
+104s   Re-Instated python3-cephfs:riscv64
+104s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+104s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 0
+104s   Re-Instated python3-wcwidth:riscv64
+104s   Re-Instated python3-prettytable:riscv64
+104s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+104s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 0
+104s   Re-Instated libdw1t64:riscv64
+104s   Re-Instated libbabeltrace1:riscv64
+104s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+104s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 0
+104s   Re-Instated liblua5.4-0:riscv64
+104s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+104s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 0
+104s   Re-Instated liboath0:riscv64
+104s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+104s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 0
+104s   Re-Instated libradosstriper1:riscv64
+104s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+104s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+104s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+104s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+104s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+104s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+104s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+104s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+104s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+104s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+104s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+104s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+104s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+104s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+104s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+104s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+104s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+104s   Re-Instated gir1.2-girepository-2.0:riscv64
+104s   Re-Instated python3-gi:riscv64
+104s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+104s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+104s Done
+104s Some packages could not be installed. This may mean that you have
+104s requested an impossible situation or if you are using the unstable
+104s distribution that some required packages have not yet been created
+104s or been moved out of Incoming.
+104s The following information may help to resolve the situation:
+104s 
+104s The following packages have unmet dependencies:
+104s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+104s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+104s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+104s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+104s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+104s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+104s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+104s E: Unable to correct problems, you have held broken packages.
+104s autopkgtest: DBG: testbed command exited with code 100
+104s autopkgtest: DBG: apt-get install /tmp/autopkgtest.eNOSC0/1-autopkgtest-satdep.deb failed; status-fd:
+104s 
+104s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+104s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential ceph-common librados-dev librbd-dev python3-rados python3-rbd -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+105s Reading package lists...
+105s Building dependency tree...
+105s Reading state information...
+106s Starting pkgProblemResolver with broken count: 5
+106s Starting 2 pkgProblemResolver with broken count: 5
+106s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+106s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated python3-ceph-argparse:riscv64
+106s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+106s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated python3-ceph-common:riscv64
+106s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+106s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated libcephfs2:riscv64
+106s   Re-Instated python3-cephfs:riscv64
+106s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+106s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated python3-wcwidth:riscv64
+106s   Re-Instated python3-prettytable:riscv64
+106s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+106s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated libdw1t64:riscv64
+106s   Re-Instated libbabeltrace1:riscv64
+106s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+106s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated liblua5.4-0:riscv64
+106s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+106s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated liboath0:riscv64
+106s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+106s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 9999
+106s   Re-Instated libradosstriper1:riscv64
+106s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+106s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+106s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+106s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+106s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+106s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+106s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 5
+106s   Re-Instated libibverbs1:riscv64
+106s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+106s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 5
+106s   Re-Instated librdmacm1:riscv64
+106s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+106s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+106s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+106s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+106s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+106s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+106s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+106s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+106s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+106s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+106s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+106s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+106s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+106s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+106s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+106s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+106s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+106s   Re-Instated gir1.2-girepository-2.0:riscv64
+106s   Re-Instated python3-gi:riscv64
+106s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+106s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+106s Done
+106s build-essential is already the newest version (12.8-ok1).
+106s Some packages could not be installed. This may mean that you have
+106s requested an impossible situation or if you are using the unstable
+106s distribution that some required packages have not yet been created
+106s or been moved out of Incoming.
+106s The following information may help to resolve the situation:
+106s 
+106s The following packages have unmet dependencies:
+106s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+106s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+106s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+106s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+106s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+106s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+106s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+106s E: Unable to correct problems, you have held broken packages.
+106s autopkgtest: DBG: testbed command exited with code 100
+106s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+106s ceph-client          FAIL badpkg
+106s blame: ceph_19.2.0-ok2.dsc
+106s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+106s autopkgtest [01:47:30]: test build-rados: preparing testbed
+106s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'], deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+106s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+106s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+106s autopkgtest: DBG: install-deps: satisfying build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+106s autopkgtest: DBG: install-deps: architecture resolved: build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+106s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+107s autopkgtest: DBG: testbed command exited with code 0
+107s autopkgtest: DBG: can use apt-get on testbed: True
+107s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.eNOSC0'], kind short, sout raw, serr pipe, env []
+107s autopkgtest: DBG: testbed command exited with code 0
+107s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-21d14f89-abac-4289-989d-d1e17245dcfb//tmp/autopkgtest.eNOSC0/2-autopkgtest-satdep.deb /tmp/autopkgtest.eNOSC0/2-autopkgtest-satdep.deb
+107s autopkgtest: DBG: got reply from testbed: ok
+107s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.eNOSC0/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+107s Reading package lists...
+108s Building dependency tree...
+108s Reading state information...
+108s Starting pkgProblemResolver with broken count: 5
+108s Starting 2 pkgProblemResolver with broken count: 5
+108s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+108s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+108s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+108s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+108s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+108s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+108s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 7
+108s   Re-Instated libibverbs1:riscv64
+108s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+108s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 7
+108s   Re-Instated librdmacm1:riscv64
+108s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+108s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 0
+108s   Re-Instated python3-ceph-argparse:riscv64
+108s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+108s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 0
+108s   Re-Instated python3-ceph-common:riscv64
+108s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+108s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 0
+108s   Re-Instated libcephfs2:riscv64
+108s   Re-Instated python3-cephfs:riscv64
+108s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+108s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 0
+108s   Re-Instated python3-wcwidth:riscv64
+108s   Re-Instated python3-prettytable:riscv64
+108s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+108s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 0
+108s   Re-Instated libdw1t64:riscv64
+108s   Re-Instated libbabeltrace1:riscv64
+108s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+108s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 0
+108s   Re-Instated liblua5.4-0:riscv64
+108s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+108s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 0
+108s   Re-Instated liboath0:riscv64
+108s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+108s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 0
+108s   Re-Instated libradosstriper1:riscv64
+108s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+108s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+108s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+108s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+108s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+108s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+108s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+108s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+108s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+108s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+108s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+108s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+108s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+108s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+108s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+108s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+108s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+108s   Re-Instated gir1.2-girepository-2.0:riscv64
+108s   Re-Instated python3-gi:riscv64
+108s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+108s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+108s Done
+108s Some packages could not be installed. This may mean that you have
+108s requested an impossible situation or if you are using the unstable
+108s distribution that some required packages have not yet been created
+108s or been moved out of Incoming.
+108s The following information may help to resolve the situation:
+108s 
+108s The following packages have unmet dependencies:
+109s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+109s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+109s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+109s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+109s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+109s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+109s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+109s E: Unable to correct problems, you have held broken packages.
+109s autopkgtest: DBG: testbed command exited with code 100
+109s autopkgtest: DBG: apt-get install /tmp/autopkgtest.eNOSC0/2-autopkgtest-satdep.deb failed; status-fd:
+109s 
+109s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+109s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential ceph-common librados-dev librbd-dev python3-rados python3-rbd -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+109s Reading package lists...
+110s Building dependency tree...
+110s Reading state information...
+110s Starting pkgProblemResolver with broken count: 5
+110s Starting 2 pkgProblemResolver with broken count: 5
+110s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+110s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated python3-ceph-argparse:riscv64
+110s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+110s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated python3-ceph-common:riscv64
+110s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+110s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated libcephfs2:riscv64
+110s   Re-Instated python3-cephfs:riscv64
+110s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+110s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated python3-wcwidth:riscv64
+110s   Re-Instated python3-prettytable:riscv64
+110s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+110s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated libdw1t64:riscv64
+110s   Re-Instated libbabeltrace1:riscv64
+110s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+110s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated liblua5.4-0:riscv64
+110s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+110s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated liboath0:riscv64
+110s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+110s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 9999
+110s   Re-Instated libradosstriper1:riscv64
+110s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+110s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+110s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+110s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+110s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+110s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+110s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 5
+110s   Re-Instated libibverbs1:riscv64
+110s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+110s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 5
+110s   Re-Instated librdmacm1:riscv64
+110s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+110s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+110s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+110s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+110s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+110s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+110s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+110s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+110s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+110s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+110s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+110s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+110s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+110s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+110s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+110s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+110s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+110s   Re-Instated gir1.2-girepository-2.0:riscv64
+110s   Re-Instated python3-gi:riscv64
+110s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+110s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+110s Done
+110s build-essential is already the newest version (12.8-ok1).
+110s Some packages could not be installed. This may mean that you have
+110s requested an impossible situation or if you are using the unstable
+110s distribution that some required packages have not yet been created
+110s or been moved out of Incoming.
+110s The following information may help to resolve the situation:
+110s 
+110s The following packages have unmet dependencies:
+111s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+111s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+111s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+111s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+111s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+111s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+111s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+111s E: Unable to correct problems, you have held broken packages.
+111s autopkgtest: DBG: testbed command exited with code 100
+111s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+111s build-rados          FAIL badpkg
+111s blame: ceph_19.2.0-ok2.dsc
+111s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+111s autopkgtest [01:47:35]: test build-rbd: preparing testbed
+111s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'], deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+111s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+111s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+111s autopkgtest: DBG: install-deps: satisfying build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+111s autopkgtest: DBG: install-deps: architecture resolved: build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+111s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+111s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest: DBG: can use apt-get on testbed: True
+111s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.eNOSC0'], kind short, sout raw, serr pipe, env []
+111s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-21d14f89-abac-4289-989d-d1e17245dcfb//tmp/autopkgtest.eNOSC0/3-autopkgtest-satdep.deb /tmp/autopkgtest.eNOSC0/3-autopkgtest-satdep.deb
+111s autopkgtest: DBG: got reply from testbed: ok
+111s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.eNOSC0/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+112s Reading package lists...
+112s Building dependency tree...
+112s Reading state information...
+113s Starting pkgProblemResolver with broken count: 5
+113s Starting 2 pkgProblemResolver with broken count: 5
+113s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+113s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+113s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+113s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+113s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+113s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+113s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 7
+113s   Re-Instated libibverbs1:riscv64
+113s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+113s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 7
+113s   Re-Instated librdmacm1:riscv64
+113s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+113s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 0
+113s   Re-Instated python3-ceph-argparse:riscv64
+113s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+113s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 0
+113s   Re-Instated python3-ceph-common:riscv64
+113s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+113s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 0
+113s   Re-Instated libcephfs2:riscv64
+113s   Re-Instated python3-cephfs:riscv64
+113s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+113s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 0
+113s   Re-Instated python3-wcwidth:riscv64
+113s   Re-Instated python3-prettytable:riscv64
+113s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+113s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 0
+113s   Re-Instated libdw1t64:riscv64
+113s   Re-Instated libbabeltrace1:riscv64
+113s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+113s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 0
+113s   Re-Instated liblua5.4-0:riscv64
+113s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+113s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 0
+113s   Re-Instated liboath0:riscv64
+113s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+113s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 0
+113s   Re-Instated libradosstriper1:riscv64
+113s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+113s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+113s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+113s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+113s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+113s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+113s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+113s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+113s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+113s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+113s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+113s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+113s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+113s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+113s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+113s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+113s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+113s   Re-Instated gir1.2-girepository-2.0:riscv64
+113s   Re-Instated python3-gi:riscv64
+113s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+113s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+113s Done
+113s Some packages could not be installed. This may mean that you have
+113s requested an impossible situation or if you are using the unstable
+113s distribution that some required packages have not yet been created
+113s or been moved out of Incoming.
+113s The following information may help to resolve the situation:
+113s 
+113s The following packages have unmet dependencies:
+113s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+113s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+113s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+113s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+113s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+113s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+113s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+113s E: Unable to correct problems, you have held broken packages.
+113s autopkgtest: DBG: testbed command exited with code 100
+113s autopkgtest: DBG: apt-get install /tmp/autopkgtest.eNOSC0/3-autopkgtest-satdep.deb failed; status-fd:
+113s 
+113s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+113s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential ceph-common librados-dev librbd-dev python3-rados python3-rbd -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+114s Reading package lists...
+114s Building dependency tree...
+114s Reading state information...
+115s Starting pkgProblemResolver with broken count: 5
+115s Starting 2 pkgProblemResolver with broken count: 5
+115s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+115s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated python3-ceph-argparse:riscv64
+115s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+115s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated python3-ceph-common:riscv64
+115s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+115s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated libcephfs2:riscv64
+115s   Re-Instated python3-cephfs:riscv64
+115s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+115s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated python3-wcwidth:riscv64
+115s   Re-Instated python3-prettytable:riscv64
+115s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+115s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated libdw1t64:riscv64
+115s   Re-Instated libbabeltrace1:riscv64
+115s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+115s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated liblua5.4-0:riscv64
+115s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+115s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated liboath0:riscv64
+115s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+115s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 9999
+115s   Re-Instated libradosstriper1:riscv64
+115s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+115s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+115s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+115s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+115s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+115s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+115s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 5
+115s   Re-Instated libibverbs1:riscv64
+115s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+115s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 5
+115s   Re-Instated librdmacm1:riscv64
+115s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+115s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+115s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+115s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+115s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+115s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+115s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+115s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+115s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+115s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+115s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+115s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+115s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+115s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+115s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+115s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+115s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+115s   Re-Instated gir1.2-girepository-2.0:riscv64
+115s   Re-Instated python3-gi:riscv64
+115s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+115s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+115s Done
+115s build-essential is already the newest version (12.8-ok1).
+115s Some packages could not be installed. This may mean that you have
+115s requested an impossible situation or if you are using the unstable
+115s distribution that some required packages have not yet been created
+115s or been moved out of Incoming.
+115s The following information may help to resolve the situation:
+115s 
+115s The following packages have unmet dependencies:
+115s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+115s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+115s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+115s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+115s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+115s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+115s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+115s E: Unable to correct problems, you have held broken packages.
+115s autopkgtest: DBG: testbed command exited with code 100
+115s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+115s build-rbd            FAIL badpkg
+115s blame: ceph_19.2.0-ok2.dsc
+115s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+115s autopkgtest [01:47:39]: test python-ceph: preparing testbed
+115s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd'], deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+115s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+115s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'ceph-common', 'librados-dev', 'librbd-dev', 'python3-rados', 'python3-rbd']
+115s autopkgtest: DBG: install-deps: satisfying build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+116s autopkgtest: DBG: install-deps: architecture resolved: build-essential, ceph-common, librados-dev, librbd-dev, python3-rados, python3-rbd
+116s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+116s autopkgtest: DBG: testbed command exited with code 0
+116s autopkgtest: DBG: can use apt-get on testbed: True
+116s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.eNOSC0'], kind short, sout raw, serr pipe, env []
+116s autopkgtest: DBG: testbed command exited with code 0
+116s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-21d14f89-abac-4289-989d-d1e17245dcfb//tmp/autopkgtest.eNOSC0/4-autopkgtest-satdep.deb /tmp/autopkgtest.eNOSC0/4-autopkgtest-satdep.deb
+116s autopkgtest: DBG: got reply from testbed: ok
+116s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.eNOSC0/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+116s Reading package lists...
+117s Building dependency tree...
+117s Reading state information...
+117s Starting pkgProblemResolver with broken count: 5
+118s Starting 2 pkgProblemResolver with broken count: 5
+118s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+118s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+118s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+118s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+118s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+118s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+118s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 7
+118s   Re-Instated libibverbs1:riscv64
+118s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+118s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 7
+118s   Re-Instated librdmacm1:riscv64
+118s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+118s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 0
+118s   Re-Instated python3-ceph-argparse:riscv64
+118s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+118s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 0
+118s   Re-Instated python3-ceph-common:riscv64
+118s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+118s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 0
+118s   Re-Instated libcephfs2:riscv64
+118s   Re-Instated python3-cephfs:riscv64
+118s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+118s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 0
+118s   Re-Instated python3-wcwidth:riscv64
+118s   Re-Instated python3-prettytable:riscv64
+118s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+118s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 0
+118s   Re-Instated libdw1t64:riscv64
+118s   Re-Instated libbabeltrace1:riscv64
+118s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+118s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 0
+118s   Re-Instated liblua5.4-0:riscv64
+118s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+118s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 0
+118s   Re-Instated liboath0:riscv64
+118s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+118s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 0
+118s   Re-Instated libradosstriper1:riscv64
+118s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+118s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+118s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+118s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+118s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+118s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+118s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+118s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+118s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+118s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+118s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+118s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+118s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+118s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+118s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+118s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+118s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+118s   Re-Instated gir1.2-girepository-2.0:riscv64
+118s   Re-Instated python3-gi:riscv64
+118s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+118s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+118s Done
+118s Some packages could not be installed. This may mean that you have
+118s requested an impossible situation or if you are using the unstable
+118s distribution that some required packages have not yet been created
+118s or been moved out of Incoming.
+118s The following information may help to resolve the situation:
+118s 
+118s The following packages have unmet dependencies:
+118s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+118s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+118s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+118s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+118s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+118s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+118s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+118s E: Unable to correct problems, you have held broken packages.
+118s autopkgtest: DBG: testbed command exited with code 100
+118s autopkgtest: DBG: apt-get install /tmp/autopkgtest.eNOSC0/4-autopkgtest-satdep.deb failed; status-fd:
+118s 
+118s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+118s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential ceph-common librados-dev librbd-dev python3-rados python3-rbd -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+118s Reading package lists...
+119s Building dependency tree...
+119s Reading state information...
+119s Starting pkgProblemResolver with broken count: 5
+120s Starting 2 pkgProblemResolver with broken count: 5
+120s Investigating (0) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (0) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken ceph-common:riscv64 Depends on python3-ceph-argparse:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+120s   Considering python3-ceph-argparse:riscv64 0 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated python3-ceph-argparse:riscv64
+120s Broken ceph-common:riscv64 Depends on python3-ceph-common:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+120s   Considering python3-ceph-common:riscv64 0 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated python3-ceph-common:riscv64
+120s Broken ceph-common:riscv64 Depends on python3-cephfs:riscv64 < none | 19.2.0-ok2 @un uH > (= 19.2.0-ok2)
+120s   Considering python3-cephfs:riscv64 0 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated libcephfs2:riscv64
+120s   Re-Instated python3-cephfs:riscv64
+120s Broken ceph-common:riscv64 Depends on python3-prettytable:riscv64 < none | 3.6.0-ok1 @un uH >
+120s   Considering python3-prettytable:riscv64 1 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated python3-wcwidth:riscv64
+120s   Re-Instated python3-prettytable:riscv64
+120s Broken ceph-common:riscv64 Depends on libbabeltrace1:riscv64 < none | 1.5.11-ok1 @un uH > (>= 1.5.4)
+120s   Considering libbabeltrace1:riscv64 0 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated libdw1t64:riscv64
+120s   Re-Instated libbabeltrace1:riscv64
+120s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on liblua5.4-0:riscv64 < none | 5.4.6-ok1 @un uH > (>= 5.4.6)
+120s   Considering liblua5.4-0:riscv64 0 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated liblua5.4-0:riscv64
+120s Broken ceph-common:riscv64 Depends on liboath0:riscv64 < none | 2.6.7-ok3 @un uH > (>= 1.10.0)
+120s   Considering liboath0:riscv64 0 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated liboath0:riscv64
+120s Broken ceph-common:riscv64 Depends on libradosstriper1:riscv64 < none | 19.2.0-ok2 @un uH > (>= 0.87)
+120s   Considering libradosstriper1:riscv64 0 as a solution to ceph-common:riscv64 9999
+120s   Re-Instated libradosstriper1:riscv64
+120s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+120s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+120s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+120s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+120s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+120s Investigating (0) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken librados2:riscv64 Depends on libibverbs1:riscv64 < none | 50.0-ok3 @un uH > (>= 1.1.6)
+120s   Considering libibverbs1:riscv64 0 as a solution to librados2:riscv64 5
+120s   Re-Instated libibverbs1:riscv64
+120s Broken librados2:riscv64 Depends on librdmacm1:riscv64 < none | 42.0-ok1 @un uH > (>= 1.0.15)
+120s   Considering librdmacm1:riscv64 0 as a solution to librados2:riscv64 5
+120s   Re-Instated librdmacm1:riscv64
+120s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+120s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+120s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+120s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+120s Investigating (1) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (1) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+120s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+120s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+120s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+120s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+120s Investigating (1) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (2) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (2) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+120s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+120s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+120s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+120s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+120s Investigating (2) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (3) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (3) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+120s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+120s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+120s   Re-Instated gir1.2-girepository-2.0:riscv64
+120s   Re-Instated python3-gi:riscv64
+120s Investigating (3) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (4) librados-dev:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados-dev:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (4) ceph-common:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken ceph-common:riscv64 Depends on libboost-context1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-filesystem1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-program-options1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken ceph-common:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Investigating (4) librados2:riscv64 < none -> 19.2.0-ok2 @un puN Ib >
+120s Broken librados2:riscv64 Depends on libboost-iostreams1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Broken librados2:riscv64 Depends on libboost-thread1.83.0:riscv64 < none @un H > (>= 1.83.0)
+120s Done
+120s build-essential is already the newest version (12.8-ok1).
+120s Some packages could not be installed. This may mean that you have
+120s requested an impossible situation or if you are using the unstable
+120s distribution that some required packages have not yet been created
+120s or been moved out of Incoming.
+120s The following information may help to resolve the situation:
+120s 
+120s The following packages have unmet dependencies:
+120s  ceph-common : Depends: libboost-context1.83.0 (>= 1.83.0) but it is not installable
+120s                Depends: libboost-filesystem1.83.0 (>= 1.83.0) but it is not installable
+120s                Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+120s                Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+120s  librados-dev : Depends: libboost-program-options1.83.0 (>= 1.83.0) but it is not installable
+120s  librados2 : Depends: libboost-iostreams1.83.0 (>= 1.83.0) but it is not installable
+120s              Depends: libboost-thread1.83.0 (>= 1.83.0) but it is not installable
+120s E: Unable to correct problems, you have held broken packages.
+120s autopkgtest: DBG: testbed command exited with code 100
+120s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s python-ceph          FAIL badpkg
+120s blame: ceph_19.2.0-ok2.dsc
+120s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+120s autopkgtest [01:47:44]: @@@@@@@@@@@@@@@@@@@@ summary
+120s ceph-client          FAIL badpkg
+120s blame: ceph_19.2.0-ok2.dsc
+120s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s build-rados          FAIL badpkg
+120s blame: ceph_19.2.0-ok2.dsc
+120s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s build-rbd            FAIL badpkg
+120s blame: ceph_19.2.0-ok2.dsc
+120s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s python-ceph          FAIL badpkg
+120s blame: ceph_19.2.0-ok2.dsc
+120s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s autopkgtest: DBG: testbed stop
+120s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.eNOSC0
+120s autopkgtest: DBG: sending command to testbed: close
+124s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+125s autopkgtest: DBG: got reply from testbed: ok
+125s autopkgtest: DBG: sending command to testbed: quit

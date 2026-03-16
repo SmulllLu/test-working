@@ -1,0 +1,906 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [16:59:22]: starting date and time: 2024-07-18 16:59:22+0800
+  0s autopkgtest [16:59:22]: version @version@
+  0s autopkgtest [16:59:22]: host nana; command line: /usr/bin/autopkgtest libxkbcommon_1.5.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/libxkbcommon -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.VJFn02
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.VJFn02/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.VJFn02/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [16:59:23]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [16:59:23]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VJFn02/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [16:59:24]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [16:59:24]: @@@@@@@@@@@@@@@@@@@@ source libxkbcommon_1.5.0-ok1.dsc
+  2s autopkgtest: DBG: blame += libxkbcommon_1.5.0-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libxkbcommon_1.5.0-ok1.dsc /tmp/autopkgtest.VJFn02/libxkbcommon_1.5.0-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libxkbcommon_1.5.0.orig.tar.xz /tmp/autopkgtest.VJFn02/libxkbcommon_1.5.0.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libxkbcommon_1.5.0-ok1.debian.tar.xz /tmp/autopkgtest.VJFn02/libxkbcommon_1.5.0-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.VJFn02/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.VJFn02/libxkbcommon_1.5.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.VJFn02/build.XXX
+  2s + builddir=/tmp/autopkgtest.VJFn02/build.Zyi
+  2s + cd /tmp/autopkgtest.VJFn02/build.Zyi
+  2s + dpkg-source -x /tmp/autopkgtest.VJFn02/libxkbcommon_1.5.0-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.s6knC510/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 29 Nov 2023 05:28:39 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.VJFn02/libxkbcommon_1.5.0-ok1.dsc
+  3s dpkg-source: info: extracting libxkbcommon in src
+  3s dpkg-source: info: unpacking libxkbcommon_1.5.0.orig.tar.xz
+  3s dpkg-source: info: unpacking libxkbcommon_1.5.0-ok1.debian.tar.xz
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [16:59:25]: testing package libxkbcommon version 1.5.0-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: processing dependency libxkbcommon-dev
+  3s autopkgtest: DBG: marked alternatives ['libxkbcommon-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name libxkbcommon-dev path debian/tests/libxkbcommon-dev command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'pkg-config', 'libxkbcommon-dev'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: processing dependency libxkbcommon-x11-dev
+  3s autopkgtest: DBG: marked alternatives ['libxkbcommon-x11-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name libxkbcommon-x11-dev path debian/tests/libxkbcommon-x11-dev command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'pkg-config', 'libxkbcommon-x11-dev'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: processing dependency libxkbregistry-dev
+  3s autopkgtest: DBG: marked alternatives ['libxkbregistry-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name libxkbregistry-dev path debian/tests/libxkbregistry-dev command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'pkg-config', 'libxkbregistry-dev'] 
+  3s autopkgtest [16:59:25]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/build.Zyi/src/ /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: processing dependency libxkbcommon-dev
+  3s autopkgtest: DBG: marked alternatives ['libxkbcommon-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name libxkbcommon-dev path debian/tests/libxkbcommon-dev command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'pkg-config', 'libxkbcommon-dev'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: processing dependency libxkbcommon-x11-dev
+  3s autopkgtest: DBG: marked alternatives ['libxkbcommon-x11-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name libxkbcommon-x11-dev path debian/tests/libxkbcommon-x11-dev command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'pkg-config', 'libxkbcommon-x11-dev'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: processing dependency libxkbregistry-dev
+  3s autopkgtest: DBG: marked alternatives ['libxkbregistry-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name libxkbregistry-dev path debian/tests/libxkbregistry-dev command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'pkg-config', 'libxkbregistry-dev'] 
+  3s autopkgtest [16:59:25]: test libxkbcommon-dev: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['build-essential', 'pkg-config', 'libxkbcommon-dev']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'pkg-config', 'libxkbcommon-dev']
+  3s autopkgtest: DBG: install-deps: satisfying build-essential, pkg-config, libxkbcommon-dev
+  3s autopkgtest: DBG: install-deps: architecture resolved: build-essential, pkg-config, libxkbcommon-dev
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02/1-autopkgtest-satdep.deb /tmp/autopkgtest.VJFn02/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.VJFn02/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   libxkbcommon-dev
+  6s The following NEW packages will be installed:
+  6s   autopkgtest-satdep libxkbcommon-dev
+  6s 0 upgraded, 2 newly installed, 0 to remove and 1066 not upgraded.
+  6s Need to get 54.5 kB/55.2 kB of archives.
+  6s After this operation, 343 kB of additional disk space will be used.
+  6s Get:1 /tmp/autopkgtest.VJFn02/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+  6s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxkbcommon-dev riscv64 1.5.0-ok1 [54.5 kB]
+  8s Fetched 54.5 kB in 0s (380 kB/s)
+  8s Selecting previously unselected package libxkbcommon-dev:riscv64.
+  8s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+  8s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+  9s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+  9s Preparing to unpack .../libxkbcommon-dev_1.5.0-ok1_riscv64.deb ...
+  9s Unpacking libxkbcommon-dev:riscv64 (1.5.0-ok1) ...
+  9s Selecting previously unselected package autopkgtest-satdep.
+  9s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+  9s Unpacking autopkgtest-satdep (0) ...
+  9s Setting up libxkbcommon-dev:riscv64 (1.5.0-ok1) ...
+  9s Setting up autopkgtest-satdep (0) ...
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libxkbcommon-dev'], kind short, sout pipe, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 libxkbcommon-dev nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 14s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 15s autopkgtest: DBG: testbed command exited with code 0
+ 15s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'libxkbcommon-dev', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 21s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 21s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 21s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 21s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 21s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 21s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 21s (Reading database ... 193820 files and directories currently installed.)
+ 21s Removing autopkgtest-satdep (0) ...
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VJFn02/libxkbcommon-dev-packages.all"], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-dev-packages.all /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbcommon-dev-packages.all
+ 22s autopkgtest: DBG: got reply from testbed: ok
+ 22s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.VJFn02/build.Zyi/src'], kind short, sout raw, serr raw, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.VJFn02/build.Zyi/src already exists
+ 22s autopkgtest [16:59:44]: test libxkbcommon-dev: [-----------------------
+ 22s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.VJFn02/wrapper.sh --debug --artifacts=/tmp/autopkgtest.VJFn02/libxkbcommon-dev-artifacts --chdir=/tmp/autopkgtest.VJFn02/build.Zyi/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.VJFn02/libxkbcommon-dev-stderr --stdout=/tmp/autopkgtest.VJFn02/libxkbcommon-dev-stdout --tmp=/tmp/autopkgtest.VJFn02/autopkgtest_tmp --make-executable=/tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-dev -- /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-dev'], kind test, sout raw, serr raw, env []
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.VJFn02/libxkbcommon-dev-artifacts
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: changing to directory: /tmp/autopkgtest.VJFn02/build.Zyi/src
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: LANG=C.UTF-8
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LANGUAGE
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_ADDRESS
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_ALL
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_COLLATE
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_CTYPE
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MESSAGES
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MONETARY
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_NAME
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_NUMERIC
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_PAPER
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_TIME
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: pretending to be a login shell
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: will write standard error to /tmp/autopkgtest.VJFn02/libxkbcommon-dev-stderr
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: will write stdout to /tmp/autopkgtest.VJFn02/libxkbcommon-dev-stdout
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.VJFn02/autopkgtest_tmp
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: marking as executable: /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-dev
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: command to run: /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-dev
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: copying /tmp/tmp.JgGKpchUcp/out to stdout and file: /tmp/autopkgtest.VJFn02/libxkbcommon-dev-stdout
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: copying /tmp/tmp.JgGKpchUcp/err to standard error and file: /tmp/autopkgtest.VJFn02/libxkbcommon-dev-stdout
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: writing script pid 1084589 to /tmp/autopkgtest_script_pid
+ 22s + [ -n  ]
+ 22s + CROSS_COMPILE=
+ 22s + CC=cc
+ 22s + PKG_CONFIG=pkg-config
+ 22s + cd /tmp/autopkgtest.VJFn02/autopkgtest_tmp
+ 22s + cat
+ 22s + pkg-config --cflags --libs xkbcommon
+ 22s + cc -otrivial trivial.c -lxkbcommon
+ 22s + ./trivial
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: checking for leaked background processes...
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: waiting for tee/cat subprocesses...
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: cleaning up...
+ 22s /tmp/autopkgtest.VJFn02/wrapper.sh: Exit status: 0
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest [16:59:45]: test libxkbcommon-dev: -----------------------]
+ 23s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 23s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-dev-stdout /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbcommon-dev-stdout
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-dev-stderr /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbcommon-dev-stderr
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest [16:59:45]: test libxkbcommon-dev:  - - - - - - - - - - results - - - - - - - - - -
+ 23s libxkbcommon-dev     PASS (superficial)
+ 23s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-dev-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/artifacts/
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.VJFn02/libxkbcommon-dev-artifacts', '/tmp/autopkgtest.VJFn02/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest [16:59:45]: test libxkbcommon-x11-dev: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'pkg-config', 'libxkbcommon-dev'], deps_new=['build-essential', 'pkg-config', 'libxkbcommon-x11-dev']
+ 23s autopkgtest: DBG: testbed reset
+ 23s autopkgtest: DBG: sending command to testbed: revert
+ 24s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 26s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.VJFn02
+ 26s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 26s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b,--user%3Droot,--
+ 26s autopkgtest: DBG: sending command to testbed: capabilities
+ 26s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02
+ 26s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02', 'has_internet']
+ 26s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.VJFn02/wrapper.sh
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.VJFn02/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest [16:59:48]: testbed dpkg architecture: riscv64
+ 26s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest [16:59:48]: testbed apt version: 2.7.3-ok3
+ 26s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 127
+ 26s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VJFn02/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/testbed-packages
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 27s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'pkg-config', 'libxkbcommon-x11-dev']
+ 27s autopkgtest: DBG: install-deps: satisfying build-essential, pkg-config, libxkbcommon-x11-dev
+ 27s autopkgtest: DBG: install-deps: architecture resolved: build-essential, pkg-config, libxkbcommon-x11-dev
+ 27s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: can use apt-get on testbed: True
+ 27s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02/2-autopkgtest-satdep.deb /tmp/autopkgtest.VJFn02/2-autopkgtest-satdep.deb
+ 27s autopkgtest: DBG: got reply from testbed: ok
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.VJFn02/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s Reading package lists...
+ 28s Building dependency tree...
+ 28s Reading state information...
+ 28s Starting pkgProblemResolver with broken count: 0
+ 29s Starting 2 pkgProblemResolver with broken count: 0
+ 29s Done
+ 29s The following packages were automatically installed and are no longer required:
+ 29s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 29s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 29s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 29s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 29s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 29s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 29s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 29s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 29s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 29s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 29s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 29s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 29s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 29s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 29s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 29s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 29s   language-selector-common language-selector-gnome libatrildocument3
+ 29s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 29s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 29s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 29s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 29s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 29s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 29s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 29s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 29s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 29s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 29s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 29s   pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 29s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 29s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 29s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 29s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 29s Use 'sudo apt autoremove' to remove them.
+ 30s The following additional packages will be installed:
+ 30s   libpthread-stubs0-dev libxau-dev libxcb-composite0 libxcb-damage0
+ 30s   libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0
+ 30s   libxcb-render0 libxcb-res0 libxcb-shape0 libxcb-shm0 libxcb-sync1
+ 30s   libxcb-xfixes0 libxcb-xinerama0 libxcb-xinput0 libxcb-xkb-dev libxcb-xkb1
+ 30s   libxcb1 libxcb1-dev libxdmcp-dev libxkbcommon-dev libxkbcommon-x11-dev
+ 30s   x11proto-core-dev x11proto-dev xorg-sgml-doctools
+ 30s Suggested packages:
+ 30s   libxcb-doc
+ 30s The following NEW packages will be installed:
+ 30s   autopkgtest-satdep libpthread-stubs0-dev libxau-dev libxcb-xkb-dev
+ 30s   libxcb1-dev libxdmcp-dev libxkbcommon-dev libxkbcommon-x11-dev
+ 30s   x11proto-core-dev x11proto-dev xorg-sgml-doctools
+ 30s The following packages will be upgraded:
+ 30s   libxcb-composite0 libxcb-damage0 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0
+ 30s   libxcb-present0 libxcb-randr0 libxcb-render0 libxcb-res0 libxcb-shape0
+ 30s   libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 libxcb-xinput0
+ 30s   libxcb-xkb1 libxcb1
+ 30s 17 upgraded, 11 newly installed, 0 to remove and 1049 not upgraded.
+ 30s Need to get 1,127 kB/1,127 kB of archives.
+ 30s After this operation, 6,887 kB of additional disk space will be used.
+ 30s Get:1 /tmp/autopkgtest.VJFn02/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [732 B]
+ 30s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpthread-stubs0-dev riscv64 0.4-ok2 [4,242 B]
+ 31s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 xorg-sgml-doctools all 1:1.11-ok1 [9,766 B]
+ 31s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 x11proto-dev all 2024.1-1ok3 [603 kB]
+ 31s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 x11proto-core-dev all 2024.1-1ok3 [2,616 B]
+ 32s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxau-dev riscv64 1:1.0.9-ok1 [12.8 kB]
+ 32s Get:7 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb1 riscv64 1.15-ok2 [39.0 kB]
+ 32s Get:8 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-composite0 riscv64 1.15-ok2 [4,784 B]
+ 32s Get:9 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-damage0 riscv64 1.15-ok2 [4,544 B]
+ 32s Get:10 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-dri2-0 riscv64 1.15-ok2 [6,240 B]
+ 32s Get:11 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-dri3-0 riscv64 1.15-ok2 [6,132 B]
+ 32s Get:12 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-glx0 riscv64 1.15-ok2 [19.2 kB]
+ 33s Get:13 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-present0 riscv64 1.15-ok2 [5,148 B]
+ 33s Get:14 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-randr0 riscv64 1.15-ok2 [14.5 kB]
+ 33s Get:15 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-render0 riscv64 1.15-ok2 [13.2 kB]
+ 33s Get:16 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-res0 riscv64 1.15-ok2 [5,752 B]
+ 33s Get:17 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-shape0 riscv64 1.15-ok2 [5,412 B]
+ 33s Get:18 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-shm0 riscv64 1.15-ok2 [5,252 B]
+ 33s Get:19 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-sync1 riscv64 1.15-ok2 [7,784 B]
+ 34s Get:20 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xfixes0 riscv64 1.15-ok2 [8,524 B]
+ 34s Get:21 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xinerama0 riscv64 1.15-ok2 [4,872 B]
+ 34s Get:22 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xinput0 riscv64 1.15-ok2 [26.3 kB]
+ 34s Get:23 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xkb1 riscv64 1.15-ok2 [26.7 kB]
+ 34s Get:24 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxdmcp-dev riscv64 1:1.1.3-ok1 [31.7 kB]
+ 34s Get:25 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb1-dev riscv64 1.15-ok2 [129 kB]
+ 36s Get:26 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xkb-dev riscv64 1.15-ok2 [70.9 kB]
+ 37s Get:27 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxkbcommon-dev riscv64 1.5.0-ok1 [54.5 kB]
+ 37s Get:28 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxkbcommon-x11-dev riscv64 1.5.0-ok1 [5,510 B]
+ 39s Fetched 1,127 kB in 7s (167 kB/s)
+ 39s Selecting previously unselected package libpthread-stubs0-dev:riscv64.
+ 39s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 39s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 39s Preparing to unpack .../00-libpthread-stubs0-dev_0.4-ok2_riscv64.deb ...
+ 39s Unpacking libpthread-stubs0-dev:riscv64 (0.4-ok2) ...
+ 39s Selecting previously unselected package xorg-sgml-doctools.
+ 39s Preparing to unpack .../01-xorg-sgml-doctools_1%3a1.11-ok1_all.deb ...
+ 39s Unpacking xorg-sgml-doctools (1:1.11-ok1) ...
+ 40s Selecting previously unselected package x11proto-dev.
+ 40s Preparing to unpack .../02-x11proto-dev_2024.1-1ok3_all.deb ...
+ 40s Unpacking x11proto-dev (2024.1-1ok3) ...
+ 41s Selecting previously unselected package x11proto-core-dev.
+ 41s Preparing to unpack .../03-x11proto-core-dev_2024.1-1ok3_all.deb ...
+ 41s Unpacking x11proto-core-dev (2024.1-1ok3) ...
+ 41s Selecting previously unselected package libxau-dev:riscv64.
+ 41s Preparing to unpack .../04-libxau-dev_1%3a1.0.9-ok1_riscv64.deb ...
+ 41s Unpacking libxau-dev:riscv64 (1:1.0.9-ok1) ...
+ 41s Preparing to unpack .../05-libxcb1_1.15-ok2_riscv64.deb ...
+ 41s Unpacking libxcb1:riscv64 (1.15-ok2) over (1.15-1) ...
+ 41s Preparing to unpack .../06-libxcb-composite0_1.15-ok2_riscv64.deb ...
+ 41s Unpacking libxcb-composite0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 41s Preparing to unpack .../07-libxcb-damage0_1.15-ok2_riscv64.deb ...
+ 42s Unpacking libxcb-damage0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 42s Preparing to unpack .../08-libxcb-dri2-0_1.15-ok2_riscv64.deb ...
+ 42s Unpacking libxcb-dri2-0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 42s Preparing to unpack .../09-libxcb-dri3-0_1.15-ok2_riscv64.deb ...
+ 42s Unpacking libxcb-dri3-0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 42s Preparing to unpack .../10-libxcb-glx0_1.15-ok2_riscv64.deb ...
+ 42s Unpacking libxcb-glx0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 42s Preparing to unpack .../11-libxcb-present0_1.15-ok2_riscv64.deb ...
+ 42s Unpacking libxcb-present0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 43s Preparing to unpack .../12-libxcb-randr0_1.15-ok2_riscv64.deb ...
+ 43s Unpacking libxcb-randr0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 43s Preparing to unpack .../13-libxcb-render0_1.15-ok2_riscv64.deb ...
+ 43s Unpacking libxcb-render0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 43s Preparing to unpack .../14-libxcb-res0_1.15-ok2_riscv64.deb ...
+ 43s Unpacking libxcb-res0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 43s Preparing to unpack .../15-libxcb-shape0_1.15-ok2_riscv64.deb ...
+ 43s Unpacking libxcb-shape0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 44s Preparing to unpack .../16-libxcb-shm0_1.15-ok2_riscv64.deb ...
+ 44s Unpacking libxcb-shm0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 44s Preparing to unpack .../17-libxcb-sync1_1.15-ok2_riscv64.deb ...
+ 44s Unpacking libxcb-sync1:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 44s Preparing to unpack .../18-libxcb-xfixes0_1.15-ok2_riscv64.deb ...
+ 44s Unpacking libxcb-xfixes0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 44s Preparing to unpack .../19-libxcb-xinerama0_1.15-ok2_riscv64.deb ...
+ 44s Unpacking libxcb-xinerama0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 44s Preparing to unpack .../20-libxcb-xinput0_1.15-ok2_riscv64.deb ...
+ 44s Unpacking libxcb-xinput0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 45s Preparing to unpack .../21-libxcb-xkb1_1.15-ok2_riscv64.deb ...
+ 45s Unpacking libxcb-xkb1:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 45s Selecting previously unselected package libxdmcp-dev:riscv64.
+ 45s Preparing to unpack .../22-libxdmcp-dev_1%3a1.1.3-ok1_riscv64.deb ...
+ 45s Unpacking libxdmcp-dev:riscv64 (1:1.1.3-ok1) ...
+ 45s Selecting previously unselected package libxcb1-dev:riscv64.
+ 45s Preparing to unpack .../23-libxcb1-dev_1.15-ok2_riscv64.deb ...
+ 45s Unpacking libxcb1-dev:riscv64 (1.15-ok2) ...
+ 45s Selecting previously unselected package libxcb-xkb-dev:riscv64.
+ 45s Preparing to unpack .../24-libxcb-xkb-dev_1.15-ok2_riscv64.deb ...
+ 45s Unpacking libxcb-xkb-dev:riscv64 (1.15-ok2) ...
+ 45s Selecting previously unselected package libxkbcommon-dev:riscv64.
+ 45s Preparing to unpack .../25-libxkbcommon-dev_1.5.0-ok1_riscv64.deb ...
+ 45s Unpacking libxkbcommon-dev:riscv64 (1.5.0-ok1) ...
+ 46s Selecting previously unselected package libxkbcommon-x11-dev:riscv64.
+ 46s Preparing to unpack .../26-libxkbcommon-x11-dev_1.5.0-ok1_riscv64.deb ...
+ 46s Unpacking libxkbcommon-x11-dev:riscv64 (1.5.0-ok1) ...
+ 46s Selecting previously unselected package autopkgtest-satdep.
+ 46s Preparing to unpack .../27-2-autopkgtest-satdep.deb ...
+ 46s Unpacking autopkgtest-satdep (0) ...
+ 46s Setting up libxcb1:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-xfixes0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-xinput0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-render0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-glx0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxkbcommon-dev:riscv64 (1.5.0-ok1) ...
+ 46s Setting up libxcb-shape0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-shm0:riscv64 (1.15-ok2) ...
+ 46s Setting up libpthread-stubs0-dev:riscv64 (0.4-ok2) ...
+ 46s Setting up libxcb-xkb1:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-present0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-xinerama0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-sync1:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-dri2-0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-composite0:riscv64 (1.15-ok2) ...
+ 46s Setting up libxcb-randr0:riscv64 (1.15-ok2) ...
+ 46s Setting up xorg-sgml-doctools (1:1.11-ok1) ...
+ 46s Setting up libxcb-damage0:riscv64 (1.15-ok2) ...
+ 47s Setting up libxcb-dri3-0:riscv64 (1.15-ok2) ...
+ 47s Setting up libxcb-res0:riscv64 (1.15-ok2) ...
+ 47s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 47s Processing triggers for man-db (2.10.2-2) ...
+ 47s Processing triggers for sgml-base (1.30-ok2) ...
+ 47s Setting up x11proto-dev (2024.1-1ok3) ...
+ 48s Setting up libxau-dev:riscv64 (1:1.0.9-ok1) ...
+ 48s Setting up libxdmcp-dev:riscv64 (1:1.1.3-ok1) ...
+ 48s Setting up x11proto-core-dev (2024.1-1ok3) ...
+ 48s Setting up libxcb1-dev:riscv64 (1.15-ok2) ...
+ 48s Setting up libxcb-xkb-dev:riscv64 (1.15-ok2) ...
+ 48s Setting up libxkbcommon-x11-dev:riscv64 (1.5.0-ok1) ...
+ 48s Setting up autopkgtest-satdep (0) ...
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libxkbcommon-x11-dev'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libxkbcommon-x11-dev libxcb-xkb-dev libxcb1-dev libpthread-stubs0-dev libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 libxau-dev libxdmcp-dev libxkbcommon-dev nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas x11proto-core-dev x11proto-dev xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor xorg-sgml-doctools zlib1g-dev
+ 53s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 56s autopkgtest: DBG: testbed command exited with code 0
+ 56s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libxkbcommon-x11-dev', 'libxcb-xkb-dev', 'libxcb1-dev', 'libpthread-stubs0-dev', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'libxau-dev', 'libxdmcp-dev', 'libxkbcommon-dev'], kind short, sout raw, serr pipe, env []
+ 58s autopkgtest: DBG: testbed command exited with code 0
+ 58s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'x11proto-core-dev', 'x11proto-dev', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'xorg-sgml-doctools'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 60s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 60s (Reading database ... 194096 files and directories currently installed.)
+ 60s Removing autopkgtest-satdep (0) ...
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-packages.all"], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-packages.all /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbcommon-x11-dev-packages.all
+ 61s autopkgtest: DBG: got reply from testbed: ok
+ 61s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.VJFn02/build.Zyi/src'], kind short, sout raw, serr raw, env []
+ 61s autopkgtest: DBG: testbed command exited with code 1
+ 61s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02/build.Zyi'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/tests-tree/ /tmp/autopkgtest.VJFn02/build.Zyi/src/
+ 61s autopkgtest: DBG: got reply from testbed: ok
+ 61s autopkgtest [17:00:23]: test libxkbcommon-x11-dev: [-----------------------
+ 61s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.VJFn02/wrapper.sh --debug --artifacts=/tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-artifacts --chdir=/tmp/autopkgtest.VJFn02/build.Zyi/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stderr --stdout=/tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stdout --tmp=/tmp/autopkgtest.VJFn02/autopkgtest_tmp --make-executable=/tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-x11-dev -- /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-x11-dev'], kind test, sout raw, serr raw, env []
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-artifacts
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: changing to directory: /tmp/autopkgtest.VJFn02/build.Zyi/src
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: LANG=C.UTF-8
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LANGUAGE
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_ADDRESS
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_ALL
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_COLLATE
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_CTYPE
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MESSAGES
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MONETARY
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_NAME
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_NUMERIC
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_PAPER
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_TIME
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: pretending to be a login shell
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: will write standard error to /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stderr
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: will write stdout to /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stdout
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.VJFn02/autopkgtest_tmp
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: marking as executable: /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-x11-dev
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: command to run: /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbcommon-x11-dev
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: copying /tmp/tmp.BdqNKl5ZRA/out to stdout and file: /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stdout
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: copying /tmp/tmp.BdqNKl5ZRA/err to standard error and file: /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stdout
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: writing script pid 1085209 to /tmp/autopkgtest_script_pid
+ 62s + [ -n  ]
+ 62s + CROSS_COMPILE=
+ 62s + CC=cc
+ 62s + PKG_CONFIG=pkg-config
+ 62s + cd /tmp/autopkgtest.VJFn02/autopkgtest_tmp
+ 62s + cat
+ 62s + pkg-config --cflags --libs xkbcommon-x11
+ 62s + cc -otrivial trivial.c -lxkbcommon-x11 -lxkbcommon
+ 62s + ./trivial
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: checking for leaked background processes...
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: waiting for tee/cat subprocesses...
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: cleaning up...
+ 62s /tmp/autopkgtest.VJFn02/wrapper.sh: Exit status: 0
+ 62s autopkgtest: DBG: testbed command exited with code 0
+ 62s autopkgtest [17:00:24]: test libxkbcommon-x11-dev: -----------------------]
+ 62s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 62s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stdout /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbcommon-x11-dev-stdout
+ 62s autopkgtest: DBG: got reply from testbed: ok
+ 62s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-stderr /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbcommon-x11-dev-stderr
+ 62s autopkgtest: DBG: got reply from testbed: ok
+ 63s autopkgtest [17:00:24]: test libxkbcommon-x11-dev:  - - - - - - - - - - results - - - - - - - - - -
+ 63s libxkbcommon-x11-dev PASS (superficial)
+ 63s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/artifacts/
+ 63s autopkgtest: DBG: got reply from testbed: ok
+ 63s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.VJFn02/libxkbcommon-x11-dev-artifacts', '/tmp/autopkgtest.VJFn02/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 63s autopkgtest: DBG: testbed command exited with code 0
+ 63s autopkgtest [17:00:25]: test libxkbregistry-dev: preparing testbed
+ 63s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'pkg-config', 'libxkbcommon-x11-dev'], deps_new=['build-essential', 'pkg-config', 'libxkbregistry-dev']
+ 63s autopkgtest: DBG: testbed reset
+ 63s autopkgtest: DBG: sending command to testbed: revert
+ 63s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 64s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.VJFn02
+ 64s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 64s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b,--user%3Droot,--
+ 64s autopkgtest: DBG: sending command to testbed: capabilities
+ 64s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02
+ 64s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02', 'has_internet']
+ 64s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.VJFn02/wrapper.sh
+ 64s autopkgtest: DBG: got reply from testbed: ok
+ 64s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.VJFn02/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest [17:00:27]: testbed dpkg architecture: riscv64
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest [17:00:27]: testbed apt version: 2.7.3-ok3
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 127
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VJFn02/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/testbed-packages
+ 65s autopkgtest: DBG: got reply from testbed: ok
+ 65s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 65s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'pkg-config', 'libxkbregistry-dev']
+ 65s autopkgtest: DBG: install-deps: satisfying build-essential, pkg-config, libxkbregistry-dev
+ 65s autopkgtest: DBG: install-deps: architecture resolved: build-essential, pkg-config, libxkbregistry-dev
+ 65s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: can use apt-get on testbed: True
+ 66s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02'], kind short, sout raw, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-6bb82890-d927-4b1d-bc07-e850ab31ed7b//tmp/autopkgtest.VJFn02/3-autopkgtest-satdep.deb /tmp/autopkgtest.VJFn02/3-autopkgtest-satdep.deb
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.VJFn02/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 66s Reading package lists...
+ 67s Building dependency tree...
+ 67s Reading state information...
+ 67s Starting pkgProblemResolver with broken count: 0
+ 67s Starting 2 pkgProblemResolver with broken count: 0
+ 67s Done
+ 68s The following packages were automatically installed and are no longer required:
+ 68s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 68s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 68s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 68s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 68s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 68s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 68s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 68s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 68s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 68s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 68s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 68s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 68s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 68s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 68s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 68s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 68s   language-selector-common language-selector-gnome libatrildocument3
+ 68s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 68s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 68s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 68s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 68s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 68s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 68s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 68s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 68s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 68s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 68s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 68s   pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 68s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 68s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 68s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 68s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 68s Use 'sudo apt autoremove' to remove them.
+ 68s The following additional packages will be installed:
+ 68s   icu-devtools libicu-dev libicu74 libxkbcommon-dev libxkbregistry-dev
+ 68s   libxkbregistry0 libxml2 libxml2-dev
+ 68s Suggested packages:
+ 68s   icu-doc
+ 68s The following NEW packages will be installed:
+ 68s   autopkgtest-satdep icu-devtools libicu-dev libicu74 libxkbcommon-dev
+ 68s   libxkbregistry-dev libxkbregistry0 libxml2-dev
+ 68s The following packages will be upgraded:
+ 68s   libxml2
+ 68s 1 upgraded, 8 newly installed, 0 to remove and 1065 not upgraded.
+ 68s Need to get 25.7 MB/25.7 MB of archives.
+ 68s After this operation, 145 MB of additional disk space will be used.
+ 68s Get:1 /tmp/autopkgtest.VJFn02/3-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [732 B]
+ 68s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libicu74 riscv64 74.2-ok6 [9,323 kB]
+ 72s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 icu-devtools riscv64 74.2-ok6 [197 kB]
+ 72s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libicu-dev riscv64 74.2-ok6 [14.0 MB]
+ 78s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxkbcommon-dev riscv64 1.5.0-ok1 [54.5 kB]
+ 78s Get:6 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxml2 riscv64 2.9.14+dfsg-ok2 [548 kB]
+ 79s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxkbregistry0 riscv64 1.5.0-ok1 [12.3 kB]
+ 79s Get:8 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxml2-dev riscv64 2.9.14+dfsg-ok2 [1,610 kB]
+ 79s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxkbregistry-dev riscv64 1.5.0-ok1 [7,996 B]
+ 81s Fetched 25.7 MB in 11s (2,339 kB/s)
+ 81s Selecting previously unselected package libicu74:riscv64.
+ 82s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 82s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 82s Preparing to unpack .../0-libicu74_74.2-ok6_riscv64.deb ...
+ 82s Unpacking libicu74:riscv64 (74.2-ok6) ...
+ 84s Selecting previously unselected package icu-devtools.
+ 85s Preparing to unpack .../1-icu-devtools_74.2-ok6_riscv64.deb ...
+ 85s Unpacking icu-devtools (74.2-ok6) ...
+ 85s Selecting previously unselected package libicu-dev:riscv64.
+ 85s Preparing to unpack .../2-libicu-dev_74.2-ok6_riscv64.deb ...
+ 85s Unpacking libicu-dev:riscv64 (74.2-ok6) ...
+ 90s Selecting previously unselected package libxkbcommon-dev:riscv64.
+ 90s Preparing to unpack .../3-libxkbcommon-dev_1.5.0-ok1_riscv64.deb ...
+ 90s Unpacking libxkbcommon-dev:riscv64 (1.5.0-ok1) ...
+ 91s Preparing to unpack .../4-libxml2_2.9.14+dfsg-ok2_riscv64.deb ...
+ 91s Unpacking libxml2:riscv64 (2.9.14+dfsg-ok2) over (2.9.10+dfsg-ok4) ...
+ 91s Selecting previously unselected package libxkbregistry0:riscv64.
+ 91s Preparing to unpack .../5-libxkbregistry0_1.5.0-ok1_riscv64.deb ...
+ 91s Unpacking libxkbregistry0:riscv64 (1.5.0-ok1) ...
+ 91s Selecting previously unselected package libxml2-dev:riscv64.
+ 91s Preparing to unpack .../6-libxml2-dev_2.9.14+dfsg-ok2_riscv64.deb ...
+ 91s Unpacking libxml2-dev:riscv64 (2.9.14+dfsg-ok2) ...
+ 92s Selecting previously unselected package libxkbregistry-dev:riscv64.
+ 92s Preparing to unpack .../7-libxkbregistry-dev_1.5.0-ok1_riscv64.deb ...
+ 92s Unpacking libxkbregistry-dev:riscv64 (1.5.0-ok1) ...
+ 92s Selecting previously unselected package autopkgtest-satdep.
+ 92s Preparing to unpack .../8-3-autopkgtest-satdep.deb ...
+ 93s Unpacking autopkgtest-satdep (0) ...
+ 93s Setting up libxkbcommon-dev:riscv64 (1.5.0-ok1) ...
+ 93s Setting up libicu74:riscv64 (74.2-ok6) ...
+ 93s Setting up libxml2:riscv64 (2.9.14+dfsg-ok2) ...
+ 93s Setting up libxkbregistry0:riscv64 (1.5.0-ok1) ...
+ 93s Setting up icu-devtools (74.2-ok6) ...
+ 93s Setting up libicu-dev:riscv64 (74.2-ok6) ...
+ 93s Setting up libxml2-dev:riscv64 (2.9.14+dfsg-ok2) ...
+ 93s Setting up libxkbregistry-dev:riscv64 (1.5.0-ok1) ...
+ 93s Setting up autopkgtest-satdep (0) ...
+ 93s Processing triggers for man-db (2.10.2-2) ...
+ 94s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 95s autopkgtest: DBG: testbed command exited with code 0
+ 95s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libxkbregistry-dev'], kind short, sout pipe, serr pipe, env []
+ 95s autopkgtest: DBG: testbed command exited with code 0
+ 95s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 96s autopkgtest: DBG: testbed command exited with code 0
+ 96s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 99s autopkgtest: DBG: testbed command exited with code 0
+ 99s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 libxkbregistry-dev libxml2-dev libicu-dev icu-devtools indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 libxkbcommon-dev libxkbregistry0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 99s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+100s autopkgtest: DBG: testbed command exited with code 0
+100s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+101s autopkgtest: DBG: testbed command exited with code 0
+101s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+102s autopkgtest: DBG: testbed command exited with code 0
+102s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'libxkbregistry-dev', 'libxml2-dev', 'libicu-dev', 'icu-devtools', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module'], kind short, sout raw, serr pipe, env []
+103s autopkgtest: DBG: testbed command exited with code 0
+103s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7'], kind short, sout raw, serr pipe, env []
+104s autopkgtest: DBG: testbed command exited with code 0
+104s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'libxkbcommon-dev', 'libxkbregistry0', 'nautilus-data'], kind short, sout raw, serr pipe, env []
+105s autopkgtest: DBG: testbed command exited with code 0
+105s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+105s autopkgtest: DBG: testbed command exited with code 0
+105s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+106s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+106s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+106s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+106s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+106s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+106s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+106s (Reading database ... 194171 files and directories currently installed.)
+106s Removing autopkgtest-satdep (0) ...
+106s autopkgtest: DBG: testbed command exited with code 0
+106s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+106s autopkgtest: DBG: testbed command exited with code 0
+106s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.VJFn02/libxkbregistry-dev-packages.all"], kind short, sout raw, serr pipe, env []
+106s autopkgtest: DBG: testbed command exited with code 0
+106s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbregistry-dev-packages.all /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbregistry-dev-packages.all
+106s autopkgtest: DBG: got reply from testbed: ok
+106s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.VJFn02/build.Zyi/src'], kind short, sout raw, serr raw, env []
+107s autopkgtest: DBG: testbed command exited with code 1
+107s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.VJFn02/build.Zyi'], kind short, sout raw, serr pipe, env []
+107s autopkgtest: DBG: testbed command exited with code 0
+107s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/tests-tree/ /tmp/autopkgtest.VJFn02/build.Zyi/src/
+107s autopkgtest: DBG: got reply from testbed: ok
+107s autopkgtest [17:01:09]: test libxkbregistry-dev: [-----------------------
+107s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.VJFn02/wrapper.sh --debug --artifacts=/tmp/autopkgtest.VJFn02/libxkbregistry-dev-artifacts --chdir=/tmp/autopkgtest.VJFn02/build.Zyi/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.VJFn02/libxkbregistry-dev-stderr --stdout=/tmp/autopkgtest.VJFn02/libxkbregistry-dev-stdout --tmp=/tmp/autopkgtest.VJFn02/autopkgtest_tmp --make-executable=/tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbregistry-dev -- /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbregistry-dev'], kind test, sout raw, serr raw, env []
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.VJFn02/libxkbregistry-dev-artifacts
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: changing to directory: /tmp/autopkgtest.VJFn02/build.Zyi/src
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: setting environment: LANG=C.UTF-8
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LANGUAGE
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_ADDRESS
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_ALL
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_COLLATE
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_CTYPE
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MEASUREMENT
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MESSAGES
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_MONETARY
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_NAME
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_NUMERIC
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_PAPER
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_TELEPHONE
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: unsetting environment: LC_TIME
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: pretending to be a login shell
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: will write standard error to /tmp/autopkgtest.VJFn02/libxkbregistry-dev-stderr
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: will write stdout to /tmp/autopkgtest.VJFn02/libxkbregistry-dev-stdout
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.VJFn02/autopkgtest_tmp
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: marking as executable: /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbregistry-dev
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: command to run: /tmp/autopkgtest.VJFn02/build.Zyi/src/debian/tests/libxkbregistry-dev
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: copying /tmp/tmp.Ah66Ut49Fv/out to stdout and file: /tmp/autopkgtest.VJFn02/libxkbregistry-dev-stdout
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: copying /tmp/tmp.Ah66Ut49Fv/err to standard error and file: /tmp/autopkgtest.VJFn02/libxkbregistry-dev-stdout
+107s /tmp/autopkgtest.VJFn02/wrapper.sh: writing script pid 1085652 to /tmp/autopkgtest_script_pid
+107s + [ -n  ]
+107s + CROSS_COMPILE=
+107s + CC=cc
+107s + PKG_CONFIG=pkg-config
+107s + cd /tmp/autopkgtest.VJFn02/autopkgtest_tmp
+107s + cat
+107s + pkg-config --cflags --libs xkbregistry
+107s + cc -otrivial trivial.c -I/usr/include/libxml2 -lxkbregistry
+108s + ./trivial
+108s /tmp/autopkgtest.VJFn02/wrapper.sh: checking for leaked background processes...
+108s /tmp/autopkgtest.VJFn02/wrapper.sh: waiting for tee/cat subprocesses...
+108s /tmp/autopkgtest.VJFn02/wrapper.sh: cleaning up...
+108s /tmp/autopkgtest.VJFn02/wrapper.sh: Exit status: 0
+108s autopkgtest: DBG: testbed command exited with code 0
+108s autopkgtest [17:01:10]: test libxkbregistry-dev: -----------------------]
+108s autopkgtest: DBG: testbed executing test finished with exit status 0
+108s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbregistry-dev-stdout /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbregistry-dev-stdout
+108s autopkgtest: DBG: got reply from testbed: ok
+108s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbregistry-dev-stderr /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/libxkbregistry-dev-stderr
+108s autopkgtest: DBG: got reply from testbed: ok
+108s autopkgtest [17:01:10]: test libxkbregistry-dev:  - - - - - - - - - - results - - - - - - - - - -
+108s libxkbregistry-dev   PASS (superficial)
+108s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.VJFn02/libxkbregistry-dev-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libxkbcommon/artifacts/
+108s autopkgtest: DBG: got reply from testbed: ok
+108s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.VJFn02/libxkbregistry-dev-artifacts', '/tmp/autopkgtest.VJFn02/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+108s autopkgtest: DBG: testbed command exited with code 0
+108s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+108s autopkgtest [17:01:10]: @@@@@@@@@@@@@@@@@@@@ summary
+108s libxkbcommon-dev     PASS (superficial)
+108s libxkbcommon-x11-dev PASS (superficial)
+108s libxkbregistry-dev   PASS (superficial)
+108s autopkgtest: DBG: testbed stop
+108s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.VJFn02
+108s autopkgtest: DBG: sending command to testbed: close
+109s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+109s autopkgtest: DBG: got reply from testbed: ok
+109s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,245 @@
+-- PT_TYPE=gpt GROWPART_RESIZER=auto --
+==== before ====
+Disk /tmp/test-growpart-fsimage.ND2fQe/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: E4BC7FFD-3DB0-6E4F-BC11-9D6DC6F2DA0A
+
+Device                                      Start     End Sectors  Size Type
+/tmp/test-growpart-fsimage.ND2fQe/disk.img1  2048 1021951 1019904  498M Linux filesystem
+==== growpart-stderr ===
+update-partition set to true
+resizing 1 on /tmp/test-growpart-fsimage.ND2fQe/disk.img using resize_sfdisk_gpt
+running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.ND2fQe/disk.img
+2048000 sectors of 512. total size=1048576000 bytes
+running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.ND2fQe/disk.img
+## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.ND2fQe/disk.img
+label: gpt
+label-id: E4BC7FFD-3DB0-6E4F-BC11-9D6DC6F2DA0A
+device: /tmp/test-growpart-fsimage.ND2fQe/disk.img
+unit: sectors
+first-lba: 2048
+last-lba: 1023966
+sector-size: 512
+
+/tmp/test-growpart-fsimage.ND2fQe/disk.img1 : start=        2048, size=     1019904, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=CE2F9AA2-AD30-FB45-8288-210949CBBC05
+padding 33 sectors for gpt secondary header
+max_end=2047967 tot=2048000 pt_end=1021952 pt_start=2048 pt_size=1019904
+resize of /tmp/test-growpart-fsimage.ND2fQe/disk.img returned 0.
+running[pt_update][] pt_update /tmp/test-growpart-fsimage.ND2fQe/disk.img 1
+==== growpart-stdout ====
+CHANGED: partition=1 start=2048 old: size=1019904 end=1021952 new: size=2045919 end=2047967
+==== after ====
+Disk /tmp/test-growpart-fsimage.ND2fQe/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: E4BC7FFD-3DB0-6E4F-BC11-9D6DC6F2DA0A
+
+Device                                      Start     End Sectors  Size Type
+/tmp/test-growpart-fsimage.ND2fQe/disk.img1  2048 2047966 2045919  999M Linux filesystem
+
+
+-- PT_TYPE=gpt GROWPART_RESIZER=sfdisk --
+==== before ====
+Disk /tmp/test-growpart-fsimage.vkN1bN/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 47E7B4F9-CBAF-8B4F-8F86-C9515B049753
+
+Device                                      Start     End Sectors  Size Type
+/tmp/test-growpart-fsimage.vkN1bN/disk.img1  2048 1021951 1019904  498M Linux filesystem
+==== growpart-stderr ===
+update-partition set to true
+resizing 1 on /tmp/test-growpart-fsimage.vkN1bN/disk.img using resize_sfdisk_gpt
+running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.vkN1bN/disk.img
+2048000 sectors of 512. total size=1048576000 bytes
+running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.vkN1bN/disk.img
+## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.vkN1bN/disk.img
+label: gpt
+label-id: 47E7B4F9-CBAF-8B4F-8F86-C9515B049753
+device: /tmp/test-growpart-fsimage.vkN1bN/disk.img
+unit: sectors
+first-lba: 2048
+last-lba: 1023966
+sector-size: 512
+
+/tmp/test-growpart-fsimage.vkN1bN/disk.img1 : start=        2048, size=     1019904, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=17A6E99D-98C4-044C-A94C-23DB44AB938E
+padding 33 sectors for gpt secondary header
+max_end=2047967 tot=2048000 pt_end=1021952 pt_start=2048 pt_size=1019904
+resize of /tmp/test-growpart-fsimage.vkN1bN/disk.img returned 0.
+running[pt_update][] pt_update /tmp/test-growpart-fsimage.vkN1bN/disk.img 1
+==== growpart-stdout ====
+CHANGED: partition=1 start=2048 old: size=1019904 end=1021952 new: size=2045919 end=2047967
+==== after ====
+Disk /tmp/test-growpart-fsimage.vkN1bN/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 47E7B4F9-CBAF-8B4F-8F86-C9515B049753
+
+Device                                      Start     End Sectors  Size Type
+/tmp/test-growpart-fsimage.vkN1bN/disk.img1  2048 2047966 2045919  999M Linux filesystem
+
+
+-- PT_TYPE=gpt GROWPART_RESIZER=sgdisk --
+==== before ====
+Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: DFBED207-7E95-934A-A39F-A78379205EBC
+
+Device                                      Start     End Sectors  Size Type
+/tmp/test-growpart-fsimage.DBdIxI/disk.img1  2048 1021951 1019904  498M Linux filesystem
+==== growpart-stderr ===
+update-partition set to true
+resizing 1 on /tmp/test-growpart-fsimage.DBdIxI/disk.img using resize_sgdisk_gpt
+running[sgd_info][erronly] sgdisk --info=1 --print /tmp/test-growpart-fsimage.DBdIxI/disk.img
+WARN: did not find sector size, assuming 512
+disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: original sgdisk info:
+Partition GUID code: 0FC63DAF-8483-4772-8E79-3D69D8477DE4 (Linux filesystem)
+Partition unique GUID: 45803A3E-7F52-F340-822C-CD63CBAD7EB1
+First sector: 2048 (at 1024.0 KiB)
+Last sector: 1021951 (at 499.0 MiB)
+Partition size: 1019904 sectors (498.0 MiB)
+Attribute flags: 0000000000000000
+Partition name: ''
+Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 2048000 sectors, 1000.0 MiB
+Sector size (logical): 512 bytes
+Disk identifier (GUID): DFBED207-7E95-934A-A39F-A78379205EBC
+Partition table holds up to 128 entries
+Main partition table begins at sector 2 and ends at sector 33
+First usable sector is 2048, last usable sector is 1023966
+Partitions will be aligned on 2048-sector boundaries
+Total free space is 2015 sectors (1007.5 KiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048         1021951   498.0 MiB   8300  
+running[sgd_pretend][erronly] sgdisk --pretend --move-second-header --print /tmp/test-growpart-fsimage.DBdIxI/disk.img
+disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: pretend sgdisk info
+Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 2048000 sectors, 1000.0 MiB
+Sector size (logical): 512 bytes
+Disk identifier (GUID): DFBED207-7E95-934A-A39F-A78379205EBC
+Partition table holds up to 128 entries
+Main partition table begins at sector 2 and ends at sector 33
+First usable sector is 2048, last usable sector is 2045952
+Partitions will be aligned on 2048-sector boundaries
+Total free space is 1024001 sectors (500.0 MiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048         1021951   498.0 MiB   8300  
+disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: pt_start=2048 pt_end=1021952 pt_size=1019904 pt_max=2045952 last=2045952
+disk=/tmp/test-growpart-fsimage.DBdIxI/disk.img partition=1: code=0FC63DAF-8483-4772-8E79-3D69D8477DE4 guid=45803A3E-7F52-F340-822C-CD63CBAD7EB1 name=''
+running[sgd_backup][] sgdisk --backup=/tmp/growpart.MwUkxf/pt.backup /tmp/test-growpart-fsimage.DBdIxI/disk.img
+running[sgdisk_mod][] sgdisk --move-second-header --delete=1 --new=1:2048:2045951 --typecode=1:0FC63DAF-8483-4772-8E79-3D69D8477DE4 --partition-guid=1:45803A3E-7F52-F340-822C-CD63CBAD7EB1 --change-name=1: /tmp/test-growpart-fsimage.DBdIxI/disk.img
+running[pt_update][] pt_update /tmp/test-growpart-fsimage.DBdIxI/disk.img 1
+==== growpart-stdout ====
+CHANGED: partition=1 start=2048 old: size=1019904 end=1021952 new: size=2043904 end=2045952
+==== after ====
+Disk /tmp/test-growpart-fsimage.DBdIxI/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: DFBED207-7E95-934A-A39F-A78379205EBC
+
+Device                                      Start     End Sectors  Size Type
+/tmp/test-growpart-fsimage.DBdIxI/disk.img1  2048 2045951 2043904  998M Linux filesystem
+
+
+-- PT_TYPE=dos GROWPART_RESIZER=auto --
+==== before ====
+Disk /tmp/test-growpart-fsimage.LTrDTS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x65bdb467
+
+Device                                      Boot Start     End Sectors  Size Id Type
+/tmp/test-growpart-fsimage.LTrDTS/disk.img1       2048 1023999 1021952  499M 83 Linux
+==== growpart-stderr ===
+update-partition set to true
+resizing 1 on /tmp/test-growpart-fsimage.LTrDTS/disk.img using resize_sfdisk_dos
+running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.LTrDTS/disk.img
+2048000 sectors of 512. total size=1048576000 bytes
+running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.LTrDTS/disk.img
+## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.LTrDTS/disk.img
+label: dos
+label-id: 0x65bdb467
+device: /tmp/test-growpart-fsimage.LTrDTS/disk.img
+unit: sectors
+sector-size: 512
+
+/tmp/test-growpart-fsimage.LTrDTS/disk.img1 : start=        2048, size=     1021952, type=83
+padding 33 sectors for gpt secondary header
+max_end=2047967 tot=2048000 pt_end=1024000 pt_start=2048 pt_size=1021952
+resize of /tmp/test-growpart-fsimage.LTrDTS/disk.img returned 0.
+running[pt_update][] pt_update /tmp/test-growpart-fsimage.LTrDTS/disk.img 1
+==== growpart-stdout ====
+CHANGED: partition=1 start=2048 old: size=1021952 end=1024000 new: size=2045919 end=2047967
+==== after ====
+Disk /tmp/test-growpart-fsimage.LTrDTS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x65bdb467
+
+Device                                      Boot Start     End Sectors  Size Id Type
+/tmp/test-growpart-fsimage.LTrDTS/disk.img1       2048 2047966 2045919  999M 83 Linux
+
+
+-- PT_TYPE=dos GROWPART_RESIZER=sfdisk --
+==== before ====
+Disk /tmp/test-growpart-fsimage.mNv4eS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xee045153
+
+Device                                      Boot Start     End Sectors  Size Id Type
+/tmp/test-growpart-fsimage.mNv4eS/disk.img1       2048 1023999 1021952  499M 83 Linux
+==== growpart-stderr ===
+update-partition set to true
+resizing 1 on /tmp/test-growpart-fsimage.mNv4eS/disk.img using resize_sfdisk_dos
+running[sfd_list][erronly] sfdisk --list --unit=S /tmp/test-growpart-fsimage.mNv4eS/disk.img
+2048000 sectors of 512. total size=1048576000 bytes
+running[sfd_dump][erronly] sfdisk --unit=S --dump /tmp/test-growpart-fsimage.mNv4eS/disk.img
+## sfdisk --unit=S --dump /tmp/test-growpart-fsimage.mNv4eS/disk.img
+label: dos
+label-id: 0xee045153
+device: /tmp/test-growpart-fsimage.mNv4eS/disk.img
+unit: sectors
+sector-size: 512
+
+/tmp/test-growpart-fsimage.mNv4eS/disk.img1 : start=        2048, size=     1021952, type=83
+padding 33 sectors for gpt secondary header
+max_end=2047967 tot=2048000 pt_end=1024000 pt_start=2048 pt_size=1021952
+resize of /tmp/test-growpart-fsimage.mNv4eS/disk.img returned 0.
+running[pt_update][] pt_update /tmp/test-growpart-fsimage.mNv4eS/disk.img 1
+==== growpart-stdout ====
+CHANGED: partition=1 start=2048 old: size=1021952 end=1024000 new: size=2045919 end=2047967
+==== after ====
+Disk /tmp/test-growpart-fsimage.mNv4eS/disk.img: 1000 MiB, 1048576000 bytes, 2048000 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xee045153
+
+Device                                      Boot Start     End Sectors  Size Id Type
+/tmp/test-growpart-fsimage.mNv4eS/disk.img1       2048 2047966 2045919  999M 83 Linux
+
+
+-- PT_TYPE=dos GROWPART_RESIZER=sgdisk --
+Skipping resize test for dos/sgdisk. not supported.

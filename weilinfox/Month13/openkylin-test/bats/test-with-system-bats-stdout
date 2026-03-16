@@ -1,0 +1,446 @@
+1..445
+ok 1 no arguments prints message and usage instructions
+ok 2 invalid option prints message and usage instructions
+ok 3 -v and --version print version number
+ok 4 -h and --help print help
+ok 5 invalid filename prints an error
+ok 6 empty test file runs zero tests
+ok 7 one passing test
+ok 8 summary passing tests
+ok 9 summary passing and skipping tests
+ok 10 summary passing and failing tests
+ok 11 summary passing, failing and skipping tests
+ok 12 BATS_CWD is correctly set to PWD as validated by bats_trim_filename
+ok 13 one failing test
+ok 14 one failing and one passing test
+ok 15 failing test with significant status
+ok 16 failing helper function logs the test case's line number
+ok 17 failing bash condition logs correct line number
+ok 18 failing bash expression logs correct line number
+ok 19 failing negated command logs correct line number
+ok 20 test environments are isolated
+ok 21 setup is run once before each test
+ok 22 teardown is run once after each test, even if it fails
+ok 23 setup failure
+ok 24 passing test with teardown failure
+ok 25 failing test with teardown failure
+ok 26 teardown failure with significant status
+ok 27 failing test file outside of BATS_CWD
+ok 28 output is discarded for passing tests and printed for failing tests
+ok 29 -c prints the number of tests
+ok 30 dash-e is not mangled on beginning of line
+ok 31 dos line endings are stripped before testing
+ok 32 test file without trailing newline
+ok 33 skipped tests
+ok 34 extended syntax
+ok 35 timing syntax
+ok 36 extended timing syntax
+ok 37 time is greater than 0ms for long test
+ok 38 single-line tests
+ok 39 testing IFS not modified by run
+ok 40 expand variables in test name
+ok 41 handle quoted and unquoted test names
+ok 42 ensure compatibility with unofficial Bash strict mode
+ok 43 parse @test lines with various whitespace combinations
+ok 44 duplicate tests error and generate a warning on stderr
+ok 45 sourcing a nonexistent file in setup produces error output
+ok 46 referencing unset parameter in setup produces error output
+ok 47 sourcing a nonexistent file in test produces error output
+ok 48 referencing unset parameter in test produces error output
+ok 49 sourcing a nonexistent file in teardown produces error output
+ok 50 referencing unset parameter in teardown produces error output
+ok 51 execute exported function without breaking failing test output
+ok 52 output printed even when no final newline
+ok 53 run tests which consume stdin (see #197)
+ok 54 report correct line on unset variables
+ok 55 report correct line on external function calls
+ok 56 test count validator catches mismatch and returns non zero
+ok 57 running the same file twice runs its tests twice without errors
+ok 58 Don't use unbound variables inside bats (issue #340)
+ok 59 filenames with tab can be used
+ok 60 each file is evaluated n+1 times
+ok 61 Don't hang on CTRL-C (issue #353)
+ok 62 test comment style
+ok 63 test works even if PATH is reset
+ok 64 Test nounset does not trip up bats' internals (see #385)
+ok 65 run tmpdir is cleaned up by default
+ok 66 run tmpdir is not cleanup up with --no-cleanup-tempdir
+ok 67 run should exit if tmpdir exist
+ok 68 run should exit if TMPDIR can't be created
+ok 69 Fail if BATS_TMPDIR does not exist or is not writable
+ok 70 Setting BATS_TMPDIR is ignored
+ok 71 Parallel mode works on MacOS with over subscription (issue #433)
+ok 72 Failure in free code (see #399)
+ok 73 CTRL-C aborts and fails the current test
+ok 74 CTRL-C aborts and fails the current run
+ok 75 CTRL-C aborts and fails after run
+ok 76 CTRL-C aborts and fails the current teardown
+ok 77 CTRL-C aborts and fails the current setup_file
+ok 78 CTRL-C aborts and fails the current teardown_file
+ok 79 single star in output is not treated as a glob
+ok 80 multiple stars in output are not treated as a glob
+ok 81 ensure all folders are shellchecked # skip $BATS_ROOT/shellcheck.sh is required for this test
+ok 82 BATS_RUN_COMMAND: test content of variable
+ok 83 --print-output-on-failure works as expected
+ok 84 --print-output-on-failure also shows stderr (for run --separate-stderr)
+ok 85 --show-output-of-passing-tests works as expected
+ok 86 --verbose-run prints output
+ok 87 BATS_VERBOSE_RUN=1 also prints output
+ok 88 --gather-test-outputs-in gathers outputs of all tests (even succeeding!)
+ok 89 --gather-test-outputs-in allows directory to exist (only if empty)
+ok 90 --gather-test-output-in works with slashes in test names
+ok 91 Tell about missing flock and shlock # skip this test requires flock not to be installed
+ok 92 Test with a name that is waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaay too long # skip This test should only check if the long name chokes bats' internals during execution
+ok 93 BATS_CODE_QUOTE_STYLE works with any two characters (even unicode)
+ok 94 BATS_CODE_QUOTE_STYLE=custom requires BATS_CODE_QUOTE_BEGIN/END
+ok 95 Warn about invalid BATS_CODE_QUOTE_STYLE
+ok 96 Debug trap must only override variables that are prefixed with BATS_ (issue #519)
+ok 97 Don't wait for disowned background jobs to finish because of open FDs (#205)
+ok 98 Allow for prefixing tests' names with BATS_TEST_NAME_PREFIX
+ok 99 Setting status in teardown* does not override exit code (see issue #575)
+ok 100 BATS_* variables don't contain double slashes
+ok 101 Without .bats/run-logs --filter-status failed returns an error
+ok 102 Without previous recording --filter-status failed runs all tests and then runs only failed and missed tests
+ok 103 Without previous recording --filter-status passed runs all tests and then runs only passed and missed tests
+ok 104 Without previous recording --filter-status missed runs all tests and then runs only missed tests
+ok 105 --filter-status failed gives warning on empty failed test list
+ok 106 --filter-status failed does not update list when run is aborted
+ok 107 BATS_TEST_RETRIES allows for retrying tests
+ok 108 Exit code is zero after successful retry (see #660)
+ok 109 Error on invalid --line-reference-format
+ok 110 --line-reference-format switches format
+ok 111 Focus tests filter out other tests and override exit code
+ok 112 Focus tests with BATS_NO_FAIL_FOCUS_RUN=1 does not override exit code
+ok 113 Bats waits for report formatter to finish
+ok 114 Failing report formatter fails test run
+ok 115 Short opt unpacker rejects valued options
+ok 116 Test timing does not break when overriding date on path
+ok 117 run bats_pipe with no commands
+ok 118 run bats_pipe with single command with no args
+ok 119 run bats_pipe with single command with no args with arg separator
+ok 120 run bats_pipe with single command with one arg
+ok 121 run bats_pipe with single command with two args
+ok 122 run bats_pipe with single command with two args with arg separator
+ok 123 run bats_pipe piping between two command with zero and zero args
+ok 124 run bats_pipe piping between two command with zero and zero args with arg separator
+ok 125 run bats_pipe piping between two command with zero and one args
+ok 126 run bats_pipe piping between two command with zero and two args
+ok 127 run bats_pipe piping between two command with zero and two args with arg separator
+ok 128 run bats_pipe piping between two command with one and zero args
+ok 129 run bats_pipe piping between two command with one and zero args with arg separator
+ok 130 run bats_pipe piping between two command with one with spaces and zero args
+ok 131 run bats_pipe piping between two command with one and one arg
+ok 132 run bats_pipe piping between two command with one with space and one arg with spaces
+ok 133 run bats_pipe piping between two command with one and two args
+ok 134 run bats_pipe piping between two command with one and two args with spaces
+ok 135 run bats_pipe piping between two command with two and zero args
+ok 136 run bats_pipe piping between two command with two and one args
+ok 137 run bats_pipe piping between two command with two and one args with spaces
+ok 138 run bats_pipe piping between two command with two and two args
+ok 139 run bats_pipe piping between two command with two and two args with spaces
+ok 140 run bats_pipe piping between three command with zero args each
+ok 141 run bats_pipe piping between three command with one arg each
+ok 142 run bats_pipe piping between three command with one arg each with arg separator
+ok 143 run bats_pipe piping between three command with two args each
+ok 144 run bats_pipe with leading | on single command
+ok 145 run bats_pipe with leading | on two piped commands
+ok 146 run bats_pipe with trailing | on single command
+ok 147 run bats_pipe with trailing | on two piped commands
+ok 148 run bats_pipe with consecutive |s after single command
+ok 149 run bats_pipe with consecutive |s between two piped commands
+ok 150 run bats_pipe with consecutive |s after two piped commands
+ok 151 run bats_pipe with consecutive |s between first pair of three piped commands
+ok 152 run bats_pipe with consecutive |s between second pair of three piped commands
+ok 153 run bats_pipe with consecutive |s after three piped commands
+ok 154 run bats_pipe with unknown arg
+ok 155 run bats_pipe for last error status and fail on first of two
+ok 156 run bats_pipe for last error status and fail on second of two
+ok 157 run bats_pipe for last error status and fail on both of two
+ok 158 run bats_pipe for last error status and fail on first of three
+ok 159 run bats_pipe for last error status and fail on second of three
+ok 160 run bats_pipe for last error status and fail on third of three
+ok 161 run bats_pipe for last error status and fail on first pair of three
+ok 162 run bats_pipe for last error status and fail on second pair of three
+ok 163 run bats_pipe for last error status and fail on all of three
+ok 164 run bats_pipe for 0th error status and fail on first of two
+ok 165 run bats_pipe for 0th error status and fail on first of two. using --returned-status
+ok 166 run bats_pipe for 0th error status and fail on first of two. using --returned-status=
+ok 167 run bats_pipe for 0th error status and fail on first of two. using --returned-status neg
+ok 168 run bats_pipe for 0th error status and fail on first of two. using --returned-status=neg
+ok 169 run bats_pipe for 0th error status and fail on first of two with arg separator
+ok 170 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status
+ok 171 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status=
+ok 172 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status neg
+ok 173 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status=neg
+ok 174 run bats_pipe for 0th error status and fail on second of two
+ok 175 run bats_pipe for 0th error status and fail on second of two. using --returned-status
+ok 176 run bats_pipe for 0th error status and fail on second of two. using --returned-status=
+ok 177 run bats_pipe for 0th error status and fail on second of two. using --returned-status neg
+ok 178 run bats_pipe for 0th error status and fail on second of two. using --returned-status=neg
+ok 179 run bats_pipe for 0th error status and fail on both of two
+ok 180 run bats_pipe for 0th error status and fail on first of three
+ok 181 run bats_pipe for 0th error status and fail on first of three. using --returned-status
+ok 182 run bats_pipe for 0th error status and fail on first of three. using --returned-status=
+ok 183 run bats_pipe for 0th error status and fail on first of three. using --returned-status neg
+ok 184 run bats_pipe for 0th error status and fail on first of three. using --returned-status=neg
+ok 185 run bats_pipe for 0th error status and fail on second of three
+ok 186 run bats_pipe for 0th error status and fail on second of three. using --returned-status
+ok 187 run bats_pipe for 0th error status and fail on second of three. using --returned-status=
+ok 188 run bats_pipe for 0th error status and fail on second of three. using --returned-status neg
+ok 189 run bats_pipe for 0th error status and fail on second of three. using --returned-status=neg
+ok 190 run bats_pipe for 0th error status and fail on third of three
+ok 191 run bats_pipe for 0th error status and fail on third of three. using --returned-status
+ok 192 run bats_pipe for 0th error status and fail on third of three. using --returned-status=
+ok 193 run bats_pipe for 0th error status and fail on third of three. using --returned-status neg
+ok 194 run bats_pipe for 0th error status and fail on third of three. using --returned-status=neg
+ok 195 run bats_pipe for 0th error status and fail on all of three
+ok 196 run bats_pipe for 0th error status and fail on all of three. using --returned-status
+ok 197 run bats_pipe for 0th error status and fail on all of three. using --returned-status=
+ok 198 run bats_pipe for 0th error status and fail on all of three. using --returned-status neg
+ok 199 run bats_pipe for 0th error status and fail on all of three. using --returned-status=neg
+ok 200 run bats_pipe for 1st error status and fail on first of two
+ok 201 run bats_pipe for 1st error status and fail on first of two. using --returned-status
+ok 202 run bats_pipe for 1st error status and fail on first of two. using --returned-status=
+ok 203 run bats_pipe for 1st error status and fail on first of two. using --returned-status neg
+ok 204 run bats_pipe for 1st error status and fail on first of two. using --returned-status=neg
+ok 205 run bats_pipe for 1st error status and fail on first of two with arg separator
+ok 206 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status
+ok 207 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status=
+ok 208 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status neg
+ok 209 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status=neg
+ok 210 run bats_pipe for 1st error status and fail on second of two
+ok 211 run bats_pipe for 1st error status and fail on second of two. using --returned-status
+ok 212 run bats_pipe for 1st error status and fail on second of two. using --returned-status=
+ok 213 run bats_pipe for 1st error status and fail on second of two. using --returned-status neg
+ok 214 run bats_pipe for 1st error status and fail on second of two. using --returned-status=neg
+ok 215 run bats_pipe for 1st error status and fail on both of two
+ok 216 run bats_pipe for 1st error status and fail on both of two. using --returned-status
+ok 217 run bats_pipe for 1st error status and fail on both of two. using --returned-status=
+ok 218 run bats_pipe for 1st error status and fail on both of two. using --returned-status neg
+ok 219 run bats_pipe for 1st error status and fail on both of two. using --returned-status=neg
+ok 220 run bats_pipe for 1st error status and fail on first of three
+ok 221 run bats_pipe for 1st error status and fail on first of three. using --returned-status
+ok 222 run bats_pipe for 1st error status and fail on first of three. using --returned-status=
+ok 223 run bats_pipe for 1st error status and fail on first of three. using --returned-status neg
+ok 224 run bats_pipe for 1st error status and fail on first of three. using --returned-status=neg
+ok 225 run bats_pipe for 1st error status and fail on second of three
+ok 226 run bats_pipe for 1st error status and fail on second of three. using --returned-status
+ok 227 run bats_pipe for 1st error status and fail on second of three. using --returned-status=
+ok 228 run bats_pipe for 1st error status and fail on second of three. using --returned-status neg
+ok 229 run bats_pipe for 1st error status and fail on second of three. using --returned-status=neg
+ok 230 run bats_pipe for 1st error status and fail on third of three
+ok 231 run bats_pipe for 1st error status and fail on third of three. using --returned-status
+ok 232 run bats_pipe for 1st error status and fail on third of three. using --returned-status=
+ok 233 run bats_pipe for 1st error status and fail on third of three. using --returned-status neg
+ok 234 run bats_pipe for 1st error status and fail on third of three. using --returned-status=neg
+ok 235 run bats_pipe for 1st error status and fail on all of three
+ok 236 run bats_pipe for 1st error status and fail on all of three. using --returned-status
+ok 237 run bats_pipe for 1st error status and fail on all of three. using --returned-status=
+ok 238 run bats_pipe for 1st error status and fail on all of three. using --returned-status neg
+ok 239 run bats_pipe for 1st error status and fail on all of three. using --returned-status=neg
+ok 240 run bats_pipe for 2nd error status and fail on first of three
+ok 241 run bats_pipe for 2nd error status and fail on first of three. using --returned-status
+ok 242 run bats_pipe for 2nd error status and fail on first of three. using --returned-status=
+ok 243 run bats_pipe for 2nd error status and fail on first of three. using --returned-status neg
+ok 244 run bats_pipe for 2nd error status and fail on first of three. using --returned-status=neg
+ok 245 run bats_pipe for 2nd error status and fail on first of three with arg separator
+ok 246 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status
+ok 247 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status=
+ok 248 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status neg
+ok 249 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status=neg
+ok 250 run bats_pipe for 2nd error status and fail on second of three
+ok 251 run bats_pipe for 2nd error status and fail on second of three. using --returned-status
+ok 252 run bats_pipe for 2nd error status and fail on second of three. using --returned-status=
+ok 253 run bats_pipe for 2nd error status and fail on second of three. using --returned-status neg
+ok 254 run bats_pipe for 2nd error status and fail on second of three. using --returned-status=neg
+ok 255 run bats_pipe for 2nd error status and fail on third of three
+ok 256 run bats_pipe for 2nd error status and fail on third of three. using --returned-status
+ok 257 run bats_pipe for 2nd error status and fail on third of three. using --returned-status=
+ok 258 run bats_pipe for 2nd error status and fail on third of three. using --returned-status neg
+ok 259 run bats_pipe for 2nd error status and fail on third of three. using --returned-status=neg
+ok 260 run bats_pipe for 2nd error status and fail on all of three
+ok 261 run bats_pipe for 2nd error status and fail on all of three. using --returned-status
+ok 262 run bats_pipe for 2nd error status and fail on all of three. using --returned-status=
+ok 263 run bats_pipe for 2nd error status and fail on all of three. using --returned-status neg
+ok 264 run bats_pipe for 2nd error status and fail on all of three. using --returned-status=neg
+ok 265 run bats_pipe for Nth error status too large
+ok 266 run bats_pipe for Nth error status too large. using --returned-status
+ok 267 run bats_pipe for Nth error status too large. using --returned-status=
+ok 268 run bats_pipe for Nth error status too large. using --returned-status neg
+ok 269 run bats_pipe for Nth error status too large. using --returned-status=neg
+ok 270 run bats_pipe with stdout as binary data
+ok 271 run bats_pipe with stdout as binary data with non-zero status
+ok 272 passing test
+ok 273 failing test
+ok 274 passing test with timing
+ok 275 failing test with timing
+ok 276 Cat formatter prints the extended tap stream
+ok 277 bats_version_lt
+ok 278 bats_require_minimum_version
+ok 279 bats_binary_search
+ok 280 bats_sort
+ok 281 bats_all_in
+ok 282 bats_any_in
+ok 283 bats_trim
+ok 284 bats_append_arrays_as_args
+ok 285 setup_file is run once per file
+ok 286 teardown_file is run once per file
+ok 287 setup_file is called correctly in multi file suite
+ok 288 teardown_file is called correctly in multi file suite
+ok 289 setup_file failure aborts tests for this file
+ok 290 teardown_file failure fails at least one test from the file
+ok 291 teardown_file runs even if any test in the file failed
+ok 292 teardown_file should run even after user abort via CTRL-C
+ok 293 setup_file runs even if all tests in the file are skipped
+ok 294 teardown_file runs even if all tests in the file are skipped
+ok 295 setup_file must not leak context between tests in the same suite
+ok 296 teardown_file must not leak context between tests in the same suite
+ok 297 halfway setup_file errors are caught and reported
+ok 298 halfway teardown_file errors are ignored
+ok 299 variables exported in setup_file are visible in tests
+ok 300 Don't run setup_file for files without tests
+ok 301 Failure in setup_file and teardown_file still prints error message
+ok 302 tap passing and skipping tests
+ok 303 tap passing, failing and skipping tests
+ok 304 skipped test with parens (pretty formatter)
+ok 305 pretty and tap formats
+ok 306 pretty formatter bails on invalid tap
+ok 307 All formatters (except cat) implement the callback interface
+ok 308 absolute paths load external formatters
+ok 309 specifying nonexistent external formatter is an error
+ok 310 specifying non executable external formatter is an error
+ok 311 retrying tests does not mess up test names
+ok 312 install.sh creates a valid installation, and uninstall.sh undos it
+ok 313 install.sh creates a multilib valid installation, and uninstall.sh undos it
+ok 314 uninstall.sh works even if nothing is installed
+ok 315 install.sh only updates permissions for Bats files
+ok 316 bin/bats is resilient to symbolic links
+ok 317 junit formatter with skipped test does not fail
+ok 318 junit formatter: escapes xml special chars
+ok 319 junit formatter: test suites
+ok 320 junit formatter: test suites relative path
+ok 321 junit formatter: files with the same name are distinguishable
+ok 322 junit formatter as report formatter creates report.xml
+ok 323 junit does not mark tests with FD 3 output as failed (issue #360)
+ok 324 junit does not mark tests with FD 3 output in teardown_file as failed (issue #531)
+ok 325 don't choke on setup_file errors
+ok 326 find_in_bats_lib_path recognizes files relative to test file
+ok 327 find_in_bats_lib_path recognizes files in BATS_LIB_PATH
+ok 328 find_in_bats_lib_path returns 1 if no load path is found
+ok 329 find_in_bats_lib_path follows the priority of BATS_LIB_PATH
+ok 330 load sources scripts relative to the current test file
+ok 331 load sources relative scripts with filename extension
+ok 332 load aborts if the specified script does not exist
+ok 333 load sources scripts by absolute path
+ok 334 load aborts if the script, specified by an absolute path, does not exist
+ok 335 load relative script with ambiguous name
+ok 336 load does not use the BATS_LIB_PATH
+ok 337 load supports plain symbols
+ok 338 load doesn't support _declare_d symbols
+ok 339 load supports scripts on the PATH
+ok 340 bats_load_library supports libraries with loaders on the BATS_LIB_PATH
+ok 341 bats_load_library supports libraries with loaders on the BATS_LIB_PATH with multiple libraries
+ok 342 bats_load_library can handle whitespaces in BATS_LIB_PATH
+ok 343 bats_load_library errors when a library errors while sourcing
+ok 344 load in teardown after failure does not prevent test from being counted (see #609)
+ok 345 parallel test execution with --jobs
+ok 346 parallel can preserve environment variables
+ok 347 parallel suite execution with --jobs
+ok 348 setup_file is not over parallelized
+ok 349 running the same file twice runs its tests twice without errors
+ok 350 parallelity factor is met exactly
+ok 351 parallel mode correctly forwards failure return code
+ok 352 --no-parallelize-across-files test file detects parallel execution
+ok 353 --no-parallelize-across-files prevents parallelization across files
+ok 354 --no-parallelize-across-files does not prevent parallelization within files
+ok 355 --no-parallelize-within-files test file detects parallel execution
+ok 356 --no-parallelize-within-files prevents parallelization within files
+ok 357 --no-parallelize-within-files does not prevent parallelization across files
+ok 358 BATS_NO_PARALLELIZE_WITHIN_FILE works from inside setup_file()
+ok 359 BATS_NO_PARALLELIZE_WITHIN_FILE works from outside all functions
+ok 360 BATS_NO_PARALLELIZE_WITHIN_FILE does not work from inside setup()
+ok 361 BATS_NO_PARALLELIZE_WITHIN_FILE does not work from inside test function
+ok 362 Negative jobs number does not run endlessly
+ok 363 Timing printout shows milliseconds
+ok 364 pretty formatter summary is colorized red on failure
+ok 365 pretty formatter summary is colorized green on success
+ok 366 Mixing timing and timeout
+ok 367 run --keep-empty-lines preserves leading empty lines
+ok 368 run --keep-empty-lines preserves inner empty lines
+ok 369 run --keep-empty-lines does not count trailing newline as extra line (see #708)
+ok 370 run --keep-empty-lines preserves trailing empty line
+ok 371 run --keep-empty-lines preserves non-empty trailing line
+ok 372 --keep-empty-lines has zero lines for empty output (see #573)
+ok 373 run --separate-stderr splits output
+ok 374 run does not change set flags
+ok 375 basic return-code checking
+ok 376 run exit code check output 
+ok 377 run invalid exit code check error message
+ok 378 run is not affected by IFS
+ok 379 run does not change IFS
+ok 380 running a suite with no test files
+ok 381 running a suite with one test file
+ok 382 counting tests in a suite
+ok 383 aggregated output of multiple tests in a suite
+ok 384 a failing test in a suite results in an error exit code
+ok 385 running an ad-hoc suite by specifying multiple test files
+ok 386 extended syntax in suite
+ok 387 timing syntax in suite
+ok 388 extended timing syntax in suite
+ok 389 recursive support (short option)
+ok 390 recursive support (long option)
+ok 391 recursive support with symlinks
+ok 392 run entire suite when --filter isn't set
+ok 393 use --filter to run subset of test cases from across the suite
+ok 394 --filter can handle regular expressions that contain [_- ]
+ok 395 --filter can handle regular expressions that start with ^
+ok 396 skip is handled correctly in setup, test, and teardown
+ok 397 BATS_TEST_NUMBER starts at 1 in each individual test file
+ok 398 Override BATS_FILE_EXTENSION with suite
+ok 399 Override BATS_FILE_EXTENSION with suite recursive
+ok 400 setup_suite.bash is picked up in toplevel folder of suite
+ok 401 setup_suite.bash is picked up in folder of first test file
+ok 402 setup_suite is not picked up from wrongly named file
+ok 403 setup_suite is picked up from --setup-suite-file
+ok 404 --setup-suite-file takes precedence over convention
+ok 405 passing a nonexisting file to --setup-suite-file prints an error message
+ok 406 setup_suite.bash without setup_suite() is an error
+ok 407 exported variables from setup_suite are visible in setup_file, setup and @test
+ok 408 syntax errors in setup_suite.bash are reported and lead to non zero exit code
+ok 409 errors in setup_suite.bash's free code reported correctly
+ok 410 errors in setup_suite reported correctly
+ok 411 errors in teardown_suite reported correctly
+ok 412 failure in setup_suite skips further setup and suite but runs teardown_suite
+ok 413 midway failure in teardown_suite does not fail test suite, remaining code is executed
+ok 414 nonzero return in teardown_suite does fails test suite
+ok 415 stderr from setup/teardown_suite does not overtake stdout
+ok 416 load is available in setup_suite
+ok 417 output frorm setup_suite is only visible on failure
+ok 418 skip in setup_file skips all tests in file
+ok 419 No tag filter runs all tests
+ok 420 Empty tag filter runs tests without tag
+ok 421 --filter-tags (also) selects tests that contain additional tags
+ok 422 --filter-tags only selects tests that match all tags (logic and)
+ok 423 multiple --filter-tags work as logical or
+ok 424 --filter-tags order of tags does not matter
+ok 425 exit with error on invalid tags in .bats file
+ok 426 --filter-tags allows for negation via !
+ok 427 BATS_TEST_TAGS are set correctly
+ok 428 Print tags on error
+ok 429 passing test
+ok 430 failing test
+ok 431 passing test with timing
+ok 432 failing test with timing
+ok 433 test faster than timeout
+ok 434 test longer than timeout
+ok 435 sleep in run
+ok 436 no --trace doesn't show anything on failure
+ok 437 --trace recurses into functions but not into run
+ok 438 invalid warning is an error
+ok 439 BW01 is printed when `run`ing a (non-existant) command with exit code 127 without exit code check
+ok 440 BW01 is not printed when `run`ing a (non-existant) command with exit code 127 with exit code check
+ok 441 BW01 is not printed when `run`ing a command with exit code !=127 without exit code check
+ok 442 BW02 is printed when run uses parameters without guaranteed version >= 1.5.0
+ok 443 BW03 is printed when a test file defines setup_suite and setup_suite is not defined
+ok 444 BW03 is not printed when a test file defines setup_suite but setup_suite was completed
+ok 445 BW03 can be suppressed by setting BATS_SETUP_SUITE_COMPLETED

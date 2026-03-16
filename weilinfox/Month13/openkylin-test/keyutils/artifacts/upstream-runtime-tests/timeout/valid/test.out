@@ -1,0 +1,68 @@
+++++ BEGINNING TEST
++++ ADD KEYRING
+keyctl newring wibble @s
+898231091
++++ ADD KEY
+keyctl add user lizard gizzard 898231091
+180646938
++++ LIST KEYRING
+keyctl rlist 898231091
+180646938
++++ CHECK VALIDATE KEY
+keyctl rdescribe 180646938 @
+user@0@0@3f010000@lizard
++++ CHECK READ PAYLOAD
+keyctl print 180646938
+gizzard
++++ SET BIG TIMEOUT
+keyctl timeout 180646938 10000000
++++ CHECK READ PAYLOAD 2
+keyctl print 180646938
+gizzard
++++ SET SMALL TIMEOUT
+keyctl timeout 180646938 2
++++ WAIT FOR TIMEOUT
++++ CHECK NO READ PAYLOAD
+keyctl print 180646938
+keyctl_read_alloc: Key has expired
++++ CHECK NO REVOKE KEY
+keyctl revoke 180646938
+keyctl_revoke: Key has expired
++++ CHECK NO TIMEOUT KEY
+keyctl timeout 180646938 20
+keyctl_set_timeout: Key has expired
++++ UNLINK KEY
+keyctl unlink 180646938 898231091
++++ ADD KEY
+keyctl add user lizard gizzard 898231091
+118700091
++++ SET BIG TIMEOUT
+keyctl timeout 118700091 10000000
++++ REVOKE KEY
+keyctl revoke 118700091
++++ CHECK NO SET KEY TIMEOUT
+keyctl timeout 118700091 20
+keyctl_set_timeout: Key has been revoked
++++ UNLINK KEY
+keyctl unlink 118700091 898231091
++++ TIMEOUT KEYRING
+keyctl timeout 898231091 1
++++ WAIT FOR KEYRING TIMEOUT
++++ CHECK NO LIST SESSION KEYRING
+keyctl rlist 898231091
+keyctl_read_alloc: Key has expired
++++ CHECK NO VALIDATE KEYRING
+keyctl rdescribe 898231091 @
+keyctl_describe: Key has expired
++++ CHECK NO SET KEYRING TIMEOUT
+keyctl timeout 898231091 20
+keyctl_set_timeout: Key has expired
++++ CHECK NO INVALIDATE KEYRING
+keyctl invalidate 898231091
+keyctl_invalidate: Key has expired
++++ CHECK NO REVOKE KEYRING
+keyctl revoke 898231091
+keyctl_revoke: Key has expired
++++ UNLINK KEYRING
+keyctl unlink 898231091 @s
+++++ FINISHED TEST: PASS

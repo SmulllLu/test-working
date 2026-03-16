@@ -1,0 +1,92 @@
+mock-sshd.c: In function ‘auth_publickey’:
+mock-sshd.c:148:3: warning: ‘ssh_message_auth_publickey_state’ is deprecated [-Wdeprecated-declarations]
+  148 |   int auth_state = ssh_message_auth_publickey_state (message);
+      |   ^~~
+In file included from mock-sshd.c:20:
+/usr/include/libssh/server.h:330:54: note: declared here
+  330 | SSH_DEPRECATED LIBSSH_API enum ssh_publickey_state_e ssh_message_auth_publickey_state(ssh_message msg);
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mock-sshd.c:150:32: warning: ‘ssh_message_auth_pubkey’ is deprecated [-Wdeprecated-declarations]
+  150 |                                ssh_message_auth_pubkey (message),
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/libssh/server.h:320:35: note: declared here
+  320 | SSH_DEPRECATED LIBSSH_API ssh_key ssh_message_auth_pubkey(ssh_message msg);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~
+mock-sshd.c: In function ‘authenticate_callback’:
+mock-sshd.c:508:30: warning: ‘ssh_message_auth_password’ is deprecated [-Wdeprecated-declarations]
+  508 |                              ssh_message_auth_password (message)))
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/libssh/server.h:302:39: note: declared here
+  302 | SSH_DEPRECATED LIBSSH_API const char *ssh_message_auth_password(ssh_message msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+[2024/07/18 12:55:16.116333, 2] ssh_pki_import_privkey_base64:  Trying to decode privkey passphrase=false
+[2024/07/18 12:55:16.361796, 2] ssh_server_connection_callback:  SSH client banner: SSH-2.0-OpenSSH_8.2p1 openKylin-ok1
+[2024/07/18 12:55:16.361935, 2] ssh_analyze_banner:  Analyzing banner: SSH-2.0-OpenSSH_8.2p1 openKylin-ok1
+[2024/07/18 12:55:16.361987, 2] ssh_analyze_banner:  We are talking to an OpenSSH client version: 8.2 (80200)
+[2024/07/18 12:55:16.362500, 2] ssh_kex_select_methods:  Negotiated curve25519-sha256,rsa-sha2-512,chacha20-poly1305@openssh.com,chacha20-poly1305@openssh.com,aead-poly1305,aead-poly1305,none,none,,
+[2024/07/18 12:55:16.423687, 2] ssh_packet_server_curve25519_init:  SSH_MSG_KEX_ECDH_REPLY sent
+[2024/07/18 12:55:16.424326, 2] ssh_init_rekey_state:Warning: Permanently added '[localhost]:1234' (RSA) to the list of known hosts.
+  Set rekey after 134217728 blocks
+[2024/07/18 12:55:16.424438, 2] ssh_init_rekey_state:  Set rekey after 134217728 blocks
+[2024/07/18 12:55:16.470359, 2] ssh_packet_newkeys:  Received SSH_MSG_NEWKEYS
+
+** (mock-sshd:949738): WARNING **: 12:55:16.470: authenticate_callback: round 0, message type -1
+
+** (mock-sshd:949738): WARNING **: 12:55:16.475: authenticate_callback: round 0, message type -1, deny, ret 1
+
+** (mock-sshd:949738): WARNING **: 12:55:16.524: authenticate_callback: round 0, message type 1
+
+** (mock-sshd:949738): WARNING **: 12:55:16.524: authenticate_callback: round 0, message type 1, deny, ret 1
+
+** (mock-sshd:949738): WARNING **: 12:55:16.525: authenticate_callback: round 0, message type 16
+
+** (mock-sshd:949738): WARNING **: 12:55:16.525: auth_interactive begin: round 0
+Test Interactive
+[2024/07/18 12:55:16.525722, 2] ssh_message_auth_interactive_request:  Warning: Got a keyboard-interactive response but it seems we didn't send the request.
+Password
+
+** (mock-sshd:949738): WARNING **: 12:55:16.525: auth_interactive round 1, ret 1
+
+** (mock-sshd:949738): WARNING **: 12:55:16.525: authenticate_callback: round 1, message type 16, more, ret 0
+
+** (mock-sshd:949738): WARNING **: 12:55:16.529: authenticate_callback: round 1, message type 16
+
+** (mock-sshd:949738): WARNING **: 12:55:16.529: auth_interactive begin: round 1
+
+** (mock-sshd:949738): WARNING **: 12:55:16.529: auth_interactive round 1, ret 0
+
+** (mock-sshd:949738): WARNING **: 12:55:16.529: authenticate_callback: round 1, message type 16, accept, ret 0
+
+** (mock-sshd:949738): CRITICAL **: 12:55:16.539: couldn't wait on child process: No child processes
+
+** (mock-sshd:949738): CRITICAL **: 12:55:16.539: couldn't wait on child process: No child processes
+[2024/07/18 12:55:16.584863, 1] ssh_packet_disconnect_callback:  Received SSH_MSG_DISCONNECT: 11:disconnected by user
+[2024/07/18 12:55:16.600695, 2] ssh_pki_import_privkey_base64:  Trying to decode privkey passphrase=false
+[2024/07/18 12:55:16.637111, 2] ssh_server_connection_callback:  SSH client banner: SSH-2.0-OpenSSH_8.2p1 openKylin-ok1
+[2024/07/18 12:55:16.637267, 2] ssh_analyze_banner:  Analyzing banner: SSH-2.0-OpenSSH_8.2p1 openKylin-ok1
+[2024/07/18 12:55:16.637315, 2] ssh_analyze_banner:  We are talking to an OpenSSH client version: 8.2 (80200)
+[2024/07/18 12:55:16.638168, 2] ssh_kex_select_methods:  Negotiated curve25519-sha256,rsa-sha2-512,chacha20-poly1305@openssh.com,chacha20-poly1305@openssh.com,aead-poly1305,aead-poly1305,none,none,,
+[2024/07/18 12:55:16.694355, 2] ssh_packet_server_curve25519_init:  SSH_MSG_KEX_ECDH_REPLY sent
+Warning: Permanently added '[localhost]:1234' (RSA) to the list of known hosts.
+[2024/07/18 12:55:16.695336, 2] ssh_init_rekey_state:  Set rekey after 134217728 blocks
+[2024/07/18 12:55:16.695412, 2] ssh_init_rekey_state:  Set rekey after 134217728 blocks
+[2024/07/18 12:55:16.741909, 2] ssh_packet_newkeys:  Received SSH_MSG_NEWKEYS
+
+** (mock-sshd:949746): WARNING **: 12:55:16.742: authenticate_callback: round 0, message type -1
+
+** (mock-sshd:949746): WARNING **: 12:55:16.742: authenticate_callback: round 0, message type -1, deny, ret 1
+
+** (mock-sshd:949746): WARNING **: 12:55:16.784: authenticate_callback: round 0, message type 1
+
+** (mock-sshd:949746): WARNING **: 12:55:16.784: authenticate_callback: round 0, message type 1, deny, ret 1
+
+** (mock-sshd:949746): WARNING **: 12:55:16.785: authenticate_callback: round 0, message type 4
+
+** (mock-sshd:949746): WARNING **: 12:55:16.793: authenticate_callback: round 0, message type 4
+
+** (mock-sshd:949746): WARNING **: 12:55:16.793: authenticate_callback: round 0, message type 4, accept, ret 0
+
+** (mock-sshd:949746): CRITICAL **: 12:55:16.802: couldn't wait on child process: No child processes
+
+** (mock-sshd:949746): CRITICAL **: 12:55:16.802: couldn't wait on child process: No child processes
+[2024/07/18 12:55:16.854906, 1] ssh_packet_disconnect_callback:  Received SSH_MSG_DISCONNECT: 11:disconnected by user

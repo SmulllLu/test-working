@@ -1,0 +1,109 @@
+
+***************************
+*** Testing with python3.12
+***************************
+
+Content of current working folder:
+
+total 4
+drwxr-xr-x 4 root root  100 Jul 18 18:09 .
+drwxrwxrwt 5 root root  260 Jul 18 18:09 ..
+drwxr-xr-x 4 root root  420 Jan 30 21:29 mako
+-rw-r--r-- 1 root root 2688 Jan 30 21:29 setup.cfg
+drwxr-xr-x 6 root root  580 Jan 30 21:29 test
+Running tests...
+
+============================= test session starts ==============================
+platform linux -- Python 3.12.2, pytest-7.4.4, pluggy-1.4.0 -- /usr/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /tmp/autopkgtest.X4uQJe/autopkgtest_tmp
+configfile: setup.cfg
+collecting ... collected 417 items / 1 error
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test/test_cache.py ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/_pytest/runner.py", line 341, in from_call
+    result: Optional[TResult] = func()
+                                ^^^^^^
+  File "/usr/lib/python3/dist-packages/_pytest/runner.py", line 372, in <lambda>
+    call = CallInfo.from_call(lambda: list(collector.collect()), "collect")
+                                           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/_pytest/python.py", line 531, in collect
+    self._inject_setup_module_fixture()
+  File "/usr/lib/python3/dist-packages/_pytest/python.py", line 545, in _inject_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "/usr/lib/python3/dist-packages/_pytest/python.py", line 310, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/_pytest/python.py", line 528, in _getobj
+    return self._importtestmodule()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/_pytest/python.py", line 617, in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/_pytest/pathlib.py", line 567, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "/usr/lib/python3/dist-packages/_pytest/assertion/rewrite.py", line 186, in exec_module
+    exec(co, module.__dict__)
+  File "/tmp/autopkgtest.X4uQJe/autopkgtest_tmp/test/test_cache.py", line 10, in <module>
+    from mako.testing.exclusions import requires_beaker
+  File "/tmp/autopkgtest.X4uQJe/autopkgtest_tmp/mako/testing/exclusions.py", line 8, in <module>
+    import babel.messages.extract as babel
+  File "/usr/lib/python3/dist-packages/babel/messages/__init__.py", line 12, in <module>
+    from babel.messages.catalog import *
+  File "/usr/lib/python3/dist-packages/babel/messages/catalog.py", line 24, in <module>
+    from babel.dates import format_datetime
+  File "/usr/lib/python3/dist-packages/babel/dates.py", line 29, in <module>
+    from babel.util import UTC, LOCALTZ
+  File "/usr/lib/python3/dist-packages/babel/util.py", line 20, in <module>
+    from babel import localtime
+  File "/usr/lib/python3/dist-packages/babel/localtime/__init__.py", line 74, in <module>
+    LOCALTZ = get_localzone()
+              ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/babel/localtime/__init__.py", line 70, in get_localzone
+    return _get_localzone()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/babel/localtime/_unix.py", line 58, in _get_localzone
+    return pytz.timezone(zone_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pytz/__init__.py", line 179, in timezone
+    zone = _case_insensitive_zone_lookup(_unmunge_zone(zone))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pytz/__init__.py", line 205, in _case_insensitive_zone_lookup
+    _all_timezones_lower_to_standard = dict((tz.lower(), tz) for tz in all_timezones)  # noqa
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pytz/lazy.py", line 101, in _lazy
+    list.extend(self, fill_iter.pop())
+  File "/usr/lib/python3/dist-packages/pytz/__init__.py", line 1114, in <genexpr>
+    tz for tz in all_timezones if resource_exists(tz))
+                                  ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pytz/__init__.py", line 121, in resource_exists
+    open_resource(name).close()
+    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pytz/__init__.py", line 102, in open_resource
+    from pkg_resources import resource_stream
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2191, in <module>
+    register_finder(pkgutil.ImpImporter, find_on_path)
+                    ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'pkgutil' has no attribute 'ImpImporter'. Did you mean: 'zipimporter'?
+=============================== warnings summary ===============================
+../../../usr/lib/python3/dist-packages/babel/messages/catalog.py:15
+  /usr/lib/python3/dist-packages/babel/messages/catalog.py:15: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+    from cgi import parse_header
+
+../../../usr/lib/python3/dist-packages/pytz/tzinfo.py:27
+  /usr/lib/python3/dist-packages/pytz/tzinfo.py:27: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    _epoch = datetime.utcfromtimestamp(0)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+========================= 2 warnings, 1 error in 4.26s =========================

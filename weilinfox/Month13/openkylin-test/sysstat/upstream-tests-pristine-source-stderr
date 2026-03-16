@@ -1,0 +1,23 @@
++ readonly test_type=pristine-source
++ test_type=pristine-source
++ shift
+++ dpkg-architecture -q DEB_HOST_ARCH
++ readonly arch=riscv64
++ arch=riscv64
++ readonly tmpdir=/tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ tmpdir=/tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ trap 'rm -rf /tmp/autopkgtest.3PAiC2/autopkgtest_tmp' EXIT INT QUIT TERM
++++ dirname ./debian/tests/upstream-tests
+++ readlink -e ./debian/tests/../..
++ cd /tmp/autopkgtest.3PAiC2/build.qhi/src
++ tar cf - --exclude '*.bak' --exclude '*.gmo' --exclude '*.o' --exclude '*.so' --exclude '*.tmp' --exclude '*~' --exclude '.debhelper*' --exclude '.git*' .
++ tar xvf - -C /tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ cd /tmp/autopkgtest.3PAiC2/autopkgtest_tmp
++ '[' pristine-source = pristine-source ']'
++ dpkg-source --after-build --unapply-patches .
++ ln -svf sar sar.sysstat
++ set -o pipefail
++ ./do_test
++ tee tests/do_test.log
++ exit 0
++ rm -rf /tmp/autopkgtest.3PAiC2/autopkgtest_tmp

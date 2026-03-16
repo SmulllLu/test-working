@@ -1,0 +1,1036 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:31:42]: starting date and time: 2024-07-17 23:31:42+0800
+  0s autopkgtest [23:31:42]: version @version@
+  0s autopkgtest [23:31:42]: host nana; command line: /usr/bin/autopkgtest libbsd_0.11.7-4ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/libbsd -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.MqWnyF
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-71b1fac4-ac0f-499f-b256-672b149d3ccb,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-71b1fac4-ac0f-499f-b256-672b149d3ccb//tmp/autopkgtest.MqWnyF
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-71b1fac4-ac0f-499f-b256-672b149d3ccb//tmp/autopkgtest.MqWnyF', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.MqWnyF'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.MqWnyF/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.MqWnyF/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:31:43]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:31:43]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.MqWnyF/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.MqWnyF/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libbsd/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [23:31:44]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [23:31:44]: @@@@@@@@@@@@@@@@@@@@ source libbsd_0.11.7-4ok1.dsc
+  2s autopkgtest: DBG: blame += libbsd_0.11.7-4ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.MqWnyF'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libbsd_0.11.7-4ok1.dsc /tmp/autopkgtest.MqWnyF/libbsd_0.11.7-4ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.MqWnyF'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libbsd_0.11.7.orig.tar.xz /tmp/autopkgtest.MqWnyF/libbsd_0.11.7.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.MqWnyF'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libbsd_0.11.7.orig.tar.xz.asc /tmp/autopkgtest.MqWnyF/libbsd_0.11.7.orig.tar.xz.asc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.MqWnyF'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libbsd_0.11.7-4ok1.debian.tar.xz /tmp/autopkgtest.MqWnyF/libbsd_0.11.7-4ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.MqWnyF/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.MqWnyF/libbsd_0.11.7-4ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.MqWnyF/build.XXX
+  3s + builddir=/tmp/autopkgtest.MqWnyF/build.f9p
+  3s + cd /tmp/autopkgtest.MqWnyF/build.f9p
+  3s + dpkg-source -x /tmp/autopkgtest.MqWnyF/libbsd_0.11.7-4ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.Kuk1oY5T/trustedkeys.kbx': General error
+  3s gpgv: Signature made Mon 11 Mar 2024 04:30:58 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.MqWnyF/libbsd_0.11.7-4ok1.dsc
+  3s dpkg-source: info: extracting libbsd in src
+  3s dpkg-source: info: unpacking libbsd_0.11.7.orig.tar.xz
+  3s dpkg-source: info: unpacking libbsd_0.11.7-4ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying 0001-build-Use-yes-instead-of-true-for-AC_CHECK_FUNCS-cac.patch
+  3s dpkg-source: info: applying 0001-funopen-Replace-off64_t-with-off_t-in-funopen_seek.patch
+  3s dpkg-source: info: applying 0001-include-Adjust-closefrom-per-glibc-adoption.patch
+  3s dpkg-source: info: applying 0001-man-Update-STANDARDS-and-HISTORY-sections.patch
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [23:31:45]: testing package libbsd version 0.11.7-4ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.MqWnyF/build.f9p/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libbsd/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libbsd-dev
+  3s autopkgtest: DBG: synthesised dependency libbsd0
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency autoconf
+  3s autopkgtest: DBG: processing dependency automake
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: Test defined: name test-unit path debian/tests/test-unit command "None" restrictions ['allow-stderr', 'rw-build-tree'] features [] depends ['libbsd-dev', 'libbsd0', 'build-essential', 'autoconf', 'automake', 'pkg-config'] 
+  3s autopkgtest [23:31:45]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.MqWnyF/build.f9p/src/ /home/hachi/openkylin_test/sharefolder/results/libbsd/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libbsd-dev
+  4s autopkgtest: DBG: synthesised dependency libbsd0
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency autoconf
+  4s autopkgtest: DBG: processing dependency automake
+  4s autopkgtest: DBG: processing dependency pkg-config
+  4s autopkgtest: DBG: Test defined: name test-unit path debian/tests/test-unit command "None" restrictions ['allow-stderr', 'rw-build-tree'] features [] depends ['libbsd-dev', 'libbsd0', 'build-essential', 'autoconf', 'automake', 'pkg-config'] 
+  4s autopkgtest [23:31:46]: test test-unit: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libbsd-dev', 'libbsd0', 'build-essential', 'autoconf', 'automake', 'pkg-config']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['libbsd-dev', 'libbsd0', 'build-essential', 'autoconf', 'automake', 'pkg-config']
+  4s autopkgtest: DBG: install-deps: satisfying libbsd-dev, libbsd0, build-essential, autoconf, automake, pkg-config
+  4s autopkgtest: DBG: install-deps: architecture resolved: libbsd-dev, libbsd0, build-essential, autoconf, automake, pkg-config
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.MqWnyF'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-71b1fac4-ac0f-499f-b256-672b149d3ccb//tmp/autopkgtest.MqWnyF/1-autopkgtest-satdep.deb /tmp/autopkgtest.MqWnyF/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.MqWnyF/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  6s Starting 2 pkgProblemResolver with broken count: 0
+  6s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   autoconf automake autotools-dev libbsd-dev libbsd0 libmd-dev libmd0 m4
+  6s Suggested packages:
+  6s   autoconf-archive gnu-standards autoconf-doc libtool m4-doc
+  7s The following NEW packages will be installed:
+  7s   autoconf automake autopkgtest-satdep autotools-dev libbsd-dev libmd-dev m4
+  7s The following packages will be upgraded:
+  7s   libbsd0 libmd0
+  7s 2 upgraded, 7 newly installed, 0 to remove and 1064 not upgraded.
+  7s Need to get 1,581 kB/1,582 kB of archives.
+  7s After this operation, 6,179 kB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.MqWnyF/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [736 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 m4 riscv64 1.4.19-ok1 [259 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 autoconf all 2.71-ok2 [390 kB]
+  7s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 autotools-dev all 20220506-ok1 [41.6 kB]
+  7s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 automake all 1:1.16.5-ok1 [557 kB]
+  7s Get:6 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libmd0 riscv64 1.1.0-ok1 [25.8 kB]
+  8s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libbsd0 riscv64 0.11.7-4ok1 [37.7 kB]
+  8s Get:8 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libmd-dev riscv64 1.1.0-ok1 [59.9 kB]
+  8s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libbsd-dev riscv64 0.11.7-4ok1 [210 kB]
+ 10s Fetched 1,581 kB in 1s (1,350 kB/s)
+ 10s Selecting previously unselected package m4.
+ 10s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 10s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 10s Preparing to unpack .../0-m4_1.4.19-ok1_riscv64.deb ...
+ 10s Unpacking m4 (1.4.19-ok1) ...
+ 11s Selecting previously unselected package autoconf.
+ 11s Preparing to unpack .../1-autoconf_2.71-ok2_all.deb ...
+ 11s Unpacking autoconf (2.71-ok2) ...
+ 11s Selecting previously unselected package autotools-dev.
+ 11s Preparing to unpack .../2-autotools-dev_20220506-ok1_all.deb ...
+ 11s Unpacking autotools-dev (20220506-ok1) ...
+ 11s Selecting previously unselected package automake.
+ 12s Preparing to unpack .../3-automake_1%3a1.16.5-ok1_all.deb ...
+ 12s Unpacking automake (1:1.16.5-ok1) ...
+ 12s Preparing to unpack .../4-libmd0_1.1.0-ok1_riscv64.deb ...
+ 12s Unpacking libmd0:riscv64 (1.1.0-ok1) over (1.0.4-ok1) ...
+ 12s Preparing to unpack .../5-libbsd0_0.11.7-4ok1_riscv64.deb ...
+ 12s Unpacking libbsd0:riscv64 (0.11.7-4ok1) over (0.11.6-1) ...
+ 13s Selecting previously unselected package libmd-dev:riscv64.
+ 13s Preparing to unpack .../6-libmd-dev_1.1.0-ok1_riscv64.deb ...
+ 13s Unpacking libmd-dev:riscv64 (1.1.0-ok1) ...
+ 13s Selecting previously unselected package libbsd-dev:riscv64.
+ 13s Preparing to unpack .../7-libbsd-dev_0.11.7-4ok1_riscv64.deb ...
+ 13s Unpacking libbsd-dev:riscv64 (0.11.7-4ok1) ...
+ 13s Selecting previously unselected package autopkgtest-satdep.
+ 13s Preparing to unpack .../8-1-autopkgtest-satdep.deb ...
+ 13s Unpacking autopkgtest-satdep (0) ...
+ 14s Setting up m4 (1.4.19-ok1) ...
+ 14s Setting up autotools-dev (20220506-ok1) ...
+ 14s Setting up autoconf (2.71-ok2) ...
+ 14s Setting up libmd0:riscv64 (1.1.0-ok1) ...
+ 14s Setting up libmd-dev:riscv64 (1.1.0-ok1) ...
+ 14s Setting up libbsd0:riscv64 (0.11.7-4ok1) ...
+ 14s Setting up libbsd-dev:riscv64 (0.11.7-4ok1) ...
+ 14s Setting up automake (1:1.16.5-ok1) ...
+ 14s update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+ 14s Setting up autopkgtest-satdep (0) ...
+ 14s Processing triggers for man-db (2.10.2-2) ...
+ 15s Processing triggers for install-info (6.8-6ok1.1) ...
+ 15s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libbsd-dev'], kind short, sout pipe, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libbsd0'], kind short, sout pipe, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libbsd-dev libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmd-dev libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 20s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libbsd-dev', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer0', 'libmatemixer-common', 'libmd-dev', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 27s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 27s (Reading database ... 194489 files and directories currently installed.)
+ 27s Removing autopkgtest-satdep (0) ...
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.MqWnyF/test-unit-packages.all"], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.MqWnyF/test-unit-packages.all /home/hachi/openkylin_test/sharefolder/results/libbsd/test-unit-packages.all
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.MqWnyF/build.f9p/src'], kind short, sout raw, serr raw, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.MqWnyF/build.f9p/src already exists
+ 28s autopkgtest: DBG: testbed command ['chown', '-R', '', '/tmp/autopkgtest.MqWnyF/build.f9p/src'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest [23:32:10]: test test-unit: [-----------------------
+ 28s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.MqWnyF/wrapper.sh --debug --artifacts=/tmp/autopkgtest.MqWnyF/test-unit-artifacts --chdir=/tmp/autopkgtest.MqWnyF/build.f9p/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.MqWnyF/test-unit-stderr --stdout=/tmp/autopkgtest.MqWnyF/test-unit-stdout --tmp=/tmp/autopkgtest.MqWnyF/autopkgtest_tmp --make-executable=/tmp/autopkgtest.MqWnyF/build.f9p/src/debian/tests/test-unit -- /tmp/autopkgtest.MqWnyF/build.f9p/src/debian/tests/test-unit'], kind test, sout raw, serr raw, env []
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.MqWnyF/test-unit-artifacts
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: changing to directory: /tmp/autopkgtest.MqWnyF/build.f9p/src
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: setting environment: LANG=C.UTF-8
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LANGUAGE
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_ADDRESS
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_ALL
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_COLLATE
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_CTYPE
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_MESSAGES
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_MONETARY
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_NAME
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_NUMERIC
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_PAPER
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: unsetting environment: LC_TIME
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: pretending to be a login shell
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: will write standard error to /tmp/autopkgtest.MqWnyF/test-unit-stderr
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: will write stdout to /tmp/autopkgtest.MqWnyF/test-unit-stdout
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.MqWnyF/autopkgtest_tmp
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: marking as executable: /tmp/autopkgtest.MqWnyF/build.f9p/src/debian/tests/test-unit
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: command to run: /tmp/autopkgtest.MqWnyF/build.f9p/src/debian/tests/test-unit
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: copying /tmp/tmp.lco8Mq5HEd/out to stdout and file: /tmp/autopkgtest.MqWnyF/test-unit-stdout
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: copying /tmp/tmp.lco8Mq5HEd/err to standard error and file: /tmp/autopkgtest.MqWnyF/test-unit-stdout
+ 28s /tmp/autopkgtest.MqWnyF/wrapper.sh: writing script pid 603745 to /tmp/autopkgtest_script_pid
+ 28s + [ -n  ]
+ 28s + PKG_CONFIG=pkg-config
+ 28s + confflags=
+ 28s + [ -n  ]
+ 28s + pkg-config --cflags libbsd
+ 28s + CFLAGS=
+ 28s + pkg-config --libs libbsd
+ 28s + LDADD=-lbsd
+ 28s + ./configure
+ 28s checking for a BSD-compatible install... /usr/bin/install -c
+ 29s checking whether build environment is sane... yes
+ 29s checking for a race-free mkdir -p... /usr/bin/mkdir -p
+ 29s checking for gawk... gawk
+ 29s checking whether make sets $(MAKE)... yes
+ 29s checking whether make supports nested variables... yes
+ 29s checking whether make supports nested variables... (cached) yes
+ 29s checking whether make supports the include directive... yes (GNU style)
+ 29s checking for gcc... gcc
+ 29s checking whether the C compiler works... yes
+ 29s checking for C compiler default output file name... a.out
+ 29s checking for suffix of executables... 
+ 29s checking whether we are cross compiling... no
+ 29s checking for suffix of object files... o
+ 29s checking whether the compiler supports GNU C... yes
+ 29s checking whether gcc accepts -g... yes
+ 29s checking for gcc option to enable C11 features... none needed
+ 30s checking whether gcc understands -c and -o together... yes
+ 30s checking dependency style of gcc... gcc3
+ 30s checking for stdio.h... yes
+ 30s checking for stdlib.h... yes
+ 30s checking for string.h... yes
+ 30s checking for inttypes.h... yes
+ 30s checking for stdint.h... yes
+ 30s checking for strings.h... yes
+ 30s checking for sys/stat.h... yes
+ 30s checking for sys/types.h... yes
+ 31s checking for unistd.h... yes
+ 31s checking for wchar.h... yes
+ 31s checking for minix/config.h... no
+ 31s checking whether it is safe to define __EXTENSIONS__... yes
+ 31s checking whether _XOPEN_SOURCE should be defined... no
+ 31s checking for special C compiler options needed for large files... no
+ 31s checking for _FILE_OFFSET_BITS value needed for large files... no
+ 31s checking build system type... riscv64-unknown-linux-gnu
+ 31s checking host system type... riscv64-unknown-linux-gnu
+ 31s checking how to print strings... printf
+ 31s checking for a sed that does not truncate output... /usr/bin/sed
+ 31s checking for grep that handles long lines and -e... /usr/bin/grep
+ 31s checking for egrep... /usr/bin/grep -E
+ 32s checking for fgrep... /usr/bin/grep -F
+ 32s checking for ld used by gcc... /usr/bin/ld
+ 32s checking if the linker (/usr/bin/ld) is GNU ld... yes
+ 32s checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+ 32s checking the name lister (/usr/bin/nm -B) interface... BSD nm
+ 32s checking whether ln -s works... yes
+ 32s checking the maximum length of command line arguments... 1572864
+ 32s checking how to convert riscv64-unknown-linux-gnu file names to riscv64-unknown-linux-gnu format... func_convert_file_noop
+ 32s checking how to convert riscv64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+ 32s checking for /usr/bin/ld option to reload object files... -r
+ 32s checking for file... file
+ 32s checking for objdump... objdump
+ 32s checking how to recognize dependent libraries... pass_all
+ 32s checking for dlltool... no
+ 32s checking how to associate runtime and link libraries... printf %s\n
+ 32s checking for ar... ar
+ 32s checking for archiver @FILE support... @
+ 32s checking for strip... strip
+ 32s checking for ranlib... ranlib
+ 32s checking command to parse /usr/bin/nm -B output from gcc object... ok
+ 32s checking for sysroot... no
+ 32s checking for a working dd... /usr/bin/dd
+ 32s checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+ 32s checking for mt... mt
+ 32s checking if mt is a manifest tool... no
+ 32s checking for dlfcn.h... yes
+ 32s checking for objdir... .libs
+ 33s checking if gcc supports -fno-rtti -fno-exceptions... no
+ 33s checking for gcc option to produce PIC... -fPIC -DPIC
+ 33s checking if gcc PIC flag -fPIC -DPIC works... yes
+ 33s checking if gcc static flag -static works... yes
+ 33s checking if gcc supports -c -o file.o... yes
+ 33s checking if gcc supports -c -o file.o... (cached) yes
+ 33s checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+ 33s checking whether -lc should be explicitly linked in... no
+ 33s checking dynamic linker characteristics... GNU/Linux ld.so
+ 33s checking how to hardcode library paths into programs... immediate
+ 33s checking whether stripping libraries is possible... yes
+ 33s checking if libtool supports shared libraries... yes
+ 33s checking whether to build shared libraries... yes
+ 33s checking whether to build static libraries... yes
+ 34s checking if ld supports --version-script flag... yes
+ 34s checking for objdump... (cached) objdump
+ 34s checking for gcc... (cached) gcc
+ 34s checking whether the compiler supports GNU C... (cached) yes
+ 34s checking whether gcc accepts -g... (cached) yes
+ 34s checking for gcc option to enable C11 features... (cached) none needed
+ 34s checking whether gcc understands -c and -o together... (cached) yes
+ 34s checking dependency style of gcc... (cached) gcc3
+ 34s checking for a sed that does not truncate output... (cached) /usr/bin/sed
+ 34s checking whether ln -s works... yes
+ 34s checking whether gcc accepts -Wall... yes
+ 34s checking whether gcc accepts -Wextra... yes
+ 34s checking whether gcc accepts -Wbad-function-cast... yes
+ 34s checking whether gcc accepts -Wc99-c11-compat... yes
+ 34s checking whether gcc accepts -Wcast-align... yes
+ 34s checking whether gcc accepts -Wdeclaration-after-statement... yes
+ 34s checking whether gcc accepts -Wdocumentation... no
+ 34s checking whether gcc accepts -Wduplicated-branches... yes
+ 34s checking whether gcc accepts -Wduplicated-cond... yes
+ 34s checking whether gcc accepts -Wformat -Wformat-security... yes
+ 34s checking whether gcc accepts -Wformat=2... yes
+ 34s checking whether gcc accepts -Winit-self... yes
+ 34s checking whether gcc accepts -Wlogical-not-parentheses... yes
+ 34s checking whether gcc accepts -Wlogical-op... yes
+ 34s checking whether gcc accepts -Wmissing-declarations... yes
+ 35s checking whether gcc accepts -Wmissing-format-attribute... yes
+ 35s checking whether gcc accepts -Wmissing-prototypes... yes
+ 35s checking whether gcc accepts -Wnested-externs... yes
+ 35s checking whether gcc accepts -Wno-missing-field-initializers... yes
+ 35s checking whether gcc accepts -Wno-nonnull-compare... yes
+ 35s checking whether gcc accepts -Wno-tautological-constant-out-of-range-compare... no
+ 35s checking whether gcc accepts -Wno-unused-parameter... yes
+ 35s checking whether gcc accepts -Wnull-dereference... yes
+ 35s checking whether gcc accepts -Wold-style-definition... yes
+ 35s checking whether gcc accepts -Wpointer-arith... yes
+ 35s checking whether gcc accepts -Wregister... no
+ 35s checking whether gcc accepts -Wrestrict... yes
+ 35s checking whether gcc accepts -Wshadow... yes
+ 35s checking whether gcc accepts -Wshift-negative-value... yes
+ 35s checking whether gcc accepts -Wsizeof-array-argument... yes
+ 35s checking whether gcc accepts -Wstrict-prototypes... yes
+ 35s checking whether gcc accepts -Wswitch-bool... yes
+ 35s checking whether gcc accepts -Wvla... yes
+ 36s checking whether gcc accepts -Wwrite-strings... yes
+ 36s checking for unif01_CreateExternGenBits in -ltestu01... no
+ 36s checking for library containing MD5Update... -lmd
+ 36s checking for library containing SHA512Update... none required
+ 36s checking for library containing clock_gettime... none required
+ 36s checking for sys/ndir.h... no
+ 37s checking for sys/dir.h... yes
+ 37s checking for ndir.h... no
+ 37s checking for dirent.h... yes
+ 37s checking for pwd.h... yes
+ 37s checking for grp.h... yes
+ 37s checking for inline... inline
+ 37s checking for typeof syntax and keyword spelling... typeof
+ 38s checking for int64_t... yes
+ 38s checking for mode_t... yes
+ 38s checking for off_t... yes
+ 38s checking for pid_t... yes
+ 39s checking how to run the C preprocessor... gcc -E
+ 39s checking for uid_t in sys/types.h... yes
+ 39s checking for size_t... yes
+ 39s checking for ssize_t... yes
+ 39s checking for gcc options needed to detect all undeclared functions... none needed
+ 40s checking whether F_CLOSEM is declared... no
+ 40s checking for GNU .init_array section support... yes
+ 40s checking for program_invocation_short_name... yes
+ 40s checking for __progname... yes
+ 40s checking for __register_atfork... yes
+ 40s checking for clearenv... yes
+ 40s checking for dirfd... yes
+ 41s checking for fopencookie... yes
+ 41s checking for __fpurge... yes
+ 41s checking for getauxval... yes
+ 41s checking for getentropy... yes
+ 41s checking for getexecname... no
+ 41s checking for getline... yes
+ 41s checking for pstat_getproc... no
+ 42s checking for sysconf... yes
+ 42s checking that generated files are newer than configure... done
+ 42s configure: creating ./config.status
+ 44s config.status: creating Makefile
+ 44s config.status: creating include/Makefile
+ 44s config.status: creating man/Makefile
+ 44s config.status: creating src/Makefile
+ 44s config.status: creating src/libbsd.pc
+ 44s config.status: creating src/libbsd-ctor.pc
+ 44s config.status: creating src/libbsd-overlay.pc
+ 44s config.status: creating test/Makefile
+ 44s config.status: creating config.h
+ 44s config.status: executing depfiles commands
+ 45s config.status: executing libtool commands
+ 46s + make
+ 46s CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash '/tmp/autopkgtest.MqWnyF/build.f9p/src/build-aux/missing' aclocal-1.16 -I m4
+ 49s  cd . && /bin/bash /tmp/autopkgtest.MqWnyF/build.f9p/src/build-aux/missing automake-1.16 --foreign
+ 52s CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash '/tmp/autopkgtest.MqWnyF/build.f9p/src/build-aux/missing' autoconf
+ 53s /bin/bash ./config.status --recheck
+ 53s running CONFIG_SHELL=/bin/bash /bin/bash ./configure --no-create --no-recursion
+ 54s checking for a BSD-compatible install... /usr/bin/install -c
+ 54s checking whether build environment is sane... yes
+ 54s checking for a race-free mkdir -p... /usr/bin/mkdir -p
+ 54s checking for gawk... gawk
+ 54s checking whether make sets $(MAKE)... yes
+ 54s checking whether make supports nested variables... yes
+ 54s checking whether make supports nested variables... (cached) yes
+ 54s checking whether make supports the include directive... yes (GNU style)
+ 54s checking for gcc... gcc
+ 54s checking whether the C compiler works... yes
+ 54s checking for C compiler default output file name... a.out
+ 54s checking for suffix of executables... 
+ 54s checking whether we are cross compiling... no
+ 54s checking for suffix of object files... o
+ 55s checking whether the compiler supports GNU C... yes
+ 55s checking whether gcc accepts -g... yes
+ 55s checking for gcc option to enable C11 features... none needed
+ 55s checking whether gcc understands -c and -o together... yes
+ 55s checking dependency style of gcc... gcc3
+ 55s checking for stdio.h... yes
+ 55s checking for stdlib.h... yes
+ 55s checking for string.h... yes
+ 55s checking for inttypes.h... yes
+ 55s checking for stdint.h... yes
+ 56s checking for strings.h... yes
+ 56s checking for sys/stat.h... yes
+ 56s checking for sys/types.h... yes
+ 56s checking for unistd.h... yes
+ 56s checking for wchar.h... yes
+ 56s checking for minix/config.h... no
+ 56s checking whether it is safe to define __EXTENSIONS__... yes
+ 56s checking whether _XOPEN_SOURCE should be defined... no
+ 56s checking for special C compiler options needed for large files... no
+ 56s checking for _FILE_OFFSET_BITS value needed for large files... no
+ 57s checking build system type... riscv64-unknown-linux-gnu
+ 57s checking host system type... riscv64-unknown-linux-gnu
+ 57s checking how to print strings... printf
+ 57s checking for a sed that does not truncate output... /usr/bin/sed
+ 57s checking for grep that handles long lines and -e... /usr/bin/grep
+ 57s checking for egrep... /usr/bin/grep -E
+ 57s checking for fgrep... /usr/bin/grep -F
+ 57s checking for ld used by gcc... /usr/bin/ld
+ 57s checking if the linker (/usr/bin/ld) is GNU ld... yes
+ 57s checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+ 57s checking the name lister (/usr/bin/nm -B) interface... BSD nm
+ 57s checking whether ln -s works... yes
+ 57s checking the maximum length of command line arguments... 1572864
+ 57s checking how to convert riscv64-unknown-linux-gnu file names to riscv64-unknown-linux-gnu format... func_convert_file_noop
+ 57s checking how to convert riscv64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+ 57s checking for /usr/bin/ld option to reload object files... -r
+ 57s checking for file... file
+ 57s checking for objdump... objdump
+ 57s checking how to recognize dependent libraries... pass_all
+ 57s checking for dlltool... no
+ 57s checking how to associate runtime and link libraries... printf %s\n
+ 57s checking for ar... ar
+ 57s checking for archiver @FILE support... @
+ 57s checking for strip... strip
+ 57s checking for ranlib... ranlib
+ 57s checking command to parse /usr/bin/nm -B output from gcc object... ok
+ 57s checking for sysroot... no
+ 57s checking for a working dd... /usr/bin/dd
+ 57s checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+ 57s checking for mt... mt
+ 57s checking if mt is a manifest tool... no
+ 57s checking for dlfcn.h... yes
+ 58s checking for objdir... .libs
+ 58s checking if gcc supports -fno-rtti -fno-exceptions... no
+ 58s checking for gcc option to produce PIC... -fPIC -DPIC
+ 58s checking if gcc PIC flag -fPIC -DPIC works... yes
+ 58s checking if gcc static flag -static works... yes
+ 58s checking if gcc supports -c -o file.o... yes
+ 58s checking if gcc supports -c -o file.o... (cached) yes
+ 58s checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+ 58s checking whether -lc should be explicitly linked in... no
+ 59s checking dynamic linker characteristics... GNU/Linux ld.so
+ 59s checking how to hardcode library paths into programs... immediate
+ 59s checking whether stripping libraries is possible... yes
+ 59s checking if libtool supports shared libraries... yes
+ 59s checking whether to build shared libraries... yes
+ 59s checking whether to build static libraries... yes
+ 59s checking if ld supports --version-script flag... yes
+ 59s checking for objdump... (cached) objdump
+ 59s checking for gcc... (cached) gcc
+ 59s checking whether the compiler supports GNU C... (cached) yes
+ 59s checking whether gcc accepts -g... (cached) yes
+ 59s checking for gcc option to enable C11 features... (cached) none needed
+ 59s checking whether gcc understands -c and -o together... (cached) yes
+ 59s checking dependency style of gcc... (cached) gcc3
+ 59s checking for a sed that does not truncate output... (cached) /usr/bin/sed
+ 59s checking whether ln -s works... yes
+ 59s checking whether gcc accepts -Wall... yes
+ 59s checking whether gcc accepts -Wextra... yes
+ 59s checking whether gcc accepts -Wbad-function-cast... yes
+ 59s checking whether gcc accepts -Wc99-c11-compat... yes
+ 59s checking whether gcc accepts -Wcast-align... yes
+ 59s checking whether gcc accepts -Wdeclaration-after-statement... yes
+ 59s checking whether gcc accepts -Wdocumentation... no
+ 59s checking whether gcc accepts -Wduplicated-branches... yes
+ 59s checking whether gcc accepts -Wduplicated-cond... yes
+ 59s checking whether gcc accepts -Wformat -Wformat-security... yes
+ 60s checking whether gcc accepts -Wformat=2... yes
+ 60s checking whether gcc accepts -Winit-self... yes
+ 60s checking whether gcc accepts -Wlogical-not-parentheses... yes
+ 60s checking whether gcc accepts -Wlogical-op... yes
+ 60s checking whether gcc accepts -Wmissing-declarations... yes
+ 60s checking whether gcc accepts -Wmissing-format-attribute... yes
+ 60s checking whether gcc accepts -Wmissing-prototypes... yes
+ 60s checking whether gcc accepts -Wnested-externs... yes
+ 60s checking whether gcc accepts -Wno-missing-field-initializers... yes
+ 60s checking whether gcc accepts -Wno-nonnull-compare... yes
+ 60s checking whether gcc accepts -Wno-tautological-constant-out-of-range-compare... no
+ 60s checking whether gcc accepts -Wno-unused-parameter... yes
+ 60s checking whether gcc accepts -Wnull-dereference... yes
+ 60s checking whether gcc accepts -Wold-style-definition... yes
+ 60s checking whether gcc accepts -Wpointer-arith... yes
+ 60s checking whether gcc accepts -Wregister... no
+ 60s checking whether gcc accepts -Wrestrict... yes
+ 60s checking whether gcc accepts -Wshadow... yes
+ 61s checking whether gcc accepts -Wshift-negative-value... yes
+ 61s checking whether gcc accepts -Wsizeof-array-argument... yes
+ 61s checking whether gcc accepts -Wstrict-prototypes... yes
+ 61s checking whether gcc accepts -Wswitch-bool... yes
+ 61s checking whether gcc accepts -Wvla... yes
+ 61s checking whether gcc accepts -Wwrite-strings... yes
+ 61s checking for unif01_CreateExternGenBits in -ltestu01... no
+ 61s checking for library containing MD5Update... -lmd
+ 61s checking for library containing SHA512Update... none required
+ 62s checking for library containing clock_gettime... none required
+ 62s checking for sys/ndir.h... no
+ 62s checking for sys/dir.h... yes
+ 62s checking for ndir.h... no
+ 62s checking for dirent.h... yes
+ 62s checking for pwd.h... yes
+ 62s checking for grp.h... yes
+ 62s checking for inline... inline
+ 63s checking for typeof syntax and keyword spelling... typeof
+ 63s checking for int64_t... yes
+ 63s checking for mode_t... yes
+ 63s checking for off_t... yes
+ 64s checking for pid_t... yes
+ 64s checking how to run the C preprocessor... gcc -E
+ 64s checking for uid_t in sys/types.h... yes
+ 64s checking for size_t... yes
+ 65s checking for ssize_t... yes
+ 65s checking for gcc options needed to detect all undeclared functions... none needed
+ 65s checking whether F_CLOSEM is declared... no
+ 65s checking for GNU .init_array section support... yes
+ 65s checking for program_invocation_short_name... yes
+ 65s checking for __progname... yes
+ 65s checking for __register_atfork... yes
+ 66s checking for clearenv... yes
+ 66s checking for dirfd... yes
+ 66s checking for fopencookie... yes
+ 66s checking for __fpurge... yes
+ 66s checking for getauxval... yes
+ 66s checking for getentropy... yes
+ 66s checking for getexecname... no
+ 67s checking for getline... yes
+ 67s checking for pstat_getproc... no
+ 67s checking for sysconf... yes
+ 67s checking that generated files are newer than configure... done
+ 67s configure: creating ./config.status
+ 69s  /bin/bash ./config.status
+ 69s config.status: creating Makefile
+ 69s config.status: creating include/Makefile
+ 69s config.status: creating man/Makefile
+ 69s config.status: creating src/Makefile
+ 69s config.status: creating src/libbsd.pc
+ 69s config.status: creating src/libbsd-ctor.pc
+ 69s config.status: creating src/libbsd-overlay.pc
+ 70s config.status: creating test/Makefile
+ 70s config.status: creating config.h
+ 70s config.status: config.h is unchanged
+ 70s config.status: executing depfiles commands
+ 70s config.status: executing libtool commands
+ 70s (CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash '/tmp/autopkgtest.MqWnyF/build.f9p/src/build-aux/missing' autoheader)
+ 71s rm -f stamp-h1
+ 71s touch config.h.in
+ 71s cd . && /bin/bash ./config.status config.h
+ 71s config.status: creating config.h
+ 71s config.status: config.h is unchanged
+ 71s make  all-recursive
+ 71s make[1]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src'
+ 71s Making all in include
+ 71s make[2]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/include'
+ 71s make[2]: Nothing to be done for 'all'.
+ 71s make[2]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/include'
+ 71s Making all in man
+ 71s make[2]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/man'
+ 71s make[2]: Nothing to be done for 'all'.
+ 71s make[2]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/man'
+ 71s Making all in src
+ 71s make[2]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/src'
+ 71s   CC       setproctitle_ctor.o
+ 71s   AR       libbsd-ctor.a
+ 71s ar: `u' modifier ignored since `D' is the default (see `U')
+ 71s   CC       arc4random.lo
+ 74s   CC       arc4random_uniform.lo
+ 74s   CC       bsd_getopt.lo
+ 75s   CC       closefrom.lo
+ 75s   CC       dehumanize_number.lo
+ 76s   CC       err.lo
+ 76s   CC       expand_number.lo
+ 77s   CC       explicit_bzero.lo
+ 77s   CC       fgetln.lo
+ 78s   CC       freezero.lo
+ 78s   CC       fgetwln.lo
+ 79s   CC       flopen.lo
+ 80s   CC       fmtcheck.lo
+ 80s   CC       fparseln.lo
+ 81s   CC       fpurge.lo
+ 82s   CC       funopen.lo
+ 82s   CC       getbsize.lo
+ 83s   CC       getpeereid.lo
+ 83s   CC       heapsort.lo
+ 84s   CC       humanize_number.lo
+ 85s   CC       inet_net_pton.lo
+ 86s   CC       md5.lo
+ 86s   CC       merge.lo
+ 87s merge.c: In function 'mergesort':
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:127:17: note: in expansion of macro 'EVAL'
+ 87s   127 |         while (*EVAL(list2) != last) {
+ 87s       |                 ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:129:18: note: in expansion of macro 'EVAL'
+ 87s   129 |             p1 = EVAL(list1);
+ 87s       |                  ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:130:53: note: in expansion of macro 'EVAL'
+ 87s   130 |             for (tp2 = p2 = list2; p2 != last; p1 = EVAL(l2)) {
+ 87s       |                                                     ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:131:23: note: in expansion of macro 'EVAL'
+ 87s   131 |                 p2 = *EVAL(p2);
+ 87s       |                       ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:135:31: note: in expansion of macro 'EVAL'
+ 87s   135 |                         p2 = *EVAL(p2);
+ 87s       |                               ^~~~
+ 87s merge.c:64:10: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |          ^
+ 87s merge.c:188:41: note: in expansion of macro 'ICOPY_LIST'
+ 87s   188 |                                         ICOPY_LIST(f2, tp2, b);
+ 87s       |                                         ^~~~~~~~~~
+ 87s merge.c:64:23: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |                       ^
+ 87s merge.c:188:41: note: in expansion of macro 'ICOPY_LIST'
+ 87s   188 |                                         ICOPY_LIST(f2, tp2, b);
+ 87s       |                                         ^~~~~~~~~~
+ 87s merge.c:68:10: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    68 |         *(int*) dst = *(int*) src, src += ISIZE, dst += ISIZE;  \
+ 87s       |          ^
+ 87s merge.c:189:41: note: in expansion of macro 'ICOPY_ELT'
+ 87s   189 |                                         ICOPY_ELT(f1, tp2, i);
+ 87s       |                                         ^~~~~~~~~
+ 87s merge.c:68:24: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    68 |         *(int*) dst = *(int*) src, src += ISIZE, dst += ISIZE;  \
+ 87s       |                        ^
+ 87s merge.c:189:41: note: in expansion of macro 'ICOPY_ELT'
+ 87s   189 |                                         ICOPY_ELT(f1, tp2, i);
+ 87s       |                                         ^~~~~~~~~
+ 87s merge.c:64:10: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |          ^
+ 87s merge.c:196:41: note: in expansion of macro 'ICOPY_LIST'
+ 87s   196 |                                         ICOPY_LIST(f1, tp2, b);
+ 87s       |                                         ^~~~~~~~~~
+ 87s merge.c:64:23: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |                       ^
+ 87s merge.c:196:41: note: in expansion of macro 'ICOPY_LIST'
+ 87s   196 |                                         ICOPY_LIST(f1, tp2, b);
+ 87s       |                                         ^~~~~~~~~~
+ 87s merge.c:68:10: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    68 |         *(int*) dst = *(int*) src, src += ISIZE, dst += ISIZE;  \
+ 87s       |          ^
+ 87s merge.c:197:41: note: in expansion of macro 'ICOPY_ELT'
+ 87s   197 |                                         ICOPY_ELT(f2, tp2, i);
+ 87s       |                                         ^~~~~~~~~
+ 87s merge.c:68:24: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    68 |         *(int*) dst = *(int*) src, src += ISIZE, dst += ISIZE;  \
+ 87s       |                        ^
+ 87s merge.c:197:41: note: in expansion of macro 'ICOPY_ELT'
+ 87s   197 |                                         ICOPY_ELT(f2, tp2, i);
+ 87s       |                                         ^~~~~~~~~
+ 87s merge.c:64:10: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |          ^
+ 87s merge.c:206:33: note: in expansion of macro 'ICOPY_LIST'
+ 87s   206 |                                 ICOPY_LIST(f2, tp2, l2);
+ 87s       |                                 ^~~~~~~~~~
+ 87s merge.c:64:23: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |                       ^
+ 87s merge.c:206:33: note: in expansion of macro 'ICOPY_LIST'
+ 87s   206 |                                 ICOPY_LIST(f2, tp2, l2);
+ 87s       |                                 ^~~~~~~~~~
+ 87s merge.c:64:10: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |          ^
+ 87s merge.c:211:33: note: in expansion of macro 'ICOPY_LIST'
+ 87s   211 |                                 ICOPY_LIST(f1, tp2, l1);
+ 87s       |                                 ^~~~~~~~~~
+ 87s merge.c:64:23: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    64 |         *(int*)dst = *(int*)src, src += ISIZE, dst += ISIZE;    \
+ 87s       |                       ^
+ 87s merge.c:211:33: note: in expansion of macro 'ICOPY_LIST'
+ 87s   211 |                                 ICOPY_LIST(f1, tp2, l1);
+ 87s       |                                 ^~~~~~~~~~
+ 87s merge.c: In function 'setup':
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:265:18: note: in expansion of macro 'EVAL'
+ 87s   265 |                 *EVAL(list2) = (unsigned char*) list2 + n*size;
+ 87s       |                  ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:275:10: note: in expansion of macro 'EVAL'
+ 87s   275 |         *EVAL(list2 + (last - list1)) = list2 + n * size;
+ 87s       |          ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:291:39: note: in expansion of macro 'EVAL'
+ 87s   291 |                                 p2 = *EVAL(p2) = f1 + size2 - list1 + list2;
+ 87s       |                                       ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:299:47: note: in expansion of macro 'EVAL'
+ 87s   299 |                                         p2 = *EVAL(p2) = f2 - list1 + list2;
+ 87s       |                                               ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:309:39: note: in expansion of macro 'EVAL'
+ 87s   309 |                                 p2 = *EVAL(p2) = f2 - list1 + list2;
+ 87s       |                                       ^~~~
+ 87s merge.c:86:17: warning: cast increases required alignment of target type [-Wcast-align]
+ 87s    86 | #define EVAL(p) (unsigned char **)                                      \
+ 87s       |                 ^
+ 87s merge.c:311:39: note: in expansion of macro 'EVAL'
+ 87s   311 |                                 p2 = *EVAL(p2) = list2 + n*size;
+ 87s       |                                       ^~~~
+ 88s   CC       nlist.lo
+ 89s   CC       pidfile.lo
+ 90s   CC       progname.lo
+ 91s   CC       pwcache.lo
+ 92s   CC       radixsort.lo
+ 93s   CC       readpassphrase.lo
+ 94s   CC       reallocarray.lo
+ 95s   CC       reallocf.lo
+ 95s   CC       recallocarray.lo
+ 96s   CC       setmode.lo
+ 97s   CC       setproctitle.lo
+ 98s   CC       strlcat.lo
+ 99s   CC       strlcpy.lo
+ 99s   CC       stringlist.lo
+100s   CC       strmode.lo
+101s   CC       strnstr.lo
+101s   CC       strtoi.lo
+101s   CC       strtonum.lo
+102s   CC       strtou.lo
+102s   CC       timeconv.lo
+103s   CC       unvis.lo
+104s   CC       vis.lo
+106s   CC       wcslcat.lo
+106s   CC       wcslcpy.lo
+107s   CCLD     libbsd.la
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5Init':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:35: warning: The MD5Init() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5Update':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:45: warning: The MD5Update() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5Pad':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:55: warning: The MD5Pad() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5Final':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:65: warning: The MD5Final() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5Transform':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:75: warning: The MD5Transform() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5End':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:85: warning: The MD5End() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5File':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:95: warning: The MD5File() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5FileChunk':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:105: warning: The MD5FileChunk() function in libbsd is a deprecated wrapper, use libmd instead.
+107s /usr/bin/ld: .libs/md5.o: in function `libbsd_MD5Data':
+107s /tmp/autopkgtest.MqWnyF/build.f9p/src/src/md5.c:115: warning: The MD5Data() function in libbsd is a deprecated wrapper, use libmd instead.
+108s make[2]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/src'
+108s Making all in test
+108s make[2]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+108s make[2]: Nothing to be done for 'all'.
+108s make[2]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+108s make[2]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src'
+108s make[2]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src'
+108s make[1]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src'
+108s + make -C test CFLAGS= LDADD=-lbsd check
+108s make: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+108s make  overlay bzero closefrom endian explicit_bzero humanize fgetln funopen fparseln fpurge md5 nlist proctitle-init progname pwcache setmode strl strmode strnstr strtonum vis vis-openbsd  proctitle headers-overlay.sh headers-system.sh 
+108s make[1]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+108s   CC       overlay.o
+108s   CCLD     overlay
+108s   CC       bzero.o
+108s   CCLD     bzero
+109s   CC       closefrom.o
+109s   CCLD     closefrom
+109s   CC       endian.o
+109s   CCLD     endian
+110s   CC       explicit_bzero.o
+110s   CCLD     explicit_bzero
+110s   CC       humanize.o
+111s   CCLD     humanize
+111s   CC       fgetln-test-stream.o
+111s   CC       fgetln-fgetln.o
+111s   CCLD     fgetln
+112s /usr/bin/ld: fgetln-fgetln.o: in function `.L5':
+112s fgetln.c:(.text+0x30): warning: The fgetln() function cannot be safely ported, use getline(3) instead, as it is supported by GNU and POSIX.1-2008.
+112s /usr/bin/ld: fgetln-fgetln.o: in function `.L26':
+112s fgetln.c:(.text+0x494): warning: The fgetwln() function cannot be safely ported, use fgetwc(3) instead, as it is supported by C99 and POSIX.1-2001.
+112s   CC       funopen.o
+112s   CCLD     funopen
+112s   CC       test-stream.o
+112s   CC       fparseln.o
+112s   CCLD     fparseln
+113s   CC       fpurge.o
+113s   CCLD     fpurge
+113s   CC       md5.o
+113s   CCLD     md5
+114s /usr/bin/ld: md5.o: in function `test_md5':
+114s md5.c:(.text+0x2a): warning: The MD5Data() function in libbsd is a deprecated wrapper, use libmd instead.
+114s   CC       nlist.o
+114s   CCLD     nlist
+114s   CC       proctitle_init-proctitle.o
+114s   CCLD     proctitle-init
+115s   CC       progname.o
+115s   CCLD     progname
+115s   CC       pwcache.o
+115s   CCLD     pwcache
+116s   CC       setmode.o
+116s   CCLD     setmode
+116s   CC       strl.o
+116s   CCLD     strl
+117s   CC       strmode.o
+117s   CCLD     strmode
+117s   CC       strnstr.o
+117s   CCLD     strnstr
+118s   CC       strtonum.o
+118s   CCLD     strtonum
+118s   CC       vis.o
+118s   CCLD     vis
+119s   CC       vis-openbsd.o
+119s   CCLD     vis-openbsd
+119s   CC       proctitle.o
+119s   CCLD     proctitle
+120s make[1]: Nothing to be done for 'headers-overlay.sh'.
+120s make[1]: Nothing to be done for 'headers-system.sh'.
+120s make[1]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+120s make  check-TESTS
+120s make[1]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+120s make[2]: Entering directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+124s PASS: headers-overlay.sh
+128s PASS: headers-system.sh
+128s PASS: overlay
+128s PASS: bzero
+128s PASS: closefrom
+128s PASS: endian
+128s PASS: explicit_bzero
+128s PASS: humanize
+128s PASS: fgetln
+128s PASS: funopen
+128s PASS: fparseln
+128s PASS: fpurge
+128s PASS: md5
+128s PASS: nlist
+128s PASS: proctitle-init
+128s PASS: progname
+128s PASS: pwcache
+128s PASS: setmode
+128s PASS: strl
+128s PASS: strmode
+128s PASS: strnstr
+128s PASS: strtonum
+128s PASS: vis
+128s PASS: vis-openbsd
+129s PASS: proctitle
+129s ============================================================================
+129s Testsuite summary for libbsd 0.11.7
+129s ============================================================================
+129s # TOTAL: 25
+129s # PASS:  25
+129s # SKIP:  0
+129s # XFAIL: 0
+129s # FAIL:  0
+129s # XPASS: 0
+129s # ERROR: 0
+129s ============================================================================
+129s make[2]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+129s make[1]: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+129s make: Leaving directory '/tmp/autopkgtest.MqWnyF/build.f9p/src/test'
+129s /tmp/autopkgtest.MqWnyF/wrapper.sh: checking for leaked background processes...
+129s /tmp/autopkgtest.MqWnyF/wrapper.sh: waiting for tee/cat subprocesses...
+129s /tmp/autopkgtest.MqWnyF/wrapper.sh: cleaning up...
+129s /tmp/autopkgtest.MqWnyF/wrapper.sh: Exit status: 0
+129s autopkgtest: DBG: testbed command exited with code 0
+129s autopkgtest [23:33:51]: test test-unit: -----------------------]
+129s autopkgtest: DBG: testbed executing test finished with exit status 0
+129s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.MqWnyF/test-unit-stdout /home/hachi/openkylin_test/sharefolder/results/libbsd/test-unit-stdout
+129s autopkgtest: DBG: got reply from testbed: ok
+129s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.MqWnyF/test-unit-stderr /home/hachi/openkylin_test/sharefolder/results/libbsd/test-unit-stderr
+129s autopkgtest: DBG: got reply from testbed: ok
+129s autopkgtest [23:33:51]: test test-unit:  - - - - - - - - - - results - - - - - - - - - -
+129s test-unit            PASS
+129s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.MqWnyF/test-unit-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libbsd/artifacts/
+129s autopkgtest: DBG: got reply from testbed: ok
+129s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.MqWnyF/test-unit-artifacts', '/tmp/autopkgtest.MqWnyF/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+129s autopkgtest: DBG: testbed command exited with code 0
+129s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+129s autopkgtest [23:33:51]: @@@@@@@@@@@@@@@@@@@@ summary
+129s test-unit            PASS
+129s autopkgtest: DBG: testbed stop
+129s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.MqWnyF
+129s autopkgtest: DBG: sending command to testbed: close
+130s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+130s autopkgtest: DBG: got reply from testbed: ok
+130s autopkgtest: DBG: sending command to testbed: quit

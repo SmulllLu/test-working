@@ -1,0 +1,479 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:26:17]: starting date and time: 2024-07-19 01:26:17+0800
+  0s autopkgtest [01:26:17]: version @version@
+  0s autopkgtest [01:26:17]: host nana; command line: /usr/bin/autopkgtest rust-typenum_1.16.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-typenum -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  2s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.3roMJ8
+  2s autopkgtest: DBG: sending command to testbed: print-execute-command
+  2s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41,--user%3Droot,--
+  2s autopkgtest: DBG: sending command to testbed: capabilities
+  2s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8
+  2s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8', 'has_internet']
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.3roMJ8/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.3roMJ8/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [01:26:20]: testbed dpkg architecture: riscv64
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [01:26:21]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.3roMJ8/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.3roMJ8/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-typenum/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [01:26:22]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: Binaries: initialising
+  5s autopkgtest [01:26:22]: @@@@@@@@@@@@@@@@@@@@ source rust-typenum_1.16.0-ok1.dsc
+  5s autopkgtest: DBG: blame += rust-typenum_1.16.0-ok1.dsc
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copydown rust-typenum_1.16.0-ok1.dsc /tmp/autopkgtest.3roMJ8/rust-typenum_1.16.0-ok1.dsc
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-typenum_1.16.0.orig.tar.gz /tmp/autopkgtest.3roMJ8/rust-typenum_1.16.0.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-typenum_1.16.0-ok1.debian.tar.xz /tmp/autopkgtest.3roMJ8/rust-typenum_1.16.0-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.3roMJ8/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.3roMJ8/rust-typenum_1.16.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  6s + cd /
+  6s + mktemp -d /tmp/autopkgtest.3roMJ8/build.XXX
+  6s + builddir=/tmp/autopkgtest.3roMJ8/build.82I
+  6s + cd /tmp/autopkgtest.3roMJ8/build.82I
+  6s + dpkg-source -x /tmp/autopkgtest.3roMJ8/rust-typenum_1.16.0-ok1.dsc src
+  7s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  7s gpgv: keyblock resource '/tmp/dpkg-verify-sig.57W8bu9b/trustedkeys.kbx': General error
+  7s gpgv: Signature made Tue 07 May 2024 04:36:47 PM CST
+  7s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  7s gpgv: Can't check signature: No public key
+  7s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.3roMJ8/rust-typenum_1.16.0-ok1.dsc
+  7s dpkg-source: info: extracting rust-typenum in src
+  7s dpkg-source: info: unpacking rust-typenum_1.16.0.orig.tar.gz
+  7s dpkg-source: info: unpacking rust-typenum_1.16.0-ok1.debian.tar.xz
+  7s dpkg-source: info: using patch list from debian/patches/series
+  7s dpkg-source: info: applying disable-scale-info.diff
+  7s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [01:26:25]: testing package rust-typenum version 1.16.0-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.3roMJ8/build.82I/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-typenum/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name rust-typenum:@ path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-typenum:@'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:const-generics path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features const-generics" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-typenum-dev:const-generics'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:default'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:force_unix_path_separator path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features force_unix_path_separator" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:force_unix_path_separator'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:i128 path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features i128" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:i128'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:no_std path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features no_std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:no_std'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:strict path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features strict" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:strict'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev: path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest [01:26:25]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.3roMJ8/build.82I/src/ /home/hachi/openkylin_test/sharefolder/results/rust-typenum/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name rust-typenum:@ path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-typenum:@'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:const-generics path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features const-generics" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-typenum-dev:const-generics'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:default'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:force_unix_path_separator path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features force_unix_path_separator" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:force_unix_path_separator'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:i128 path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features i128" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:i128'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:no_std path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features no_std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:no_std'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev:strict path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features --features strict" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:strict'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-typenum-dev
+  8s autopkgtest: DBG: Test defined: name librust-typenum-dev: path None command "/usr/share/cargo/bin/cargo-auto-test typenum 1.16.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-typenum-dev:'] depends ['dh-cargo (>= 18)', 'librust-typenum-dev'] 
+  8s autopkgtest [01:26:25]: test rust-typenum:@: preparing testbed
+  8s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+  8s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  8s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+  8s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+  8s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+  8s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest: DBG: can use apt-get on testbed: True
+  8s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/1-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 10s Building dependency tree...
+ 10s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 1
+ 11s Starting 2 pkgProblemResolver with broken count: 1
+ 11s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 11s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 11s Done
+ 11s Some packages could not be installed. This may mean that you have
+ 11s requested an impossible situation or if you are using the unstable
+ 11s distribution that some required packages have not yet been created
+ 11s or been moved out of Incoming.
+ 11s The following information may help to resolve the situation:
+ 11s 
+ 11s The following packages have unmet dependencies:
+ 11s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 11s E: Unable to correct problems, you have held broken packages.
+ 11s autopkgtest: DBG: testbed command exited with code 100
+ 11s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/1-autopkgtest-satdep.deb failed; status-fd:
+ 11s 
+ 11s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 11s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 11s autopkgtest: DBG: testbed command exited with code 2
+ 11s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 11s rust-typenum:@       SKIP installation fails and skip-not-installable set
+ 12s autopkgtest [01:26:28]: test librust-typenum-dev:const-generics: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-typenum-dev'], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+ 12s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+ 12s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: can use apt-get on testbed: True
+ 12s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/2-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/2-autopkgtest-satdep.deb
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 13s Reading package lists...
+ 14s Building dependency tree...
+ 14s Reading state information...
+ 14s Starting pkgProblemResolver with broken count: 1
+ 14s Starting 2 pkgProblemResolver with broken count: 1
+ 14s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 14s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 14s Done
+ 14s Some packages could not be installed. This may mean that you have
+ 14s requested an impossible situation or if you are using the unstable
+ 14s distribution that some required packages have not yet been created
+ 14s or been moved out of Incoming.
+ 14s The following information may help to resolve the situation:
+ 14s 
+ 14s The following packages have unmet dependencies:
+ 15s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 15s E: Unable to correct problems, you have held broken packages.
+ 15s autopkgtest: DBG: testbed command exited with code 100
+ 15s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/2-autopkgtest-satdep.deb failed; status-fd:
+ 15s 
+ 15s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 15s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 15s autopkgtest: DBG: testbed command exited with code 2
+ 15s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 15s librust-typenum-dev:const-generics SKIP installation fails and skip-not-installable set
+ 15s autopkgtest [01:26:32]: test librust-typenum-dev:default: preparing testbed
+ 15s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-typenum-dev'], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 15s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 15s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 15s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+ 15s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+ 15s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 16s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/3-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/3-autopkgtest-satdep.deb
+ 16s autopkgtest: DBG: got reply from testbed: ok
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 17s Building dependency tree...
+ 17s Reading state information...
+ 18s Starting pkgProblemResolver with broken count: 1
+ 18s Starting 2 pkgProblemResolver with broken count: 1
+ 18s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 18s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 18s Done
+ 18s Some packages could not be installed. This may mean that you have
+ 18s requested an impossible situation or if you are using the unstable
+ 18s distribution that some required packages have not yet been created
+ 18s or been moved out of Incoming.
+ 18s The following information may help to resolve the situation:
+ 18s 
+ 18s The following packages have unmet dependencies:
+ 18s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 18s E: Unable to correct problems, you have held broken packages.
+ 19s autopkgtest: DBG: testbed command exited with code 100
+ 19s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/3-autopkgtest-satdep.deb failed; status-fd:
+ 19s 
+ 19s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 19s autopkgtest: DBG: testbed command exited with code 2
+ 19s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 19s librust-typenum-dev:default SKIP installation fails and skip-not-installable set
+ 19s autopkgtest [01:26:36]: test librust-typenum-dev:force_unix_path_separator: preparing testbed
+ 19s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-typenum-dev'], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 19s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 19s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 19s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+ 19s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+ 19s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: can use apt-get on testbed: True
+ 19s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/4-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/4-autopkgtest-satdep.deb
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 21s Reading package lists...
+ 21s Building dependency tree...
+ 21s Reading state information...
+ 22s Starting pkgProblemResolver with broken count: 1
+ 22s Starting 2 pkgProblemResolver with broken count: 1
+ 22s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 22s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 22s Done
+ 22s Some packages could not be installed. This may mean that you have
+ 22s requested an impossible situation or if you are using the unstable
+ 22s distribution that some required packages have not yet been created
+ 22s or been moved out of Incoming.
+ 22s The following information may help to resolve the situation:
+ 22s 
+ 22s The following packages have unmet dependencies:
+ 22s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 22s E: Unable to correct problems, you have held broken packages.
+ 22s autopkgtest: DBG: testbed command exited with code 100
+ 22s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/4-autopkgtest-satdep.deb failed; status-fd:
+ 22s 
+ 22s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 22s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 22s autopkgtest: DBG: testbed command exited with code 2
+ 22s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 22s librust-typenum-dev:force_unix_path_separator SKIP installation fails and skip-not-installable set
+ 22s autopkgtest [01:26:39]: test librust-typenum-dev:i128: preparing testbed
+ 22s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-typenum-dev'], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 22s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 22s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 22s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+ 23s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+ 23s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: can use apt-get on testbed: True
+ 23s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/5-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/5-autopkgtest-satdep.deb
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 24s Reading package lists...
+ 25s Building dependency tree...
+ 25s Reading state information...
+ 25s Starting pkgProblemResolver with broken count: 1
+ 25s Starting 2 pkgProblemResolver with broken count: 1
+ 25s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 25s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 25s Done
+ 25s Some packages could not be installed. This may mean that you have
+ 25s requested an impossible situation or if you are using the unstable
+ 25s distribution that some required packages have not yet been created
+ 25s or been moved out of Incoming.
+ 25s The following information may help to resolve the situation:
+ 25s 
+ 25s The following packages have unmet dependencies:
+ 26s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 26s E: Unable to correct problems, you have held broken packages.
+ 26s autopkgtest: DBG: testbed command exited with code 100
+ 26s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/5-autopkgtest-satdep.deb failed; status-fd:
+ 26s 
+ 26s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 26s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 26s autopkgtest: DBG: testbed command exited with code 2
+ 26s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 26s librust-typenum-dev:i128 SKIP installation fails and skip-not-installable set
+ 26s autopkgtest [01:26:43]: test librust-typenum-dev:no_std: preparing testbed
+ 26s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-typenum-dev'], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 26s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 26s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 26s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+ 26s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+ 26s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: can use apt-get on testbed: True
+ 27s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/6-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/6-autopkgtest-satdep.deb
+ 27s autopkgtest: DBG: got reply from testbed: ok
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 28s Reading package lists...
+ 28s Building dependency tree...
+ 28s Reading state information...
+ 29s Starting pkgProblemResolver with broken count: 1
+ 29s Starting 2 pkgProblemResolver with broken count: 1
+ 29s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 29s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 29s Done
+ 29s Some packages could not be installed. This may mean that you have
+ 29s requested an impossible situation or if you are using the unstable
+ 29s distribution that some required packages have not yet been created
+ 29s or been moved out of Incoming.
+ 29s The following information may help to resolve the situation:
+ 29s 
+ 29s The following packages have unmet dependencies:
+ 29s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 29s E: Unable to correct problems, you have held broken packages.
+ 29s autopkgtest: DBG: testbed command exited with code 100
+ 29s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/6-autopkgtest-satdep.deb failed; status-fd:
+ 29s 
+ 29s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 29s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 30s autopkgtest: DBG: testbed command exited with code 2
+ 30s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 30s librust-typenum-dev:no_std SKIP installation fails and skip-not-installable set
+ 30s autopkgtest [01:26:47]: test librust-typenum-dev:strict: preparing testbed
+ 30s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-typenum-dev'], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 30s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 30s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 30s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+ 30s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+ 30s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: can use apt-get on testbed: True
+ 30s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/7-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/7-autopkgtest-satdep.deb
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/7-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s Reading package lists...
+ 32s Building dependency tree...
+ 32s Reading state information...
+ 32s Starting pkgProblemResolver with broken count: 1
+ 33s Starting 2 pkgProblemResolver with broken count: 1
+ 33s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 33s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 33s Done
+ 33s Some packages could not be installed. This may mean that you have
+ 33s requested an impossible situation or if you are using the unstable
+ 33s distribution that some required packages have not yet been created
+ 33s or been moved out of Incoming.
+ 33s The following information may help to resolve the situation:
+ 33s 
+ 33s The following packages have unmet dependencies:
+ 33s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 33s E: Unable to correct problems, you have held broken packages.
+ 33s autopkgtest: DBG: testbed command exited with code 100
+ 33s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/7-autopkgtest-satdep.deb failed; status-fd:
+ 33s 
+ 33s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 33s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 33s autopkgtest: DBG: testbed command exited with code 2
+ 33s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 33s librust-typenum-dev:strict SKIP installation fails and skip-not-installable set
+ 33s autopkgtest [01:26:50]: test librust-typenum-dev:: preparing testbed
+ 33s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-typenum-dev'], deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 33s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 33s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-typenum-dev']
+ 33s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-typenum-dev
+ 34s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-typenum-dev
+ 34s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: can use apt-get on testbed: True
+ 34s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.3roMJ8'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-221fdc72-b620-4268-9ad0-16a9cdcc5f41//tmp/autopkgtest.3roMJ8/8-autopkgtest-satdep.deb /tmp/autopkgtest.3roMJ8/8-autopkgtest-satdep.deb
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.3roMJ8/8-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 35s Reading package lists...
+ 36s Building dependency tree...
+ 36s Reading state information...
+ 36s Starting pkgProblemResolver with broken count: 1
+ 36s Starting 2 pkgProblemResolver with broken count: 1
+ 36s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 36s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 36s Done
+ 36s Some packages could not be installed. This may mean that you have
+ 36s requested an impossible situation or if you are using the unstable
+ 36s distribution that some required packages have not yet been created
+ 36s or been moved out of Incoming.
+ 36s The following information may help to resolve the situation:
+ 36s 
+ 36s The following packages have unmet dependencies:
+ 37s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 37s E: Unable to correct problems, you have held broken packages.
+ 37s autopkgtest: DBG: testbed command exited with code 100
+ 37s autopkgtest: DBG: apt-get install /tmp/autopkgtest.3roMJ8/8-autopkgtest-satdep.deb failed; status-fd:
+ 37s 
+ 37s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 37s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-typenum-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 37s autopkgtest: DBG: testbed command exited with code 2
+ 37s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s librust-typenum-dev: SKIP installation fails and skip-not-installable set
+ 37s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 37s autopkgtest [01:26:54]: @@@@@@@@@@@@@@@@@@@@ summary
+ 37s rust-typenum:@       SKIP installation fails and skip-not-installable set
+ 37s librust-typenum-dev:const-generics SKIP installation fails and skip-not-installable set
+ 37s librust-typenum-dev:default SKIP installation fails and skip-not-installable set
+ 37s librust-typenum-dev:force_unix_path_separator SKIP installation fails and skip-not-installable set
+ 37s librust-typenum-dev:i128 SKIP installation fails and skip-not-installable set
+ 37s librust-typenum-dev:no_std SKIP installation fails and skip-not-installable set
+ 37s librust-typenum-dev:strict SKIP installation fails and skip-not-installable set
+ 37s librust-typenum-dev: SKIP installation fails and skip-not-installable set
+ 37s autopkgtest: DBG: testbed stop
+ 37s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.3roMJ8
+ 37s autopkgtest: DBG: sending command to testbed: close
+ 38s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: sending command to testbed: quit

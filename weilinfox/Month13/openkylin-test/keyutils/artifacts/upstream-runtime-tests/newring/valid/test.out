@@ -1,0 +1,26 @@
+++++ BEGINNING TEST
++++ ADD KEYRING
+keyctl newring wibble @s
+303328278
++++ LIST KEYRING
+keyctl rlist 303328278
+
++++ ADD KEYRING AGAIN
+keyctl newring wibble @s
+332565283
++++ LIST SESSION KEYRING
+keyctl rlist @s
+332565283
++++ VALIDATE NEW KEYRING
++++ WAITING FOR KEY TO BE DESTROYED
+keyctl rdescribe 303328278 @
+keyctl_describe: Required key not available
++++ LIST SESSION KEYRING2
+keyctl rlist @s
+332565283
++++ VALIDATE NEW KEYRING2
+keyctl rdescribe 332565283 @
+keyring@0@0@3f010000@wibble
++++ UNLINK KEY
+keyctl unlink 332565283 @s
+++++ FINISHED TEST: PASS

@@ -1,0 +1,916 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [13:12:55]: starting date and time: 2024-07-18 13:12:55+0800
+  0s autopkgtest [13:12:55]: version @version@
+  0s autopkgtest [13:12:55]: host nana; command line: /usr/bin/autopkgtest libtomcrypt_1.18.2+dfsg-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/libtomcrypt -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.bmkYZ0
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-23751e6b-5603-4bc3-925e-ed0e1ad8e939,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-23751e6b-5603-4bc3-925e-ed0e1ad8e939//tmp/autopkgtest.bmkYZ0
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-23751e6b-5603-4bc3-925e-ed0e1ad8e939//tmp/autopkgtest.bmkYZ0', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.bmkYZ0'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.bmkYZ0/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.bmkYZ0/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [13:12:56]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [13:12:57]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.bmkYZ0/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.bmkYZ0/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libtomcrypt/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [13:12:57]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [13:12:57]: @@@@@@@@@@@@@@@@@@@@ source libtomcrypt_1.18.2+dfsg-ok1.dsc
+  2s autopkgtest: DBG: blame += libtomcrypt_1.18.2+dfsg-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.bmkYZ0'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libtomcrypt_1.18.2%2Bdfsg-ok1.dsc /tmp/autopkgtest.bmkYZ0/libtomcrypt_1.18.2%2Bdfsg-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.bmkYZ0'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libtomcrypt_1.18.2%2Bdfsg.orig.tar.xz /tmp/autopkgtest.bmkYZ0/libtomcrypt_1.18.2%2Bdfsg.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.bmkYZ0'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown libtomcrypt_1.18.2%2Bdfsg-ok1.debian.tar.xz /tmp/autopkgtest.bmkYZ0/libtomcrypt_1.18.2%2Bdfsg-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.bmkYZ0/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.bmkYZ0/libtomcrypt_1.18.2+dfsg-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.bmkYZ0/build.XXX
+  3s + builddir=/tmp/autopkgtest.bmkYZ0/build.IlR
+  3s + cd /tmp/autopkgtest.bmkYZ0/build.IlR
+  3s + dpkg-source -x /tmp/autopkgtest.bmkYZ0/libtomcrypt_1.18.2+dfsg-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.AAeIbRUT/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 25 Oct 2023 09:25:57 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.bmkYZ0/libtomcrypt_1.18.2+dfsg-ok1.dsc
+  3s dpkg-source: info: extracting libtomcrypt in src
+  3s dpkg-source: info: unpacking libtomcrypt_1.18.2+dfsg.orig.tar.xz
+  4s dpkg-source: info: unpacking libtomcrypt_1.18.2+dfsg-ok1.debian.tar.xz
+  4s dpkg-source: info: using patch list from debian/patches/series
+  4s dpkg-source: info: applying CVE-2019-17362.diff
+  4s dpkg-source: info: applying build-reproductible.patch
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [13:12:59]: testing package libtomcrypt version 1.18.2+dfsg-ok1
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.bmkYZ0/build.IlR/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libtomcrypt/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libtomcrypt-dev
+  4s autopkgtest: DBG: synthesised dependency libtomcrypt1
+  4s autopkgtest: DBG: processing dependency gcc
+  4s autopkgtest: DBG: processing dependency libc-dev
+  4s autopkgtest: DBG: processing dependency libgmp-dev
+  4s autopkgtest: DBG: processing dependency libtommath-dev
+  4s autopkgtest: DBG: Test defined: name unit-test path debian/tests/unit-test command "None" restrictions [] features [] depends ['libtomcrypt-dev', 'libtomcrypt1', 'gcc', 'libc-dev', 'libgmp-dev', 'libtommath-dev'] 
+  4s autopkgtest [13:12:59]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.bmkYZ0/build.IlR/src/ /home/hachi/openkylin_test/sharefolder/results/libtomcrypt/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libtomcrypt-dev
+  4s autopkgtest: DBG: synthesised dependency libtomcrypt1
+  4s autopkgtest: DBG: processing dependency gcc
+  4s autopkgtest: DBG: processing dependency libc-dev
+  4s autopkgtest: DBG: processing dependency libgmp-dev
+  4s autopkgtest: DBG: processing dependency libtommath-dev
+  4s autopkgtest: DBG: Test defined: name unit-test path debian/tests/unit-test command "None" restrictions [] features [] depends ['libtomcrypt-dev', 'libtomcrypt1', 'gcc', 'libc-dev', 'libgmp-dev', 'libtommath-dev'] 
+  4s autopkgtest [13:12:59]: test unit-test: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libtomcrypt-dev', 'libtomcrypt1', 'gcc', 'libc-dev', 'libgmp-dev', 'libtommath-dev']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['libtomcrypt-dev', 'libtomcrypt1', 'gcc', 'libc-dev', 'libgmp-dev', 'libtommath-dev']
+  4s autopkgtest: DBG: install-deps: satisfying libtomcrypt-dev, libtomcrypt1, gcc, libc-dev, libgmp-dev, libtommath-dev
+  4s autopkgtest: DBG: install-deps: architecture resolved: libtomcrypt-dev, libtomcrypt1, gcc, libc-dev, libgmp-dev, libtommath-dev
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.bmkYZ0'], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-23751e6b-5603-4bc3-925e-ed0e1ad8e939//tmp/autopkgtest.bmkYZ0/1-autopkgtest-satdep.deb /tmp/autopkgtest.bmkYZ0/1-autopkgtest-satdep.deb
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.bmkYZ0/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  6s Building dependency tree...
+  6s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 0
+  6s Starting 2 pkgProblemResolver with broken count: 0
+  6s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  7s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  7s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  7s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  7s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  7s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatrildocument3
+  7s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  7s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  7s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  7s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  7s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  7s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  7s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  7s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  7s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  7s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  7s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  7s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  7s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  7s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  7s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  7s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   libgmp-dev libgmp10 libgmpxx4ldbl libtomcrypt-dev libtomcrypt1
+  7s   libtommath-dev libtommath1
+  7s Suggested packages:
+  7s   gmp-doc libgmp10-doc libmpfr-dev
+  7s Recommended packages:
+  7s   libtommath-doc
+  7s The following NEW packages will be installed:
+  7s   autopkgtest-satdep libgmp-dev libgmpxx4ldbl libtomcrypt-dev libtomcrypt1
+  7s   libtommath-dev libtommath1
+  7s The following packages will be upgraded:
+  7s   libgmp10
+  7s 1 upgraded, 7 newly installed, 0 to remove and 1065 not upgraded.
+  7s Need to get 3,021 kB/3,022 kB of archives.
+  7s After this operation, 12.2 MB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.bmkYZ0/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgmp10 riscv64 2:6.3.0+dfsg-ok5 [217 kB]
+  8s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgmpxx4ldbl riscv64 2:6.3.0+dfsg-ok5 [9,312 B]
+  8s Get:4 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgmp-dev riscv64 2:6.3.0+dfsg-ok5 [659 kB]
+  8s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtommath1 riscv64 1.2.1-ok1 [62.4 kB]
+  8s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtomcrypt1 riscv64 1.18.2+dfsg-ok1 [491 kB]
+  8s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtomcrypt-dev riscv64 1.18.2+dfsg-ok1 [1,481 kB]
+  9s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtommath-dev riscv64 1.2.1-ok1 [99.9 kB]
+ 11s Fetched 3,021 kB in 2s (1,996 kB/s)
+ 11s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 11s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 12s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 12s Preparing to unpack .../libgmp10_2%3a6.3.0+dfsg-ok5_riscv64.deb ...
+ 12s Unpacking libgmp10:riscv64 (2:6.3.0+dfsg-ok5) over (2:6.2.0+dfsg-ok1) ...
+ 12s Setting up libgmp10:riscv64 (2:6.3.0+dfsg-ok5) ...
+ 12s Selecting previously unselected package libgmpxx4ldbl:riscv64.
+ 12s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 12s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 12s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 12s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 12s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 12s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 13s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 13s Preparing to unpack .../0-libgmpxx4ldbl_2%3a6.3.0+dfsg-ok5_riscv64.deb ...
+ 13s Unpacking libgmpxx4ldbl:riscv64 (2:6.3.0+dfsg-ok5) ...
+ 13s Selecting previously unselected package libgmp-dev:riscv64.
+ 14s Preparing to unpack .../1-libgmp-dev_2%3a6.3.0+dfsg-ok5_riscv64.deb ...
+ 14s Unpacking libgmp-dev:riscv64 (2:6.3.0+dfsg-ok5) ...
+ 14s Selecting previously unselected package libtommath1:riscv64.
+ 14s Preparing to unpack .../2-libtommath1_1.2.1-ok1_riscv64.deb ...
+ 14s Unpacking libtommath1:riscv64 (1.2.1-ok1) ...
+ 15s Selecting previously unselected package libtomcrypt1:riscv64.
+ 15s Preparing to unpack .../3-libtomcrypt1_1.18.2+dfsg-ok1_riscv64.deb ...
+ 15s Unpacking libtomcrypt1:riscv64 (1.18.2+dfsg-ok1) ...
+ 15s Selecting previously unselected package libtomcrypt-dev.
+ 15s Preparing to unpack .../4-libtomcrypt-dev_1.18.2+dfsg-ok1_riscv64.deb ...
+ 15s Unpacking libtomcrypt-dev (1.18.2+dfsg-ok1) ...
+ 16s Selecting previously unselected package libtommath-dev:riscv64.
+ 16s Preparing to unpack .../5-libtommath-dev_1.2.1-ok1_riscv64.deb ...
+ 16s Unpacking libtommath-dev:riscv64 (1.2.1-ok1) ...
+ 16s Selecting previously unselected package autopkgtest-satdep.
+ 17s Preparing to unpack .../6-1-autopkgtest-satdep.deb ...
+ 17s Unpacking autopkgtest-satdep (0) ...
+ 17s Setting up libtommath1:riscv64 (1.2.1-ok1) ...
+ 17s Setting up libtommath-dev:riscv64 (1.2.1-ok1) ...
+ 17s Setting up libgmpxx4ldbl:riscv64 (2:6.3.0+dfsg-ok5) ...
+ 17s Setting up libtomcrypt1:riscv64 (1.18.2+dfsg-ok1) ...
+ 17s Setting up libgmp-dev:riscv64 (2:6.3.0+dfsg-ok5) ...
+ 17s Setting up libtomcrypt-dev (1.18.2+dfsg-ok1) ...
+ 17s Setting up autopkgtest-satdep (0) ...
+ 17s Processing triggers for man-db (2.10.2-2) ...
+ 18s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libtomcrypt-dev'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libtomcrypt1'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgmp-dev libgmpxx4ldbl libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libtomcrypt-dev libtomcrypt1 libtommath-dev libtommath1 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 23s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgmp-dev', 'libgmpxx4ldbl', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libtomcrypt-dev', 'libtomcrypt1', 'libtommath-dev', 'libtommath1', 'libwhoopsie0', 'nautilus-data'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 29s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 30s (Reading database ... 193871 files and directories currently installed.)
+ 30s Removing autopkgtest-satdep (0) ...
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.bmkYZ0/unit-test-packages.all"], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.bmkYZ0/unit-test-packages.all /home/hachi/openkylin_test/sharefolder/results/libtomcrypt/unit-test-packages.all
+ 30s autopkgtest: DBG: got reply from testbed: ok
+ 30s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.bmkYZ0/build.IlR/src'], kind short, sout raw, serr raw, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.bmkYZ0/build.IlR/src already exists
+ 30s autopkgtest [13:13:25]: test unit-test: [-----------------------
+ 30s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.bmkYZ0/wrapper.sh --debug --artifacts=/tmp/autopkgtest.bmkYZ0/unit-test-artifacts --chdir=/tmp/autopkgtest.bmkYZ0/build.IlR/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.bmkYZ0/unit-test-stderr --stdout=/tmp/autopkgtest.bmkYZ0/unit-test-stdout --tmp=/tmp/autopkgtest.bmkYZ0/autopkgtest_tmp --make-executable=/tmp/autopkgtest.bmkYZ0/build.IlR/src/debian/tests/unit-test -- /tmp/autopkgtest.bmkYZ0/build.IlR/src/debian/tests/unit-test'], kind test, sout raw, serr raw, env []
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.bmkYZ0/unit-test-artifacts
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: changing to directory: /tmp/autopkgtest.bmkYZ0/build.IlR/src
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: setting environment: LANG=C.UTF-8
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LANGUAGE
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_ADDRESS
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_ALL
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_COLLATE
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_CTYPE
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_MESSAGES
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_MONETARY
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_NAME
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_NUMERIC
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_PAPER
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: unsetting environment: LC_TIME
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: pretending to be a login shell
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: will write standard error to /tmp/autopkgtest.bmkYZ0/unit-test-stderr
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: will write stdout to /tmp/autopkgtest.bmkYZ0/unit-test-stdout
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.bmkYZ0/autopkgtest_tmp
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: marking as executable: /tmp/autopkgtest.bmkYZ0/build.IlR/src/debian/tests/unit-test
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: command to run: /tmp/autopkgtest.bmkYZ0/build.IlR/src/debian/tests/unit-test
+ 30s /tmp/autopkgtest.bmkYZ0/wrapper.sh: copying /tmp/tmp.1ju6qbnlgL/out to stdout and file: /tmp/autopkgtest.bmkYZ0/unit-test-stdout
+ 31s /tmp/autopkgtest.bmkYZ0/wrapper.sh: copying /tmp/tmp.1ju6qbnlgL/err to standard error and file: /tmp/autopkgtest.bmkYZ0/unit-test-stdout
+ 31s /tmp/autopkgtest.bmkYZ0/wrapper.sh: writing script pid 997250 to /tmp/autopkgtest_script_pid
+ 31s    * cc src/ciphers/aes/aes.o
+ 33s    * cc src/ciphers/anubis.o
+ 34s    * cc src/ciphers/blowfish.o
+ 35s    * cc src/ciphers/camellia.o
+ 37s    * cc src/ciphers/cast5.o
+ 39s    * cc src/ciphers/des.o
+ 40s    * cc src/ciphers/kasumi.o
+ 41s    * cc src/ciphers/khazad.o
+ 42s    * cc src/ciphers/kseed.o
+ 42s    * cc src/ciphers/multi2.o
+ 43s    * cc src/ciphers/noekeon.o
+ 43s    * cc src/ciphers/rc2.o
+ 44s    * cc src/ciphers/rc5.o
+ 45s    * cc src/ciphers/rc6.o
+ 45s    * cc src/ciphers/safer/safer.o
+ 48s    * cc src/ciphers/safer/saferp.o
+ 58s    * cc src/ciphers/skipjack.o
+ 58s    * cc src/ciphers/twofish/twofish.o
+ 60s    * cc src/ciphers/xtea.o
+ 60s    * cc src/encauth/ccm/ccm_add_aad.o
+ 60s    * cc src/encauth/ccm/ccm_add_nonce.o
+ 60s src/encauth/ccm/ccm_add_nonce.c: In function ‘ccm_add_nonce’:
+ 60s src/encauth/ccm/ccm_add_nonce.c:64:21: warning: writing 1 byte into a region of size 0 [-Wstringop-overflow=]
+ 60s    64 |       ccm->PAD[x++] = (unsigned char)((len >> 24) & 255);
+ 60s       |       ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 60s In file included from ./src/headers/tomcrypt.h:88,
+ 60s                  from src/encauth/ccm/ccm_add_nonce.c:9:
+ 60s ./src/headers/tomcrypt_mac.h:327:24: note: at offset 16 into destination object ‘PAD’ of size 16
+ 60s   327 |    unsigned char       PAD[16],
+ 60s       |                        ^~~
+ 60s src/encauth/ccm/ccm_add_nonce.c:64:21: warning: writing 1 byte into a region of size 0 [-Wstringop-overflow=]
+ 60s    64 |       ccm->PAD[x++] = (unsigned char)((len >> 24) & 255);
+ 60s       |       ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 60s ./src/headers/tomcrypt_mac.h:327:24: note: at offset [17, 47] into destination object ‘PAD’ of size 16
+ 60s   327 |    unsigned char       PAD[16],
+ 60s       |                        ^~~
+ 61s    * cc src/encauth/ccm/ccm_done.o
+ 61s    * cc src/encauth/ccm/ccm_init.o
+ 61s    * cc src/encauth/ccm/ccm_memory.o
+ 62s    * cc src/encauth/ccm/ccm_process.o
+ 62s    * cc src/encauth/ccm/ccm_reset.o
+ 62s    * cc src/encauth/ccm/ccm_test.o
+ 63s    * cc src/encauth/chachapoly/chacha20poly1305_add_aad.o
+ 63s    * cc src/encauth/chachapoly/chacha20poly1305_decrypt.o
+ 63s    * cc src/encauth/chachapoly/chacha20poly1305_done.o
+ 63s    * cc src/encauth/chachapoly/chacha20poly1305_encrypt.o
+ 64s    * cc src/encauth/chachapoly/chacha20poly1305_init.o
+ 64s    * cc src/encauth/chachapoly/chacha20poly1305_memory.o
+ 64s    * cc src/encauth/chachapoly/chacha20poly1305_setiv.o
+ 64s    * cc src/encauth/chachapoly/chacha20poly1305_setiv_rfc7905.o
+ 64s    * cc src/encauth/chachapoly/chacha20poly1305_test.o
+ 65s    * cc src/encauth/eax/eax_addheader.o
+ 65s    * cc src/encauth/eax/eax_decrypt.o
+ 65s    * cc src/encauth/eax/eax_decrypt_verify_memory.o
+ 65s    * cc src/encauth/eax/eax_done.o
+ 66s    * cc src/encauth/eax/eax_encrypt.o
+ 66s    * cc src/encauth/eax/eax_encrypt_authenticate_memory.o
+ 66s    * cc src/encauth/eax/eax_init.o
+ 66s    * cc src/encauth/eax/eax_test.o
+ 66s    * cc src/encauth/gcm/gcm_add_aad.o
+ 67s    * cc src/encauth/gcm/gcm_add_iv.o
+ 67s    * cc src/encauth/gcm/gcm_done.o
+ 67s    * cc src/encauth/gcm/gcm_gf_mult.o
+ 67s    * cc src/encauth/gcm/gcm_init.o
+ 68s    * cc src/encauth/gcm/gcm_memory.o
+ 68s    * cc src/encauth/gcm/gcm_mult_h.o
+ 68s    * cc src/encauth/gcm/gcm_process.o
+ 69s    * cc src/encauth/gcm/gcm_reset.o
+ 69s    * cc src/encauth/gcm/gcm_test.o
+ 69s    * cc src/encauth/ocb/ocb_decrypt.o
+ 70s    * cc src/encauth/ocb/ocb_decrypt_verify_memory.o
+ 70s    * cc src/encauth/ocb/ocb_done_decrypt.o
+ 70s    * cc src/encauth/ocb/ocb_done_encrypt.o
+ 70s    * cc src/encauth/ocb/ocb_encrypt.o
+ 71s    * cc src/encauth/ocb/ocb_encrypt_authenticate_memory.o
+ 71s    * cc src/encauth/ocb/ocb_init.o
+ 72s    * cc src/encauth/ocb/ocb_ntz.o
+ 72s    * cc src/encauth/ocb/ocb_shift_xor.o
+ 72s    * cc src/encauth/ocb/ocb_test.o
+ 73s    * cc src/encauth/ocb/s_ocb_done.o
+ 73s    * cc src/encauth/ocb3/ocb3_add_aad.o
+ 74s    * cc src/encauth/ocb3/ocb3_decrypt.o
+ 74s    * cc src/encauth/ocb3/ocb3_decrypt_last.o
+ 74s    * cc src/encauth/ocb3/ocb3_decrypt_verify_memory.o
+ 75s    * cc src/encauth/ocb3/ocb3_done.o
+ 75s    * cc src/encauth/ocb3/ocb3_encrypt.o
+ 75s    * cc src/encauth/ocb3/ocb3_encrypt_authenticate_memory.o
+ 75s    * cc src/encauth/ocb3/ocb3_encrypt_last.o
+ 76s    * cc src/encauth/ocb3/ocb3_init.o
+ 76s    * cc src/encauth/ocb3/ocb3_int_ntz.o
+ 76s    * cc src/encauth/ocb3/ocb3_int_xor_blocks.o
+ 77s    * cc src/encauth/ocb3/ocb3_test.o
+ 77s    * cc src/hashes/blake2b.o
+ 79s    * cc src/hashes/blake2s.o
+ 82s    * cc src/hashes/chc/chc.o
+ 83s    * cc src/hashes/helper/hash_file.o
+ 83s    * cc src/hashes/helper/hash_filehandle.o
+ 83s    * cc src/hashes/helper/hash_memory.o
+ 83s    * cc src/hashes/helper/hash_memory_multi.o
+ 83s    * cc src/hashes/md2.o
+ 84s    * cc src/hashes/md4.o
+ 85s    * cc src/hashes/md5.o
+ 85s    * cc src/hashes/rmd128.o
+ 86s    * cc src/hashes/rmd160.o
+ 88s    * cc src/hashes/rmd256.o
+ 89s    * cc src/hashes/rmd320.o
+ 91s    * cc src/hashes/sha1.o
+ 92s    * cc src/hashes/sha2/sha224.o
+ 92s    * cc src/hashes/sha2/sha256.o
+ 95s    * cc src/hashes/sha2/sha384.o
+ 96s    * cc src/hashes/sha2/sha512.o
+ 96s    * cc src/hashes/sha2/sha512_224.o
+ 97s    * cc src/hashes/sha2/sha512_256.o
+ 97s    * cc src/hashes/sha3.o
+ 98s    * cc src/hashes/sha3_test.o
+ 98s    * cc src/hashes/tiger.o
+ 99s    * cc src/hashes/whirl/whirl.o
+ 99s    * cc src/mac/blake2/blake2bmac.o
+100s    * cc src/mac/blake2/blake2bmac_file.o
+100s    * cc src/mac/blake2/blake2bmac_memory.o
+100s    * cc src/mac/blake2/blake2bmac_memory_multi.o
+100s    * cc src/mac/blake2/blake2bmac_test.o
+100s    * cc src/mac/blake2/blake2smac.o
+101s    * cc src/mac/blake2/blake2smac_file.o
+101s    * cc src/mac/blake2/blake2smac_memory.o
+101s    * cc src/mac/blake2/blake2smac_memory_multi.o
+101s    * cc src/mac/blake2/blake2smac_test.o
+101s    * cc src/mac/f9/f9_done.o
+102s    * cc src/mac/f9/f9_file.o
+102s    * cc src/mac/f9/f9_init.o
+102s    * cc src/mac/f9/f9_memory.o
+102s    * cc src/mac/f9/f9_memory_multi.o
+103s    * cc src/mac/f9/f9_process.o
+103s    * cc src/mac/f9/f9_test.o
+103s    * cc src/mac/hmac/hmac_done.o
+103s    * cc src/mac/hmac/hmac_file.o
+104s    * cc src/mac/hmac/hmac_init.o
+104s    * cc src/mac/hmac/hmac_memory.o
+104s    * cc src/mac/hmac/hmac_memory_multi.o
+104s    * cc src/mac/hmac/hmac_process.o
+105s    * cc src/mac/hmac/hmac_test.o
+105s    * cc src/mac/omac/omac_done.o
+105s    * cc src/mac/omac/omac_file.o
+105s    * cc src/mac/omac/omac_init.o
+106s    * cc src/mac/omac/omac_memory.o
+106s    * cc src/mac/omac/omac_memory_multi.o
+106s    * cc src/mac/omac/omac_process.o
+106s    * cc src/mac/omac/omac_test.o
+106s    * cc src/mac/pelican/pelican.o
+107s    * cc src/mac/pelican/pelican_memory.o
+107s    * cc src/mac/pelican/pelican_test.o
+107s    * cc src/mac/pmac/pmac_done.o
+108s    * cc src/mac/pmac/pmac_file.o
+108s    * cc src/mac/pmac/pmac_init.o
+109s    * cc src/mac/pmac/pmac_memory.o
+109s    * cc src/mac/pmac/pmac_memory_multi.o
+109s    * cc src/mac/pmac/pmac_ntz.o
+109s    * cc src/mac/pmac/pmac_process.o
+110s    * cc src/mac/pmac/pmac_shift_xor.o
+110s    * cc src/mac/pmac/pmac_test.o
+110s    * cc src/mac/poly1305/poly1305.o
+111s    * cc src/mac/poly1305/poly1305_file.o
+111s    * cc src/mac/poly1305/poly1305_memory.o
+111s    * cc src/mac/poly1305/poly1305_memory_multi.o
+111s    * cc src/mac/poly1305/poly1305_test.o
+112s    * cc src/mac/xcbc/xcbc_done.o
+112s    * cc src/mac/xcbc/xcbc_file.o
+112s    * cc src/mac/xcbc/xcbc_init.o
+112s    * cc src/mac/xcbc/xcbc_memory.o
+113s    * cc src/mac/xcbc/xcbc_memory_multi.o
+113s    * cc src/mac/xcbc/xcbc_process.o
+113s    * cc src/mac/xcbc/xcbc_test.o
+113s    * cc src/math/fp/ltc_ecc_fp_mulmod.o
+113s    * cc src/math/gmp_desc.o
+114s    * cc src/math/ltm_desc.o
+114s    * cc src/math/multi.o
+114s    * cc src/math/radix_to_bin.o
+114s    * cc src/math/rand_bn.o
+114s    * cc src/math/rand_prime.o
+115s    * cc src/math/tfm_desc.o
+115s    * cc src/misc/adler32.o
+115s    * cc src/misc/base64/base64_decode.o
+116s    * cc src/misc/base64/base64_encode.o
+116s    * cc src/misc/burn_stack.o
+116s    * cc src/misc/compare_testvector.o
+116s    * cc src/misc/crc32.o
+116s    * cc src/misc/crypt/crypt.o
+117s    * cc src/misc/crypt/crypt_argchk.o
+117s    * cc src/misc/crypt/crypt_cipher_descriptor.o
+117s    * cc src/misc/crypt/crypt_cipher_is_valid.o
+117s    * cc src/misc/crypt/crypt_constants.o
+117s    * cc src/misc/crypt/crypt_find_cipher.o
+118s    * cc src/misc/crypt/crypt_find_cipher_any.o
+118s    * cc src/misc/crypt/crypt_find_cipher_id.o
+118s    * cc src/misc/crypt/crypt_find_hash.o
+118s    * cc src/misc/crypt/crypt_find_hash_any.o
+118s    * cc src/misc/crypt/crypt_find_hash_id.o
+119s    * cc src/misc/crypt/crypt_find_hash_oid.o
+119s    * cc src/misc/crypt/crypt_find_prng.o
+119s    * cc src/misc/crypt/crypt_fsa.o
+119s    * cc src/misc/crypt/crypt_hash_descriptor.o
+119s    * cc src/misc/crypt/crypt_hash_is_valid.o
+120s    * cc src/misc/crypt/crypt_inits.o
+120s    * cc src/misc/crypt/crypt_ltc_mp_descriptor.o
+120s    * cc src/misc/crypt/crypt_prng_descriptor.o
+120s    * cc src/misc/crypt/crypt_prng_is_valid.o
+120s    * cc src/misc/crypt/crypt_prng_rng_descriptor.o
+120s    * cc src/misc/crypt/crypt_register_all_ciphers.o
+121s    * cc src/misc/crypt/crypt_register_all_hashes.o
+121s    * cc src/misc/crypt/crypt_register_all_prngs.o
+121s    * cc src/misc/crypt/crypt_register_cipher.o
+121s    * cc src/misc/crypt/crypt_register_hash.o
+121s    * cc src/misc/crypt/crypt_register_prng.o
+122s    * cc src/misc/crypt/crypt_sizes.o
+122s    * cc src/misc/crypt/crypt_unregister_cipher.o
+122s    * cc src/misc/crypt/crypt_unregister_hash.o
+122s    * cc src/misc/crypt/crypt_unregister_prng.o
+122s    * cc src/misc/error_to_string.o
+123s    * cc src/misc/hkdf/hkdf.o
+123s    * cc src/misc/hkdf/hkdf_test.o
+123s    * cc src/misc/mem_neq.o
+123s    * cc src/misc/pk_get_oid.o
+124s    * cc src/misc/pkcs5/pkcs_5_1.o
+124s    * cc src/misc/pkcs5/pkcs_5_2.o
+124s    * cc src/misc/pkcs5/pkcs_5_test.o
+124s    * cc src/misc/zeromem.o
+125s    * cc src/modes/cbc/cbc_decrypt.o
+125s    * cc src/modes/cbc/cbc_done.o
+125s    * cc src/modes/cbc/cbc_encrypt.o
+125s    * cc src/modes/cbc/cbc_getiv.o
+126s    * cc src/modes/cbc/cbc_setiv.o
+126s    * cc src/modes/cbc/cbc_start.o
+126s    * cc src/modes/cfb/cfb_decrypt.o
+126s    * cc src/modes/cfb/cfb_done.o
+127s    * cc src/modes/cfb/cfb_encrypt.o
+127s    * cc src/modes/cfb/cfb_getiv.o
+127s    * cc src/modes/cfb/cfb_setiv.o
+127s    * cc src/modes/cfb/cfb_start.o
+127s    * cc src/modes/ctr/ctr_decrypt.o
+128s    * cc src/modes/ctr/ctr_done.o
+128s    * cc src/modes/ctr/ctr_encrypt.o
+128s    * cc src/modes/ctr/ctr_getiv.o
+128s    * cc src/modes/ctr/ctr_setiv.o
+128s    * cc src/modes/ctr/ctr_start.o
+129s    * cc src/modes/ctr/ctr_test.o
+129s    * cc src/modes/ecb/ecb_decrypt.o
+129s    * cc src/modes/ecb/ecb_done.o
+129s    * cc src/modes/ecb/ecb_encrypt.o
+129s    * cc src/modes/ecb/ecb_start.o
+130s    * cc src/modes/f8/f8_decrypt.o
+130s    * cc src/modes/f8/f8_done.o
+130s    * cc src/modes/f8/f8_encrypt.o
+130s    * cc src/modes/f8/f8_getiv.o
+131s    * cc src/modes/f8/f8_setiv.o
+131s    * cc src/modes/f8/f8_start.o
+131s    * cc src/modes/f8/f8_test_mode.o
+131s    * cc src/modes/lrw/lrw_decrypt.o
+131s    * cc src/modes/lrw/lrw_done.o
+132s    * cc src/modes/lrw/lrw_encrypt.o
+132s    * cc src/modes/lrw/lrw_getiv.o
+132s    * cc src/modes/lrw/lrw_process.o
+132s    * cc src/modes/lrw/lrw_setiv.o
+133s    * cc src/modes/lrw/lrw_start.o
+133s    * cc src/modes/lrw/lrw_test.o
+134s    * cc src/modes/ofb/ofb_decrypt.o
+134s    * cc src/modes/ofb/ofb_done.o
+134s    * cc src/modes/ofb/ofb_encrypt.o
+134s    * cc src/modes/ofb/ofb_getiv.o
+134s    * cc src/modes/ofb/ofb_setiv.o
+134s    * cc src/modes/ofb/ofb_start.o
+135s    * cc src/modes/xts/xts_decrypt.o
+135s    * cc src/modes/xts/xts_done.o
+135s    * cc src/modes/xts/xts_encrypt.o
+136s    * cc src/modes/xts/xts_init.o
+136s    * cc src/modes/xts/xts_mult_x.o
+136s    * cc src/modes/xts/xts_test.o
+137s    * cc src/pk/asn1/der/bit/der_decode_bit_string.o
+137s    * cc src/pk/asn1/der/bit/der_decode_raw_bit_string.o
+137s    * cc src/pk/asn1/der/bit/der_encode_bit_string.o
+137s    * cc src/pk/asn1/der/bit/der_encode_raw_bit_string.o
+138s    * cc src/pk/asn1/der/bit/der_length_bit_string.o
+138s    * cc src/pk/asn1/der/boolean/der_decode_boolean.o
+138s    * cc src/pk/asn1/der/boolean/der_encode_boolean.o
+138s    * cc src/pk/asn1/der/boolean/der_length_boolean.o
+138s    * cc src/pk/asn1/der/choice/der_decode_choice.o
+139s    * cc src/pk/asn1/der/generalizedtime/der_decode_generalizedtime.o
+139s    * cc src/pk/asn1/der/generalizedtime/der_encode_generalizedtime.o
+140s    * cc src/pk/asn1/der/generalizedtime/der_length_generalizedtime.o
+140s    * cc src/pk/asn1/der/ia5/der_decode_ia5_string.o
+140s    * cc src/pk/asn1/der/ia5/der_encode_ia5_string.o
+140s    * cc src/pk/asn1/der/ia5/der_length_ia5_string.o
+140s    * cc src/pk/asn1/der/integer/der_decode_integer.o
+141s    * cc src/pk/asn1/der/integer/der_encode_integer.o
+141s    * cc src/pk/asn1/der/integer/der_length_integer.o
+141s    * cc src/pk/asn1/der/object_identifier/der_decode_object_identifier.o
+142s    * cc src/pk/asn1/der/object_identifier/der_encode_object_identifier.o
+142s    * cc src/pk/asn1/der/object_identifier/der_length_object_identifier.o
+142s    * cc src/pk/asn1/der/octet/der_decode_octet_string.o
+142s    * cc src/pk/asn1/der/octet/der_encode_octet_string.o
+143s    * cc src/pk/asn1/der/octet/der_length_octet_string.o
+143s    * cc src/pk/asn1/der/printable_string/der_decode_printable_string.o
+143s    * cc src/pk/asn1/der/printable_string/der_encode_printable_string.o
+143s    * cc src/pk/asn1/der/printable_string/der_length_printable_string.o
+144s    * cc src/pk/asn1/der/sequence/der_decode_sequence_ex.o
+144s    * cc src/pk/asn1/der/sequence/der_decode_sequence_flexi.o
+145s    * cc src/pk/asn1/der/sequence/der_decode_sequence_multi.o
+145s    * cc src/pk/asn1/der/sequence/der_decode_subject_public_key_info.o
+145s    * cc src/pk/asn1/der/sequence/der_encode_sequence_ex.o
+145s    * cc src/pk/asn1/der/sequence/der_encode_sequence_multi.o
+145s    * cc src/pk/asn1/der/sequence/der_encode_subject_public_key_info.o
+146s    * cc src/pk/asn1/der/sequence/der_length_sequence.o
+146s    * cc src/pk/asn1/der/sequence/der_sequence_free.o
+146s    * cc src/pk/asn1/der/sequence/der_sequence_shrink.o
+146s    * cc src/pk/asn1/der/set/der_encode_set.o
+147s    * cc src/pk/asn1/der/set/der_encode_setof.o
+147s    * cc src/pk/asn1/der/short_integer/der_decode_short_integer.o
+147s    * cc src/pk/asn1/der/short_integer/der_encode_short_integer.o
+147s    * cc src/pk/asn1/der/short_integer/der_length_short_integer.o
+148s    * cc src/pk/asn1/der/teletex_string/der_decode_teletex_string.o
+148s    * cc src/pk/asn1/der/teletex_string/der_length_teletex_string.o
+148s    * cc src/pk/asn1/der/utctime/der_decode_utctime.o
+149s    * cc src/pk/asn1/der/utctime/der_encode_utctime.o
+149s    * cc src/pk/asn1/der/utctime/der_length_utctime.o
+149s    * cc src/pk/asn1/der/utf8/der_decode_utf8_string.o
+149s    * cc src/pk/asn1/der/utf8/der_encode_utf8_string.o
+150s    * cc src/pk/asn1/der/utf8/der_length_utf8_string.o
+150s    * cc src/pk/dh/dh.o
+150s    * cc src/pk/dh/dh_check_pubkey.o
+150s    * cc src/pk/dh/dh_export.o
+150s    * cc src/pk/dh/dh_export_key.o
+151s    * cc src/pk/dh/dh_free.o
+151s    * cc src/pk/dh/dh_generate_key.o
+151s    * cc src/pk/dh/dh_import.o
+151s    * cc src/pk/dh/dh_set.o
+151s    * cc src/pk/dh/dh_set_pg_dhparam.o
+152s    * cc src/pk/dh/dh_shared_secret.o
+152s    * cc src/pk/dsa/dsa_decrypt_key.o
+152s    * cc src/pk/dsa/dsa_encrypt_key.o
+153s    * cc src/pk/dsa/dsa_export.o
+153s    * cc src/pk/dsa/dsa_free.o
+153s    * cc src/pk/dsa/dsa_generate_key.o
+153s    * cc src/pk/dsa/dsa_generate_pqg.o
+154s    * cc src/pk/dsa/dsa_import.o
+154s    * cc src/pk/dsa/dsa_make_key.o
+154s    * cc src/pk/dsa/dsa_set.o
+154s    * cc src/pk/dsa/dsa_set_pqg_dsaparam.o
+154s    * cc src/pk/dsa/dsa_shared_secret.o
+155s    * cc src/pk/dsa/dsa_sign_hash.o
+155s    * cc src/pk/dsa/dsa_verify_hash.o
+155s    * cc src/pk/dsa/dsa_verify_key.o
+155s    * cc src/pk/ecc/ecc.o
+156s    * cc src/pk/ecc/ecc_ansi_x963_export.o
+156s    * cc src/pk/ecc/ecc_ansi_x963_import.o
+156s    * cc src/pk/ecc/ecc_decrypt_key.o
+156s    * cc src/pk/ecc/ecc_encrypt_key.o
+157s    * cc src/pk/ecc/ecc_export.o
+157s    * cc src/pk/ecc/ecc_free.o
+157s    * cc src/pk/ecc/ecc_get_size.o
+157s    * cc src/pk/ecc/ecc_import.o
+158s    * cc src/pk/ecc/ecc_make_key.o
+158s    * cc src/pk/ecc/ecc_shared_secret.o
+158s    * cc src/pk/ecc/ecc_sign_hash.o
+159s    * cc src/pk/ecc/ecc_sizes.o
+159s    * cc src/pk/ecc/ecc_test.o
+159s    * cc src/pk/ecc/ecc_verify_hash.o
+159s    * cc src/pk/ecc/ltc_ecc_is_valid_idx.o
+160s    * cc src/pk/ecc/ltc_ecc_map.o
+160s    * cc src/pk/ecc/ltc_ecc_mul2add.o
+160s    * cc src/pk/ecc/ltc_ecc_mulmod.o
+160s    * cc src/pk/ecc/ltc_ecc_mulmod_timing.o
+161s    * cc src/pk/ecc/ltc_ecc_points.o
+161s    * cc src/pk/ecc/ltc_ecc_projective_add_point.o
+161s    * cc src/pk/ecc/ltc_ecc_projective_dbl_point.o
+162s    * cc src/pk/katja/katja_decrypt_key.o
+162s    * cc src/pk/katja/katja_encrypt_key.o
+162s    * cc src/pk/katja/katja_export.o
+162s    * cc src/pk/katja/katja_exptmod.o
+162s    * cc src/pk/katja/katja_free.o
+162s    * cc src/pk/katja/katja_import.o
+162s    * cc src/pk/katja/katja_make_key.o
+163s    * cc src/pk/pkcs1/pkcs_1_i2osp.o
+163s    * cc src/pk/pkcs1/pkcs_1_mgf1.o
+163s    * cc src/pk/pkcs1/pkcs_1_oaep_decode.o
+163s    * cc src/pk/pkcs1/pkcs_1_oaep_encode.o
+164s    * cc src/pk/pkcs1/pkcs_1_os2ip.o
+164s    * cc src/pk/pkcs1/pkcs_1_pss_decode.o
+164s    * cc src/pk/pkcs1/pkcs_1_pss_encode.o
+165s    * cc src/pk/pkcs1/pkcs_1_v1_5_decode.o
+165s    * cc src/pk/pkcs1/pkcs_1_v1_5_encode.o
+165s    * cc src/pk/rsa/rsa_decrypt_key.o
+165s    * cc src/pk/rsa/rsa_encrypt_key.o
+166s    * cc src/pk/rsa/rsa_export.o
+166s    * cc src/pk/rsa/rsa_exptmod.o
+166s    * cc src/pk/rsa/rsa_free.o
+166s    * cc src/pk/rsa/rsa_get_size.o
+167s    * cc src/pk/rsa/rsa_import.o
+167s    * cc src/pk/rsa/rsa_import_pkcs8.o
+167s    * cc src/pk/rsa/rsa_import_x509.o
+167s    * cc src/pk/rsa/rsa_make_key.o
+168s    * cc src/pk/rsa/rsa_set.o
+168s    * cc src/pk/rsa/rsa_sign_hash.o
+168s    * cc src/pk/rsa/rsa_sign_saltlen_get.o
+168s    * cc src/pk/rsa/rsa_verify_hash.o
+168s    * cc src/prngs/chacha20.o
+169s    * cc src/prngs/fortuna.o
+170s    * cc src/prngs/rc4.o
+170s    * cc src/prngs/rng_get_bytes.o
+171s    * cc src/prngs/rng_make_prng.o
+171s    * cc src/prngs/sober128.o
+171s    * cc src/prngs/sprng.o
+172s    * cc src/prngs/yarrow.o
+172s    * cc src/stream/chacha/chacha_crypt.o
+173s    * cc src/stream/chacha/chacha_done.o
+173s    * cc src/stream/chacha/chacha_ivctr32.o
+173s    * cc src/stream/chacha/chacha_ivctr64.o
+174s    * cc src/stream/chacha/chacha_keystream.o
+174s    * cc src/stream/chacha/chacha_setup.o
+174s    * cc src/stream/chacha/chacha_test.o
+174s    * cc src/stream/rc4/rc4_stream.o
+175s    * cc src/stream/rc4/rc4_test.o
+175s    * cc src/stream/sober128/sober128_stream.o
+176s    * cc src/stream/sober128/sober128_test.o
+176s    * ar libtomcrypt.a
+176s ar: creating libtomcrypt.a
+177s    * ranlib libtomcrypt.a
+177s    * cc tests/base64_test.o
+177s    * cc tests/cipher_hash_test.o
+178s    * cc tests/common.o
+178s    * cc tests/der_test.o
+178s    * cc tests/dh_test.o
+178s    * cc tests/dsa_test.o
+178s    * cc tests/ecc_test.o
+179s    * cc tests/file_test.o
+179s    * cc tests/katja_test.o
+179s    * cc tests/mac_test.o
+179s    * cc tests/misc_test.o
+179s    * cc tests/modes_test.o
+180s    * cc tests/mpi_test.o
+180s    * cc tests/multi_test.o
+180s    * cc tests/no_prng.o
+181s    * cc tests/pkcs_1_eme_test.o
+181s    * cc tests/pkcs_1_emsa_test.o
+181s    * cc tests/pkcs_1_oaep_test.o
+181s    * cc tests/pkcs_1_pss_test.o
+181s    * cc tests/pkcs_1_test.o
+182s    * cc tests/prng_test.o
+182s    * cc tests/rotate_test.o
+182s    * cc tests/rsa_test.o
+182s    * cc tests/store_test.o
+182s    * cc tests/test.o
+183s    * cc test
+183s LTC_VERSION  = 1.18.2
+183s LibTomCrypt 1.18.2 (www.libtom.net)
+183s LibTomCrypt is public domain software.
+183s 
+183s 
+183s Endianness: little (64-bit words)
+183s Clean stack: disabled
+183s 
+183s Ciphers built-in:
+183s    Blowfish
+183s    RC2
+183s    RC5
+183s    RC6
+183s    Safer+
+183s    Safer
+183s    Rijndael
+183s    XTEA
+183s    Twofish (tables)
+183s    DES
+183s    CAST5
+183s    Noekeon
+183s    Skipjack
+183s    Khazad
+183s    Anubis  (tweaked)
+183s    KSEED
+183s    KASUMI
+183s    MULTI2
+183s    Camellia
+183s Stream ciphers built-in:
+183s    ChaCha
+183s    RC4
+183s    SOBER128
+183s 
+183s Hashes built-in:
+183s    SHA3
+183s    SHA-512
+183s    SHA-384
+183s    SHA-512/256
+183s    SHA-256
+183s    SHA-512/224
+183s    SHA-224
+183s    TIGER
+183s    SHA1
+183s    MD5
+183s    MD4
+183s    MD2
+183s    RIPEMD128
+183s    RIPEMD160
+183s    RIPEMD256
+183s    RIPEMD320
+183s    WHIRLPOOL
+183s    BLAKE2S
+183s    BLAKE2B
+183s    CHC_HASH
+183s 
+183s Block Chaining Modes:
+183s    CFB
+183s    OFB
+183s    ECB
+183s    CBC
+183s    CTR
+183s    LRW (tables) 
+183s    F8
+183s    XTS
+183s 
+183s MACs:
+183s    HMAC
+183s    OMAC
+183s    PMAC
+183s    PELICAN
+183s    XCBC
+183s    F9
+183s    POLY1305
+183s    BLAKE2S MAC
+183s    BLAKE2B MAC
+183s 
+183s ENC + AUTH modes:
+183s    EAX
+183s    OCB
+183s    OCB3
+183s    CCM
+183s    GCM (tables) 
+183s    CHACHA20POLY1305
+183s 
+183s PRNG:
+183s    Yarrow (LTC_YARROW_AES=2)
+183s    SPRNG
+183s    RC4
+183s    ChaCha20
+183s    Fortuna (LTC_FORTUNA_POOLS=32, LTC_FORTUNA_WD=10)
+183s    SOBER128
+183s 
+183s PK Crypto:
+183s    RSA (with blinding and CRT hardening)
+183s    DH
+183s    ECC (with blinding)
+183s    DSA
+183s    LTC_PK_MAX_RETRIES=20
+183s 
+183s MPI (Math):
+183s    LTC_MPI
+183s    LTC_MILLER_RABIN_REPS=40
+183s 
+183s Compiler:
+183s    GCC compiler 12.2.0.
+183s 
+183s Various others:  ARGTYPE=0  ADLER32  BASE64  BASE64-URL-SAFE  CRC32  DER  LTC_DER_MAX_RECURSION=30  PKCS#1  PKCS#5  HKDF  LTC_DEVRANDOM  LTC_TRY_URANDOM_FIRST  LTC_RNG_GET_BYTES  LTC_RNG_MAKE_PRNG  LTC_HASH_HELPERS  LTC_TEST  LTC_FILE_READ_BUFSIZE=8192  LTC_ECC_SHAMIR 
+183s 
+183s 
+183s NO math provider selected, all tests requiring MPI were disabled and will 'nop'
+183s sizeof(ltc_mp_digit) = 8
+183s 
+183s store_test..........passed      0.002ms
+183s rotate_test.........passed      0.000ms
+183s misc_test...........passed      0.194ms
+183s mpi_test............nop
+183s cipher_hash_test....passed     70.541ms
+183s mac_test............passed     17.430ms
+183s modes_test..........passed      4.012ms
+183s der_test............nop
+183s pkcs_1_test.........passed      4.295ms
+183s pkcs_1_pss_test.....nop
+183s pkcs_1_oaep_test....nop
+183s pkcs_1_emsa_test....nop
+183s pkcs_1_eme_test.....nop
+183s rsa_test............nop
+183s dh_test.............nop
+183s ecc_tests...........nop
+183s dsa_test............nop
+183s katja_test..........nop
+183s file_test...........passed      0.538ms
+183s multi_test..........passed      0.109ms
+183s prng_test...........passed      4.743ms
+183s 
+183s SUCCESS: passed=10 failed=0 nop=11 duration=0.1sec real=0.1sec
+183s /tmp/autopkgtest.bmkYZ0/wrapper.sh: checking for leaked background processes...
+183s /tmp/autopkgtest.bmkYZ0/wrapper.sh: waiting for tee/cat subprocesses...
+183s /tmp/autopkgtest.bmkYZ0/wrapper.sh: cleaning up...
+183s /tmp/autopkgtest.bmkYZ0/wrapper.sh: Exit status: 0
+183s autopkgtest: DBG: testbed command exited with code 0
+184s autopkgtest [13:15:59]: test unit-test: -----------------------]
+184s autopkgtest: DBG: testbed executing test finished with exit status 0
+184s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.bmkYZ0/unit-test-stdout /home/hachi/openkylin_test/sharefolder/results/libtomcrypt/unit-test-stdout
+184s autopkgtest: DBG: got reply from testbed: ok
+184s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.bmkYZ0/unit-test-stderr /home/hachi/openkylin_test/sharefolder/results/libtomcrypt/unit-test-stderr
+184s autopkgtest: DBG: got reply from testbed: ok
+184s autopkgtest [13:15:59]: test unit-test:  - - - - - - - - - - results - - - - - - - - - -
+184s unit-test            PASS
+184s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.bmkYZ0/unit-test-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libtomcrypt/artifacts/
+184s autopkgtest: DBG: got reply from testbed: ok
+184s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.bmkYZ0/unit-test-artifacts', '/tmp/autopkgtest.bmkYZ0/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+184s autopkgtest: DBG: testbed command exited with code 0
+184s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+184s autopkgtest [13:15:59]: @@@@@@@@@@@@@@@@@@@@ summary
+184s unit-test            PASS
+184s autopkgtest: DBG: testbed stop
+184s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.bmkYZ0
+184s autopkgtest: DBG: sending command to testbed: close
+184s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+185s autopkgtest: DBG: got reply from testbed: ok
+185s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,893 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:36:09]: starting date and time: 2024-07-18 01:36:09+0800
+  0s autopkgtest [01:36:09]: version @version@
+  0s autopkgtest [01:36:09]: host lili; command line: /usr/bin/autopkgtest rustc_1.75.0+dfsg-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/cargo -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.Sp5gFG
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c//tmp/autopkgtest.Sp5gFG
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c//tmp/autopkgtest.Sp5gFG', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Sp5gFG'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.Sp5gFG/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.Sp5gFG/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [01:36:10]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:36:11]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.Sp5gFG/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Sp5gFG/testbed-packages /home/hachi/openkylin_test/sharefolder/results/cargo/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:36:11]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [01:36:11]: @@@@@@@@@@@@@@@@@@@@ source rustc_1.75.0+dfsg-ok1.dsc
+  2s autopkgtest: DBG: blame += rustc_1.75.0+dfsg-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Sp5gFG'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown rustc_1.75.0%2Bdfsg-ok1.dsc /tmp/autopkgtest.Sp5gFG/rustc_1.75.0%2Bdfsg-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Sp5gFG'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown rustc_1.75.0%2Bdfsg.orig.tar.gz /tmp/autopkgtest.Sp5gFG/rustc_1.75.0%2Bdfsg.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Sp5gFG'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown rustc_1.75.0%2Bdfsg-ok1.debian.tar.xz /tmp/autopkgtest.Sp5gFG/rustc_1.75.0%2Bdfsg-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.Sp5gFG/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.Sp5gFG/rustc_1.75.0+dfsg-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.Sp5gFG/build.XXX
+  3s + builddir=/tmp/autopkgtest.Sp5gFG/build.eOT
+  3s + cd /tmp/autopkgtest.Sp5gFG/build.eOT
+  3s + dpkg-source -x /tmp/autopkgtest.Sp5gFG/rustc_1.75.0+dfsg-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.zbMQCXxR/trustedkeys.kbx': General error
+  3s gpgv: Signature made Mon 20 May 2024 02:43:19 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.Sp5gFG/rustc_1.75.0+dfsg-ok1.dsc
+  6s dpkg-source: info: extracting rustc in src
+  6s dpkg-source: info: unpacking rustc_1.75.0+dfsg.orig.tar.gz
+ 18s dpkg-source: info: unpacking rustc_1.75.0+dfsg-ok1.debian.tar.xz
+ 20s dpkg-source: info: using patch list from debian/patches/series
+ 20s dpkg-source: info: applying 0001-Apply-ubuntu-patches-and-update-debian.patch
+ 20s + chmod -R a+rX .
+ 21s + cd src/.
+ 21s + pwd
+ 21s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest [01:36:30]: testing package rustc version 1.75.0+dfsg-ok1
+ 21s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Sp5gFG/build.eOT/src/debian/ /home/hachi/openkylin_test/sharefolder/results/cargo/pkg/debian/
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: processing dependency @
+ 21s autopkgtest: DBG: synthesised dependency rustc
+ 21s autopkgtest: DBG: synthesised dependency libstd-rust-1.75
+ 21s autopkgtest: DBG: synthesised dependency libstd-rust-dev
+ 21s autopkgtest: DBG: synthesised dependency rust-gdb
+ 21s autopkgtest: DBG: synthesised dependency rust-lldb
+ 21s autopkgtest: DBG: synthesised dependency rust-doc
+ 21s autopkgtest: DBG: synthesised dependency rust-src
+ 21s autopkgtest: DBG: synthesised dependency rust-clippy
+ 21s autopkgtest: DBG: synthesised dependency rustfmt
+ 21s autopkgtest: DBG: synthesised dependency rust-all
+ 21s autopkgtest: DBG: synthesised dependency cargo
+ 21s autopkgtest: DBG: synthesised dependency cargo-doc
+ 21s autopkgtest: DBG: processing dependency @builddeps@
+ 21s autopkgtest: DBG: synthesised dependency debhelper (>= 9)
+ 21s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+ 21s autopkgtest: DBG: synthesised dependency dh-cargo (>= 28ubuntu1~)
+ 21s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.17.14)
+ 21s autopkgtest: DBG: synthesised dependency python3:native
+ 21s autopkgtest: DBG: synthesised dependency cargo:native (>= 1.74.0+dfsg)
+ 21s autopkgtest: DBG: synthesised dependency rustc:native (>= 1.74.0+dfsg)
+ 21s autopkgtest: DBG: synthesised dependency rustc:native (<= 1.75.1++)
+ 21s autopkgtest: DBG: synthesised dependency llvm-17-dev:native
+ 21s autopkgtest: DBG: synthesised dependency llvm-17-tools:native
+ 21s autopkgtest: DBG: synthesised dependency libclang-rt-17-dev (>= 1:17.0.2)
+ 21s autopkgtest: DBG: synthesised dependency libclang-common-17-dev (>= 1:17.0.2)
+ 21s autopkgtest: DBG: synthesised dependency cmake (>= 3.0) | cmake3
+ 21s autopkgtest: DBG: synthesised dependency pkg-config
+ 21s autopkgtest: DBG: synthesised dependency zlib1g-dev:native
+ 21s autopkgtest: DBG: synthesised dependency zlib1g-dev
+ 21s autopkgtest: DBG: synthesised dependency liblzma-dev:native
+ 21s autopkgtest: DBG: synthesised dependency bash-completion
+ 21s autopkgtest: DBG: synthesised dependency libcurl4-gnutls-dev | libcurl4-openssl-dev
+ 21s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+ 21s autopkgtest: DBG: synthesised dependency libgit2-dev (>= 1.7.0)
+ 21s autopkgtest: DBG: synthesised dependency libgit2-dev (<< 1.8~~)
+ 21s autopkgtest: DBG: synthesised dependency libhttp-parser-dev
+ 21s autopkgtest: DBG: synthesised dependency binutils (>= 2.26) | binutils-2.26
+ 21s autopkgtest: DBG: synthesised dependency git
+ 21s autopkgtest: DBG: synthesised dependency procps
+ 21s autopkgtest: DBG: synthesised dependency libjs-jquery
+ 21s autopkgtest: DBG: synthesised dependency libjs-highlight.js
+ 21s autopkgtest: DBG: synthesised dependency libjs-mathjax
+ 21s autopkgtest: DBG: synthesised dependency fonts-open-sans
+ 21s autopkgtest: DBG: synthesised dependency fonts-font-awesome
+ 21s autopkgtest: DBG: synthesised dependency gdb (>= 7.12)
+ 21s autopkgtest: DBG: synthesised dependency clang-17:native
+ 21s autopkgtest: DBG: synthesised dependency libssl-dev
+ 21s autopkgtest: DBG: synthesised dependency build-essential
+ 21s autopkgtest: DBG: Test defined: name command1 path None command "./debian/rules build" restrictions ['allow-stderr', 'rw-build-tree'] features [] depends ['rustc', 'libstd-rust-1.75', 'libstd-rust-dev', 'rust-gdb', 'rust-lldb', 'rust-doc', 'rust-src', 'rust-clippy', 'rustfmt', 'rust-all', 'cargo', 'cargo-doc', 'debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential'] 
+ 21s autopkgtest: DBG: processing dependency @builddeps@
+ 22s autopkgtest: DBG: synthesised dependency debhelper (>= 9)
+ 22s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+ 22s autopkgtest: DBG: synthesised dependency dh-cargo (>= 28ubuntu1~)
+ 22s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.17.14)
+ 22s autopkgtest: DBG: synthesised dependency python3:native
+ 22s autopkgtest: DBG: synthesised dependency cargo:native (>= 1.74.0+dfsg)
+ 22s autopkgtest: DBG: synthesised dependency rustc:native (>= 1.74.0+dfsg)
+ 22s autopkgtest: DBG: synthesised dependency rustc:native (<= 1.75.1++)
+ 22s autopkgtest: DBG: synthesised dependency llvm-17-dev:native
+ 22s autopkgtest: DBG: synthesised dependency llvm-17-tools:native
+ 22s autopkgtest: DBG: synthesised dependency libclang-rt-17-dev (>= 1:17.0.2)
+ 22s autopkgtest: DBG: synthesised dependency libclang-common-17-dev (>= 1:17.0.2)
+ 22s autopkgtest: DBG: synthesised dependency cmake (>= 3.0) | cmake3
+ 22s autopkgtest: DBG: synthesised dependency pkg-config
+ 22s autopkgtest: DBG: synthesised dependency zlib1g-dev:native
+ 22s autopkgtest: DBG: synthesised dependency zlib1g-dev
+ 22s autopkgtest: DBG: synthesised dependency liblzma-dev:native
+ 22s autopkgtest: DBG: synthesised dependency bash-completion
+ 22s autopkgtest: DBG: synthesised dependency libcurl4-gnutls-dev | libcurl4-openssl-dev
+ 22s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+ 22s autopkgtest: DBG: synthesised dependency libgit2-dev (>= 1.7.0)
+ 22s autopkgtest: DBG: synthesised dependency libgit2-dev (<< 1.8~~)
+ 22s autopkgtest: DBG: synthesised dependency libhttp-parser-dev
+ 22s autopkgtest: DBG: synthesised dependency binutils (>= 2.26) | binutils-2.26
+ 22s autopkgtest: DBG: synthesised dependency git
+ 22s autopkgtest: DBG: synthesised dependency procps
+ 22s autopkgtest: DBG: synthesised dependency libjs-jquery
+ 22s autopkgtest: DBG: synthesised dependency libjs-highlight.js
+ 22s autopkgtest: DBG: synthesised dependency libjs-mathjax
+ 22s autopkgtest: DBG: synthesised dependency fonts-open-sans
+ 22s autopkgtest: DBG: synthesised dependency fonts-font-awesome
+ 22s autopkgtest: DBG: synthesised dependency gdb (>= 7.12)
+ 22s autopkgtest: DBG: synthesised dependency clang-17:native
+ 22s autopkgtest: DBG: synthesised dependency libssl-dev
+ 22s autopkgtest: DBG: synthesised dependency build-essential
+ 22s autopkgtest: DBG: Test defined: name create-and-build-crate path debian/tests/create-and-build-crate command "None" restrictions ['allow-stderr', 'rw-build-tree'] features [] depends ['debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential'] 
+ 22s autopkgtest [01:36:31]: build not needed
+ 22s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Sp5gFG/build.eOT/src/ /home/hachi/openkylin_test/sharefolder/results/cargo/tests-tree/
+ 68s autopkgtest: DBG: got reply from testbed: ok
+ 68s autopkgtest: DBG: processing dependency @
+ 68s autopkgtest: DBG: synthesised dependency rustc
+ 68s autopkgtest: DBG: synthesised dependency libstd-rust-1.75
+ 68s autopkgtest: DBG: synthesised dependency libstd-rust-dev
+ 68s autopkgtest: DBG: synthesised dependency rust-gdb
+ 68s autopkgtest: DBG: synthesised dependency rust-lldb
+ 68s autopkgtest: DBG: synthesised dependency rust-doc
+ 68s autopkgtest: DBG: synthesised dependency rust-src
+ 68s autopkgtest: DBG: synthesised dependency rust-clippy
+ 68s autopkgtest: DBG: synthesised dependency rustfmt
+ 68s autopkgtest: DBG: synthesised dependency rust-all
+ 68s autopkgtest: DBG: synthesised dependency cargo
+ 68s autopkgtest: DBG: synthesised dependency cargo-doc
+ 68s autopkgtest: DBG: processing dependency @builddeps@
+ 69s autopkgtest: DBG: synthesised dependency debhelper (>= 9)
+ 69s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+ 69s autopkgtest: DBG: synthesised dependency dh-cargo (>= 28ubuntu1~)
+ 69s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.17.14)
+ 69s autopkgtest: DBG: synthesised dependency python3:native
+ 69s autopkgtest: DBG: synthesised dependency cargo:native (>= 1.74.0+dfsg)
+ 69s autopkgtest: DBG: synthesised dependency rustc:native (>= 1.74.0+dfsg)
+ 69s autopkgtest: DBG: synthesised dependency rustc:native (<= 1.75.1++)
+ 69s autopkgtest: DBG: synthesised dependency llvm-17-dev:native
+ 69s autopkgtest: DBG: synthesised dependency llvm-17-tools:native
+ 69s autopkgtest: DBG: synthesised dependency libclang-rt-17-dev (>= 1:17.0.2)
+ 69s autopkgtest: DBG: synthesised dependency libclang-common-17-dev (>= 1:17.0.2)
+ 69s autopkgtest: DBG: synthesised dependency cmake (>= 3.0) | cmake3
+ 69s autopkgtest: DBG: synthesised dependency pkg-config
+ 69s autopkgtest: DBG: synthesised dependency zlib1g-dev:native
+ 69s autopkgtest: DBG: synthesised dependency zlib1g-dev
+ 69s autopkgtest: DBG: synthesised dependency liblzma-dev:native
+ 69s autopkgtest: DBG: synthesised dependency bash-completion
+ 69s autopkgtest: DBG: synthesised dependency libcurl4-gnutls-dev | libcurl4-openssl-dev
+ 69s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+ 69s autopkgtest: DBG: synthesised dependency libgit2-dev (>= 1.7.0)
+ 69s autopkgtest: DBG: synthesised dependency libgit2-dev (<< 1.8~~)
+ 69s autopkgtest: DBG: synthesised dependency libhttp-parser-dev
+ 69s autopkgtest: DBG: synthesised dependency binutils (>= 2.26) | binutils-2.26
+ 69s autopkgtest: DBG: synthesised dependency git
+ 69s autopkgtest: DBG: synthesised dependency procps
+ 69s autopkgtest: DBG: synthesised dependency libjs-jquery
+ 69s autopkgtest: DBG: synthesised dependency libjs-highlight.js
+ 69s autopkgtest: DBG: synthesised dependency libjs-mathjax
+ 69s autopkgtest: DBG: synthesised dependency fonts-open-sans
+ 69s autopkgtest: DBG: synthesised dependency fonts-font-awesome
+ 69s autopkgtest: DBG: synthesised dependency gdb (>= 7.12)
+ 69s autopkgtest: DBG: synthesised dependency clang-17:native
+ 69s autopkgtest: DBG: synthesised dependency libssl-dev
+ 69s autopkgtest: DBG: synthesised dependency build-essential
+ 69s autopkgtest: DBG: Test defined: name command1 path None command "./debian/rules build" restrictions ['allow-stderr', 'rw-build-tree'] features [] depends ['rustc', 'libstd-rust-1.75', 'libstd-rust-dev', 'rust-gdb', 'rust-lldb', 'rust-doc', 'rust-src', 'rust-clippy', 'rustfmt', 'rust-all', 'cargo', 'cargo-doc', 'debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential'] 
+ 69s autopkgtest: DBG: processing dependency @builddeps@
+ 69s autopkgtest: DBG: synthesised dependency debhelper (>= 9)
+ 69s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+ 69s autopkgtest: DBG: synthesised dependency dh-cargo (>= 28ubuntu1~)
+ 69s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.17.14)
+ 69s autopkgtest: DBG: synthesised dependency python3:native
+ 69s autopkgtest: DBG: synthesised dependency cargo:native (>= 1.74.0+dfsg)
+ 69s autopkgtest: DBG: synthesised dependency rustc:native (>= 1.74.0+dfsg)
+ 69s autopkgtest: DBG: synthesised dependency rustc:native (<= 1.75.1++)
+ 69s autopkgtest: DBG: synthesised dependency llvm-17-dev:native
+ 69s autopkgtest: DBG: synthesised dependency llvm-17-tools:native
+ 69s autopkgtest: DBG: synthesised dependency libclang-rt-17-dev (>= 1:17.0.2)
+ 69s autopkgtest: DBG: synthesised dependency libclang-common-17-dev (>= 1:17.0.2)
+ 69s autopkgtest: DBG: synthesised dependency cmake (>= 3.0) | cmake3
+ 69s autopkgtest: DBG: synthesised dependency pkg-config
+ 69s autopkgtest: DBG: synthesised dependency zlib1g-dev:native
+ 69s autopkgtest: DBG: synthesised dependency zlib1g-dev
+ 69s autopkgtest: DBG: synthesised dependency liblzma-dev:native
+ 69s autopkgtest: DBG: synthesised dependency bash-completion
+ 69s autopkgtest: DBG: synthesised dependency libcurl4-gnutls-dev | libcurl4-openssl-dev
+ 69s autopkgtest: DBG: synthesised dependency libssh2-1-dev
+ 69s autopkgtest: DBG: synthesised dependency libgit2-dev (>= 1.7.0)
+ 69s autopkgtest: DBG: synthesised dependency libgit2-dev (<< 1.8~~)
+ 69s autopkgtest: DBG: synthesised dependency libhttp-parser-dev
+ 69s autopkgtest: DBG: synthesised dependency binutils (>= 2.26) | binutils-2.26
+ 69s autopkgtest: DBG: synthesised dependency git
+ 69s autopkgtest: DBG: synthesised dependency procps
+ 69s autopkgtest: DBG: synthesised dependency libjs-jquery
+ 69s autopkgtest: DBG: synthesised dependency libjs-highlight.js
+ 69s autopkgtest: DBG: synthesised dependency libjs-mathjax
+ 69s autopkgtest: DBG: synthesised dependency fonts-open-sans
+ 69s autopkgtest: DBG: synthesised dependency fonts-font-awesome
+ 69s autopkgtest: DBG: synthesised dependency gdb (>= 7.12)
+ 69s autopkgtest: DBG: synthesised dependency clang-17:native
+ 69s autopkgtest: DBG: synthesised dependency libssl-dev
+ 69s autopkgtest: DBG: synthesised dependency build-essential
+ 69s autopkgtest: DBG: Test defined: name create-and-build-crate path debian/tests/create-and-build-crate command "None" restrictions ['allow-stderr', 'rw-build-tree'] features [] depends ['debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential'] 
+ 69s autopkgtest [01:37:18]: test command1: preparing testbed
+ 69s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['rustc', 'libstd-rust-1.75', 'libstd-rust-dev', 'rust-gdb', 'rust-lldb', 'rust-doc', 'rust-src', 'rust-clippy', 'rustfmt', 'rust-all', 'cargo', 'cargo-doc', 'debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential']
+ 69s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 69s autopkgtest: DBG: install_deps: deps_new=['rustc', 'libstd-rust-1.75', 'libstd-rust-dev', 'rust-gdb', 'rust-lldb', 'rust-doc', 'rust-src', 'rust-clippy', 'rustfmt', 'rust-all', 'cargo', 'cargo-doc', 'debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential']
+ 69s autopkgtest: DBG: install-deps: satisfying rustc, libstd-rust-1.75, libstd-rust-dev, rust-gdb, rust-lldb, rust-doc, rust-src, rust-clippy, rustfmt, rust-all, cargo, cargo-doc, debhelper (>= 9), debhelper-compat (= 13), dh-cargo (>= 28ubuntu1~), dpkg-dev (>= 1.17.14), python3:native, cargo:native (>= 1.74.0+dfsg), rustc:native (>= 1.74.0+dfsg), rustc:native (<= 1.75.1++), llvm-17-dev:native, llvm-17-tools:native, libclang-rt-17-dev (>= 1:17.0.2), libclang-common-17-dev (>= 1:17.0.2), cmake (>= 3.0) | cmake3, pkg-config, zlib1g-dev:native, zlib1g-dev, liblzma-dev:native, bash-completion, libcurl4-gnutls-dev | libcurl4-openssl-dev, libssh2-1-dev, libgit2-dev (>= 1.7.0), libgit2-dev (<< 1.8~~), libhttp-parser-dev, binutils (>= 2.26) | binutils-2.26, git, procps, libjs-jquery, libjs-highlight.js, libjs-mathjax, fonts-open-sans, fonts-font-awesome, gdb (>= 7.12), clang-17:native, libssl-dev, build-essential
+ 69s autopkgtest: DBG: install-deps: architecture resolved: rustc, libstd-rust-1.75, libstd-rust-dev, rust-gdb, rust-lldb, rust-doc, rust-src, rust-clippy, rustfmt, rust-all, cargo, cargo-doc, debhelper (>= 9), debhelper-compat (= 13), dh-cargo (>= 28ubuntu1~), dpkg-dev (>= 1.17.14), python3, cargo (>= 1.74.0+dfsg), rustc (>= 1.74.0+dfsg), rustc (<= 1.75.1++), llvm-17-dev, llvm-17-tools, libclang-rt-17-dev (>= 1:17.0.2), libclang-common-17-dev (>= 1:17.0.2), cmake (>= 3.0) | cmake3, pkg-config, zlib1g-dev, zlib1g-dev, liblzma-dev, bash-completion, libcurl4-gnutls-dev | libcurl4-openssl-dev, libssh2-1-dev, libgit2-dev (>= 1.7.0), libgit2-dev (<< 1.8~~), libhttp-parser-dev, binutils (>= 2.26) | binutils-2.26, git, procps, libjs-jquery, libjs-highlight.js, libjs-mathjax, fonts-open-sans, fonts-font-awesome, gdb (>= 7.12), clang-17, libssl-dev, build-essential
+ 69s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 69s autopkgtest: DBG: testbed command exited with code 0
+ 69s autopkgtest: DBG: can use apt-get on testbed: True
+ 69s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Sp5gFG'], kind short, sout raw, serr pipe, env []
+ 69s autopkgtest: DBG: testbed command exited with code 0
+ 69s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c//tmp/autopkgtest.Sp5gFG/1-autopkgtest-satdep.deb /tmp/autopkgtest.Sp5gFG/1-autopkgtest-satdep.deb
+ 69s autopkgtest: DBG: got reply from testbed: ok
+ 69s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.Sp5gFG/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 70s Reading package lists...
+ 70s Building dependency tree...
+ 70s Reading state information...
+ 71s Starting pkgProblemResolver with broken count: 1
+ 71s Starting 2 pkgProblemResolver with broken count: 1
+ 71s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rustc:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rustc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libzstd1:riscv64
+ 71s   Re-Instated libllvm17t64:riscv64
+ 71s   Re-Instated libstd-rust-1.75:riscv64
+ 71s   Re-Instated libstd-rust-dev:riscv64
+ 71s   Re-Instated rustc:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-gdb:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-gdb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libelf1t64:riscv64
+ 71s   Re-Instated libdw1t64:riscv64
+ 71s   Re-Instated libbabeltrace1:riscv64
+ 71s   Re-Instated libdebuginfod-common:riscv64
+ 71s   Re-Instated libdebuginfod1t64:riscv64
+ 71s   Re-Instated libgmp10:riscv64
+ 71s     Reinst Failed early because of libpython3.12-stdlib:riscv64
+ 71s     Reinst Failed because of libpython3.12:riscv64
+ 71s     Reinst Failed because of gdb:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-lldb:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-lldb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s     Reinst Failed early because of lldb-17:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-doc:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libjs-jquery:riscv64
+ 71s     Reinst Failed early because of libjs-highlight.js:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-src:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-src:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated rust-src:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-clippy:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-clippy:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated rust-clippy:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rustfmt:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rustfmt:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated rustfmt:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-all:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-all:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated llvm-17-runtime:riscv64
+ 71s   Re-Instated llvm-17-linker-tools:riscv64
+ 71s     Reinst Failed early because of libpfm4:riscv64
+ 71s     Reinst Failed because of llvm-17:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 71s     Reinst Failed because of libgit2-1.7:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cargo-doc:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering cargo-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated cargo-doc:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on debhelper:riscv64 < none | 13.15.3-ok1 @un uH > (>= 9)
+ 71s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated autotools-dev:riscv64
+ 71s   Re-Instated m4:riscv64
+ 71s   Re-Instated autoconf:riscv64
+ 71s   Re-Instated automake:riscv64
+ 71s   Re-Instated autopoint:riscv64
+ 71s   Re-Instated libdebhelper-perl:riscv64
+ 71s   Re-Instated libtool:riscv64
+ 71s   Re-Instated dh-autoreconf:riscv64
+ 71s   Re-Instated libarchive-zip-perl:riscv64
+ 71s   Re-Instated libsub-override-perl:riscv64
+ 71s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+ 71s   Re-Instated dh-strip-nondeterminism:riscv64
+ 71s   Re-Instated dwz:riscv64
+ 71s   Re-Instated intltool-debian:riscv64
+ 71s   Re-Instated po-debconf:riscv64
+ 71s   Re-Instated debhelper:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 28ubuntu1~)
+ 71s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s     Reinst Failed because of cargo:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH > (>= 1.74.0+dfsg)
+ 71s   Considering cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 71s   Considering llvm-17-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s     Reinst Failed because of llvm-17:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-tools:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 71s   Considering llvm-17-tools:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated llvm-17-tools:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libclang-rt-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 1:17.0.2)
+ 71s   Considering libclang-rt-17-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libclang-rt-17-dev:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libclang-common-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 1:17.0.2)
+ 71s   Considering libclang-common-17-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libclang-common-17-dev:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH > (>= 3.0)
+ 71s   Considering cmake:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libnettle8t64:riscv64
+ 71s   Re-Instated libarchive13t64:riscv64
+ 71s   Re-Instated librhash0:riscv64
+ 71s   Re-Instated cmake-data:riscv64
+ 71s   Re-Instated cmake:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on liblzma-dev:riscv64 < none | 5.4.5-ok2 @un uH >
+ 71s   Considering liblzma-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated liblzma5:riscv64
+ 71s   Re-Instated liblzma-dev:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libcurl4-gnutls-dev:riscv64 < none | 8.5.0-ok1.8 @un uH >
+ 71s   Considering libcurl4-gnutls-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libhogweed6t64:riscv64
+ 71s   Re-Instated libunistring5:riscv64
+ 71s   Re-Instated libgnutls30t64:riscv64
+ 71s   Re-Instated libnghttp2-14:riscv64
+ 71s   Re-Instated libpsl5t64:riscv64
+ 71s   Re-Instated libssh2-1t64:riscv64
+ 71s   Re-Instated libcurl3-gnutls:riscv64
+ 71s   Re-Instated libcurl4-gnutls-dev:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libssh2-1-dev:riscv64 < none | 1.11.0-ok1 @un uH >
+ 71s   Considering libssh2-1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libssl-dev:riscv64
+ 71s   Re-Instated libssh2-1-dev:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (>= 1.7.0)
+ 71s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s     Reinst Failed because of libgit2-1.7:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (< 1.8~~)
+ 71s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libhttp-parser-dev:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libjs-highlight.js:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on fonts-open-sans:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on fonts-font-awesome:riscv64 < none | 5.0.10+really4.7.0~dfsg-ok2 @un uH >
+ 71s   Considering fonts-font-awesome:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated fonts-font-awesome:riscv64
+ 71s Broken autopkgtest-satdep:riscv64 Depends on gdb:riscv64 < none | 15.0.50.20240403-ok2 @un uH > (>= 7.12)
+ 71s   Considering gdb:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on clang-17:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 71s   Considering clang-17:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Re-Instated libclang-cpp17t64:riscv64
+ 71s   Re-Instated gcc-12-base:riscv64
+ 71s   Re-Instated gcc-13-base:riscv64
+ 71s   Re-Instated libgcc-s1:riscv64
+ 71s   Re-Instated libgomp1:riscv64
+ 71s   Re-Instated libatomic1:riscv64
+ 71s   Re-Instated libasan8:riscv64
+ 71s   Re-Instated libgcc-12-dev:riscv64
+ 71s   Re-Instated libgc1c2:riscv64
+ 71s   Re-Instated libobjc4:riscv64
+ 71s   Re-Instated libobjc-12-dev:riscv64
+ 71s   Re-Instated libclang1-17t64:riscv64
+ 71s   Re-Instated clang-17:riscv64
+ 71s Investigating (0) libstdc++6:riscv64 < 12.2.0-ok7 | 13.2.0-4ok3.3 @ii uH Ib >
+ 71s Broken libstdc++6:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU > (= 12.2.0-ok7)
+ 71s   Considering gcc-12-base:riscv64 812 as a solution to libstdc++6:riscv64 2414
+ 71s   Added gcc-12-base:riscv64 to the remove list
+ 71s   Fixing libstdc++6:riscv64 via keep of gcc-12-base:riscv64
+ 71s Investigating (0) gcc-12:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH Ib >
+ 71s Broken gcc-12:riscv64 Depends on libgcc-12-dev:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU Ib > (= 12.2.0-ok7)
+ 71s   Considering libgcc-12-dev:riscv64 4 as a solution to gcc-12:riscv64 8
+ 71s   Added libgcc-12-dev:riscv64 to the remove list
+ 71s   Fixing gcc-12:riscv64 via keep of libgcc-12-dev:riscv64
+ 71s Investigating (0) libelf1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 71s Broken libelf1t64:riscv64 Breaks on libelf1:riscv64 < 0.187-ok1 @ii K > (< 0.190-ok3)
+ 71s   Considering libelf1:riscv64 32 as a solution to libelf1t64:riscv64 0
+ 71s   Holding Back libelf1t64:riscv64 rather than change libelf1:riscv64
+ 71s Investigating (0) libbabeltrace1:riscv64 < none -> 1.5.11-ok1 @un uN Ib >
+ 71s Broken libbabeltrace1:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (>= 0.131)
+ 71s   Considering libelf1t64:riscv64 0 as a solution to libbabeltrace1:riscv64 0
+ 71s   Holding Back libbabeltrace1:riscv64 rather than change libelf1t64:riscv64
+ 71s Investigating (0) libgnutls30t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 71s Broken libgnutls30t64:riscv64 Breaks on libgnutls30:riscv64 < 3.6.13-ok3 @ii K > (< 3.8.3-ok3)
+ 71s   Considering libgnutls30:riscv64 217 as a solution to libgnutls30t64:riscv64 0
+ 71s   Holding Back libgnutls30t64:riscv64 rather than change libgnutls30:riscv64
+ 71s Investigating (0) libpsl5t64:riscv64 < none -> 0.21.2-ok1.2 @un uN Ib >
+ 71s Broken libpsl5t64:riscv64 Breaks on libpsl5:riscv64 < 0.21.0-ok2 @ii K > (< 0.21.2-ok1.2)
+ 71s   Considering libpsl5:riscv64 31 as a solution to libpsl5t64:riscv64 0
+ 71s   Holding Back libpsl5t64:riscv64 rather than change libpsl5:riscv64
+ 71s Investigating (0) libdebuginfod1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 71s Broken libdebuginfod1t64:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (= 0.190-ok3)
+ 71s   Considering libelf1t64:riscv64 0 as a solution to libdebuginfod1t64:riscv64 0
+ 71s   Holding Back libdebuginfod1t64:riscv64 rather than change libelf1t64:riscv64
+ 71s Investigating (0) libobjc-12-dev:riscv64 < none -> 12.3.0-1ok3 @un uN Ib >
+ 71s Broken libobjc-12-dev:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH > (= 12.3.0-1ok3)
+ 71s   Considering gcc-12-base:riscv64 812 as a solution to libobjc-12-dev:riscv64 0
+ 71s   Holding Back libobjc-12-dev:riscv64 rather than change gcc-12-base:riscv64
+ 71s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+ 71s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+ 71s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+ 71s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+ 71s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-gdb:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-gdb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-lldb:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-lldb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-doc:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-all:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-all:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 28ubuntu1~)
+ 71s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH > (>= 1.74.0+dfsg)
+ 71s   Considering cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 71s   Considering llvm-17-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (>= 1.7.0)
+ 71s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (< 1.8~~)
+ 71s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libhttp-parser-dev:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libjs-highlight.js:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on fonts-open-sans:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on gdb:riscv64 < none | 15.0.50.20240403-ok2 @un uH > (>= 7.12)
+ 71s   Considering gdb:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Investigating (1) libcurl3-gnutls:riscv64 < 7.68.0-ok5.2 -> 8.5.0-ok1.8 @ii uU Ib >
+ 71s Broken libcurl3-gnutls:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.3-ok3)
+ 71s   Considering libgnutls30t64:riscv64 0 as a solution to libcurl3-gnutls:riscv64 25
+ 71s   Holding Back libcurl3-gnutls:riscv64 rather than change libgnutls30t64:riscv64
+ 71s Investigating (1) clang-17:riscv64 < none -> 1:17.0.6-9ok4 @un uN Ib >
+ 71s Broken clang-17:riscv64 Depends on libobjc-12-dev:riscv64 < none | 12.3.0-1ok3 @un uH >
+ 71s   Considering libobjc-12-dev:riscv64 0 as a solution to clang-17:riscv64 1
+ 71s   Holding Back clang-17:riscv64 rather than change libobjc-12-dev:riscv64
+ 71s Investigating (1) libcurl4-gnutls-dev:riscv64 < none -> 8.5.0-ok1.8 @un uN Ib >
+ 71s Broken libcurl4-gnutls-dev:riscv64 Depends on libcurl3-gnutls:riscv64 < 7.68.0-ok5.2 | 8.5.0-ok1.8 @ii uH > (= 8.5.0-ok1.8)
+ 71s   Considering libcurl3-gnutls:riscv64 25 as a solution to libcurl4-gnutls-dev:riscv64 1
+ 71s   Holding Back libcurl4-gnutls-dev:riscv64 rather than change libcurl3-gnutls:riscv64
+ 71s Investigating (1) libdw1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 71s Broken libdw1t64:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (= 0.190-ok3)
+ 71s   Considering libelf1t64:riscv64 0 as a solution to libdw1t64:riscv64 0
+ 71s   Holding Back libdw1t64:riscv64 rather than change libelf1t64:riscv64
+ 71s Investigating (1) cmake:riscv64 < none -> 3.28.3-ok1 @un uN Ib >
+ 71s Broken cmake:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.3.3)
+ 71s   Considering libarchive13t64:riscv64 0 as a solution to cmake:riscv64 0
+ 71s   Holding Back cmake:riscv64 rather than change libarchive13t64:riscv64
+ 71s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-gdb:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-gdb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-lldb:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-lldb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-doc:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on rust-all:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering rust-all:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH >
+ 71s   Considering cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 28ubuntu1~)
+ 71s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH > (>= 1.74.0+dfsg)
+ 71s   Considering cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 71s   Considering llvm-17-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH > (>= 3.0)
+ 71s   Considering cmake:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Considering cmake:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on cmake3:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libcurl4-gnutls-dev:riscv64 < none | 8.5.0-ok1.8 @un uH >
+ 71s   Considering libcurl4-gnutls-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s   Considering libcurl4-gnutls-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libcurl4-openssl-dev:riscv64 < none | 8.5.0-ok1.8 @un uH >
+ 71s   Considering libcurl4-openssl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s     Reinst Failed because of libpsl5t64:riscv64
+ 71s     Reinst Failed because of libcurl4:riscv64
+ 71s   Considering libcurl4-openssl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (>= 1.7.0)
+ 71s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (< 1.8~~)
+ 71s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libhttp-parser-dev:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on libjs-highlight.js:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on fonts-open-sans:riscv64 < none @un H >
+ 71s Broken autopkgtest-satdep:riscv64 Depends on gdb:riscv64 < none | 15.0.50.20240403-ok2 @un uH > (>= 7.12)
+ 71s   Considering gdb:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Broken autopkgtest-satdep:riscv64 Depends on clang-17:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 71s   Considering clang-17:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 71s Done
+ 71s Some packages could not be installed. This may mean that you have
+ 71s requested an impossible situation or if you are using the unstable
+ 71s distribution that some required packages have not yet been created
+ 71s or been moved out of Incoming.
+ 71s The following information may help to resolve the situation:
+ 71s 
+ 71s The following packages have unmet dependencies:
+ 71s  autopkgtest-satdep : Depends: rust-gdb but it is not going to be installed
+ 71s                       Depends: rust-lldb but it is not going to be installed
+ 71s                       Depends: rust-doc but it is not going to be installed
+ 71s                       Depends: rust-all but it is not going to be installed
+ 71s                       Depends: cargo but it is not going to be installed
+ 71s                       Depends: dh-cargo (>= 28ubuntu1~) but it is not going to be installed
+ 71s                       Depends: cargo (>= 1.74.0+dfsg) but it is not going to be installed
+ 71s                       Depends: llvm-17-dev but it is not going to be installed
+ 71s                       Depends: cmake (>= 3.0) but it is not going to be installed or
+ 71s                                cmake3 but it is not installable
+ 71s                       Depends: libcurl4-gnutls-dev but it is not going to be installed or
+ 71s                                libcurl4-openssl-dev but it is not going to be installed
+ 71s                       Depends: libgit2-dev (>= 1.7.0) but it is not going to be installed
+ 71s                       Depends: libgit2-dev (< 1.8~~) but it is not going to be installed
+ 71s                       Depends: libhttp-parser-dev but it is not installable
+ 71s                       Depends: libjs-highlight.js but it is not installable
+ 71s                       Depends: fonts-open-sans but it is not installable
+ 71s                       Depends: gdb (>= 7.12) but it is not going to be installed
+ 71s                       Depends: clang-17 but it is not going to be installed
+ 71s E: Unable to correct problems, you have held broken packages.
+ 71s autopkgtest: DBG: testbed command exited with code 100
+ 71s autopkgtest: DBG: apt-get install /tmp/autopkgtest.Sp5gFG/1-autopkgtest-satdep.deb failed; status-fd:
+ 71s 
+ 71s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 71s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate rustc libstd-rust-1.75 libstd-rust-dev rust-gdb rust-lldb rust-doc rust-src rust-clippy rustfmt rust-all cargo cargo-doc debhelper (>= 9) debhelper-compat (= 13) dh-cargo (>= 28ubuntu1~) dpkg-dev (>= 1.17.14) python3 cargo (>= 1.74.0+dfsg) rustc (>= 1.74.0+dfsg) rustc (<= 1.75.1++) llvm-17-dev llvm-17-tools libclang-rt-17-dev (>= 1:17.0.2) libclang-common-17-dev (>= 1:17.0.2) cmake (>= 3.0) | cmake3 pkg-config zlib1g-dev zlib1g-dev liblzma-dev bash-completion libcurl4-gnutls-dev | libcurl4-openssl-dev libssh2-1-dev libgit2-dev (>= 1.7.0) libgit2-dev (<< 1.8~~) libhttp-parser-dev binutils (>= 2.26) | binutils-2.26 git procps libjs-jquery libjs-highlight.js libjs-mathjax fonts-open-sans fonts-font-awesome gdb (>= 7.12) clang-17 libssl-dev build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 71s autopkgtest: DBG: testbed command exited with code 2
+ 71s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 71s command1             FAIL badpkg
+ 71s blame: rustc_1.75.0+dfsg-ok1.dsc
+ 71s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 71s autopkgtest [01:37:20]: test create-and-build-crate: preparing testbed
+ 71s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['rustc', 'libstd-rust-1.75', 'libstd-rust-dev', 'rust-gdb', 'rust-lldb', 'rust-doc', 'rust-src', 'rust-clippy', 'rustfmt', 'rust-all', 'cargo', 'cargo-doc', 'debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential'], deps_new=['debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential']
+ 71s autopkgtest: DBG: testbed reset
+ 71s autopkgtest: DBG: sending command to testbed: revert
+ 74s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 76s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.Sp5gFG
+ 76s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 76s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c,--user%3Droot,--
+ 76s autopkgtest: DBG: sending command to testbed: capabilities
+ 76s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c//tmp/autopkgtest.Sp5gFG
+ 76s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c//tmp/autopkgtest.Sp5gFG', 'has_internet']
+ 76s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Sp5gFG'], kind short, sout raw, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.Sp5gFG/wrapper.sh
+ 77s autopkgtest: DBG: got reply from testbed: ok
+ 77s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.Sp5gFG/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest [01:37:26]: testbed dpkg architecture: riscv64
+ 77s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest [01:37:26]: testbed apt version: 2.7.3-ok3
+ 77s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 127
+ 77s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.Sp5gFG/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Sp5gFG/testbed-packages /home/hachi/openkylin_test/sharefolder/results/cargo/testbed-packages
+ 77s autopkgtest: DBG: got reply from testbed: ok
+ 77s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 77s autopkgtest: DBG: install_deps: deps_new=['debhelper (>= 9)', 'debhelper-compat (= 13)', 'dh-cargo (>= 28ubuntu1~)', 'dpkg-dev (>= 1.17.14)', 'python3:native', 'cargo:native (>= 1.74.0+dfsg)', 'rustc:native (>= 1.74.0+dfsg)', 'rustc:native (<= 1.75.1++)', 'llvm-17-dev:native', 'llvm-17-tools:native', 'libclang-rt-17-dev (>= 1:17.0.2)', 'libclang-common-17-dev (>= 1:17.0.2)', 'cmake (>= 3.0) | cmake3', 'pkg-config', 'zlib1g-dev:native', 'zlib1g-dev', 'liblzma-dev:native', 'bash-completion', 'libcurl4-gnutls-dev | libcurl4-openssl-dev', 'libssh2-1-dev', 'libgit2-dev (>= 1.7.0)', 'libgit2-dev (<< 1.8~~)', 'libhttp-parser-dev', 'binutils (>= 2.26) | binutils-2.26', 'git', 'procps', 'libjs-jquery', 'libjs-highlight.js', 'libjs-mathjax', 'fonts-open-sans', 'fonts-font-awesome', 'gdb (>= 7.12)', 'clang-17:native', 'libssl-dev', 'build-essential']
+ 77s autopkgtest: DBG: install-deps: satisfying debhelper (>= 9), debhelper-compat (= 13), dh-cargo (>= 28ubuntu1~), dpkg-dev (>= 1.17.14), python3:native, cargo:native (>= 1.74.0+dfsg), rustc:native (>= 1.74.0+dfsg), rustc:native (<= 1.75.1++), llvm-17-dev:native, llvm-17-tools:native, libclang-rt-17-dev (>= 1:17.0.2), libclang-common-17-dev (>= 1:17.0.2), cmake (>= 3.0) | cmake3, pkg-config, zlib1g-dev:native, zlib1g-dev, liblzma-dev:native, bash-completion, libcurl4-gnutls-dev | libcurl4-openssl-dev, libssh2-1-dev, libgit2-dev (>= 1.7.0), libgit2-dev (<< 1.8~~), libhttp-parser-dev, binutils (>= 2.26) | binutils-2.26, git, procps, libjs-jquery, libjs-highlight.js, libjs-mathjax, fonts-open-sans, fonts-font-awesome, gdb (>= 7.12), clang-17:native, libssl-dev, build-essential
+ 78s autopkgtest: DBG: install-deps: architecture resolved: debhelper (>= 9), debhelper-compat (= 13), dh-cargo (>= 28ubuntu1~), dpkg-dev (>= 1.17.14), python3, cargo (>= 1.74.0+dfsg), rustc (>= 1.74.0+dfsg), rustc (<= 1.75.1++), llvm-17-dev, llvm-17-tools, libclang-rt-17-dev (>= 1:17.0.2), libclang-common-17-dev (>= 1:17.0.2), cmake (>= 3.0) | cmake3, pkg-config, zlib1g-dev, zlib1g-dev, liblzma-dev, bash-completion, libcurl4-gnutls-dev | libcurl4-openssl-dev, libssh2-1-dev, libgit2-dev (>= 1.7.0), libgit2-dev (<< 1.8~~), libhttp-parser-dev, binutils (>= 2.26) | binutils-2.26, git, procps, libjs-jquery, libjs-highlight.js, libjs-mathjax, fonts-open-sans, fonts-font-awesome, gdb (>= 7.12), clang-17, libssl-dev, build-essential
+ 78s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 78s autopkgtest: DBG: testbed command exited with code 0
+ 78s autopkgtest: DBG: can use apt-get on testbed: True
+ 78s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Sp5gFG'], kind short, sout raw, serr pipe, env []
+ 78s autopkgtest: DBG: testbed command exited with code 0
+ 78s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-09254ee1-fc59-4d2d-84c6-ab9fd2e94e1c//tmp/autopkgtest.Sp5gFG/2-autopkgtest-satdep.deb /tmp/autopkgtest.Sp5gFG/2-autopkgtest-satdep.deb
+ 78s autopkgtest: DBG: got reply from testbed: ok
+ 78s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.Sp5gFG/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 78s Reading package lists...
+ 79s Building dependency tree...
+ 79s Reading state information...
+ 79s Starting pkgProblemResolver with broken count: 1
+ 79s Starting 2 pkgProblemResolver with broken count: 1
+ 79s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on debhelper:riscv64 < none | 13.15.3-ok1 @un uH > (>= 9)
+ 79s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated autotools-dev:riscv64
+ 79s   Re-Instated m4:riscv64
+ 79s   Re-Instated autoconf:riscv64
+ 79s   Re-Instated automake:riscv64
+ 79s   Re-Instated autopoint:riscv64
+ 79s   Re-Instated libdebhelper-perl:riscv64
+ 79s   Re-Instated libtool:riscv64
+ 79s   Re-Instated dh-autoreconf:riscv64
+ 79s   Re-Instated libarchive-zip-perl:riscv64
+ 79s   Re-Instated libsub-override-perl:riscv64
+ 79s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+ 79s   Re-Instated dh-strip-nondeterminism:riscv64
+ 79s   Re-Instated dwz:riscv64
+ 79s   Re-Instated intltool-debian:riscv64
+ 79s   Re-Instated po-debconf:riscv64
+ 79s   Re-Instated debhelper:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 28ubuntu1~)
+ 79s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 79s     Reinst Failed because of libgit2-1.7:riscv64
+ 79s     Reinst Failed because of cargo:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH > (>= 1.74.0+dfsg)
+ 79s   Considering cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on rustc:riscv64 < none | 1.75.0+dfsg-ok1 @un uH > (>= 1.74.0+dfsg)
+ 79s   Considering rustc:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libzstd1:riscv64
+ 79s   Re-Instated libllvm17t64:riscv64
+ 79s   Re-Instated libstd-rust-1.75:riscv64
+ 79s   Re-Instated libstd-rust-dev:riscv64
+ 79s   Re-Instated rustc:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 79s   Considering llvm-17-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated llvm-17-runtime:riscv64
+ 79s   Re-Instated llvm-17-linker-tools:riscv64
+ 79s     Reinst Failed early because of libpfm4:riscv64
+ 79s     Reinst Failed because of llvm-17:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-tools:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 79s   Considering llvm-17-tools:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated llvm-17-tools:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libclang-rt-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 1:17.0.2)
+ 79s   Considering libclang-rt-17-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libclang-rt-17-dev:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libclang-common-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH > (>= 1:17.0.2)
+ 79s   Considering libclang-common-17-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libclang-common-17-dev:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH > (>= 3.0)
+ 79s   Considering cmake:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libnettle8t64:riscv64
+ 79s   Re-Instated libarchive13t64:riscv64
+ 79s   Re-Instated librhash0:riscv64
+ 79s   Re-Instated cmake-data:riscv64
+ 79s   Re-Instated cmake:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on liblzma-dev:riscv64 < none | 5.4.5-ok2 @un uH >
+ 79s   Considering liblzma-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated liblzma5:riscv64
+ 79s   Re-Instated liblzma-dev:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libcurl4-gnutls-dev:riscv64 < none | 8.5.0-ok1.8 @un uH >
+ 79s   Considering libcurl4-gnutls-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libhogweed6t64:riscv64
+ 79s   Re-Instated libunistring5:riscv64
+ 79s   Re-Instated libgnutls30t64:riscv64
+ 79s   Re-Instated libnghttp2-14:riscv64
+ 79s   Re-Instated libpsl5t64:riscv64
+ 79s   Re-Instated libssh2-1t64:riscv64
+ 79s   Re-Instated libcurl3-gnutls:riscv64
+ 79s   Re-Instated libcurl4-gnutls-dev:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libssh2-1-dev:riscv64 < none | 1.11.0-ok1 @un uH >
+ 79s   Considering libssh2-1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libssl-dev:riscv64
+ 79s   Re-Instated libssh2-1-dev:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (>= 1.7.0)
+ 79s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s     Reinst Failed because of libgit2-1.7:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (< 1.8~~)
+ 79s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libhttp-parser-dev:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libjs-jquery:riscv64 < none | 3.6.1+dfsg+~3.5.14-ok1 @un uH >
+ 79s   Considering libjs-jquery:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libjs-jquery:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libjs-highlight.js:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on fonts-open-sans:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on fonts-font-awesome:riscv64 < none | 5.0.10+really4.7.0~dfsg-ok2 @un uH >
+ 79s   Considering fonts-font-awesome:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated fonts-font-awesome:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on gdb:riscv64 < none | 15.0.50.20240403-ok2 @un uH > (>= 7.12)
+ 79s   Considering gdb:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libelf1t64:riscv64
+ 79s   Re-Instated libdw1t64:riscv64
+ 79s   Re-Instated libbabeltrace1:riscv64
+ 79s   Re-Instated libdebuginfod-common:riscv64
+ 79s   Re-Instated libdebuginfod1t64:riscv64
+ 79s   Re-Instated libgmp10:riscv64
+ 79s     Reinst Failed early because of libpython3.12-stdlib:riscv64
+ 79s     Reinst Failed because of libpython3.12:riscv64
+ 79s Broken autopkgtest-satdep:riscv64 Depends on clang-17:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 79s   Considering clang-17:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Re-Instated libclang-cpp17t64:riscv64
+ 79s   Re-Instated gcc-12-base:riscv64
+ 79s   Re-Instated gcc-13-base:riscv64
+ 79s   Re-Instated libgcc-s1:riscv64
+ 79s   Re-Instated libgomp1:riscv64
+ 79s   Re-Instated libatomic1:riscv64
+ 79s   Re-Instated libasan8:riscv64
+ 79s   Re-Instated libgcc-12-dev:riscv64
+ 79s   Re-Instated libgc1c2:riscv64
+ 79s   Re-Instated libobjc4:riscv64
+ 79s   Re-Instated libobjc-12-dev:riscv64
+ 79s   Re-Instated libclang1-17t64:riscv64
+ 79s   Re-Instated clang-17:riscv64
+ 79s Investigating (0) libstdc++6:riscv64 < 12.2.0-ok7 | 13.2.0-4ok3.3 @ii uH Ib >
+ 79s Broken libstdc++6:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU > (= 12.2.0-ok7)
+ 79s   Considering gcc-12-base:riscv64 812 as a solution to libstdc++6:riscv64 2414
+ 79s   Added gcc-12-base:riscv64 to the remove list
+ 79s   Fixing libstdc++6:riscv64 via keep of gcc-12-base:riscv64
+ 79s Investigating (0) gcc-12:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH Ib >
+ 79s Broken gcc-12:riscv64 Depends on libgcc-12-dev:riscv64 < 12.2.0-ok7 -> 12.3.0-1ok3 @ii uU Ib > (= 12.2.0-ok7)
+ 79s   Considering libgcc-12-dev:riscv64 4 as a solution to gcc-12:riscv64 8
+ 79s   Added libgcc-12-dev:riscv64 to the remove list
+ 79s   Fixing gcc-12:riscv64 via keep of libgcc-12-dev:riscv64
+ 79s Investigating (0) libelf1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 79s Broken libelf1t64:riscv64 Breaks on libelf1:riscv64 < 0.187-ok1 @ii K > (< 0.190-ok3)
+ 79s   Considering libelf1:riscv64 32 as a solution to libelf1t64:riscv64 0
+ 79s   Holding Back libelf1t64:riscv64 rather than change libelf1:riscv64
+ 79s Investigating (0) libbabeltrace1:riscv64 < none -> 1.5.11-ok1 @un uN Ib >
+ 79s Broken libbabeltrace1:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (>= 0.131)
+ 79s   Considering libelf1t64:riscv64 0 as a solution to libbabeltrace1:riscv64 0
+ 79s   Holding Back libbabeltrace1:riscv64 rather than change libelf1t64:riscv64
+ 79s Investigating (0) libgnutls30t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 79s Broken libgnutls30t64:riscv64 Breaks on libgnutls30:riscv64 < 3.6.13-ok3 @ii K > (< 3.8.3-ok3)
+ 79s   Considering libgnutls30:riscv64 217 as a solution to libgnutls30t64:riscv64 0
+ 79s   Holding Back libgnutls30t64:riscv64 rather than change libgnutls30:riscv64
+ 79s Investigating (0) libpsl5t64:riscv64 < none -> 0.21.2-ok1.2 @un uN Ib >
+ 79s Broken libpsl5t64:riscv64 Breaks on libpsl5:riscv64 < 0.21.0-ok2 @ii K > (< 0.21.2-ok1.2)
+ 79s   Considering libpsl5:riscv64 31 as a solution to libpsl5t64:riscv64 0
+ 79s   Holding Back libpsl5t64:riscv64 rather than change libpsl5:riscv64
+ 79s Investigating (0) libdebuginfod1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 79s Broken libdebuginfod1t64:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (= 0.190-ok3)
+ 79s   Considering libelf1t64:riscv64 0 as a solution to libdebuginfod1t64:riscv64 0
+ 79s   Holding Back libdebuginfod1t64:riscv64 rather than change libelf1t64:riscv64
+ 79s Investigating (0) libobjc-12-dev:riscv64 < none -> 12.3.0-1ok3 @un uN Ib >
+ 79s Broken libobjc-12-dev:riscv64 Depends on gcc-12-base:riscv64 < 12.2.0-ok7 | 12.3.0-1ok3 @ii uH > (= 12.3.0-1ok3)
+ 79s   Considering gcc-12-base:riscv64 812 as a solution to libobjc-12-dev:riscv64 0
+ 79s   Holding Back libobjc-12-dev:riscv64 rather than change gcc-12-base:riscv64
+ 79s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+ 79s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+ 79s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+ 79s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+ 79s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 28ubuntu1~)
+ 79s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH > (>= 1.74.0+dfsg)
+ 79s   Considering cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 79s   Considering llvm-17-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (>= 1.7.0)
+ 79s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (< 1.8~~)
+ 79s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libhttp-parser-dev:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libjs-highlight.js:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on fonts-open-sans:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on gdb:riscv64 < none | 15.0.50.20240403-ok2 @un uH > (>= 7.12)
+ 79s   Considering gdb:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Investigating (1) libcurl3-gnutls:riscv64 < 7.68.0-ok5.2 -> 8.5.0-ok1.8 @ii uU Ib >
+ 79s Broken libcurl3-gnutls:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.3-ok3)
+ 79s   Considering libgnutls30t64:riscv64 0 as a solution to libcurl3-gnutls:riscv64 25
+ 79s   Holding Back libcurl3-gnutls:riscv64 rather than change libgnutls30t64:riscv64
+ 79s Investigating (1) libcurl4-gnutls-dev:riscv64 < none -> 8.5.0-ok1.8 @un uN Ib >
+ 79s Broken libcurl4-gnutls-dev:riscv64 Depends on libcurl3-gnutls:riscv64 < 7.68.0-ok5.2 | 8.5.0-ok1.8 @ii uH > (= 8.5.0-ok1.8)
+ 79s   Considering libcurl3-gnutls:riscv64 25 as a solution to libcurl4-gnutls-dev:riscv64 1
+ 79s   Holding Back libcurl4-gnutls-dev:riscv64 rather than change libcurl3-gnutls:riscv64
+ 79s Investigating (1) clang-17:riscv64 < none -> 1:17.0.6-9ok4 @un uN Ib >
+ 79s Broken clang-17:riscv64 Depends on libobjc-12-dev:riscv64 < none | 12.3.0-1ok3 @un uH >
+ 79s   Considering libobjc-12-dev:riscv64 0 as a solution to clang-17:riscv64 1
+ 79s   Holding Back clang-17:riscv64 rather than change libobjc-12-dev:riscv64
+ 79s Investigating (1) libdw1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 79s Broken libdw1t64:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (= 0.190-ok3)
+ 79s   Considering libelf1t64:riscv64 0 as a solution to libdw1t64:riscv64 0
+ 79s   Holding Back libdw1t64:riscv64 rather than change libelf1t64:riscv64
+ 79s Investigating (1) cmake:riscv64 < none -> 3.28.3-ok1 @un uN Ib >
+ 79s Broken cmake:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.3.3)
+ 79s   Considering libarchive13t64:riscv64 0 as a solution to cmake:riscv64 0
+ 79s   Holding Back cmake:riscv64 rather than change libarchive13t64:riscv64
+ 79s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH > (>= 28ubuntu1~)
+ 79s   Considering dh-cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on cargo:riscv64 < none | 1.75.0+dfsg-ok1 @un uH > (>= 1.74.0+dfsg)
+ 79s   Considering cargo:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on llvm-17-dev:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 79s   Considering llvm-17-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH > (>= 3.0)
+ 79s   Considering cmake:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Considering cmake:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on cmake3:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libcurl4-gnutls-dev:riscv64 < none | 8.5.0-ok1.8 @un uH >
+ 79s   Considering libcurl4-gnutls-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s   Considering libcurl4-gnutls-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libcurl4-openssl-dev:riscv64 < none | 8.5.0-ok1.8 @un uH >
+ 79s   Considering libcurl4-openssl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s     Reinst Failed because of libpsl5t64:riscv64
+ 79s     Reinst Failed because of libcurl4:riscv64
+ 79s   Considering libcurl4-openssl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (>= 1.7.0)
+ 79s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libgit2-dev:riscv64 < none | 1.7.2+ds-ok1 @un uH > (< 1.8~~)
+ 79s   Considering libgit2-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libhttp-parser-dev:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on libjs-highlight.js:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on fonts-open-sans:riscv64 < none @un H >
+ 79s Broken autopkgtest-satdep:riscv64 Depends on gdb:riscv64 < none | 15.0.50.20240403-ok2 @un uH > (>= 7.12)
+ 79s   Considering gdb:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Broken autopkgtest-satdep:riscv64 Depends on clang-17:riscv64 < none | 1:17.0.6-9ok4 @un uH >
+ 79s   Considering clang-17:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 79s Done
+ 79s Some packages could not be installed. This may mean that you have
+ 79s requested an impossible situation or if you are using the unstable
+ 79s distribution that some required packages have not yet been created
+ 79s or been moved out of Incoming.
+ 79s The following information may help to resolve the situation:
+ 79s 
+ 79s The following packages have unmet dependencies:
+ 80s  autopkgtest-satdep : Depends: dh-cargo (>= 28ubuntu1~) but it is not going to be installed
+ 80s                       Depends: cargo (>= 1.74.0+dfsg) but it is not going to be installed
+ 80s                       Depends: llvm-17-dev but it is not going to be installed
+ 80s                       Depends: cmake (>= 3.0) but it is not going to be installed or
+ 80s                                cmake3 but it is not installable
+ 80s                       Depends: libcurl4-gnutls-dev but it is not going to be installed or
+ 80s                                libcurl4-openssl-dev but it is not going to be installed
+ 80s                       Depends: libgit2-dev (>= 1.7.0) but it is not going to be installed
+ 80s                       Depends: libgit2-dev (< 1.8~~) but it is not going to be installed
+ 80s                       Depends: libhttp-parser-dev but it is not installable
+ 80s                       Depends: libjs-highlight.js but it is not installable
+ 80s                       Depends: fonts-open-sans but it is not installable
+ 80s                       Depends: gdb (>= 7.12) but it is not going to be installed
+ 80s                       Depends: clang-17 but it is not going to be installed
+ 80s E: Unable to correct problems, you have held broken packages.
+ 80s autopkgtest: DBG: testbed command exited with code 100
+ 80s autopkgtest: DBG: apt-get install /tmp/autopkgtest.Sp5gFG/2-autopkgtest-satdep.deb failed; status-fd:
+ 80s 
+ 80s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 80s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate debhelper (>= 9) debhelper-compat (= 13) dh-cargo (>= 28ubuntu1~) dpkg-dev (>= 1.17.14) python3 cargo (>= 1.74.0+dfsg) rustc (>= 1.74.0+dfsg) rustc (<= 1.75.1++) llvm-17-dev llvm-17-tools libclang-rt-17-dev (>= 1:17.0.2) libclang-common-17-dev (>= 1:17.0.2) cmake (>= 3.0) | cmake3 pkg-config zlib1g-dev zlib1g-dev liblzma-dev bash-completion libcurl4-gnutls-dev | libcurl4-openssl-dev libssh2-1-dev libgit2-dev (>= 1.7.0) libgit2-dev (<< 1.8~~) libhttp-parser-dev binutils (>= 2.26) | binutils-2.26 git procps libjs-jquery libjs-highlight.js libjs-mathjax fonts-open-sans fonts-font-awesome gdb (>= 7.12) clang-17 libssl-dev build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 80s autopkgtest: DBG: testbed command exited with code 2
+ 80s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 80s create-and-build-crate FAIL badpkg
+ 80s blame: rustc_1.75.0+dfsg-ok1.dsc
+ 80s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 80s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 80s autopkgtest [01:37:29]: @@@@@@@@@@@@@@@@@@@@ summary
+ 80s command1             FAIL badpkg
+ 80s blame: rustc_1.75.0+dfsg-ok1.dsc
+ 80s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 80s create-and-build-crate FAIL badpkg
+ 80s blame: rustc_1.75.0+dfsg-ok1.dsc
+ 80s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 80s autopkgtest: DBG: testbed stop
+ 80s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.Sp5gFG
+ 80s autopkgtest: DBG: sending command to testbed: close
+ 80s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 81s autopkgtest: DBG: got reply from testbed: ok
+ 81s autopkgtest: DBG: sending command to testbed: quit

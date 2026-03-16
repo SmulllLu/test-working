@@ -1,0 +1,645 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [03:18:32]: starting date and time: 2024-07-18 03:18:32+0800
+  0s autopkgtest [03:18:32]: version @version@
+  0s autopkgtest [03:18:32]: host lili; command line: /usr/bin/autopkgtest dpdk_23.11-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/dpdk -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.ONKdwq
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062//tmp/autopkgtest.ONKdwq
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062//tmp/autopkgtest.ONKdwq', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ONKdwq'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.ONKdwq/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.ONKdwq/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [03:18:33]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [03:18:34]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.ONKdwq/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ONKdwq/testbed-packages /home/hachi/openkylin_test/sharefolder/results/dpdk/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [03:18:34]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [03:18:34]: @@@@@@@@@@@@@@@@@@@@ source dpdk_23.11-ok1.dsc
+  2s autopkgtest: DBG: blame += dpdk_23.11-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ONKdwq'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown dpdk_23.11-ok1.dsc /tmp/autopkgtest.ONKdwq/dpdk_23.11-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ONKdwq'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown dpdk_23.11.orig.tar.xz /tmp/autopkgtest.ONKdwq/dpdk_23.11.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ONKdwq'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown dpdk_23.11-ok1.debian.tar.xz /tmp/autopkgtest.ONKdwq/dpdk_23.11-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.ONKdwq/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.ONKdwq/dpdk_23.11-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.ONKdwq/build.XXX
+  3s + builddir=/tmp/autopkgtest.ONKdwq/build.tny
+  3s + cd /tmp/autopkgtest.ONKdwq/build.tny
+  3s + dpkg-source -x /tmp/autopkgtest.ONKdwq/dpdk_23.11-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.NZ7D00GV/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 14 May 2024 04:13:29 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.ONKdwq/dpdk_23.11-ok1.dsc
+  4s dpkg-source: info: extracting dpdk in src
+  4s dpkg-source: info: unpacking dpdk_23.11.orig.tar.xz
+  6s dpkg-source: info: unpacking dpdk_23.11-ok1.debian.tar.xz
+  6s dpkg-source: info: using patch list from debian/patches/series
+  6s dpkg-source: info: applying 0001-update-debian-from-ubuntu-23.11.patch
+  6s + chmod -R a+rX .
+  6s + cd src/.
+  6s + pwd
+  6s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest [03:18:39]: testing package dpdk version 23.11-ok1
+  7s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ONKdwq/build.tny/src/debian/ /home/hachi/openkylin_test/sharefolder/results/dpdk/pkg/debian/
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: processing dependency dpdk
+  7s autopkgtest: DBG: marked alternatives ['dpdk'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency gawk
+  7s autopkgtest: DBG: processing dependency mount
+  7s autopkgtest: DBG: processing dependency systemd
+  7s autopkgtest: DBG: processing dependency sysvinit-utils
+  7s autopkgtest: DBG: processing dependency iproute2
+  7s autopkgtest: DBG: Test defined: name test-initscripts path debian/tests/test-initscripts command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root', 'skippable'] features [] depends ['dpdk', 'gawk', 'mount', 'systemd', 'sysvinit-utils', 'iproute2'] 
+  7s test-initscripts     SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  7s autopkgtest: DBG: processing dependency libdpdk-dev
+  7s autopkgtest: DBG: marked alternatives ['libdpdk-dev'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency libc6-dev
+  7s autopkgtest: DBG: processing dependency gcc
+  7s autopkgtest: DBG: processing dependency grep
+  7s autopkgtest: DBG: processing dependency libpcap-dev
+  7s autopkgtest: DBG: processing dependency pax-utils
+  7s autopkgtest: DBG: processing dependency pkg-config
+  7s autopkgtest: DBG: Test defined: name test-linkage path debian/tests/test-linkage command "None" restrictions ['allow-stderr', 'skippable'] features [] depends ['libdpdk-dev', 'libc6-dev', 'gcc', 'grep', 'libpcap-dev', 'pax-utils', 'pkg-config'] 
+  7s autopkgtest: DBG: processing dependency dpdk-dev [amd64 arm64 ppc64el riscv64]
+  7s autopkgtest: DBG: marked alternatives ['dpdk-dev'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency jq
+  7s autopkgtest: DBG: processing dependency python3
+  7s autopkgtest: DBG: processing dependency python3-pexpect
+  7s autopkgtest: DBG: Test defined: name test-autotest path debian/tests/test-autotest command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root', 'skippable'] features [] depends ['dpdk-dev [amd64 arm64 ppc64el riscv64]', 'jq', 'python3', 'python3-pexpect'] 
+  7s test-autotest        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+  8s autopkgtest: DBG: processing dependency build-essential
+  8s autopkgtest: DBG: processing dependency jq
+  8s autopkgtest: DBG: processing dependency @builddeps@
+  8s autopkgtest: DBG: synthesised dependency chrpath
+  8s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  8s autopkgtest: DBG: synthesised dependency dh-python
+  8s autopkgtest: DBG: synthesised dependency libbpf-dev
+  8s autopkgtest: DBG: synthesised dependency libbsd-dev
+  8s autopkgtest: DBG: synthesised dependency libelf-dev
+  8s autopkgtest: DBG: synthesised dependency libfdt-dev
+  8s autopkgtest: DBG: synthesised dependency libibverbs-dev (>= 23~)
+  8s autopkgtest: DBG: synthesised dependency libjansson-dev
+  8s autopkgtest: DBG: synthesised dependency libmnl-dev
+  8s autopkgtest: DBG: synthesised dependency libnuma-dev
+  8s autopkgtest: DBG: synthesised dependency libpcap-dev
+  8s autopkgtest: DBG: synthesised dependency libssl-dev
+  8s autopkgtest: DBG: synthesised dependency libxdp-dev
+  8s autopkgtest: DBG: synthesised dependency meson (>= 0.47.1~)
+  8s autopkgtest: DBG: synthesised dependency pkg-config
+  8s autopkgtest: DBG: synthesised dependency python3:any
+  8s autopkgtest: DBG: synthesised dependency python3-pyelftools
+  8s autopkgtest: DBG: synthesised dependency zlib1g-dev
+  8s autopkgtest: DBG: synthesised dependency doxygen
+  8s autopkgtest: DBG: synthesised dependency graphviz
+  8s autopkgtest: DBG: synthesised dependency inkscape
+  8s autopkgtest: DBG: synthesised dependency python3-sphinx
+  8s autopkgtest: DBG: synthesised dependency python3-sphinx-rtd-theme
+  8s autopkgtest: DBG: synthesised dependency texlive-fonts-recommended
+  8s autopkgtest: DBG: synthesised dependency texlive-latex-extra
+  8s autopkgtest: DBG: synthesised dependency build-essential
+  8s autopkgtest: DBG: Test defined: name test-fastsuite path debian/tests/test-fastsuite command "None" restrictions ['allow-stderr', 'skippable'] features [] depends ['build-essential', 'jq', 'chrpath', 'debhelper-compat (= 13)', 'dh-python', 'libbpf-dev', 'libbsd-dev', 'libelf-dev', 'libfdt-dev', 'libibverbs-dev (>= 23~)', 'libjansson-dev', 'libmnl-dev', 'libnuma-dev', 'libpcap-dev', 'libssl-dev', 'libxdp-dev', 'meson (>= 0.47.1~)', 'pkg-config', 'python3:any', 'python3-pyelftools', 'zlib1g-dev', 'doxygen', 'graphviz', 'inkscape', 'python3-sphinx', 'python3-sphinx-rtd-theme', 'texlive-fonts-recommended', 'texlive-latex-extra', 'build-essential'] 
+  8s autopkgtest [03:18:40]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ONKdwq/build.tny/src/ /home/hachi/openkylin_test/sharefolder/results/dpdk/tests-tree/
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: processing dependency dpdk
+ 12s autopkgtest: DBG: marked alternatives ['dpdk'] as a synthesised dependency
+ 12s autopkgtest: DBG: processing dependency gawk
+ 12s autopkgtest: DBG: processing dependency mount
+ 12s autopkgtest: DBG: processing dependency systemd
+ 12s autopkgtest: DBG: processing dependency sysvinit-utils
+ 12s autopkgtest: DBG: processing dependency iproute2
+ 12s autopkgtest: DBG: Test defined: name test-initscripts path debian/tests/test-initscripts command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root', 'skippable'] features [] depends ['dpdk', 'gawk', 'mount', 'systemd', 'sysvinit-utils', 'iproute2'] 
+ 12s test-initscripts     SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 13s autopkgtest: DBG: processing dependency libdpdk-dev
+ 13s autopkgtest: DBG: marked alternatives ['libdpdk-dev'] as a synthesised dependency
+ 13s autopkgtest: DBG: processing dependency libc6-dev
+ 13s autopkgtest: DBG: processing dependency gcc
+ 13s autopkgtest: DBG: processing dependency grep
+ 13s autopkgtest: DBG: processing dependency libpcap-dev
+ 13s autopkgtest: DBG: processing dependency pax-utils
+ 13s autopkgtest: DBG: processing dependency pkg-config
+ 13s autopkgtest: DBG: Test defined: name test-linkage path debian/tests/test-linkage command "None" restrictions ['allow-stderr', 'skippable'] features [] depends ['libdpdk-dev', 'libc6-dev', 'gcc', 'grep', 'libpcap-dev', 'pax-utils', 'pkg-config'] 
+ 13s autopkgtest: DBG: processing dependency dpdk-dev [amd64 arm64 ppc64el riscv64]
+ 13s autopkgtest: DBG: marked alternatives ['dpdk-dev'] as a synthesised dependency
+ 13s autopkgtest: DBG: processing dependency jq
+ 13s autopkgtest: DBG: processing dependency python3
+ 13s autopkgtest: DBG: processing dependency python3-pexpect
+ 13s autopkgtest: DBG: Test defined: name test-autotest path debian/tests/test-autotest command "None" restrictions ['allow-stderr', 'isolation-machine', 'needs-root', 'skippable'] features [] depends ['dpdk-dev [amd64 arm64 ppc64el riscv64]', 'jq', 'python3', 'python3-pexpect'] 
+ 13s test-autotest        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 13s autopkgtest: DBG: processing dependency build-essential
+ 13s autopkgtest: DBG: processing dependency jq
+ 13s autopkgtest: DBG: processing dependency @builddeps@
+ 13s autopkgtest: DBG: synthesised dependency chrpath
+ 13s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+ 13s autopkgtest: DBG: synthesised dependency dh-python
+ 13s autopkgtest: DBG: synthesised dependency libbpf-dev
+ 13s autopkgtest: DBG: synthesised dependency libbsd-dev
+ 13s autopkgtest: DBG: synthesised dependency libelf-dev
+ 13s autopkgtest: DBG: synthesised dependency libfdt-dev
+ 13s autopkgtest: DBG: synthesised dependency libibverbs-dev (>= 23~)
+ 13s autopkgtest: DBG: synthesised dependency libjansson-dev
+ 13s autopkgtest: DBG: synthesised dependency libmnl-dev
+ 13s autopkgtest: DBG: synthesised dependency libnuma-dev
+ 13s autopkgtest: DBG: synthesised dependency libpcap-dev
+ 13s autopkgtest: DBG: synthesised dependency libssl-dev
+ 13s autopkgtest: DBG: synthesised dependency libxdp-dev
+ 13s autopkgtest: DBG: synthesised dependency meson (>= 0.47.1~)
+ 13s autopkgtest: DBG: synthesised dependency pkg-config
+ 13s autopkgtest: DBG: synthesised dependency python3:any
+ 13s autopkgtest: DBG: synthesised dependency python3-pyelftools
+ 13s autopkgtest: DBG: synthesised dependency zlib1g-dev
+ 13s autopkgtest: DBG: synthesised dependency doxygen
+ 13s autopkgtest: DBG: synthesised dependency graphviz
+ 13s autopkgtest: DBG: synthesised dependency inkscape
+ 13s autopkgtest: DBG: synthesised dependency python3-sphinx
+ 13s autopkgtest: DBG: synthesised dependency python3-sphinx-rtd-theme
+ 13s autopkgtest: DBG: synthesised dependency texlive-fonts-recommended
+ 13s autopkgtest: DBG: synthesised dependency texlive-latex-extra
+ 13s autopkgtest: DBG: synthesised dependency build-essential
+ 13s autopkgtest: DBG: Test defined: name test-fastsuite path debian/tests/test-fastsuite command "None" restrictions ['allow-stderr', 'skippable'] features [] depends ['build-essential', 'jq', 'chrpath', 'debhelper-compat (= 13)', 'dh-python', 'libbpf-dev', 'libbsd-dev', 'libelf-dev', 'libfdt-dev', 'libibverbs-dev (>= 23~)', 'libjansson-dev', 'libmnl-dev', 'libnuma-dev', 'libpcap-dev', 'libssl-dev', 'libxdp-dev', 'meson (>= 0.47.1~)', 'pkg-config', 'python3:any', 'python3-pyelftools', 'zlib1g-dev', 'doxygen', 'graphviz', 'inkscape', 'python3-sphinx', 'python3-sphinx-rtd-theme', 'texlive-fonts-recommended', 'texlive-latex-extra', 'build-essential'] 
+ 13s autopkgtest [03:18:45]: test test-linkage: preparing testbed
+ 13s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libdpdk-dev', 'libc6-dev', 'gcc', 'grep', 'libpcap-dev', 'pax-utils', 'pkg-config']
+ 13s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 13s autopkgtest: DBG: install_deps: deps_new=['libdpdk-dev', 'libc6-dev', 'gcc', 'grep', 'libpcap-dev', 'pax-utils', 'pkg-config']
+ 13s autopkgtest: DBG: install-deps: satisfying libdpdk-dev, libc6-dev, gcc, grep, libpcap-dev, pax-utils, pkg-config
+ 14s autopkgtest: DBG: install-deps: architecture resolved: libdpdk-dev, libc6-dev, gcc, grep, libpcap-dev, pax-utils, pkg-config
+ 14s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: can use apt-get on testbed: True
+ 14s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ONKdwq'], kind short, sout raw, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062//tmp/autopkgtest.ONKdwq/1-autopkgtest-satdep.deb /tmp/autopkgtest.ONKdwq/1-autopkgtest-satdep.deb
+ 14s autopkgtest: DBG: got reply from testbed: ok
+ 14s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.ONKdwq/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 15s Building dependency tree...
+ 15s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 15s Starting 2 pkgProblemResolver with broken count: 1
+ 15s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 15s Broken autopkgtest-satdep:riscv64 Depends on libdpdk-dev:riscv64 < none | 23.11-ok1 @un uH >
+ 15s   Considering libdpdk-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 15s   Re-Instated libbpf1:riscv64
+ 16s   Re-Instated libzstd1:riscv64
+ 16s   Re-Instated libelf1t64:riscv64
+ 16s   Re-Instated libzstd-dev:riscv64
+ 16s   Re-Instated libelf-dev:riscv64
+ 16s   Re-Instated libbpf-dev:riscv64
+ 16s   Re-Instated libbsd0:riscv64
+ 16s   Re-Instated libmd0:riscv64
+ 16s   Re-Instated libmd-dev:riscv64
+ 16s   Re-Instated libbsd-dev:riscv64
+ 16s   Re-Instated libibverbs1:riscv64
+ 16s   Re-Instated ibverbs-providers:riscv64
+ 16s   Re-Instated libnl-3-200:riscv64
+ 16s   Re-Instated libnl-3-dev:riscv64
+ 16s   Re-Instated libnl-route-3-200:riscv64
+ 16s   Re-Instated libnl-route-3-dev:riscv64
+ 16s   Re-Instated libibverbs-dev:riscv64
+ 16s   Re-Instated libfdt1:riscv64
+ 16s   Re-Instated libfdt-dev:riscv64
+ 16s   Re-Instated libjansson4:riscv64
+ 16s   Re-Instated libjansson-dev:riscv64
+ 16s   Re-Instated libmnl0:riscv64
+ 16s   Re-Instated libmnl-dev:riscv64
+ 16s   Re-Instated libnuma1:riscv64
+ 16s   Re-Instated libnuma-dev:riscv64
+ 16s   Re-Instated libdbus-1-3:riscv64
+ 16s   Re-Instated libdbus-1-dev:riscv64
+ 16s   Re-Instated libpcap0.8t64:riscv64
+ 16s   Re-Instated libpcap0.8-dev:riscv64
+ 16s   Re-Instated libpcap-dev:riscv64
+ 16s   Re-Instated libssl-dev:riscv64
+ 16s     Reinst Failed early because of libxdp-dev:riscv64
+ 16s Broken autopkgtest-satdep:riscv64 Depends on pax-utils:riscv64 < none @un H >
+ 16s Investigating (0) dbus:riscv64 < 1.14.6-ok1 | 1.14.10-ok3 @ii uH Ib >
+ 16s Broken dbus:riscv64 Depends on libdbus-1-3:riscv64 < 1.14.6-ok1 -> 1.14.10-ok3 @ii uU > (= 1.14.6-ok1)
+ 16s   Considering libdbus-1-3:riscv64 332 as a solution to dbus:riscv64 128
+ 16s   Re-Instated dbus-bin:riscv64
+ 16s   Re-Instated dbus-session-bus-common:riscv64
+ 16s   Re-Instated dbus-daemon:riscv64
+ 16s   Re-Instated dbus-system-bus-common:riscv64
+ 16s   Re-Instated dbus:riscv64
+ 16s Investigating (0) dbus-user-session:riscv64 < 1.14.6-ok1 | 1.14.10-ok3 @ii uH Ib >
+ 16s Broken dbus-user-session:riscv64 Depends on dbus-daemon:riscv64 < 1.14.6-ok1 -> 1.14.10-ok3 @ii uU > (= 1.14.6-ok1)
+ 16s   Considering dbus-daemon:riscv64 55 as a solution to dbus-user-session:riscv64 40
+ 16s   Re-Instated dbus-user-session:riscv64
+ 16s Broken dbus-user-session:riscv64 Depends on dbus-broker:riscv64 < none @un H >
+ 16s   Or group remove for dbus-user-session:riscv64
+ 16s Investigating (0) dbus-x11:riscv64 < 1.14.6-ok1 | 1.14.10-ok3 @ii uH Ib >
+ 16s Broken dbus-x11:riscv64 Depends on dbus-bin:riscv64 < 1.14.6-ok1 -> 1.14.10-ok3 @ii uU > (= 1.14.6-ok1)
+ 16s   Considering dbus-bin:riscv64 39 as a solution to dbus-x11:riscv64 8
+ 16s   Re-Instated dbus-x11:riscv64
+ 16s Investigating (0) libnl-genl-3-200:riscv64 < 3.7.0-0.2 | 3.7.0-0.3ok1 @ii uH Ib >
+ 16s Broken libnl-genl-3-200:riscv64 Depends on libnl-3-200:riscv64 < 3.7.0-0.2 -> 3.7.0-0.3ok1 @ii uU > (= 3.7.0-0.2)
+ 16s   Considering libnl-3-200:riscv64 6 as a solution to libnl-genl-3-200:riscv64 1
+ 16s   Re-Instated libnl-genl-3-200:riscv64
+ 16s Investigating (0) libelf1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 16s Broken libelf1t64:riscv64 Breaks on libelf1:riscv64 < 0.187-ok1 @ii K > (< 0.190-ok3)
+ 16s   Considering libelf1:riscv64 32 as a solution to libelf1t64:riscv64 0
+ 16s   Holding Back libelf1t64:riscv64 rather than change libelf1:riscv64
+ 16s Investigating (0) libpcap0.8t64:riscv64 < none -> 1.10.4-4.1ok1.1 @un uN Ib >
+ 16s Broken libpcap0.8t64:riscv64 Breaks on libpcap0.8:riscv64 < 1.10.1-4build1 @ii K > (< 1.10.4-4.1ok1.1)
+ 16s   Considering libpcap0.8:riscv64 3 as a solution to libpcap0.8t64:riscv64 0
+ 16s   Holding Back libpcap0.8t64:riscv64 rather than change libpcap0.8:riscv64
+ 16s Investigating (0) libelf-dev:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 16s Broken libelf-dev:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (= 0.190-ok3)
+ 16s   Considering libelf1t64:riscv64 0 as a solution to libelf-dev:riscv64 0
+ 16s   Holding Back libelf-dev:riscv64 rather than change libelf1t64:riscv64
+ 16s Investigating (0) libbpf-dev:riscv64 < none -> 1:1.3.0-ok1 @un uN Ib >
+ 16s Broken libbpf-dev:riscv64 Depends on libelf-dev:riscv64 < none | 0.190-ok3 @un uH >
+ 16s   Considering libelf-dev:riscv64 0 as a solution to libbpf-dev:riscv64 0
+ 16s   Holding Back libbpf-dev:riscv64 rather than change libelf-dev:riscv64
+ 16s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 16s Broken autopkgtest-satdep:riscv64 Depends on libdpdk-dev:riscv64 < none | 23.11-ok1 @un uH >
+ 16s   Considering libdpdk-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s Broken autopkgtest-satdep:riscv64 Depends on pax-utils:riscv64 < none @un H >
+ 16s Investigating (1) libpcap0.8-dev:riscv64 < none -> 1.10.4-4.1ok1.1 @un uN Ib >
+ 16s Broken libpcap0.8-dev:riscv64 Depends on libpcap0.8t64:riscv64 < none | 1.10.4-4.1ok1.1 @un uH > (= 1.10.4-4.1ok1.1)
+ 16s   Considering libpcap0.8t64:riscv64 0 as a solution to libpcap0.8-dev:riscv64 0
+ 16s   Holding Back libpcap0.8-dev:riscv64 rather than change libpcap0.8t64:riscv64
+ 16s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 16s Broken autopkgtest-satdep:riscv64 Depends on libdpdk-dev:riscv64 < none | 23.11-ok1 @un uH >
+ 16s   Considering libdpdk-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s Broken autopkgtest-satdep:riscv64 Depends on pax-utils:riscv64 < none @un H >
+ 16s Investigating (2) libpcap-dev:riscv64 < none -> 1.10.4-4.1ok1.1 @un uN Ib >
+ 16s Broken libpcap-dev:riscv64 Depends on libpcap0.8-dev:riscv64 < none | 1.10.4-4.1ok1.1 @un uH >
+ 16s   Considering libpcap0.8-dev:riscv64 0 as a solution to libpcap-dev:riscv64 1
+ 16s   Holding Back libpcap-dev:riscv64 rather than change libpcap0.8-dev:riscv64
+ 16s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 16s Broken autopkgtest-satdep:riscv64 Depends on libdpdk-dev:riscv64 < none | 23.11-ok1 @un uH >
+ 16s   Considering libdpdk-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s Broken autopkgtest-satdep:riscv64 Depends on libpcap-dev:riscv64 < none | 1.10.4-4.1ok1.1 @un uH >
+ 16s   Considering libpcap-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s Broken autopkgtest-satdep:riscv64 Depends on pax-utils:riscv64 < none @un H >
+ 16s Done
+ 16s Some packages could not be installed. This may mean that you have
+ 16s requested an impossible situation or if you are using the unstable
+ 16s distribution that some required packages have not yet been created
+ 16s or been moved out of Incoming.
+ 16s The following information may help to resolve the situation:
+ 16s 
+ 16s The following packages have unmet dependencies:
+ 16s  autopkgtest-satdep : Depends: libdpdk-dev but it is not going to be installed
+ 16s                       Depends: libpcap-dev but it is not going to be installed
+ 16s                       Depends: pax-utils but it is not installable
+ 16s E: Unable to correct problems, you have held broken packages.
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: apt-get install /tmp/autopkgtest.ONKdwq/1-autopkgtest-satdep.deb failed; status-fd:
+ 16s 
+ 16s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libdpdk-dev libc6-dev gcc grep libpcap-dev pax-utils pkg-config -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s Reading package lists...
+ 17s Building dependency tree...
+ 17s Reading state information...
+ 17s E: Unable to locate package pax-utils
+ 17s autopkgtest: DBG: testbed command exited with code 100
+ 17s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 17s test-linkage         FAIL badpkg
+ 17s blame: dpdk_23.11-ok1.dsc
+ 17s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 17s autopkgtest [03:18:49]: test test-fastsuite: preparing testbed
+ 17s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libdpdk-dev', 'libc6-dev', 'gcc', 'grep', 'libpcap-dev', 'pax-utils', 'pkg-config'], deps_new=['build-essential', 'jq', 'chrpath', 'debhelper-compat (= 13)', 'dh-python', 'libbpf-dev', 'libbsd-dev', 'libelf-dev', 'libfdt-dev', 'libibverbs-dev (>= 23~)', 'libjansson-dev', 'libmnl-dev', 'libnuma-dev', 'libpcap-dev', 'libssl-dev', 'libxdp-dev', 'meson (>= 0.47.1~)', 'pkg-config', 'python3:any', 'python3-pyelftools', 'zlib1g-dev', 'doxygen', 'graphviz', 'inkscape', 'python3-sphinx', 'python3-sphinx-rtd-theme', 'texlive-fonts-recommended', 'texlive-latex-extra', 'build-essential']
+ 17s autopkgtest: DBG: testbed reset
+ 17s autopkgtest: DBG: sending command to testbed: revert
+ 17s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 19s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.ONKdwq
+ 19s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 19s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062,--user%3Droot,--
+ 19s autopkgtest: DBG: sending command to testbed: capabilities
+ 19s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062//tmp/autopkgtest.ONKdwq
+ 19s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062//tmp/autopkgtest.ONKdwq', 'has_internet']
+ 19s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ONKdwq'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.ONKdwq/wrapper.sh
+ 19s autopkgtest: DBG: got reply from testbed: ok
+ 19s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.ONKdwq/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest [03:18:51]: testbed dpkg architecture: riscv64
+ 19s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest [03:18:51]: testbed apt version: 2.7.3-ok3
+ 19s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 127
+ 19s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.ONKdwq/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ONKdwq/testbed-packages /home/hachi/openkylin_test/sharefolder/results/dpdk/testbed-packages
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'jq', 'chrpath', 'debhelper-compat (= 13)', 'dh-python', 'libbpf-dev', 'libbsd-dev', 'libelf-dev', 'libfdt-dev', 'libibverbs-dev (>= 23~)', 'libjansson-dev', 'libmnl-dev', 'libnuma-dev', 'libpcap-dev', 'libssl-dev', 'libxdp-dev', 'meson (>= 0.47.1~)', 'pkg-config', 'python3:any', 'python3-pyelftools', 'zlib1g-dev', 'doxygen', 'graphviz', 'inkscape', 'python3-sphinx', 'python3-sphinx-rtd-theme', 'texlive-fonts-recommended', 'texlive-latex-extra', 'build-essential']
+ 20s autopkgtest: DBG: install-deps: satisfying build-essential, jq, chrpath, debhelper-compat (= 13), dh-python, libbpf-dev, libbsd-dev, libelf-dev, libfdt-dev, libibverbs-dev (>= 23~), libjansson-dev, libmnl-dev, libnuma-dev, libpcap-dev, libssl-dev, libxdp-dev, meson (>= 0.47.1~), pkg-config, python3:any, python3-pyelftools, zlib1g-dev, doxygen, graphviz, inkscape, python3-sphinx, python3-sphinx-rtd-theme, texlive-fonts-recommended, texlive-latex-extra, build-essential
+ 20s autopkgtest: DBG: install-deps: architecture resolved: build-essential, jq, chrpath, debhelper-compat (= 13), dh-python, libbpf-dev, libbsd-dev, libelf-dev, libfdt-dev, libibverbs-dev (>= 23~), libjansson-dev, libmnl-dev, libnuma-dev, libpcap-dev, libssl-dev, libxdp-dev, meson (>= 0.47.1~), pkg-config, python3:any, python3-pyelftools, zlib1g-dev, doxygen, graphviz, inkscape, python3-sphinx, python3-sphinx-rtd-theme, texlive-fonts-recommended, texlive-latex-extra, build-essential
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 20s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ONKdwq'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b37707d2-d07c-4524-8b41-2da2ff860062//tmp/autopkgtest.ONKdwq/2-autopkgtest-satdep.deb /tmp/autopkgtest.ONKdwq/2-autopkgtest-satdep.deb
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.ONKdwq/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 21s Reading package lists...
+ 21s Building dependency tree...
+ 21s Reading state information...
+ 21s Starting pkgProblemResolver with broken count: 1
+ 22s Starting 2 pkgProblemResolver with broken count: 1
+ 22s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on chrpath:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on debhelper-compat:riscv64 < none @un H > (= 13)
+ 22s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated autotools-dev:riscv64
+ 22s   Re-Instated m4:riscv64
+ 22s   Re-Instated autoconf:riscv64
+ 22s   Re-Instated automake:riscv64
+ 22s   Re-Instated autopoint:riscv64
+ 22s   Re-Instated libdebhelper-perl:riscv64
+ 22s   Re-Instated libtool:riscv64
+ 22s   Re-Instated dh-autoreconf:riscv64
+ 22s   Re-Instated libarchive-zip-perl:riscv64
+ 22s   Re-Instated libsub-override-perl:riscv64
+ 22s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+ 22s   Re-Instated dh-strip-nondeterminism:riscv64
+ 22s   Re-Instated dwz:riscv64
+ 22s   Re-Instated intltool-debian:riscv64
+ 22s   Re-Instated po-debconf:riscv64
+ 22s   Re-Instated debhelper:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on dh-python:riscv64 < none | 6.20240401-ok2 @un uH >
+ 22s   Considering dh-python:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated dh-python:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libbpf-dev:riscv64 < none | 1:1.3.0-ok1 @un uH >
+ 22s   Considering libbpf-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libbpf1:riscv64
+ 22s   Re-Instated libzstd1:riscv64
+ 22s   Re-Instated libelf1t64:riscv64
+ 22s   Re-Instated libzstd-dev:riscv64
+ 22s   Re-Instated libelf-dev:riscv64
+ 22s   Re-Instated libbpf-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libbsd-dev:riscv64 < none | 0.11.7-4ok1 @un uH >
+ 22s   Considering libbsd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libbsd0:riscv64
+ 22s   Re-Instated libmd0:riscv64
+ 22s   Re-Instated libmd-dev:riscv64
+ 22s   Re-Instated libbsd-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libfdt-dev:riscv64 < none | 1.7.0-ok1 @un uH >
+ 22s   Considering libfdt-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libfdt1:riscv64
+ 22s   Re-Instated libfdt-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libibverbs-dev:riscv64 < none | 50.0-ok3 @un uH > (>= 23~)
+ 22s   Considering libibverbs-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libibverbs1:riscv64
+ 22s   Re-Instated ibverbs-providers:riscv64
+ 22s   Re-Instated libnl-3-200:riscv64
+ 22s   Re-Instated libnl-3-dev:riscv64
+ 22s   Re-Instated libnl-route-3-200:riscv64
+ 22s   Re-Instated libnl-route-3-dev:riscv64
+ 22s   Re-Instated libibverbs-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libjansson-dev:riscv64 < none | 2.14-ok1 @un uH >
+ 22s   Considering libjansson-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libjansson4:riscv64
+ 22s   Re-Instated libjansson-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libmnl-dev:riscv64 < none | 1.0.5-ok1.0 @un uH >
+ 22s   Considering libmnl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libmnl0:riscv64
+ 22s   Re-Instated libmnl-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libnuma-dev:riscv64 < none | 2.0.18-ok2 @un uH >
+ 22s   Considering libnuma-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libnuma1:riscv64
+ 22s   Re-Instated libnuma-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libpcap-dev:riscv64 < none | 1.10.4-4.1ok1.1 @un uH >
+ 22s   Considering libpcap-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libdbus-1-3:riscv64
+ 22s   Re-Instated libdbus-1-dev:riscv64
+ 22s   Re-Instated libpcap0.8t64:riscv64
+ 22s   Re-Instated libpcap0.8-dev:riscv64
+ 22s   Re-Instated libpcap-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libssl-dev:riscv64 < none | 3.2.1-ok3 @un uH >
+ 22s   Considering libssl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libssl-dev:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libxdp-dev:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on meson:riscv64 < none | 1.3.2-ok2 @un uH > (>= 0.47.1~)
+ 22s   Considering meson:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated ninja-build:riscv64
+ 22s   Re-Instated meson:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-pyelftools:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on doxygen:riscv64 < none | 1.9.8+ds-ok1 @un uH >
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s     Reinst Failed early because of libclang-cpp18:riscv64
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on graphviz:riscv64 < none | 2.42.2-ok2 @un uH >
+ 22s   Considering graphviz:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libcdt5:riscv64
+ 22s   Re-Instated libcgraph6:riscv64
+ 22s   Re-Instated libgts-0.7-5:riscv64
+ 22s   Re-Instated libpathplan4:riscv64
+ 22s   Re-Instated libgvc6:riscv64
+ 22s   Re-Instated libgvpr2:riscv64
+ 22s   Re-Instated liblab-gamut1:riscv64
+ 22s   Re-Instated graphviz:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on inkscape:riscv64 < none | 1.2.2-ok1 @un uH >
+ 22s   Considering inkscape:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s     Reinst Failed early because of lib2geom1.2.0:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-sphinx:riscv64 < none | 7.2.6-ok1 @un uH >
+ 22s   Considering python3-sphinx:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated libjs-jquery:riscv64
+ 22s   Re-Instated libjs-underscore:riscv64
+ 22s   Re-Instated libjs-sphinxdoc:riscv64
+ 22s   Re-Instated libjson-perl:riscv64
+ 22s   Re-Instated sphinx-common:riscv64
+ 22s   Re-Instated python3-alabaster:riscv64
+ 22s   Re-Instated docutils-common:riscv64
+ 22s   Re-Instated python3-roman:riscv64
+ 22s   Re-Instated python3-docutils:riscv64
+ 22s   Re-Instated python3-imagesize:riscv64
+ 22s   Re-Instated python3-packaging:riscv64
+ 22s   Re-Instated python3-snowballstemmer:riscv64
+ 22s   Re-Instated python3-sphinx:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-sphinx-rtd-theme:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-fonts-recommended:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-latex-extra:riscv64 < none @un H >
+ 22s Investigating (0) dbus:riscv64 < 1.14.6-ok1 | 1.14.10-ok3 @ii uH Ib >
+ 22s Broken dbus:riscv64 Depends on libdbus-1-3:riscv64 < 1.14.6-ok1 -> 1.14.10-ok3 @ii uU > (= 1.14.6-ok1)
+ 22s   Considering libdbus-1-3:riscv64 332 as a solution to dbus:riscv64 128
+ 22s   Re-Instated dbus-bin:riscv64
+ 22s   Re-Instated dbus-session-bus-common:riscv64
+ 22s   Re-Instated dbus-daemon:riscv64
+ 22s   Re-Instated dbus-system-bus-common:riscv64
+ 22s   Re-Instated dbus:riscv64
+ 22s Investigating (0) dbus-user-session:riscv64 < 1.14.6-ok1 | 1.14.10-ok3 @ii uH Ib >
+ 22s Broken dbus-user-session:riscv64 Depends on dbus-daemon:riscv64 < 1.14.6-ok1 -> 1.14.10-ok3 @ii uU > (= 1.14.6-ok1)
+ 22s   Considering dbus-daemon:riscv64 55 as a solution to dbus-user-session:riscv64 40
+ 22s   Re-Instated dbus-user-session:riscv64
+ 22s Broken dbus-user-session:riscv64 Depends on dbus-broker:riscv64 < none @un H >
+ 22s   Or group remove for dbus-user-session:riscv64
+ 22s Investigating (0) dbus-x11:riscv64 < 1.14.6-ok1 | 1.14.10-ok3 @ii uH Ib >
+ 22s Broken dbus-x11:riscv64 Depends on dbus-bin:riscv64 < 1.14.6-ok1 -> 1.14.10-ok3 @ii uU > (= 1.14.6-ok1)
+ 22s   Considering dbus-bin:riscv64 39 as a solution to dbus-x11:riscv64 8
+ 22s   Re-Instated dbus-x11:riscv64
+ 22s Investigating (0) libnl-genl-3-200:riscv64 < 3.7.0-0.2 | 3.7.0-0.3ok1 @ii uH Ib >
+ 22s Broken libnl-genl-3-200:riscv64 Depends on libnl-3-200:riscv64 < 3.7.0-0.2 -> 3.7.0-0.3ok1 @ii uU > (= 3.7.0-0.2)
+ 22s   Considering libnl-3-200:riscv64 6 as a solution to libnl-genl-3-200:riscv64 1
+ 22s   Re-Instated libnl-genl-3-200:riscv64
+ 22s Investigating (0) libelf1t64:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 22s Broken libelf1t64:riscv64 Breaks on libelf1:riscv64 < 0.187-ok1 @ii K > (< 0.190-ok3)
+ 22s   Considering libelf1:riscv64 32 as a solution to libelf1t64:riscv64 0
+ 22s   Holding Back libelf1t64:riscv64 rather than change libelf1:riscv64
+ 22s Investigating (0) libpcap0.8t64:riscv64 < none -> 1.10.4-4.1ok1.1 @un uN Ib >
+ 22s Broken libpcap0.8t64:riscv64 Breaks on libpcap0.8:riscv64 < 1.10.1-4build1 @ii K > (< 1.10.4-4.1ok1.1)
+ 22s   Considering libpcap0.8:riscv64 3 as a solution to libpcap0.8t64:riscv64 0
+ 22s   Holding Back libpcap0.8t64:riscv64 rather than change libpcap0.8:riscv64
+ 22s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on chrpath:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libxdp-dev:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-pyelftools:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on doxygen:riscv64 < none | 1.9.8+ds-ok1 @un uH >
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on inkscape:riscv64 < none | 1.2.2-ok1 @un uH >
+ 22s   Considering inkscape:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-sphinx-rtd-theme:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-fonts-recommended:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-latex-extra:riscv64 < none @un H >
+ 22s Investigating (1) libelf-dev:riscv64 < none -> 0.190-ok3 @un uN Ib >
+ 22s Broken libelf-dev:riscv64 Depends on libelf1t64:riscv64 < none | 0.190-ok3 @un uH > (= 0.190-ok3)
+ 22s   Considering libelf1t64:riscv64 0 as a solution to libelf-dev:riscv64 1
+ 22s   Holding Back libelf-dev:riscv64 rather than change libelf1t64:riscv64
+ 22s Investigating (1) libbpf-dev:riscv64 < none -> 1:1.3.0-ok1 @un uN Ib >
+ 22s Broken libbpf-dev:riscv64 Depends on libelf-dev:riscv64 < none | 0.190-ok3 @un uH >
+ 22s   Considering libelf-dev:riscv64 1 as a solution to libbpf-dev:riscv64 1
+ 22s   Holding Back libbpf-dev:riscv64 rather than change libelf-dev:riscv64
+ 22s Investigating (1) libpcap0.8-dev:riscv64 < none -> 1.10.4-4.1ok1.1 @un uN Ib >
+ 22s Broken libpcap0.8-dev:riscv64 Depends on libpcap0.8t64:riscv64 < none | 1.10.4-4.1ok1.1 @un uH > (= 1.10.4-4.1ok1.1)
+ 22s   Considering libpcap0.8t64:riscv64 0 as a solution to libpcap0.8-dev:riscv64 0
+ 22s   Holding Back libpcap0.8-dev:riscv64 rather than change libpcap0.8t64:riscv64
+ 22s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on chrpath:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libbpf-dev:riscv64 < none | 1:1.3.0-ok1 @un uH >
+ 22s   Considering libbpf-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libelf-dev:riscv64 < none | 0.190-ok3 @un uH >
+ 22s   Considering libelf-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libxdp-dev:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-pyelftools:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on doxygen:riscv64 < none | 1.9.8+ds-ok1 @un uH >
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on inkscape:riscv64 < none | 1.2.2-ok1 @un uH >
+ 22s   Considering inkscape:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-sphinx-rtd-theme:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-fonts-recommended:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-latex-extra:riscv64 < none @un H >
+ 22s Investigating (2) libpcap-dev:riscv64 < none -> 1.10.4-4.1ok1.1 @un uN Ib >
+ 22s Broken libpcap-dev:riscv64 Depends on libpcap0.8-dev:riscv64 < none | 1.10.4-4.1ok1.1 @un uH >
+ 22s   Considering libpcap0.8-dev:riscv64 0 as a solution to libpcap-dev:riscv64 1
+ 22s   Holding Back libpcap-dev:riscv64 rather than change libpcap0.8-dev:riscv64
+ 22s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on chrpath:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libbpf-dev:riscv64 < none | 1:1.3.0-ok1 @un uH >
+ 22s   Considering libbpf-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libelf-dev:riscv64 < none | 0.190-ok3 @un uH >
+ 22s   Considering libelf-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libpcap-dev:riscv64 < none | 1.10.4-4.1ok1.1 @un uH >
+ 22s   Considering libpcap-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on libxdp-dev:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-pyelftools:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on doxygen:riscv64 < none | 1.9.8+ds-ok1 @un uH >
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Considering doxygen:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on inkscape:riscv64 < none | 1.2.2-ok1 @un uH >
+ 22s   Considering inkscape:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s Broken autopkgtest-satdep:riscv64 Depends on python3-sphinx-rtd-theme:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-fonts-recommended:riscv64 < none @un H >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on texlive-latex-extra:riscv64 < none @un H >
+ 22s Done
+ 22s Some packages could not be installed. This may mean that you have
+ 22s requested an impossible situation or if you are using the unstable
+ 22s distribution that some required packages have not yet been created
+ 22s or been moved out of Incoming.
+ 22s The following information may help to resolve the situation:
+ 22s 
+ 22s The following packages have unmet dependencies:
+ 22s  autopkgtest-satdep : Depends: chrpath but it is not installable
+ 22s                       Depends: libbpf-dev but it is not going to be installed
+ 22s                       Depends: libelf-dev but it is not going to be installed
+ 22s                       Depends: libpcap-dev but it is not going to be installed
+ 22s                       Depends: libxdp-dev but it is not installable
+ 22s                       Depends: python3-pyelftools but it is not installable
+ 22s                       Depends: doxygen but it is not going to be installed
+ 22s                       Depends: inkscape but it is not going to be installed
+ 22s                       Depends: python3-sphinx-rtd-theme but it is not installable
+ 22s                       Depends: texlive-fonts-recommended but it is not installable
+ 22s                       Depends: texlive-latex-extra but it is not installable
+ 22s E: Unable to correct problems, you have held broken packages.
+ 22s autopkgtest: DBG: testbed command exited with code 100
+ 22s autopkgtest: DBG: apt-get install /tmp/autopkgtest.ONKdwq/2-autopkgtest-satdep.deb failed; status-fd:
+ 22s 
+ 22s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 22s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential jq chrpath debhelper-compat (= 13) dh-python libbpf-dev libbsd-dev libelf-dev libfdt-dev libibverbs-dev (>= 23~) libjansson-dev libmnl-dev libnuma-dev libpcap-dev libssl-dev libxdp-dev meson (>= 0.47.1~) pkg-config python3:any python3-pyelftools zlib1g-dev doxygen graphviz inkscape python3-sphinx python3-sphinx-rtd-theme texlive-fonts-recommended texlive-latex-extra build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 22s autopkgtest: DBG: testbed command exited with code 2
+ 22s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 22s test-fastsuite       FAIL badpkg
+ 22s blame: dpdk_23.11-ok1.dsc
+ 22s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 22s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 22s autopkgtest [03:18:54]: @@@@@@@@@@@@@@@@@@@@ summary
+ 22s test-initscripts     SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 22s test-autotest        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 22s test-initscripts     SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 22s test-autotest        SKIP Test restriction "isolation-machine" requires testbed capability "isolation-machine"
+ 22s test-linkage         FAIL badpkg
+ 22s blame: dpdk_23.11-ok1.dsc
+ 22s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 22s test-fastsuite       FAIL badpkg
+ 22s blame: dpdk_23.11-ok1.dsc
+ 22s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 22s autopkgtest: DBG: testbed stop
+ 22s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.ONKdwq
+ 22s autopkgtest: DBG: sending command to testbed: close
+ 22s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: sending command to testbed: quit

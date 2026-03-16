@@ -1,0 +1,25 @@
+++++ BEGINNING TEST
++++ CHECK WATCH INVALID KEY
+keyctl watch 0
+keyctl_watch_key: Invalid argument
++++ ADD USER KEY
+keyctl add user wibble stuff @s
+1032455734
++++ UNLINK KEY
+keyctl unlink 1032455734 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 1032455734 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 1032455734 @s
+keyctl_unlink: Required key not available
++++ UPDATE UNLINKED KEY
+keyctl watch 1032455734
+keyctl_watch_key: Required key not available
++++ CHECK DODGY FILTERS
+keyctl watch -fZ @s
+Unknown filter character 'Z'
+keyctl watch -fZ -fQ @s
+Unknown filter character 'Z'
+keyctl watch -f: @s
+Unknown filter character ':'
+++++ FINISHED TEST: PASS

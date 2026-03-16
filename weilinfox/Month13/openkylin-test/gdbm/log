@@ -1,0 +1,911 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [05:43:25]: starting date and time: 2024-07-18 05:43:25+0800
+  0s autopkgtest [05:43:25]: version @version@
+  0s autopkgtest [05:43:25]: host lili; command line: /usr/bin/autopkgtest gdbm_1.23-ok5.dsc -o /home/hachi/openkylin_test/sharefolder/results/gdbm -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.nGfz9n
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-589c0967-bfe4-4def-acc5-6eb1e2d6b734,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-589c0967-bfe4-4def-acc5-6eb1e2d6b734//tmp/autopkgtest.nGfz9n
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-589c0967-bfe4-4def-acc5-6eb1e2d6b734//tmp/autopkgtest.nGfz9n', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.nGfz9n'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.nGfz9n/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.nGfz9n/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [05:43:27]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [05:43:27]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.nGfz9n/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.nGfz9n/testbed-packages /home/hachi/openkylin_test/sharefolder/results/gdbm/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [05:43:27]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [05:43:28]: @@@@@@@@@@@@@@@@@@@@ source gdbm_1.23-ok5.dsc
+  3s autopkgtest: DBG: blame += gdbm_1.23-ok5.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.nGfz9n'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown gdbm_1.23-ok5.dsc /tmp/autopkgtest.nGfz9n/gdbm_1.23-ok5.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.nGfz9n'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown gdbm_1.23.orig.tar.gz /tmp/autopkgtest.nGfz9n/gdbm_1.23.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.nGfz9n'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown gdbm_1.23.orig.tar.gz.asc /tmp/autopkgtest.nGfz9n/gdbm_1.23.orig.tar.gz.asc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.nGfz9n'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown gdbm_1.23-ok5.debian.tar.xz /tmp/autopkgtest.nGfz9n/gdbm_1.23-ok5.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.nGfz9n/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.nGfz9n/gdbm_1.23-ok5.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.nGfz9n/build.XXX
+  3s + builddir=/tmp/autopkgtest.nGfz9n/build.4Db
+  3s + cd /tmp/autopkgtest.nGfz9n/build.4Db
+  3s + dpkg-source -x /tmp/autopkgtest.nGfz9n/gdbm_1.23-ok5.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.44mrmJwl/trustedkeys.kbx': General error
+  4s gpgv: Signature made Wed 03 Apr 2024 10:02:35 AM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.nGfz9n/gdbm_1.23-ok5.dsc
+  4s dpkg-source: info: extracting gdbm in src
+  4s dpkg-source: info: unpacking gdbm_1.23.orig.tar.gz
+  4s dpkg-source: info: unpacking gdbm_1.23-ok5.debian.tar.xz
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [05:43:29]: testing package gdbm version 1.23-ok5
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.nGfz9n/build.4Db/src/debian/ /home/hachi/openkylin_test/sharefolder/results/gdbm/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libgdbm6t64
+  4s autopkgtest: DBG: synthesised dependency gdbm-l10n
+  4s autopkgtest: DBG: synthesised dependency libgdbm-dev
+  4s autopkgtest: DBG: synthesised dependency gdbmtool
+  4s autopkgtest: DBG: synthesised dependency libgdbm-compat4t64
+  4s autopkgtest: DBG: synthesised dependency libgdbm-compat-dev
+  4s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.22.5)
+  4s autopkgtest: DBG: synthesised dependency texinfo
+  4s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  4s autopkgtest: DBG: synthesised dependency dh-exec
+  4s autopkgtest: DBG: synthesised dependency libreadline-dev
+  4s autopkgtest: DBG: synthesised dependency bison
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: Test defined: name simple path debian/tests/simple command "None" restrictions ['allow-stderr'] features [] depends ['libgdbm6t64', 'gdbm-l10n', 'libgdbm-dev', 'gdbmtool', 'libgdbm-compat4t64', 'libgdbm-compat-dev', 'dpkg-dev (>= 1.22.5)', 'texinfo', 'debhelper-compat (= 13)', 'dh-exec', 'libreadline-dev', 'bison', 'build-essential', 'build-essential'] 
+  4s autopkgtest [05:43:29]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.nGfz9n/build.4Db/src/ /home/hachi/openkylin_test/sharefolder/results/gdbm/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libgdbm6t64
+  4s autopkgtest: DBG: synthesised dependency gdbm-l10n
+  4s autopkgtest: DBG: synthesised dependency libgdbm-dev
+  4s autopkgtest: DBG: synthesised dependency gdbmtool
+  4s autopkgtest: DBG: synthesised dependency libgdbm-compat4t64
+  4s autopkgtest: DBG: synthesised dependency libgdbm-compat-dev
+  4s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.22.5)
+  4s autopkgtest: DBG: synthesised dependency texinfo
+  4s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  4s autopkgtest: DBG: synthesised dependency dh-exec
+  4s autopkgtest: DBG: synthesised dependency libreadline-dev
+  4s autopkgtest: DBG: synthesised dependency bison
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: Test defined: name simple path debian/tests/simple command "None" restrictions ['allow-stderr'] features [] depends ['libgdbm6t64', 'gdbm-l10n', 'libgdbm-dev', 'gdbmtool', 'libgdbm-compat4t64', 'libgdbm-compat-dev', 'dpkg-dev (>= 1.22.5)', 'texinfo', 'debhelper-compat (= 13)', 'dh-exec', 'libreadline-dev', 'bison', 'build-essential', 'build-essential'] 
+  4s autopkgtest [05:43:29]: test simple: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libgdbm6t64', 'gdbm-l10n', 'libgdbm-dev', 'gdbmtool', 'libgdbm-compat4t64', 'libgdbm-compat-dev', 'dpkg-dev (>= 1.22.5)', 'texinfo', 'debhelper-compat (= 13)', 'dh-exec', 'libreadline-dev', 'bison', 'build-essential', 'build-essential']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['libgdbm6t64', 'gdbm-l10n', 'libgdbm-dev', 'gdbmtool', 'libgdbm-compat4t64', 'libgdbm-compat-dev', 'dpkg-dev (>= 1.22.5)', 'texinfo', 'debhelper-compat (= 13)', 'dh-exec', 'libreadline-dev', 'bison', 'build-essential', 'build-essential']
+  4s autopkgtest: DBG: install-deps: satisfying libgdbm6t64, gdbm-l10n, libgdbm-dev, gdbmtool, libgdbm-compat4t64, libgdbm-compat-dev, dpkg-dev (>= 1.22.5), texinfo, debhelper-compat (= 13), dh-exec, libreadline-dev, bison, build-essential, build-essential
+  4s autopkgtest: DBG: install-deps: architecture resolved: libgdbm6t64, gdbm-l10n, libgdbm-dev, gdbmtool, libgdbm-compat4t64, libgdbm-compat-dev, dpkg-dev (>= 1.22.5), texinfo, debhelper-compat (= 13), dh-exec, libreadline-dev, bison, build-essential, build-essential
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.nGfz9n'], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-589c0967-bfe4-4def-acc5-6eb1e2d6b734//tmp/autopkgtest.nGfz9n/1-autopkgtest-satdep.deb /tmp/autopkgtest.nGfz9n/1-autopkgtest-satdep.deb
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.nGfz9n/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  6s Building dependency tree...
+  6s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 5
+  6s Starting 2 pkgProblemResolver with broken count: 5
+  6s Investigating (0) libnet-ssleay-perl:riscv64 < 1.88-ok2 -> 1.94-ok1 @ii uU Ib >
+  6s Broken libnet-ssleay-perl:riscv64 Depends on perl-openssl-abi-3:riscv64 < none @un H >
+  6s   Considering perl-openssl-defaults:riscv64 -1 as a solution to libnet-ssleay-perl:riscv64 4
+  6s   Re-Instated perl-openssl-defaults:riscv64
+  6s   Re-Instated libnet-ssleay-perl:riscv64
+  6s Investigating (0) libfile-fcntllock-perl:riscv64 < 0.22-ok1 @ii K Ib >
+  6s Broken libfile-fcntllock-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5299 as a solution to libfile-fcntllock-perl:riscv64 3
+  6s   Removing libfile-fcntllock-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Investigating (0) libalgorithm-diff-xs-perl:riscv64 < 0.04-ok1 @ii K Ib >
+  6s Broken libalgorithm-diff-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5299 as a solution to libalgorithm-diff-xs-perl:riscv64 1
+  6s   Removing libalgorithm-diff-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Investigating (0) libnet-dbus-perl:riscv64 < 1.2.0-ok1 @ii K Ib >
+  6s Broken libnet-dbus-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5299 as a solution to libnet-dbus-perl:riscv64 0
+  6s   Removing libnet-dbus-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Investigating (0) libintl-xs-perl:riscv64 < 1.26-ok1 @ii K Ib >
+  6s Broken libintl-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5299 as a solution to libintl-xs-perl:riscv64 -1
+  6s   Removing libintl-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  7s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  7s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  7s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  7s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  7s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatrildocument3
+  7s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  7s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  7s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  7s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  7s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  7s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  7s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  7s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  7s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  7s   libtie-ixhash-perl libukui-appwidget-qmlplugin0 libunity-settings-daemon1
+  7s   libwhoopsie0 libxml-parser-perl libxml-twig-perl libxml-xpathengine-perl
+  7s   lto-disabled-list nautilus-data pipewire-alsa
+  7s   pipewire-audio-client-libraries pipewire-jack pkg-config pluma pluma-common
+  7s   python3-aptdaemon.gtk3widgets python3-ibus-1.0 python3-xdg session-migration
+  7s   ukui-appwidget-manager ukui-notebook ukui-system-appwidget unicode-cldr-core
+  7s   unity-settings-daemon unity-settings-daemon-schemas xfonts-thai
+  7s   xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap
+  7s   xfonts-thai-vor zlib1g-dev
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   autoconf automake autopoint autotools-dev bison cryptsetup cryptsetup-bin
+  7s   cryptsetup-initramfs cryptsetup-run debhelper dh-autoreconf dh-exec
+  7s   dh-strip-nondeterminism dpkg dpkg-dev dwz gdbm-l10n gdbmtool gettext
+  7s   gettext-base info install-info intltool-debian libarchive-zip-perl
+  7s   libclone-perl libcryptsetup12 libdebhelper-perl libdpkg-perl
+  7s   libfile-stripnondeterminism-perl libgdbm-compat-dev libgdbm-compat4t64
+  7s   libgdbm-dev libgdbm6t64 libhtml-parser-perl liblocale-gettext-perl liblzma5
+  7s   libncurses-dev libncurses6 libncursesw6 libnet-ssleay-perl libperl5.36
+  7s   libreadline-dev libreadline8 libsub-override-perl libtext-charwidth-perl
+  7s   libtext-iconv-perl libtext-unidecode-perl libtinfo6 libtool libunistring5
+  7s   libxml-libxml-perl libxml-namespacesupport-perl libxml-parser-perl
+  7s   libxml-sax-base-perl libxml-sax-perl libzstd1 m4 ncurses-base ncurses-bin
+  7s   ncurses-term perl perl-base perl-modules-5.36 perl-openssl-defaults
+  7s   po-debconf readline-common tex-common texinfo texinfo-lib vim vim-common
+  7s   vim-runtime vim-tiny xxd xz-utils zstd
+  7s Suggested packages:
+  7s   autoconf-archive gnu-standards autoconf-doc bison-doc keyutils dh-make
+  7s   debsig-verify debian-keyring gettext-doc libasprintf-dev libgettextpo-dev
+  7s   bzr ncurses-doc readline-doc libtool-doc gfortran | fortran95-compiler
+  7s   gcj-jdk m4-doc perl-doc libterm-readline-gnu-perl
+  7s   | libterm-readline-perl-perl libtap-harness-archive-perl libmail-box-perl
+  7s   texlive-base texlive-latex-base texlive-plain-generic
+  7s   texlive-fonts-recommended ctags vim-doc vim-scripts indent
+  7s Recommended packages:
+  7s   libfile-fcntllock-perl libarchive-cpio-perl libltdl-dev
+  7s   libxml-sax-expat-perl libmail-sendmail-perl
+  8s The following packages will be REMOVED:
+  8s   libalgorithm-diff-xs-perl libfile-fcntllock-perl libgdbm-compat4 libgdbm6
+  8s   libintl-xs-perl libnet-dbus-perl
+  8s The following NEW packages will be installed:
+  8s   autoconf automake autopkgtest-satdep autopoint autotools-dev bison debhelper
+  8s   dh-autoreconf dh-exec dh-strip-nondeterminism dwz gdbm-l10n gdbmtool
+  8s   intltool-debian libarchive-zip-perl libdebhelper-perl
+  8s   libfile-stripnondeterminism-perl libgdbm-compat-dev libgdbm-compat4t64
+  8s   libgdbm-dev libgdbm6t64 libncurses-dev libperl5.36 libreadline-dev
+  8s   libsub-override-perl libtext-unidecode-perl libtool libunistring5
+  8s   libxml-libxml-perl libxml-namespacesupport-perl libxml-sax-base-perl
+  8s   libxml-sax-perl m4 perl-modules-5.36 po-debconf tex-common texinfo
+  8s   texinfo-lib
+  8s The following packages will be upgraded:
+  8s   cryptsetup cryptsetup-bin cryptsetup-initramfs cryptsetup-run dpkg dpkg-dev
+  8s   gettext gettext-base info install-info libclone-perl libcryptsetup12
+  8s   libdpkg-perl libhtml-parser-perl liblocale-gettext-perl liblzma5 libncurses6
+  8s   libncursesw6 libnet-ssleay-perl libreadline8 libtext-charwidth-perl
+  8s   libtext-iconv-perl libtinfo6 libxml-parser-perl libzstd1 ncurses-base
+  8s   ncurses-bin ncurses-term perl perl-base perl-openssl-defaults
+  8s   readline-common vim vim-common vim-runtime vim-tiny xxd xz-utils zstd
+  8s 39 upgraded, 38 newly installed, 6 to remove and 1027 not upgraded.
+  8s Need to get 34.9 MB/34.9 MB of archives.
+  8s After this operation, 95.5 MB of additional disk space will be used.
+  8s Get:1 /tmp/autopkgtest.nGfz9n/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [812 B]
+  8s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 liblzma5 riscv64 5.4.5-ok2 [116 kB]
+  8s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzstd1 riscv64 1.5.5-ok3 [286 kB]
+  8s Get:4 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 dpkg riscv64 1.22.6-ok3 [1,249 kB]
+  9s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libncurses6 riscv64 6.4+20240113-1ok1 [94.4 kB]
+  9s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libncursesw6 riscv64 6.4+20240113-1ok1 [127 kB]
+  9s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtinfo6 riscv64 6.4+20240113-1ok1 [91.5 kB]
+  9s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 ncurses-bin riscv64 6.4+20240113-1ok1 [182 kB]
+  9s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxml-parser-perl riscv64 2.47-ok1 [187 kB]
+  9s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtext-iconv-perl riscv64 1.7-ok2 [11.8 kB]
+  9s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtext-charwidth-perl riscv64 0.04-ok3 [8,200 B]
+  9s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 perl-modules-5.36 all 5.36.0-ok8.1 [2,984 kB]
+ 10s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libperl5.36 riscv64 5.36.0-ok8.1 [4,207 kB]
+ 12s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 perl riscv64 5.36.0-ok8.1 [235 kB]
+ 12s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 perl-base riscv64 5.36.0-ok8.1 [1,634 kB]
+ 13s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 liblocale-gettext-perl riscv64 1.07-ok2 [14.3 kB]
+ 13s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhtml-parser-perl riscv64 3.81-ok1 [82.6 kB]
+ 13s Get:18 http://archive.build.openkylin.top/openkylin nile/main riscv64 libclone-perl riscv64 0.46-ok1 [9,392 B]
+ 13s Get:19 http://archive.build.openkylin.top/openkylin nile/main riscv64 perl-openssl-defaults riscv64 7-ok1 [6,624 B]
+ 13s Get:20 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libnet-ssleay-perl riscv64 1.94-ok1 [291 kB]
+ 13s Get:21 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdbm-compat4t64 riscv64 1.23-ok5 [5,984 B]
+ 13s Get:22 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdbm6t64 riscv64 1.23-ok5 [27.8 kB]
+ 13s Get:23 http://archive.build.openkylin.top/openkylin nile/main riscv64 libcryptsetup12 riscv64 2:2.6.1-ok5 [180 kB]
+ 13s Get:24 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup-bin riscv64 2:2.6.1-ok5 [457 kB]
+ 13s Get:25 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup-initramfs all 2:2.6.1-ok5 [15.3 kB]
+ 13s Get:26 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup riscv64 2:2.6.1-ok5 [41.8 kB]
+ 13s Get:27 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 vim riscv64 2:9.1.0016-ok1 [1,304 kB]
+ 14s Get:28 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 vim-tiny riscv64 2:9.1.0016-ok1 [562 kB]
+ 14s Get:29 http://archive.build.openkylin.top/openkylin nile/main riscv64 vim-runtime all 2:9.1.0016-ok1 [7,259 kB]
+ 17s Get:30 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 xxd riscv64 2:9.1.0016-ok1 [49.7 kB]
+ 17s Get:31 http://archive.build.openkylin.top/openkylin nile/main riscv64 vim-common all 2:9.1.0016-ok1 [374 kB]
+ 17s Get:32 http://archive.build.openkylin.top/openkylin nile/main riscv64 ncurses-term all 6.4+20240113-1ok1 [275 kB]
+ 18s Get:33 http://archive.build.openkylin.top/openkylin nile/main riscv64 ncurses-base all 6.4+20240113-1ok1 [19.0 kB]
+ 18s Get:34 http://archive.build.openkylin.top/openkylin nile/main riscv64 install-info riscv64 7.1-ok1 [56.9 kB]
+ 18s Get:35 http://archive.build.openkylin.top/openkylin nile/main riscv64 info riscv64 7.1-ok1 [116 kB]
+ 18s Get:36 http://archive.build.openkylin.top/openkylin nile/main riscv64 readline-common all 8.2-ok1 [55.6 kB]
+ 18s Get:37 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libreadline8 riscv64 8.2-ok1 [122 kB]
+ 18s Get:38 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext-base riscv64 0.22-ok3 [81.1 kB]
+ 18s Get:39 http://archive.build.openkylin.top/openkylin nile/main riscv64 xz-utils riscv64 5.4.5-ok2 [184 kB]
+ 18s Get:40 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 m4 riscv64 1.4.19-ok1 [259 kB]
+ 18s Get:41 http://archive.build.openkylin.top/openkylin nile/main riscv64 autoconf all 2.71-ok2 [390 kB]
+ 18s Get:42 http://archive.build.openkylin.top/openkylin nile/main riscv64 autotools-dev all 20220506-ok1 [41.6 kB]
+ 18s Get:43 http://archive.build.openkylin.top/openkylin nile/main riscv64 automake all 1:1.16.5-ok1 [557 kB]
+ 19s Get:44 http://archive.build.openkylin.top/openkylin nile/main riscv64 libunistring5 riscv64 1.1-ok1 [540 kB]
+ 19s Get:45 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext riscv64 0.22-ok3 [1,190 kB]
+ 20s Get:46 http://archive.build.openkylin.top/openkylin nile/main riscv64 autopoint all 0.22-ok3 [424 kB]
+ 20s Get:47 http://archive.build.openkylin.top/openkylin nile/main riscv64 bison riscv64 2:3.8.2+dfsg-ok1 [824 kB]
+ 20s Get:48 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup-run all 2:2.6.1-ok5 [2,044 B]
+ 20s Get:49 http://archive.build.openkylin.top/openkylin nile/main riscv64 dpkg-dev all 1.22.6-ok3 [1,150 kB]
+ 21s Get:50 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdpkg-perl all 1.22.6-ok3 [415 kB]
+ 21s Get:51 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdebhelper-perl all 13.15.3-ok1 [66.0 kB]
+ 21s Get:52 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtool all 2.4.7-ok2 [164 kB]
+ 21s Get:53 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-autoreconf all 20-ok1 [16.3 kB]
+ 21s Get:54 http://archive.build.openkylin.top/openkylin nile/main riscv64 libarchive-zip-perl all 1.68-ok1 [90.7 kB]
+ 21s Get:55 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsub-override-perl all 0.10-ok1 [9,172 B]
+ 21s Get:56 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfile-stripnondeterminism-perl all 1.13.1-ok1 [16.3 kB]
+ 21s Get:57 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-strip-nondeterminism all 1.13.1-ok1 [5,324 B]
+ 21s Get:58 http://archive.build.openkylin.top/openkylin nile/main riscv64 dwz riscv64 0.15-1ok1 [113 kB]
+ 21s Get:59 http://archive.build.openkylin.top/openkylin nile/main riscv64 intltool-debian all 0.35.0+20060710.5-ok2 [23.2 kB]
+ 21s Get:60 http://archive.build.openkylin.top/openkylin nile/main riscv64 po-debconf all 1.0.21+nmu1-ok1 [227 kB]
+ 21s Get:61 http://archive.build.openkylin.top/openkylin nile/main riscv64 debhelper all 13.15.3-ok1 [959 kB]
+ 22s Get:62 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-exec riscv64 0.29-ok1 [24.2 kB]
+ 22s Get:63 http://archive.build.openkylin.top/openkylin nile/main riscv64 gdbm-l10n all 1.23-ok5 [48.2 kB]
+ 22s Get:64 http://archive.build.openkylin.top/openkylin nile/main riscv64 gdbmtool riscv64 1.23-ok5 [61.1 kB]
+ 22s Get:65 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdbm-dev riscv64 1.23-ok5 [148 kB]
+ 22s Get:66 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdbm-compat-dev riscv64 1.23-ok5 [9,196 B]
+ 22s Get:67 http://archive.build.openkylin.top/openkylin nile/main riscv64 libncurses-dev riscv64 6.4+20240113-1ok1 [885 kB]
+ 22s Get:68 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libreadline-dev riscv64 8.2-ok1 [302 kB]
+ 23s Get:69 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtext-unidecode-perl all 1.30-ok2 [108 kB]
+ 23s Get:70 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxml-namespacesupport-perl all 1.12-ok2 [17.9 kB]
+ 23s Get:71 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxml-sax-base-perl all 1.09-ok2 [18.4 kB]
+ 23s Get:72 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxml-sax-perl all 1.02+dfsg-ok2 [52.7 kB]
+ 23s Get:73 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxml-libxml-perl riscv64 2.0207+dfsg+really+2.0134-ok1 [290 kB]
+ 23s Get:74 http://archive.build.openkylin.top/openkylin nile/main riscv64 tex-common all 6.18-ok1 [29.1 kB]
+ 23s Get:75 http://archive.build.openkylin.top/openkylin nile/main riscv64 texinfo-lib riscv64 7.1-ok1 [109 kB]
+ 23s Get:76 http://archive.build.openkylin.top/openkylin nile/main riscv64 texinfo all 7.1-ok1 [1,646 kB]
+ 24s Get:77 http://archive.build.openkylin.top/openkylin nile/main riscv64 zstd riscv64 1.5.5-ok3 [643 kB]
+ 26s Preconfiguring packages ...
+ 27s Fetched 34.9 MB in 16s (2,200 kB/s)
+ 27s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 27s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 27s Preparing to unpack .../liblzma5_5.4.5-ok2_riscv64.deb ...
+ 27s Unpacking liblzma5:riscv64 (5.4.5-ok2) over (5.2.5-2.1) ...
+ 28s Setting up liblzma5:riscv64 (5.4.5-ok2) ...
+ 28s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 28s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 28s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 28s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 28s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 28s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 28s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 28s Preparing to unpack .../libzstd1_1.5.5-ok3_riscv64.deb ...
+ 28s Unpacking libzstd1:riscv64 (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+ 29s Setting up libzstd1:riscv64 (1.5.5-ok3) ...
+ 29s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 29s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 29s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 29s Preparing to unpack .../dpkg_1.22.6-ok3_riscv64.deb ...
+ 29s Unpacking dpkg (1.22.6-ok3) over (1.21.1-ok7) ...
+ 33s Setting up dpkg (1.22.6-ok3) ...
+ 33s Running in chroot, ignoring command 'daemon-reload'
+ 34s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 34s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193810 files and directories currently installed.)
+ 34s Preparing to unpack .../libncurses6_6.4+20240113-1ok1_riscv64.deb ...
+ 34s Unpacking libncurses6:riscv64 (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 35s Preparing to unpack .../libncursesw6_6.4+20240113-1ok1_riscv64.deb ...
+ 35s Unpacking libncursesw6:riscv64 (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 35s Preparing to unpack .../libtinfo6_6.4+20240113-1ok1_riscv64.deb ...
+ 35s Unpacking libtinfo6:riscv64 (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 36s Setting up libtinfo6:riscv64 (6.4+20240113-1ok1) ...
+ 36s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 36s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193810 files and directories currently installed.)
+ 37s Preparing to unpack .../ncurses-bin_6.4+20240113-1ok1_riscv64.deb ...
+ 37s Unpacking ncurses-bin (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 37s Setting up ncurses-bin (6.4+20240113-1ok1) ...
+ 37s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 37s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193810 files and directories currently installed.)
+ 37s Preparing to unpack .../libxml-parser-perl_2.47-ok1_riscv64.deb ...
+ 38s Unpacking libxml-parser-perl:riscv64 (2.47-ok1) over (2.46-ok2) ...
+ 38s Preparing to unpack .../libtext-iconv-perl_1.7-ok2_riscv64.deb ...
+ 38s Unpacking libtext-iconv-perl (1.7-ok2) over (1.7-ok1) ...
+ 38s Preparing to unpack .../libtext-charwidth-perl_0.04-ok3_riscv64.deb ...
+ 38s Unpacking libtext-charwidth-perl (0.04-ok3) over (0.04-ok2) ...
+ 39s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 39s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193812 files and directories currently installed.)
+ 39s Removing libnet-dbus-perl (1.2.0-ok1) ...
+ 39s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 40s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193717 files and directories currently installed.)
+ 40s Preparing to unpack .../perl_5.36.0-ok8.1_riscv64.deb ...
+ 40s Unpacking perl (5.36.0-ok8.1) over (5.30.0-ok4) ...
+ 40s Selecting previously unselected package perl-modules-5.36.
+ 40s Preparing to unpack .../perl-modules-5.36_5.36.0-ok8.1_all.deb ...
+ 40s Unpacking perl-modules-5.36 (5.36.0-ok8.1) ...
+ 47s Selecting previously unselected package libperl5.36:riscv64.
+ 48s Preparing to unpack .../libperl5.36_5.36.0-ok8.1_riscv64.deb ...
+ 48s Unpacking libperl5.36:riscv64 (5.36.0-ok8.1) ...
+ 51s Preparing to unpack .../perl-base_5.36.0-ok8.1_riscv64.deb ...
+ 51s Unpacking perl-base (5.36.0-ok8.1) over (5.30.0-ok4) ...
+ 60s Setting up perl-base (5.36.0-ok8.1) ...
+ 60s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 60s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 61s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195669 files and directories currently installed.)
+ 61s Preparing to unpack .../liblocale-gettext-perl_1.07-ok2_riscv64.deb ...
+ 61s Unpacking liblocale-gettext-perl (1.07-ok2) over (1.07-ok1) ...
+ 61s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 62s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195671 files and directories currently installed.)
+ 62s Removing libintl-xs-perl (1.26-ok1) ...
+ 62s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 62s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195661 files and directories currently installed.)
+ 62s Preparing to unpack .../libhtml-parser-perl_3.81-ok1_riscv64.deb ...
+ 62s Unpacking libhtml-parser-perl:riscv64 (3.81-ok1) over (3.76-ok1) ...
+ 63s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 63s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195661 files and directories currently installed.)
+ 63s Removing libfile-fcntllock-perl (0.22-ok1) ...
+ 63s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 64s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195639 files and directories currently installed.)
+ 64s Preparing to unpack .../libclone-perl_0.46-ok1_riscv64.deb ...
+ 64s Unpacking libclone-perl:riscv64 (0.46-ok1) over (0.45-ok2) ...
+ 64s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 65s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195638 files and directories currently installed.)
+ 65s Removing libalgorithm-diff-xs-perl (0.04-ok1) ...
+ 65s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 65s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195627 files and directories currently installed.)
+ 65s Preparing to unpack .../perl-openssl-defaults_7-ok1_riscv64.deb ...
+ 65s Unpacking perl-openssl-defaults:riscv64 (7-ok1) over (5-ok1) ...
+ 66s Preparing to unpack .../libnet-ssleay-perl_1.94-ok1_riscv64.deb ...
+ 66s Unpacking libnet-ssleay-perl:riscv64 (1.94-ok1) over (1.88-ok2) ...
+ 68s dpkg: libgdbm-compat4:riscv64: dependency problems, but removing anyway as you requested:
+ 68s  libperl5.36:riscv64 depends on libgdbm-compat4 (>= 1.18-3).
+ 68s  libperl5.30:riscv64 depends on libgdbm-compat4 (>= 1.18-0).
+ 68s 
+ 68s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 68s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195626 files and directories currently installed.)
+ 68s Removing libgdbm-compat4:riscv64 (1.23-1) ...
+ 68s Selecting previously unselected package libgdbm-compat4t64:riscv64.
+ 68s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 68s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 69s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195621 files and directories currently installed.)
+ 69s Preparing to unpack .../libgdbm-compat4t64_1.23-ok5_riscv64.deb ...
+ 69s Unpacking libgdbm-compat4t64:riscv64 (1.23-ok5) ...
+ 70s dpkg: libgdbm6:riscv64: dependency problems, but removing anyway as you requested:
+ 70s  python3-gdbm:riscv64 depends on libgdbm6 (>= 1.16).
+ 70s  man-db depends on libgdbm6 (>= 1.16).
+ 70s  libperl5.36:riscv64 depends on libgdbm6 (>= 1.18-3).
+ 70s  libperl5.30:riscv64 depends on libgdbm6 (>= 1.18-0).
+ 70s 
+ 70s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 70s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195627 files and directories currently installed.)
+ 70s Removing libgdbm6:riscv64 (1.23-1) ...
+ 70s Selecting previously unselected package libgdbm6t64:riscv64.
+ 70s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 70s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 71s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195622 files and directories currently installed.)
+ 71s Preparing to unpack .../00-libgdbm6t64_1.23-ok5_riscv64.deb ...
+ 71s Unpacking libgdbm6t64:riscv64 (1.23-ok5) ...
+ 71s Preparing to unpack .../01-libcryptsetup12_2%3a2.6.1-ok5_riscv64.deb ...
+ 71s Unpacking libcryptsetup12:riscv64 (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 71s Preparing to unpack .../02-cryptsetup-bin_2%3a2.6.1-ok5_riscv64.deb ...
+ 71s Unpacking cryptsetup-bin (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 72s Preparing to unpack .../03-cryptsetup-initramfs_2%3a2.6.1-ok5_all.deb ...
+ 73s Unpacking cryptsetup-initramfs (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 73s Preparing to unpack .../04-cryptsetup_2%3a2.6.1-ok5_riscv64.deb ...
+ 74s Unpacking cryptsetup (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 74s Preparing to unpack .../05-vim_2%3a9.1.0016-ok1_riscv64.deb ...
+ 74s Unpacking vim (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 75s Preparing to unpack .../06-vim-tiny_2%3a9.1.0016-ok1_riscv64.deb ...
+ 75s Unpacking vim-tiny (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 75s Preparing to unpack .../07-vim-runtime_2%3a9.1.0016-ok1_all.deb ...
+ 75s Adding 'diversion of /usr/share/vim/vim91/doc/help.txt to /usr/share/vim/vim91/doc/help.txt.vim-tiny by vim-runtime'
+ 75s Adding 'diversion of /usr/share/vim/vim91/doc/tags to /usr/share/vim/vim91/doc/tags.vim-tiny by vim-runtime'
+ 75s Unpacking vim-runtime (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 82s Removing 'diversion of /usr/share/vim/vim81/doc/help.txt to /usr/share/vim/vim81/doc/help.txt.vim-tiny by vim-runtime'
+ 82s Removing 'diversion of /usr/share/vim/vim81/doc/tags to /usr/share/vim/vim81/doc/tags.vim-tiny by vim-runtime'
+ 83s Preparing to unpack .../08-xxd_2%3a9.1.0016-ok1_riscv64.deb ...
+ 83s Unpacking xxd (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 83s Preparing to unpack .../09-vim-common_2%3a9.1.0016-ok1_all.deb ...
+ 83s Unpacking vim-common (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 84s Preparing to unpack .../10-ncurses-term_6.4+20240113-1ok1_all.deb ...
+ 84s Unpacking ncurses-term (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 93s Preparing to unpack .../11-ncurses-base_6.4+20240113-1ok1_all.deb ...
+ 93s Unpacking ncurses-base (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 93s Setting up ncurses-base (6.4+20240113-1ok1) ...
+ 94s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 94s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 94s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 94s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 94s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 94s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 94s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195911 files and directories currently installed.)
+ 94s Preparing to unpack .../install-info_7.1-ok1_riscv64.deb ...
+ 94s Unpacking install-info (7.1-ok1) over (6.8-6ok1.1) ...
+ 94s Setting up install-info (7.1-ok1) ...
+ 95s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 95s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 95s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 95s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 95s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 95s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 95s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 195911 files and directories currently installed.)
+ 95s Preparing to unpack .../00-info_7.1-ok1_riscv64.deb ...
+ 95s Unpacking info (7.1-ok1) over (6.8-6ok1.1) ...
+ 95s Preparing to unpack .../01-readline-common_8.2-ok1_all.deb ...
+ 95s Unpacking readline-common (8.2-ok1) over (8.2-1) ...
+ 96s Preparing to unpack .../02-libreadline8_8.2-ok1_riscv64.deb ...
+ 96s Unpacking libreadline8:riscv64 (8.2-ok1) over (8.2-1) ...
+ 96s Preparing to unpack .../03-gettext-base_0.22-ok3_riscv64.deb ...
+ 96s Unpacking gettext-base (0.22-ok3) over (0.21-4-ok6) ...
+ 97s Preparing to unpack .../04-xz-utils_5.4.5-ok2_riscv64.deb ...
+ 97s Unpacking xz-utils (5.4.5-ok2) over (5.2.5-2.1) ...
+ 97s Selecting previously unselected package m4.
+ 97s Preparing to unpack .../05-m4_1.4.19-ok1_riscv64.deb ...
+ 97s Unpacking m4 (1.4.19-ok1) ...
+ 98s Selecting previously unselected package autoconf.
+ 98s Preparing to unpack .../06-autoconf_2.71-ok2_all.deb ...
+ 98s Unpacking autoconf (2.71-ok2) ...
+ 98s Selecting previously unselected package autotools-dev.
+ 98s Preparing to unpack .../07-autotools-dev_20220506-ok1_all.deb ...
+ 98s Unpacking autotools-dev (20220506-ok1) ...
+ 98s Selecting previously unselected package automake.
+ 98s Preparing to unpack .../08-automake_1%3a1.16.5-ok1_all.deb ...
+ 98s Unpacking automake (1:1.16.5-ok1) ...
+ 99s Selecting previously unselected package libunistring5:riscv64.
+ 99s Preparing to unpack .../09-libunistring5_1.1-ok1_riscv64.deb ...
+ 99s Unpacking libunistring5:riscv64 (1.1-ok1) ...
+ 99s Preparing to unpack .../10-gettext_0.22-ok3_riscv64.deb ...
+ 99s Unpacking gettext (0.22-ok3) over (0.21-4-ok5) ...
+100s Selecting previously unselected package autopoint.
+100s Preparing to unpack .../11-autopoint_0.22-ok3_all.deb ...
+100s Unpacking autopoint (0.22-ok3) ...
+101s Selecting previously unselected package bison.
+101s Preparing to unpack .../12-bison_2%3a3.8.2+dfsg-ok1_riscv64.deb ...
+101s Unpacking bison (2:3.8.2+dfsg-ok1) ...
+102s Preparing to unpack .../13-cryptsetup-run_2%3a2.6.1-ok5_all.deb ...
+102s Unpacking cryptsetup-run (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+102s Preparing to unpack .../14-dpkg-dev_1.22.6-ok3_all.deb ...
+102s Unpacking dpkg-dev (1.22.6-ok3) over (1.21.1-ok7) ...
+104s Preparing to unpack .../15-libdpkg-perl_1.22.6-ok3_all.deb ...
+104s Unpacking libdpkg-perl (1.22.6-ok3) over (1.21.1-ok7) ...
+105s Selecting previously unselected package libdebhelper-perl.
+105s Preparing to unpack .../16-libdebhelper-perl_13.15.3-ok1_all.deb ...
+105s Unpacking libdebhelper-perl (13.15.3-ok1) ...
+106s Selecting previously unselected package libtool.
+106s Preparing to unpack .../17-libtool_2.4.7-ok2_all.deb ...
+106s Unpacking libtool (2.4.7-ok2) ...
+106s Selecting previously unselected package dh-autoreconf.
+106s Preparing to unpack .../18-dh-autoreconf_20-ok1_all.deb ...
+106s Unpacking dh-autoreconf (20-ok1) ...
+106s Selecting previously unselected package libarchive-zip-perl.
+106s Preparing to unpack .../19-libarchive-zip-perl_1.68-ok1_all.deb ...
+106s Unpacking libarchive-zip-perl (1.68-ok1) ...
+107s Selecting previously unselected package libsub-override-perl.
+107s Preparing to unpack .../20-libsub-override-perl_0.10-ok1_all.deb ...
+107s Unpacking libsub-override-perl (0.10-ok1) ...
+107s Selecting previously unselected package libfile-stripnondeterminism-perl.
+107s Preparing to unpack .../21-libfile-stripnondeterminism-perl_1.13.1-ok1_all.deb ...
+107s Unpacking libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+107s Selecting previously unselected package dh-strip-nondeterminism.
+107s Preparing to unpack .../22-dh-strip-nondeterminism_1.13.1-ok1_all.deb ...
+107s Unpacking dh-strip-nondeterminism (1.13.1-ok1) ...
+107s Selecting previously unselected package dwz.
+107s Preparing to unpack .../23-dwz_0.15-1ok1_riscv64.deb ...
+107s Unpacking dwz (0.15-1ok1) ...
+108s Selecting previously unselected package intltool-debian.
+108s Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5-ok2_all.deb ...
+108s Unpacking intltool-debian (0.35.0+20060710.5-ok2) ...
+108s Selecting previously unselected package po-debconf.
+108s Preparing to unpack .../25-po-debconf_1.0.21+nmu1-ok1_all.deb ...
+108s Unpacking po-debconf (1.0.21+nmu1-ok1) ...
+108s Selecting previously unselected package debhelper.
+108s Preparing to unpack .../26-debhelper_13.15.3-ok1_all.deb ...
+108s Unpacking debhelper (13.15.3-ok1) ...
+110s Selecting previously unselected package dh-exec.
+110s Preparing to unpack .../27-dh-exec_0.29-ok1_riscv64.deb ...
+110s Unpacking dh-exec (0.29-ok1) ...
+110s Selecting previously unselected package gdbm-l10n.
+110s Preparing to unpack .../28-gdbm-l10n_1.23-ok5_all.deb ...
+110s Unpacking gdbm-l10n (1.23-ok5) ...
+110s Selecting previously unselected package gdbmtool.
+110s Preparing to unpack .../29-gdbmtool_1.23-ok5_riscv64.deb ...
+110s Unpacking gdbmtool (1.23-ok5) ...
+111s Selecting previously unselected package libgdbm-dev:riscv64.
+111s Preparing to unpack .../30-libgdbm-dev_1.23-ok5_riscv64.deb ...
+111s Unpacking libgdbm-dev:riscv64 (1.23-ok5) ...
+111s Selecting previously unselected package libgdbm-compat-dev:riscv64.
+111s Preparing to unpack .../31-libgdbm-compat-dev_1.23-ok5_riscv64.deb ...
+111s Unpacking libgdbm-compat-dev:riscv64 (1.23-ok5) ...
+111s Selecting previously unselected package libncurses-dev:riscv64.
+111s Preparing to unpack .../32-libncurses-dev_6.4+20240113-1ok1_riscv64.deb ...
+111s Unpacking libncurses-dev:riscv64 (6.4+20240113-1ok1) ...
+112s Selecting previously unselected package libreadline-dev:riscv64.
+112s Preparing to unpack .../33-libreadline-dev_8.2-ok1_riscv64.deb ...
+112s Unpacking libreadline-dev:riscv64 (8.2-ok1) ...
+112s Selecting previously unselected package libtext-unidecode-perl.
+112s Preparing to unpack .../34-libtext-unidecode-perl_1.30-ok2_all.deb ...
+112s Unpacking libtext-unidecode-perl (1.30-ok2) ...
+113s Selecting previously unselected package libxml-namespacesupport-perl.
+113s Preparing to unpack .../35-libxml-namespacesupport-perl_1.12-ok2_all.deb ...
+113s Unpacking libxml-namespacesupport-perl (1.12-ok2) ...
+113s Selecting previously unselected package libxml-sax-base-perl.
+113s Preparing to unpack .../36-libxml-sax-base-perl_1.09-ok2_all.deb ...
+113s Unpacking libxml-sax-base-perl (1.09-ok2) ...
+113s Selecting previously unselected package libxml-sax-perl.
+113s Preparing to unpack .../37-libxml-sax-perl_1.02+dfsg-ok2_all.deb ...
+114s Unpacking libxml-sax-perl (1.02+dfsg-ok2) ...
+114s Selecting previously unselected package libxml-libxml-perl.
+114s Preparing to unpack .../38-libxml-libxml-perl_2.0207+dfsg+really+2.0134-ok1_riscv64.deb ...
+114s Unpacking libxml-libxml-perl (2.0207+dfsg+really+2.0134-ok1) ...
+114s Selecting previously unselected package tex-common.
+114s Preparing to unpack .../39-tex-common_6.18-ok1_all.deb ...
+115s Unpacking tex-common (6.18-ok1) ...
+115s Selecting previously unselected package texinfo-lib.
+115s Preparing to unpack .../40-texinfo-lib_7.1-ok1_riscv64.deb ...
+115s Unpacking texinfo-lib (7.1-ok1) ...
+116s Selecting previously unselected package texinfo.
+116s Preparing to unpack .../41-texinfo_7.1-ok1_all.deb ...
+116s Unpacking texinfo (7.1-ok1) ...
+118s Preparing to unpack .../42-zstd_1.5.5-ok3_riscv64.deb ...
+118s Unpacking zstd (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+118s Selecting previously unselected package autopkgtest-satdep.
+119s Preparing to unpack .../43-1-autopkgtest-satdep.deb ...
+119s Unpacking autopkgtest-satdep (0) ...
+119s Setting up libtext-iconv-perl (1.7-ok2) ...
+119s Setting up libtext-charwidth-perl (0.04-ok3) ...
+119s Setting up libgdbm6t64:riscv64 (1.23-ok5) ...
+119s Setting up libgdbm-compat4t64:riscv64 (1.23-ok5) ...
+119s Setting up perl-openssl-defaults:riscv64 (7-ok1) ...
+119s Setting up gettext-base (0.22-ok3) ...
+119s Setting up m4 (1.4.19-ok1) ...
+119s Setting up xxd (2:9.1.0016-ok1) ...
+119s Setting up tex-common (6.18-ok1) ...
+120s update-language: texlive-base not installed and configured, doing nothing!
+120s Setting up perl-modules-5.36 (5.36.0-ok8.1) ...
+121s Setting up autotools-dev (20220506-ok1) ...
+121s Setting up vim-common (2:9.1.0016-ok1) ...
+121s Installing new version of config file /etc/vim/vimrc ...
+121s Setting up libncurses6:riscv64 (6.4+20240113-1ok1) ...
+121s Setting up xz-utils (5.4.5-ok2) ...
+121s update-alternatives: warning: forcing reinstallation of alternative /usr/bin/xz because link group lzma is broken
+121s Setting up libunistring5:riscv64 (1.1-ok1) ...
+121s Setting up autopoint (0.22-ok3) ...
+121s Setting up libncursesw6:riscv64 (6.4+20240113-1ok1) ...
+121s Setting up gdbm-l10n (1.23-ok5) ...
+121s Setting up dwz (0.15-1ok1) ...
+121s Setting up bison (2:3.8.2+dfsg-ok1) ...
+121s update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+121s Setting up libcryptsetup12:riscv64 (2:2.6.1-ok5) ...
+121s Setting up libgdbm-dev:riscv64 (1.23-ok5) ...
+121s Setting up vim-runtime (2:9.1.0016-ok1) ...
+121s Setting up readline-common (8.2-ok1) ...
+121s Setting up zstd (1.5.5-ok3) ...
+121s Setting up libperl5.36:riscv64 (5.36.0-ok8.1) ...
+121s Setting up info (7.1-ok1) ...
+121s Setting up liblocale-gettext-perl (1.07-ok2) ...
+121s Setting up ncurses-term (6.4+20240113-1ok1) ...
+121s Setting up cryptsetup-bin (2:2.6.1-ok5) ...
+121s Setting up libncurses-dev:riscv64 (6.4+20240113-1ok1) ...
+121s Setting up gettext (0.22-ok3) ...
+121s Setting up vim (2:9.1.0016-ok1) ...
+121s update-alternatives: updating alternative /usr/bin/vim.basic because link group ex has changed slave links
+121s update-alternatives: updating alternative /usr/bin/vim.basic because link group vi has changed slave links
+121s update-alternatives: updating alternative /usr/bin/vim.basic because link group view has changed slave links
+121s Setting up cryptsetup (2:2.6.1-ok5) ...
+122s Running in chroot, ignoring command 'daemon-reload'
+122s Running in chroot, ignoring command 'daemon-reload'
+122s Setting up libtool (2.4.7-ok2) ...
+122s Setting up libreadline8:riscv64 (8.2-ok1) ...
+122s Setting up libgdbm-compat-dev:riscv64 (1.23-ok5) ...
+122s Setting up vim-tiny (2:9.1.0016-ok1) ...
+122s Installing new version of config file /etc/vim/vimrc.tiny ...
+122s Setting up libreadline-dev:riscv64 (8.2-ok1) ...
+122s Setting up perl (5.36.0-ok8.1) ...
+122s Setting up gdbmtool (1.23-ok5) ...
+122s Setting up cryptsetup-run (2:2.6.1-ok5) ...
+122s Setting up libdpkg-perl (1.22.6-ok3) ...
+122s Setting up autoconf (2.71-ok2) ...
+122s Setting up libhtml-parser-perl:riscv64 (3.81-ok1) ...
+122s Setting up libsub-override-perl (0.10-ok1) ...
+122s Setting up libtext-unidecode-perl (1.30-ok2) ...
+122s Setting up cryptsetup-initramfs (2:2.6.1-ok5) ...
+123s update-initramfs: deferring update (trigger activated)
+123s Setting up libnet-ssleay-perl:riscv64 (1.94-ok1) ...
+123s Setting up automake (1:1.16.5-ok1) ...
+123s update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+123s Setting up libxml-parser-perl:riscv64 (2.47-ok1) ...
+123s Setting up libclone-perl:riscv64 (0.46-ok1) ...
+123s Setting up libarchive-zip-perl (1.68-ok1) ...
+123s Setting up libdebhelper-perl (13.15.3-ok1) ...
+123s Setting up libxml-namespacesupport-perl (1.12-ok2) ...
+123s Setting up texinfo-lib (7.1-ok1) ...
+123s Setting up dpkg-dev (1.22.6-ok3) ...
+123s Setting up intltool-debian (0.35.0+20060710.5-ok2) ...
+123s Setting up dh-autoreconf (20-ok1) ...
+123s Setting up libxml-sax-base-perl (1.09-ok2) ...
+123s Setting up libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+123s Setting up po-debconf (1.0.21+nmu1-ok1) ...
+123s Setting up libxml-sax-perl (1.02+dfsg-ok2) ...
+124s update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::PurePerl with priority 10...
+124s update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+125s 
+125s Creating config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+125s Setting up libxml-libxml-perl (2.0207+dfsg+really+2.0134-ok1) ...
+126s update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+126s update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX with priority 50...
+126s update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+127s Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+128s Setting up dh-strip-nondeterminism (1.13.1-ok1) ...
+128s Setting up debhelper (13.15.3-ok1) ...
+128s Setting up dh-exec (0.29-ok1) ...
+128s Setting up texinfo (7.1-ok1) ...
+128s Setting up autopkgtest-satdep (0) ...
+128s Processing triggers for man-db (2.10.2-2) ...
+130s Processing triggers for install-info (7.1-ok1) ...
+130s Processing triggers for desktop-file-utils (0.24-ok2) ...
+130s Processing triggers for mime-support (3.64-ok1) ...
+131s Processing triggers for initramfs-tools (0.142kylin13.1.7) ...
+131s Processing triggers for hicolor-icon-theme (0.17-ok1) ...
+131s Processing triggers for libc-bin (2.38-1ok6.8) ...
+132s autopkgtest: DBG: testbed command exited with code 0
+132s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libgdbm6t64'], kind short, sout pipe, serr pipe, env []
+132s autopkgtest: DBG: testbed command exited with code 0
+132s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'gdbm-l10n'], kind short, sout pipe, serr pipe, env []
+133s autopkgtest: DBG: testbed command exited with code 0
+133s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libgdbm-dev'], kind short, sout pipe, serr pipe, env []
+133s autopkgtest: DBG: testbed command exited with code 0
+133s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'gdbmtool'], kind short, sout pipe, serr pipe, env []
+133s autopkgtest: DBG: testbed command exited with code 0
+133s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libgdbm-compat4t64'], kind short, sout pipe, serr pipe, env []
+133s autopkgtest: DBG: testbed command exited with code 0
+133s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libgdbm-compat-dev'], kind short, sout pipe, serr pipe, env []
+133s autopkgtest: DBG: testbed command exited with code 0
+133s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+133s autopkgtest: DBG: testbed command exited with code 0
+133s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+137s autopkgtest: DBG: testbed command exited with code 0
+137s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring dh-exec enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gdbmtool pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libgdbm-compat-dev libgdbm-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libreadline-dev libncurses-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 texinfo libtext-unidecode-perl libtie-ixhash-perl libwhoopsie0 libxml-libxml-perl libxml-sax-perl libxml-namespacesupport-perl libxml-twig-perl libxml-parser-perl libxml-sax-base-perl libxml-xpathengine-perl lto-disabled-list nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration tex-common texinfo-lib ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+137s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'dh-exec', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai'], kind short, sout raw, serr pipe, env []
+138s autopkgtest: DBG: testbed command exited with code 0
+138s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-thai-tlwg', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist'], kind short, sout raw, serr pipe, env []
+139s autopkgtest: DBG: testbed command exited with code 0
+139s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'gdbmtool', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0'], kind short, sout raw, serr pipe, env []
+140s autopkgtest: DBG: testbed command exited with code 0
+140s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21'], kind short, sout raw, serr pipe, env []
+141s autopkgtest: DBG: testbed command exited with code 0
+141s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libgdbm-compat-dev', 'libgdbm-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7'], kind short, sout raw, serr pipe, env []
+141s autopkgtest: DBG: testbed command exited with code 0
+141s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libreadline-dev', 'libncurses-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'texinfo', 'libtext-unidecode-perl'], kind short, sout raw, serr pipe, env []
+142s autopkgtest: DBG: testbed command exited with code 0
+142s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libtie-ixhash-perl', 'libwhoopsie0', 'libxml-libxml-perl', 'libxml-sax-perl', 'libxml-namespacesupport-perl', 'libxml-twig-perl', 'libxml-parser-perl', 'libxml-sax-base-perl', 'libxml-xpathengine-perl', 'lto-disabled-list', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'tex-common', 'texinfo-lib'], kind short, sout raw, serr pipe, env []
+143s autopkgtest: DBG: testbed command exited with code 0
+143s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+144s autopkgtest: DBG: testbed command exited with code 0
+144s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+144s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+144s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+144s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+144s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+144s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+144s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+145s (Reading database ... 198258 files and directories currently installed.)
+145s Removing autopkgtest-satdep (0) ...
+145s autopkgtest: DBG: testbed command exited with code 0
+145s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+145s autopkgtest: DBG: testbed command exited with code 0
+145s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.nGfz9n/simple-packages.all"], kind short, sout raw, serr pipe, env []
+145s autopkgtest: DBG: testbed command exited with code 0
+145s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.nGfz9n/simple-packages.all /home/hachi/openkylin_test/sharefolder/results/gdbm/simple-packages.all
+145s autopkgtest: DBG: got reply from testbed: ok
+145s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.nGfz9n/build.4Db/src'], kind short, sout raw, serr raw, env []
+145s autopkgtest: DBG: testbed command exited with code 0
+145s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.nGfz9n/build.4Db/src already exists
+145s autopkgtest [05:45:50]: test simple: [-----------------------
+145s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.nGfz9n/wrapper.sh --debug --artifacts=/tmp/autopkgtest.nGfz9n/simple-artifacts --chdir=/tmp/autopkgtest.nGfz9n/build.4Db/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.nGfz9n/simple-stderr --stdout=/tmp/autopkgtest.nGfz9n/simple-stdout --tmp=/tmp/autopkgtest.nGfz9n/autopkgtest_tmp --make-executable=/tmp/autopkgtest.nGfz9n/build.4Db/src/debian/tests/simple -- /tmp/autopkgtest.nGfz9n/build.4Db/src/debian/tests/simple'], kind test, sout raw, serr raw, env []
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.nGfz9n/simple-artifacts
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: changing to directory: /tmp/autopkgtest.nGfz9n/build.4Db/src
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: setting environment: LANG=C.UTF-8
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LANGUAGE
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_ADDRESS
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_ALL
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_COLLATE
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_CTYPE
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_MEASUREMENT
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_MESSAGES
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_MONETARY
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_NAME
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_NUMERIC
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_PAPER
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_TELEPHONE
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: unsetting environment: LC_TIME
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: pretending to be a login shell
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: will write standard error to /tmp/autopkgtest.nGfz9n/simple-stderr
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: will write stdout to /tmp/autopkgtest.nGfz9n/simple-stdout
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.nGfz9n/autopkgtest_tmp
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: marking as executable: /tmp/autopkgtest.nGfz9n/build.4Db/src/debian/tests/simple
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: command to run: /tmp/autopkgtest.nGfz9n/build.4Db/src/debian/tests/simple
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: copying /tmp/tmp.1ncIFCNkUh/out to stdout and file: /tmp/autopkgtest.nGfz9n/simple-stdout
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: copying /tmp/tmp.1ncIFCNkUh/err to standard error and file: /tmp/autopkgtest.nGfz9n/simple-stdout
+145s /tmp/autopkgtest.nGfz9n/wrapper.sh: writing script pid 904792 to /tmp/autopkgtest_script_pid
+146s debian/tests/files/read-back.c: In function 'main':
+146s debian/tests/files/read-back.c:37:18: warning: assignment to 'char *' from incompatible pointer type 'const int *' [-Wincompatible-pointer-types]
+146s    37 |         key.dptr = &magic;
+146s       |                  ^
+146s dpkg-query: package 'dietlibc-dev' is not installed and no information is available
+146s Use dpkg --info (= dpkg-deb --info) to examine archive files.
+146s /tmp/autopkgtest.nGfz9n/wrapper.sh: checking for leaked background processes...
+146s /tmp/autopkgtest.nGfz9n/wrapper.sh: waiting for tee/cat subprocesses...
+146s /tmp/autopkgtest.nGfz9n/wrapper.sh: cleaning up...
+146s /tmp/autopkgtest.nGfz9n/wrapper.sh: Exit status: 0
+146s autopkgtest: DBG: testbed command exited with code 0
+146s autopkgtest [05:45:51]: test simple: -----------------------]
+146s autopkgtest: DBG: testbed executing test finished with exit status 0
+146s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.nGfz9n/simple-stdout /home/hachi/openkylin_test/sharefolder/results/gdbm/simple-stdout
+146s autopkgtest: DBG: got reply from testbed: ok
+146s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.nGfz9n/simple-stderr /home/hachi/openkylin_test/sharefolder/results/gdbm/simple-stderr
+146s autopkgtest: DBG: got reply from testbed: ok
+146s autopkgtest [05:45:51]: test simple:  - - - - - - - - - - results - - - - - - - - - -
+146s simple               PASS
+146s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.nGfz9n/simple-artifacts/ /home/hachi/openkylin_test/sharefolder/results/gdbm/artifacts/
+146s autopkgtest: DBG: got reply from testbed: ok
+146s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.nGfz9n/simple-artifacts', '/tmp/autopkgtest.nGfz9n/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+146s autopkgtest: DBG: testbed command exited with code 0
+146s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+146s autopkgtest [05:45:51]: @@@@@@@@@@@@@@@@@@@@ summary
+146s simple               PASS
+146s autopkgtest: DBG: testbed stop
+146s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.nGfz9n
+146s autopkgtest: DBG: sending command to testbed: close
+147s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+150s autopkgtest: DBG: got reply from testbed: ok
+150s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,740 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [22:11:05]: starting date and time: 2024-07-17 22:11:05+0800
+  0s autopkgtest [22:11:05]: version @version@
+  0s autopkgtest [22:11:05]: host lili; command line: /usr/bin/autopkgtest bats_1.10.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/bats -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.H5KWwF
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-16132676-37a2-44e9-a16e-ff7652cd6b61,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-16132676-37a2-44e9-a16e-ff7652cd6b61//tmp/autopkgtest.H5KWwF
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-16132676-37a2-44e9-a16e-ff7652cd6b61//tmp/autopkgtest.H5KWwF', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.H5KWwF'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.H5KWwF/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.H5KWwF/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [22:11:06]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [22:11:07]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.H5KWwF/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.H5KWwF/testbed-packages /home/hachi/openkylin_test/sharefolder/results/bats/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [22:11:07]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [22:11:07]: @@@@@@@@@@@@@@@@@@@@ source bats_1.10.0-ok1.dsc
+  2s autopkgtest: DBG: blame += bats_1.10.0-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.H5KWwF'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown bats_1.10.0-ok1.dsc /tmp/autopkgtest.H5KWwF/bats_1.10.0-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.H5KWwF'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown bats_1.10.0.orig.tar.gz /tmp/autopkgtest.H5KWwF/bats_1.10.0.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.H5KWwF'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown bats_1.10.0-ok1.debian.tar.xz /tmp/autopkgtest.H5KWwF/bats_1.10.0-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.H5KWwF/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.H5KWwF/bats_1.10.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.H5KWwF/build.XXX
+  3s + builddir=/tmp/autopkgtest.H5KWwF/build.MzJ
+  3s + cd /tmp/autopkgtest.H5KWwF/build.MzJ
+  3s + dpkg-source -x /tmp/autopkgtest.H5KWwF/bats_1.10.0-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.HMDSG53u/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 07 May 2024 03:14:08 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.H5KWwF/bats_1.10.0-ok1.dsc
+  3s dpkg-source: info: extracting bats in src
+  3s dpkg-source: info: unpacking bats_1.10.0.orig.tar.gz
+  3s dpkg-source: info: unpacking bats_1.10.0-ok1.debian.tar.xz
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [22:11:08]: testing package bats version 1.10.0-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.H5KWwF/build.MzJ/src/debian/ /home/hachi/openkylin_test/sharefolder/results/bats/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency bats
+  3s autopkgtest: DBG: processing dependency parallel
+  3s autopkgtest: DBG: Test defined: name test-with-system-bats path debian/tests/test-with-system-bats command "None" restrictions [] features [] depends ['bats', 'parallel'] 
+  3s autopkgtest [22:11:08]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.H5KWwF/build.MzJ/src/ /home/hachi/openkylin_test/sharefolder/results/bats/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency bats
+  3s autopkgtest: DBG: processing dependency parallel
+  3s autopkgtest: DBG: Test defined: name test-with-system-bats path debian/tests/test-with-system-bats command "None" restrictions [] features [] depends ['bats', 'parallel'] 
+  3s autopkgtest [22:11:08]: test test-with-system-bats: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['bats', 'parallel']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['bats', 'parallel']
+  3s autopkgtest: DBG: install-deps: satisfying bats, parallel
+  3s autopkgtest: DBG: install-deps: architecture resolved: bats, parallel
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.H5KWwF'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-16132676-37a2-44e9-a16e-ff7652cd6b61//tmp/autopkgtest.H5KWwF/1-autopkgtest-satdep.deb /tmp/autopkgtest.H5KWwF/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.H5KWwF/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   bats parallel sysstat
+  6s Suggested packages:
+  6s   csh fish ksh tcsh zsh isag
+  6s The following NEW packages will be installed:
+  6s   autopkgtest-satdep bats parallel sysstat
+  6s 0 upgraded, 4 newly installed, 0 to remove and 1066 not upgraded.
+  6s Need to get 2,511 kB/2,512 kB of archives.
+  6s After this operation, 4,830 kB of additional disk space will be used.
+  6s Get:1 /tmp/autopkgtest.H5KWwF/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [704 B]
+  6s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 bats all 1.10.0-ok1 [43.4 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 sysstat riscv64 12.6.1-ok1 [532 kB]
+  7s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 parallel all 20231122+ds-ok1 [1,936 kB]
+  9s Preconfiguring packages ...
+ 10s Fetched 2,511 kB in 1s (2,062 kB/s)
+ 10s Selecting previously unselected package bats.
+ 10s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 10s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 11s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 11s Preparing to unpack .../bats_1.10.0-ok1_all.deb ...
+ 11s Unpacking bats (1.10.0-ok1) ...
+ 11s Selecting previously unselected package sysstat.
+ 11s Preparing to unpack .../sysstat_12.6.1-ok1_riscv64.deb ...
+ 11s Unpacking sysstat (12.6.1-ok1) ...
+ 12s Selecting previously unselected package parallel.
+ 12s Preparing to unpack .../parallel_20231122+ds-ok1_all.deb ...
+ 13s Adding 'diversion of /usr/bin/parallel to /usr/bin/parallel.moreutils by parallel'
+ 13s Adding 'diversion of /usr/share/man/man1/parallel.1.gz to /usr/share/man/man1/parallel.moreutils.1.gz by parallel'
+ 13s Unpacking parallel (20231122+ds-ok1) ...
+ 14s Selecting previously unselected package autopkgtest-satdep.
+ 14s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 14s Unpacking autopkgtest-satdep (0) ...
+ 14s Setting up bats (1.10.0-ok1) ...
+ 14s Setting up sysstat (12.6.1-ok1) ...
+ 15s 
+ 15s Creating config file /etc/default/sysstat with new version
+ 15s update-alternatives: using /usr/bin/sar.sysstat to provide /usr/bin/sar (sar) in auto mode
+ 15s Running in chroot, ignoring command 'daemon-reload'
+ 16s Created symlink /etc/systemd/system/sysstat.service.wants/sysstat-collect.timer → /lib/systemd/system/sysstat-collect.timer.
+ 16s Created symlink /etc/systemd/system/sysstat.service.wants/sysstat-summary.timer → /lib/systemd/system/sysstat-summary.timer.
+ 17s Created symlink /etc/systemd/system/multi-user.target.wants/sysstat.service → /lib/systemd/system/sysstat.service.
+ 17s Setting up parallel (20231122+ds-ok1) ...
+ 17s Setting up autopkgtest-satdep (0) ...
+ 17s Processing triggers for man-db (2.10.2-2) ...
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'bats'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common bats unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data parallel pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration sysstat ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 23s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'bats', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-thai-tlwg', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gir1.2-peas-1.0', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text'], kind short, sout raw, serr pipe, env []
+ 27s autopkgtest: DBG: testbed command exited with code 0
+ 27s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'parallel', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pluma-common', 'python3-xdg', 'session-migration', 'sysstat', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 30s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 30s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 30s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 30s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 30s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 30s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 31s (Reading database ... 194032 files and directories currently installed.)
+ 31s Removing autopkgtest-satdep (0) ...
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.H5KWwF/test-with-system-bats-packages.all"], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.H5KWwF/test-with-system-bats-packages.all /home/hachi/openkylin_test/sharefolder/results/bats/test-with-system-bats-packages.all
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.H5KWwF/build.MzJ/src'], kind short, sout raw, serr raw, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.H5KWwF/build.MzJ/src already exists
+ 32s autopkgtest [22:11:37]: test test-with-system-bats: [-----------------------
+ 32s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.H5KWwF/wrapper.sh --debug --artifacts=/tmp/autopkgtest.H5KWwF/test-with-system-bats-artifacts --chdir=/tmp/autopkgtest.H5KWwF/build.MzJ/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.H5KWwF/test-with-system-bats-stderr --stdout=/tmp/autopkgtest.H5KWwF/test-with-system-bats-stdout --tmp=/tmp/autopkgtest.H5KWwF/autopkgtest_tmp --make-executable=/tmp/autopkgtest.H5KWwF/build.MzJ/src/debian/tests/test-with-system-bats -- /tmp/autopkgtest.H5KWwF/build.MzJ/src/debian/tests/test-with-system-bats'], kind test, sout raw, serr raw, env []
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.H5KWwF/test-with-system-bats-artifacts
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: changing to directory: /tmp/autopkgtest.H5KWwF/build.MzJ/src
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: setting environment: LANG=C.UTF-8
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LANGUAGE
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_ADDRESS
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_ALL
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_COLLATE
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_CTYPE
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_MESSAGES
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_MONETARY
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_NAME
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_NUMERIC
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_PAPER
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: unsetting environment: LC_TIME
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: pretending to be a login shell
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: will write standard error to /tmp/autopkgtest.H5KWwF/test-with-system-bats-stderr
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: will write stdout to /tmp/autopkgtest.H5KWwF/test-with-system-bats-stdout
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.H5KWwF/autopkgtest_tmp
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: marking as executable: /tmp/autopkgtest.H5KWwF/build.MzJ/src/debian/tests/test-with-system-bats
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: command to run: /tmp/autopkgtest.H5KWwF/build.MzJ/src/debian/tests/test-with-system-bats
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: copying /tmp/tmp.MECfc8tVN1/out to stdout and file: /tmp/autopkgtest.H5KWwF/test-with-system-bats-stdout
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: copying /tmp/tmp.MECfc8tVN1/err to standard error and file: /tmp/autopkgtest.H5KWwF/test-with-system-bats-stdout
+ 32s /tmp/autopkgtest.H5KWwF/wrapper.sh: writing script pid 136119 to /tmp/autopkgtest_script_pid
+ 38s 1..445
+ 40s ok 1 no arguments prints message and usage instructions
+ 41s ok 2 invalid option prints message and usage instructions
+ 41s ok 3 -v and --version print version number
+ 41s ok 4 -h and --help print help
+ 41s ok 5 invalid filename prints an error
+ 42s ok 6 empty test file runs zero tests
+ 42s ok 7 one passing test
+ 43s ok 8 summary passing tests
+ 43s ok 9 summary passing and skipping tests
+ 44s ok 10 summary passing and failing tests
+ 45s ok 11 summary passing, failing and skipping tests
+ 45s ok 12 BATS_CWD is correctly set to PWD as validated by bats_trim_filename
+ 45s ok 13 one failing test
+ 46s ok 14 one failing and one passing test
+ 46s ok 15 failing test with significant status
+ 47s ok 16 failing helper function logs the test case's line number
+ 47s ok 17 failing bash condition logs correct line number
+ 48s ok 18 failing bash expression logs correct line number
+ 48s ok 19 failing negated command logs correct line number
+ 49s ok 20 test environments are isolated
+ 50s ok 21 setup is run once before each test
+ 51s ok 22 teardown is run once after each test, even if it fails
+ 51s ok 23 setup failure
+ 52s ok 24 passing test with teardown failure
+ 52s ok 25 failing test with teardown failure
+ 53s ok 26 teardown failure with significant status
+ 53s ok 27 failing test file outside of BATS_CWD
+ 54s ok 28 output is discarded for passing tests and printed for failing tests
+ 54s ok 29 -c prints the number of tests
+ 55s ok 30 dash-e is not mangled on beginning of line
+ 55s ok 31 dos line endings are stripped before testing
+ 56s ok 32 test file without trailing newline
+ 57s ok 33 skipped tests
+ 57s ok 34 extended syntax
+ 58s ok 35 timing syntax
+ 58s ok 36 extended timing syntax
+ 62s ok 37 time is greater than 0ms for long test
+ 63s ok 38 single-line tests
+ 63s ok 39 testing IFS not modified by run
+ 64s ok 40 expand variables in test name
+ 64s ok 41 handle quoted and unquoted test names
+ 65s ok 42 ensure compatibility with unofficial Bash strict mode
+ 66s ok 43 parse @test lines with various whitespace combinations
+ 67s ok 44 duplicate tests error and generate a warning on stderr
+ 67s ok 45 sourcing a nonexistent file in setup produces error output
+ 68s ok 46 referencing unset parameter in setup produces error output
+ 68s ok 47 sourcing a nonexistent file in test produces error output
+ 69s ok 48 referencing unset parameter in test produces error output
+ 70s ok 49 sourcing a nonexistent file in teardown produces error output
+ 70s ok 50 referencing unset parameter in teardown produces error output
+ 71s ok 51 execute exported function without breaking failing test output
+ 71s ok 52 output printed even when no final newline
+ 72s ok 53 run tests which consume stdin (see #197)
+ 73s ok 54 report correct line on unset variables
+ 75s ok 55 report correct line on external function calls
+ 75s ok 56 test count validator catches mismatch and returns non zero
+ 76s ok 57 running the same file twice runs its tests twice without errors
+ 77s ok 58 Don't use unbound variables inside bats (issue #340)
+ 77s ok 59 filenames with tab can be used
+ 78s ok 60 each file is evaluated n+1 times
+ 80s ok 61 Don't hang on CTRL-C (issue #353)
+ 81s ok 62 test comment style
+ 82s ok 63 test works even if PATH is reset
+ 82s ok 64 Test nounset does not trip up bats' internals (see #385)
+ 83s ok 65 run tmpdir is cleaned up by default
+ 83s ok 66 run tmpdir is not cleanup up with --no-cleanup-tempdir
+ 83s ok 67 run should exit if tmpdir exist
+ 84s ok 68 run should exit if TMPDIR can't be created
+ 84s ok 69 Fail if BATS_TMPDIR does not exist or is not writable
+ 85s ok 70 Setting BATS_TMPDIR is ignored
+ 89s ok 71 Parallel mode works on MacOS with over subscription (issue #433)
+ 90s ok 72 Failure in free code (see #399)
+ 91s ok 73 CTRL-C aborts and fails the current test
+ 93s ok 74 CTRL-C aborts and fails the current run
+ 94s ok 75 CTRL-C aborts and fails after run
+ 95s ok 76 CTRL-C aborts and fails the current teardown
+ 96s ok 77 CTRL-C aborts and fails the current setup_file
+ 98s ok 78 CTRL-C aborts and fails the current teardown_file
+ 98s ok 79 single star in output is not treated as a glob
+ 98s ok 80 multiple stars in output are not treated as a glob
+ 98s ok 81 ensure all folders are shellchecked # skip $BATS_ROOT/shellcheck.sh is required for this test
+ 99s ok 82 BATS_RUN_COMMAND: test content of variable
+ 99s ok 83 --print-output-on-failure works as expected
+100s ok 84 --print-output-on-failure also shows stderr (for run --separate-stderr)
+101s ok 85 --show-output-of-passing-tests works as expected
+101s ok 86 --verbose-run prints output
+102s ok 87 BATS_VERBOSE_RUN=1 also prints output
+103s ok 88 --gather-test-outputs-in gathers outputs of all tests (even succeeding!)
+103s ok 89 --gather-test-outputs-in allows directory to exist (only if empty)
+104s ok 90 --gather-test-output-in works with slashes in test names
+104s ok 91 Tell about missing flock and shlock # skip this test requires flock not to be installed
+104s ok 92 Test with a name that is waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaay too long # skip This test should only check if the long name chokes bats' internals during execution
+105s ok 93 BATS_CODE_QUOTE_STYLE works with any two characters (even unicode)
+106s ok 94 BATS_CODE_QUOTE_STYLE=custom requires BATS_CODE_QUOTE_BEGIN/END
+106s ok 95 Warn about invalid BATS_CODE_QUOTE_STYLE
+107s ok 96 Debug trap must only override variables that are prefixed with BATS_ (issue #519)
+109s ok 97 Don't wait for disowned background jobs to finish because of open FDs (#205)
+109s ok 98 Allow for prefixing tests' names with BATS_TEST_NAME_PREFIX
+116s ok 99 Setting status in teardown* does not override exit code (see issue #575)
+117s ok 100 BATS_* variables don't contain double slashes
+117s ok 101 Without .bats/run-logs --filter-status failed returns an error
+119s ok 102 Without previous recording --filter-status failed runs all tests and then runs only failed and missed tests
+121s ok 103 Without previous recording --filter-status passed runs all tests and then runs only passed and missed tests
+122s ok 104 Without previous recording --filter-status missed runs all tests and then runs only missed tests
+123s ok 105 --filter-status failed gives warning on empty failed test list
+125s ok 106 --filter-status failed does not update list when run is aborted
+126s ok 107 BATS_TEST_RETRIES allows for retrying tests
+127s ok 108 Exit code is zero after successful retry (see #660)
+127s ok 109 Error on invalid --line-reference-format
+128s ok 110 --line-reference-format switches format
+129s ok 111 Focus tests filter out other tests and override exit code
+129s ok 112 Focus tests with BATS_NO_FAIL_FOCUS_RUN=1 does not override exit code
+131s ok 113 Bats waits for report formatter to finish
+131s ok 114 Failing report formatter fails test run
+132s ok 115 Short opt unpacker rejects valued options
+132s ok 116 Test timing does not break when overriding date on path
+135s ok 117 run bats_pipe with no commands
+135s ok 118 run bats_pipe with single command with no args
+135s ok 119 run bats_pipe with single command with no args with arg separator
+135s ok 120 run bats_pipe with single command with one arg
+136s ok 121 run bats_pipe with single command with two args
+136s ok 122 run bats_pipe with single command with two args with arg separator
+136s ok 123 run bats_pipe piping between two command with zero and zero args
+136s ok 124 run bats_pipe piping between two command with zero and zero args with arg separator
+136s ok 125 run bats_pipe piping between two command with zero and one args
+137s ok 126 run bats_pipe piping between two command with zero and two args
+137s ok 127 run bats_pipe piping between two command with zero and two args with arg separator
+137s ok 128 run bats_pipe piping between two command with one and zero args
+137s ok 129 run bats_pipe piping between two command with one and zero args with arg separator
+137s ok 130 run bats_pipe piping between two command with one with spaces and zero args
+138s ok 131 run bats_pipe piping between two command with one and one arg
+138s ok 132 run bats_pipe piping between two command with one with space and one arg with spaces
+138s ok 133 run bats_pipe piping between two command with one and two args
+138s ok 134 run bats_pipe piping between two command with one and two args with spaces
+138s ok 135 run bats_pipe piping between two command with two and zero args
+139s ok 136 run bats_pipe piping between two command with two and one args
+139s ok 137 run bats_pipe piping between two command with two and one args with spaces
+139s ok 138 run bats_pipe piping between two command with two and two args
+139s ok 139 run bats_pipe piping between two command with two and two args with spaces
+139s ok 140 run bats_pipe piping between three command with zero args each
+140s ok 141 run bats_pipe piping between three command with one arg each
+140s ok 142 run bats_pipe piping between three command with one arg each with arg separator
+140s ok 143 run bats_pipe piping between three command with two args each
+140s ok 144 run bats_pipe with leading | on single command
+140s ok 145 run bats_pipe with leading | on two piped commands
+140s ok 146 run bats_pipe with trailing | on single command
+141s ok 147 run bats_pipe with trailing | on two piped commands
+141s ok 148 run bats_pipe with consecutive |s after single command
+141s ok 149 run bats_pipe with consecutive |s between two piped commands
+141s ok 150 run bats_pipe with consecutive |s after two piped commands
+141s ok 151 run bats_pipe with consecutive |s between first pair of three piped commands
+142s ok 152 run bats_pipe with consecutive |s between second pair of three piped commands
+142s ok 153 run bats_pipe with consecutive |s after three piped commands
+142s ok 154 run bats_pipe with unknown arg
+142s ok 155 run bats_pipe for last error status and fail on first of two
+142s ok 156 run bats_pipe for last error status and fail on second of two
+143s ok 157 run bats_pipe for last error status and fail on both of two
+143s ok 158 run bats_pipe for last error status and fail on first of three
+143s ok 159 run bats_pipe for last error status and fail on second of three
+143s ok 160 run bats_pipe for last error status and fail on third of three
+143s ok 161 run bats_pipe for last error status and fail on first pair of three
+144s ok 162 run bats_pipe for last error status and fail on second pair of three
+144s ok 163 run bats_pipe for last error status and fail on all of three
+144s ok 164 run bats_pipe for 0th error status and fail on first of two
+144s ok 165 run bats_pipe for 0th error status and fail on first of two. using --returned-status
+144s ok 166 run bats_pipe for 0th error status and fail on first of two. using --returned-status=
+145s ok 167 run bats_pipe for 0th error status and fail on first of two. using --returned-status neg
+145s ok 168 run bats_pipe for 0th error status and fail on first of two. using --returned-status=neg
+145s ok 169 run bats_pipe for 0th error status and fail on first of two with arg separator
+145s ok 170 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status
+145s ok 171 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status=
+146s ok 172 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status neg
+146s ok 173 run bats_pipe for 0th error status and fail on first of two with arg separator. using --returned-status=neg
+146s ok 174 run bats_pipe for 0th error status and fail on second of two
+146s ok 175 run bats_pipe for 0th error status and fail on second of two. using --returned-status
+146s ok 176 run bats_pipe for 0th error status and fail on second of two. using --returned-status=
+146s ok 177 run bats_pipe for 0th error status and fail on second of two. using --returned-status neg
+147s ok 178 run bats_pipe for 0th error status and fail on second of two. using --returned-status=neg
+147s ok 179 run bats_pipe for 0th error status and fail on both of two
+147s ok 180 run bats_pipe for 0th error status and fail on first of three
+147s ok 181 run bats_pipe for 0th error status and fail on first of three. using --returned-status
+147s ok 182 run bats_pipe for 0th error status and fail on first of three. using --returned-status=
+148s ok 183 run bats_pipe for 0th error status and fail on first of three. using --returned-status neg
+148s ok 184 run bats_pipe for 0th error status and fail on first of three. using --returned-status=neg
+148s ok 185 run bats_pipe for 0th error status and fail on second of three
+148s ok 186 run bats_pipe for 0th error status and fail on second of three. using --returned-status
+148s ok 187 run bats_pipe for 0th error status and fail on second of three. using --returned-status=
+149s ok 188 run bats_pipe for 0th error status and fail on second of three. using --returned-status neg
+149s ok 189 run bats_pipe for 0th error status and fail on second of three. using --returned-status=neg
+149s ok 190 run bats_pipe for 0th error status and fail on third of three
+149s ok 191 run bats_pipe for 0th error status and fail on third of three. using --returned-status
+149s ok 192 run bats_pipe for 0th error status and fail on third of three. using --returned-status=
+150s ok 193 run bats_pipe for 0th error status and fail on third of three. using --returned-status neg
+150s ok 194 run bats_pipe for 0th error status and fail on third of three. using --returned-status=neg
+150s ok 195 run bats_pipe for 0th error status and fail on all of three
+150s ok 196 run bats_pipe for 0th error status and fail on all of three. using --returned-status
+150s ok 197 run bats_pipe for 0th error status and fail on all of three. using --returned-status=
+151s ok 198 run bats_pipe for 0th error status and fail on all of three. using --returned-status neg
+151s ok 199 run bats_pipe for 0th error status and fail on all of three. using --returned-status=neg
+151s ok 200 run bats_pipe for 1st error status and fail on first of two
+151s ok 201 run bats_pipe for 1st error status and fail on first of two. using --returned-status
+151s ok 202 run bats_pipe for 1st error status and fail on first of two. using --returned-status=
+152s ok 203 run bats_pipe for 1st error status and fail on first of two. using --returned-status neg
+152s ok 204 run bats_pipe for 1st error status and fail on first of two. using --returned-status=neg
+152s ok 205 run bats_pipe for 1st error status and fail on first of two with arg separator
+152s ok 206 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status
+152s ok 207 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status=
+153s ok 208 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status neg
+153s ok 209 run bats_pipe for 1st error status and fail on first of two with arg separator. using --returned-status=neg
+153s ok 210 run bats_pipe for 1st error status and fail on second of two
+153s ok 211 run bats_pipe for 1st error status and fail on second of two. using --returned-status
+153s ok 212 run bats_pipe for 1st error status and fail on second of two. using --returned-status=
+153s ok 213 run bats_pipe for 1st error status and fail on second of two. using --returned-status neg
+154s ok 214 run bats_pipe for 1st error status and fail on second of two. using --returned-status=neg
+154s ok 215 run bats_pipe for 1st error status and fail on both of two
+154s ok 216 run bats_pipe for 1st error status and fail on both of two. using --returned-status
+154s ok 217 run bats_pipe for 1st error status and fail on both of two. using --returned-status=
+154s ok 218 run bats_pipe for 1st error status and fail on both of two. using --returned-status neg
+155s ok 219 run bats_pipe for 1st error status and fail on both of two. using --returned-status=neg
+155s ok 220 run bats_pipe for 1st error status and fail on first of three
+155s ok 221 run bats_pipe for 1st error status and fail on first of three. using --returned-status
+155s ok 222 run bats_pipe for 1st error status and fail on first of three. using --returned-status=
+155s ok 223 run bats_pipe for 1st error status and fail on first of three. using --returned-status neg
+156s ok 224 run bats_pipe for 1st error status and fail on first of three. using --returned-status=neg
+156s ok 225 run bats_pipe for 1st error status and fail on second of three
+156s ok 226 run bats_pipe for 1st error status and fail on second of three. using --returned-status
+156s ok 227 run bats_pipe for 1st error status and fail on second of three. using --returned-status=
+156s ok 228 run bats_pipe for 1st error status and fail on second of three. using --returned-status neg
+157s ok 229 run bats_pipe for 1st error status and fail on second of three. using --returned-status=neg
+157s ok 230 run bats_pipe for 1st error status and fail on third of three
+157s ok 231 run bats_pipe for 1st error status and fail on third of three. using --returned-status
+157s ok 232 run bats_pipe for 1st error status and fail on third of three. using --returned-status=
+157s ok 233 run bats_pipe for 1st error status and fail on third of three. using --returned-status neg
+158s ok 234 run bats_pipe for 1st error status and fail on third of three. using --returned-status=neg
+158s ok 235 run bats_pipe for 1st error status and fail on all of three
+158s ok 236 run bats_pipe for 1st error status and fail on all of three. using --returned-status
+158s ok 237 run bats_pipe for 1st error status and fail on all of three. using --returned-status=
+158s ok 238 run bats_pipe for 1st error status and fail on all of three. using --returned-status neg
+159s ok 239 run bats_pipe for 1st error status and fail on all of three. using --returned-status=neg
+159s ok 240 run bats_pipe for 2nd error status and fail on first of three
+159s ok 241 run bats_pipe for 2nd error status and fail on first of three. using --returned-status
+159s ok 242 run bats_pipe for 2nd error status and fail on first of three. using --returned-status=
+159s ok 243 run bats_pipe for 2nd error status and fail on first of three. using --returned-status neg
+160s ok 244 run bats_pipe for 2nd error status and fail on first of three. using --returned-status=neg
+160s ok 245 run bats_pipe for 2nd error status and fail on first of three with arg separator
+160s ok 246 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status
+160s ok 247 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status=
+160s ok 248 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status neg
+161s ok 249 run bats_pipe for 2nd error status and fail on first of three with arg separator. using --returned-status=neg
+161s ok 250 run bats_pipe for 2nd error status and fail on second of three
+161s ok 251 run bats_pipe for 2nd error status and fail on second of three. using --returned-status
+161s ok 252 run bats_pipe for 2nd error status and fail on second of three. using --returned-status=
+161s ok 253 run bats_pipe for 2nd error status and fail on second of three. using --returned-status neg
+162s ok 254 run bats_pipe for 2nd error status and fail on second of three. using --returned-status=neg
+162s ok 255 run bats_pipe for 2nd error status and fail on third of three
+162s ok 256 run bats_pipe for 2nd error status and fail on third of three. using --returned-status
+162s ok 257 run bats_pipe for 2nd error status and fail on third of three. using --returned-status=
+162s ok 258 run bats_pipe for 2nd error status and fail on third of three. using --returned-status neg
+162s ok 259 run bats_pipe for 2nd error status and fail on third of three. using --returned-status=neg
+163s ok 260 run bats_pipe for 2nd error status and fail on all of three
+163s ok 261 run bats_pipe for 2nd error status and fail on all of three. using --returned-status
+163s ok 262 run bats_pipe for 2nd error status and fail on all of three. using --returned-status=
+163s ok 263 run bats_pipe for 2nd error status and fail on all of three. using --returned-status neg
+163s ok 264 run bats_pipe for 2nd error status and fail on all of three. using --returned-status=neg
+164s ok 265 run bats_pipe for Nth error status too large
+164s ok 266 run bats_pipe for Nth error status too large. using --returned-status
+164s ok 267 run bats_pipe for Nth error status too large. using --returned-status=
+164s ok 268 run bats_pipe for Nth error status too large. using --returned-status neg
+164s ok 269 run bats_pipe for Nth error status too large. using --returned-status=neg
+165s ok 270 run bats_pipe with stdout as binary data
+165s ok 271 run bats_pipe with stdout as binary data with non-zero status
+165s ok 272 passing test
+166s ok 273 failing test
+166s ok 274 passing test with timing
+167s ok 275 failing test with timing
+167s ok 276 Cat formatter prints the extended tap stream
+168s ok 277 bats_version_lt
+168s ok 278 bats_require_minimum_version
+168s ok 279 bats_binary_search
+168s ok 280 bats_sort
+169s ok 281 bats_all_in
+169s ok 282 bats_any_in
+169s ok 283 bats_trim
+169s ok 284 bats_append_arrays_as_args
+170s ok 285 setup_file is run once per file
+171s ok 286 teardown_file is run once per file
+172s ok 287 setup_file is called correctly in multi file suite
+173s ok 288 teardown_file is called correctly in multi file suite
+173s ok 289 setup_file failure aborts tests for this file
+174s ok 290 teardown_file failure fails at least one test from the file
+174s ok 291 teardown_file runs even if any test in the file failed
+176s ok 292 teardown_file should run even after user abort via CTRL-C
+177s ok 293 setup_file runs even if all tests in the file are skipped
+177s ok 294 teardown_file runs even if all tests in the file are skipped
+178s ok 295 setup_file must not leak context between tests in the same suite
+179s ok 296 teardown_file must not leak context between tests in the same suite
+179s ok 297 halfway setup_file errors are caught and reported
+179s ok 298 halfway teardown_file errors are ignored
+180s ok 299 variables exported in setup_file are visible in tests
+180s ok 300 Don't run setup_file for files without tests
+180s ok 301 Failure in setup_file and teardown_file still prints error message
+181s ok 302 tap passing and skipping tests
+182s ok 303 tap passing, failing and skipping tests
+182s ok 304 skipped test with parens (pretty formatter)
+183s ok 305 pretty and tap formats
+183s ok 306 pretty formatter bails on invalid tap
+184s ok 307 All formatters (except cat) implement the callback interface
+184s ok 308 absolute paths load external formatters
+184s ok 309 specifying nonexistent external formatter is an error
+184s ok 310 specifying non executable external formatter is an error
+185s ok 311 retrying tests does not mess up test names
+186s ok 312 install.sh creates a valid installation, and uninstall.sh undos it
+186s ok 313 install.sh creates a multilib valid installation, and uninstall.sh undos it
+186s ok 314 uninstall.sh works even if nothing is installed
+186s ok 315 install.sh only updates permissions for Bats files
+187s ok 316 bin/bats is resilient to symbolic links
+188s ok 317 junit formatter with skipped test does not fail
+188s ok 318 junit formatter: escapes xml special chars
+189s ok 319 junit formatter: test suites
+190s ok 320 junit formatter: test suites relative path
+190s ok 321 junit formatter: files with the same name are distinguishable
+191s ok 322 junit formatter as report formatter creates report.xml
+192s ok 323 junit does not mark tests with FD 3 output as failed (issue #360)
+192s ok 324 junit does not mark tests with FD 3 output in teardown_file as failed (issue #531)
+193s ok 325 don't choke on setup_file errors
+194s ok 326 find_in_bats_lib_path recognizes files relative to test file
+194s ok 327 find_in_bats_lib_path recognizes files in BATS_LIB_PATH
+194s ok 328 find_in_bats_lib_path returns 1 if no load path is found
+195s ok 329 find_in_bats_lib_path follows the priority of BATS_LIB_PATH
+195s ok 330 load sources scripts relative to the current test file
+196s ok 331 load sources relative scripts with filename extension
+196s ok 332 load aborts if the specified script does not exist
+197s ok 333 load sources scripts by absolute path
+197s ok 334 load aborts if the script, specified by an absolute path, does not exist
+198s ok 335 load relative script with ambiguous name
+198s ok 336 load does not use the BATS_LIB_PATH
+199s ok 337 load supports plain symbols
+199s ok 338 load doesn't support _declare_d symbols
+199s ok 339 load supports scripts on the PATH
+200s ok 340 bats_load_library supports libraries with loaders on the BATS_LIB_PATH
+201s ok 341 bats_load_library supports libraries with loaders on the BATS_LIB_PATH with multiple libraries
+201s ok 342 bats_load_library can handle whitespaces in BATS_LIB_PATH
+202s ok 343 bats_load_library errors when a library errors while sourcing
+203s ok 344 load in teardown after failure does not prevent test from being counted (see #609)
+206s ok 345 parallel test execution with --jobs
+207s ok 346 parallel can preserve environment variables
+210s ok 347 parallel suite execution with --jobs
+213s ok 348 setup_file is not over parallelized
+215s ok 349 running the same file twice runs its tests twice without errors
+218s ok 350 parallelity factor is met exactly
+220s ok 351 parallel mode correctly forwards failure return code
+224s ok 352 --no-parallelize-across-files test file detects parallel execution
+228s ok 353 --no-parallelize-across-files prevents parallelization across files
+233s ok 354 --no-parallelize-across-files does not prevent parallelization within files
+237s ok 355 --no-parallelize-within-files test file detects parallel execution
+242s ok 356 --no-parallelize-within-files prevents parallelization within files
+243s ok 357 --no-parallelize-within-files does not prevent parallelization across files
+248s ok 358 BATS_NO_PARALLELIZE_WITHIN_FILE works from inside setup_file()
+252s ok 359 BATS_NO_PARALLELIZE_WITHIN_FILE works from outside all functions
+257s ok 360 BATS_NO_PARALLELIZE_WITHIN_FILE does not work from inside setup()
+261s ok 361 BATS_NO_PARALLELIZE_WITHIN_FILE does not work from inside test function
+262s ok 362 Negative jobs number does not run endlessly
+262s ok 363 Timing printout shows milliseconds
+263s ok 364 pretty formatter summary is colorized red on failure
+263s ok 365 pretty formatter summary is colorized green on success
+263s ok 366 Mixing timing and timeout
+264s ok 367 run --keep-empty-lines preserves leading empty lines
+264s ok 368 run --keep-empty-lines preserves inner empty lines
+264s ok 369 run --keep-empty-lines does not count trailing newline as extra line (see #708)
+264s ok 370 run --keep-empty-lines preserves trailing empty line
+264s ok 371 run --keep-empty-lines preserves non-empty trailing line
+264s ok 372 --keep-empty-lines has zero lines for empty output (see #573)
+264s ok 373 run --separate-stderr splits output
+265s ok 374 run does not change set flags
+265s ok 375 basic return-code checking
+266s ok 376 run exit code check output 
+267s ok 377 run invalid exit code check error message
+267s ok 378 run is not affected by IFS
+267s ok 379 run does not change IFS
+267s ok 380 running a suite with no test files
+268s ok 381 running a suite with one test file
+268s ok 382 counting tests in a suite
+269s ok 383 aggregated output of multiple tests in a suite
+270s ok 384 a failing test in a suite results in an error exit code
+270s ok 385 running an ad-hoc suite by specifying multiple test files
+271s ok 386 extended syntax in suite
+272s ok 387 timing syntax in suite
+273s ok 388 extended timing syntax in suite
+273s ok 389 recursive support (short option)
+274s ok 390 recursive support (long option)
+275s ok 391 recursive support with symlinks
+276s ok 392 run entire suite when --filter isn't set
+278s ok 393 use --filter to run subset of test cases from across the suite
+278s ok 394 --filter can handle regular expressions that contain [_- ]
+279s ok 395 --filter can handle regular expressions that start with ^
+281s ok 396 skip is handled correctly in setup, test, and teardown
+282s ok 397 BATS_TEST_NUMBER starts at 1 in each individual test file
+282s ok 398 Override BATS_FILE_EXTENSION with suite
+283s ok 399 Override BATS_FILE_EXTENSION with suite recursive
+284s ok 400 setup_suite.bash is picked up in toplevel folder of suite
+285s ok 401 setup_suite.bash is picked up in folder of first test file
+285s ok 402 setup_suite is not picked up from wrongly named file
+286s ok 403 setup_suite is picked up from --setup-suite-file
+286s ok 404 --setup-suite-file takes precedence over convention
+286s ok 405 passing a nonexisting file to --setup-suite-file prints an error message
+287s ok 406 setup_suite.bash without setup_suite() is an error
+287s ok 407 exported variables from setup_suite are visible in setup_file, setup and @test
+287s ok 408 syntax errors in setup_suite.bash are reported and lead to non zero exit code
+288s ok 409 errors in setup_suite.bash's free code reported correctly
+288s ok 410 errors in setup_suite reported correctly
+289s ok 411 errors in teardown_suite reported correctly
+289s ok 412 failure in setup_suite skips further setup and suite but runs teardown_suite
+289s ok 413 midway failure in teardown_suite does not fail test suite, remaining code is executed
+290s ok 414 nonzero return in teardown_suite does fails test suite
+290s ok 415 stderr from setup/teardown_suite does not overtake stdout
+291s ok 416 load is available in setup_suite
+291s ok 417 output frorm setup_suite is only visible on failure
+292s ok 418 skip in setup_file skips all tests in file
+293s ok 419 No tag filter runs all tests
+294s ok 420 Empty tag filter runs tests without tag
+294s ok 421 --filter-tags (also) selects tests that contain additional tags
+295s ok 422 --filter-tags only selects tests that match all tags (logic and)
+295s ok 423 multiple --filter-tags work as logical or
+296s ok 424 --filter-tags order of tags does not matter
+296s ok 425 exit with error on invalid tags in .bats file
+297s ok 426 --filter-tags allows for negation via !
+298s ok 427 BATS_TEST_TAGS are set correctly
+298s ok 428 Print tags on error
+299s ok 429 passing test
+299s ok 430 failing test
+300s ok 431 passing test with timing
+300s ok 432 failing test with timing
+302s ok 433 test faster than timeout
+303s ok 434 test longer than timeout
+313s ok 435 sleep in run
+314s ok 436 no --trace doesn't show anything on failure
+315s ok 437 --trace recurses into functions but not into run
+315s ok 438 invalid warning is an error
+316s ok 439 BW01 is printed when `run`ing a (non-existant) command with exit code 127 without exit code check
+316s ok 440 BW01 is not printed when `run`ing a (non-existant) command with exit code 127 with exit code check
+317s ok 441 BW01 is not printed when `run`ing a command with exit code !=127 without exit code check
+317s ok 442 BW02 is printed when run uses parameters without guaranteed version >= 1.5.0
+318s ok 443 BW03 is printed when a test file defines setup_suite and setup_suite is not defined
+318s ok 444 BW03 is not printed when a test file defines setup_suite but setup_suite was completed
+318s ok 445 BW03 can be suppressed by setting BATS_SETUP_SUITE_COMPLETED
+319s /tmp/autopkgtest.H5KWwF/wrapper.sh: checking for leaked background processes...
+319s /tmp/autopkgtest.H5KWwF/wrapper.sh: waiting for tee/cat subprocesses...
+319s /tmp/autopkgtest.H5KWwF/wrapper.sh: cleaning up...
+319s /tmp/autopkgtest.H5KWwF/wrapper.sh: Exit status: 0
+319s autopkgtest: DBG: testbed command exited with code 0
+319s autopkgtest [22:16:24]: test test-with-system-bats: -----------------------]
+319s autopkgtest: DBG: testbed executing test finished with exit status 0
+319s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.H5KWwF/test-with-system-bats-stdout /home/hachi/openkylin_test/sharefolder/results/bats/test-with-system-bats-stdout
+319s autopkgtest: DBG: got reply from testbed: ok
+319s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.H5KWwF/test-with-system-bats-stderr /home/hachi/openkylin_test/sharefolder/results/bats/test-with-system-bats-stderr
+319s autopkgtest: DBG: got reply from testbed: ok
+319s autopkgtest [22:16:24]: test test-with-system-bats:  - - - - - - - - - - results - - - - - - - - - -
+319s test-with-system-bats PASS
+319s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.H5KWwF/test-with-system-bats-artifacts/ /home/hachi/openkylin_test/sharefolder/results/bats/artifacts/
+319s autopkgtest: DBG: got reply from testbed: ok
+319s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.H5KWwF/test-with-system-bats-artifacts', '/tmp/autopkgtest.H5KWwF/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+319s autopkgtest: DBG: testbed command exited with code 0
+319s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+319s autopkgtest [22:16:24]: @@@@@@@@@@@@@@@@@@@@ summary
+319s test-with-system-bats PASS
+319s autopkgtest: DBG: testbed stop
+319s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.H5KWwF
+319s autopkgtest: DBG: sending command to testbed: close
+320s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+320s autopkgtest: DBG: got reply from testbed: ok
+320s autopkgtest: DBG: sending command to testbed: quit

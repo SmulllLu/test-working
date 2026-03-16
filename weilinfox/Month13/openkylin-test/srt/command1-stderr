@@ -1,0 +1,55 @@
++ '[' -n '' ']'
++ CROSS_COMPILE=
++ IP=127.0.0.1
++ PORT=54321
+++ mktemp -d
++ WORKDIR=/tmp/tmp.Ci4L9T4TCg
++ trap 'rm -rf /tmp/tmp.Ci4L9T4TCg' 0 INT QUIT ABRT PIPE TERM
+++ pkg-config --cflags --libs srt
++ PKGCONFIG='-I/usr/include/srt -I/usr/include/p11-kit-1 -lsrt-gnutls'
++ for i in examples/*.c
++ echo examples/example-client-nonblock.c
++ grep -q -- '-bonding\.c$'
+++ basename examples/example-client-nonblock.c .c
++ gcc -Wall -Werror -o /tmp/tmp.Ci4L9T4TCg/example-client-nonblock examples/example-client-nonblock.c -I/usr/include/srt -I/usr/include/p11-kit-1 -lsrt-gnutls
++ for i in examples/*.c
++ echo examples/test-c-client-bonding.c
++ grep -q -- '-bonding\.c$'
++ continue
++ for i in examples/*.c
++ echo examples/test-c-client.c
++ grep -q -- '-bonding\.c$'
+++ basename examples/test-c-client.c .c
++ gcc -Wall -Werror -o /tmp/tmp.Ci4L9T4TCg/test-c-client examples/test-c-client.c -I/usr/include/srt -I/usr/include/p11-kit-1 -lsrt-gnutls
++ for i in examples/*.c
++ echo examples/test-c-server-bonding.c
++ grep -q -- '-bonding\.c$'
++ continue
++ for i in examples/*.c
++ echo examples/test-c-server.c
++ grep -q -- '-bonding\.c$'
+++ basename examples/test-c-server.c .c
++ gcc -Wall -Werror -o /tmp/tmp.Ci4L9T4TCg/test-c-server examples/test-c-server.c -I/usr/include/srt -I/usr/include/p11-kit-1 -lsrt-gnutls
++ for i in examples/*.c
++ echo examples/testcapi-connect.c
++ grep -q -- '-bonding\.c$'
+++ basename examples/testcapi-connect.c .c
++ gcc -Wall -Werror -o /tmp/tmp.Ci4L9T4TCg/testcapi-connect examples/testcapi-connect.c -I/usr/include/srt -I/usr/include/p11-kit-1 -lsrt-gnutls
++ for i in test-c-client example-client-nonblock
++ sleep 2
++ /tmp/tmp.Ci4L9T4TCg/test-c-server 127.0.0.1 54321
++ /tmp/tmp.Ci4L9T4TCg/test-c-client 127.0.0.1 54321
++ sleep 2
++ cat /tmp/tmp.Ci4L9T4TCg/test-c-server.logs
++ grep -q '^srt cleanup$' /tmp/tmp.Ci4L9T4TCg/test-c-server.logs
++ echo 'log seems complete'
++ for i in test-c-client example-client-nonblock
++ sleep 2
++ /tmp/tmp.Ci4L9T4TCg/test-c-server 127.0.0.1 54321
++ /tmp/tmp.Ci4L9T4TCg/example-client-nonblock 127.0.0.1 54321
+srt_recvmsg: Connection was broken
++ sleep 2
++ cat /tmp/tmp.Ci4L9T4TCg/test-c-server.logs
++ grep -q '^srt cleanup$' /tmp/tmp.Ci4L9T4TCg/test-c-server.logs
++ echo 'log seems complete'
++ rm -rf /tmp/tmp.Ci4L9T4TCg

@@ -1,0 +1,37 @@
+++++ BEGINNING TEST
++++ ADD KEYRING
+keyctl newring wibble @s
+194485481
++++ VALIDATE KEYRING
+keyctl rdescribe 194485481 @
+keyring@0@0@3f010000@wibble
++++ VALIDATE PRETTY KEYRING
+keyctl describe 194485481
+194485481: alswrv-----v------------     0     0 keyring: wibble
++++ LIST KEYRING
+keyctl rlist 194485481
+
++++ ADD KEY
+keyctl add user lizard gizzard 194485481
+49179915
++++ VALIDATE KEY
+keyctl rdescribe 49179915 @
+user@0@0@3f010000@lizard
++++ VALIDATE PRETTY KEY
+keyctl describe 49179915
+ 49179915: alswrv-----v------------     0     0 user: lizard
++++ DISABLE VIEW PERM
+keyctl setperm 49179915 0x3e0000
+keyctl rdescribe 49179915 @
+keyctl_describe: Permission denied
++++ REINSTATE VIEW PERM
+keyctl setperm 49179915 0x3f0000
+keyctl rdescribe 49179915 @
+user@0@0@003f0000@lizard
++++ REVOKE KEY
+keyctl revoke 49179915
+keyctl rdescribe 49179915 @
+keyctl_describe: Key has been revoked
++++ UNLINK KEY
+keyctl unlink 194485481 @s
+++++ FINISHED TEST: PASS

@@ -1,0 +1,33 @@
++ set -o pipefail
++ reset
++ unset XDG_CURRENT_DESKTOP
++ unset FTP_PROXY
++ unset GSETTINGS_BACKEND
++ unset HTTPS_PROXY
++ unset HTTP_PROXY
++ unset KDE_FULL_SESSION
++ unset NO_PROXY
++ unset ftp_proxy
++ unset http_proxy
++ unset https_proxy
++ unset no_proxy
++ export XDG_CURRENT_DESKTOP=GNOME
++ XDG_CURRENT_DESKTOP=GNOME
++ export GSETTINGS_BACKEND=keyfile
++ GSETTINGS_BACKEND=keyfile
++ export XDG_CONFIG_HOME=/tmp/autopkgtest.kcRblb/autopkgtest_tmp/config
++ XDG_CONFIG_HOME=/tmp/autopkgtest.kcRblb/autopkgtest_tmp/config
++ mkdir -p /tmp/autopkgtest.kcRblb/autopkgtest_tmp/config/glib-2.0/settings
++ cat
+++ proxy http://example.com
++ answer=http://proxy.example.net:8000
++ test http://proxy.example.net:8000 = http://proxy.example.net:8000
+++ proxy https://example.com
++ answer=http://sslproxy.example.net:8000
++ test http://sslproxy.example.net:8000 = http://sslproxy.example.net:8000
+++ proxy ftp://ftp.example.com
++ answer=http://ftpproxy.example.net:8000
++ test http://ftpproxy.example.net:8000 = http://ftpproxy.example.net:8000
+++ proxy http://localhost
++ answer=direct://
++ test direct:// = direct://

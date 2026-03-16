@@ -1,0 +1,873 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [10:57:36]: starting date and time: 2024-07-18 10:57:36+0800
+  0s autopkgtest [10:57:36]: version @version@
+  0s autopkgtest [10:57:36]: host lili; command line: /usr/bin/autopkgtest isc-dhcp_4.4.3-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/isc-dhcp -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.5F48Wo
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff//tmp/autopkgtest.5F48Wo
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff//tmp/autopkgtest.5F48Wo', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.5F48Wo/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.5F48Wo/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [10:57:37]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [10:57:37]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.5F48Wo/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/testbed-packages /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [10:57:38]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [10:57:38]: @@@@@@@@@@@@@@@@@@@@ source isc-dhcp_4.4.3-ok1.dsc
+  2s autopkgtest: DBG: blame += isc-dhcp_4.4.3-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown isc-dhcp_4.4.3-ok1.dsc /tmp/autopkgtest.5F48Wo/isc-dhcp_4.4.3-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown isc-dhcp_4.4.3.orig.tar.gz /tmp/autopkgtest.5F48Wo/isc-dhcp_4.4.3.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown isc-dhcp_4.4.3-ok1.debian.tar.xz /tmp/autopkgtest.5F48Wo/isc-dhcp_4.4.3-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.5F48Wo/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.5F48Wo/isc-dhcp_4.4.3-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.5F48Wo/build.XXX
+  2s + builddir=/tmp/autopkgtest.5F48Wo/build.hZg
+  2s + cd /tmp/autopkgtest.5F48Wo/build.hZg
+  2s + dpkg-source -x /tmp/autopkgtest.5F48Wo/isc-dhcp_4.4.3-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.XfzRZ2qO/trustedkeys.kbx': General error
+  3s gpgv: Signature made Thu 13 Jun 2024 10:32:38 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.5F48Wo/isc-dhcp_4.4.3-ok1.dsc
+  3s dpkg-source: info: extracting isc-dhcp in src
+  3s dpkg-source: info: unpacking isc-dhcp_4.4.3.orig.tar.gz
+  3s dpkg-source: info: unpacking isc-dhcp_4.4.3-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying dhclient-dividebyzero.patch
+  3s dpkg-source: info: applying dhclient-release.patch
+  3s dpkg-source: info: applying dhcrelay-listen.patch
+  3s dpkg-source: info: applying dhcpd-conf.patch
+  3s dpkg-source: info: applying fix-exit-hook-manpage.patch
+  3s dpkg-source: info: applying fix-manpage-macro.patch
+  4s dpkg-source: info: applying fix-spelling.patch
+  4s dpkg-source: info: applying disable-nsupdate.patch
+  4s dpkg-source: info: applying configure.patch
+  4s dpkg-source: info: applying cross.patch
+  4s dpkg-source: info: applying adjust-keama-tests.patch
+  4s dpkg-source: info: applying 0013-DHCPv6-over-PPP-support-626514.patch
+  4s dpkg-source: info: applying Give-an-example-for-subnet-mask-in-dhcpd.conf.patch
+  4s dpkg-source: info: applying dhclient-fix-backoff
+  4s dpkg-source: info: applying revert-next-server
+  4s dpkg-source: info: applying multi-ip-addr-per-if
+  4s dpkg-source: info: applying dhclient-safer-timeout
+  4s dpkg-source: info: applying onetry_retry_after_initial_success
+  4s dpkg-source: info: applying dhcp-lpf-ib.patch
+  4s dpkg-source: info: applying dhcp-improved-xid.patch
+  4s dpkg-source: info: applying dhcp-gpxe-cid.patch
+  4s dpkg-source: info: applying dhcp-improved-xid-correct-byte-order.patch
+  4s dpkg-source: info: applying dhcp-4.2.4-dhclient-options-changed.patch
+  4s dpkg-source: info: applying ubuntu-dhcpd-conf.patch
+  4s dpkg-source: info: applying dhclient-write-pidfile-earlier.patch
+  4s dpkg-source: info: applying bind-outdated-config.guess.patch
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [10:57:40]: testing package isc-dhcp version 4.4.3-ok1
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/build.hZg/src/debian/ /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-server
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-server-ldap
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-common
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-dev
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-client
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-client-ddns
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-relay
+  4s autopkgtest: DBG: synthesised dependency isc-dhcp-keama
+  4s autopkgtest: DBG: Test defined: name client-server path debian/tests/client-server command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['isc-dhcp-server', 'isc-dhcp-server-ldap', 'isc-dhcp-common', 'isc-dhcp-dev', 'isc-dhcp-client', 'isc-dhcp-client-ddns', 'isc-dhcp-relay', 'isc-dhcp-keama'] 
+  4s autopkgtest: DBG: processing dependency isc-dhcp-keama
+  4s autopkgtest: DBG: marked alternatives ['isc-dhcp-keama'] as a synthesised dependency
+  4s autopkgtest: DBG: Test defined: name keama-tests path debian/tests/keama-tests command "None" restrictions [] features [] depends ['isc-dhcp-keama'] 
+  4s autopkgtest [10:57:40]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/build.hZg/src/ /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/tests-tree/
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: processing dependency @
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-server
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-server-ldap
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-common
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-dev
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-client
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-client-ddns
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-relay
+  5s autopkgtest: DBG: synthesised dependency isc-dhcp-keama
+  5s autopkgtest: DBG: Test defined: name client-server path debian/tests/client-server command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['isc-dhcp-server', 'isc-dhcp-server-ldap', 'isc-dhcp-common', 'isc-dhcp-dev', 'isc-dhcp-client', 'isc-dhcp-client-ddns', 'isc-dhcp-relay', 'isc-dhcp-keama'] 
+  5s autopkgtest: DBG: processing dependency isc-dhcp-keama
+  5s autopkgtest: DBG: marked alternatives ['isc-dhcp-keama'] as a synthesised dependency
+  5s autopkgtest: DBG: Test defined: name keama-tests path debian/tests/keama-tests command "None" restrictions [] features [] depends ['isc-dhcp-keama'] 
+  5s autopkgtest [10:57:41]: test client-server: preparing testbed
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['isc-dhcp-server', 'isc-dhcp-server-ldap', 'isc-dhcp-common', 'isc-dhcp-dev', 'isc-dhcp-client', 'isc-dhcp-client-ddns', 'isc-dhcp-relay', 'isc-dhcp-keama']
+  5s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  5s autopkgtest: DBG: install_deps: deps_new=['isc-dhcp-server', 'isc-dhcp-server-ldap', 'isc-dhcp-common', 'isc-dhcp-dev', 'isc-dhcp-client', 'isc-dhcp-client-ddns', 'isc-dhcp-relay', 'isc-dhcp-keama']
+  5s autopkgtest: DBG: install-deps: satisfying isc-dhcp-server, isc-dhcp-server-ldap, isc-dhcp-common, isc-dhcp-dev, isc-dhcp-client, isc-dhcp-client-ddns, isc-dhcp-relay, isc-dhcp-keama
+  5s autopkgtest: DBG: install-deps: architecture resolved: isc-dhcp-server, isc-dhcp-server-ldap, isc-dhcp-common, isc-dhcp-dev, isc-dhcp-client, isc-dhcp-client-ddns, isc-dhcp-relay, isc-dhcp-keama
+  5s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: can use apt-get on testbed: True
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo'], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff//tmp/autopkgtest.5F48Wo/1-autopkgtest-satdep.deb /tmp/autopkgtest.5F48Wo/1-autopkgtest-satdep.deb
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5F48Wo/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  6s Reading package lists...
+  6s Building dependency tree...
+  6s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 0
+  7s Starting 2 pkgProblemResolver with broken count: 0
+  7s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  7s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  7s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  7s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  7s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  7s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatrildocument3
+  7s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  7s   libdjvulibre-text libdjvulibre21 libdns-export1109 libenchant1c2a
+  7s   libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  7s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  7s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  7s   libido3-0.1-0 libindicator3-7 libisc-export1105 libjs-mathjax libkpathsea6
+  7s   libkylin-chkname1 libkysdk-appcommon libmatemixer-common libmatemixer0
+  7s   libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1
+  7s   librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1
+  7s   libsynctex2 libukui-appwidget-qmlplugin0 libunity-settings-daemon1
+  7s   libwhoopsie0 nautilus-data pipewire-alsa pipewire-audio-client-libraries
+  7s   pipewire-jack pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets
+  7s   python3-ibus-1.0 python3-xdg session-migration ukui-appwidget-manager
+  7s   ukui-notebook ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  7s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  7s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   isc-dhcp-client isc-dhcp-client-ddns isc-dhcp-common isc-dhcp-dev
+  7s   isc-dhcp-keama isc-dhcp-relay isc-dhcp-server isc-dhcp-server-ldap
+  7s Suggested packages:
+  7s   avahi-autoipd policycoreutils ieee-data
+  8s The following NEW packages will be installed:
+  8s   autopkgtest-satdep isc-dhcp-client-ddns isc-dhcp-dev isc-dhcp-keama
+  8s   isc-dhcp-relay isc-dhcp-server isc-dhcp-server-ldap
+  8s The following packages will be upgraded:
+  8s   isc-dhcp-client isc-dhcp-common
+  8s 2 upgraded, 7 newly installed, 0 to remove and 1064 not upgraded.
+  8s Need to get 5,795 kB/5,796 kB of archives.
+  8s After this operation, 17.0 MB of additional disk space will be used.
+  8s Get:1 /tmp/autopkgtest.5F48Wo/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [744 B]
+  8s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-relay riscv64 4.4.3-ok1 [940 kB]
+  8s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-server riscv64 4.4.3-ok1 [1,354 kB]
+ 10s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-client riscv64 4.4.3-ok1 [947 kB]
+ 10s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-common riscv64 4.4.3-ok1 [40.0 kB]
+ 10s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-client-ddns riscv64 4.4.3-ok1 [952 kB]
+ 11s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-dev riscv64 4.4.3-ok1 [424 kB]
+ 11s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-keama riscv64 4.4.3-ok1 [79.3 kB]
+ 11s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-server-ldap riscv64 4.4.3-ok1 [1,059 kB]
+ 13s Preconfiguring packages ...
+ 14s Fetched 5,795 kB in 4s (1,556 kB/s)
+ 14s Selecting previously unselected package isc-dhcp-relay.
+ 14s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 14s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 14s Preparing to unpack .../0-isc-dhcp-relay_4.4.3-ok1_riscv64.deb ...
+ 14s Unpacking isc-dhcp-relay (4.4.3-ok1) ...
+ 15s Selecting previously unselected package isc-dhcp-server.
+ 15s Preparing to unpack .../1-isc-dhcp-server_4.4.3-ok1_riscv64.deb ...
+ 15s Unpacking isc-dhcp-server (4.4.3-ok1) ...
+ 15s Preparing to unpack .../2-isc-dhcp-client_4.4.3-ok1_riscv64.deb ...
+ 15s Unpacking isc-dhcp-client (4.4.3-ok1) over (4.4.1-ok3) ...
+ 15s Preparing to unpack .../3-isc-dhcp-common_4.4.3-ok1_riscv64.deb ...
+ 15s Unpacking isc-dhcp-common (4.4.3-ok1) over (4.4.1-ok3) ...
+ 16s Selecting previously unselected package isc-dhcp-client-ddns.
+ 16s Preparing to unpack .../4-isc-dhcp-client-ddns_4.4.3-ok1_riscv64.deb ...
+ 16s Adding 'diversion of /sbin/dhclient to /sbin/dhclient-noddns by isc-dhcp-client-ddns'
+ 16s Unpacking isc-dhcp-client-ddns (4.4.3-ok1) ...
+ 16s Selecting previously unselected package isc-dhcp-dev.
+ 16s Preparing to unpack .../5-isc-dhcp-dev_4.4.3-ok1_riscv64.deb ...
+ 16s Unpacking isc-dhcp-dev (4.4.3-ok1) ...
+ 16s Selecting previously unselected package isc-dhcp-keama.
+ 16s Preparing to unpack .../6-isc-dhcp-keama_4.4.3-ok1_riscv64.deb ...
+ 16s Unpacking isc-dhcp-keama (4.4.3-ok1) ...
+ 17s Selecting previously unselected package isc-dhcp-server-ldap.
+ 17s Preparing to unpack .../7-isc-dhcp-server-ldap_4.4.3-ok1_riscv64.deb ...
+ 17s Adding 'diversion of /usr/sbin/dhcpd to /usr/sbin/dhcpd-noldap by isc-dhcp-server-ldap'
+ 17s Unpacking isc-dhcp-server-ldap (4.4.3-ok1) ...
+ 17s Selecting previously unselected package autopkgtest-satdep.
+ 17s Preparing to unpack .../8-1-autopkgtest-satdep.deb ...
+ 17s Unpacking autopkgtest-satdep (0) ...
+ 17s Setting up isc-dhcp-relay (4.4.3-ok1) ...
+ 18s Generating /etc/default/isc-dhcp-relay...
+ 18s Running in chroot, ignoring command 'daemon-reload'
+ 18s Running in chroot, ignoring request.
+ 18s Running in chroot, ignoring command 'show'
+ 18s Created symlink /etc/systemd/system/multi-user.target.wants/isc-dhcp-relay.service → /lib/systemd/system/isc-dhcp-relay.service.
+ 18s Running in chroot, ignoring command 'daemon-reload'
+ 19s Running in chroot, ignoring command 'is-active'
+ 19s Running in chroot, ignoring command 'start'
+ 19s Created symlink /etc/systemd/system/multi-user.target.wants/isc-dhcp-relay6.service → /lib/systemd/system/isc-dhcp-relay6.service.
+ 19s Running in chroot, ignoring command 'daemon-reload'
+ 19s Running in chroot, ignoring command 'is-active'
+ 19s Running in chroot, ignoring command 'start'
+ 19s Setting up isc-dhcp-client (4.4.3-ok1) ...
+ 19s Installing new version of config file /etc/apparmor.d/sbin.dhclient ...
+ 19s Installing new version of config file /etc/dhcp/dhclient-exit-hooks.d/rfc3442-classless-routes ...
+ 19s Setting up isc-dhcp-server (4.4.3-ok1) ...
+ 20s Generating /etc/default/isc-dhcp-server...
+ 20s Running in chroot, ignoring command 'daemon-reload'
+ 20s Running in chroot, ignoring request.
+ 20s Running in chroot, ignoring command 'show'
+ 21s Created symlink /etc/systemd/system/multi-user.target.wants/isc-dhcp-server.service → /lib/systemd/system/isc-dhcp-server.service.
+ 21s Running in chroot, ignoring command 'daemon-reload'
+ 21s Running in chroot, ignoring command 'is-active'
+ 21s Running in chroot, ignoring command 'start'
+ 22s Created symlink /etc/systemd/system/multi-user.target.wants/isc-dhcp-server6.service → /lib/systemd/system/isc-dhcp-server6.service.
+ 22s Running in chroot, ignoring command 'daemon-reload'
+ 22s Running in chroot, ignoring command 'is-active'
+ 22s Running in chroot, ignoring command 'start'
+ 22s Setting up isc-dhcp-server-ldap (4.4.3-ok1) ...
+ 22s Setting up isc-dhcp-keama (4.4.3-ok1) ...
+ 22s Setting up isc-dhcp-client-ddns (4.4.3-ok1) ...
+ 22s Setting up isc-dhcp-common (4.4.3-ok1) ...
+ 22s Setting up isc-dhcp-dev (4.4.3-ok1) ...
+ 22s Setting up autopkgtest-satdep (0) ...
+ 22s Processing triggers for man-db (2.10.2-2) ...
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-server'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-server-ldap'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-common'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-dev'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-client'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-client-ddns'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-relay'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-keama'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common isc-dhcp-dev isc-dhcp-keama isc-dhcp-relay isc-dhcp-server-ldap isc-dhcp-server kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libdns-export1109 libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libisc-export1105 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 29s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'isc-dhcp-dev', 'isc-dhcp-keama', 'isc-dhcp-relay', 'isc-dhcp-server-ldap', 'isc-dhcp-server', 'kylin-screenshot', 'language-selector-common', 'libbpf0'], kind short, sout raw, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libdns-export1109', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libido3-0.1-0', 'libindicator3-7', 'libisc-export1105', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 36s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 36s (Reading database ... 193878 files and directories currently installed.)
+ 36s Removing autopkgtest-satdep (0) ...
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.5F48Wo/client-server-packages.all"], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/client-server-packages.all /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/client-server-packages.all
+ 36s autopkgtest: DBG: got reply from testbed: ok
+ 36s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.5F48Wo/build.hZg/src'], kind short, sout raw, serr raw, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.5F48Wo/build.hZg/src already exists
+ 37s autopkgtest [10:58:13]: test client-server: [-----------------------
+ 37s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.5F48Wo/wrapper.sh --debug --artifacts=/tmp/autopkgtest.5F48Wo/client-server-artifacts --chdir=/tmp/autopkgtest.5F48Wo/build.hZg/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.5F48Wo/client-server-stderr --stdout=/tmp/autopkgtest.5F48Wo/client-server-stdout --tmp=/tmp/autopkgtest.5F48Wo/autopkgtest_tmp --env=AUTOPKGTEST_NORMAL_USER= --env=ADT_NORMAL_USER= --make-executable=/tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/client-server -- /tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/client-server'], kind test, sout raw, serr raw, env []
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.5F48Wo/client-server-artifacts
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: changing to directory: /tmp/autopkgtest.5F48Wo/build.hZg/src
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: LANG=C.UTF-8
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LANGUAGE
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_ADDRESS
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_ALL
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_COLLATE
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_CTYPE
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_MESSAGES
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_MONETARY
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_NAME
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_NUMERIC
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_PAPER
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_TIME
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: pretending to be a login shell
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: will write standard error to /tmp/autopkgtest.5F48Wo/client-server-stderr
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: will write stdout to /tmp/autopkgtest.5F48Wo/client-server-stdout
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.5F48Wo/autopkgtest_tmp
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: AUTOPKGTEST_NORMAL_USER=
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: ADT_NORMAL_USER=
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: marking as executable: /tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/client-server
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: command to run: /tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/client-server
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: copying /tmp/tmp.Lv91AQghrG/out to stdout and file: /tmp/autopkgtest.5F48Wo/client-server-stdout
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: copying /tmp/tmp.Lv91AQghrG/err to standard error and file: /tmp/autopkgtest.5F48Wo/client-server-stdout
+ 37s /tmp/autopkgtest.5F48Wo/wrapper.sh: writing script pid 1158310 to /tmp/autopkgtest_script_pid
+ 37s + [ -e /var/lib/dhcp/dhcpd.leases ]
+ 37s + touch /var/lib/dhcp/dhcpd.leases
+ 37s + chown root:dhcpd /var/lib/dhcp /var/lib/dhcp/dhcpd.leases
+ 37s + chmod 775 /var/lib/dhcp
+ 37s + chmod 664 /var/lib/dhcp/dhcpd.leases
+ 37s + nsserver=server
+ 37s + nsclient=client
+ 37s + ip_addr_server=10.42.42.1/24
+ 37s + ifaceserver=veth-server
+ 37s + ifaceclient=veth-client
+ 37s + ip netns add server
+ 37s + ip netns add client
+ 37s + ip link add ptp-veth-server type veth peer name ptp-veth-client
+ 37s + ip link set ptp-veth-server netns server
+ 37s + ip link set ptp-veth-client netns client
+ 37s + mkdir -p /etc/netns/client
+ 37s + echo nameserver 8.8.8.8
+ 37s + cat
+ 37s + ip netns exec server ip addr add 10.42.42.1/24 dev ptp-veth-server
+ 37s + ip netns exec server ip link set dev ptp-veth-server up
+ 37s + ip netns exec client ip link set dev ptp-veth-client up
+ 37s + /usr/sbin/dhcpd -t -q -cf /etc/dhcp/dhcpd.conf
+ 37s + ip netns exec server /usr/sbin/dhcpd -cf /etc/dhcp/dhcpd.conf
+ 37s Internet Systems Consortium DHCP Server 4.4.3-P1
+ 37s Copyright 2004-2022 Internet Systems Consortium.
+ 37s All rights reserved.
+ 37s For info, please visit https://www.isc.org/software/dhcp/
+ 37s Not searching LDAP since ldap-server, ldap-port and ldap-base-dn were not specified in the config file
+ 37s Config file: /etc/dhcp/dhcpd.conf
+ 37s Database file: /var/lib/dhcp/dhcpd.leases
+ 37s PID file: /var/run/dhcpd.pid
+ 37s Wrote 0 leases to leases file.
+ 38s Listening on LPF/ptp-veth-server/8e:03:d3:d1:74:d4/10.42.42.0/24
+ 38s Sending on   LPF/ptp-veth-server/8e:03:d3:d1:74:d4/10.42.42.0/24
+ 38s Sending on   Socket/fallback/fallback-net
+ 38s + ip netns exec client dhclient ptp-veth-client
+ 39s Running in chroot, ignoring command 'is-active'
+ 39s Failed to set LLMNR configuration: Link 12 not known
+ 39s Failed to set MulticastDNS configuration: Link 12 not known
+ 39s Failed to set domain configuration: Link 12 not known
+ 39s Failed to set DNS configuration: Link 12 not known
+ 39s Running in chroot, ignoring command 'try-restart'
+ 39s + ip netns exec client ip addr
+ 39s 1: lo: <LOOPBACK> mtu 65536 qdisc noop state DOWN group default qlen 1000
+ 39s     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+ 39s 12: ptp-veth-client@if13: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+ 39s     link/ether b2:23:18:c5:d2:65 brd ff:ff:ff:ff:ff:ff link-netns server
+ 39s     inet 10.42.42.10/24 brd 10.42.42.255 scope global dynamic ptp-veth-client
+ 39s        valid_lft 600sec preferred_lft 600sec
+ 39s     inet6 fe80::b023:18ff:fec5:d265/64 scope link 
+ 39s        valid_lft forever preferred_lft forever
+ 39s + grep 1.1.1.1 /etc/netns/client/resolv.conf
+ 39s /tmp/autopkgtest.5F48Wo/wrapper.sh: checking for leaked background processes...
+ 40s /tmp/autopkgtest.5F48Wo/wrapper.sh: waiting for tee/cat subprocesses...
+ 40s /tmp/autopkgtest.5F48Wo/wrapper.sh: cleaning up...
+ 40s /tmp/autopkgtest.5F48Wo/wrapper.sh: Exit status: 1
+ 40s autopkgtest: DBG: testbed command exited with code 1
+ 40s autopkgtest [10:58:16]: test client-server: -----------------------]
+ 40s autopkgtest: DBG: testbed executing test finished with exit status 1
+ 40s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/client-server-stdout /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/client-server-stdout
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/client-server-stderr /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/client-server-stderr
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest [10:58:16]: test client-server:  - - - - - - - - - - results - - - - - - - - - -
+ 40s client-server        FAIL non-zero exit status 1
+ 40s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/client-server-artifacts/ /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/artifacts/
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.5F48Wo/client-server-artifacts', '/tmp/autopkgtest.5F48Wo/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest [10:58:16]: test keama-tests: preparing testbed
+ 40s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['isc-dhcp-server', 'isc-dhcp-server-ldap', 'isc-dhcp-common', 'isc-dhcp-dev', 'isc-dhcp-client', 'isc-dhcp-client-ddns', 'isc-dhcp-relay', 'isc-dhcp-keama'], deps_new=['isc-dhcp-keama']
+ 40s autopkgtest: DBG: testbed reset
+ 40s autopkgtest: DBG: sending command to testbed: revert
+ 41s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 44s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.5F48Wo
+ 44s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 44s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff,--user%3Droot,--
+ 44s autopkgtest: DBG: sending command to testbed: capabilities
+ 44s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff//tmp/autopkgtest.5F48Wo
+ 44s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff//tmp/autopkgtest.5F48Wo', 'has_internet']
+ 44s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo'], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.5F48Wo/wrapper.sh
+ 44s autopkgtest: DBG: got reply from testbed: ok
+ 44s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.5F48Wo/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest [10:58:20]: testbed dpkg architecture: riscv64
+ 44s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest [10:58:21]: testbed apt version: 2.7.3-ok3
+ 45s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 127
+ 45s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.5F48Wo/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/testbed-packages /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/testbed-packages
+ 45s autopkgtest: DBG: got reply from testbed: ok
+ 45s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 45s autopkgtest: DBG: install_deps: deps_new=['isc-dhcp-keama']
+ 45s autopkgtest: DBG: install-deps: satisfying isc-dhcp-keama
+ 45s autopkgtest: DBG: install-deps: architecture resolved: isc-dhcp-keama
+ 45s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: can use apt-get on testbed: True
+ 45s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo'], kind short, sout raw, serr pipe, env []
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-bec546b1-f212-406a-859a-4c36870f84ff//tmp/autopkgtest.5F48Wo/2-autopkgtest-satdep.deb /tmp/autopkgtest.5F48Wo/2-autopkgtest-satdep.deb
+ 45s autopkgtest: DBG: got reply from testbed: ok
+ 45s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.5F48Wo/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 46s Reading package lists...
+ 46s Building dependency tree...
+ 46s Reading state information...
+ 47s Starting pkgProblemResolver with broken count: 0
+ 47s Starting 2 pkgProblemResolver with broken count: 0
+ 47s Done
+ 48s The following packages were automatically installed and are no longer required:
+ 48s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 48s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 48s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 48s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 48s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 48s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 48s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 48s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 48s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 48s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 48s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 48s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 48s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 48s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 48s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 48s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 48s   language-selector-common language-selector-gnome libatrildocument3
+ 48s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 48s   libdjvulibre-text libdjvulibre21 libdns-export1109 libenchant1c2a
+ 48s   libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 48s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 48s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 48s   libido3-0.1-0 libindicator3-7 libisc-export1105 libjs-mathjax libkpathsea6
+ 48s   libkylin-chkname1 libkysdk-appcommon libmatemixer-common libmatemixer0
+ 48s   libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1
+ 48s   librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1
+ 48s   libsynctex2 libukui-appwidget-qmlplugin0 libunity-settings-daemon1
+ 48s   libwhoopsie0 nautilus-data pipewire-alsa pipewire-audio-client-libraries
+ 48s   pipewire-jack pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets
+ 48s   python3-ibus-1.0 python3-xdg session-migration ukui-appwidget-manager
+ 48s   ukui-notebook ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 48s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 48s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 48s Use 'sudo apt autoremove' to remove them.
+ 48s The following additional packages will be installed:
+ 48s   isc-dhcp-client isc-dhcp-common isc-dhcp-keama
+ 48s Suggested packages:
+ 48s   avahi-autoipd isc-dhcp-client-ddns
+ 48s The following NEW packages will be installed:
+ 48s   autopkgtest-satdep isc-dhcp-keama
+ 48s The following packages will be upgraded:
+ 48s   isc-dhcp-client isc-dhcp-common
+ 48s 2 upgraded, 2 newly installed, 0 to remove and 1064 not upgraded.
+ 48s Need to get 1,066 kB/1,067 kB of archives.
+ 48s After this operation, 1,799 kB of additional disk space will be used.
+ 48s Get:1 /tmp/autopkgtest.5F48Wo/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [708 B]
+ 48s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-client riscv64 4.4.3-ok1 [947 kB]
+ 49s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-common riscv64 4.4.3-ok1 [40.0 kB]
+ 49s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 isc-dhcp-keama riscv64 4.4.3-ok1 [79.3 kB]
+ 51s Fetched 1,066 kB in 1s (1,277 kB/s)
+ 51s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 52s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 52s Preparing to unpack .../isc-dhcp-client_4.4.3-ok1_riscv64.deb ...
+ 52s Unpacking isc-dhcp-client (4.4.3-ok1) over (4.4.1-ok3) ...
+ 52s Preparing to unpack .../isc-dhcp-common_4.4.3-ok1_riscv64.deb ...
+ 52s Unpacking isc-dhcp-common (4.4.3-ok1) over (4.4.1-ok3) ...
+ 52s Selecting previously unselected package isc-dhcp-keama.
+ 52s Preparing to unpack .../isc-dhcp-keama_4.4.3-ok1_riscv64.deb ...
+ 52s Unpacking isc-dhcp-keama (4.4.3-ok1) ...
+ 52s Selecting previously unselected package autopkgtest-satdep.
+ 52s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 52s Unpacking autopkgtest-satdep (0) ...
+ 53s Setting up isc-dhcp-client (4.4.3-ok1) ...
+ 53s Installing new version of config file /etc/apparmor.d/sbin.dhclient ...
+ 53s Installing new version of config file /etc/dhcp/dhclient-exit-hooks.d/rfc3442-classless-routes ...
+ 53s Setting up isc-dhcp-keama (4.4.3-ok1) ...
+ 53s Setting up isc-dhcp-common (4.4.3-ok1) ...
+ 53s Setting up autopkgtest-satdep (0) ...
+ 53s Processing triggers for man-db (2.10.2-2) ...
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'isc-dhcp-keama'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 58s autopkgtest: DBG: testbed command exited with code 0
+ 58s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common isc-dhcp-keama kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libdns-export1109 libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libisc-export1105 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 58s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'isc-dhcp-keama', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libdns-export1109', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libisc-export1105', 'libkpathsea6'], kind short, sout raw, serr pipe, env []
+ 62s autopkgtest: DBG: testbed command exited with code 0
+ 62s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack'], kind short, sout raw, serr pipe, env []
+ 63s autopkgtest: DBG: testbed command exited with code 0
+ 63s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 64s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 64s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 65s (Reading database ... 193809 files and directories currently installed.)
+ 65s Removing autopkgtest-satdep (0) ...
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.5F48Wo/keama-tests-packages.all"], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/keama-tests-packages.all /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/keama-tests-packages.all
+ 65s autopkgtest: DBG: got reply from testbed: ok
+ 65s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.5F48Wo/build.hZg/src'], kind short, sout raw, serr raw, env []
+ 65s autopkgtest: DBG: testbed command exited with code 1
+ 65s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.5F48Wo/build.hZg'], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/tests-tree/ /tmp/autopkgtest.5F48Wo/build.hZg/src/
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest [10:58:42]: test keama-tests: [-----------------------
+ 66s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.5F48Wo/wrapper.sh --debug --artifacts=/tmp/autopkgtest.5F48Wo/keama-tests-artifacts --chdir=/tmp/autopkgtest.5F48Wo/build.hZg/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.5F48Wo/keama-tests-stderr --stdout=/tmp/autopkgtest.5F48Wo/keama-tests-stdout --tmp=/tmp/autopkgtest.5F48Wo/autopkgtest_tmp --make-executable=/tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/keama-tests -- /tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/keama-tests'], kind test, sout raw, serr raw, env []
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.5F48Wo/keama-tests-artifacts
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: changing to directory: /tmp/autopkgtest.5F48Wo/build.hZg/src
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: setting environment: LANG=C.UTF-8
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LANGUAGE
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_ADDRESS
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_ALL
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_COLLATE
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_CTYPE
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_MESSAGES
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_MONETARY
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_NAME
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_NUMERIC
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_PAPER
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: unsetting environment: LC_TIME
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: pretending to be a login shell
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: will write standard error to /tmp/autopkgtest.5F48Wo/keama-tests-stderr
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: will write stdout to /tmp/autopkgtest.5F48Wo/keama-tests-stdout
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.5F48Wo/autopkgtest_tmp
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: marking as executable: /tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/keama-tests
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: command to run: /tmp/autopkgtest.5F48Wo/build.hZg/src/debian/tests/keama-tests
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: copying /tmp/tmp.ZetyqLt8rj/out to stdout and file: /tmp/autopkgtest.5F48Wo/keama-tests-stdout
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: copying /tmp/tmp.ZetyqLt8rj/err to standard error and file: /tmp/autopkgtest.5F48Wo/keama-tests-stdout
+ 66s /tmp/autopkgtest.5F48Wo/wrapper.sh: writing script pid 1159035 to /tmp/autopkgtest_script_pid
+ 66s subdirs:
+ 66s example
+ 66s simple
+ 66s test-a6
+ 67s vmnet8
+ 67s tests:
+ 67s badcasexsc.err
+ 67s badclass.err
+ 67s badclass2.err
+ 67s baddecl2array.err
+ 67s baddecl2record.err
+ 67s baddeclBt.err
+ 67s baddefaultxsc.err
+ 67s badduid.err
+ 67s badinclude.err
+ 67s badoption66.err6
+ 67s badoptionI4.err4
+ 67s badoptiond4.err4
+ 67s badstatusdir.err
+ 67s badsubclass.err
+ 67s classbadmatch.err
+ 67s classbadmatchif.err
+ 67s classinclass.err
+ 67s duid2.err
+ 67s duidennoid.err
+ 67s duidennonum.err
+ 67s duidllbadtype.err
+ 67s duidllnohw.err
+ 67s duidlltbadtype.err
+ 68s duidlltnohw.err
+ 68s duidlltnotime.err
+ 68s duidlltthw4.err4
+ 68s duidnoid.err
+ 68s fixedaddressinroot4.err4
+ 68s fixedaddressinroot6.err6
+ 68s fixedprefixinroot.err6
+ 68s fqdncompressed.err6
+ 68s groupinclass.err
+ 68s groupsubnetif.err4
+ 68s hardwareinroot.err
+ 68s hostinclass.err
+ 68s hostinhost.err
+ 68s hostnum.errF
+ 68s listarray.err
+ 68s mixedarray.err
+ 68s nestarray.err
+ 68s noclass.err
+ 68s noinclude.err
+ 68s nosubclass.err
+ 68s nosuperclass.err
+ 68s pool6in4.err4
+ 68s poolinroot4.err4
+ 69s poolinroot6.err6
+ 69s prefix0.err6
+ 69s prefix128.err6
+ 69s prefixinroot6.err6
+ 69s range6in4.err4
+ 69s rangeinroot4.err4
+ 69s rangeinroot6.err6
+ 69s share0.err
+ 69s share2if.err
+ 69s shareempty.err
+ 69s shareinclass.err
+ 69s shareinhost.err
+ 69s shareinshare.err
+ 69s shareinsubnet4.err4
+ 69s shareinsubnet6.err6
+ 69s sharenoname.err
+ 69s subnet42if.err4
+ 69s subnet4badmask.err4
+ 69s subnet4inclass.err4
+ 69s subnet4inhost.err4
+ 69s subnet4nomask.err4
+ 69s subnet62if.err6
+ 69s subnet6inclass.err6
+ 69s subnet6inhost.err6
+ 70s subnet6nolen.err6
+ 70s subnet6noslash.err6
+ 70s subnetinsubnet4.err4
+ 70s subnetinsubnet6.err6
+ 70s tautology.err
+ 70s tautologyhexa.err
+ 70s tautologysub.err
+ 70s textarray.err
+ 70s unknownoption.err
+ 70s unknownspace.err
+ 70s userclass.err
+ 70s vendorclass.err
+ 70s bintadx6.in6
+ 70s bootfilename4.in4
+ 70s charcasedx4.in4
+ 70s class4.in4
+ 70s class4empty.in4
+ 70s class6.in6
+ 70s class6empty.in6
+ 70s concatdx4.in4
+ 70s concatnulldx4.in4
+ 70s configdata4.in4
+ 70s dbtimeformat4.in4
+ 71s dbtimeformat6.in6
+ 71s ddnsupdstyle6.in6
+ 71s defaultexpr6.in6
+ 71s denyunknown6.in6
+ 71s duiden6.in6
+ 71s duidll6.in6
+ 71s duidllhw6.in6
+ 71s duidllt6.in6
+ 71s duidlltthw6.in6
+ 71s enableupdates6.in6
+ 71s encodedx6.in6
+ 71s escapestring4.in4
+ 71s execstatement4.in4
+ 71s execstatement6.in6
+ 71s existsbx4.in4
+ 71s filename4.in4
+ 71s global4.in4
+ 71s global6.in6
+ 71s groupclass4.in4
+ 71s groupclass6.in6
+ 71s groupgroup4.in4
+ 71s grouphost4.inn
+ 71s groupsubnet4.in4
+ 71s groupsubnet6.in6
+ 71s hardware2dx4.in4
+ 72s hardwaredx4.in4
+ 72s hostidentifier4.inl
+ 72s hostname4.in4
+ 72s hostuid4.inn
+ 72s ifxsc4.in4
+ 72s ipaddr6.in6
+ 72s lifetime4.ind
+ 72s lifetime6.inD
+ 72s lifetimedef4.ind
+ 72s lifetimedef6.inD
+ 72s minimal4.in4
+ 72s minimal6.in6
+ 72s noauth4.in4
+ 72s noauth6.in6
+ 72s notbx4.in4
+ 72s notnotbx4.in4
+ 72s nxdomainnx6.in6
+ 72s onxsc4.in4
+ 72s optdatagrouppool4.in4
+ 72s optiondata4.in4
+ 72s optiondata6.in6
+ 72s optiondatapool4.in4
+ 72s optiondatapool6.in6
+ 72s optiondecl4.in4
+ 72s optiondecl6.in6
+ 73s optiondeclBat4.in4
+ 73s optionencap4.in4
+ 73s optionencap6.in6
+ 73s optionexpr4.in4
+ 73s optionspace4.in4
+ 73s optionspace6.in6
+ 73s optionvendor4.in4
+ 73s optionvendor6.in6
+ 73s orphan4.inn
+ 73s orphan6.inN
+ 73s permitauth4.in4
+ 73s permitauth6.in6
+ 73s permitknown4.in4
+ 73s pickdx6.in6
+ 73s pool4.in4
+ 73s pool42.in4
+ 73s pool6.in6
+ 73s preferred6.in6
+ 73s prefix6.in6
+ 73s prefix62.in6
+ 73s qualifyingsuffix4.in4
+ 73s qualifyingsuffix6.in6
+ 73s range4.in4
+ 73s range6.in6
+ 73s reversedx6.in6
+ 74s shareone4.in4
+ 74s shareone6.in6
+ 74s sharepools4.in4
+ 74s sharetwo4.in4
+ 74s sharetwo6.in6
+ 74s spawning6.in6
+ 74s subclass4.in4
+ 74s subclass6.in6
+ 74s subclassbinsel4.in4
+ 74s subclassbinsel6.in6
+ 74s subclassguard4.in4
+ 74s subclassguard6.in6
+ 74s subnet4.in4
+ 74s subnet4auth.in4
+ 74s subnet6.in6
+ 74s subnet6auth.in6
+ 74s subnet6multi.in6
+ 74s subnet6one.in6
+ 74s substringdx4.in4
+ 74s suffixdx4.in4
+ 74s switchxsc4.in4
+ 74s switchxsc6.in6
+ 74s temporary6.in6
+ 74s vendorspace4.in4
+ 74s zone4.in4
+ 75s /tmp/autopkgtest.5F48Wo/wrapper.sh: checking for leaked background processes...
+ 75s /tmp/autopkgtest.5F48Wo/wrapper.sh: waiting for tee/cat subprocesses...
+ 75s /tmp/autopkgtest.5F48Wo/wrapper.sh: cleaning up...
+ 75s /tmp/autopkgtest.5F48Wo/wrapper.sh: Exit status: 0
+ 75s autopkgtest: DBG: testbed command exited with code 0
+ 75s autopkgtest [10:58:51]: test keama-tests: -----------------------]
+ 75s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 75s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/keama-tests-stdout /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/keama-tests-stdout
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/keama-tests-stderr /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/keama-tests-stderr
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest [10:58:51]: test keama-tests:  - - - - - - - - - - results - - - - - - - - - -
+ 75s keama-tests          PASS
+ 75s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.5F48Wo/keama-tests-artifacts/ /home/hachi/openkylin_test/sharefolder/results/isc-dhcp/artifacts/
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.5F48Wo/keama-tests-artifacts', '/tmp/autopkgtest.5F48Wo/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 75s autopkgtest: DBG: testbed command exited with code 0
+ 75s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 75s autopkgtest [10:58:51]: @@@@@@@@@@@@@@@@@@@@ summary
+ 75s client-server        FAIL non-zero exit status 1
+ 75s keama-tests          PASS
+ 75s autopkgtest: DBG: testbed stop
+ 75s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.5F48Wo
+ 75s autopkgtest: DBG: sending command to testbed: close
+ 76s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 76s autopkgtest: DBG: got reply from testbed: ok
+ 76s autopkgtest: DBG: sending command to testbed: quit

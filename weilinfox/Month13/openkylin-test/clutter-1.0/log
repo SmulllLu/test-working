@@ -1,0 +1,1990 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:57:37]: starting date and time: 2024-07-18 01:57:37+0800
+  0s autopkgtest [01:57:37]: version @version@
+  0s autopkgtest [01:57:37]: host lili; command line: /usr/bin/autopkgtest clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/clutter-1.0 -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.XheWNm
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297//tmp/autopkgtest.XheWNm
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297//tmp/autopkgtest.XheWNm', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.XheWNm'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.XheWNm/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.XheWNm/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [01:57:38]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:57:39]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.XheWNm/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.XheWNm/testbed-packages /home/hachi/openkylin_test/sharefolder/results/clutter-1.0/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:57:39]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [01:57:39]: @@@@@@@@@@@@@@@@@@@@ source clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc
+  2s autopkgtest: DBG: blame += clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.XheWNm'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown clutter-1.0_1.26.4%2Bgit2779b932%2Bdfsg-ok1.dsc /tmp/autopkgtest.XheWNm/clutter-1.0_1.26.4%2Bgit2779b932%2Bdfsg-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.XheWNm'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown clutter-1.0_1.26.4%2Bgit2779b932%2Bdfsg.orig.tar.xz /tmp/autopkgtest.XheWNm/clutter-1.0_1.26.4%2Bgit2779b932%2Bdfsg.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.XheWNm'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown clutter-1.0_1.26.4%2Bgit2779b932%2Bdfsg-ok1.debian.tar.xz /tmp/autopkgtest.XheWNm/clutter-1.0_1.26.4%2Bgit2779b932%2Bdfsg-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.XheWNm/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.XheWNm/clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.XheWNm/build.XXX
+  3s + builddir=/tmp/autopkgtest.XheWNm/build.qk6
+  3s + cd /tmp/autopkgtest.XheWNm/build.qk6
+  3s + dpkg-source -x /tmp/autopkgtest.XheWNm/clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.2r8eMDCD/trustedkeys.kbx': General error
+  3s gpgv: Signature made Sat 21 Oct 2023 05:16:59 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.XheWNm/clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc
+  3s dpkg-source: info: extracting clutter-1.0 in src
+  3s dpkg-source: info: unpacking clutter-1.0_1.26.4+git2779b932+dfsg.orig.tar.xz
+  3s dpkg-source: info: unpacking clutter-1.0_1.26.4+git2779b932+dfsg-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying 01_do-not-build-cookbook.patch
+  3s dpkg-source: info: applying Rely-on-gdk-to-dispatch-wayland-events.patch
+  3s dpkg-source: info: applying clutter-text-Do-not-emit-signal-on-finalization.patch
+  3s dpkg-source: info: applying clutter-meson-Enable-xkb-utils-if-evdev-is-used.patch
+  3s dpkg-source: info: applying clutter-meson-Ensure-all-wayland-compositor-APIs-are-buil.patch
+  4s dpkg-source: info: applying clutter-meson-Include-clutter-dependencies-in-.pc-file.patch
+  4s dpkg-source: info: applying tests-conform-meson.build-Install-script-files-too.patch
+  4s dpkg-source: info: applying tests-conform-Use-epsilon-to-compare-floating-numbers.patch
+  4s dpkg-source: info: applying clutter-master-clock-gdk-Do-not-try-to-access-invalidated.patch
+  4s dpkg-source: info: applying clutter-meson-Produce-all-Clutter-gir-files.patch
+  4s dpkg-source: info: applying po-meson-Use-clutter-api-name-for-mo-files.patch
+  4s dpkg-source: info: applying clutter-meson-Install-glx-headers-in-proper-subpath.patch
+  4s dpkg-source: info: applying configure.ac-Use-proper-clutter-micro-version.patch
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [01:57:41]: testing package clutter-1.0 version 1.26.4+git2779b932+dfsg-ok1
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.XheWNm/build.qk6/src/debian/ /home/hachi/openkylin_test/sharefolder/results/clutter-1.0/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency dbus
+  4s autopkgtest: DBG: processing dependency libclutter-1.0-dev
+  4s autopkgtest: DBG: marked alternatives ['libclutter-1.0-dev'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency xauth
+  4s autopkgtest: DBG: processing dependency xvfb
+  4s autopkgtest: DBG: Test defined: name build path debian/tests/build command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'dbus', 'libclutter-1.0-dev', 'xauth', 'xvfb'] 
+  4s autopkgtest: DBG: processing dependency clutter-1.0-tests
+  4s autopkgtest: DBG: marked alternatives ['clutter-1.0-tests'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency dbus (>= 1.8)
+  4s autopkgtest: DBG: processing dependency gnome-desktop-testing
+  4s autopkgtest: DBG: processing dependency libgl1-mesa-dri
+  4s autopkgtest: DBG: processing dependency xauth
+  4s autopkgtest: DBG: processing dependency xvfb
+  4s autopkgtest: DBG: Test defined: name installed-tests path debian/tests/installed-tests command "None" restrictions [] features [] depends ['clutter-1.0-tests', 'dbus (>= 1.8)', 'gnome-desktop-testing', 'libgl1-mesa-dri', 'xauth', 'xvfb'] 
+  4s autopkgtest [01:57:41]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.XheWNm/build.qk6/src/ /home/hachi/openkylin_test/sharefolder/results/clutter-1.0/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency dbus
+  4s autopkgtest: DBG: processing dependency libclutter-1.0-dev
+  4s autopkgtest: DBG: marked alternatives ['libclutter-1.0-dev'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency xauth
+  4s autopkgtest: DBG: processing dependency xvfb
+  4s autopkgtest: DBG: Test defined: name build path debian/tests/build command "None" restrictions ['allow-stderr', 'superficial'] features [] depends ['build-essential', 'dbus', 'libclutter-1.0-dev', 'xauth', 'xvfb'] 
+  4s autopkgtest: DBG: processing dependency clutter-1.0-tests
+  4s autopkgtest: DBG: marked alternatives ['clutter-1.0-tests'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency dbus (>= 1.8)
+  4s autopkgtest: DBG: processing dependency gnome-desktop-testing
+  4s autopkgtest: DBG: processing dependency libgl1-mesa-dri
+  4s autopkgtest: DBG: processing dependency xauth
+  4s autopkgtest: DBG: processing dependency xvfb
+  4s autopkgtest: DBG: Test defined: name installed-tests path debian/tests/installed-tests command "None" restrictions [] features [] depends ['clutter-1.0-tests', 'dbus (>= 1.8)', 'gnome-desktop-testing', 'libgl1-mesa-dri', 'xauth', 'xvfb'] 
+  4s autopkgtest [01:57:41]: test build: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['build-essential', 'dbus', 'libclutter-1.0-dev', 'xauth', 'xvfb']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'dbus', 'libclutter-1.0-dev', 'xauth', 'xvfb']
+  4s autopkgtest: DBG: install-deps: satisfying build-essential, dbus, libclutter-1.0-dev, xauth, xvfb
+  4s autopkgtest: DBG: install-deps: architecture resolved: build-essential, dbus, libclutter-1.0-dev, xauth, xvfb
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: can use apt-get on testbed: True
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.XheWNm'], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297//tmp/autopkgtest.XheWNm/1-autopkgtest-satdep.deb /tmp/autopkgtest.XheWNm/1-autopkgtest-satdep.deb
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.XheWNm/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  6s Building dependency tree...
+  6s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 1
+  7s Starting 2 pkgProblemResolver with broken count: 1
+  7s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+  7s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii R >
+  7s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+  7s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+  7s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf
+  7s   gir1.2-gtksource-3.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gir1.2-pluma-1.0
+  7s   gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager gnome-screensaver
+  7s   gnome-settings-daemon-common gsettings-ubuntu-schemas ibus ibus-data
+  7s   ibus-gtk ibus-gtk3 indicator-applet indicator-common indicator-messages
+  7s   indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatk1.0-data
+  7s   libatrildocument3 libatrilview3 libbpf0 libcanberra-gtk3-0
+  7s   libcanberra-gtk3-module libdjvulibre-text libdjvulibre21 libenchant1c2a
+  7s   libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 libgnome-desktop-3-19
+  7s   libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1
+  7s   libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0
+  7s   libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  7s   libkysdk-appcommon libllvm15 libmatemixer-common libmatemixer0 libpeas-1.0-0
+  7s   libpeas-common libpython3.8 libquazip5-1 librest-0.7-0 libsnapd-qt1
+  7s   libsoup-gnome2.4-1 libspectre1 libsynctex2 libukui-appwidget-qmlplugin0
+  7s   libunity-settings-daemon1 libwhoopsie0 libz3-4 nautilus-data pipewire-alsa
+  7s   pipewire-audio-client-libraries pipewire-jack pluma pluma-common
+  7s   python3-aptdaemon.gtk3widgets python3-ibus-1.0 python3-xdg session-migration
+  7s   ukui-appwidget-manager ukui-notebook ukui-system-appwidget unicode-cldr-core
+  7s   unity-settings-daemon unity-settings-daemon-schemas xfonts-thai
+  7s   xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap
+  7s   xfonts-thai-vor
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   apt apt-utils at-spi2-common at-spi2-core cups cups-client cups-common
+  7s   cups-core-drivers cups-daemon cups-ipp-utils cups-ppdc cups-server-common
+  7s   dbus dbus-bin dbus-daemon dbus-session-bus-common dbus-system-bus-common
+  7s   dbus-user-session dbus-x11 fontconfig fontconfig-config gir1.2-atk-1.0
+  7s   gir1.2-atspi-2.0 gir1.2-cloudproviders-0.3.0 gir1.2-clutter-1.0
+  7s   gir1.2-cogl-1.0 gir1.2-coglpango-1.0 gir1.2-freedesktop
+  7s   gir1.2-freedesktop-dev gir1.2-gdkpixbuf-2.0 gir1.2-girepository-2.0
+  7s   gir1.2-glib-2.0 gir1.2-glib-2.0-dev gir1.2-gtk-3.0 gir1.2-gudev-1.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-json-1.0 gir1.2-pango-1.0 gtk-update-icon-cache
+  7s   icu-devtools kylin-system-updater libapt-pkg6.0t64 libatk-bridge2.0-0t64
+  7s   libatk-bridge2.0-dev libatk1.0-0t64 libatk1.0-dev libatspi2.0-0t64
+  7s   libatspi2.0-dev libbrotli-dev libbrotli1 libbz2-dev libcairo-gobject2
+  7s   libcairo-script-interpreter2 libcairo2 libcairo2-dev libcloudproviders-dev
+  7s   libcloudproviders0 libclutter-1.0-0 libclutter-1.0-dev libcogl-dev
+  7s   libcogl-pango-dev libcogl-pango20 libcogl-path-dev libcogl-path20 libcogl20
+  7s   libcups2t64 libdatrie-dev libdatrie1 libdbus-1-3 libdbus-1-dev
+  7s   libdeflate-dev libdeflate0 libdrm-amdgpu1 libdrm-common libdrm-dev
+  7s   libdrm-nouveau2 libdrm-radeon1 libdrm2 libegl-dev libegl-mesa0 libegl1
+  7s   libegl1-mesa-dev libelf1t64 libepoxy-dev libepoxy0 libevdev-dev libevdev2
+  7s   libexpat1 libexpat1-dev libfontconfig-dev libfontconfig1 libfreetype-dev
+  7s   libfreetype6 libfribidi-dev libfribidi0 libgbm-dev libgbm1 libgcrypt20
+  7s   libgdbm6t64 libgdk-pixbuf-2.0-0 libgdk-pixbuf-2.0-dev
+  7s   libgdk-pixbuf-xlib-2.0-0 libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-bin
+  7s   libgdk-pixbuf2.0-common libgirepository-1.0-1 libgirepository-2.0-0
+  7s   libgl-dev libgl1 libgl1-mesa-dri libglapi-mesa libgles-dev libgles1 libgles2
+  7s   libglib2.0-0t64 libglib2.0-bin libglib2.0-dev libglib2.0-dev-bin
+  7s   libglvnd-core-dev libglvnd-dev libglvnd0 libglx-dev libglx-mesa0 libglx0
+  7s   libgnutls30t64 libgpgme11 libgpgmepp6 libgraphite2-3 libgraphite2-dev
+  7s   libgtk-3-0t64 libgtk-3-bin libgtk-3-common libgtk-3-dev libgudev-1.0-0
+  7s   libgudev-1.0-dev libharfbuzz-cairo0 libharfbuzz-dev libharfbuzz-gobject0
+  7s   libharfbuzz-icu0 libharfbuzz-subset0 libharfbuzz0b libhogweed6t64 libice-dev
+  8s   libicu-dev libicu74 libinput-bin libinput-dev libinput10 libjbig-dev
+  8s   libjpeg-dev libjpeg62-turbo-dev libjson-glib-1.0-0 libjson-glib-1.0-common
+  8s   libjson-glib-dev libldb2 liblerc-dev liblerc4 libllvm17t64 liblzma-dev
+  8s   liblzma5 libmtdev-dev libmtdev1t64 libnettle8t64 libnewt0.52 libnghttp2-14
+  8s   libnss-systemd libopengl-dev libopengl0 libpam-systemd libpango-1.0-0
+  8s   libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libpangoxft-1.0-0
+  8s   libpciaccess-dev libpciaccess0 libpixman-1-dev libpkgconf4 libpng-dev
+  8s   libpng16-16t64 libpsl5t64 libpthread-stubs0-dev libpython3-stdlib
+  8s   libpython3.12-minimal libpython3.12-stdlib libpython3.12t64 libsharpyuv-dev
+  8s   libsharpyuv0 libsm-dev libsmbclient libsnapd-glib-2-1 libsnapd-qt-2-1
+  8s   libsoup-3.0-0 libsoup-3.0-common libsystemd-shared libsystemd0 libtalloc2
+  8s   libtdb1 libthai-data libthai-dev libthai0 libtiff-dev libtiff6 libtiffxx6
+  8s   libtirpc-common libtirpc-dev libtirpc3t64 libudev-dev libudev1 libunistring5
+  8s   liburing2 libwacom-dev libwayland-bin libwayland-dev libwbclient0
+  8s   libwebp-dev libwebp7 libwebpdecoder3 libwebpdemux2 libwebpmux3 libx11-6
+  8s   libx11-data libx11-dev libx11-xcb1 libxau-dev libxcb-composite0
+  8s   libxcb-damage0 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+  8s   libxcb-randr0 libxcb-render0 libxcb-render0-dev libxcb-res0 libxcb-shape0
+  8s   libxcb-shm0 libxcb-shm0-dev libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0
+  8s   libxcb-xinput0 libxcb-xkb1 libxcb1 libxcb1-dev libxcomposite-dev
+  8s   libxcursor-dev libxcursor1 libxdamage-dev libxdamage1 libxdmcp-dev
+  8s   libxext-dev libxfixes-dev libxft-dev libxft2 libxi-dev libxi6
+  8s   libxinerama-dev libxkbcommon-dev libxrandr-dev libxrender-dev libxtst-dev
+  8s   libzstd-dev libzstd1 mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+  8s   pango1.0-tools pkg-config pkgconf pkgconf-bin python-apt-common python3
+  8s   python3-apt python3-cffi-backend python3-cups python3-dbus python3-distutils
+  8s   python3-gdbm python3-gi python3-gpg python3-ldb python3-lib2to3
+  8s   python3-markupsafe python3-minimal python3-netifaces python3-newt
+  8s   python3-packaging python3-psutil python3-samba python3-simplejson
+  8s   python3-talloc python3-tdb python3-yaml python3.12 python3.12-minimal samba
+  8s   samba-ad-provision samba-common samba-common-bin samba-dsdb-modules
+  8s   samba-libs samba-vfs-modules snapd-glib-tests systemd systemd-dev
+  8s   systemd-resolved systemd-sysv systemd-timesyncd tdb-tools udev
+  8s   wayland-protocols whiptail x11proto-core-dev x11proto-dev xorg-sgml-doctools
+  8s   xserver-common xserver-xorg-core xserver-xorg-legacy xtrans-dev xvfb
+  8s   xz-utils zstd
+  8s Suggested packages:
+  8s   apt-doc powermgmt-base cups-bsd cups-pdf foomatic-db-compressed-ppds
+  8s   | foomatic-db smbclient gir1.2-dbusmenu-glib-0.4 gir1.2-unity-5.0
+  8s   libcairo2-doc libcloudproviders-doc libclutter-1.0-doc libcogl-doc
+  8s   libdatrie-doc libevdev-doc freetype2-doc rng-tools gdbm-l10n
+  8s   low-memory-monitor libglib2.0-doc libxml2-utils gnutls-bin
+  8s   libgraphite2-utils libgtk-3-doc libice-doc icu-doc libjson-glib-doc
+  8s   liblzma-doc libpango1.0-doc libsm-doc snapd libthai-doc libwayland-doc
+  8s   libx11-doc libxcb-doc libxext-doc graphicsmagick python3-doc python3-tk
+  8s   python3-venv python-apt-doc python-dbus-doc python3-gdbm-dbg python3.12-venv
+  8s   python3.12-doc binfmt-support bind9 bind9utils ctdb ldb-tools ntp | chrony
+  8s   winbind heimdal-clients systemd-container systemd-homed systemd-userdbd
+  8s   systemd-boot libqrencode4 libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0
+  8s   xfonts-100dpi | xfonts-75dpi xfonts-scalable
+  8s Recommended packages:
+  8s   ipp-usb bzip2-doc libclutter-1.0-common libcogl-common libgl1-amber-dri
+  8s   libpng-tools publicsuffix attr libcephfs2 libgfapi0 systemd-hwe-hwdb
+ 11s The following packages will be REMOVED:
+ 11s   libapt-pkg6.0 libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0 libcups2 libelf1
+ 11s   libgdbm6 libglib2.0-0 libgnutls30 libgtk-3-0 libmtdev1 libpng16-16 libpsl5
+ 11s   libtirpc3 python3-crypto python3-jsonschema python3-pyrsistent
+ 11s   python3-systemd
+ 11s The following NEW packages will be installed:
+ 11s   at-spi2-common autopkgtest-satdep gir1.2-atspi-2.0
+ 11s   gir1.2-cloudproviders-0.3.0 gir1.2-clutter-1.0 gir1.2-cogl-1.0
+ 11s   gir1.2-coglpango-1.0 gir1.2-freedesktop-dev gir1.2-girepository-2.0
+ 11s   gir1.2-glib-2.0-dev gir1.2-gudev-1.0 gir1.2-json-1.0 icu-devtools
+ 11s   libapt-pkg6.0t64 libatk-bridge2.0-0t64 libatk-bridge2.0-dev libatk1.0-0t64
+ 11s   libatk1.0-dev libatspi2.0-0t64 libatspi2.0-dev libbrotli-dev libbz2-dev
+ 11s   libcairo-script-interpreter2 libcairo2-dev libcloudproviders-dev
+ 11s   libcloudproviders0 libclutter-1.0-0 libclutter-1.0-dev libcogl-dev
+ 11s   libcogl-pango-dev libcogl-pango20 libcogl-path-dev libcogl-path20 libcogl20
+ 11s   libcups2t64 libdatrie-dev libdbus-1-dev libdeflate-dev libdeflate0
+ 11s   libdrm-dev libegl-dev libegl1-mesa-dev libelf1t64 libepoxy-dev libevdev-dev
+ 11s   libexpat1-dev libfontconfig-dev libfreetype-dev libfribidi-dev libgbm-dev
+ 11s   libgdbm6t64 libgdk-pixbuf-2.0-0 libgdk-pixbuf-2.0-dev
+ 11s   libgdk-pixbuf-xlib-2.0-0 libgirepository-2.0-0 libgl-dev libgles-dev
+ 11s   libgles1 libgles2 libglib2.0-0t64 libglvnd-core-dev libglvnd-dev libglx-dev
+ 11s   libgnutls30t64 libgraphite2-dev libgtk-3-0t64 libgtk-3-dev libgudev-1.0-dev
+ 11s   libharfbuzz-cairo0 libharfbuzz-dev libharfbuzz-gobject0 libharfbuzz-subset0
+ 11s   libhogweed6t64 libice-dev libicu-dev libicu74 libinput-dev libjbig-dev
+ 11s   libjpeg-dev libjpeg62-turbo-dev libjson-glib-dev liblerc-dev liblerc4
+ 11s   libllvm17t64 liblzma-dev libmtdev-dev libmtdev1t64 libnettle8t64
+ 11s   libopengl-dev libopengl0 libpango1.0-dev libpciaccess-dev libpixman-1-dev
+ 11s   libpkgconf4 libpng-dev libpng16-16t64 libpsl5t64 libpthread-stubs0-dev
+ 11s   libpython3.12-minimal libpython3.12-stdlib libpython3.12t64 libsharpyuv-dev
+ 11s   libsharpyuv0 libsm-dev libsnapd-glib-2-1 libsnapd-qt-2-1 libsoup-3.0-0
+ 11s   libsoup-3.0-common libthai-dev libtiff-dev libtiff6 libtiffxx6 libtirpc3t64
+ 11s   libudev-dev libunistring5 libwacom-dev libwayland-bin libwayland-dev
+ 11s   libwebp-dev libwebpdecoder3 libx11-dev libxau-dev libxcb-render0-dev
+ 11s   libxcb-shm0-dev libxcb1-dev libxcomposite-dev libxcursor-dev libxdamage-dev
+ 11s   libxdmcp-dev libxext-dev libxfixes-dev libxft-dev libxi-dev libxinerama-dev
+ 11s   libxkbcommon-dev libxrandr-dev libxrender-dev libxtst-dev libzstd-dev
+ 11s   pango1.0-tools pkgconf pkgconf-bin python3-packaging python3.12
+ 11s   python3.12-minimal systemd-dev wayland-protocols x11proto-core-dev
+ 11s   x11proto-dev xorg-sgml-doctools xtrans-dev xvfb
+ 11s The following packages will be upgraded:
+ 11s   apt apt-utils at-spi2-core cups cups-client cups-common cups-core-drivers
+ 11s   cups-daemon cups-ipp-utils cups-ppdc cups-server-common dbus dbus-bin
+ 11s   dbus-daemon dbus-session-bus-common dbus-system-bus-common dbus-user-session
+ 11s   dbus-x11 fontconfig fontconfig-config gir1.2-atk-1.0 gir1.2-freedesktop
+ 11s   gir1.2-gdkpixbuf-2.0 gir1.2-glib-2.0 gir1.2-gtk-3.0 gir1.2-harfbuzz-0.0
+ 11s   gir1.2-pango-1.0 gtk-update-icon-cache kylin-system-updater libbrotli1
+ 11s   libcairo-gobject2 libcairo2 libdatrie1 libdbus-1-3 libdrm-amdgpu1
+ 11s   libdrm-common libdrm-nouveau2 libdrm-radeon1 libdrm2 libegl-mesa0 libegl1
+ 11s   libepoxy0 libevdev2 libexpat1 libfontconfig1 libfreetype6 libfribidi0
+ 11s   libgbm1 libgcrypt20 libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-bin
+ 11s   libgdk-pixbuf2.0-common libgirepository-1.0-1 libgl1 libgl1-mesa-dri
+ 11s   libglapi-mesa libglib2.0-bin libglib2.0-dev libglib2.0-dev-bin libglvnd0
+ 11s   libglx-mesa0 libglx0 libgpgme11 libgpgmepp6 libgraphite2-3 libgtk-3-bin
+ 11s   libgtk-3-common libgudev-1.0-0 libharfbuzz-icu0 libharfbuzz0b libinput-bin
+ 11s   libinput10 libjson-glib-1.0-0 libjson-glib-1.0-common libldb2 liblzma5
+ 11s   libnewt0.52 libnghttp2-14 libnss-systemd libpam-systemd libpango-1.0-0
+ 11s   libpangocairo-1.0-0 libpangoft2-1.0-0 libpangoxft-1.0-0 libpciaccess0
+ 11s   libpython3-stdlib libsmbclient libsystemd-shared libsystemd0 libtalloc2
+ 11s   libtdb1 libthai-data libthai0 libtirpc-common libtirpc-dev libudev1
+ 11s   liburing2 libwbclient0 libwebp7 libwebpdemux2 libwebpmux3 libx11-6
+ 11s   libx11-data libx11-xcb1 libxcb-composite0 libxcb-damage0 libxcb-dri2-0
+ 11s   libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0 libxcb-render0
+ 11s   libxcb-res0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0
+ 11s   libxcb-xinerama0 libxcb-xinput0 libxcb-xkb1 libxcb1 libxcursor1 libxdamage1
+ 11s   libxft2 libxi6 libzstd1 mesa-va-drivers mesa-vdpau-drivers
+ 11s   mesa-vulkan-drivers pkg-config python-apt-common python3 python3-apt
+ 11s   python3-cffi-backend python3-cups python3-dbus python3-distutils
+ 11s   python3-gdbm python3-gi python3-gpg python3-ldb python3-lib2to3
+ 11s   python3-markupsafe python3-minimal python3-netifaces python3-newt
+ 11s   python3-psutil python3-samba python3-simplejson python3-talloc python3-tdb
+ 11s   python3-yaml samba samba-ad-provision samba-common samba-common-bin
+ 11s   samba-dsdb-modules samba-libs samba-vfs-modules snapd-glib-tests systemd
+ 11s   systemd-resolved systemd-sysv systemd-timesyncd tdb-tools udev whiptail
+ 11s   xserver-common xserver-xorg-core xserver-xorg-legacy xz-utils zstd
+ 11s 172 upgraded, 152 newly installed, 18 to remove and 894 not upgraded.
+ 11s Need to get 136 MB/136 MB of archives.
+ 11s After this operation, 396 MB of additional disk space will be used.
+ 11s Get:1 /tmp/autopkgtest.XheWNm/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [736 B]
+ 11s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgcrypt20 riscv64 1.10.3-ok2 [464 kB]
+ 12s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzstd1 riscv64 1.5.5-ok3 [286 kB]
+ 12s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpython3.12-minimal riscv64 3.12.2-ok4 [786 kB]
+ 12s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3.12-minimal riscv64 3.12.2-ok4 [1,817 kB]
+ 13s Get:6 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-minimal riscv64 3.12.2-ok1 [23.2 kB]
+ 13s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtirpc-common all 1.3.4+ds-ok1 [6,304 B]
+ 13s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnettle8t64 riscv64 3.9.1-ok2 [191 kB]
+ 14s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhogweed6t64 riscv64 3.9.1-ok2 [190 kB]
+ 14s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libunistring5 riscv64 1.1-ok1 [540 kB]
+ 15s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpython3.12t64 riscv64 3.12.2-ok4 [1,873 kB]
+ 16s Get:12 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-ldb riscv64 2:2.8.0+samba4.19.2+dfsg-ok1~1207.6 [34.1 kB]
+ 16s Get:13 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libldb2 riscv64 2:2.8.0+samba4.19.2+dfsg-ok1~1207.6 [121 kB]
+ 16s Get:14 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-dsdb-modules riscv64 2:4.19.2+dfsg-ok1~1207.6 [255 kB]
+ 16s Get:15 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-samba riscv64 2:4.19.2+dfsg-ok1~1207.6 [2,699 kB]
+ 17s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 samba-ad-provision all 2:4.19.2+dfsg-ok1~1207.6 [468 kB]
+ 17s Get:17 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba riscv64 2:4.19.2+dfsg-ok1~1207.6 [852 kB]
+ 17s Get:18 http://archive.build.openkylin.top/openkylin nile/main riscv64 samba-common all 2:4.19.2+dfsg-ok1~1207.6 [57.5 kB]
+ 17s Get:19 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-common-bin riscv64 2:4.19.2+dfsg-ok1~1207.6 [1,079 kB]
+ 18s Get:20 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 cups-ipp-utils riscv64 2.4.7-ok1 [219 kB]
+ 18s Get:21 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjson-glib-1.0-common all 1.8.0-ok1 [55.4 kB]
+ 18s Get:22 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libjson-glib-1.0-0 riscv64 1.8.0-ok1 [53.1 kB]
+ 19s Get:23 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgudev-1.0-0 riscv64 1:238-ok2 [11.4 kB]
+ 19s Get:24 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgdk-pixbuf-xlib-2.0-0 riscv64 2.40.2-ok1 [34.9 kB]
+ 19s Get:25 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgdk-pixbuf2.0-0 riscv64 2.40.2-ok1 [2,572 B]
+ 19s Get:26 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdk-pixbuf2.0-common all 2.42.10+dfsg-ok4 [302 kB]
+ 19s Get:27 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfreetype6 riscv64 2.13.2+dfsg-ok1 [338 kB]
+ 19s Get:28 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcairo2 riscv64 1.18.0-ok1 [467 kB]
+ 20s Get:29 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpng16-16t64 riscv64 1.6.43-ok1 [169 kB]
+ 20s Get:30 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdeflate0 riscv64 1.19-ok1 [35.1 kB]
+ 20s Get:31 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 liblerc4 riscv64 4.0.0+ds-ok1 [154 kB]
+ 20s Get:32 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsharpyuv0 riscv64 1.3.2-ok1 [10.4 kB]
+ 20s Get:33 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebp7 riscv64 1.3.2-ok1 [164 kB]
+ 20s Get:34 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtiff6 riscv64 4.5.1+git230720-ok1 [160 kB]
+ 20s Get:35 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgdk-pixbuf-2.0-0 riscv64 2.42.10+dfsg-ok4 [120 kB]
+ 20s Get:36 http://archive.build.openkylin.top/openkylin nile/main riscv64 gir1.2-gtk-3.0 riscv64 3.24.41-4ok1~0630 [207 kB]
+ 20s Get:37 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libatspi2.0-0t64 riscv64 2.52.0-ok1 [59.7 kB]
+ 20s Get:38 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 at-spi2-core riscv64 2.52.0-ok1 [52.3 kB]
+ 20s Get:39 http://archive.build.openkylin.top/openkylin nile/main riscv64 at-spi2-common all 2.52.0-ok1 [161 kB]
+ 21s Get:40 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-atk-1.0 riscv64 2.52.0-ok1 [20.1 kB]
+ 22s Get:41 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libatk1.0-0t64 riscv64 2.52.0-ok1 [39.5 kB]
+ 22s Get:42 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libatk-bridge2.0-0t64 riscv64 2.52.0-ok1 [53.8 kB]
+ 22s Get:43 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcloudproviders0 riscv64 0.3.6-ok1 [22.6 kB]
+ 22s Get:44 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgtk-3-common all 3.24.41-4ok1~0630 [4,640 kB]
+ 24s Get:45 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgtk-3-0t64 riscv64 3.24.41-4ok1~0630 [2,365 kB]
+ 25s Get:46 http://archive.build.openkylin.top/openkylin nile/main riscv64 gtk-update-icon-cache riscv64 3.24.41-4ok1~0630 [37.3 kB]
+ 25s Get:47 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgtk-3-bin riscv64 3.24.41-4ok1~0630 [68.3 kB]
+ 25s Get:48 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-packaging all 24.0-ok1 [39.6 kB]
+ 25s Get:49 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-amdgpu1 riscv64 2.4.120-ok1 [17.3 kB]
+ 25s Get:50 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-common all 2.4.120-ok1 [5,588 B]
+ 25s Get:51 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm2 riscv64 2.4.120-ok1 [36.2 kB]
+ 25s Get:52 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libllvm17t64 riscv64 1:17.0.6-9ok4 [22.4 MB]
+ 35s Get:53 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-6 riscv64 2:1.8.7-ok1 [532 kB]
+ 35s Get:54 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-xcb1 riscv64 2:1.8.7-ok1 [7,348 B]
+ 35s Get:55 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 mesa-vulkan-drivers riscv64 24.0.5-ok1 [2,497 kB]
+ 36s Get:56 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-nouveau2 riscv64 2.4.120-ok1 [15.6 kB]
+ 36s Get:57 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-radeon1 riscv64 2.4.120-ok1 [19.9 kB]
+ 36s Get:58 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 mesa-vdpau-drivers riscv64 24.0.5-ok1 [3,314 kB]
+ 38s Get:59 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 mesa-va-drivers riscv64 24.0.5-ok1 [3,340 kB]
+ 39s Get:60 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgbm1 riscv64 24.0.5-ok1 [28.5 kB]
+ 39s Get:61 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libegl-mesa0 riscv64 24.0.5-ok1 [94.4 kB]
+ 39s Get:62 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglx-mesa0 riscv64 24.0.5-ok1 [135 kB]
+ 39s Get:63 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglapi-mesa riscv64 24.0.5-ok1 [31.1 kB]
+ 39s Get:64 http://archive.build.openkylin.top/openkylin nile/main riscv64 xserver-common all 2:21.1.10-ok2 [26.1 kB]
+ 39s Get:65 http://archive.build.openkylin.top/openkylin nile/main riscv64 xserver-xorg-legacy riscv64 2:21.1.10-ok2 [31.6 kB]
+ 39s Get:66 http://archive.build.openkylin.top/openkylin nile/main riscv64 xserver-xorg-core riscv64 2:21.1.10-ok2 [1,225 kB]
+ 40s Get:67 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgl1-mesa-dri riscv64 24.0.5-ok1 [5,508 kB]
+ 42s Get:68 http://archive.build.openkylin.top/openkylin nile/main riscv64 libelf1t64 riscv64 0.190-ok3 [161 kB]
+ 42s Get:69 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-bin riscv64 2.80.0-ok1~0615.2 [86.6 kB]
+ 42s Get:70 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpkgconf4 riscv64 1.9.5-ok1 [26.2 kB]
+ 42s Get:71 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkgconf-bin riscv64 1.9.5-ok1 [22.8 kB]
+ 42s Get:72 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkg-config riscv64 1.9.5-ok1 [4,500 B]
+ 42s Get:73 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkgconf riscv64 1.9.5-ok1 [16.5 kB]
+ 42s Get:74 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgirepository-2.0-0 riscv64 2.80.0-ok1~0615.2 [92.5 kB]
+ 42s Get:75 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-dev riscv64 2.80.0-ok1~0615.2 [3,576 kB]
+ 44s Get:76 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-dev-bin riscv64 2.80.0-ok1~0615.2 [137 kB]
+ 44s Get:77 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgdk-pixbuf2.0-bin riscv64 2.42.10+dfsg-ok4 [12.9 kB]
+ 44s Get:78 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-gi riscv64 3.48.2-ok3 [205 kB]
+ 44s Get:79 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgirepository-1.0-1 riscv64 1.80.1-ok1 [88.1 kB]
+ 44s Get:80 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-freedesktop riscv64 1.80.1-ok1 [32.5 kB]
+ 44s Get:81 http://archive.build.openkylin.top/openkylin nile/main riscv64 gir1.2-glib-2.0 riscv64 2.80.0-ok1~0615.2 [159 kB]
+ 44s Get:82 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsoup-3.0-common all 3.4.4-ok2 [55.2 kB]
+ 44s Get:83 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnghttp2-14 riscv64 1.59.0-ok2 [67.1 kB]
+ 44s Get:84 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpsl5t64 riscv64 0.21.2-ok1.2 [52.9 kB]
+ 44s Get:85 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libsoup-3.0-0 riscv64 3.4.4-ok2 [236 kB]
+ 44s Get:86 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libsnapd-glib-2-1 riscv64 1.64-ok1 [82.5 kB]
+ 44s Get:87 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libsnapd-qt-2-1 riscv64 1.64-ok1 [112 kB]
+ 44s Get:88 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 snapd-glib-tests riscv64 1.64-ok1 [322 kB]
+ 45s Get:89 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-dbus riscv64 1.3.2-ok3 [87.2 kB]
+ 45s Get:90 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-pango-1.0 riscv64 1.52.1+ds-ok5 [30.7 kB]
+ 45s Get:91 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpangoft2-1.0-0 riscv64 1.52.1+ds-ok5 [34.5 kB]
+ 45s Get:92 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpangoxft-1.0-0 riscv64 1.52.1+ds-ok5 [17.6 kB]
+ 45s Get:93 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpango-1.0-0 riscv64 1.52.1+ds-ok5 [197 kB]
+ 45s Get:94 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpangocairo-1.0-0 riscv64 1.52.1+ds-ok5 [23.6 kB]
+ 45s Get:95 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz0b riscv64 8.3.0-ok2 [456 kB]
+ 45s Get:96 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcairo-gobject2 riscv64 1.18.0-ok1 [125 kB]
+ 45s Get:97 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-0t64 riscv64 2.80.0-ok1~0615.2 [1,278 kB]
+ 46s Get:98 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 cups-daemon riscv64 2.4.7-ok1 [336 kB]
+ 46s Get:99 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 cups-core-drivers riscv64 2.4.7-ok1 [27.8 kB]
+ 46s Get:100 http://archive.build.openkylin.top/openkylin nile/main riscv64 cups-common all 2.4.7-ok1 [246 kB]
+ 46s Get:101 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 cups-client riscv64 2.4.7-ok1 [145 kB]
+ 46s Get:102 http://archive.build.openkylin.top/openkylin nile/main riscv64 cups-server-common all 2.4.7-ok1 [402 kB]
+ 46s Get:103 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 cups riscv64 2.4.7-ok1 [273 kB]
+ 46s Get:104 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcups2t64 riscv64 2.4.7-ok1 [222 kB]
+ 46s Get:105 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgnutls30t64 riscv64 3.8.3-ok3 [920 kB]
+ 47s Get:106 http://archive.build.openkylin.top/openkylin nile/main riscv64 libicu74 riscv64 74.2-ok6 [9,323 kB]
+ 51s Get:107 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libwbclient0 riscv64 2:4.19.2+dfsg-ok1~1207.6 [31.0 kB]
+ 51s Get:108 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libsmbclient riscv64 2:4.19.2+dfsg-ok1~1207.6 [52.2 kB]
+ 51s Get:109 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-libs riscv64 2:4.19.2+dfsg-ok1~1207.6 [5,006 kB]
+ 53s Get:110 http://archive.build.openkylin.top/openkylin nile/main riscv64 liburing2 riscv64 2.5-ok1 [16.2 kB]
+ 53s Get:111 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-vfs-modules riscv64 2:4.19.2+dfsg-ok1~1207.6 [367 kB]
+ 53s Get:112 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtirpc-dev riscv64 1.3.4+ds-ok1 [273 kB]
+ 53s Get:113 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtirpc3t64 riscv64 1.3.4+ds-ok1 [69.0 kB]
+ 53s Get:114 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpython3.12-stdlib riscv64 3.12.2-ok4 [1,813 kB]
+ 54s Get:115 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3.12 riscv64 3.12.2-ok4 [644 kB]
+ 54s Get:116 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpython3-stdlib riscv64 3.12.2-ok1 [6,252 B]
+ 54s Get:117 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-markupsafe riscv64 2.1.5-ok1 [10.7 kB]
+ 54s Get:118 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-gpg riscv64 1.22.0-ok4 [178 kB]
+ 54s Get:119 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdbm6t64 riscv64 1.23-ok5 [27.8 kB]
+ 54s Get:120 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-gdbm riscv64 3.12.3-ok6 [12.0 kB]
+ 54s Get:121 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-cups riscv64 2.0.1-ok2 [52.9 kB]
+ 54s Get:122 http://archive.build.openkylin.top/openkylin nile/pty riscv64 kylin-system-updater all 3.0.0.0-ok28 [138 kB]
+ 54s Get:123 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-yaml riscv64 6.0.1-ok1 [104 kB]
+ 54s Get:124 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtdb1 riscv64 1.4.10-ok2 [38.6 kB]
+ 54s Get:125 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-tdb riscv64 1.4.10-ok2 [12.9 kB]
+ 54s Get:126 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtalloc2 riscv64 2.4.2-ok2 [20.9 kB]
+ 54s Get:127 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-talloc riscv64 2.4.2-ok2 [11.0 kB]
+ 55s Get:128 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-simplejson riscv64 3.19.2-ok1 [49.6 kB]
+ 55s Get:129 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-psutil riscv64 5.9.8-ok2 [188 kB]
+ 55s Get:130 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libnewt0.52 riscv64 0.52.24-2ok3 [46.3 kB]
+ 55s Get:131 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-newt riscv64 0.52.24-2ok3 [18.2 kB]
+ 55s Get:132 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-netifaces riscv64 0.11.0-ok3 [15.5 kB]
+ 55s Get:133 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-cffi-backend riscv64 1.16.0-ok2 [66.0 kB]
+ 55s Get:134 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-distutils all 3.12.3-ok6 [6,484 B]
+ 55s Get:135 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-lib2to3 all 3.12.3-ok6 [74.3 kB]
+ 55s Get:136 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3 riscv64 3.12.2-ok1 [22.8 kB]
+ 56s Get:137 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-apt riscv64 2.7.7-ok3 [152 kB]
+ 57s Get:138 http://archive.build.openkylin.top/openkylin nile/main riscv64 libapt-pkg6.0t64 riscv64 2.8.0-ok1 [872 kB]
+ 57s Get:139 http://archive.build.openkylin.top/openkylin nile/main riscv64 apt riscv64 2.8.0-ok1 [1,255 kB]
+ 58s Get:140 http://archive.build.openkylin.top/openkylin nile/main riscv64 apt-utils riscv64 2.8.0-ok1 [278 kB]
+ 58s Get:141 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libexpat1 riscv64 2.6.0-ok1 [69.0 kB]
+ 58s Get:142 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgpgme11 riscv64 1.22.0-ok4 [107 kB]
+ 58s Get:143 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 tdb-tools riscv64 1.4.10-ok2 [23.9 kB]
+ 58s Get:144 http://archive.build.openkylin.top/openkylin nile/main riscv64 systemd-timesyncd riscv64 255.2-ok1.4 [31.8 kB]
+ 58s Get:145 http://archive.build.openkylin.top/openkylin nile/main riscv64 dbus-session-bus-common all 1.14.10-ok3 [72.5 kB]
+ 58s Get:146 http://archive.build.openkylin.top/openkylin nile/main riscv64 systemd-sysv riscv64 255.2-ok1.4 [11.9 kB]
+ 58s Get:147 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpam-systemd riscv64 255.2-ok1.4 [200 kB]
+ 58s Get:148 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 dbus-user-session riscv64 1.14.10-ok3 [9,408 B]
+ 58s Get:149 http://archive.build.openkylin.top/openkylin nile/main riscv64 liblzma5 riscv64 5.4.5-ok2 [116 kB]
+ 58s Get:150 http://archive.build.openkylin.top/openkylin nile/main riscv64 systemd-resolved riscv64 255.2-ok1.4 [255 kB]
+ 58s Get:151 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsystemd-shared riscv64 255.2-ok1.4 [1,650 kB]
+ 59s Get:152 http://archive.build.openkylin.top/openkylin nile/main riscv64 libudev1 riscv64 255.2-ok1.4 [77.7 kB]
+ 59s Get:153 http://archive.build.openkylin.top/openkylin nile/main riscv64 systemd riscv64 255.2-ok1.4 [3,229 kB]
+ 60s Get:154 http://archive.build.openkylin.top/openkylin nile/main riscv64 udev riscv64 255.2-ok1.4 [1,655 kB]
+ 61s Get:155 http://archive.build.openkylin.top/openkylin nile/main riscv64 systemd-dev all 255.2-ok1.4 [21.1 kB]
+ 61s Get:156 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnss-systemd riscv64 255.2-ok1.4 [133 kB]
+ 61s Get:157 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsystemd0 riscv64 255.2-ok1.4 [291 kB]
+ 61s Get:158 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 dbus-x11 riscv64 1.14.10-ok3 [21.4 kB]
+ 61s Get:159 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 dbus-bin riscv64 1.14.10-ok3 [35.5 kB]
+ 61s Get:160 http://archive.build.openkylin.top/openkylin nile/main riscv64 dbus-system-bus-common all 1.14.10-ok3 [73.6 kB]
+ 61s Get:161 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 dbus riscv64 1.14.10-ok3 [27.2 kB]
+ 61s Get:162 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 dbus-daemon riscv64 1.14.10-ok3 [105 kB]
+ 61s Get:163 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb1 riscv64 1.15-ok2 [39.0 kB]
+ 61s Get:164 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-data all 2:1.8.7-ok1 [104 kB]
+ 61s Get:165 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libdbus-1-3 riscv64 1.14.10-ok3 [178 kB]
+ 61s Get:166 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgl1 riscv64 1.7.0-ok1 [100 kB]
+ 61s Get:167 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-randr0 riscv64 1.15-ok2 [14.5 kB]
+ 61s Get:168 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-dri2-0 riscv64 1.15-ok2 [6,240 B]
+ 61s Get:169 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-dri3-0 riscv64 1.15-ok2 [6,132 B]
+ 61s Get:170 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-present0 riscv64 1.15-ok2 [5,148 B]
+ 62s Get:171 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-sync1 riscv64 1.15-ok2 [7,784 B]
+ 62s Get:172 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xfixes0 riscv64 1.15-ok2 [8,524 B]
+ 62s Get:173 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-shm0 riscv64 1.15-ok2 [5,252 B]
+ 62s Get:174 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-glx0 riscv64 1.15-ok2 [19.2 kB]
+ 62s Get:175 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglx0 riscv64 1.7.0-ok1 [24.0 kB]
+ 62s Get:176 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libegl1 riscv64 1.7.0-ok1 [27.9 kB]
+ 62s Get:177 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglvnd0 riscv64 1.7.0-ok1 [47.5 kB]
+ 62s Get:178 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libepoxy0 riscv64 1.5.10-ok1 [159 kB]
+ 62s Get:179 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpciaccess0 riscv64 0.17-ok1 [14.8 kB]
+ 62s Get:180 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libbrotli1 riscv64 1.1.0-ok1 [338 kB]
+ 62s Get:181 http://archive.build.openkylin.top/openkylin nile/main riscv64 fontconfig-config all 2.15.0-ok4 [31.5 kB]
+ 62s Get:182 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libfontconfig1 riscv64 2.15.0-ok4 [112 kB]
+ 62s Get:183 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-render0 riscv64 1.15-ok2 [13.2 kB]
+ 62s Get:184 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxi6 riscv64 2:1.8.1-ok1 [26.3 kB]
+ 63s Get:185 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-gdkpixbuf-2.0 riscv64 2.42.10+dfsg-ok4 [8,836 B]
+ 63s Get:186 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgraphite2-3 riscv64 1.3.14-ok1 [64.1 kB]
+ 63s Get:187 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxft2 riscv64 2.3.6-ok1 [36.6 kB]
+ 63s Get:188 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 fontconfig riscv64 2.15.0-ok4 [182 kB]
+ 63s Get:189 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libfribidi0 riscv64 1.0.13-ok1 [23.5 kB]
+ 63s Get:190 http://archive.build.openkylin.top/openkylin nile/main riscv64 libthai-data all 0.1.29-ok1 [135 kB]
+ 63s Get:191 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libdatrie1 riscv64 0.2.13-ok1 [15.2 kB]
+ 63s Get:192 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libthai0 riscv64 0.1.29-ok1 [14.3 kB]
+ 63s Get:193 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz-gobject0 riscv64 8.3.0-ok2 [26.7 kB]
+ 63s Get:194 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-harfbuzz-0.0 riscv64 8.3.0-ok2 [39.0 kB]
+ 63s Get:195 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-girepository-2.0 riscv64 1.80.1-ok1 [23.0 kB]
+ 63s Get:196 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxcursor1 riscv64 1:1.2.1-ok1 [16.9 kB]
+ 63s Get:197 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxdamage1 riscv64 1:1.1.6-ok1 [4,932 B]
+ 63s Get:198 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 cups-ppdc riscv64 2.4.7-ok1 [112 kB]
+ 63s Get:199 http://archive.build.openkylin.top/openkylin nile/main riscv64 python-apt-common all 2.7.7-ok3 [60.2 kB]
+ 63s Get:200 http://archive.build.openkylin.top/openkylin nile/main riscv64 libinput10 riscv64 1.25.0-ok1.2 [109 kB]
+ 64s Get:201 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libmtdev1t64 riscv64 1.1.6-ok1 [12.5 kB]
+ 64s Get:202 http://archive.build.openkylin.top/openkylin nile/main riscv64 xz-utils riscv64 5.4.5-ok2 [184 kB]
+ 64s Get:203 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-atspi-2.0 riscv64 2.52.0-ok1 [17.4 kB]
+ 64s Get:204 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-cloudproviders-0.3.0 riscv64 0.3.6-ok1 [5,564 B]
+ 64s Get:205 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcogl20 riscv64 1.22.8-ok1 [260 kB]
+ 64s Get:206 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-cogl-1.0 riscv64 1.22.8-ok1 [32.5 kB]
+ 64s Get:207 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcogl-pango20 riscv64 1.22.8-ok1 [13.4 kB]
+ 64s Get:208 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-coglpango-1.0 riscv64 1.22.8-ok1 [4,804 B]
+ 64s Get:209 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-json-1.0 riscv64 1.8.0-ok1 [8,236 B]
+ 64s Get:210 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcogl-path20 riscv64 1.22.8-ok1 [27.6 kB]
+ 64s Get:211 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libevdev2 riscv64 1.13.1+dfsg-ok1 [26.0 kB]
+ 64s Get:212 http://archive.build.openkylin.top/openkylin nile/main riscv64 libinput-bin riscv64 1.25.0-ok1.2 [22.8 kB]
+ 64s Get:213 http://archive.build.openkylin.top/openkylin nile/main riscv64 libclutter-1.0-0 riscv64 1.26.4+git2779b932+dfsg-ok1 [512 kB]
+ 65s Get:214 http://archive.build.openkylin.top/openkylin nile/main riscv64 gir1.2-clutter-1.0 riscv64 1.26.4+git2779b932+dfsg-ok1 [132 kB]
+ 65s Get:215 http://archive.build.openkylin.top/openkylin nile/main riscv64 gir1.2-glib-2.0-dev riscv64 2.80.0-ok1~0615.2 [861 kB]
+ 65s Get:216 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-freedesktop-dev riscv64 1.80.1-ok1 [27.8 kB]
+ 65s Get:217 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-gudev-1.0 riscv64 1:238-ok2 [3,744 B]
+ 65s Get:218 http://archive.build.openkylin.top/openkylin nile/main riscv64 icu-devtools riscv64 74.2-ok6 [197 kB]
+ 65s Get:219 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libatk1.0-dev riscv64 2.52.0-ok1 [100 kB]
+ 65s Get:220 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libdbus-1-dev riscv64 1.14.10-ok3 [329 kB]
+ 65s Get:221 http://archive.build.openkylin.top/openkylin nile/main riscv64 xorg-sgml-doctools all 1:1.11-ok1 [9,766 B]
+ 65s Get:222 http://archive.build.openkylin.top/openkylin nile/main riscv64 x11proto-dev all 2024.1-1ok3 [603 kB]
+ 65s Get:223 http://archive.build.openkylin.top/openkylin nile/main riscv64 x11proto-core-dev all 2024.1-1ok3 [2,616 B]
+ 65s Get:224 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxau-dev riscv64 1:1.0.9-ok1 [12.8 kB]
+ 66s Get:225 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxdmcp-dev riscv64 1:1.1.3-ok1 [31.7 kB]
+ 66s Get:226 http://archive.build.openkylin.top/openkylin nile/main riscv64 xtrans-dev all 1.4.0-ok1 [68.5 kB]
+ 66s Get:227 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpthread-stubs0-dev riscv64 0.4-ok2 [4,242 B]
+ 66s Get:228 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb1-dev riscv64 1.15-ok2 [129 kB]
+ 66s Get:229 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-dev riscv64 2:1.8.7-ok1 [1,052 kB]
+ 66s Get:230 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxext-dev riscv64 2:1.3.4-ok2 [126 kB]
+ 66s Get:231 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxfixes-dev riscv64 1:6.0.0-ok1 [15.0 kB]
+ 66s Get:232 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxi-dev riscv64 2:1.8.1-ok1 [223 kB]
+ 66s Get:233 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxtst-dev riscv64 2:1.2.3-ok1 [27.6 kB]
+ 66s Get:234 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libatspi2.0-dev riscv64 2.52.0-ok1 [75.6 kB]
+ 66s Get:235 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libatk-bridge2.0-dev riscv64 2.52.0-ok1 [4,408 B]
+ 66s Get:236 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libbrotli-dev riscv64 1.1.0-ok1 [757 kB]
+ 67s Get:237 http://archive.build.openkylin.top/openkylin nile/main riscv64 libbz2-dev riscv64 1.0.8.2-0k0 [92.4 kB]
+ 67s Get:238 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcairo-script-interpreter2 riscv64 1.18.0-ok1 [49.2 kB]
+ 67s Get:239 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libexpat1-dev riscv64 2.6.0-ok1 [250 kB]
+ 67s Get:240 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpng-dev riscv64 1.6.43-ok1 [372 kB]
+ 67s Get:241 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfreetype-dev riscv64 2.13.2+dfsg-ok1 [954 kB]
+ 67s Get:242 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libfontconfig-dev riscv64 2.15.0-ok4 [902 kB]
+ 68s Get:243 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpixman-1-dev riscv64 0.42.2-ok1.1 [501 kB]
+ 68s Get:244 http://archive.build.openkylin.top/openkylin nile/main riscv64 libice-dev riscv64 2:1.0.10-ok1 [87.5 kB]
+ 68s Get:245 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsm-dev riscv64 2:1.2.3-ok1 [30.3 kB]
+ 68s Get:246 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-render0-dev riscv64 1.15-ok2 [28.9 kB]
+ 68s Get:247 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-shm0-dev riscv64 1.15-ok2 [9,984 B]
+ 68s Get:248 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxrender-dev riscv64 1:0.9.10-ok1 [48.5 kB]
+ 68s Get:249 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcairo2-dev riscv64 1.18.0-ok1 [40.1 kB]
+ 68s Get:250 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcloudproviders-dev riscv64 0.3.6-ok1 [15.7 kB]
+ 68s Get:251 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpciaccess-dev riscv64 0.17-ok1 [33.8 kB]
+ 68s Get:252 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-dev riscv64 2.4.120-ok1 [344 kB]
+ 68s Get:253 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgbm-dev riscv64 24.0.5-ok1 [9,388 B]
+ 68s Get:254 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjpeg62-turbo-dev riscv64 1:2.1.2-ok2 [474 kB]
+ 68s Get:255 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjpeg-dev riscv64 1:2.1.2-ok2 [23.7 kB]
+ 68s Get:256 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjbig-dev riscv64 2.1-ok3 [52.3 kB]
+ 68s Get:257 http://archive.build.openkylin.top/openkylin nile/main riscv64 liblzma-dev riscv64 5.4.5-ok2 [315 kB]
+ 69s Get:258 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzstd-dev riscv64 1.5.5-ok3 [1,252 kB]
+ 69s Get:259 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebpdemux2 riscv64 1.3.2-ok1 [10.9 kB]
+ 69s Get:260 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebpmux3 riscv64 1.3.2-ok1 [22.2 kB]
+ 69s Get:261 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebpdecoder3 riscv64 1.3.2-ok1 [72.8 kB]
+ 69s Get:262 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsharpyuv-dev riscv64 1.3.2-ok1 [20.1 kB]
+ 69s Get:263 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebp-dev riscv64 1.3.2-ok1 [599 kB]
+ 69s Get:264 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtiffxx6 riscv64 4.5.1+git230720-ok1 [5,448 B]
+ 69s Get:265 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdeflate-dev riscv64 1.19-ok1 [75.4 kB]
+ 70s Get:266 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 liblerc-dev riscv64 4.0.0+ds-ok1 [643 kB]
+ 70s Get:267 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtiff-dev riscv64 4.5.1+git230720-ok1 [535 kB]
+ 70s Get:268 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgdk-pixbuf-2.0-dev riscv64 2.42.10+dfsg-ok4 [47.2 kB]
+ 70s Get:269 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglx-dev riscv64 1.7.0-ok1 [14.0 kB]
+ 70s Get:270 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgl-dev riscv64 1.7.0-ok1 [98.8 kB]
+ 70s Get:271 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libegl-dev riscv64 1.7.0-ok1 [17.7 kB]
+ 70s Get:272 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgles1 riscv64 1.7.0-ok1 [10.6 kB]
+ 70s Get:273 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgles2 riscv64 1.7.0-ok1 [17.4 kB]
+ 70s Get:274 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgles-dev riscv64 1.7.0-ok1 [49.0 kB]
+ 70s Get:275 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwayland-bin riscv64 1.22.0-2.1ok0.1 [17.9 kB]
+ 70s Get:276 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwayland-dev riscv64 1.22.0-2.1ok0.1 [71.3 kB]
+ 70s Get:277 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxcomposite-dev riscv64 1:0.4.5-ok1 [11.0 kB]
+ 70s Get:278 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxdamage-dev riscv64 1:1.1.6-ok1 [6,880 B]
+ 70s Get:279 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxrandr-dev riscv64 2:1.5.2-ok2 [47.4 kB]
+ 70s Get:280 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcogl-dev riscv64 1.22.8-ok1 [215 kB]
+ 71s Get:281 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libfribidi-dev riscv64 1.0.13-ok1 [78.3 kB]
+ 71s Get:282 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz-icu0 riscv64 8.3.0-ok2 [12.0 kB]
+ 71s Get:283 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz-subset0 riscv64 8.3.0-ok2 [516 kB]
+ 71s Get:284 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz-cairo0 riscv64 8.3.0-ok2 [38.3 kB]
+ 71s Get:285 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgraphite2-dev riscv64 1.3.14-ok1 [14.7 kB]
+ 71s Get:286 http://archive.build.openkylin.top/openkylin nile/main riscv64 libicu-dev riscv64 74.2-ok6 [14.0 MB]
+ 77s Get:287 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz-dev riscv64 8.3.0-ok2 [141 kB]
+ 77s Get:288 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libdatrie-dev riscv64 0.2.13-ok1 [32.3 kB]
+ 77s Get:289 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libthai-dev riscv64 0.1.29-ok1 [38.1 kB]
+ 77s Get:290 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxft-dev riscv64 2.3.6-ok1 [104 kB]
+ 77s Get:291 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pango1.0-tools riscv64 1.52.1+ds-ok5 [32.1 kB]
+ 77s Get:292 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpango1.0-dev riscv64 1.52.1+ds-ok5 [146 kB]
+ 77s Get:293 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcogl-pango-dev riscv64 1.22.8-ok1 [8,256 B]
+ 77s Get:294 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libcogl-path-dev riscv64 1.22.8-ok1 [3,988 B]
+ 77s Get:295 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglvnd-core-dev riscv64 1.7.0-ok1 [11.7 kB]
+ 77s Get:296 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libopengl0 riscv64 1.7.0-ok1 [35.0 kB]
+ 77s Get:297 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libopengl-dev riscv64 1.7.0-ok1 [3,592 B]
+ 77s Get:298 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglvnd-dev riscv64 1.7.0-ok1 [3,364 B]
+ 77s Get:299 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libegl1-mesa-dev riscv64 24.0.5-ok1 [9,948 B]
+ 77s Get:300 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libepoxy-dev riscv64 1.5.10-ok1 [126 kB]
+ 77s Get:301 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxcursor-dev riscv64 1:1.2.1-ok1 [46.7 kB]
+ 77s Get:302 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxinerama-dev riscv64 2:1.1.4-ok1 [9,620 B]
+ 77s Get:303 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxkbcommon-dev riscv64 1.5.0-ok1 [54.5 kB]
+ 77s Get:304 http://archive.build.openkylin.top/openkylin nile/main riscv64 wayland-protocols all 1.36-ok1 [83.8 kB]
+ 78s Get:305 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgtk-3-dev riscv64 3.24.41-4ok1~0630 [1,113 kB]
+ 78s Get:306 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libmtdev-dev riscv64 1.1.6-ok1 [5,188 B]
+ 78s Get:307 http://archive.build.openkylin.top/openkylin nile/main riscv64 libudev-dev riscv64 255.2-ok1.4 [22.3 kB]
+ 78s Get:308 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libevdev-dev riscv64 1.13.1+dfsg-ok1 [73.9 kB]
+ 78s Get:309 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgudev-1.0-dev riscv64 1:238-ok2 [27.0 kB]
+ 79s Get:310 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwacom-dev riscv64 1.3-ok3.2 [6,868 B]
+ 79s Get:311 http://archive.build.openkylin.top/openkylin nile/main riscv64 libinput-dev riscv64 1.25.0-ok1.2 [32.0 kB]
+ 79s Get:312 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libjson-glib-dev riscv64 1.8.0-ok1 [82.8 kB]
+ 79s Get:313 http://archive.build.openkylin.top/openkylin nile/main riscv64 libclutter-1.0-dev riscv64 1.26.4+git2779b932+dfsg-ok1 [408 kB]
+ 79s Get:314 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgpgmepp6 riscv64 1.22.0-ok4 [115 kB]
+ 79s Get:315 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-composite0 riscv64 1.15-ok2 [4,784 B]
+ 79s Get:316 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-damage0 riscv64 1.15-ok2 [4,544 B]
+ 80s Get:317 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-res0 riscv64 1.15-ok2 [5,752 B]
+ 80s Get:318 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-shape0 riscv64 1.15-ok2 [5,412 B]
+ 80s Get:319 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xinerama0 riscv64 1.15-ok2 [4,872 B]
+ 80s Get:320 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xinput0 riscv64 1.15-ok2 [26.3 kB]
+ 80s Get:321 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xkb1 riscv64 1.15-ok2 [26.7 kB]
+ 80s Get:322 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 whiptail riscv64 0.52.24-2ok3 [16.6 kB]
+ 80s Get:323 http://archive.build.openkylin.top/openkylin nile/main riscv64 xvfb riscv64 2:21.1.10-ok2 [735 kB]
+ 80s Get:324 http://archive.build.openkylin.top/openkylin nile/main riscv64 zstd riscv64 1.5.5-ok3 [643 kB]
+ 86s Preconfiguring packages ...
+ 87s setting xserver-xorg-legacy/xwrapper/allowed_users from configuration file
+ 87s Fetched 136 MB in 1min 10s (1,955 kB/s)
+ 87s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 88s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 88s Preparing to unpack .../libgcrypt20_1.10.3-ok2_riscv64.deb ...
+ 88s Unpacking libgcrypt20:riscv64 (1.10.3-ok2) over (1.10.1-ok1) ...
+ 88s Setting up libgcrypt20:riscv64 (1.10.3-ok2) ...
+ 88s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 88s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 88s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 88s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 88s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 88s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 89s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193807 files and directories currently installed.)
+ 89s Preparing to unpack .../libzstd1_1.5.5-ok3_riscv64.deb ...
+ 89s Unpacking libzstd1:riscv64 (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+ 89s Setting up libzstd1:riscv64 (1.5.5-ok3) ...
+ 89s Selecting previously unselected package libpython3.12-minimal:riscv64.
+ 89s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 90s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193807 files and directories currently installed.)
+ 90s Preparing to unpack .../libpython3.12-minimal_3.12.2-ok4_riscv64.deb ...
+ 90s Unpacking libpython3.12-minimal:riscv64 (3.12.2-ok4) ...
+ 91s Selecting previously unselected package python3.12-minimal.
+ 91s Preparing to unpack .../python3.12-minimal_3.12.2-ok4_riscv64.deb ...
+ 91s Unpacking python3.12-minimal (3.12.2-ok4) ...
+ 92s Setting up libpython3.12-minimal:riscv64 (3.12.2-ok4) ...
+ 92s Setting up python3.12-minimal (3.12.2-ok4) ...
+ 97s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 97s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 97s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 97s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 97s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 97s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 98s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194116 files and directories currently installed.)
+ 98s Preparing to unpack .../python3-minimal_3.12.2-ok1_riscv64.deb ...
+ 98s Unpacking python3-minimal (3.12.2-ok1) over (3.8.2-ok2) ...
+ 99s Preparing to unpack .../libtirpc-common_1.3.4+ds-ok1_all.deb ...
+ 99s Unpacking libtirpc-common (1.3.4+ds-ok1) over (1.3.3+ds-1) ...
+ 99s Selecting previously unselected package libnettle8t64:riscv64.
+ 99s Preparing to unpack .../libnettle8t64_3.9.1-ok2_riscv64.deb ...
+ 99s Unpacking libnettle8t64:riscv64 (3.9.1-ok2) ...
+100s Setting up libnettle8t64:riscv64 (3.9.1-ok2) ...
+100s Selecting previously unselected package libhogweed6t64:riscv64.
+100s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+100s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+100s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+100s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+100s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+100s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+100s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194123 files and directories currently installed.)
+101s Preparing to unpack .../libhogweed6t64_3.9.1-ok2_riscv64.deb ...
+101s Unpacking libhogweed6t64:riscv64 (3.9.1-ok2) ...
+101s Setting up libhogweed6t64:riscv64 (3.9.1-ok2) ...
+101s Selecting previously unselected package libunistring5:riscv64.
+101s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+101s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+101s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+101s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+101s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+101s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+102s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194129 files and directories currently installed.)
+102s Preparing to unpack .../libunistring5_1.1-ok1_riscv64.deb ...
+102s Unpacking libunistring5:riscv64 (1.1-ok1) ...
+102s Setting up libunistring5:riscv64 (1.1-ok1) ...
+102s Selecting previously unselected package libpython3.12t64:riscv64.
+102s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+102s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+102s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+102s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+102s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+102s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+103s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194134 files and directories currently installed.)
+103s Preparing to unpack .../00-libpython3.12t64_3.12.2-ok4_riscv64.deb ...
+103s Unpacking libpython3.12t64:riscv64 (3.12.2-ok4) ...
+103s Preparing to unpack .../01-python3-ldb_2%3a2.8.0+samba4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+104s Unpacking python3-ldb (2:2.8.0+samba4.19.2+dfsg-ok1~1207.6) over (2:2.8.0+samba4.19.2+dfsg-ok1~1207.5) ...
+104s Preparing to unpack .../02-libldb2_2%3a2.8.0+samba4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+104s Unpacking libldb2:riscv64 (2:2.8.0+samba4.19.2+dfsg-ok1~1207.6) over (2:2.8.0+samba4.19.2+dfsg-ok1~1207.5) ...
+104s Preparing to unpack .../03-samba-dsdb-modules_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+104s Unpacking samba-dsdb-modules:riscv64 (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+105s Preparing to unpack .../04-python3-samba_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+106s Unpacking python3-samba (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+111s Preparing to unpack .../05-samba-ad-provision_2%3a4.19.2+dfsg-ok1~1207.6_all.deb ...
+111s Unpacking samba-ad-provision (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+112s Preparing to unpack .../06-samba_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+113s Unpacking samba (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+114s Preparing to unpack .../07-samba-common_2%3a4.19.2+dfsg-ok1~1207.6_all.deb ...
+114s Unpacking samba-common (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+114s Preparing to unpack .../08-samba-common-bin_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+114s Unpacking samba-common-bin (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+115s Preparing to unpack .../09-cups-ipp-utils_2.4.7-ok1_riscv64.deb ...
+115s Unpacking cups-ipp-utils (2.4.7-ok1) over (2.4.6-ok1) ...
+115s Preparing to unpack .../10-libjson-glib-1.0-common_1.8.0-ok1_all.deb ...
+115s Unpacking libjson-glib-1.0-common (1.8.0-ok1) over (1.6.6-1build1) ...
+116s Preparing to unpack .../11-libjson-glib-1.0-0_1.8.0-ok1_riscv64.deb ...
+116s Unpacking libjson-glib-1.0-0:riscv64 (1.8.0-ok1) over (1.6.6-1build1) ...
+116s Preparing to unpack .../12-libgudev-1.0-0_1%3a238-ok2_riscv64.deb ...
+116s Unpacking libgudev-1.0-0:riscv64 (1:238-ok2) over (1:237-2build1) ...
+116s Selecting previously unselected package libgdk-pixbuf-xlib-2.0-0:riscv64.
+116s Preparing to unpack .../13-libgdk-pixbuf-xlib-2.0-0_2.40.2-ok1_riscv64.deb ...
+116s Unpacking libgdk-pixbuf-xlib-2.0-0:riscv64 (2.40.2-ok1) ...
+116s dpkg: error processing archive /tmp/apt-dpkg-install-Aupgn1/13-libgdk-pixbuf-xlib-2.0-0_2.40.2-ok1_riscv64.deb (--unpack):
+116s  trying to overwrite '/usr/lib/riscv64-linux-gnu/libgdk_pixbuf_xlib-2.0.so.0', which is also in package libgdk-pixbuf2.0-0:riscv64 2.40.0+dfsg-ok1
+117s Preparing to unpack .../14-libgdk-pixbuf2.0-0_2.40.2-ok1_riscv64.deb ...
+117s Unpacking libgdk-pixbuf2.0-0:riscv64 (2.40.2-ok1) over (2.40.0+dfsg-ok1) ...
+117s Preparing to unpack .../15-libgdk-pixbuf2.0-common_2.42.10+dfsg-ok4_all.deb ...
+117s Unpacking libgdk-pixbuf2.0-common (2.42.10+dfsg-ok4) over (2.40.0+dfsg-ok1) ...
+117s Preparing to unpack .../16-libfreetype6_2.13.2+dfsg-ok1_riscv64.deb ...
+117s Unpacking libfreetype6:riscv64 (2.13.2+dfsg-ok1) over (2.10.1-ok1) ...
+118s Preparing to unpack .../17-libcairo2_1.18.0-ok1_riscv64.deb ...
+118s Unpacking libcairo2:riscv64 (1.18.0-ok1) over (1.16.0-ok3) ...
+118s Errors were encountered while processing:
+118s  /tmp/apt-dpkg-install-Aupgn1/13-libgdk-pixbuf-xlib-2.0-0_2.40.2-ok1_riscv64.deb
+119s E: Sub-process /usr/bin/dpkg returned an error code (1)
+119s autopkgtest: DBG: testbed command exited with code 100
+119s autopkgtest: DBG: apt-get install /tmp/autopkgtest.XheWNm/1-autopkgtest-satdep.deb failed; status-fd:
+119s dlstatus:1:0.0000:Retrieving file 1 of 324
+119s dlstatus:1:0.0000:Retrieving file 1 of 324
+119s dlstatus:2:0.0622:Retrieving file 2 of 324
+119s dlstatus:2:0.0622:Retrieving file 2 of 324
+119s dlstatus:2:0.0622:Retrieving file 2 of 324
+119s dlstatus:2:0.0622:Retrieving file 2 of 324
+119s dlstatus:2:0.0622:Retrieving file 2 of 324
+119s dlstatus:2:0.0646:Retrieving file 2 of 324
+119s dlstatus:3:0.3961:Retrieving file 3 of 324
+119s dlstatus:3:0.3961:Retrieving file 3 of 324
+119s dlstatus:3:0.3961:Retrieving file 3 of 324
+119s dlstatus:3:0.4033:Retrieving file 3 of 324
+119s dlstatus:4:0.6254:Retrieving file 4 of 324
+119s dlstatus:4:0.6254:Retrieving file 4 of 324
+119s dlstatus:4:0.6278:Retrieving file 4 of 324
+119s dlstatus:5:1.1485:Retrieving file 5 of 324
+119s dlstatus:5:1.1485:Retrieving file 5 of 324
+119s dlstatus:5:1.1557:Retrieving file 5 of 324
+119s dlstatus:5:1.6695:Retrieving file 5 of 324
+119s dlstatus:6:2.2767:Retrieving file 6 of 324
+119s dlstatus:6:2.2903:Retrieving file 6 of 324
+119s dlstatus:7:2.3521:Retrieving file 7 of 324
+119s dlstatus:7:2.3558:Retrieving file 7 of 324
+119s dlstatus:8:2.4175:Retrieving file 8 of 324
+119s dlstatus:8:2.4175:Retrieving file 8 of 324
+119s dlstatus:8:2.4247:Retrieving file 8 of 324
+119s dlstatus:9:2.5914:Retrieving file 9 of 324
+119s dlstatus:9:2.5914:Retrieving file 9 of 324
+119s dlstatus:9:2.5914:Retrieving file 9 of 324
+119s dlstatus:10:2.7645:Retrieving file 10 of 324
+119s dlstatus:10:2.7645:Retrieving file 10 of 324
+119s dlstatus:10:2.7718:Retrieving file 10 of 324
+119s dlstatus:11:3.1433:Retrieving file 11 of 324
+119s dlstatus:11:3.1541:Retrieving file 11 of 324
+119s dlstatus:11:3.8463:Retrieving file 11 of 324
+119s dlstatus:12:4.3039:Retrieving file 12 of 324
+119s dlstatus:12:4.3104:Retrieving file 12 of 324
+119s dlstatus:13:4.3856:Retrieving file 13 of 324
+119s dlstatus:13:4.3925:Retrieving file 13 of 324
+119s dlstatus:14:4.5184:Retrieving file 14 of 324
+119s dlstatus:14:4.5309:Retrieving file 14 of 324
+119s dlstatus:15:4.7298:Retrieving file 15 of 324
+119s dlstatus:15:4.7463:Retrieving file 15 of 324
+119s dlstatus:15:5.4385:Retrieving file 15 of 324
+119s dlstatus:15:6.1487:Retrieving file 15 of 324
+119s dlstatus:16:6.3756:Retrieving file 16 of 324 (1min 23s remaining)
+119s dlstatus:16:6.3846:Retrieving file 16 of 324 (1min 23s remaining)
+119s dlstatus:17:6.7122:Retrieving file 17 of 324 (1min 22s remaining)
+119s dlstatus:17:6.7153:Retrieving file 17 of 324 (1min 22s remaining)
+119s dlstatus:18:7.2740:Retrieving file 18 of 324 (1min 22s remaining)
+119s dlstatus:18:7.2768:Retrieving file 18 of 324 (1min 22s remaining)
+119s dlstatus:19:7.3695:Retrieving file 19 of 324 (1min 22s remaining)
+119s dlstatus:19:7.3768:Retrieving file 19 of 324 (1min 22s remaining)
+119s dlstatus:20:8.0645:Retrieving file 20 of 324 (1min 21s remaining)
+119s dlstatus:20:8.0717:Retrieving file 20 of 324 (1min 21s remaining)
+119s dlstatus:21:8.2549:Retrieving file 21 of 324 (1min 21s remaining)
+119s dlstatus:21:8.2691:Retrieving file 21 of 324 (1min 21s remaining)
+119s dlstatus:22:8.3491:Retrieving file 22 of 324 (1min 21s remaining)
+119s dlstatus:22:8.3660:Retrieving file 22 of 324 (1min 21s remaining)
+119s dlstatus:22:8.3682:Retrieving file 22 of 324 (1min 21s remaining)
+119s dlstatus:23:8.4421:Retrieving file 23 of 324 (1min 21s remaining)
+119s dlstatus:23:8.4421:Retrieving file 23 of 324 (1min 21s remaining)
+119s dlstatus:23:8.4487:Retrieving file 23 of 324 (1min 21s remaining)
+119s dlstatus:24:8.5105:Retrieving file 24 of 324 (1min 21s remaining)
+119s dlstatus:24:8.5105:Retrieving file 24 of 324 (1min 21s remaining)
+119s dlstatus:24:8.5129:Retrieving file 24 of 324 (1min 21s remaining)
+119s dlstatus:25:8.5926:Retrieving file 25 of 324 (1min 21s remaining)
+119s dlstatus:25:8.5926:Retrieving file 25 of 324 (1min 21s remaining)
+119s dlstatus:25:8.5942:Retrieving file 25 of 324 (1min 21s remaining)
+119s dlstatus:26:8.6559:Retrieving file 26 of 324 (1min 21s remaining)
+119s dlstatus:26:8.6559:Retrieving file 26 of 324 (1min 21s remaining)
+119s dlstatus:26:8.6607:Retrieving file 26 of 324 (1min 21s remaining)
+119s dlstatus:27:8.8949:Retrieving file 27 of 324 (1min 21s remaining)
+119s dlstatus:27:8.9025:Retrieving file 27 of 324 (1min 21s remaining)
+119s dlstatus:28:9.1552:Retrieving file 28 of 324 (1min 20s remaining)
+119s dlstatus:28:9.1614:Retrieving file 28 of 324 (1min 20s remaining)
+119s dlstatus:29:9.4910:Retrieving file 29 of 324 (1min 20s remaining)
+119s dlstatus:29:9.5006:Retrieving file 29 of 324 (1min 20s remaining)
+119s dlstatus:30:9.6521:Retrieving file 30 of 324 (1min 20s remaining)
+119s dlstatus:30:9.6640:Retrieving file 30 of 324 (1min 20s remaining)
+119s dlstatus:31:9.7344:Retrieving file 31 of 324 (1min 20s remaining)
+119s dlstatus:31:9.7512:Retrieving file 31 of 324 (1min 20s remaining)
+119s dlstatus:32:9.8868:Retrieving file 32 of 324 (1min 20s remaining)
+119s dlstatus:32:9.8929:Retrieving file 32 of 324 (1min 20s remaining)
+119s dlstatus:33:9.9546:Retrieving file 33 of 324 (1min 20s remaining)
+119s dlstatus:33:9.9546:Retrieving file 33 of 324 (1min 20s remaining)
+119s dlstatus:33:9.9570:Retrieving file 33 of 324 (1min 20s remaining)
+119s dlstatus:34:10.1126:Retrieving file 34 of 324 (1min 20s remaining)
+119s dlstatus:34:10.1126:Retrieving file 34 of 324 (1min 20s remaining)
+119s dlstatus:34:10.1126:Retrieving file 34 of 324 (1min 20s remaining)
+119s dlstatus:35:10.2681:Retrieving file 35 of 324 (1min 20s remaining)
+119s dlstatus:35:10.2681:Retrieving file 35 of 324 (1min 20s remaining)
+119s dlstatus:35:10.2681:Retrieving file 35 of 324 (1min 20s remaining)
+119s dlstatus:36:10.4000:Retrieving file 36 of 324 (1min 19s remaining)
+119s dlstatus:36:10.4000:Retrieving file 36 of 324 (1min 19s remaining)
+119s dlstatus:36:10.4000:Retrieving file 36 of 324 (1min 19s remaining)
+119s dlstatus:37:10.5832:Retrieving file 37 of 324 (1min 19s remaining)
+119s dlstatus:37:10.5999:Retrieving file 37 of 324 (1min 19s remaining)
+119s dlstatus:38:10.6800:Retrieving file 38 of 324 (1min 19s remaining)
+119s dlstatus:38:10.6800:Retrieving file 38 of 324 (1min 19s remaining)
+119s dlstatus:38:10.6800:Retrieving file 38 of 324 (1min 19s remaining)
+119s dlstatus:39:10.7724:Retrieving file 39 of 324 (1min 19s remaining)
+119s dlstatus:39:10.7724:Retrieving file 39 of 324 (1min 19s remaining)
+119s dlstatus:39:10.7724:Retrieving file 39 of 324 (1min 19s remaining)
+119s dlstatus:40:10.9288:Retrieving file 40 of 324 (1min 19s remaining)
+119s dlstatus:40:10.9288:Retrieving file 40 of 324 (1min 19s remaining)
+119s dlstatus:40:10.9288:Retrieving file 40 of 324 (1min 19s remaining)
+119s dlstatus:40:10.9360:Retrieving file 40 of 324 (1min 19s remaining)
+119s dlstatus:40:10.9382:Retrieving file 40 of 324 (1min 19s remaining)
+119s dlstatus:41:11.0023:Retrieving file 41 of 324 (1min 19s remaining)
+119s dlstatus:41:11.0023:Retrieving file 41 of 324 (1min 19s remaining)
+119s dlstatus:41:11.0047:Retrieving file 41 of 324 (1min 19s remaining)
+119s dlstatus:42:11.0872:Retrieving file 42 of 324 (1min 19s remaining)
+119s dlstatus:42:11.0872:Retrieving file 42 of 324 (1min 19s remaining)
+119s dlstatus:42:11.0944:Retrieving file 42 of 324 (1min 19s remaining)
+119s dlstatus:43:11.1805:Retrieving file 43 of 324 (1min 19s remaining)
+119s dlstatus:43:11.1805:Retrieving file 43 of 324 (1min 19s remaining)
+119s dlstatus:43:11.1853:Retrieving file 43 of 324 (1min 19s remaining)
+119s dlstatus:44:11.2555:Retrieving file 44 of 324 (1min 19s remaining)
+119s dlstatus:44:11.2555:Retrieving file 44 of 324 (1min 19s remaining)
+119s dlstatus:44:11.2614:Retrieving file 44 of 324 (1min 19s remaining)
+119s dlstatus:44:11.9081:Retrieving file 44 of 324 (1min 18s remaining)
+119s dlstatus:44:12.6003:Retrieving file 44 of 324 (1min 36s remaining)
+119s dlstatus:44:13.3310:Retrieving file 44 of 324 (1min 35s remaining)
+119s dlstatus:44:13.8381:Retrieving file 44 of 324 (1min 34s remaining)
+119s dlstatus:45:14.0401:Retrieving file 45 of 324 (1min 34s remaining)
+119s dlstatus:45:14.0401:Retrieving file 45 of 324 (1min 34s remaining)
+119s dlstatus:45:14.0425:Retrieving file 45 of 324 (1min 34s remaining)
+119s dlstatus:45:14.7457:Retrieving file 45 of 324 (1min 33s remaining)
+119s dlstatus:46:15.4897:Retrieving file 46 of 324 (1min 32s remaining)
+119s dlstatus:46:15.4995:Retrieving file 46 of 324 (1min 32s remaining)
+119s dlstatus:47:15.5733:Retrieving file 47 of 324 (1min 32s remaining)
+119s dlstatus:47:15.5949:Retrieving file 47 of 324 (1min 32s remaining)
+119s dlstatus:48:15.6751:Retrieving file 48 of 324 (1min 32s remaining)
+119s dlstatus:48:15.6943:Retrieving file 48 of 324 (1min 32s remaining)
+119s dlstatus:49:15.7600:Retrieving file 49 of 324 (1min 32s remaining)
+119s dlstatus:49:15.7610:Retrieving file 49 of 324 (1min 32s remaining)
+119s dlstatus:50:15.8319:Retrieving file 50 of 324 (1min 32s remaining)
+119s dlstatus:50:15.8352:Retrieving file 50 of 324 (1min 32s remaining)
+119s dlstatus:51:15.8969:Retrieving file 51 of 324 (1min 32s remaining)
+119s dlstatus:51:15.9138:Retrieving file 51 of 324 (1min 32s remaining)
+119s dlstatus:52:15.9799:Retrieving file 52 of 324 (1min 32s remaining)
+119s dlstatus:52:15.9799:Retrieving file 52 of 324 (1min 32s remaining)
+119s dlstatus:52:15.9841:Retrieving file 52 of 324 (1min 32s remaining)
+119s dlstatus:52:16.6143:Retrieving file 52 of 324 (1min 31s remaining)
+119s dlstatus:52:17.2769:Retrieving file 52 of 324 (1min 30s remaining)
+119s dlstatus:52:17.9691:Retrieving file 52 of 324 (1min 29s remaining)
+119s dlstatus:52:18.6762:Retrieving file 52 of 324 (1min 28s remaining)
+119s dlstatus:52:19.3816:Retrieving file 52 of 324 (1min 27s remaining)
+119s dlstatus:52:20.0991:Retrieving file 52 of 324 (1min 26s remaining)
+119s dlstatus:52:20.8045:Retrieving file 52 of 324 (1min 25s remaining)
+119s dlstatus:52:21.5220:Retrieving file 52 of 324 (47s remaining)
+119s dlstatus:52:22.2274:Retrieving file 52 of 324 (46s remaining)
+119s dlstatus:52:22.9449:Retrieving file 52 of 324 (46s remaining)
+119s dlstatus:52:23.6504:Retrieving file 52 of 324 (45s remaining)
+119s dlstatus:52:24.3679:Retrieving file 52 of 324 (44s remaining)
+119s dlstatus:52:25.0601:Retrieving file 52 of 324 (44s remaining)
+119s dlstatus:52:25.7655:Retrieving file 52 of 324 (43s remaining)
+119s dlstatus:52:26.4830:Retrieving file 52 of 324 (43s remaining)
+119s dlstatus:52:27.1884:Retrieving file 52 of 324 (42s remaining)
+119s dlstatus:52:27.9059:Retrieving file 52 of 324 (42s remaining)
+119s dlstatus:52:28.6114:Retrieving file 52 of 324 (41s remaining)
+119s dlstatus:53:29.1583:Retrieving file 53 of 324 (41s remaining)
+119s dlstatus:53:29.1607:Retrieving file 53 of 324 (41s remaining)
+119s dlstatus:54:29.5320:Retrieving file 54 of 324 (41s remaining)
+119s dlstatus:54:29.5363:Retrieving file 54 of 324 (41s remaining)
+119s dlstatus:55:29.5980:Retrieving file 55 of 324 (41s remaining)
+119s dlstatus:55:29.6149:Retrieving file 55 of 324 (41s remaining)
+119s dlstatus:55:30.3211:Retrieving file 55 of 324 (38s remaining)
+119s dlstatus:55:31.0133:Retrieving file 55 of 324 (37s remaining)
+119s dlstatus:56:31.1249:Retrieving file 56 of 324 (37s remaining)
+119s dlstatus:56:31.1341:Retrieving file 56 of 324 (37s remaining)
+119s dlstatus:57:31.1958:Retrieving file 57 of 324 (37s remaining)
+119s dlstatus:57:31.2074:Retrieving file 57 of 324 (37s remaining)
+119s dlstatus:58:31.2692:Retrieving file 58 of 324 (37s remaining)
+119s dlstatus:58:31.2749:Retrieving file 58 of 324 (37s remaining)
+119s dlstatus:58:31.9997:Retrieving file 58 of 324 (37s remaining)
+119s dlstatus:58:32.6919:Retrieving file 58 of 324 (36s remaining)
+119s dlstatus:59:33.2755:Retrieving file 59 of 324 (36s remaining)
+119s dlstatus:59:33.2919:Retrieving file 59 of 324 (36s remaining)
+119s dlstatus:59:33.9841:Retrieving file 59 of 324 (35s remaining)
+119s dlstatus:59:34.7148:Retrieving file 59 of 324 (35s remaining)
+119s dlstatus:60:35.2973:Retrieving file 60 of 324 (34s remaining)
+119s dlstatus:60:35.3140:Retrieving file 60 of 324 (34s remaining)
+119s dlstatus:61:35.3757:Retrieving file 61 of 324 (34s remaining)
+119s dlstatus:61:35.3822:Retrieving file 61 of 324 (34s remaining)
+119s dlstatus:62:35.4928:Retrieving file 62 of 324 (34s remaining)
+119s dlstatus:62:35.5121:Retrieving file 62 of 324 (34s remaining)
+119s dlstatus:63:35.6339:Retrieving file 63 of 324 (34s remaining)
+119s dlstatus:63:35.6522:Retrieving file 63 of 324 (34s remaining)
+119s dlstatus:64:35.7139:Retrieving file 64 of 324 (34s remaining)
+119s dlstatus:64:35.7207:Retrieving file 64 of 324 (34s remaining)
+119s dlstatus:65:35.7910:Retrieving file 65 of 324 (34s remaining)
+119s dlstatus:65:35.8095:Retrieving file 65 of 324 (34s remaining)
+119s dlstatus:66:35.8712:Retrieving file 66 of 324 (34s remaining)
+119s dlstatus:66:35.8822:Retrieving file 66 of 324 (34s remaining)
+119s dlstatus:66:36.5745:Retrieving file 66 of 324 (34s remaining)
+119s dlstatus:67:36.6516:Retrieving file 67 of 324 (34s remaining)
+119s dlstatus:67:36.6633:Retrieving file 67 of 324 (34s remaining)
+119s dlstatus:67:37.3555:Retrieving file 67 of 324 (33s remaining)
+119s dlstatus:67:38.0589:Retrieving file 67 of 324 (33s remaining)
+119s dlstatus:67:38.7785:Retrieving file 67 of 324 (32s remaining)
+119s dlstatus:67:39.4819:Retrieving file 67 of 324 (32s remaining)
+119s dlstatus:68:39.9453:Retrieving file 68 of 324 (32s remaining)
+119s dlstatus:68:39.9553:Retrieving file 68 of 324 (32s remaining)
+119s dlstatus:69:40.1015:Retrieving file 69 of 324 (31s remaining)
+119s dlstatus:69:40.1049:Retrieving file 69 of 324 (31s remaining)
+119s dlstatus:70:40.2140:Retrieving file 70 of 324 (31s remaining)
+119s dlstatus:70:40.2294:Retrieving file 70 of 324 (31s remaining)
+119s dlstatus:71:40.2912:Retrieving file 71 of 324 (31s remaining)
+119s dlstatus:71:40.3045:Retrieving file 71 of 324 (31s remaining)
+119s dlstatus:72:40.3663:Retrieving file 72 of 324 (31s remaining)
+119s dlstatus:72:40.3663:Retrieving file 72 of 324 (31s remaining)
+119s dlstatus:72:40.3665:Retrieving file 72 of 324 (31s remaining)
+119s dlstatus:73:40.4306:Retrieving file 73 of 324 (31s remaining)
+119s dlstatus:73:40.4403:Retrieving file 73 of 324 (31s remaining)
+119s dlstatus:74:40.5020:Retrieving file 74 of 324 (31s remaining)
+119s dlstatus:74:40.5213:Retrieving file 74 of 324 (31s remaining)
+119s dlstatus:75:40.6180:Retrieving file 75 of 324 (31s remaining)
+119s dlstatus:75:40.6280:Retrieving file 75 of 324 (31s remaining)
+119s dlstatus:75:41.3202:Retrieving file 75 of 324 (31s remaining)
+119s dlstatus:75:42.0248:Retrieving file 75 of 324 (30s remaining)
+119s dlstatus:76:42.7780:Retrieving file 76 of 324 (30s remaining)
+119s dlstatus:76:42.8047:Retrieving file 76 of 324 (30s remaining)
+119s dlstatus:77:42.9201:Retrieving file 77 of 324 (30s remaining)
+119s dlstatus:77:42.9277:Retrieving file 77 of 324 (30s remaining)
+119s dlstatus:78:42.9894:Retrieving file 78 of 324 (30s remaining)
+119s dlstatus:78:43.0047:Retrieving file 78 of 324 (30s remaining)
+119s dlstatus:79:43.1712:Retrieving file 79 of 324 (30s remaining)
+119s dlstatus:79:43.1816:Retrieving file 79 of 324 (30s remaining)
+119s dlstatus:80:43.2846:Retrieving file 80 of 324 (30s remaining)
+119s dlstatus:80:43.3037:Retrieving file 80 of 324 (30s remaining)
+119s dlstatus:81:43.3654:Retrieving file 81 of 324 (30s remaining)
+119s dlstatus:81:43.3654:Retrieving file 81 of 324 (30s remaining)
+119s dlstatus:81:43.3726:Retrieving file 81 of 324 (30s remaining)
+119s dlstatus:82:43.5204:Retrieving file 82 of 324 (30s remaining)
+119s dlstatus:82:43.5421:Retrieving file 82 of 324 (30s remaining)
+119s dlstatus:83:43.6144:Retrieving file 83 of 324 (30s remaining)
+119s dlstatus:83:43.6201:Retrieving file 83 of 324 (30s remaining)
+119s dlstatus:84:43.7155:Retrieving file 84 of 324 (30s remaining)
+119s dlstatus:84:43.7201:Retrieving file 84 of 324 (30s remaining)
+119s dlstatus:85:43.8083:Retrieving file 85 of 324 (30s remaining)
+119s dlstatus:85:43.8201:Retrieving file 85 of 324 (30s remaining)
+119s dlstatus:86:44.0083:Retrieving file 86 of 324 (29s remaining)
+119s dlstatus:86:44.0191:Retrieving file 86 of 324 (29s remaining)
+119s dlstatus:87:44.1184:Retrieving file 87 of 324 (29s remaining)
+119s dlstatus:87:44.1191:Retrieving file 87 of 324 (29s remaining)
+119s dlstatus:88:44.2460:Retrieving file 88 of 324 (29s remaining)
+119s dlstatus:88:44.2576:Retrieving file 88 of 324 (29s remaining)
+119s dlstatus:89:44.4966:Retrieving file 89 of 324 (29s remaining)
+119s dlstatus:89:44.5114:Retrieving file 89 of 324 (29s remaining)
+119s dlstatus:90:44.6094:Retrieving file 90 of 324 (29s remaining)
+119s dlstatus:90:44.6094:Retrieving file 90 of 324 (29s remaining)
+119s dlstatus:90:44.6191:Retrieving file 90 of 324 (29s remaining)
+119s dlstatus:91:44.6892:Retrieving file 91 of 324 (29s remaining)
+119s dlstatus:91:44.7095:Retrieving file 91 of 324 (29s remaining)
+119s dlstatus:92:44.7712:Retrieving file 92 of 324 (29s remaining)
+119s dlstatus:92:44.7712:Retrieving file 92 of 324 (29s remaining)
+119s dlstatus:92:44.7736:Retrieving file 92 of 324 (29s remaining)
+119s dlstatus:93:44.8433:Retrieving file 93 of 324 (29s remaining)
+119s dlstatus:93:44.8433:Retrieving file 93 of 324 (29s remaining)
+119s dlstatus:93:44.8457:Retrieving file 93 of 324 (29s remaining)
+119s dlstatus:94:45.0203:Retrieving file 94 of 324 (29s remaining)
+119s dlstatus:94:45.0278:Retrieving file 94 of 324 (29s remaining)
+119s dlstatus:95:45.0959:Retrieving file 95 of 324 (29s remaining)
+119s dlstatus:95:45.0959:Retrieving file 95 of 324 (29s remaining)
+119s dlstatus:95:45.0983:Retrieving file 95 of 324 (29s remaining)
+119s dlstatus:96:45.4253:Retrieving file 96 of 324 (29s remaining)
+119s dlstatus:96:45.4586:Retrieving file 96 of 324 (29s remaining)
+119s dlstatus:97:45.5605:Retrieving file 97 of 324 (29s remaining)
+119s dlstatus:97:45.5605:Retrieving file 97 of 324 (29s remaining)
+119s dlstatus:97:45.5701:Retrieving file 97 of 324 (29s remaining)
+119s dlstatus:97:46.2893:Retrieving file 97 of 324 (28s remaining)
+119s dlstatus:98:46.3724:Retrieving file 98 of 324 (28s remaining)
+119s dlstatus:98:46.3893:Retrieving file 98 of 324 (28s remaining)
+119s dlstatus:99:46.6310:Retrieving file 99 of 324 (28s remaining)
+119s dlstatus:99:46.6431:Retrieving file 99 of 324 (28s remaining)
+119s dlstatus:100:46.7090:Retrieving file 100 of 324 (28s remaining)
+119s dlstatus:100:46.7306:Retrieving file 100 of 324 (28s remaining)
+119s dlstatus:101:46.9148:Retrieving file 101 of 324 (28s remaining)
+119s dlstatus:101:46.9201:Retrieving file 101 of 324 (28s remaining)
+119s dlstatus:102:47.0614:Retrieving file 102 of 324 (28s remaining)
+119s dlstatus:102:47.0970:Retrieving file 102 of 324 (28s remaining)
+119s dlstatus:103:47.3591:Retrieving file 103 of 324 (28s remaining)
+119s dlstatus:103:47.3893:Retrieving file 103 of 324 (28s remaining)
+119s dlstatus:104:47.5808:Retrieving file 104 of 324 (28s remaining)
+119s dlstatus:104:47.6046:Retrieving file 104 of 324 (28s remaining)
+119s dlstatus:105:47.7726:Retrieving file 105 of 324 (28s remaining)
+119s dlstatus:105:47.7816:Retrieving file 105 of 324 (28s remaining)
+119s dlstatus:106:48.3744:Retrieving file 106 of 324 (27s remaining)
+119s dlstatus:106:48.3815:Retrieving file 106 of 324 (27s remaining)
+119s dlstatus:106:49.0755:Retrieving file 106 of 324 (27s remaining)
+119s dlstatus:106:49.8044:Retrieving file 106 of 324 (26s remaining)
+119s dlstatus:106:50.4984:Retrieving file 106 of 324 (26s remaining)
+119s dlstatus:106:51.2274:Retrieving file 106 of 324 (26s remaining)
+119s dlstatus:106:51.9213:Retrieving file 106 of 324 (25s remaining)
+119s dlstatus:106:52.6503:Retrieving file 106 of 324 (25s remaining)
+119s dlstatus:106:53.3475:Retrieving file 106 of 324 (24s remaining)
+119s dlstatus:107:53.9072:Retrieving file 107 of 324 (24s remaining)
+119s dlstatus:107:53.9254:Retrieving file 107 of 324 (24s remaining)
+119s dlstatus:108:53.9871:Retrieving file 108 of 324 (24s remaining)
+119s dlstatus:108:54.0040:Retrieving file 108 of 324 (24s remaining)
+119s dlstatus:109:54.0794:Retrieving file 109 of 324 (24s remaining)
+119s dlstatus:109:54.0939:Retrieving file 109 of 324 (24s remaining)
+119s dlstatus:109:54.7963:Retrieving file 109 of 324 (23s remaining)
+119s dlstatus:109:55.5022:Retrieving file 109 of 324 (23s remaining)
+119s dlstatus:109:56.2192:Retrieving file 109 of 324 (22s remaining)
+119s dlstatus:109:56.9251:Retrieving file 109 of 324 (22s remaining)
+119s dlstatus:110:57.0786:Retrieving file 110 of 324 (22s remaining)
+119s dlstatus:110:57.0882:Retrieving file 110 of 324 (22s remaining)
+119s dlstatus:111:57.1499:Retrieving file 111 of 324 (22s remaining)
+119s dlstatus:111:57.1715:Retrieving file 111 of 324 (22s remaining)
+119s dlstatus:112:57.4271:Retrieving file 112 of 324 (22s remaining)
+119s dlstatus:112:57.4420:Retrieving file 112 of 324 (22s remaining)
+119s dlstatus:113:57.6493:Retrieving file 113 of 324 (21s remaining)
+119s dlstatus:113:57.6574:Retrieving file 113 of 324 (21s remaining)
+119s dlstatus:114:57.7515:Retrieving file 114 of 324 (21s remaining)
+119s dlstatus:114:57.7574:Retrieving file 114 of 324 (21s remaining)
+119s dlstatus:114:58.4496:Retrieving file 114 of 324 (21s remaining)
+119s dlstatus:115:58.8770:Retrieving file 115 of 324 (21s remaining)
+119s dlstatus:115:58.8958:Retrieving file 115 of 324 (21s remaining)
+119s dlstatus:116:59.3167:Retrieving file 116 of 324 (20s remaining)
+119s dlstatus:116:59.3204:Retrieving file 116 of 324 (20s remaining)
+119s dlstatus:117:59.3821:Retrieving file 117 of 324 (20s remaining)
+119s dlstatus:117:59.3884:Retrieving file 117 of 324 (20s remaining)
+119s dlstatus:118:59.4501:Retrieving file 118 of 324 (20s remaining)
+119s dlstatus:118:59.4651:Retrieving file 118 of 324 (20s remaining)
+119s dlstatus:119:59.6163:Retrieving file 119 of 324 (20s remaining)
+119s dlstatus:119:59.6269:Retrieving file 119 of 324 (19s remaining)
+119s dlstatus:120:59.6944:Retrieving file 120 of 324 (19s remaining)
+119s dlstatus:120:59.7014:Retrieving file 120 of 324 (19s remaining)
+119s dlstatus:121:59.7631:Retrieving file 121 of 324 (19s remaining)
+119s dlstatus:121:59.7652:Retrieving file 121 of 324 (19s remaining)
+119s dlstatus:122:59.8559:Retrieving file 122 of 324 (19s remaining)
+119s dlstatus:122:59.8652:Retrieving file 122 of 324 (19s remaining)
+119s dlstatus:123:59.9986:Retrieving file 123 of 324 (19s remaining)
+119s dlstatus:123:60.0036:Retrieving file 123 of 324 (19s remaining)
+119s dlstatus:124:60.1211:Retrieving file 124 of 324 (19s remaining)
+119s dlstatus:124:60.1327:Retrieving file 124 of 324 (19s remaining)
+119s dlstatus:125:60.2055:Retrieving file 125 of 324 (19s remaining)
+119s dlstatus:125:60.2131:Retrieving file 125 of 324 (19s remaining)
+119s dlstatus:126:60.2748:Retrieving file 126 of 324 (19s remaining)
+119s dlstatus:126:60.2871:Retrieving file 126 of 324 (19s remaining)
+119s dlstatus:127:60.3489:Retrieving file 127 of 324 (19s remaining)
+119s dlstatus:127:60.3553:Retrieving file 127 of 324 (19s remaining)
+119s dlstatus:128:60.4171:Retrieving file 128 of 324 (19s remaining)
+119s dlstatus:128:60.4171:Retrieving file 128 of 324 (19s remaining)
+119s dlstatus:128:60.4171:Retrieving file 128 of 324 (19s remaining)
+119s dlstatus:129:60.5079:Retrieving file 129 of 324 (19s remaining)
+119s dlstatus:129:60.5079:Retrieving file 129 of 324 (19s remaining)
+119s dlstatus:129:60.5079:Retrieving file 129 of 324 (19s remaining)
+119s dlstatus:130:60.6799:Retrieving file 130 of 324 (19s remaining)
+119s dlstatus:130:60.6799:Retrieving file 130 of 324 (19s remaining)
+119s dlstatus:130:60.6822:Retrieving file 130 of 324 (19s remaining)
+119s dlstatus:131:60.7688:Retrieving file 131 of 324 (19s remaining)
+119s dlstatus:131:60.7688:Retrieving file 131 of 324 (19s remaining)
+119s dlstatus:131:60.7712:Retrieving file 131 of 324 (19s remaining)
+119s dlstatus:132:60.8412:Retrieving file 132 of 324 (19s remaining)
+119s dlstatus:132:60.8412:Retrieving file 132 of 324 (19s remaining)
+119s dlstatus:132:60.8484:Retrieving file 132 of 324 (19s remaining)
+119s dlstatus:133:60.9120:Retrieving file 133 of 324 (19s remaining)
+119s dlstatus:133:60.9120:Retrieving file 133 of 324 (19s remaining)
+119s dlstatus:133:60.9152:Retrieving file 133 of 324 (19s remaining)
+119s dlstatus:134:61.0125:Retrieving file 134 of 324 (19s remaining)
+119s dlstatus:134:61.0125:Retrieving file 134 of 324 (19s remaining)
+119s dlstatus:134:61.0163:Retrieving file 134 of 324 (19s remaining)
+119s dlstatus:135:61.0781:Retrieving file 135 of 324 (19s remaining)
+119s dlstatus:135:61.0781:Retrieving file 135 of 324 (19s remaining)
+119s dlstatus:135:61.0853:Retrieving file 135 of 324 (19s remaining)
+119s dlstatus:136:61.1834:Retrieving file 136 of 324 (19s remaining)
+119s dlstatus:136:61.1834:Retrieving file 136 of 324 (19s remaining)
+119s dlstatus:136:61.1883:Retrieving file 136 of 324 (19s remaining)
+119s dlstatus:137:61.2585:Retrieving file 137 of 324 (19s remaining)
+119s dlstatus:137:61.2585:Retrieving file 137 of 324 (19s remaining)
+119s dlstatus:137:61.2633:Retrieving file 137 of 324 (19s remaining)
+119s dlstatus:137:61.3353:Retrieving file 137 of 324 (19s remaining)
+119s dlstatus:138:61.4094:Retrieving file 138 of 324 (19s remaining)
+119s dlstatus:138:61.4094:Retrieving file 138 of 324 (19s remaining)
+119s dlstatus:138:61.4118:Retrieving file 138 of 324 (19s remaining)
+119s dlstatus:139:61.9831:Retrieving file 139 of 324 (19s remaining)
+119s dlstatus:139:61.9883:Retrieving file 139 of 324 (19s remaining)
+119s dlstatus:139:62.6805:Retrieving file 139 of 324 (18s remaining)
+119s dlstatus:140:62.7810:Retrieving file 140 of 324 (18s remaining)
+119s dlstatus:140:62.7860:Retrieving file 140 of 324 (18s remaining)
+119s dlstatus:141:63.0062:Retrieving file 141 of 324 (18s remaining)
+119s dlstatus:141:63.0344:Retrieving file 141 of 324 (18s remaining)
+119s dlstatus:142:63.1084:Retrieving file 142 of 324 (18s remaining)
+119s dlstatus:142:63.1301:Retrieving file 142 of 324 (18s remaining)
+119s dlstatus:143:63.2329:Retrieving file 143 of 324 (18s remaining)
+119s dlstatus:143:63.2344:Retrieving file 143 of 324 (18s remaining)
+119s dlstatus:144:63.3086:Retrieving file 144 of 324 (18s remaining)
+119s dlstatus:144:63.3255:Retrieving file 144 of 324 (18s remaining)
+119s dlstatus:145:63.3890:Retrieving file 145 of 324 (18s remaining)
+119s dlstatus:145:63.3959:Retrieving file 145 of 324 (18s remaining)
+119s dlstatus:146:63.4933:Retrieving file 146 of 324 (18s remaining)
+119s dlstatus:146:63.4959:Retrieving file 146 of 324 (18s remaining)
+119s dlstatus:147:63.5620:Retrieving file 147 of 324 (18s remaining)
+119s dlstatus:147:63.5620:Retrieving file 147 of 324 (18s remaining)
+119s dlstatus:147:63.5620:Retrieving file 147 of 324 (18s remaining)
+119s dlstatus:148:63.7414:Retrieving file 148 of 324 (18s remaining)
+119s dlstatus:148:63.7469:Retrieving file 148 of 324 (18s remaining)
+119s dlstatus:149:63.8087:Retrieving file 149 of 324 (18s remaining)
+119s dlstatus:149:63.8087:Retrieving file 149 of 324 (18s remaining)
+119s dlstatus:149:63.8111:Retrieving file 149 of 324 (18s remaining)
+119s dlstatus:150:63.9385:Retrieving file 150 of 324 (18s remaining)
+119s dlstatus:150:63.9385:Retrieving file 150 of 324 (18s remaining)
+119s dlstatus:150:63.9457:Retrieving file 150 of 324 (18s remaining)
+119s dlstatus:151:64.1498:Retrieving file 151 of 324 (18s remaining)
+119s dlstatus:151:64.1633:Retrieving file 151 of 324 (18s remaining)
+119s dlstatus:151:64.8805:Retrieving file 151 of 324 (17s remaining)
+119s dlstatus:152:65.1795:Retrieving file 152 of 324 (17s remaining)
+119s dlstatus:152:65.1863:Retrieving file 152 of 324 (17s remaining)
+119s dlstatus:153:65.2868:Retrieving file 153 of 324 (17s remaining)
+119s dlstatus:153:65.3112:Retrieving file 153 of 324 (17s remaining)
+119s dlstatus:153:66.0035:Retrieving file 153 of 324 (16s remaining)
+119s dlstatus:153:66.7092:Retrieving file 153 of 324 (16s remaining)
+119s dlstatus:154:67.2434:Retrieving file 154 of 324 (16s remaining)
+119s dlstatus:154:67.2572:Retrieving file 154 of 324 (16s remaining)
+119s dlstatus:154:67.9630:Retrieving file 154 of 324 (22s remaining)
+119s dlstatus:155:68.2762:Retrieving file 155 of 324 (22s remaining)
+119s dlstatus:155:68.2802:Retrieving file 155 of 324 (22s remaining)
+119s dlstatus:156:68.3503:Retrieving file 156 of 324 (22s remaining)
+119s dlstatus:156:68.3695:Retrieving file 156 of 324 (22s remaining)
+119s dlstatus:157:68.4898:Retrieving file 157 of 324 (22s remaining)
+119s dlstatus:157:68.5186:Retrieving file 157 of 324 (22s remaining)
+119s dlstatus:158:68.7222:Retrieving file 158 of 324 (21s remaining)
+119s dlstatus:158:68.7340:Retrieving file 158 of 324 (21s remaining)
+119s dlstatus:159:68.7965:Retrieving file 159 of 324 (21s remaining)
+119s dlstatus:159:68.8174:Retrieving file 159 of 324 (21s remaining)
+119s dlstatus:160:68.8791:Retrieving file 160 of 324 (21s remaining)
+119s dlstatus:160:68.8956:Retrieving file 160 of 324 (21s remaining)
+119s dlstatus:161:68.9840:Retrieving file 161 of 324 (21s remaining)
+119s dlstatus:161:68.9956:Retrieving file 161 of 324 (21s remaining)
+119s dlstatus:162:69.0617:Retrieving file 162 of 324 (21s remaining)
+119s dlstatus:162:69.0810:Retrieving file 162 of 324 (21s remaining)
+119s dlstatus:163:69.1850:Retrieving file 163 of 324 (21s remaining)
+119s dlstatus:163:69.1956:Retrieving file 163 of 324 (21s remaining)
+119s dlstatus:164:69.2696:Retrieving file 164 of 324 (21s remaining)
+119s dlstatus:164:69.2888:Retrieving file 164 of 324 (21s remaining)
+119s dlstatus:165:69.3922:Retrieving file 165 of 324 (21s remaining)
+119s dlstatus:165:69.3956:Retrieving file 165 of 324 (21s remaining)
+119s dlstatus:166:69.5583:Retrieving file 166 of 324 (21s remaining)
+119s dlstatus:166:69.5725:Retrieving file 166 of 324 (21s remaining)
+119s dlstatus:167:69.6788:Retrieving file 167 of 324 (21s remaining)
+119s dlstatus:167:69.6872:Retrieving file 167 of 324 (21s remaining)
+119s dlstatus:168:69.7490:Retrieving file 168 of 324 (21s remaining)
+119s dlstatus:168:69.7526:Retrieving file 168 of 324 (21s remaining)
+119s dlstatus:169:69.8144:Retrieving file 169 of 324 (21s remaining)
+119s dlstatus:169:69.8180:Retrieving file 169 of 324 (21s remaining)
+119s dlstatus:170:69.8797:Retrieving file 170 of 324 (21s remaining)
+119s dlstatus:170:69.8827:Retrieving file 170 of 324 (21s remaining)
+119s dlstatus:171:69.9444:Retrieving file 171 of 324 (21s remaining)
+119s dlstatus:171:69.9444:Retrieving file 171 of 324 (21s remaining)
+119s dlstatus:171:69.9490:Retrieving file 171 of 324 (21s remaining)
+119s dlstatus:172:70.0107:Retrieving file 172 of 324 (21s remaining)
+119s dlstatus:172:70.0107:Retrieving file 172 of 324 (21s remaining)
+119s dlstatus:172:70.0157:Retrieving file 172 of 324 (21s remaining)
+119s dlstatus:173:70.0775:Retrieving file 173 of 324 (21s remaining)
+119s dlstatus:173:70.0775:Retrieving file 173 of 324 (21s remaining)
+119s dlstatus:173:70.0803:Retrieving file 173 of 324 (21s remaining)
+119s dlstatus:174:70.1423:Retrieving file 174 of 324 (21s remaining)
+119s dlstatus:174:70.1423:Retrieving file 174 of 324 (21s remaining)
+119s dlstatus:174:70.1495:Retrieving file 174 of 324 (21s remaining)
+119s dlstatus:175:70.2153:Retrieving file 175 of 324 (21s remaining)
+119s dlstatus:175:70.2153:Retrieving file 175 of 324 (21s remaining)
+119s dlstatus:175:70.2177:Retrieving file 175 of 324 (21s remaining)
+119s dlstatus:176:70.2910:Retrieving file 176 of 324 (21s remaining)
+119s dlstatus:176:70.2910:Retrieving file 176 of 324 (21s remaining)
+119s dlstatus:176:70.2934:Retrieving file 176 of 324 (21s remaining)
+119s dlstatus:177:70.3692:Retrieving file 177 of 324 (21s remaining)
+119s dlstatus:177:70.3692:Retrieving file 177 of 324 (21s remaining)
+119s dlstatus:177:70.3716:Retrieving file 177 of 324 (21s remaining)
+119s dlstatus:178:70.4587:Retrieving file 178 of 324 (21s remaining)
+119s dlstatus:178:70.4587:Retrieving file 178 of 324 (21s remaining)
+119s dlstatus:178:70.4611:Retrieving file 178 of 324 (21s remaining)
+119s dlstatus:179:70.6137:Retrieving file 179 of 324 (21s remaining)
+119s dlstatus:179:70.6137:Retrieving file 179 of 324 (21s remaining)
+119s dlstatus:179:70.6224:Retrieving file 179 of 324 (21s remaining)
+119s dlstatus:180:70.6841:Retrieving file 180 of 324 (21s remaining)
+119s dlstatus:180:70.6841:Retrieving file 180 of 324 (21s remaining)
+119s dlstatus:180:70.6841:Retrieving file 180 of 324 (21s remaining)
+119s dlstatus:181:70.9444:Retrieving file 181 of 324 (21s remaining)
+119s dlstatus:181:70.9572:Retrieving file 181 of 324 (21s remaining)
+119s dlstatus:182:71.0246:Retrieving file 182 of 324 (21s remaining)
+119s dlstatus:182:71.0463:Retrieving file 182 of 324 (21s remaining)
+119s dlstatus:183:71.1522:Retrieving file 183 of 324 (21s remaining)
+119s dlstatus:183:71.1522:Retrieving file 183 of 324 (21s remaining)
+119s dlstatus:183:71.1572:Retrieving file 183 of 324 (21s remaining)
+119s dlstatus:184:71.2216:Retrieving file 184 of 324 (21s remaining)
+119s dlstatus:184:71.2216:Retrieving file 184 of 324 (21s remaining)
+119s dlstatus:184:71.2240:Retrieving file 184 of 324 (21s remaining)
+119s dlstatus:185:71.2988:Retrieving file 185 of 324 (21s remaining)
+119s dlstatus:185:71.2988:Retrieving file 185 of 324 (21s remaining)
+119s dlstatus:185:71.3040:Retrieving file 185 of 324 (21s remaining)
+119s dlstatus:186:71.3657:Retrieving file 186 of 324 (21s remaining)
+119s dlstatus:186:71.3657:Retrieving file 186 of 324 (21s remaining)
+119s dlstatus:186:71.3705:Retrieving file 186 of 324 (21s remaining)
+119s dlstatus:187:71.4650:Retrieving file 187 of 324 (20s remaining)
+119s dlstatus:187:71.4650:Retrieving file 187 of 324 (20s remaining)
+119s dlstatus:187:71.4674:Retrieving file 187 of 324 (20s remaining)
+119s dlstatus:188:71.5482:Retrieving file 188 of 324 (20s remaining)
+119s dlstatus:188:71.5482:Retrieving file 188 of 324 (20s remaining)
+119s dlstatus:188:71.5506:Retrieving file 188 of 324 (20s remaining)
+119s dlstatus:189:71.7167:Retrieving file 189 of 324 (20s remaining)
+119s dlstatus:189:71.7167:Retrieving file 189 of 324 (20s remaining)
+119s dlstatus:189:71.7188:Retrieving file 189 of 324 (20s remaining)
+119s dlstatus:190:71.7922:Retrieving file 190 of 324 (20s remaining)
+119s dlstatus:190:71.7922:Retrieving file 190 of 324 (20s remaining)
+119s dlstatus:190:71.7946:Retrieving file 190 of 324 (20s remaining)
+119s dlstatus:191:71.9331:Retrieving file 191 of 324 (20s remaining)
+119s dlstatus:191:71.9331:Retrieving file 191 of 324 (20s remaining)
+119s dlstatus:191:71.9403:Retrieving file 191 of 324 (20s remaining)
+119s dlstatus:192:72.0038:Retrieving file 192 of 324 (20s remaining)
+119s dlstatus:192:72.0038:Retrieving file 192 of 324 (20s remaining)
+119s dlstatus:192:72.0110:Retrieving file 192 of 324 (20s remaining)
+119s dlstatus:193:72.0739:Retrieving file 193 of 324 (20s remaining)
+119s dlstatus:193:72.0739:Retrieving file 193 of 324 (20s remaining)
+119s dlstatus:193:72.0763:Retrieving file 193 of 324 (20s remaining)
+119s dlstatus:194:72.1513:Retrieving file 194 of 324 (20s remaining)
+119s dlstatus:194:72.1513:Retrieving file 194 of 324 (20s remaining)
+119s dlstatus:194:72.1537:Retrieving file 194 of 324 (20s remaining)
+119s dlstatus:195:72.2359:Retrieving file 195 of 324 (20s remaining)
+119s dlstatus:195:72.2359:Retrieving file 195 of 324 (20s remaining)
+119s dlstatus:195:72.2383:Retrieving file 195 of 324 (20s remaining)
+119s dlstatus:196:72.3111:Retrieving file 196 of 324 (20s remaining)
+119s dlstatus:196:72.3111:Retrieving file 196 of 324 (20s remaining)
+119s dlstatus:196:72.3135:Retrieving file 196 of 324 (20s remaining)
+119s dlstatus:197:72.3827:Retrieving file 197 of 324 (20s remaining)
+119s dlstatus:197:72.3827:Retrieving file 197 of 324 (20s remaining)
+119s dlstatus:197:72.3856:Retrieving file 197 of 324 (20s remaining)
+119s dlstatus:198:72.4474:Retrieving file 198 of 324 (20s remaining)
+119s dlstatus:198:72.4474:Retrieving file 198 of 324 (20s remaining)
+119s dlstatus:198:72.4546:Retrieving file 198 of 324 (20s remaining)
+119s dlstatus:199:72.5747:Retrieving file 199 of 324 (20s remaining)
+119s dlstatus:199:72.5747:Retrieving file 199 of 324 (20s remaining)
+119s dlstatus:199:72.5819:Retrieving file 199 of 324 (20s remaining)
+119s dlstatus:200:72.6718:Retrieving file 200 of 324 (20s remaining)
+119s dlstatus:200:72.6718:Retrieving file 200 of 324 (20s remaining)
+119s dlstatus:200:72.6742:Retrieving file 200 of 324 (20s remaining)
+119s dlstatus:201:72.7972:Retrieving file 201 of 324 (20s remaining)
+119s dlstatus:201:72.7972:Retrieving file 201 of 324 (20s remaining)
+119s dlstatus:201:72.7996:Retrieving file 201 of 324 (20s remaining)
+119s dlstatus:202:72.8663:Retrieving file 202 of 324 (20s remaining)
+119s dlstatus:202:72.8663:Retrieving file 202 of 324 (20s remaining)
+119s dlstatus:202:72.8759:Retrieving file 202 of 324 (20s remaining)
+119s dlstatus:203:73.0359:Retrieving file 203 of 324 (20s remaining)
+119s dlstatus:203:73.0420:Retrieving file 203 of 324 (20s remaining)
+119s dlstatus:204:73.1078:Retrieving file 204 of 324 (20s remaining)
+119s dlstatus:204:73.1078:Retrieving file 204 of 324 (20s remaining)
+119s dlstatus:204:73.1102:Retrieving file 204 of 324 (20s remaining)
+119s dlstatus:205:73.1728:Retrieving file 205 of 324 (20s remaining)
+119s dlstatus:205:73.1728:Retrieving file 205 of 324 (20s remaining)
+119s dlstatus:205:73.1800:Retrieving file 205 of 324 (20s remaining)
+119s dlstatus:206:73.3873:Retrieving file 206 of 324 (20s remaining)
+119s dlstatus:206:73.4041:Retrieving file 206 of 324 (20s remaining)
+119s dlstatus:207:73.4681:Retrieving file 207 of 324 (20s remaining)
+119s dlstatus:207:73.4681:Retrieving file 207 of 324 (20s remaining)
+119s dlstatus:207:73.4753:Retrieving file 207 of 324 (20s remaining)
+119s dlstatus:208:73.5377:Retrieving file 208 of 324 (20s remaining)
+119s dlstatus:208:73.5377:Retrieving file 208 of 324 (20s remaining)
+119s dlstatus:208:73.5406:Retrieving file 208 of 324 (20s remaining)
+119s dlstatus:209:73.6023:Retrieving file 209 of 324 (20s remaining)
+119s dlstatus:209:73.6023:Retrieving file 209 of 324 (20s remaining)
+119s dlstatus:209:73.6036:Retrieving file 209 of 324 (20s remaining)
+119s dlstatus:210:73.6689:Retrieving file 210 of 324 (20s remaining)
+119s dlstatus:210:73.6689:Retrieving file 210 of 324 (20s remaining)
+119s dlstatus:210:73.6713:Retrieving file 210 of 324 (20s remaining)
+119s dlstatus:211:73.7468:Retrieving file 211 of 324 (20s remaining)
+119s dlstatus:211:73.7468:Retrieving file 211 of 324 (20s remaining)
+119s dlstatus:211:73.7492:Retrieving file 211 of 324 (20s remaining)
+119s dlstatus:212:73.8238:Retrieving file 212 of 324 (20s remaining)
+119s dlstatus:212:73.8238:Retrieving file 212 of 324 (20s remaining)
+119s dlstatus:212:73.8238:Retrieving file 212 of 324 (20s remaining)
+119s dlstatus:213:73.8989:Retrieving file 213 of 324 (20s remaining)
+119s dlstatus:213:73.8989:Retrieving file 213 of 324 (20s remaining)
+119s dlstatus:213:73.9013:Retrieving file 213 of 324 (20s remaining)
+119s dlstatus:214:74.2610:Retrieving file 214 of 324 (19s remaining)
+119s dlstatus:214:74.2874:Retrieving file 214 of 324 (19s remaining)
+119s dlstatus:215:74.4002:Retrieving file 215 of 324 (19s remaining)
+119s dlstatus:215:74.4343:Retrieving file 215 of 324 (19s remaining)
+119s dlstatus:216:74.9673:Retrieving file 216 of 324 (19s remaining)
+119s dlstatus:216:74.9836:Retrieving file 216 of 324 (19s remaining)
+119s dlstatus:217:75.0453:Retrieving file 217 of 324 (19s remaining)
+119s dlstatus:217:75.0475:Retrieving file 217 of 324 (19s remaining)
+119s dlstatus:218:75.1092:Retrieving file 218 of 324 (19s remaining)
+119s dlstatus:218:75.1189:Retrieving file 218 of 324 (19s remaining)
+119s dlstatus:219:75.2865:Retrieving file 219 of 324 (19s remaining)
+119s dlstatus:219:75.2958:Retrieving file 219 of 324 (19s remaining)
+119s dlstatus:220:75.4070:Retrieving file 220 of 324 (18s remaining)
+119s dlstatus:220:75.4244:Retrieving file 220 of 324 (18s remaining)
+119s dlstatus:221:75.6617:Retrieving file 221 of 324 (18s remaining)
+119s dlstatus:221:75.6674:Retrieving file 221 of 324 (18s remaining)
+119s dlstatus:222:75.7291:Retrieving file 222 of 324 (18s remaining)
+119s dlstatus:222:75.7484:Retrieving file 222 of 324 (18s remaining)
+119s dlstatus:223:76.1445:Retrieving file 223 of 324 (18s remaining)
+119s dlstatus:223:76.1461:Retrieving file 223 of 324 (18s remaining)
+119s dlstatus:224:76.2078:Retrieving file 224 of 324 (18s remaining)
+119s dlstatus:224:76.2153:Retrieving file 224 of 324 (18s remaining)
+119s dlstatus:225:76.2770:Retrieving file 225 of 324 (18s remaining)
+119s dlstatus:225:76.2805:Retrieving file 225 of 324 (18s remaining)
+119s dlstatus:226:76.3574:Retrieving file 226 of 324 (18s remaining)
+119s dlstatus:226:76.3766:Retrieving file 226 of 324 (18s remaining)
+119s dlstatus:227:76.4593:Retrieving file 227 of 324 (18s remaining)
+119s dlstatus:227:76.4593:Retrieving file 227 of 324 (18s remaining)
+119s dlstatus:227:76.4618:Retrieving file 227 of 324 (18s remaining)
+119s dlstatus:228:76.5235:Retrieving file 228 of 324 (18s remaining)
+119s dlstatus:228:76.5420:Retrieving file 228 of 324 (18s remaining)
+119s dlstatus:229:76.6608:Retrieving file 229 of 324 (18s remaining)
+119s dlstatus:229:76.6618:Retrieving file 229 of 324 (18s remaining)
+119s dlstatus:230:77.3397:Retrieving file 230 of 324 (17s remaining)
+119s dlstatus:230:77.3573:Retrieving file 230 of 324 (17s remaining)
+119s dlstatus:231:77.4755:Retrieving file 231 of 324 (17s remaining)
+119s dlstatus:231:77.4755:Retrieving file 231 of 324 (17s remaining)
+119s dlstatus:231:77.4771:Retrieving file 231 of 324 (17s remaining)
+119s dlstatus:232:77.5460:Retrieving file 232 of 324 (17s remaining)
+119s dlstatus:232:77.5574:Retrieving file 232 of 324 (17s remaining)
+119s dlstatus:233:77.7388:Retrieving file 233 of 324 (17s remaining)
+119s dlstatus:233:77.7541:Retrieving file 233 of 324 (17s remaining)
+119s dlstatus:234:77.8167:Retrieving file 234 of 324 (17s remaining)
+119s dlstatus:234:77.8167:Retrieving file 234 of 324 (17s remaining)
+119s dlstatus:234:77.8239:Retrieving file 234 of 324 (17s remaining)
+119s dlstatus:235:77.9228:Retrieving file 235 of 324 (17s remaining)
+119s dlstatus:235:77.9254:Retrieving file 235 of 324 (17s remaining)
+119s dlstatus:236:77.9872:Retrieving file 236 of 324 (17s remaining)
+119s dlstatus:236:77.9958:Retrieving file 236 of 324 (17s remaining)
+119s dlstatus:237:78.4933:Retrieving file 237 of 324 (16s remaining)
+119s dlstatus:237:78.5100:Retrieving file 237 of 324 (16s remaining)
+119s dlstatus:238:78.6092:Retrieving file 238 of 324 (16s remaining)
+119s dlstatus:238:78.6092:Retrieving file 238 of 324 (16s remaining)
+119s dlstatus:238:78.6100:Retrieving file 238 of 324 (16s remaining)
+119s dlstatus:239:78.6999:Retrieving file 239 of 324 (16s remaining)
+119s dlstatus:239:78.7100:Retrieving file 239 of 324 (16s remaining)
+119s dlstatus:240:78.9080:Retrieving file 240 of 324 (16s remaining)
+119s dlstatus:240:78.9254:Retrieving file 240 of 324 (16s remaining)
+119s dlstatus:241:79.1879:Retrieving file 241 of 324 (16s remaining)
+119s dlstatus:241:79.2177:Retrieving file 241 of 324 (16s remaining)
+119s dlstatus:242:79.8097:Retrieving file 242 of 324 (16s remaining)
+119s dlstatus:242:79.8176:Retrieving file 242 of 324 (16s remaining)
+119s dlstatus:243:80.4008:Retrieving file 243 of 324 (15s remaining)
+119s dlstatus:243:80.4176:Retrieving file 243 of 324 (15s remaining)
+119s dlstatus:244:80.7566:Retrieving file 244 of 324 (15s remaining)
+119s dlstatus:244:80.7868:Retrieving file 244 of 324 (15s remaining)
+119s dlstatus:245:80.8697:Retrieving file 245 of 324 (15s remaining)
+119s dlstatus:245:80.8865:Retrieving file 245 of 324 (15s remaining)
+119s dlstatus:246:80.9492:Retrieving file 246 of 324 (15s remaining)
+119s dlstatus:246:80.9492:Retrieving file 246 of 324 (15s remaining)
+119s dlstatus:246:80.9564:Retrieving file 246 of 324 (15s remaining)
+119s dlstatus:247:81.0279:Retrieving file 247 of 324 (15s remaining)
+119s dlstatus:247:81.0338:Retrieving file 247 of 324 (15s remaining)
+119s dlstatus:248:81.0955:Retrieving file 248 of 324 (15s remaining)
+119s dlstatus:248:81.1123:Retrieving file 248 of 324 (15s remaining)
+119s dlstatus:249:81.1857:Retrieving file 249 of 324 (15s remaining)
+119s dlstatus:249:81.2049:Retrieving file 249 of 324 (15s remaining)
+119s dlstatus:250:81.2709:Retrieving file 250 of 324 (15s remaining)
+119s dlstatus:250:81.2802:Retrieving file 250 of 324 (15s remaining)
+119s dlstatus:251:81.3419:Retrieving file 251 of 324 (15s remaining)
+119s dlstatus:251:81.3587:Retrieving file 251 of 324 (15s remaining)
+119s dlstatus:252:81.4234:Retrieving file 252 of 324 (15s remaining)
+119s dlstatus:252:81.4419:Retrieving file 252 of 324 (15s remaining)
+119s dlstatus:253:81.6871:Retrieving file 253 of 324 (14s remaining)
+119s dlstatus:253:81.6926:Retrieving file 253 of 324 (14s remaining)
+119s dlstatus:254:81.7543:Retrieving file 254 of 324 (14s remaining)
+119s dlstatus:254:81.7543:Retrieving file 254 of 324 (14s remaining)
+119s dlstatus:254:81.7573:Retrieving file 254 of 324 (14s remaining)
+119s dlstatus:255:82.0943:Retrieving file 255 of 324 (14s remaining)
+119s dlstatus:255:82.1082:Retrieving file 255 of 324 (14s remaining)
+119s dlstatus:256:82.1700:Retrieving file 256 of 324 (14s remaining)
+119s dlstatus:256:82.1868:Retrieving file 256 of 324 (14s remaining)
+119s dlstatus:257:82.2624:Retrieving file 257 of 324 (14s remaining)
+119s dlstatus:257:82.2792:Retrieving file 257 of 324 (14s remaining)
+119s dlstatus:258:82.5087:Retrieving file 258 of 324 (14s remaining)
+119s dlstatus:258:82.5160:Retrieving file 258 of 324 (14s remaining)
+119s dlstatus:258:83.2341:Retrieving file 258 of 324 (13s remaining)
+119s dlstatus:259:83.3051:Retrieving file 259 of 324 (13s remaining)
+119s dlstatus:259:83.3083:Retrieving file 259 of 324 (13s remaining)
+119s dlstatus:260:83.3733:Retrieving file 260 of 324 (13s remaining)
+119s dlstatus:260:83.3733:Retrieving file 260 of 324 (13s remaining)
+119s dlstatus:260:83.3781:Retrieving file 260 of 324 (13s remaining)
+119s dlstatus:261:83.4480:Retrieving file 261 of 324 (13s remaining)
+119s dlstatus:261:83.4572:Retrieving file 261 of 324 (13s remaining)
+119s dlstatus:262:83.5524:Retrieving file 262 of 324 (13s remaining)
+119s dlstatus:262:83.5572:Retrieving file 262 of 324 (13s remaining)
+119s dlstatus:263:83.6260:Retrieving file 263 of 324 (13s remaining)
+119s dlstatus:263:83.6428:Retrieving file 263 of 324 (13s remaining)
+119s dlstatus:264:84.0394:Retrieving file 264 of 324 (13s remaining)
+119s dlstatus:264:84.0426:Retrieving file 264 of 324 (13s remaining)
+119s dlstatus:265:84.1043:Retrieving file 265 of 324 (13s remaining)
+119s dlstatus:265:84.1212:Retrieving file 265 of 324 (13s remaining)
+119s dlstatus:266:84.2103:Retrieving file 266 of 324 (12s remaining)
+119s dlstatus:266:84.2103:Retrieving file 266 of 324 (12s remaining)
+119s dlstatus:266:84.2199:Retrieving file 266 of 324 (12s remaining)
+119s dlstatus:267:84.6494:Retrieving file 267 of 324 (12s remaining)
+119s dlstatus:267:84.6638:Retrieving file 267 of 324 (12s remaining)
+119s dlstatus:268:85.0249:Retrieving file 268 of 324 (12s remaining)
+119s dlstatus:268:85.0418:Retrieving file 268 of 324 (12s remaining)
+119s dlstatus:269:85.1143:Retrieving file 269 of 324 (12s remaining)
+119s dlstatus:269:85.1143:Retrieving file 269 of 324 (12s remaining)
+119s dlstatus:269:85.1225:Retrieving file 269 of 324 (12s remaining)
+119s dlstatus:270:85.1843:Retrieving file 270 of 324 (12s remaining)
+119s dlstatus:270:85.2033:Retrieving file 270 of 324 (12s remaining)
+119s dlstatus:271:85.3040:Retrieving file 271 of 324 (12s remaining)
+119s dlstatus:271:85.3040:Retrieving file 271 of 324 (12s remaining)
+119s dlstatus:271:85.3112:Retrieving file 271 of 324 (12s remaining)
+119s dlstatus:272:85.3761:Retrieving file 272 of 324 (12s remaining)
+119s dlstatus:272:85.3823:Retrieving file 272 of 324 (12s remaining)
+119s dlstatus:273:85.4440:Retrieving file 273 of 324 (12s remaining)
+119s dlstatus:273:85.4440:Retrieving file 273 of 324 (12s remaining)
+119s dlstatus:273:85.4512:Retrieving file 273 of 324 (12s remaining)
+119s dlstatus:274:85.5159:Retrieving file 274 of 324 (12s remaining)
+119s dlstatus:274:85.5264:Retrieving file 274 of 324 (12s remaining)
+119s dlstatus:275:85.6064:Retrieving file 275 of 324 (12s remaining)
+119s dlstatus:275:85.6064:Retrieving file 275 of 324 (12s remaining)
+119s dlstatus:275:85.6136:Retrieving file 275 of 324 (12s remaining)
+119s dlstatus:276:85.6786:Retrieving file 276 of 324 (12s remaining)
+119s dlstatus:276:85.6880:Retrieving file 276 of 324 (12s remaining)
+119s dlstatus:277:85.7822:Retrieving file 277 of 324 (12s remaining)
+119s dlstatus:277:85.7880:Retrieving file 277 of 324 (12s remaining)
+119s dlstatus:278:85.8504:Retrieving file 278 of 324 (12s remaining)
+119s dlstatus:278:85.8504:Retrieving file 278 of 324 (12s remaining)
+119s dlstatus:278:85.8528:Retrieving file 278 of 324 (12s remaining)
+119s dlstatus:279:85.9161:Retrieving file 279 of 324 (12s remaining)
+119s dlstatus:279:85.9161:Retrieving file 279 of 324 (12s remaining)
+119s dlstatus:279:85.9185:Retrieving file 279 of 324 (12s remaining)
+119s dlstatus:280:86.0057:Retrieving file 280 of 324 (11s remaining)
+119s dlstatus:280:86.0057:Retrieving file 280 of 324 (11s remaining)
+119s dlstatus:280:86.0081:Retrieving file 280 of 324 (11s remaining)
+119s dlstatus:281:86.1935:Retrieving file 281 of 324 (11s remaining)
+119s dlstatus:281:86.2138:Retrieving file 281 of 324 (11s remaining)
+119s dlstatus:282:86.3012:Retrieving file 282 of 324 (11s remaining)
+119s dlstatus:282:86.3012:Retrieving file 282 of 324 (11s remaining)
+119s dlstatus:282:86.3083:Retrieving file 282 of 324 (11s remaining)
+119s dlstatus:283:86.3700:Retrieving file 283 of 324 (11s remaining)
+119s dlstatus:283:86.3700:Retrieving file 283 of 324 (11s remaining)
+119s dlstatus:283:86.3700:Retrieving file 283 of 324 (11s remaining)
+119s dlstatus:284:86.7347:Retrieving file 284 of 324 (11s remaining)
+119s dlstatus:284:86.7572:Retrieving file 284 of 324 (11s remaining)
+119s dlstatus:285:86.8189:Retrieving file 285 of 324 (11s remaining)
+119s dlstatus:285:86.8189:Retrieving file 285 of 324 (11s remaining)
+119s dlstatus:285:86.8237:Retrieving file 285 of 324 (11s remaining)
+119s dlstatus:286:86.8893:Retrieving file 286 of 324 (11s remaining)
+119s dlstatus:286:86.9188:Retrieving file 286 of 324 (11s remaining)
+119s dlstatus:286:87.6110:Retrieving file 286 of 324 (10s remaining)
+119s dlstatus:286:88.3120:Retrieving file 286 of 324 (9s remaining)
+119s dlstatus:286:89.0339:Retrieving file 286 of 324 (9s remaining)
+119s dlstatus:286:89.7349:Retrieving file 286 of 324 (6s remaining)
+119s dlstatus:286:90.4568:Retrieving file 286 of 324 (5s remaining)
+119s dlstatus:286:91.1875:Retrieving file 286 of 324 (4s remaining)
+119s dlstatus:286:91.8798:Retrieving file 286 of 324 (4s remaining)
+119s dlstatus:286:92.5834:Retrieving file 286 of 324 (3s remaining)
+119s dlstatus:286:93.3027:Retrieving file 286 of 324 (3s remaining)
+119s dlstatus:286:94.0255:Retrieving file 286 of 324 (2s remaining)
+119s dlstatus:286:94.7256:Retrieving file 286 of 324 (2s remaining)
+119s dlstatus:287:95.1616:Retrieving file 287 of 324 (1s remaining)
+119s dlstatus:287:95.1717:Retrieving file 287 of 324 (1s remaining)
+119s dlstatus:288:95.3059:Retrieving file 288 of 324 (1s remaining)
+119s dlstatus:288:95.3102:Retrieving file 288 of 324 (1s remaining)
+119s dlstatus:289:95.3866:Retrieving file 289 of 324 (1s remaining)
+119s dlstatus:289:95.3866:Retrieving file 289 of 324 (1s remaining)
+119s dlstatus:289:95.3986:Retrieving file 289 of 324 (1s remaining)
+119s dlstatus:290:95.4707:Retrieving file 290 of 324 (1s remaining)
+119s dlstatus:290:95.5090:Retrieving file 290 of 324 (1s remaining)
+119s dlstatus:291:95.5933:Retrieving file 291 of 324 (1s remaining)
+119s dlstatus:291:95.5933:Retrieving file 291 of 324 (1s remaining)
+119s dlstatus:291:95.6053:Retrieving file 291 of 324 (1s remaining)
+119s dlstatus:292:95.6738:Retrieving file 292 of 324 (1s remaining)
+119s dlstatus:292:95.7090:Retrieving file 292 of 324 (1s remaining)
+119s dlstatus:293:95.8211:Retrieving file 293 of 324 (1s remaining)
+119s dlstatus:293:95.8259:Retrieving file 293 of 324 (1s remaining)
+119s dlstatus:294:95.8877:Retrieving file 294 of 324 (1s remaining)
+119s dlstatus:294:95.8877:Retrieving file 294 of 324 (1s remaining)
+119s dlstatus:294:95.8900:Retrieving file 294 of 324 (1s remaining)
+119s dlstatus:295:95.9517:Retrieving file 295 of 324 (1s remaining)
+119s dlstatus:295:95.9586:Retrieving file 295 of 324 (1s remaining)
+119s dlstatus:296:96.0204:Retrieving file 296 of 324 (1s remaining)
+119s dlstatus:296:96.0204:Retrieving file 296 of 324 (1s remaining)
+119s dlstatus:296:96.0300:Retrieving file 296 of 324 (1s remaining)
+119s dlstatus:297:96.1026:Retrieving file 297 of 324 (1s remaining)
+119s dlstatus:297:96.1047:Retrieving file 297 of 324 (1s remaining)
+119s dlstatus:298:96.1665:Retrieving file 298 of 324 (1s remaining)
+119s dlstatus:298:96.1665:Retrieving file 298 of 324 (1s remaining)
+119s dlstatus:298:96.1684:Retrieving file 298 of 324 (1s remaining)
+119s dlstatus:299:96.2302:Retrieving file 299 of 324 (1s remaining)
+119s dlstatus:299:96.2302:Retrieving file 299 of 324 (1s remaining)
+119s dlstatus:299:96.2360:Retrieving file 299 of 324 (1s remaining)
+119s dlstatus:300:96.2977:Retrieving file 300 of 324 (1s remaining)
+119s dlstatus:300:96.2977:Retrieving file 300 of 324 (1s remaining)
+119s dlstatus:300:96.2977:Retrieving file 300 of 324 (1s remaining)
+119s dlstatus:301:96.4334:Retrieving file 301 of 324 (1s remaining)
+119s dlstatus:301:96.4334:Retrieving file 301 of 324 (1s remaining)
+119s dlstatus:301:96.4334:Retrieving file 301 of 324 (1s remaining)
+119s dlstatus:302:96.5225:Retrieving file 302 of 324 (1s remaining)
+119s dlstatus:302:96.5225:Retrieving file 302 of 324 (1s remaining)
+119s dlstatus:302:96.5273:Retrieving file 302 of 324 (1s remaining)
+119s dlstatus:303:96.5898:Retrieving file 303 of 324 (1s remaining)
+119s dlstatus:303:96.5898:Retrieving file 303 of 324 (1s remaining)
+119s dlstatus:303:96.5898:Retrieving file 303 of 324 (1s remaining)
+119s dlstatus:304:96.6835:Retrieving file 304 of 324 (1s remaining)
+119s dlstatus:304:96.6835:Retrieving file 304 of 324 (1s remaining)
+119s dlstatus:304:96.6883:Retrieving file 304 of 324 (1s remaining)
+119s dlstatus:305:96.7944:Retrieving file 305 of 324 (1s remaining)
+119s dlstatus:305:96.7944:Retrieving file 305 of 324 (1s remaining)
+119s dlstatus:305:96.7968:Retrieving file 305 of 324 (1s remaining)
+119s dlstatus:306:97.5094:Retrieving file 306 of 324 (1s remaining)
+119s dlstatus:306:97.5124:Retrieving file 306 of 324 (1s remaining)
+119s dlstatus:307:97.5742:Retrieving file 307 of 324 (1s remaining)
+119s dlstatus:307:97.5742:Retrieving file 307 of 324 (1s remaining)
+119s dlstatus:307:97.5814:Retrieving file 307 of 324
+119s dlstatus:308:97.6490:Retrieving file 308 of 324
+119s dlstatus:308:97.6490:Retrieving file 308 of 324
+119s dlstatus:308:97.6514:Retrieving file 308 of 324
+119s dlstatus:309:97.7541:Retrieving file 309 of 324
+119s dlstatus:309:97.7541:Retrieving file 309 of 324
+119s dlstatus:309:97.7564:Retrieving file 309 of 324
+119s dlstatus:310:97.8317:Retrieving file 310 of 324
+119s dlstatus:310:97.8317:Retrieving file 310 of 324
+119s dlstatus:310:97.8341:Retrieving file 310 of 324
+119s dlstatus:311:97.8974:Retrieving file 311 of 324
+119s dlstatus:311:97.8974:Retrieving file 311 of 324
+119s dlstatus:311:97.9069:Retrieving file 311 of 324
+119s dlstatus:312:97.9779:Retrieving file 312 of 324
+119s dlstatus:312:97.9779:Retrieving file 312 of 324
+119s dlstatus:312:97.9795:Retrieving file 312 of 324
+119s dlstatus:313:98.0883:Retrieving file 313 of 324
+119s dlstatus:313:98.0883:Retrieving file 313 of 324
+119s dlstatus:313:98.0979:Retrieving file 313 of 324
+119s dlstatus:313:98.2900:Retrieving file 313 of 324
+119s dlstatus:314:98.3893:Retrieving file 314 of 324
+119s dlstatus:314:98.3893:Retrieving file 314 of 324
+119s dlstatus:314:98.3893:Retrieving file 314 of 324
+119s dlstatus:315:98.5186:Retrieving file 315 of 324
+119s dlstatus:315:98.5186:Retrieving file 315 of 324
+119s dlstatus:315:98.5214:Retrieving file 315 of 324
+119s dlstatus:316:98.5831:Retrieving file 316 of 324
+119s dlstatus:316:98.5831:Retrieving file 316 of 324
+119s dlstatus:316:98.5858:Retrieving file 316 of 324
+119s dlstatus:317:98.6475:Retrieving file 317 of 324
+119s dlstatus:317:98.6475:Retrieving file 317 of 324
+119s dlstatus:317:98.6509:Retrieving file 317 of 324
+119s dlstatus:318:98.7126:Retrieving file 318 of 324
+119s dlstatus:318:98.7126:Retrieving file 318 of 324
+119s dlstatus:318:98.7158:Retrieving file 318 of 324
+119s dlstatus:319:98.7775:Retrieving file 319 of 324
+119s dlstatus:319:98.7775:Retrieving file 319 of 324
+119s dlstatus:319:98.7804:Retrieving file 319 of 324
+119s dlstatus:320:98.8421:Retrieving file 320 of 324
+119s dlstatus:320:98.8421:Retrieving file 320 of 324
+119s dlstatus:320:98.8516:Retrieving file 320 of 324
+119s dlstatus:321:98.9192:Retrieving file 321 of 324
+119s dlstatus:321:98.9192:Retrieving file 321 of 324
+119s dlstatus:321:98.9240:Retrieving file 321 of 324
+119s dlstatus:322:98.9966:Retrieving file 322 of 324
+119s dlstatus:322:98.9966:Retrieving file 322 of 324
+119s dlstatus:322:99.0062:Retrieving file 322 of 324
+119s dlstatus:323:99.0681:Retrieving file 323 of 324
+119s dlstatus:323:99.0681:Retrieving file 323 of 324
+119s dlstatus:323:99.0705:Retrieving file 323 of 324
+119s dlstatus:324:99.5608:Retrieving file 324 of 324
+119s dlstatus:324:99.5642:Retrieving file 324 of 324
+119s dlstatus:324:100.0000:Retrieving file 324 of 324
+119s pmstatus:dpkg-exec:0.0000:Running dpkg
+119s pmstatus:libgcrypt20:0.0000:Preparing libgcrypt20 (riscv64)
+119s pmstatus:libgcrypt20:0.0750:Unpacking libgcrypt20 (riscv64)
+119s pmstatus:libgcrypt20:0.1500:Installing libgcrypt20 (riscv64)
+119s pmstatus:dpkg-exec:0.1500:Running dpkg
+119s pmstatus:libgcrypt20:0.1500:Preparing to configure libgcrypt20 (riscv64)
+119s pmstatus:libgcrypt20:0.2251:Configuring libgcrypt20 (riscv64)
+119s pmstatus:libgcrypt20:0.3001:Installed libgcrypt20 (riscv64)
+119s pmstatus:dpkg-exec:0.3001:Running dpkg
+119s pmstatus:libzstd1:0.3001:Preparing libzstd1 (riscv64)
+119s pmstatus:libzstd1:0.3751:Unpacking libzstd1 (riscv64)
+119s pmstatus:libzstd1:0.4501:Installing libzstd1 (riscv64)
+119s pmstatus:dpkg-exec:0.4501:Running dpkg
+119s pmstatus:libzstd1:0.4501:Preparing to configure libzstd1 (riscv64)
+119s pmstatus:libzstd1:0.5251:Configuring libzstd1 (riscv64)
+119s pmstatus:libzstd1:0.6002:Installed libzstd1 (riscv64)
+119s pmstatus:dpkg-exec:0.6002:Running dpkg
+119s pmstatus:libpython3.12-minimal:0.6002:Preparing libpython3.12-minimal (riscv64)
+119s pmstatus:libpython3.12-minimal:0.6752:Unpacking libpython3.12-minimal (riscv64)
+119s pmstatus:libpython3.12-minimal:0.7502:Installing libpython3.12-minimal (riscv64)
+119s pmstatus:python3.12-minimal:0.7502:Preparing python3.12-minimal (riscv64)
+119s pmstatus:python3.12-minimal:0.8252:Unpacking python3.12-minimal (riscv64)
+119s pmstatus:python3.12-minimal:0.9002:Installing python3.12-minimal (riscv64)
+119s pmstatus:dpkg-exec:0.9002:Running dpkg
+119s pmstatus:libpython3.12-minimal:0.9002:Preparing to configure libpython3.12-minimal (riscv64)
+119s pmstatus:libpython3.12-minimal:0.9752:Configuring libpython3.12-minimal (riscv64)
+119s pmstatus:libpython3.12-minimal:1.0503:Installed libpython3.12-minimal (riscv64)
+119s pmstatus:python3.12-minimal:1.0503:Preparing to configure python3.12-minimal (riscv64)
+119s pmstatus:python3.12-minimal:1.1253:Configuring python3.12-minimal (riscv64)
+119s pmstatus:python3.12-minimal:1.2003:Installed python3.12-minimal (riscv64)
+119s pmstatus:dpkg-exec:1.2003:Running dpkg
+119s pmstatus:python3-minimal:1.2003:Preparing python3-minimal (riscv64)
+119s pmstatus:python3-minimal:1.2753:Unpacking python3-minimal (riscv64)
+119s pmstatus:python3-minimal:1.3503:Installing python3-minimal (riscv64)
+119s pmstatus:libtirpc-common:1.3503:Preparing libtirpc-common (riscv64)
+119s pmstatus:libtirpc-common:1.4254:Unpacking libtirpc-common (riscv64)
+119s pmstatus:libtirpc-common:1.5004:Installing libtirpc-common (riscv64)
+119s pmstatus:libnettle8t64:1.5004:Preparing libnettle8t64 (riscv64)
+119s pmstatus:libnettle8t64:1.5754:Unpacking libnettle8t64 (riscv64)
+119s pmstatus:libnettle8t64:1.6504:Installing libnettle8t64 (riscv64)
+119s pmstatus:dpkg-exec:1.6504:Running dpkg
+119s pmstatus:libnettle8t64:1.6504:Preparing to configure libnettle8t64 (riscv64)
+119s pmstatus:libnettle8t64:1.7254:Configuring libnettle8t64 (riscv64)
+119s pmstatus:libnettle8t64:1.8005:Installed libnettle8t64 (riscv64)
+119s pmstatus:dpkg-exec:1.8005:Running dpkg
+119s pmstatus:libhogweed6t64:1.8005:Preparing libhogweed6t64 (riscv64)
+119s pmstatus:libhogweed6t64:1.8755:Unpacking libhogweed6t64 (riscv64)
+119s pmstatus:libhogweed6t64:1.9505:Installing libhogweed6t64 (riscv64)
+119s pmstatus:dpkg-exec:1.9505:Running dpkg
+119s pmstatus:libhogweed6t64:1.9505:Preparing to configure libhogweed6t64 (riscv64)
+119s pmstatus:libhogweed6t64:2.0255:Configuring libhogweed6t64 (riscv64)
+119s pmstatus:libhogweed6t64:2.1005:Installed libhogweed6t64 (riscv64)
+119s pmstatus:dpkg-exec:2.1005:Running dpkg
+119s pmstatus:libunistring5:2.1005:Preparing libunistring5 (riscv64)
+119s pmstatus:libunistring5:2.1755:Unpacking libunistring5 (riscv64)
+119s pmstatus:libunistring5:2.2506:Installing libunistring5 (riscv64)
+119s pmstatus:dpkg-exec:2.2506:Running dpkg
+119s pmstatus:libunistring5:2.2506:Preparing to configure libunistring5 (riscv64)
+119s pmstatus:libunistring5:2.3256:Configuring libunistring5 (riscv64)
+119s pmstatus:libunistring5:2.4006:Installed libunistring5 (riscv64)
+119s pmstatus:dpkg-exec:2.4006:Running dpkg
+119s pmstatus:libpython3.12t64:2.4006:Preparing libpython3.12t64 (riscv64)
+119s pmstatus:libpython3.12t64:2.4756:Unpacking libpython3.12t64 (riscv64)
+119s pmstatus:libpython3.12t64:2.5506:Installing libpython3.12t64 (riscv64)
+119s pmstatus:python3-ldb:2.5506:Preparing python3-ldb (riscv64)
+119s pmstatus:python3-ldb:2.6257:Unpacking python3-ldb (riscv64)
+119s pmstatus:python3-ldb:2.7007:Installing python3-ldb (riscv64)
+119s pmstatus:libldb2:2.7007:Preparing libldb2 (riscv64)
+119s pmstatus:libldb2:2.7757:Unpacking libldb2 (riscv64)
+119s pmstatus:libldb2:2.8507:Installing libldb2 (riscv64)
+119s pmstatus:samba-dsdb-modules:2.8507:Preparing samba-dsdb-modules (riscv64)
+119s pmstatus:samba-dsdb-modules:2.9257:Unpacking samba-dsdb-modules (riscv64)
+119s pmstatus:samba-dsdb-modules:3.0008:Installing samba-dsdb-modules (riscv64)
+119s pmstatus:python3-samba:3.0008:Preparing python3-samba (riscv64)
+119s pmstatus:python3-samba:3.0758:Unpacking python3-samba (riscv64)
+119s pmstatus:python3-samba:3.1508:Installing python3-samba (riscv64)
+119s pmstatus:samba-ad-provision:3.1508:Preparing samba-ad-provision (riscv64)
+119s pmstatus:samba-ad-provision:3.2258:Unpacking samba-ad-provision (riscv64)
+119s pmstatus:samba-ad-provision:3.3008:Installing samba-ad-provision (riscv64)
+119s pmstatus:samba:3.3008:Preparing samba (riscv64)
+119s pmstatus:samba:3.3758:Unpacking samba (riscv64)
+119s pmstatus:samba:3.4509:Installing samba (riscv64)
+119s pmstatus:samba-common:3.4509:Preparing samba-common (riscv64)
+119s pmstatus:samba-common:3.5259:Unpacking samba-common (riscv64)
+119s pmstatus:samba-common:3.6009:Installing samba-common (riscv64)
+119s pmstatus:samba-common-bin:3.6009:Preparing samba-common-bin (riscv64)
+119s pmstatus:samba-common-bin:3.6759:Unpacking samba-common-bin (riscv64)
+119s pmstatus:samba-common-bin:3.7509:Installing samba-common-bin (riscv64)
+119s pmstatus:cups-ipp-utils:3.7509:Preparing cups-ipp-utils (riscv64)
+119s pmstatus:cups-ipp-utils:3.8260:Unpacking cups-ipp-utils (riscv64)
+119s pmstatus:cups-ipp-utils:3.9010:Installing cups-ipp-utils (riscv64)
+119s pmstatus:libjson-glib-1.0-common:3.9010:Preparing libjson-glib-1.0-common (riscv64)
+119s pmstatus:libjson-glib-1.0-common:3.9760:Unpacking libjson-glib-1.0-common (riscv64)
+119s pmstatus:libjson-glib-1.0-common:4.0510:Installing libjson-glib-1.0-common (riscv64)
+119s pmstatus:libjson-glib-1.0-0:4.0510:Preparing libjson-glib-1.0-0 (riscv64)
+119s pmstatus:libjson-glib-1.0-0:4.1260:Unpacking libjson-glib-1.0-0 (riscv64)
+119s pmstatus:libjson-glib-1.0-0:4.2011:Installing libjson-glib-1.0-0 (riscv64)
+119s pmstatus:libgudev-1.0-0:4.2011:Preparing libgudev-1.0-0 (riscv64)
+119s pmstatus:libgudev-1.0-0:4.2761:Unpacking libgudev-1.0-0 (riscv64)
+119s pmstatus:libgudev-1.0-0:4.3511:Installing libgudev-1.0-0 (riscv64)
+119s pmstatus:libgdk-pixbuf-xlib-2.0-0:4.3511:Preparing libgdk-pixbuf-xlib-2.0-0 (riscv64)
+119s pmstatus:libgdk-pixbuf-xlib-2.0-0:4.4261:Unpacking libgdk-pixbuf-xlib-2.0-0 (riscv64)
+119s pmerror:/tmp/apt-dpkg-install-Aupgn1/13-libgdk-pixbuf-xlib-2.0-0_2.40.2-ok1_riscv64.deb:4.4261:trying to overwrite '/usr/lib/riscv64-linux-gnu/libgdk_pixbuf_xlib-2.0.so.0', which is also in package libgdk-pixbuf2.0-0:riscv64 2.40.0+dfsg-ok1
+119s pmstatus:libgdk-pixbuf2.0-0:4.4261:Preparing libgdk-pixbuf2.0-0 (riscv64)
+119s pmstatus:libgdk-pixbuf2.0-0:4.5011:Unpacking libgdk-pixbuf2.0-0 (riscv64)
+119s pmstatus:libgdk-pixbuf2.0-0:4.5761:Installing libgdk-pixbuf2.0-0 (riscv64)
+119s pmstatus:libgdk-pixbuf2.0-common:4.5761:Preparing libgdk-pixbuf2.0-common (riscv64)
+119s pmstatus:libgdk-pixbuf2.0-common:4.6512:Unpacking libgdk-pixbuf2.0-common (riscv64)
+119s pmstatus:libgdk-pixbuf2.0-common:4.7262:Installing libgdk-pixbuf2.0-common (riscv64)
+119s pmstatus:libfreetype6:4.7262:Preparing libfreetype6 (riscv64)
+119s pmstatus:libfreetype6:4.8012:Unpacking libfreetype6 (riscv64)
+119s pmstatus:libfreetype6:4.8762:Installing libfreetype6 (riscv64)
+119s pmstatus:libcairo2:4.8762:Preparing libcairo2 (riscv64)
+119s pmstatus:libcairo2:4.9512:Unpacking libcairo2 (riscv64)
+119s pmstatus:libcairo2:5.0263:Installing libcairo2 (riscv64)
+119s 
+119s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+119s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential dbus libclutter-1.0-dev xauth xvfb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+120s Reading package lists...
+120s Building dependency tree...
+120s Reading state information...
+120s build-essential is already the newest version (12.8-ok1).
+120s You might want to run 'apt --fix-broken install' to correct these.
+120s The following packages have unmet dependencies:
+120s  cups-ipp-utils : Depends: libcups2t64 (= 2.4.7-ok1) but it is not going to be installed
+120s  dbus : Depends: dbus-bin (= 1.14.10-ok3) but 1.14.6-ok1 is to be installed
+120s         Depends: dbus-daemon (= 1.14.10-ok3) but 1.14.6-ok1 is to be installed
+120s         Depends: dbus-system-bus-common (>= 1.14.10-ok3) but 1.14.6-ok1 is to be installed
+120s         Depends: libdbus-1-3 (= 1.14.10-ok3) but 1.14.6-ok1 is to be installed
+120s  libcairo2 : Depends: libpng16-16t64 (>= 1.6.2) but it is not going to be installed
+120s  libclutter-1.0-dev : Depends: gir1.2-clutter-1.0 (= 1.26.4+git2779b932+dfsg-ok1) but it is not going to be installed
+120s                       Depends: libatk1.0-dev (>= 2.5.3) but it is not going to be installed
+120s                       Depends: libcairo2-dev (>= 1.10) but it is not going to be installed
+120s                       Depends: libclutter-1.0-0 (= 1.26.4+git2779b932+dfsg-ok1) but it is not going to be installed
+120s                       Depends: libcogl-dev (>= 1.17.3) but it is not going to be installed
+120s                       Depends: libcogl-pango-dev (>= 1.17.3) but it is not going to be installed
+120s                       Depends: libcogl-path-dev (>= 1.17.3) but it is not going to be installed
+120s                       Depends: libdrm-dev but it is not going to be installed
+120s                       Depends: libgdk-pixbuf-2.0-dev but it is not going to be installed
+120s                       Depends: libgl-dev but it is not going to be installed
+120s                       Depends: libgtk-3-dev but it is not going to be installed
+120s                       Depends: libinput-dev (>= 0.4.0) but it is not going to be installed
+120s                       Depends: libjson-glib-dev (>= 0.12) but it is not going to be installed
+120s                       Depends: libpango1.0-dev (>= 1.30) but it is not going to be installed
+120s                       Depends: libudev-dev (>= 136) but it is not going to be installed
+120s                       Depends: libwayland-dev but it is not going to be installed
+120s                       Depends: libx11-dev but it is not going to be installed
+120s                       Depends: libxcomposite-dev but it is not going to be installed
+120s                       Depends: libxdamage-dev but it is not going to be installed
+120s                       Depends: libxext-dev but it is not going to be installed
+120s                       Depends: libxfixes-dev but it is not going to be installed
+120s                       Depends: libxi-dev but it is not going to be installed
+120s                       Depends: libxkbcommon-dev but it is not going to be installed
+120s  libgdk-pixbuf2.0-0 : Depends: libgdk-pixbuf-2.0-0 (>= 2.40.0) but it is not going to be installed
+120s                       Depends: libgdk-pixbuf-xlib-2.0-0 (>= 2.40.2-ok1) but it is not going to be installed
+120s  libgudev-1.0-0 : Depends: libglib2.0-0t64 (>= 2.79.0) but it is not going to be installed
+120s  libjson-glib-1.0-0 : Depends: libglib2.0-0t64 (>= 2.79.0) but it is not going to be installed
+120s  libpython3.12t64 : Depends: libpython3.12-stdlib (= 3.12.2-ok4) but it is not going to be installed
+120s  python3 : PreDepends: python3-minimal (= 3.8.2-ok2) but 3.12.2-ok1 is to be installed
+120s  python3-ldb : Depends: python3 (>= 3.12~) but 3.8.2-ok2 is to be installed
+120s  python3-samba : Depends: samba-libs (= 2:4.19.2+dfsg-ok1~1207.6) but 2:4.19.2+dfsg-ok1~1207.5 is to be installed
+120s                  Depends: python3 (>= 3.12~) but 3.8.2-ok2 is to be installed
+120s                  Depends: libgnutls30t64 (>= 3.7.0) but it is not going to be installed
+120s  samba : Depends: libgnutls30t64 (>= 3.7.0) but it is not going to be installed
+120s          Depends: samba-libs (= 2:4.19.2+dfsg-ok1~1207.6) but 2:4.19.2+dfsg-ok1~1207.5 is to be installed
+120s  samba-common-bin : Depends: samba-libs (= 2:4.19.2+dfsg-ok1~1207.6) but 2:4.19.2+dfsg-ok1~1207.5 is to be installed
+120s                     Depends: libgnutls30t64 (>= 3.7.0) but it is not going to be installed
+120s  samba-dsdb-modules : Depends: samba-libs (= 2:4.19.2+dfsg-ok1~1207.6) but 2:4.19.2+dfsg-ok1~1207.5 is to be installed
+120s                       Depends: libgnutls30t64 (>= 3.8.2) but it is not going to be installed
+120s  samba-libs : Depends: libldb2 (= 2:2.8.0+samba4.19.2+dfsg-ok1~1207.5) but 2:2.8.0+samba4.19.2+dfsg-ok1~1207.6 is to be installed
+120s  xvfb : Depends: xserver-common (>= 2:21.1.10-ok2) but 2:21.1.7-ok4 is to be installed
+120s E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).
+120s autopkgtest: DBG: testbed command exited with code 100
+120s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s build                FAIL badpkg
+120s blame: clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc
+120s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+120s autopkgtest [01:59:37]: test installed-tests: preparing testbed
+120s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'dbus', 'libclutter-1.0-dev', 'xauth', 'xvfb'], deps_new=['clutter-1.0-tests', 'dbus (>= 1.8)', 'gnome-desktop-testing', 'libgl1-mesa-dri', 'xauth', 'xvfb']
+120s autopkgtest: DBG: testbed reset
+120s autopkgtest: DBG: sending command to testbed: revert
+121s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+122s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.XheWNm
+122s autopkgtest: DBG: sending command to testbed: print-execute-command
+122s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297,--user%3Droot,--
+122s autopkgtest: DBG: sending command to testbed: capabilities
+122s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297//tmp/autopkgtest.XheWNm
+122s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297//tmp/autopkgtest.XheWNm', 'has_internet']
+122s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.XheWNm'], kind short, sout raw, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.XheWNm/wrapper.sh
+123s autopkgtest: DBG: got reply from testbed: ok
+123s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.XheWNm/wrapper.sh'], kind short, sout raw, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest [01:59:40]: testbed dpkg architecture: riscv64
+123s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest [01:59:40]: testbed apt version: 2.7.3-ok3
+123s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 127
+123s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.XheWNm/testbed-packages"], kind short, sout raw, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.XheWNm/testbed-packages /home/hachi/openkylin_test/sharefolder/results/clutter-1.0/testbed-packages
+123s autopkgtest: DBG: got reply from testbed: ok
+123s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+124s autopkgtest: DBG: install_deps: deps_new=['clutter-1.0-tests', 'dbus (>= 1.8)', 'gnome-desktop-testing', 'libgl1-mesa-dri', 'xauth', 'xvfb']
+124s autopkgtest: DBG: install-deps: satisfying clutter-1.0-tests, dbus (>= 1.8), gnome-desktop-testing, libgl1-mesa-dri, xauth, xvfb
+124s autopkgtest: DBG: install-deps: architecture resolved: clutter-1.0-tests, dbus (>= 1.8), gnome-desktop-testing, libgl1-mesa-dri, xauth, xvfb
+124s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: can use apt-get on testbed: True
+124s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.XheWNm'], kind short, sout raw, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-cb087043-45b0-4fc7-bc61-f9efcc4d8297//tmp/autopkgtest.XheWNm/2-autopkgtest-satdep.deb /tmp/autopkgtest.XheWNm/2-autopkgtest-satdep.deb
+124s autopkgtest: DBG: got reply from testbed: ok
+124s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.XheWNm/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+124s Reading package lists...
+125s Building dependency tree...
+125s Reading state information...
+125s Starting pkgProblemResolver with broken count: 1
+125s Starting 2 pkgProblemResolver with broken count: 1
+125s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+125s Broken autopkgtest-satdep:riscv64 Depends on clutter-1.0-tests:riscv64 < none | 1.26.4+git2779b932+dfsg-ok1 @un uH >
+125s   Considering clutter-1.0-tests:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+125s   Re-Instated libgdk-pixbuf2.0-common:riscv64
+125s   Re-Instated libglib2.0-0t64:riscv64
+125s   Re-Instated libpng16-16t64:riscv64
+125s   Re-Instated libdeflate0:riscv64
+125s   Re-Instated liblerc4:riscv64
+125s   Re-Instated libsharpyuv0:riscv64
+125s   Re-Instated libwebp7:riscv64
+125s   Re-Instated libzstd1:riscv64
+125s   Re-Instated libtiff6:riscv64
+125s   Re-Instated libgdk-pixbuf-2.0-0:riscv64
+125s   Re-Instated libcogl20:riscv64
+125s   Re-Instated libcogl-pango20:riscv64
+125s   Re-Instated libcogl-path20:riscv64
+125s   Re-Instated libclutter-1.0-0:riscv64
+125s   Re-Instated clutter-1.0-tests:riscv64
+125s Broken autopkgtest-satdep:riscv64 Depends on gnome-desktop-testing:riscv64 < none @un H >
+125s Broken autopkgtest-satdep:riscv64 Depends on xvfb:riscv64 < none | 2:21.1.10-ok2 @un uH >
+125s   Considering xvfb:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+125s   Re-Instated xserver-common:riscv64
+125s   Re-Instated libgcrypt20:riscv64
+125s   Re-Instated xvfb:riscv64
+125s Investigating (0) libgdk-pixbuf2.0-0:riscv64 < 2.40.0+dfsg-ok1 | 2.40.2-ok1 @ii uH Ib >
+125s Broken libgdk-pixbuf2.0-0:riscv64 Depends on libgdk-pixbuf2.0-common:riscv64 < 2.40.0+dfsg-ok1 -> 2.42.10+dfsg-ok4 @ii uU > (= 2.40.0+dfsg-ok1)
+125s   Considering libgdk-pixbuf2.0-common:riscv64 36 as a solution to libgdk-pixbuf2.0-0:riscv64 143
+125s   Added libgdk-pixbuf2.0-common:riscv64 to the remove list
+125s   Fixing libgdk-pixbuf2.0-0:riscv64 via keep of libgdk-pixbuf2.0-common:riscv64
+125s Investigating (0) libpng16-16t64:riscv64 < none -> 1.6.43-ok1 @un uN Ib >
+125s Broken libpng16-16t64:riscv64 Breaks on libpng16-16:riscv64 < 1.6.38-2 @ii K > (< 1.6.43-ok1)
+125s   Considering libpng16-16:riscv64 330 as a solution to libpng16-16t64:riscv64 0
+125s   Holding Back libpng16-16t64:riscv64 rather than change libpng16-16:riscv64
+125s Investigating (0) libglib2.0-0t64:riscv64 < none -> 2.80.0-ok1~0615.2 @un uN Ib >
+125s Broken libglib2.0-0t64:riscv64 Breaks on libglib2.0-0:riscv64 < 2.78.0-ok1~0229.1 @ii K > (< 2.80.0~)
+125s   Considering libglib2.0-0:riscv64 1516 as a solution to libglib2.0-0t64:riscv64 0
+126s   Holding Back libglib2.0-0t64:riscv64 rather than change libglib2.0-0:riscv64
+126s Investigating (0) libcogl-pango20:riscv64 < none -> 1.22.8-ok1 @un uN Ib >
+126s Broken libcogl-pango20:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.79.0)
+126s   Considering libglib2.0-0t64:riscv64 0 as a solution to libcogl-pango20:riscv64 0
+126s   Holding Back libcogl-pango20:riscv64 rather than change libglib2.0-0t64:riscv64
+126s Investigating (0) libcogl20:riscv64 < none -> 1.22.8-ok1 @un uN Ib >
+126s Broken libcogl20:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.77.0)
+126s   Considering libglib2.0-0t64:riscv64 0 as a solution to libcogl20:riscv64 0
+126s   Holding Back libcogl20:riscv64 rather than change libglib2.0-0t64:riscv64
+126s Investigating (0) libcogl-path20:riscv64 < none -> 1.22.8-ok1 @un uN Ib >
+126s Broken libcogl-path20:riscv64 Depends on libcogl20:riscv64 < none | 1.22.8-ok1 @un uH > (= 1.22.8-ok1)
+126s   Considering libcogl20:riscv64 0 as a solution to libcogl-path20:riscv64 0
+126s   Holding Back libcogl-path20:riscv64 rather than change libcogl20:riscv64
+126s Investigating (0) libgdk-pixbuf-2.0-0:riscv64 < none -> 2.42.10+dfsg-ok4 @un uN Ib >
+126s Broken libgdk-pixbuf-2.0-0:riscv64 Depends on libgdk-pixbuf2.0-common:riscv64 < 2.40.0+dfsg-ok1 | 2.42.10+dfsg-ok4 @ii uH > (>= 2.42.10+dfsg-ok4)
+126s   Considering libgdk-pixbuf2.0-common:riscv64 36 as a solution to libgdk-pixbuf-2.0-0:riscv64 0
+126s   Holding Back libgdk-pixbuf-2.0-0:riscv64 rather than change libgdk-pixbuf2.0-common:riscv64
+126s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+126s Broken autopkgtest-satdep:riscv64 Depends on gnome-desktop-testing:riscv64 < none @un H >
+126s Investigating (1) clutter-1.0-tests:riscv64 < none -> 1.26.4+git2779b932+dfsg-ok1 @un uN Ib >
+126s Broken clutter-1.0-tests:riscv64 Depends on libcogl20:riscv64 < none | 1.22.8-ok1 @un uH > (>= 1.21.2)
+126s   Considering libcogl20:riscv64 0 as a solution to clutter-1.0-tests:riscv64 1
+126s   Holding Back clutter-1.0-tests:riscv64 rather than change libcogl20:riscv64
+126s Investigating (1) libclutter-1.0-0:riscv64 < none -> 1.26.4+git2779b932+dfsg-ok1 @un uN Ib >
+126s Broken libclutter-1.0-0:riscv64 Depends on libcogl-pango20:riscv64 < none | 1.22.8-ok1 @un uH > (>= 1.17.4)
+126s   Considering libcogl-pango20:riscv64 0 as a solution to libclutter-1.0-0:riscv64 0
+126s   Holding Back libclutter-1.0-0:riscv64 rather than change libcogl-pango20:riscv64
+126s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+126s Broken autopkgtest-satdep:riscv64 Depends on clutter-1.0-tests:riscv64 < none | 1.26.4+git2779b932+dfsg-ok1 @un uH >
+126s   Considering clutter-1.0-tests:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+126s Broken autopkgtest-satdep:riscv64 Depends on gnome-desktop-testing:riscv64 < none @un H >
+126s Done
+126s Some packages could not be installed. This may mean that you have
+126s requested an impossible situation or if you are using the unstable
+126s distribution that some required packages have not yet been created
+126s or been moved out of Incoming.
+126s The following information may help to resolve the situation:
+126s 
+126s The following packages have unmet dependencies:
+126s  autopkgtest-satdep : Depends: clutter-1.0-tests but it is not going to be installed
+126s                       Depends: gnome-desktop-testing but it is not installable
+126s E: Unable to correct problems, you have held broken packages.
+126s autopkgtest: DBG: testbed command exited with code 100
+126s autopkgtest: DBG: apt-get install /tmp/autopkgtest.XheWNm/2-autopkgtest-satdep.deb failed; status-fd:
+126s 
+126s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+126s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate clutter-1.0-tests dbus (>= 1.8) gnome-desktop-testing libgl1-mesa-dri xauth xvfb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+126s autopkgtest: DBG: testbed command exited with code 2
+126s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+126s installed-tests      FAIL badpkg
+126s blame: clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc
+126s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+126s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+126s autopkgtest [01:59:43]: @@@@@@@@@@@@@@@@@@@@ summary
+126s build                FAIL badpkg
+126s blame: clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc
+126s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+126s installed-tests      FAIL badpkg
+126s blame: clutter-1.0_1.26.4+git2779b932+dfsg-ok1.dsc
+126s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+126s autopkgtest: DBG: testbed stop
+126s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.XheWNm
+126s autopkgtest: DBG: sending command to testbed: close
+126s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+127s autopkgtest: DBG: got reply from testbed: ok
+127s autopkgtest: DBG: sending command to testbed: quit

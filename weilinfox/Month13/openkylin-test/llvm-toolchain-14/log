@@ -1,0 +1,581 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [17:23:53]: starting date and time: 2024-07-18 17:23:53+0800
+  0s autopkgtest [17:23:53]: version @version@
+  0s autopkgtest [17:23:53]: host lili; command line: /usr/bin/autopkgtest llvm-toolchain-14_14.0.6-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-14 -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  2s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.FmhWAx
+  2s autopkgtest: DBG: sending command to testbed: print-execute-command
+  2s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50,--user%3Droot,--
+  2s autopkgtest: DBG: sending command to testbed: capabilities
+  2s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx
+  2s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx', 'has_internet']
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.FmhWAx/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.FmhWAx/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [17:23:55]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [17:23:55]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.FmhWAx/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FmhWAx/testbed-packages /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-14/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [17:23:56]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  3s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [17:23:56]: @@@@@@@@@@@@@@@@@@@@ source llvm-toolchain-14_14.0.6-ok1.dsc
+  3s autopkgtest: DBG: blame += llvm-toolchain-14_14.0.6-ok1.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown llvm-toolchain-14_14.0.6-ok1.dsc /tmp/autopkgtest.FmhWAx/llvm-toolchain-14_14.0.6-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown llvm-toolchain-14_14.0.6.orig.tar.gz /tmp/autopkgtest.FmhWAx/llvm-toolchain-14_14.0.6.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown llvm-toolchain-14_14.0.6-ok1.debian.tar.xz /tmp/autopkgtest.FmhWAx/llvm-toolchain-14_14.0.6-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.FmhWAx/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.FmhWAx/llvm-toolchain-14_14.0.6-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  4s + cd /
+  4s + mktemp -d /tmp/autopkgtest.FmhWAx/build.XXX
+  4s + builddir=/tmp/autopkgtest.FmhWAx/build.K8o
+  4s + cd /tmp/autopkgtest.FmhWAx/build.K8o
+  4s + dpkg-source -x /tmp/autopkgtest.FmhWAx/llvm-toolchain-14_14.0.6-ok1.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.EoVmakwb/trustedkeys.kbx': General error
+  4s gpgv: Signature made Mon 27 Mar 2023 03:09:50 PM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.FmhWAx/llvm-toolchain-14_14.0.6-ok1.dsc
+ 10s dpkg-source: info: extracting llvm-toolchain-14 in src
+ 10s dpkg-source: info: unpacking llvm-toolchain-14_14.0.6.orig.tar.gz
+ 39s dpkg-source: info: unpacking llvm-toolchain-14_14.0.6-ok1.debian.tar.xz
+ 41s + chmod -R a+rX .
+ 44s + cd src/.
+ 44s + pwd
+ 44s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest [17:24:37]: testing package llvm-toolchain-14 version 14.0.6-ok1
+ 44s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FmhWAx/build.K8o/src/debian/ /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-14/pkg/debian/
+ 44s autopkgtest: DBG: got reply from testbed: ok
+ 44s autopkgtest: DBG: processing dependency @
+ 44s autopkgtest: DBG: synthesised dependency clang-14
+ 44s autopkgtest: DBG: synthesised dependency clang-tools-14
+ 44s autopkgtest: DBG: synthesised dependency clang-format-14
+ 44s autopkgtest: DBG: synthesised dependency clang-tidy-14
+ 44s autopkgtest: DBG: synthesised dependency clangd-14
+ 44s autopkgtest: DBG: synthesised dependency clang-14-doc
+ 44s autopkgtest: DBG: synthesised dependency libclang1-14
+ 44s autopkgtest: DBG: synthesised dependency libclang-14-dev
+ 44s autopkgtest: DBG: synthesised dependency libclang-common-14-dev
+ 44s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev
+ 44s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm32
+ 44s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm64
+ 44s autopkgtest: DBG: synthesised dependency libpolly-14-dev
+ 44s autopkgtest: DBG: synthesised dependency libclang-cpp14
+ 44s autopkgtest: DBG: synthesised dependency libclang-cpp14-dev
+ 44s autopkgtest: DBG: synthesised dependency libfuzzer-14-dev [linux-any]
+ 44s autopkgtest: DBG: synthesised dependency python3-clang-14
+ 44s autopkgtest: DBG: synthesised dependency clang-14-examples
+ 44s autopkgtest: DBG: synthesised dependency libllvm14
+ 44s autopkgtest: DBG: synthesised dependency llvm-14-linker-tools
+ 44s autopkgtest: DBG: synthesised dependency llvm-14
+ 44s autopkgtest: DBG: synthesised dependency llvm-14-runtime
+ 44s autopkgtest: DBG: synthesised dependency llvm-14-dev
+ 44s autopkgtest: DBG: synthesised dependency llvm-14-tools
+ 44s autopkgtest: DBG: synthesised dependency libllvm-14-ocaml-dev [amd64 arm64 armhf ppc64el s390x riscv64]
+ 44s autopkgtest: DBG: synthesised dependency llvm-14-doc
+ 44s autopkgtest: DBG: synthesised dependency llvm-14-examples
+ 44s autopkgtest: DBG: synthesised dependency lld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+ 44s autopkgtest: DBG: synthesised dependency liblld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+ 44s autopkgtest: DBG: synthesised dependency liblld-14-dev [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+ 45s autopkgtest: DBG: synthesised dependency lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 45s autopkgtest: DBG: synthesised dependency liblldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 45s autopkgtest: DBG: synthesised dependency python3-lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 45s autopkgtest: DBG: synthesised dependency liblldb-14-dev [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 45s autopkgtest: DBG: synthesised dependency libomp-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 45s autopkgtest: DBG: synthesised dependency libomp5-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 45s autopkgtest: DBG: synthesised dependency libomp-14-doc [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 45s autopkgtest: DBG: synthesised dependency libc++1-14
+ 45s autopkgtest: DBG: synthesised dependency libc++-14-dev
+ 45s autopkgtest: DBG: synthesised dependency libc++-14-dev-wasm32
+ 45s autopkgtest: DBG: synthesised dependency libc++abi1-14
+ 45s autopkgtest: DBG: synthesised dependency libc++abi-14-dev
+ 45s autopkgtest: DBG: synthesised dependency libc++abi-14-dev-wasm32
+ 45s autopkgtest: DBG: synthesised dependency libclc-14
+ 45s autopkgtest: DBG: synthesised dependency libclc-14-dev
+ 45s autopkgtest: DBG: synthesised dependency libunwind-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 45s autopkgtest: DBG: synthesised dependency libunwind-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 46s autopkgtest: DBG: synthesised dependency mlir-14-tools
+ 46s autopkgtest: DBG: synthesised dependency libmlir-14
+ 46s autopkgtest: DBG: synthesised dependency libmlir-14-dev
+ 46s autopkgtest: DBG: processing dependency cmake
+ 46s autopkgtest: DBG: processing dependency make
+ 46s autopkgtest: DBG: processing dependency g++
+ 46s autopkgtest: DBG: processing dependency file
+ 46s autopkgtest: DBG: processing dependency dpkg-dev
+ 46s command1             SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+ 46s autopkgtest: DBG: processing dependency @
+ 46s autopkgtest: DBG: synthesised dependency clang-14
+ 46s autopkgtest: DBG: synthesised dependency clang-tools-14
+ 46s autopkgtest: DBG: synthesised dependency clang-format-14
+ 46s autopkgtest: DBG: synthesised dependency clang-tidy-14
+ 46s autopkgtest: DBG: synthesised dependency clangd-14
+ 46s autopkgtest: DBG: synthesised dependency clang-14-doc
+ 46s autopkgtest: DBG: synthesised dependency libclang1-14
+ 46s autopkgtest: DBG: synthesised dependency libclang-14-dev
+ 46s autopkgtest: DBG: synthesised dependency libclang-common-14-dev
+ 46s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev
+ 46s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm32
+ 46s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm64
+ 46s autopkgtest: DBG: synthesised dependency libpolly-14-dev
+ 46s autopkgtest: DBG: synthesised dependency libclang-cpp14
+ 46s autopkgtest: DBG: synthesised dependency libclang-cpp14-dev
+ 46s autopkgtest: DBG: synthesised dependency libfuzzer-14-dev [linux-any]
+ 46s autopkgtest: DBG: synthesised dependency python3-clang-14
+ 46s autopkgtest: DBG: synthesised dependency clang-14-examples
+ 46s autopkgtest: DBG: synthesised dependency libllvm14
+ 46s autopkgtest: DBG: synthesised dependency llvm-14-linker-tools
+ 46s autopkgtest: DBG: synthesised dependency llvm-14
+ 46s autopkgtest: DBG: synthesised dependency llvm-14-runtime
+ 46s autopkgtest: DBG: synthesised dependency llvm-14-dev
+ 46s autopkgtest: DBG: synthesised dependency llvm-14-tools
+ 46s autopkgtest: DBG: synthesised dependency libllvm-14-ocaml-dev [amd64 arm64 armhf ppc64el s390x riscv64]
+ 46s autopkgtest: DBG: synthesised dependency llvm-14-doc
+ 46s autopkgtest: DBG: synthesised dependency llvm-14-examples
+ 46s autopkgtest: DBG: synthesised dependency lld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+ 46s autopkgtest: DBG: synthesised dependency liblld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+ 46s autopkgtest: DBG: synthesised dependency liblld-14-dev [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+ 46s autopkgtest: DBG: synthesised dependency lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 46s autopkgtest: DBG: synthesised dependency liblldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 46s autopkgtest: DBG: synthesised dependency python3-lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 47s autopkgtest: DBG: synthesised dependency liblldb-14-dev [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 47s autopkgtest: DBG: synthesised dependency libomp-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 47s autopkgtest: DBG: synthesised dependency libomp5-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 47s autopkgtest: DBG: synthesised dependency libomp-14-doc [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 47s autopkgtest: DBG: synthesised dependency libc++1-14
+ 47s autopkgtest: DBG: synthesised dependency libc++-14-dev
+ 47s autopkgtest: DBG: synthesised dependency libc++-14-dev-wasm32
+ 47s autopkgtest: DBG: synthesised dependency libc++abi1-14
+ 47s autopkgtest: DBG: synthesised dependency libc++abi-14-dev
+ 47s autopkgtest: DBG: synthesised dependency libc++abi-14-dev-wasm32
+ 47s autopkgtest: DBG: synthesised dependency libclc-14
+ 47s autopkgtest: DBG: synthesised dependency libclc-14-dev
+ 47s autopkgtest: DBG: synthesised dependency libunwind-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 47s autopkgtest: DBG: synthesised dependency libunwind-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+ 47s autopkgtest: DBG: synthesised dependency mlir-14-tools
+ 47s autopkgtest: DBG: synthesised dependency libmlir-14
+ 47s autopkgtest: DBG: synthesised dependency libmlir-14-dev
+ 47s autopkgtest: DBG: processing dependency cmake
+ 47s autopkgtest: DBG: processing dependency make
+ 47s autopkgtest: DBG: processing dependency g++
+ 47s autopkgtest: DBG: processing dependency libstdc++-10-dev
+ 47s integration-test-suite-test SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+ 47s autopkgtest: DBG: processing dependency gcc
+ 47s autopkgtest: DBG: processing dependency build-essential
+ 47s autopkgtest: DBG: processing dependency cmake
+ 47s autopkgtest: DBG: processing dependency llvm-14-dev
+ 47s autopkgtest: DBG: marked alternatives ['llvm-14-dev'] as a synthesised dependency
+ 47s autopkgtest: DBG: Test defined: name cmake-test path debian/tests/cmake-test command "None" restrictions [] features [] depends ['gcc', 'build-essential', 'cmake', 'llvm-14-dev'] 
+ 47s autopkgtest: DBG: processing dependency python3-lldb-14
+ 47s autopkgtest: DBG: marked alternatives ['python3-lldb-14'] as a synthesised dependency
+ 47s autopkgtest: DBG: Test defined: name command2 path None command "python3 -c "import lldb; print(lldb.__file__); print(lldb)"" restrictions [] features [] depends ['python3-lldb-14'] 
+ 47s autopkgtest: DBG: processing dependency python3-clang-14
+ 47s autopkgtest: DBG: marked alternatives ['python3-clang-14'] as a synthesised dependency
+ 47s autopkgtest: DBG: Test defined: name command3 path None command "python3 -c "import clang; print(clang.__file__); print(clang)"" restrictions [] features [] depends ['python3-clang-14'] 
+ 47s autopkgtest [17:24:40]: build not needed
+ 47s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FmhWAx/build.K8o/src/ /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-14/tests-tree/
+216s autopkgtest: DBG: got reply from testbed: ok
+216s autopkgtest: DBG: processing dependency @
+216s autopkgtest: DBG: synthesised dependency clang-14
+216s autopkgtest: DBG: synthesised dependency clang-tools-14
+216s autopkgtest: DBG: synthesised dependency clang-format-14
+216s autopkgtest: DBG: synthesised dependency clang-tidy-14
+216s autopkgtest: DBG: synthesised dependency clangd-14
+216s autopkgtest: DBG: synthesised dependency clang-14-doc
+216s autopkgtest: DBG: synthesised dependency libclang1-14
+216s autopkgtest: DBG: synthesised dependency libclang-14-dev
+216s autopkgtest: DBG: synthesised dependency libclang-common-14-dev
+216s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev
+216s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm32
+216s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm64
+216s autopkgtest: DBG: synthesised dependency libpolly-14-dev
+216s autopkgtest: DBG: synthesised dependency libclang-cpp14
+216s autopkgtest: DBG: synthesised dependency libclang-cpp14-dev
+216s autopkgtest: DBG: synthesised dependency libfuzzer-14-dev [linux-any]
+216s autopkgtest: DBG: synthesised dependency python3-clang-14
+216s autopkgtest: DBG: synthesised dependency clang-14-examples
+216s autopkgtest: DBG: synthesised dependency libllvm14
+216s autopkgtest: DBG: synthesised dependency llvm-14-linker-tools
+216s autopkgtest: DBG: synthesised dependency llvm-14
+216s autopkgtest: DBG: synthesised dependency llvm-14-runtime
+216s autopkgtest: DBG: synthesised dependency llvm-14-dev
+216s autopkgtest: DBG: synthesised dependency llvm-14-tools
+216s autopkgtest: DBG: synthesised dependency libllvm-14-ocaml-dev [amd64 arm64 armhf ppc64el s390x riscv64]
+216s autopkgtest: DBG: synthesised dependency llvm-14-doc
+216s autopkgtest: DBG: synthesised dependency llvm-14-examples
+216s autopkgtest: DBG: synthesised dependency lld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+216s autopkgtest: DBG: synthesised dependency liblld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+216s autopkgtest: DBG: synthesised dependency liblld-14-dev [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+216s autopkgtest: DBG: synthesised dependency lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+216s autopkgtest: DBG: synthesised dependency liblldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+216s autopkgtest: DBG: synthesised dependency python3-lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+217s autopkgtest: DBG: synthesised dependency liblldb-14-dev [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+217s autopkgtest: DBG: synthesised dependency libomp-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+217s autopkgtest: DBG: synthesised dependency libomp5-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+217s autopkgtest: DBG: synthesised dependency libomp-14-doc [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+217s autopkgtest: DBG: synthesised dependency libc++1-14
+217s autopkgtest: DBG: synthesised dependency libc++-14-dev
+217s autopkgtest: DBG: synthesised dependency libc++-14-dev-wasm32
+217s autopkgtest: DBG: synthesised dependency libc++abi1-14
+217s autopkgtest: DBG: synthesised dependency libc++abi-14-dev
+217s autopkgtest: DBG: synthesised dependency libc++abi-14-dev-wasm32
+217s autopkgtest: DBG: synthesised dependency libclc-14
+217s autopkgtest: DBG: synthesised dependency libclc-14-dev
+217s autopkgtest: DBG: synthesised dependency libunwind-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+217s autopkgtest: DBG: synthesised dependency libunwind-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+217s autopkgtest: DBG: synthesised dependency mlir-14-tools
+217s autopkgtest: DBG: synthesised dependency libmlir-14
+217s autopkgtest: DBG: synthesised dependency libmlir-14-dev
+217s autopkgtest: DBG: processing dependency cmake
+217s autopkgtest: DBG: processing dependency make
+217s autopkgtest: DBG: processing dependency g++
+217s autopkgtest: DBG: processing dependency file
+217s autopkgtest: DBG: processing dependency dpkg-dev
+217s command1             SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+217s autopkgtest: DBG: processing dependency @
+217s autopkgtest: DBG: synthesised dependency clang-14
+217s autopkgtest: DBG: synthesised dependency clang-tools-14
+217s autopkgtest: DBG: synthesised dependency clang-format-14
+217s autopkgtest: DBG: synthesised dependency clang-tidy-14
+217s autopkgtest: DBG: synthesised dependency clangd-14
+217s autopkgtest: DBG: synthesised dependency clang-14-doc
+217s autopkgtest: DBG: synthesised dependency libclang1-14
+217s autopkgtest: DBG: synthesised dependency libclang-14-dev
+217s autopkgtest: DBG: synthesised dependency libclang-common-14-dev
+217s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev
+217s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm32
+217s autopkgtest: DBG: synthesised dependency libclang-rt-14-dev-wasm64
+217s autopkgtest: DBG: synthesised dependency libpolly-14-dev
+217s autopkgtest: DBG: synthesised dependency libclang-cpp14
+217s autopkgtest: DBG: synthesised dependency libclang-cpp14-dev
+217s autopkgtest: DBG: synthesised dependency libfuzzer-14-dev [linux-any]
+217s autopkgtest: DBG: synthesised dependency python3-clang-14
+217s autopkgtest: DBG: synthesised dependency clang-14-examples
+217s autopkgtest: DBG: synthesised dependency libllvm14
+217s autopkgtest: DBG: synthesised dependency llvm-14-linker-tools
+217s autopkgtest: DBG: synthesised dependency llvm-14
+217s autopkgtest: DBG: synthesised dependency llvm-14-runtime
+217s autopkgtest: DBG: synthesised dependency llvm-14-dev
+217s autopkgtest: DBG: synthesised dependency llvm-14-tools
+217s autopkgtest: DBG: synthesised dependency libllvm-14-ocaml-dev [amd64 arm64 armhf ppc64el s390x riscv64]
+218s autopkgtest: DBG: synthesised dependency llvm-14-doc
+218s autopkgtest: DBG: synthesised dependency llvm-14-examples
+218s autopkgtest: DBG: synthesised dependency lld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+218s autopkgtest: DBG: synthesised dependency liblld-14 [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+218s autopkgtest: DBG: synthesised dependency liblld-14-dev [amd64 arm64 armel armhf i386 mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32 riscv64]
+218s autopkgtest: DBG: synthesised dependency lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+218s autopkgtest: DBG: synthesised dependency liblldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+218s autopkgtest: DBG: synthesised dependency python3-lldb-14 [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+218s autopkgtest: DBG: synthesised dependency liblldb-14-dev [amd64 arm64 armel armhf i386 ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+218s autopkgtest: DBG: synthesised dependency libomp-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+218s autopkgtest: DBG: synthesised dependency libomp5-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+219s autopkgtest: DBG: synthesised dependency libomp-14-doc [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+219s autopkgtest: DBG: synthesised dependency libc++1-14
+219s autopkgtest: DBG: synthesised dependency libc++-14-dev
+219s autopkgtest: DBG: synthesised dependency libc++-14-dev-wasm32
+219s autopkgtest: DBG: synthesised dependency libc++abi1-14
+219s autopkgtest: DBG: synthesised dependency libc++abi-14-dev
+219s autopkgtest: DBG: synthesised dependency libc++abi-14-dev-wasm32
+219s autopkgtest: DBG: synthesised dependency libclc-14
+219s autopkgtest: DBG: synthesised dependency libclc-14-dev
+219s autopkgtest: DBG: synthesised dependency libunwind-14 [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+219s autopkgtest: DBG: synthesised dependency libunwind-14-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64 riscv64]
+219s autopkgtest: DBG: synthesised dependency mlir-14-tools
+219s autopkgtest: DBG: synthesised dependency libmlir-14
+219s autopkgtest: DBG: synthesised dependency libmlir-14-dev
+219s autopkgtest: DBG: processing dependency cmake
+219s autopkgtest: DBG: processing dependency make
+219s autopkgtest: DBG: processing dependency g++
+219s autopkgtest: DBG: processing dependency libstdc++-10-dev
+219s integration-test-suite-test SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+219s autopkgtest: DBG: processing dependency gcc
+219s autopkgtest: DBG: processing dependency build-essential
+219s autopkgtest: DBG: processing dependency cmake
+219s autopkgtest: DBG: processing dependency llvm-14-dev
+219s autopkgtest: DBG: marked alternatives ['llvm-14-dev'] as a synthesised dependency
+219s autopkgtest: DBG: Test defined: name cmake-test path debian/tests/cmake-test command "None" restrictions [] features [] depends ['gcc', 'build-essential', 'cmake', 'llvm-14-dev'] 
+219s autopkgtest: DBG: processing dependency python3-lldb-14
+219s autopkgtest: DBG: marked alternatives ['python3-lldb-14'] as a synthesised dependency
+219s autopkgtest: DBG: Test defined: name command2 path None command "python3 -c "import lldb; print(lldb.__file__); print(lldb)"" restrictions [] features [] depends ['python3-lldb-14'] 
+219s autopkgtest: DBG: processing dependency python3-clang-14
+219s autopkgtest: DBG: marked alternatives ['python3-clang-14'] as a synthesised dependency
+219s autopkgtest: DBG: Test defined: name command3 path None command "python3 -c "import clang; print(clang.__file__); print(clang)"" restrictions [] features [] depends ['python3-clang-14'] 
+219s autopkgtest [17:27:32]: test cmake-test: preparing testbed
+219s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['gcc', 'build-essential', 'cmake', 'llvm-14-dev']
+219s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+219s autopkgtest: DBG: install_deps: deps_new=['gcc', 'build-essential', 'cmake', 'llvm-14-dev']
+219s autopkgtest: DBG: install-deps: satisfying gcc, build-essential, cmake, llvm-14-dev
+219s autopkgtest: DBG: install-deps: architecture resolved: gcc, build-essential, cmake, llvm-14-dev
+219s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+219s autopkgtest: DBG: testbed command exited with code 0
+219s autopkgtest: DBG: can use apt-get on testbed: True
+219s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+219s autopkgtest: DBG: testbed command exited with code 0
+219s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx/1-autopkgtest-satdep.deb /tmp/autopkgtest.FmhWAx/1-autopkgtest-satdep.deb
+219s autopkgtest: DBG: got reply from testbed: ok
+219s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.FmhWAx/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+220s Reading package lists...
+220s Building dependency tree...
+221s Reading state information...
+221s Starting pkgProblemResolver with broken count: 1
+221s Starting 2 pkgProblemResolver with broken count: 1
+221s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+221s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+221s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+221s   Re-Instated libnettle8t64:riscv64
+221s   Re-Instated libzstd1:riscv64
+221s   Re-Instated libarchive13t64:riscv64
+221s   Re-Instated librhash0:riscv64
+221s   Re-Instated cmake-data:riscv64
+221s   Re-Instated cmake:riscv64
+221s Broken autopkgtest-satdep:riscv64 Depends on llvm-14-dev:riscv64 < none @un H >
+221s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+221s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+221s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+221s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+221s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+221s Broken autopkgtest-satdep:riscv64 Depends on llvm-14-dev:riscv64 < none @un H >
+221s Investigating (1) cmake:riscv64 < none -> 3.28.3-ok1 @un uN Ib >
+221s Broken cmake:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.3.3)
+221s   Considering libarchive13t64:riscv64 0 as a solution to cmake:riscv64 1
+221s   Holding Back cmake:riscv64 rather than change libarchive13t64:riscv64
+221s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+221s Broken autopkgtest-satdep:riscv64 Depends on cmake:riscv64 < none | 3.28.3-ok1 @un uH >
+221s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+221s   Considering cmake:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+221s Broken autopkgtest-satdep:riscv64 Depends on llvm-14-dev:riscv64 < none @un H >
+221s Done
+221s Some packages could not be installed. This may mean that you have
+221s requested an impossible situation or if you are using the unstable
+221s distribution that some required packages have not yet been created
+221s or been moved out of Incoming.
+221s The following information may help to resolve the situation:
+221s 
+221s The following packages have unmet dependencies:
+221s  autopkgtest-satdep : Depends: cmake but it is not going to be installed
+221s                       Depends: llvm-14-dev but it is not installable
+221s E: Unable to correct problems, you have held broken packages.
+221s autopkgtest: DBG: testbed command exited with code 100
+221s autopkgtest: DBG: apt-get install /tmp/autopkgtest.FmhWAx/1-autopkgtest-satdep.deb failed; status-fd:
+221s 
+221s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+221s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gcc build-essential cmake llvm-14-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+222s Reading package lists...
+222s Building dependency tree...
+222s Reading state information...
+222s E: Unable to locate package llvm-14-dev
+222s autopkgtest: DBG: testbed command exited with code 100
+222s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+222s cmake-test           FAIL badpkg
+222s blame: llvm-toolchain-14_14.0.6-ok1.dsc
+222s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+222s autopkgtest [17:27:35]: test command2: preparing testbed
+222s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gcc', 'build-essential', 'cmake', 'llvm-14-dev'], deps_new=['python3-lldb-14']
+222s autopkgtest: DBG: testbed reset
+222s autopkgtest: DBG: sending command to testbed: revert
+228s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+231s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.FmhWAx
+231s autopkgtest: DBG: sending command to testbed: print-execute-command
+231s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50,--user%3Droot,--
+231s autopkgtest: DBG: sending command to testbed: capabilities
+231s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx
+231s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx', 'has_internet']
+231s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.FmhWAx/wrapper.sh
+232s autopkgtest: DBG: got reply from testbed: ok
+232s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.FmhWAx/wrapper.sh'], kind short, sout raw, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest [17:27:45]: testbed dpkg architecture: riscv64
+232s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest [17:27:45]: testbed apt version: 2.7.3-ok3
+232s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 127
+232s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.FmhWAx/testbed-packages"], kind short, sout raw, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FmhWAx/testbed-packages /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-14/testbed-packages
+232s autopkgtest: DBG: got reply from testbed: ok
+232s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+233s autopkgtest: DBG: testbed command exited with code 0
+233s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+233s autopkgtest: DBG: install_deps: deps_new=['python3-lldb-14']
+233s autopkgtest: DBG: install-deps: satisfying python3-lldb-14
+233s autopkgtest: DBG: install-deps: architecture resolved: python3-lldb-14
+233s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+233s autopkgtest: DBG: testbed command exited with code 0
+233s autopkgtest: DBG: can use apt-get on testbed: True
+233s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+233s autopkgtest: DBG: testbed command exited with code 0
+233s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx/2-autopkgtest-satdep.deb /tmp/autopkgtest.FmhWAx/2-autopkgtest-satdep.deb
+233s autopkgtest: DBG: got reply from testbed: ok
+233s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.FmhWAx/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+233s Reading package lists...
+234s Building dependency tree...
+234s Reading state information...
+234s Starting pkgProblemResolver with broken count: 1
+235s Starting 2 pkgProblemResolver with broken count: 1
+235s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+235s Broken autopkgtest-satdep:riscv64 Depends on python3-lldb-14:riscv64 < none @un H >
+235s Done
+235s Some packages could not be installed. This may mean that you have
+235s requested an impossible situation or if you are using the unstable
+235s distribution that some required packages have not yet been created
+235s or been moved out of Incoming.
+235s The following information may help to resolve the situation:
+235s 
+235s The following packages have unmet dependencies:
+235s  autopkgtest-satdep : Depends: python3-lldb-14 but it is not installable
+235s E: Unable to correct problems, you have held broken packages.
+235s autopkgtest: DBG: testbed command exited with code 100
+235s autopkgtest: DBG: apt-get install /tmp/autopkgtest.FmhWAx/2-autopkgtest-satdep.deb failed; status-fd:
+235s 
+235s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+235s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate python3-lldb-14 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+235s Reading package lists...
+236s Building dependency tree...
+236s Reading state information...
+236s E: Unable to locate package python3-lldb-14
+236s autopkgtest: DBG: testbed command exited with code 100
+236s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+236s command2             FAIL badpkg
+236s blame: llvm-toolchain-14_14.0.6-ok1.dsc
+236s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+236s autopkgtest [17:27:49]: test command3: preparing testbed
+236s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['python3-lldb-14'], deps_new=['python3-clang-14']
+236s autopkgtest: DBG: testbed reset
+236s autopkgtest: DBG: sending command to testbed: revert
+236s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+240s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.FmhWAx
+240s autopkgtest: DBG: sending command to testbed: print-execute-command
+240s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50,--user%3Droot,--
+240s autopkgtest: DBG: sending command to testbed: capabilities
+240s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx
+240s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx', 'has_internet']
+240s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+240s autopkgtest: DBG: testbed command exited with code 0
+240s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.FmhWAx/wrapper.sh
+240s autopkgtest: DBG: got reply from testbed: ok
+240s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.FmhWAx/wrapper.sh'], kind short, sout raw, serr pipe, env []
+240s autopkgtest: DBG: testbed command exited with code 0
+240s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+240s autopkgtest: DBG: testbed command exited with code 0
+240s autopkgtest [17:27:53]: testbed dpkg architecture: riscv64
+240s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+240s autopkgtest: DBG: testbed command exited with code 0
+240s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+240s autopkgtest: DBG: testbed command exited with code 0
+240s autopkgtest [17:27:53]: testbed apt version: 2.7.3-ok3
+240s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+240s autopkgtest: DBG: testbed command exited with code 127
+240s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+240s autopkgtest: DBG: testbed command exited with code 0
+240s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.FmhWAx/testbed-packages"], kind short, sout raw, serr pipe, env []
+241s autopkgtest: DBG: testbed command exited with code 0
+241s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.FmhWAx/testbed-packages /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-14/testbed-packages
+241s autopkgtest: DBG: got reply from testbed: ok
+241s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+241s autopkgtest: DBG: testbed command exited with code 0
+241s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+241s autopkgtest: DBG: install_deps: deps_new=['python3-clang-14']
+241s autopkgtest: DBG: install-deps: satisfying python3-clang-14
+241s autopkgtest: DBG: install-deps: architecture resolved: python3-clang-14
+241s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+241s autopkgtest: DBG: testbed command exited with code 0
+241s autopkgtest: DBG: can use apt-get on testbed: True
+241s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.FmhWAx'], kind short, sout raw, serr pipe, env []
+241s autopkgtest: DBG: testbed command exited with code 0
+241s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-ddb6433f-e468-4b18-9ac0-35bcadffbb50//tmp/autopkgtest.FmhWAx/3-autopkgtest-satdep.deb /tmp/autopkgtest.FmhWAx/3-autopkgtest-satdep.deb
+241s autopkgtest: DBG: got reply from testbed: ok
+241s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.FmhWAx/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+242s Reading package lists...
+242s Building dependency tree...
+242s Reading state information...
+243s Starting pkgProblemResolver with broken count: 1
+243s Starting 2 pkgProblemResolver with broken count: 1
+243s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+243s Broken autopkgtest-satdep:riscv64 Depends on python3-clang-14:riscv64 < none @un H >
+243s Done
+243s Some packages could not be installed. This may mean that you have
+243s requested an impossible situation or if you are using the unstable
+243s distribution that some required packages have not yet been created
+243s or been moved out of Incoming.
+243s The following information may help to resolve the situation:
+243s 
+243s The following packages have unmet dependencies:
+243s  autopkgtest-satdep : Depends: python3-clang-14 but it is not installable
+243s E: Unable to correct problems, you have held broken packages.
+243s autopkgtest: DBG: testbed command exited with code 100
+243s autopkgtest: DBG: apt-get install /tmp/autopkgtest.FmhWAx/3-autopkgtest-satdep.deb failed; status-fd:
+243s 
+243s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+243s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate python3-clang-14 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+244s Reading package lists...
+244s Building dependency tree...
+244s Reading state information...
+244s E: Unable to locate package python3-clang-14
+244s autopkgtest: DBG: testbed command exited with code 100
+244s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+244s command3             FAIL badpkg
+244s blame: llvm-toolchain-14_14.0.6-ok1.dsc
+244s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+244s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+244s autopkgtest [17:27:57]: @@@@@@@@@@@@@@@@@@@@ summary
+244s command1             SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+244s integration-test-suite-test SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+244s command1             SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+244s integration-test-suite-test SKIP Test lists explicitly supported architectures, but the current architecture riscv64 isn't listed.
+244s cmake-test           FAIL badpkg
+244s blame: llvm-toolchain-14_14.0.6-ok1.dsc
+244s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+244s command2             FAIL badpkg
+244s blame: llvm-toolchain-14_14.0.6-ok1.dsc
+244s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+244s command3             FAIL badpkg
+244s blame: llvm-toolchain-14_14.0.6-ok1.dsc
+244s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+244s autopkgtest: DBG: testbed stop
+244s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.FmhWAx
+244s autopkgtest: DBG: sending command to testbed: close
+245s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+246s autopkgtest: DBG: got reply from testbed: ok
+246s autopkgtest: DBG: sending command to testbed: quit

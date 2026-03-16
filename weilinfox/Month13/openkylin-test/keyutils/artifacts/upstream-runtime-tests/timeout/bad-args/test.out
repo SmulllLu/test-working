@@ -1,0 +1,18 @@
+++++ BEGINNING TEST
++++ CHECK BAD KEY ID
+keyctl timeout 0 10
+keyctl_set_timeout: Invalid argument
++++ CREATE KEY
+keyctl add user a a @s
+699859942
++++ DESTROY KEY ID
+keyctl unlink 699859942 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 699859942 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 699859942 @s
+keyctl_unlink: Required key not available
++++ CHECK NON-EXISTENT KEY ID
+keyctl timeout 699859942 10
+keyctl_set_timeout: Required key not available
+++++ FINISHED TEST: PASS

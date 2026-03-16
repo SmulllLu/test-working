@@ -1,0 +1,61 @@
+clean up ldap database ... reconfigure slapd ... start slapd ... add sudo schema to slapd ... adding new entry "cn=sudoschema,cn=schema,cn=config"
+
+add sudo group ... adding new entry "ou=SUDOers,dc=example,dc=com"
+
+reconfigure sudo-ldap (#1001851) ... cvtsudoers into sudoers.ldif ... 
+ cat sudoers.ldif
+dn: cn=defaults,ou=SUDOers,dc=example,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: defaults
+description: Default sudoOption's go here
+sudoOption: env_reset
+sudoOption: mail_badpass
+sudoOption: secure_path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+sudoOption: use_pty
+
+dn: cn=root,ou=SUDOers,dc=example,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: root
+sudoUser: root
+sudoHost: ALL
+sudoRunAsUser: ALL
+sudoRunAsGroup: ALL
+sudoCommand: ALL
+sudoOrder: 1
+
+dn: cn=%sudo,ou=SUDOers,dc=example,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: %sudo
+sudoUser: %sudo
+sudoHost: ALL
+sudoRunAsUser: ALL
+sudoRunAsGroup: ALL
+sudoCommand: ALL
+sudoOrder: 2
+
+pull sudoers.ldif into ldap ...adding new entry "cn=defaults,ou=SUDOers,dc=example,dc=com"
+
+adding new entry "cn=root,ou=SUDOers,dc=example,dc=com"
+
+adding new entry "cn=%sudo,ou=SUDOers,dc=example,dc=com"
+
+move away sudoers ...
+========= test 03\.1: account group member, correct password
+Adding user `test03a' ...
+Adding new group `test03a' (1001) ...
+Adding new user `test03a' (1001) with group `test03a' ...
+Creating home directory `/home/test03a' ...
+Copying files from `/etc/skel' ...
+Adding user `test03a' to group `sudo' ...
+Adding user test03a to group sudo
+Done.
+trying test03a with correct password
+test03a with correct password, return value 1
+Looking for files to backup/remove ...
+Removing files ...
+Removing user `test03a' ...
+Warning: group `test03a' has no more members.
+Done.

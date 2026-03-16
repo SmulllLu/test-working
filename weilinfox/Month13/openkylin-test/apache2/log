@@ -1,0 +1,919 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [15:24:40]: starting date and time: 2024-07-17 15:24:40+0800
+  0s autopkgtest [15:24:40]: version @version@
+  0s autopkgtest [15:24:40]: host lili; command line: /usr/bin/autopkgtest apache2_2.4.58-ok2.dsc -o /home/hachi/openkylin_test/sharefolder/results/apache2 -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.HUGdjl
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-45dd80b4-ef2a-4755-a3c6-993c5c5a2ecd,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-45dd80b4-ef2a-4755-a3c6-993c5c5a2ecd//tmp/autopkgtest.HUGdjl
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-45dd80b4-ef2a-4755-a3c6-993c5c5a2ecd//tmp/autopkgtest.HUGdjl', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.HUGdjl/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.HUGdjl/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [15:24:41]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [15:24:42]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.HUGdjl/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/testbed-packages /home/hachi/openkylin_test/sharefolder/results/apache2/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [15:24:42]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [15:24:42]: @@@@@@@@@@@@@@@@@@@@ source apache2_2.4.58-ok2.dsc
+  2s autopkgtest: DBG: blame += apache2_2.4.58-ok2.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown apache2_2.4.58-ok2.dsc /tmp/autopkgtest.HUGdjl/apache2_2.4.58-ok2.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown apache2_2.4.58.orig.tar.gz /tmp/autopkgtest.HUGdjl/apache2_2.4.58.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown apache2_2.4.58-ok2.debian.tar.xz /tmp/autopkgtest.HUGdjl/apache2_2.4.58-ok2.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.HUGdjl/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.HUGdjl/apache2_2.4.58-ok2.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.HUGdjl/build.XXX
+  3s + builddir=/tmp/autopkgtest.HUGdjl/build.Fmc
+  3s + cd /tmp/autopkgtest.HUGdjl/build.Fmc
+  3s + dpkg-source -x /tmp/autopkgtest.HUGdjl/apache2_2.4.58-ok2.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.T6kI0IWw/trustedkeys.kbx': General error
+  3s gpgv: Signature made Mon 20 May 2024 05:03:03 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.HUGdjl/apache2_2.4.58-ok2.dsc
+  3s dpkg-source: info: extracting apache2 in src
+  3s dpkg-source: info: unpacking apache2_2.4.58.orig.tar.gz
+  4s dpkg-source: info: unpacking apache2_2.4.58-ok2.debian.tar.xz
+  4s dpkg-source: info: using patch list from debian/patches/series
+  4s dpkg-source: info: applying fix-dolphin-to-delete-webdav-dirs.patch
+  4s dpkg-source: info: applying fhs_compliance.patch
+  4s dpkg-source: info: applying no_LD_LIBRARY_PATH.patch
+  4s dpkg-source: info: applying suexec-CVE-2007-1742.patch
+  4s dpkg-source: info: applying customize_apxs.patch
+  4s dpkg-source: info: applying build_suexec-custom.patch
+  4s dpkg-source: info: applying reproducible_builds.diff
+  4s dpkg-source: info: applying fix-macro.patch
+  4s dpkg-source: info: applying 0009-17-Apply-suexec-cunstom.patch.patch
+  5s + chmod -R a+rX .
+  5s + cd src/.
+  5s + pwd
+  5s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [15:24:45]: testing package apache2 version 2.4.58-ok2
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/ /home/hachi/openkylin_test/sharefolder/results/apache2/pkg/debian/
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: processing dependency build-essential
+  6s autopkgtest: DBG: processing dependency apache2
+  6s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency apache2-dev
+  6s autopkgtest: DBG: marked alternatives ['apache2-dev'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency libwww-perl
+  6s autopkgtest: DBG: processing dependency libnet-ssleay-perl
+  6s autopkgtest: DBG: processing dependency libanyevent-perl
+  6s autopkgtest: DBG: processing dependency libdatetime-perl
+  6s autopkgtest: DBG: processing dependency libhtml-parser-perl
+  6s autopkgtest: DBG: processing dependency libtime-hires-perl
+  6s autopkgtest: DBG: processing dependency libcrypt-ssleay-perl
+  6s autopkgtest: DBG: processing dependency libhttp-dav-perl
+  6s autopkgtest: DBG: processing dependency libprotocol-http2-perl
+  6s autopkgtest: DBG: processing dependency libfcgi-perl
+  6s autopkgtest: DBG: processing dependency libpcre2-dev
+  6s autopkgtest: DBG: processing dependency perl-doc
+  6s autopkgtest: DBG: Test defined: name run-test-suite path debian/tests/run-test-suite command "None" restrictions ['allow-stderr', 'breaks-testbed', 'isolation-container', 'needs-root'] features ['no-build-needed'] depends ['build-essential', 'apache2', 'apache2-dev', 'libwww-perl', 'libnet-ssleay-perl', 'libanyevent-perl', 'libdatetime-perl', 'libhtml-parser-perl', 'libtime-hires-perl', 'libcrypt-ssleay-perl', 'libhttp-dav-perl', 'libprotocol-http2-perl', 'libfcgi-perl', 'libpcre2-dev', 'perl-doc'] 
+  6s run-test-suite       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  6s autopkgtest: DBG: processing dependency apache2
+  6s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  6s autopkgtest: DBG: Test defined: name duplicate-module-load path debian/tests/duplicate-module-load command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['apache2'] 
+  6s autopkgtest: DBG: Test defined: name default-mods path debian/tests/default-mods command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['apache2'] 
+  6s autopkgtest: DBG: processing dependency apache2
+  6s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  6s autopkgtest: DBG: Test defined: name htcacheclean path debian/tests/htcacheclean command "None" restrictions ['allow-stderr', 'needs-root', 'skippable'] features [] depends ['apache2'] 
+  6s autopkgtest: DBG: processing dependency apache2
+  6s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency curl
+  6s autopkgtest: DBG: processing dependency expect
+  6s autopkgtest: DBG: processing dependency ssl-cert
+  6s autopkgtest: DBG: Test defined: name ssl-passphrase path debian/tests/ssl-passphrase command "None" restrictions ['allow-stderr', 'breaks-testbed', 'needs-root'] features [] depends ['apache2', 'curl', 'expect', 'ssl-cert'] 
+  6s ssl-passphrase       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  6s autopkgtest: DBG: processing dependency apache2
+  6s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency curl
+  6s autopkgtest: DBG: processing dependency ssl-cert
+  6s autopkgtest: DBG: processing dependency nghttp2-client
+  6s autopkgtest: DBG: Test defined: name check-http2 path debian/tests/check-http2 command "None" restrictions ['allow-stderr', 'breaks-testbed', 'needs-root'] features [] depends ['apache2', 'curl', 'ssl-cert', 'nghttp2-client'] 
+  6s check-http2          SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  6s autopkgtest: DBG: processing dependency apache2
+  6s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency curl
+  6s autopkgtest: DBG: Test defined: name check-ubuntu-branding path debian/tests/check-ubuntu-branding command "None" restrictions ['allow-stderr'] features [] depends ['apache2', 'curl'] 
+  6s autopkgtest: DBG: processing dependency apache2
+  6s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency wget
+  6s autopkgtest: DBG: processing dependency dpkg-dev
+  6s autopkgtest: DBG: processing dependency gcc
+  6s autopkgtest: DBG: Test defined: name chroot path debian/tests/chroot command "None" restrictions ['allow-stderr', 'breaks-testbed', 'needs-root'] features ['no-build-needed'] depends ['apache2', 'wget', 'dpkg-dev', 'gcc'] 
+  6s chroot               SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  6s autopkgtest [15:24:46]: build not needed
+  6s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/build.Fmc/src/ /home/hachi/openkylin_test/sharefolder/results/apache2/tests-tree/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency build-essential
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency apache2-dev
+  9s autopkgtest: DBG: marked alternatives ['apache2-dev'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency libwww-perl
+  9s autopkgtest: DBG: processing dependency libnet-ssleay-perl
+  9s autopkgtest: DBG: processing dependency libanyevent-perl
+  9s autopkgtest: DBG: processing dependency libdatetime-perl
+  9s autopkgtest: DBG: processing dependency libhtml-parser-perl
+  9s autopkgtest: DBG: processing dependency libtime-hires-perl
+  9s autopkgtest: DBG: processing dependency libcrypt-ssleay-perl
+  9s autopkgtest: DBG: processing dependency libhttp-dav-perl
+  9s autopkgtest: DBG: processing dependency libprotocol-http2-perl
+  9s autopkgtest: DBG: processing dependency libfcgi-perl
+  9s autopkgtest: DBG: processing dependency libpcre2-dev
+  9s autopkgtest: DBG: processing dependency perl-doc
+  9s autopkgtest: DBG: Test defined: name run-test-suite path debian/tests/run-test-suite command "None" restrictions ['allow-stderr', 'breaks-testbed', 'isolation-container', 'needs-root'] features ['no-build-needed'] depends ['build-essential', 'apache2', 'apache2-dev', 'libwww-perl', 'libnet-ssleay-perl', 'libanyevent-perl', 'libdatetime-perl', 'libhtml-parser-perl', 'libtime-hires-perl', 'libcrypt-ssleay-perl', 'libhttp-dav-perl', 'libprotocol-http2-perl', 'libfcgi-perl', 'libpcre2-dev', 'perl-doc'] 
+  9s run-test-suite       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  9s autopkgtest: DBG: Test defined: name duplicate-module-load path debian/tests/duplicate-module-load command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['apache2'] 
+  9s autopkgtest: DBG: Test defined: name default-mods path debian/tests/default-mods command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['apache2'] 
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  9s autopkgtest: DBG: Test defined: name htcacheclean path debian/tests/htcacheclean command "None" restrictions ['allow-stderr', 'needs-root', 'skippable'] features [] depends ['apache2'] 
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency curl
+  9s autopkgtest: DBG: processing dependency expect
+  9s autopkgtest: DBG: processing dependency ssl-cert
+  9s autopkgtest: DBG: Test defined: name ssl-passphrase path debian/tests/ssl-passphrase command "None" restrictions ['allow-stderr', 'breaks-testbed', 'needs-root'] features [] depends ['apache2', 'curl', 'expect', 'ssl-cert'] 
+  9s ssl-passphrase       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency curl
+  9s autopkgtest: DBG: processing dependency ssl-cert
+  9s autopkgtest: DBG: processing dependency nghttp2-client
+  9s autopkgtest: DBG: Test defined: name check-http2 path debian/tests/check-http2 command "None" restrictions ['allow-stderr', 'breaks-testbed', 'needs-root'] features [] depends ['apache2', 'curl', 'ssl-cert', 'nghttp2-client'] 
+  9s check-http2          SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency curl
+  9s autopkgtest: DBG: Test defined: name check-ubuntu-branding path debian/tests/check-ubuntu-branding command "None" restrictions ['allow-stderr'] features [] depends ['apache2', 'curl'] 
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: marked alternatives ['apache2'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency wget
+  9s autopkgtest: DBG: processing dependency dpkg-dev
+  9s autopkgtest: DBG: processing dependency gcc
+  9s autopkgtest: DBG: Test defined: name chroot path debian/tests/chroot command "None" restrictions ['allow-stderr', 'breaks-testbed', 'needs-root'] features ['no-build-needed'] depends ['apache2', 'wget', 'dpkg-dev', 'gcc'] 
+  9s chroot               SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+  9s autopkgtest [15:24:49]: test duplicate-module-load: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['apache2']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['apache2']
+  9s autopkgtest: DBG: install-deps: satisfying apache2
+ 10s autopkgtest: DBG: install-deps: architecture resolved: apache2
+ 10s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: can use apt-get on testbed: True
+ 10s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-45dd80b4-ef2a-4755-a3c6-993c5c5a2ecd//tmp/autopkgtest.HUGdjl/1-autopkgtest-satdep.deb /tmp/autopkgtest.HUGdjl/1-autopkgtest-satdep.deb
+ 10s autopkgtest: DBG: got reply from testbed: ok
+ 10s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.HUGdjl/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 0
+ 11s Starting 2 pkgProblemResolver with broken count: 0
+ 11s Done
+ 12s The following packages were automatically installed and are no longer required:
+ 12s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 12s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 12s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 12s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 12s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 12s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 12s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 12s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 12s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 12s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 12s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 12s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 12s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 12s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 12s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 12s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 12s   language-selector-common language-selector-gnome libatrildocument3
+ 12s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 12s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 12s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 12s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 12s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 12s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 12s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 12s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 12s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 12s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 12s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 12s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 12s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 12s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 12s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 12s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 12s Use 'sudo apt autoremove' to remove them.
+ 12s The following additional packages will be installed:
+ 12s   apache2 apache2-bin apache2-data apache2-utils libapr1t64
+ 12s   libaprutil1-dbd-sqlite3 libaprutil1-ldap libaprutil1t64 libgdbm6t64
+ 12s   liblua5.4-0 libnghttp2-14 mailcap media-types mime-support
+ 12s Suggested packages:
+ 12s   apache2-doc apache2-suexec-pristine | apache2-suexec-custom www-browser
+ 12s   gdbm-l10n
+ 12s The following packages will be REMOVED:
+ 12s   libgdbm6
+ 12s The following NEW packages will be installed:
+ 12s   apache2 apache2-bin apache2-data apache2-utils autopkgtest-satdep libapr1t64
+ 12s   libaprutil1-dbd-sqlite3 libaprutil1-ldap libaprutil1t64 libgdbm6t64
+ 12s   liblua5.4-0 mailcap media-types
+ 12s The following packages will be upgraded:
+ 12s   libnghttp2-14 mime-support
+ 13s 2 upgraded, 13 newly installed, 1 to remove and 1064 not upgraded.
+ 13s Need to get 1,848 kB/1,849 kB of archives.
+ 13s After this operation, 6,825 kB of additional disk space will be used.
+ 13s Get:1 /tmp/autopkgtest.HUGdjl/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [700 B]
+ 13s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdbm6t64 riscv64 1.23-ok5 [27.8 kB]
+ 13s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libapr1t64 riscv64 1.7.2-ok1 [82.8 kB]
+ 13s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libaprutil1t64 riscv64 1.6.3-ok2 [77.9 kB]
+ 13s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libaprutil1-dbd-sqlite3 riscv64 1.6.3-ok2 [9,628 B]
+ 13s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libaprutil1-ldap riscv64 1.6.3-ok2 [8,208 B]
+ 13s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 liblua5.4-0 riscv64 5.4.6-ok1 [141 kB]
+ 13s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnghttp2-14 riscv64 1.59.0-ok2 [67.1 kB]
+ 13s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 apache2-bin riscv64 2.4.58-ok2 [1,064 kB]
+ 13s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 apache2-data all 2.4.58-ok2 [159 kB]
+ 13s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 apache2-utils riscv64 2.4.58-ok2 [77.3 kB]
+ 13s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 mime-support all 3.66-ok1 [1,508 B]
+ 13s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 mailcap all 3.70+nmu1-ok1 [22.4 kB]
+ 13s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 media-types all 10.1.0-ok1 [20.0 kB]
+ 13s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 apache2 riscv64 2.4.58-ok2 [89.3 kB]
+ 16s Fetched 1,848 kB in 1s (1,732 kB/s)
+ 16s dpkg: libgdbm6:riscv64: dependency problems, but removing anyway as you requested:
+ 16s  python3-gdbm:riscv64 depends on libgdbm6 (>= 1.16).
+ 16s  man-db depends on libgdbm6 (>= 1.16).
+ 16s  libperl5.30:riscv64 depends on libgdbm6 (>= 1.18-0).
+ 16s  libgdbm-compat4:riscv64 depends on libgdbm6 (>= 1.16).
+ 16s 
+ 16s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 16s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 16s Removing libgdbm6:riscv64 (1.23-1) ...
+ 17s Selecting previously unselected package libgdbm6t64:riscv64.
+ 17s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 17s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193804 files and directories currently installed.)
+ 17s Preparing to unpack .../00-libgdbm6t64_1.23-ok5_riscv64.deb ...
+ 17s Unpacking libgdbm6t64:riscv64 (1.23-ok5) ...
+ 17s Selecting previously unselected package libapr1t64:riscv64.
+ 17s Preparing to unpack .../01-libapr1t64_1.7.2-ok1_riscv64.deb ...
+ 17s Unpacking libapr1t64:riscv64 (1.7.2-ok1) ...
+ 18s Selecting previously unselected package libaprutil1t64:riscv64.
+ 18s Preparing to unpack .../02-libaprutil1t64_1.6.3-ok2_riscv64.deb ...
+ 18s Unpacking libaprutil1t64:riscv64 (1.6.3-ok2) ...
+ 18s Selecting previously unselected package libaprutil1-dbd-sqlite3:riscv64.
+ 18s Preparing to unpack .../03-libaprutil1-dbd-sqlite3_1.6.3-ok2_riscv64.deb ...
+ 18s Unpacking libaprutil1-dbd-sqlite3:riscv64 (1.6.3-ok2) ...
+ 18s Selecting previously unselected package libaprutil1-ldap:riscv64.
+ 18s Preparing to unpack .../04-libaprutil1-ldap_1.6.3-ok2_riscv64.deb ...
+ 18s Unpacking libaprutil1-ldap:riscv64 (1.6.3-ok2) ...
+ 18s Selecting previously unselected package liblua5.4-0:riscv64.
+ 18s Preparing to unpack .../05-liblua5.4-0_5.4.6-ok1_riscv64.deb ...
+ 18s Unpacking liblua5.4-0:riscv64 (5.4.6-ok1) ...
+ 18s Preparing to unpack .../06-libnghttp2-14_1.59.0-ok2_riscv64.deb ...
+ 18s Unpacking libnghttp2-14:riscv64 (1.59.0-ok2) over (1.49.0-1) ...
+ 19s Selecting previously unselected package apache2-bin.
+ 19s Preparing to unpack .../07-apache2-bin_2.4.58-ok2_riscv64.deb ...
+ 19s Unpacking apache2-bin (2.4.58-ok2) ...
+ 19s Selecting previously unselected package apache2-data.
+ 19s Preparing to unpack .../08-apache2-data_2.4.58-ok2_all.deb ...
+ 19s Unpacking apache2-data (2.4.58-ok2) ...
+ 20s Selecting previously unselected package apache2-utils.
+ 20s Preparing to unpack .../09-apache2-utils_2.4.58-ok2_riscv64.deb ...
+ 20s Unpacking apache2-utils (2.4.58-ok2) ...
+ 21s Preparing to unpack .../10-mime-support_3.66-ok1_all.deb ...
+ 21s Unpacking mime-support (3.66-ok1) over (3.64-ok1) ...
+ 21s Selecting previously unselected package mailcap.
+ 21s Preparing to unpack .../11-mailcap_3.70+nmu1-ok1_all.deb ...
+ 21s Unpacking mailcap (3.70+nmu1-ok1) ...
+ 21s Selecting previously unselected package media-types.
+ 21s Preparing to unpack .../12-media-types_10.1.0-ok1_all.deb ...
+ 21s Unpacking media-types (10.1.0-ok1) ...
+ 21s Selecting previously unselected package apache2.
+ 21s Preparing to unpack .../13-apache2_2.4.58-ok2_riscv64.deb ...
+ 21s Unpacking apache2 (2.4.58-ok2) ...
+ 22s Selecting previously unselected package autopkgtest-satdep.
+ 22s Preparing to unpack .../14-1-autopkgtest-satdep.deb ...
+ 22s Unpacking autopkgtest-satdep (0) ...
+ 22s Setting up media-types (10.1.0-ok1) ...
+ 22s Installing new version of config file /etc/mime.types ...
+ 22s Setting up libgdbm6t64:riscv64 (1.23-ok5) ...
+ 22s Setting up libnghttp2-14:riscv64 (1.59.0-ok2) ...
+ 22s Setting up libapr1t64:riscv64 (1.7.2-ok1) ...
+ 22s Setting up liblua5.4-0:riscv64 (5.4.6-ok1) ...
+ 22s Setting up apache2-data (2.4.58-ok2) ...
+ 22s Setting up mailcap (3.70+nmu1-ok1) ...
+ 22s Setting up libaprutil1t64:riscv64 (1.6.3-ok2) ...
+ 22s Setting up mime-support (3.66-ok1) ...
+ 22s Setting up libaprutil1-ldap:riscv64 (1.6.3-ok2) ...
+ 22s Setting up libaprutil1-dbd-sqlite3:riscv64 (1.6.3-ok2) ...
+ 22s Setting up apache2-utils (2.4.58-ok2) ...
+ 23s Setting up apache2-bin (2.4.58-ok2) ...
+ 23s Setting up apache2 (2.4.58-ok2) ...
+ 24s Enabling module mpm_event.
+ 24s Enabling module authz_core.
+ 24s Enabling module authz_host.
+ 24s Enabling module authn_core.
+ 24s Enabling module auth_basic.
+ 24s Enabling module access_compat.
+ 24s Enabling module authn_file.
+ 24s Enabling module authz_user.
+ 24s Enabling module alias.
+ 25s Enabling module dir.
+ 25s Enabling module autoindex.
+ 25s Enabling module env.
+ 25s Enabling module mime.
+ 25s Enabling module negotiation.
+ 25s Enabling module setenvif.
+ 25s Enabling module filter.
+ 25s Enabling module deflate.
+ 26s Enabling module status.
+ 26s Enabling module reqtimeout.
+ 26s Enabling conf charset.
+ 26s Enabling conf localized-error-pages.
+ 26s Enabling conf other-vhosts-access-log.
+ 26s Enabling conf security.
+ 26s Enabling conf serve-cgi-bin.
+ 26s Enabling site 000-default.
+ 27s Running in chroot, ignoring command 'daemon-reload'
+ 27s Running in chroot, ignoring request.
+ 27s Running in chroot, ignoring command 'show'
+ 27s Running in chroot, ignoring command 'daemon-reload'
+ 27s Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
+ 27s Running in chroot, ignoring command 'daemon-reload'
+ 27s Running in chroot, ignoring command 'is-active'
+ 27s Running in chroot, ignoring command 'start'
+ 28s Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+ 28s Running in chroot, ignoring command 'daemon-reload'
+ 28s Running in chroot, ignoring command 'is-active'
+ 28s Running in chroot, ignoring command 'start'
+ 28s Running in chroot, ignoring command 'daemon-reload'
+ 28s Running in chroot, ignoring command 'daemon-reload'
+ 29s Setting up autopkgtest-satdep (0) ...
+ 29s Processing triggers for ufw (0.36-ok1) ...
+ 29s Processing triggers for man-db (2.10.2-2) ...
+ 30s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'apache2'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: Marking test dependencies as manually installed: apache2 apache2-bin apache2-data apache2-utils language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libaprutil1-ldap libaprutil1-dbd-sqlite3 libaprutil1t64 libapr1t64 libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon liblua5.4-0 libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 35s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'apache2', 'apache2-bin', 'apache2-data', 'apache2-utils', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0'], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libaprutil1-ldap', 'libaprutil1-dbd-sqlite3'], kind short, sout raw, serr pipe, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libaprutil1t64', 'libapr1t64', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'liblua5.4-0', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1'], kind short, sout raw, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 41s autopkgtest: DBG: testbed command exited with code 0
+ 41s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 41s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 42s (Reading database ... 194525 files and directories currently installed.)
+ 42s Removing autopkgtest-satdep (0) ...
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.HUGdjl/duplicate-module-load-packages.all"], kind short, sout raw, serr pipe, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/duplicate-module-load-packages.all /home/hachi/openkylin_test/sharefolder/results/apache2/duplicate-module-load-packages.all
+ 42s autopkgtest: DBG: got reply from testbed: ok
+ 42s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.HUGdjl/build.Fmc/src'], kind short, sout raw, serr raw, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.HUGdjl/build.Fmc/src already exists
+ 42s autopkgtest [15:25:22]: test duplicate-module-load: [-----------------------
+ 42s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.HUGdjl/wrapper.sh --debug --artifacts=/tmp/autopkgtest.HUGdjl/duplicate-module-load-artifacts --chdir=/tmp/autopkgtest.HUGdjl/build.Fmc/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.HUGdjl/duplicate-module-load-stderr --stdout=/tmp/autopkgtest.HUGdjl/duplicate-module-load-stdout --tmp=/tmp/autopkgtest.HUGdjl/autopkgtest_tmp --env=AUTOPKGTEST_NORMAL_USER= --env=ADT_NORMAL_USER= --make-executable=/tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/duplicate-module-load -- /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/duplicate-module-load'], kind test, sout raw, serr raw, env []
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.HUGdjl/duplicate-module-load-artifacts
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: changing to directory: /tmp/autopkgtest.HUGdjl/build.Fmc/src
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: LANG=C.UTF-8
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LANGUAGE
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ADDRESS
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ALL
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_COLLATE
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_CTYPE
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MESSAGES
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MONETARY
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NAME
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NUMERIC
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_PAPER
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TIME
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 42s /tmp/autopkgtest.HUGdjl/wrapper.sh: pretending to be a login shell
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write standard error to /tmp/autopkgtest.HUGdjl/duplicate-module-load-stderr
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write stdout to /tmp/autopkgtest.HUGdjl/duplicate-module-load-stdout
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.HUGdjl/autopkgtest_tmp
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: AUTOPKGTEST_NORMAL_USER=
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: ADT_NORMAL_USER=
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: marking as executable: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/duplicate-module-load
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: command to run: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/duplicate-module-load
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.VpJpSMEKIz/out to stdout and file: /tmp/autopkgtest.HUGdjl/duplicate-module-load-stdout
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.VpJpSMEKIz/err to standard error and file: /tmp/autopkgtest.HUGdjl/duplicate-module-load-stdout
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: writing script pid 65858 to /tmp/autopkgtest_script_pid
+ 43s + cd /tmp/autopkgtest.HUGdjl/autopkgtest_tmp
+ 43s + apache2ctl -l -M
+ 43s + sort unsorted
+ 43s + grep core.c sorted
+ 43s   core.c
+ 43s   http_core.c
+ 43s + uniq
+ 43s + diff -u sorted dedup
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: checking for leaked background processes...
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: waiting for tee/cat subprocesses...
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: cleaning up...
+ 43s /tmp/autopkgtest.HUGdjl/wrapper.sh: Exit status: 0
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest [15:25:23]: test duplicate-module-load: -----------------------]
+ 43s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 43s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/duplicate-module-load-stdout /home/hachi/openkylin_test/sharefolder/results/apache2/duplicate-module-load-stdout
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/duplicate-module-load-stderr /home/hachi/openkylin_test/sharefolder/results/apache2/duplicate-module-load-stderr
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest [15:25:23]: test duplicate-module-load:  - - - - - - - - - - results - - - - - - - - - -
+ 43s duplicate-module-load PASS
+ 43s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/duplicate-module-load-artifacts/ /home/hachi/openkylin_test/sharefolder/results/apache2/artifacts/
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.HUGdjl/duplicate-module-load-artifacts', '/tmp/autopkgtest.HUGdjl/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest [15:25:23]: test default-mods: preparing testbed
+ 43s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['apache2'], deps_new=['apache2']
+ 43s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 43s autopkgtest: DBG: install_deps: deps_new=['apache2']
+ 43s autopkgtest: DBG: install-deps: satisfying apache2
+ 44s autopkgtest: DBG: install-deps: architecture resolved: apache2
+ 44s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: can use apt-get on testbed: True
+ 44s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-45dd80b4-ef2a-4755-a3c6-993c5c5a2ecd//tmp/autopkgtest.HUGdjl/2-autopkgtest-satdep.deb /tmp/autopkgtest.HUGdjl/2-autopkgtest-satdep.deb
+ 44s autopkgtest: DBG: got reply from testbed: ok
+ 44s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.HUGdjl/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 45s Reading package lists...
+ 45s Building dependency tree...
+ 45s Reading state information...
+ 46s Starting pkgProblemResolver with broken count: 0
+ 46s Starting 2 pkgProblemResolver with broken count: 0
+ 46s Done
+ 47s The following NEW packages will be installed:
+ 47s   autopkgtest-satdep
+ 47s 0 upgraded, 1 newly installed, 0 to remove and 1064 not upgraded.
+ 47s Need to get 0 B/700 B of archives.
+ 47s After this operation, 0 B of additional disk space will be used.
+ 47s Get:1 /tmp/autopkgtest.HUGdjl/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [700 B]
+ 49s Selecting previously unselected package autopkgtest-satdep.
+ 49s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 49s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194525 files and directories currently installed.)
+ 49s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 49s Unpacking autopkgtest-satdep (0) ...
+ 49s Setting up autopkgtest-satdep (0) ...
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'apache2'], kind short, sout pipe, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 54s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 54s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 54s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 54s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 54s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 54s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 54s (Reading database ... 194525 files and directories currently installed.)
+ 54s Removing autopkgtest-satdep (0) ...
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.HUGdjl/default-mods-packages.all"], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/default-mods-packages.all /home/hachi/openkylin_test/sharefolder/results/apache2/default-mods-packages.all
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.HUGdjl/build.Fmc/src'], kind short, sout raw, serr raw, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.HUGdjl/build.Fmc/src already exists
+ 55s autopkgtest [15:25:35]: test default-mods: [-----------------------
+ 55s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.HUGdjl/wrapper.sh --debug --artifacts=/tmp/autopkgtest.HUGdjl/default-mods-artifacts --chdir=/tmp/autopkgtest.HUGdjl/build.Fmc/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.HUGdjl/default-mods-stderr --stdout=/tmp/autopkgtest.HUGdjl/default-mods-stdout --tmp=/tmp/autopkgtest.HUGdjl/autopkgtest_tmp --env=AUTOPKGTEST_NORMAL_USER= --env=ADT_NORMAL_USER= --make-executable=/tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/default-mods -- /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/default-mods'], kind test, sout raw, serr raw, env []
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.HUGdjl/default-mods-artifacts
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: changing to directory: /tmp/autopkgtest.HUGdjl/build.Fmc/src
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: LANG=C.UTF-8
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LANGUAGE
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ADDRESS
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ALL
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_COLLATE
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_CTYPE
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MESSAGES
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MONETARY
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NAME
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NUMERIC
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_PAPER
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TIME
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: pretending to be a login shell
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write standard error to /tmp/autopkgtest.HUGdjl/default-mods-stderr
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write stdout to /tmp/autopkgtest.HUGdjl/default-mods-stdout
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.HUGdjl/autopkgtest_tmp
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: AUTOPKGTEST_NORMAL_USER=
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: ADT_NORMAL_USER=
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: marking as executable: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/default-mods
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: command to run: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/default-mods
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.BijAer58zl/out to stdout and file: /tmp/autopkgtest.HUGdjl/default-mods-stdout
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.BijAer58zl/err to standard error and file: /tmp/autopkgtest.HUGdjl/default-mods-stdout
+ 55s /tmp/autopkgtest.HUGdjl/wrapper.sh: writing script pid 65993 to /tmp/autopkgtest_script_pid
+ 55s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 55s  alias_module (shared)
+ 55s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 55s  auth_basic_module (shared)
+ 55s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 55s  authn_core_module (shared)
+ 56s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 56s  authz_core_module (shared)
+ 56s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 56s  log_config_module (static)
+ 56s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 56s  mime_module (shared)
+ 56s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 56s  reqtimeout_module (shared)
+ 56s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 56s  version_module (static)
+ 56s AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.102.133. Set the 'ServerName' directive globally to suppress this message
+ 56s  watchdog_module (static)
+ 56s /tmp/autopkgtest.HUGdjl/wrapper.sh: checking for leaked background processes...
+ 56s /tmp/autopkgtest.HUGdjl/wrapper.sh: waiting for tee/cat subprocesses...
+ 56s /tmp/autopkgtest.HUGdjl/wrapper.sh: cleaning up...
+ 56s /tmp/autopkgtest.HUGdjl/wrapper.sh: Exit status: 0
+ 56s autopkgtest: DBG: testbed command exited with code 0
+ 56s autopkgtest [15:25:36]: test default-mods: -----------------------]
+ 56s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 56s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/default-mods-stdout /home/hachi/openkylin_test/sharefolder/results/apache2/default-mods-stdout
+ 56s autopkgtest: DBG: got reply from testbed: ok
+ 56s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/default-mods-stderr /home/hachi/openkylin_test/sharefolder/results/apache2/default-mods-stderr
+ 56s autopkgtest: DBG: got reply from testbed: ok
+ 56s autopkgtest [15:25:36]: test default-mods:  - - - - - - - - - - results - - - - - - - - - -
+ 56s default-mods         PASS
+ 56s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/default-mods-artifacts/ /home/hachi/openkylin_test/sharefolder/results/apache2/artifacts/
+ 56s autopkgtest: DBG: got reply from testbed: ok
+ 56s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.HUGdjl/default-mods-artifacts', '/tmp/autopkgtest.HUGdjl/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest [15:25:37]: test htcacheclean: preparing testbed
+ 57s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['apache2'], deps_new=['apache2']
+ 57s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 57s autopkgtest: DBG: install_deps: deps_new=['apache2']
+ 57s autopkgtest: DBG: install-deps: satisfying apache2
+ 57s autopkgtest: DBG: install-deps: architecture resolved: apache2
+ 57s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest: DBG: can use apt-get on testbed: True
+ 57s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-45dd80b4-ef2a-4755-a3c6-993c5c5a2ecd//tmp/autopkgtest.HUGdjl/3-autopkgtest-satdep.deb /tmp/autopkgtest.HUGdjl/3-autopkgtest-satdep.deb
+ 57s autopkgtest: DBG: got reply from testbed: ok
+ 57s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.HUGdjl/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 58s Reading package lists...
+ 58s Building dependency tree...
+ 58s Reading state information...
+ 59s Starting pkgProblemResolver with broken count: 0
+ 59s Starting 2 pkgProblemResolver with broken count: 0
+ 59s Done
+ 60s The following NEW packages will be installed:
+ 60s   autopkgtest-satdep
+ 60s 0 upgraded, 1 newly installed, 0 to remove and 1064 not upgraded.
+ 60s Need to get 0 B/700 B of archives.
+ 60s After this operation, 0 B of additional disk space will be used.
+ 60s Get:1 /tmp/autopkgtest.HUGdjl/3-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [700 B]
+ 62s Selecting previously unselected package autopkgtest-satdep.
+ 62s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 62s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 62s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194525 files and directories currently installed.)
+ 62s Preparing to unpack .../3-autopkgtest-satdep.deb ...
+ 62s Unpacking autopkgtest-satdep (0) ...
+ 62s Setting up autopkgtest-satdep (0) ...
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'apache2'], kind short, sout pipe, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 67s autopkgtest: DBG: testbed command exited with code 0
+ 67s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 67s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 67s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 67s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 67s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 67s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 67s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 67s (Reading database ... 194525 files and directories currently installed.)
+ 67s Removing autopkgtest-satdep (0) ...
+ 68s autopkgtest: DBG: testbed command exited with code 0
+ 68s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 68s autopkgtest: DBG: testbed command exited with code 0
+ 68s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.HUGdjl/htcacheclean-packages.all"], kind short, sout raw, serr pipe, env []
+ 68s autopkgtest: DBG: testbed command exited with code 0
+ 68s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/htcacheclean-packages.all /home/hachi/openkylin_test/sharefolder/results/apache2/htcacheclean-packages.all
+ 68s autopkgtest: DBG: got reply from testbed: ok
+ 68s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.HUGdjl/build.Fmc/src'], kind short, sout raw, serr raw, env []
+ 68s autopkgtest: DBG: testbed command exited with code 0
+ 68s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.HUGdjl/build.Fmc/src already exists
+ 68s autopkgtest [15:25:48]: test htcacheclean: [-----------------------
+ 68s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.HUGdjl/wrapper.sh --debug --artifacts=/tmp/autopkgtest.HUGdjl/htcacheclean-artifacts --chdir=/tmp/autopkgtest.HUGdjl/build.Fmc/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.HUGdjl/htcacheclean-stderr --stdout=/tmp/autopkgtest.HUGdjl/htcacheclean-stdout --tmp=/tmp/autopkgtest.HUGdjl/autopkgtest_tmp --env=AUTOPKGTEST_NORMAL_USER= --env=ADT_NORMAL_USER= --make-executable=/tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/htcacheclean -- /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/htcacheclean'], kind test, sout raw, serr raw, env []
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.HUGdjl/htcacheclean-artifacts
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: changing to directory: /tmp/autopkgtest.HUGdjl/build.Fmc/src
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: LANG=C.UTF-8
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LANGUAGE
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ADDRESS
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ALL
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_COLLATE
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_CTYPE
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MESSAGES
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MONETARY
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NAME
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NUMERIC
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_PAPER
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TIME
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: pretending to be a login shell
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write standard error to /tmp/autopkgtest.HUGdjl/htcacheclean-stderr
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write stdout to /tmp/autopkgtest.HUGdjl/htcacheclean-stdout
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.HUGdjl/autopkgtest_tmp
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: AUTOPKGTEST_NORMAL_USER=
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: ADT_NORMAL_USER=
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: marking as executable: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/htcacheclean
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: command to run: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/htcacheclean
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.qvjsW6Um84/out to stdout and file: /tmp/autopkgtest.HUGdjl/htcacheclean-stdout
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.qvjsW6Um84/err to standard error and file: /tmp/autopkgtest.HUGdjl/htcacheclean-stdout
+ 68s /tmp/autopkgtest.HUGdjl/wrapper.sh: writing script pid 66148 to /tmp/autopkgtest_script_pid
+ 68s + htc_enabled
+ 68s + ls /etc/rc[2345].d/S*apache-htcacheclean
+ 68s + return 1
+ 68s + a2enmod cache_disk
+ 68s Considering dependency cache for cache_disk:
+ 68s Enabling module cache.
+ 68s Enabling module cache_disk.
+ 68s Enabling external service apache-htcacheclean
+ 68s Synchronizing state of apache-htcacheclean.service with SysV service script with /lib/systemd/systemd-sysv-install.
+ 68s Executing: /lib/systemd/systemd-sysv-install enable apache-htcacheclean
+ 68s Running in chroot, ignoring command 'daemon-reload'
+ 68s Running in chroot, ignoring command 'daemon-reload'
+ 68s Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service -> /lib/systemd/system/apache-htcacheclean.service.
+ 68s The service will be started on next reboot.
+ 68s To activate the new configuration, you need to run:
+ 68s   systemctl restart apache2
+ 68s   systemctl start apache-htcacheclean
+ 68s + htc_enabled
+ 68s + ls /etc/rc2.d/S01apache-htcacheclean /etc/rc3.d/S01apache-htcacheclean /etc/rc4.d/S01apache-htcacheclean /etc/rc5.d/S01apache-htcacheclean
+ 68s + return 0
+ 68s + service apache-htcacheclean start
+ 74s Running in chroot, ignoring command 'start'
+ 74s + ps -ef
+ 74s + grep /usr/bin/htcacheclean
+ 74s root       66197   66165  0 15:25 pts/1    00:00:00 grep /usr/bin/htcacheclean
+ 74s + PGREP=pgrep -P 1 -u www-data -G www-data htcacheclean
+ 74s + pgrep -P 1 -u www-data -G www-data htcacheclean
+ 74s + fatal htcacheclean is not running or running as wrong user/group
+ 74s + echo ERROR: htcacheclean is not running or running as wrong user/group
+ 74s ERROR: htcacheclean is not running or running as wrong user/group
+ 74s + exit 1
+ 74s /tmp/autopkgtest.HUGdjl/wrapper.sh: checking for leaked background processes...
+ 74s /tmp/autopkgtest.HUGdjl/wrapper.sh: waiting for tee/cat subprocesses...
+ 74s /tmp/autopkgtest.HUGdjl/wrapper.sh: cleaning up...
+ 74s /tmp/autopkgtest.HUGdjl/wrapper.sh: Exit status: 1
+ 75s autopkgtest: DBG: testbed command exited with code 1
+ 75s autopkgtest [15:25:55]: test htcacheclean: -----------------------]
+ 75s autopkgtest: DBG: testbed executing test finished with exit status 1
+ 75s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/htcacheclean-stdout /home/hachi/openkylin_test/sharefolder/results/apache2/htcacheclean-stdout
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/htcacheclean-stderr /home/hachi/openkylin_test/sharefolder/results/apache2/htcacheclean-stderr
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest [15:25:55]: test htcacheclean:  - - - - - - - - - - results - - - - - - - - - -
+ 75s htcacheclean         FAIL non-zero exit status 1
+ 75s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/htcacheclean-artifacts/ /home/hachi/openkylin_test/sharefolder/results/apache2/artifacts/
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.HUGdjl/htcacheclean-artifacts', '/tmp/autopkgtest.HUGdjl/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 75s autopkgtest: DBG: testbed command exited with code 0
+ 75s autopkgtest [15:25:55]: test check-ubuntu-branding: preparing testbed
+ 75s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['apache2'], deps_new=['apache2', 'curl']
+ 75s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 75s autopkgtest: DBG: install_deps: deps_new=['apache2', 'curl']
+ 75s autopkgtest: DBG: install-deps: satisfying apache2, curl
+ 75s autopkgtest: DBG: install-deps: architecture resolved: apache2, curl
+ 75s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 75s autopkgtest: DBG: testbed command exited with code 0
+ 75s autopkgtest: DBG: can use apt-get on testbed: True
+ 75s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.HUGdjl'], kind short, sout raw, serr pipe, env []
+ 75s autopkgtest: DBG: testbed command exited with code 0
+ 75s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-45dd80b4-ef2a-4755-a3c6-993c5c5a2ecd//tmp/autopkgtest.HUGdjl/4-autopkgtest-satdep.deb /tmp/autopkgtest.HUGdjl/4-autopkgtest-satdep.deb
+ 75s autopkgtest: DBG: got reply from testbed: ok
+ 75s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.HUGdjl/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 76s Reading package lists...
+ 77s Building dependency tree...
+ 77s Reading state information...
+ 77s Starting pkgProblemResolver with broken count: 0
+ 77s Starting 2 pkgProblemResolver with broken count: 0
+ 77s Done
+ 78s The following NEW packages will be installed:
+ 78s   autopkgtest-satdep
+ 78s 0 upgraded, 1 newly installed, 0 to remove and 1064 not upgraded.
+ 78s Need to get 0 B/704 B of archives.
+ 78s After this operation, 0 B of additional disk space will be used.
+ 78s Get:1 /tmp/autopkgtest.HUGdjl/4-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [704 B]
+ 80s Selecting previously unselected package autopkgtest-satdep.
+ 80s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 80s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 80s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 80s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 80s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 80s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 81s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194525 files and directories currently installed.)
+ 81s Preparing to unpack .../4-autopkgtest-satdep.deb ...
+ 81s Unpacking autopkgtest-satdep (0) ...
+ 81s Setting up autopkgtest-satdep (0) ...
+ 82s autopkgtest: DBG: testbed command exited with code 0
+ 82s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'apache2'], kind short, sout pipe, serr pipe, env []
+ 82s autopkgtest: DBG: testbed command exited with code 0
+ 82s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 82s autopkgtest: DBG: testbed command exited with code 0
+ 82s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 86s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 86s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 86s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 86s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 86s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 86s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 86s (Reading database ... 194525 files and directories currently installed.)
+ 86s Removing autopkgtest-satdep (0) ...
+ 87s autopkgtest: DBG: testbed command exited with code 0
+ 87s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 87s autopkgtest: DBG: testbed command exited with code 0
+ 87s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-packages.all"], kind short, sout raw, serr pipe, env []
+ 87s autopkgtest: DBG: testbed command exited with code 0
+ 87s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-packages.all /home/hachi/openkylin_test/sharefolder/results/apache2/check-ubuntu-branding-packages.all
+ 87s autopkgtest: DBG: got reply from testbed: ok
+ 87s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.HUGdjl/build.Fmc/src'], kind short, sout raw, serr raw, env []
+ 87s autopkgtest: DBG: testbed command exited with code 0
+ 87s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.HUGdjl/build.Fmc/src already exists
+ 87s autopkgtest [15:26:07]: test check-ubuntu-branding: [-----------------------
+ 87s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.HUGdjl/wrapper.sh --debug --artifacts=/tmp/autopkgtest.HUGdjl/check-ubuntu-branding-artifacts --chdir=/tmp/autopkgtest.HUGdjl/build.Fmc/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stderr --stdout=/tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stdout --tmp=/tmp/autopkgtest.HUGdjl/autopkgtest_tmp --make-executable=/tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/check-ubuntu-branding -- /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/check-ubuntu-branding'], kind test, sout raw, serr raw, env []
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-artifacts
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: changing to directory: /tmp/autopkgtest.HUGdjl/build.Fmc/src
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: setting environment: LANG=C.UTF-8
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LANGUAGE
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ADDRESS
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_ALL
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_COLLATE
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_CTYPE
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MESSAGES
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_MONETARY
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NAME
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_NUMERIC
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_PAPER
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: unsetting environment: LC_TIME
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: pretending to be a login shell
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write standard error to /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stderr
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: will write stdout to /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stdout
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.HUGdjl/autopkgtest_tmp
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: marking as executable: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/check-ubuntu-branding
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: command to run: /tmp/autopkgtest.HUGdjl/build.Fmc/src/debian/tests/check-ubuntu-branding
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.c4Vi2341eO/out to stdout and file: /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stdout
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: copying /tmp/tmp.c4Vi2341eO/err to standard error and file: /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stdout
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: writing script pid 66299 to /tmp/autopkgtest_script_pid
+ 87s + ubuntu_logo_path=icons/ubuntu-logo.png
+ 87s ++ curl -s http://localhost
+ 87s + html_content=
+ 87s + echo 'ERROR: Curl command failed to fetch web content'
+ 87s ERROR: Curl command failed to fetch web content
+ 87s + exit 1
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: checking for leaked background processes...
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: waiting for tee/cat subprocesses...
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: cleaning up...
+ 87s /tmp/autopkgtest.HUGdjl/wrapper.sh: Exit status: 1
+ 88s autopkgtest: DBG: testbed command exited with code 1
+ 88s autopkgtest [15:26:08]: test check-ubuntu-branding: -----------------------]
+ 88s autopkgtest: DBG: testbed executing test finished with exit status 1
+ 88s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stdout /home/hachi/openkylin_test/sharefolder/results/apache2/check-ubuntu-branding-stdout
+ 88s autopkgtest: DBG: got reply from testbed: ok
+ 88s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-stderr /home/hachi/openkylin_test/sharefolder/results/apache2/check-ubuntu-branding-stderr
+ 88s autopkgtest: DBG: got reply from testbed: ok
+ 88s autopkgtest [15:26:08]: test check-ubuntu-branding:  - - - - - - - - - - results - - - - - - - - - -
+ 88s check-ubuntu-branding FAIL non-zero exit status 1
+ 88s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.HUGdjl/check-ubuntu-branding-artifacts/ /home/hachi/openkylin_test/sharefolder/results/apache2/artifacts/
+ 88s autopkgtest: DBG: got reply from testbed: ok
+ 88s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.HUGdjl/check-ubuntu-branding-artifacts', '/tmp/autopkgtest.HUGdjl/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 88s autopkgtest: DBG: testbed command exited with code 0
+ 88s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 88s autopkgtest [15:26:08]: @@@@@@@@@@@@@@@@@@@@ summary
+ 88s run-test-suite       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s ssl-passphrase       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s check-http2          SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s chroot               SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s run-test-suite       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s ssl-passphrase       SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s check-http2          SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s chroot               SKIP Test restriction "breaks-testbed" requires testbed capability "revert-full-system"
+ 88s duplicate-module-load PASS
+ 88s default-mods         PASS
+ 88s htcacheclean         FAIL non-zero exit status 1
+ 88s check-ubuntu-branding FAIL non-zero exit status 1
+ 88s autopkgtest: DBG: testbed stop
+ 88s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.HUGdjl
+ 88s autopkgtest: DBG: sending command to testbed: close
+ 88s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 89s autopkgtest: DBG: got reply from testbed: ok
+ 89s autopkgtest: DBG: sending command to testbed: quit

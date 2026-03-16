@@ -1,0 +1,13 @@
++ mktemp -d
++ WORKDIR=/tmp/tmp.2rE3g94Rcs
++ export XDG_RUNTIME_DIR=/tmp/tmp.2rE3g94Rcs
++ trap rm -rf "$WORKDIR" 0 INT QUIT ABRT PIPE TERM
++ cd /tmp/tmp.2rE3g94Rcs
++ cat
++ pkg-config --cflags --libs gnome-autoar-0
++ gcc -o trivial trivial.c -I/usr/include/gnome-autoar-0 -I/usr/include/glib-2.0 -I/usr/lib/riscv64-linux-gnu/glib-2.0/include -pthread -I/usr/include/libmount -I/usr/include/blkid -lgnome-autoar-0 -lgio-2.0 -larchive -lgobject-2.0 -lglib-2.0
++ echo build: OK
++ [ -x trivial ]
++ ./trivial
++ echo run: OK
++ rm -rf /tmp/tmp.2rE3g94Rcs

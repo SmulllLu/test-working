@@ -1,0 +1,176 @@
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Boost: /usr/lib/riscv64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: fiber 
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/tmp.VPYZ1P5wsy/build
+[ 25%] Building CXX object CMakeFiles/demo1.dir/demo1.cpp.o
+[ 50%] Linking CXX executable demo1
+[ 50%] Built target demo1
+[ 75%] Building CXX object CMakeFiles/demo2.dir/demo2.cpp.o
+[100%] Linking CXX executable demo2
+[100%] Built target demo2
+build: OK
+ping
+pong
+ping
+pong
+ping
+pong
+done.
+run: demo1 OK
+wait_first_simple() start
+  sleeper(wfs_long) start
+  sleeper(wfs_medium) start
+  sleeper(wfs_short) start
+  sleeper(wfs_short) stop
+wait_first_simple() stop
+wait_first_value() start
+  sleeper(wfv_third) start
+  sleeper(wfv_second) start
+  sleeper(wfv_first) start
+  sleeper(wfs_medium) stop
+  sleeper(wfv_first) stop
+wait_first_value() => wfv_first
+wait_first_value() stop
+wait_first_outcome() start
+  sleeper(wfos_first) start
+  sleeper(wfos_second) start
+  sleeper(wfos_third) start
+  sleeper(wfs_long) stop
+  sleeper(wfv_second) stop
+  sleeper(wfos_first) stop
+wait_first_outcome(success) => wfos_first
+  sleeper(wfof_first) start
+  sleeper(wfof_second) start
+  sleeper(wfof_third) start
+  sleeper(wfv_third) stop
+  sleeper(wfos_second) stop
+  sleeper(wfof_first) stop
+wait_first_outcome(fail) threw 'wfof_first'
+wait_first_outcome() stop
+wait_first_success() start
+  sleeper(wfss_first) start
+  sleeper(wfss_second) start
+  sleeper(wfss_third) start
+  sleeper(wfos_third) stop
+  sleeper(wfof_second) stop
+  sleeper(wfss_first) stop
+  sleeper(wfof_third) stop
+  sleeper(wfss_second) stop
+wait_first_success(success) => wfss_second
+  sleeper(wfsf_first) start
+  sleeper(wfsf_second) start
+  sleeper(wfsf_third) start
+  sleeper(wfss_third) stop
+  sleeper(wfsf_first) stop
+  sleeper(wfsf_second) stop
+  sleeper(wfsf_third) stop
+wait_first_success(fail) threw 'wait_first_success() produced only errors': 3 errors
+wait_first_success() stop
+wait_first_value_het() start
+  sleeper(wfvh_third) start
+  sleeper(3.14) start
+  sleeper(17) start
+  sleeper(17) stop
+wait_first_value_het() => 17
+wait_first_value_het() stop
+wait_all_simple() start
+  sleeper(was_long) start
+  sleeper(was_medium) start
+  sleeper(was_short) start
+  sleeper(3.14) stop
+  sleeper(was_short) stop
+  sleeper(wfvh_third) stop
+  sleeper(was_medium) stop
+  sleeper(was_long) stop
+wait_all_simple() stop
+wait_all_values() start
+  sleeper(wavs_third) start
+  sleeper(wavs_second) start
+  sleeper(wavs_first) start
+  sleeper(wavs_first) stop
+wait_all_values_source() => 'wavs_first'
+  sleeper(wavs_second) stop
+wait_all_values_source() => 'wavs_second'
+  sleeper(wavs_third) stop
+wait_all_values_source() => 'wavs_third'
+  sleeper(wav_late) start
+  sleeper(wav_middle) start
+  sleeper(wav_early) start
+  sleeper(wav_early) stop
+  sleeper(wav_middle) stop
+  sleeper(wav_late) stop
+wait_all_values() => 'wav_early' 'wav_middle' 'wav_late'
+wait_all_values() stop
+wait_all_until_error() start
+  sleeper(wauess_third) start
+  sleeper(wauess_second) start
+  sleeper(wauess_first) start
+  sleeper(wauess_first) stop
+wait_all_until_error_source(success) => 'wauess_first'
+  sleeper(wauess_second) stop
+wait_all_until_error_source(success) => 'wauess_second'
+  sleeper(wauess_third) stop
+wait_all_until_error_source(success) => 'wauess_third'
+  sleeper(wauesf_third) start
+  sleeper(wauesf_second) start
+  sleeper(wauesf_first) start
+  sleeper(wauesf_first) stop
+wait_all_until_error_source(fail) => 'wauesf_first'
+  sleeper(wauesf_second) stop
+wait_all_until_error_source(fail) threw 'wauesf_second'
+  sleeper(waue_late) start
+  sleeper(waue_middle) start
+  sleeper(waue_early) start
+  sleeper(wauesf_third) stop
+  sleeper(waue_early) stop
+  sleeper(waue_middle) stop
+wait_all_until_error(fail) threw 'waue_middle'
+wait_all_until_error() stop
+wait_all_collect_errors() start
+  sleeper(waces_late) start
+  sleeper(waces_middle) start
+  sleeper(waces_early) start
+  sleeper(waue_late) stop
+  sleeper(waces_early) stop
+  sleeper(waces_middle) stop
+  sleeper(waces_late) stop
+wait_all_collect_errors(success) => 'waces_early' 'waces_middle' 'waces_late'
+  sleeper(wacef_late) start
+  sleeper(wacef_middle) start
+  sleeper(wacef_early) start
+  sleeper(wacef_early) stop
+  sleeper(wacef_middle) stop
+  sleeper(wacef_late) stop
+wait_all_collect_errors(fail) threw 'wait_all_collect_errors() exceptions': 2 errors
+wait_all_collect_errors() stop
+wait_all_members() start
+  sleeper(wams_left) start
+  sleeper(3.14) start
+  sleeper(17) start
+  sleeper(17) stop
+  sleeper(wams_left) stop
+  sleeper(3.14) stop
+wait_all_members<Data>(success) => Data{str='wams_left', inexact=3.14, exact=17}
+  sleeper(wamf_left) start
+  sleeper(3.14) start
+  sleeper(17) start
+  sleeper(17) stop
+  sleeper(wamf_left) stop
+wait_all_members<Data>(fail) threw 'wamf_left"
+  sleeper(wamv_left) start
+  sleeper(wamv_middle) start
+  sleeper(wamv_right) start
+  sleeper(3.14) stop
+  sleeper(wamv_right) stop
+  sleeper(wamv_middle) stop
+  sleeper(wamv_left) stop
+wait_all_members<vector>() => 'wamv_left' 'wamv_middle' 'wamv_right'
+wait_all_members() stop
+done.
+run: demo2 OK

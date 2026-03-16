@@ -1,0 +1,855 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [10:22:33]: starting date and time: 2024-07-19 10:22:33+0800
+  0s autopkgtest [10:22:33]: version @version@
+  0s autopkgtest [10:22:33]: host lili; command line: /usr/bin/autopkgtest wheel_0.42.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/wheel -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.IwdcBs
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf//tmp/autopkgtest.IwdcBs
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf//tmp/autopkgtest.IwdcBs', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.IwdcBs/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.IwdcBs/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [10:22:34]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [10:22:35]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.IwdcBs/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/testbed-packages /home/hachi/openkylin_test/sharefolder/results/wheel/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [10:22:35]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [10:22:35]: @@@@@@@@@@@@@@@@@@@@ source wheel_0.42.0-ok1.dsc
+  2s autopkgtest: DBG: blame += wheel_0.42.0-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown wheel_0.42.0-ok1.dsc /tmp/autopkgtest.IwdcBs/wheel_0.42.0-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown wheel_0.42.0.orig.tar.gz /tmp/autopkgtest.IwdcBs/wheel_0.42.0.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown wheel_0.42.0-ok1.debian.tar.xz /tmp/autopkgtest.IwdcBs/wheel_0.42.0-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.IwdcBs/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.IwdcBs/wheel_0.42.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.IwdcBs/build.XXX
+  3s + builddir=/tmp/autopkgtest.IwdcBs/build.R58
+  3s + cd /tmp/autopkgtest.IwdcBs/build.R58
+  3s + dpkg-source -x /tmp/autopkgtest.IwdcBs/wheel_0.42.0-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.nJ5q14Sa/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 04 Jun 2024 02:39:11 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.IwdcBs/wheel_0.42.0-ok1.dsc
+  3s dpkg-source: info: extracting wheel in src
+  3s dpkg-source: info: unpacking wheel_0.42.0.orig.tar.gz
+  3s dpkg-source: info: unpacking wheel_0.42.0-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying 0001-Apply-patches.patch
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [10:22:36]: testing package wheel version 0.42.0-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/build.R58/src/debian/ /home/hachi/openkylin_test/sharefolder/results/wheel/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency python3-setuptools
+  3s autopkgtest: DBG: processing dependency python3-wheel
+  3s autopkgtest: DBG: marked alternatives ['python3-wheel'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name smoketest-3 path debian/tests/smoketest-3 command "None" restrictions ['allow-stderr'] features [] depends ['python3-setuptools', 'python3-wheel'] 
+  3s autopkgtest: DBG: processing dependency coreutils
+  3s autopkgtest: DBG: processing dependency python3-setuptools
+  3s autopkgtest: DBG: processing dependency python3-wheel
+  3s autopkgtest: DBG: marked alternatives ['python3-wheel'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name reproduce-3 path debian/tests/reproduce-3 command "None" restrictions ['allow-stderr'] features [] depends ['coreutils', 'python3-setuptools', 'python3-wheel'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency python3-all-dev
+  3s autopkgtest: DBG: processing dependency python3-pytest
+  3s autopkgtest: DBG: processing dependency python3-pytest-cov
+  3s autopkgtest: DBG: processing dependency python3-setuptools
+  3s autopkgtest: DBG: processing dependency python3-wheel
+  3s autopkgtest: DBG: marked alternatives ['python3-wheel'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name unittests-3 path debian/tests/unittests-3 command "None" restrictions [] features [] depends ['build-essential', 'python3-all-dev', 'python3-pytest', 'python3-pytest-cov', 'python3-setuptools', 'python3-wheel'] 
+  3s autopkgtest [10:22:36]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/build.R58/src/ /home/hachi/openkylin_test/sharefolder/results/wheel/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency python3-setuptools
+  3s autopkgtest: DBG: processing dependency python3-wheel
+  3s autopkgtest: DBG: marked alternatives ['python3-wheel'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name smoketest-3 path debian/tests/smoketest-3 command "None" restrictions ['allow-stderr'] features [] depends ['python3-setuptools', 'python3-wheel'] 
+  3s autopkgtest: DBG: processing dependency coreutils
+  3s autopkgtest: DBG: processing dependency python3-setuptools
+  3s autopkgtest: DBG: processing dependency python3-wheel
+  3s autopkgtest: DBG: marked alternatives ['python3-wheel'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name reproduce-3 path debian/tests/reproduce-3 command "None" restrictions ['allow-stderr'] features [] depends ['coreutils', 'python3-setuptools', 'python3-wheel'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency python3-all-dev
+  3s autopkgtest: DBG: processing dependency python3-pytest
+  3s autopkgtest: DBG: processing dependency python3-pytest-cov
+  3s autopkgtest: DBG: processing dependency python3-setuptools
+  3s autopkgtest: DBG: processing dependency python3-wheel
+  3s autopkgtest: DBG: marked alternatives ['python3-wheel'] as a synthesised dependency
+  3s autopkgtest: DBG: Test defined: name unittests-3 path debian/tests/unittests-3 command "None" restrictions [] features [] depends ['build-essential', 'python3-all-dev', 'python3-pytest', 'python3-pytest-cov', 'python3-setuptools', 'python3-wheel'] 
+  3s autopkgtest [10:22:36]: test smoketest-3: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['python3-setuptools', 'python3-wheel']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['python3-setuptools', 'python3-wheel']
+  3s autopkgtest: DBG: install-deps: satisfying python3-setuptools, python3-wheel
+  3s autopkgtest: DBG: install-deps: architecture resolved: python3-setuptools, python3-wheel
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf//tmp/autopkgtest.IwdcBs/1-autopkgtest-satdep.deb /tmp/autopkgtest.IwdcBs/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.IwdcBs/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   python3-wheel
+  6s The following NEW packages will be installed:
+  6s   autopkgtest-satdep python3-wheel
+  6s 0 upgraded, 2 newly installed, 0 to remove and 1066 not upgraded.
+  6s Need to get 50.4 kB/51.1 kB of archives.
+  6s After this operation, 242 kB of additional disk space will be used.
+  6s Get:1 /tmp/autopkgtest.IwdcBs/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [708 B]
+  6s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-wheel all 0.42.0-ok1 [50.4 kB]
+  8s Fetched 50.4 kB in 0s (276 kB/s)
+  9s Selecting previously unselected package python3-wheel.
+  9s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+  9s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+  9s Preparing to unpack .../python3-wheel_0.42.0-ok1_all.deb ...
+  9s Unpacking python3-wheel (0.42.0-ok1) ...
+ 10s Selecting previously unselected package autopkgtest-satdep.
+ 10s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 10s Unpacking autopkgtest-satdep (0) ...
+ 10s Setting up python3-wheel (0.42.0-ok1) ...
+ 11s Setting up autopkgtest-satdep (0) ...
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'python3-wheel'], kind short, sout pipe, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-wheel python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 16s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-wheel'], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 23s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 23s (Reading database ... 193849 files and directories currently installed.)
+ 23s Removing autopkgtest-satdep (0) ...
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.IwdcBs/smoketest-3-packages.all"], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/smoketest-3-packages.all /home/hachi/openkylin_test/sharefolder/results/wheel/smoketest-3-packages.all
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.IwdcBs/build.R58/src'], kind short, sout raw, serr raw, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.IwdcBs/build.R58/src already exists
+ 24s autopkgtest [10:22:57]: test smoketest-3: [-----------------------
+ 24s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.IwdcBs/wrapper.sh --debug --artifacts=/tmp/autopkgtest.IwdcBs/smoketest-3-artifacts --chdir=/tmp/autopkgtest.IwdcBs/build.R58/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.IwdcBs/smoketest-3-stderr --stdout=/tmp/autopkgtest.IwdcBs/smoketest-3-stdout --tmp=/tmp/autopkgtest.IwdcBs/autopkgtest_tmp --make-executable=/tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/smoketest-3 -- /tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/smoketest-3'], kind test, sout raw, serr raw, env []
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.IwdcBs/smoketest-3-artifacts
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: changing to directory: /tmp/autopkgtest.IwdcBs/build.R58/src
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: setting environment: LANG=C.UTF-8
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LANGUAGE
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_ADDRESS
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_ALL
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_COLLATE
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_CTYPE
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_MESSAGES
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_MONETARY
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_NAME
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_NUMERIC
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_PAPER
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_TIME
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: pretending to be a login shell
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: will write standard error to /tmp/autopkgtest.IwdcBs/smoketest-3-stderr
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: will write stdout to /tmp/autopkgtest.IwdcBs/smoketest-3-stdout
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.IwdcBs/autopkgtest_tmp
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: marking as executable: /tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/smoketest-3
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: command to run: /tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/smoketest-3
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: copying /tmp/tmp.OIkm103dOl/out to stdout and file: /tmp/autopkgtest.IwdcBs/smoketest-3-stdout
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: copying /tmp/tmp.OIkm103dOl/err to standard error and file: /tmp/autopkgtest.IwdcBs/smoketest-3-stdout
+ 24s /tmp/autopkgtest.IwdcBs/wrapper.sh: writing script pid 1722473 to /tmp/autopkgtest_script_pid
+ 26s running bdist_wheel
+ 26s running build
+ 26s running build_py
+ 26s creating build
+ 26s creating build/lib
+ 26s creating build/lib/dummy
+ 26s copying dummy/yes.py -> build/lib/dummy
+ 26s copying dummy/no.py -> build/lib/dummy
+ 26s copying dummy/__init__.py -> build/lib/dummy
+ 26s installing to /tmp/autopkgtest.IwdcBs/autopkgtest_tmp/build
+ 26s running install
+ 26s running install_lib
+ 26s /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+ 26s   warnings.warn(
+ 26s Traceback (most recent call last):
+ 26s   File "setup.py", line 3, in <module>
+ 26s     setup(name='dummy',
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 87, in setup
+ 26s     return distutils.core.setup(**attrs)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 185, in setup
+ 26s     return run_commands(dist)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 201, in run_commands
+ 26s     dist.run_commands()
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 973, in run_commands
+ 26s     self.run_command(cmd)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 26s     super().run_command(command)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 992, in run_command
+ 26s     cmd_obj.run()
+ 26s   File "/usr/lib/python3/dist-packages/wheel/bdist_wheel.py", line 403, in run
+ 26s     self.run_command("install")
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 319, in run_command
+ 26s     self.distribution.run_command(command)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 26s     super().run_command(command)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 992, in run_command
+ 26s     cmd_obj.run()
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/command/install.py", line 68, in run
+ 26s     return orig.install.run(self)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install.py", line 709, in run
+ 26s     self.run_command(cmd_name)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 319, in run_command
+ 26s     self.distribution.run_command(command)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 26s     super().run_command(command)
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 991, in run_command
+ 26s     cmd_obj.ensure_finalized()
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 109, in ensure_finalized
+ 26s     self.finalize_options()
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/command/install_lib.py", line 17, in finalize_options
+ 26s     self.set_undefined_options('install',('install_layout','install_layout'))
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 297, in set_undefined_options
+ 26s     setattr(self, dst_option, getattr(src_cmd_obj, src_option))
+ 26s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 105, in __getattr__
+ 26s     raise AttributeError(attr)
+ 26s AttributeError: install_layout
+ 27s Traceback (most recent call last):
+ 27s   File "<string>", line 1, in <module>
+ 27s ModuleNotFoundError: No module named 'dummy'
+ 27s Traceback (most recent call last):
+ 27s   File "<string>", line 1, in <module>
+ 27s ModuleNotFoundError: No module named 'dummy'
+ 27s yes = 
+ 27s no = 
+ 27s /tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/smoketest-3: line 19: test: too many arguments
+ 27s /tmp/autopkgtest.IwdcBs/wrapper.sh: checking for leaked background processes...
+ 27s /tmp/autopkgtest.IwdcBs/wrapper.sh: waiting for tee/cat subprocesses...
+ 27s /tmp/autopkgtest.IwdcBs/wrapper.sh: cleaning up...
+ 27s /tmp/autopkgtest.IwdcBs/wrapper.sh: Exit status: 2
+ 27s autopkgtest: DBG: testbed command exited with code 2
+ 28s autopkgtest [10:23:01]: test smoketest-3: -----------------------]
+ 28s autopkgtest: DBG: testbed executing test finished with exit status 2
+ 28s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/smoketest-3-stdout /home/hachi/openkylin_test/sharefolder/results/wheel/smoketest-3-stdout
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/smoketest-3-stderr /home/hachi/openkylin_test/sharefolder/results/wheel/smoketest-3-stderr
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest [10:23:01]: test smoketest-3:  - - - - - - - - - - results - - - - - - - - - -
+ 28s smoketest-3          FAIL non-zero exit status 2
+ 28s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/smoketest-3-artifacts/ /home/hachi/openkylin_test/sharefolder/results/wheel/artifacts/
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.IwdcBs/smoketest-3-artifacts', '/tmp/autopkgtest.IwdcBs/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest [10:23:01]: test reproduce-3: preparing testbed
+ 28s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['python3-setuptools', 'python3-wheel'], deps_new=['coreutils', 'python3-setuptools', 'python3-wheel']
+ 28s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 28s autopkgtest: DBG: install_deps: deps_new=['coreutils', 'python3-setuptools', 'python3-wheel']
+ 28s autopkgtest: DBG: install-deps: satisfying coreutils, python3-setuptools, python3-wheel
+ 28s autopkgtest: DBG: install-deps: architecture resolved: coreutils, python3-setuptools, python3-wheel
+ 28s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: can use apt-get on testbed: True
+ 28s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf//tmp/autopkgtest.IwdcBs/2-autopkgtest-satdep.deb /tmp/autopkgtest.IwdcBs/2-autopkgtest-satdep.deb
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.IwdcBs/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 30s Building dependency tree...
+ 30s Reading state information...
+ 30s Starting pkgProblemResolver with broken count: 0
+ 30s Starting 2 pkgProblemResolver with broken count: 0
+ 30s Done
+ 31s The following NEW packages will be installed:
+ 31s   autopkgtest-satdep
+ 31s 0 upgraded, 1 newly installed, 0 to remove and 1066 not upgraded.
+ 31s Need to get 0 B/720 B of archives.
+ 31s After this operation, 0 B of additional disk space will be used.
+ 31s Get:1 /tmp/autopkgtest.IwdcBs/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [720 B]
+ 33s Selecting previously unselected package autopkgtest-satdep.
+ 33s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 34s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193849 files and directories currently installed.)
+ 34s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 34s Unpacking autopkgtest-satdep (0) ...
+ 34s Setting up autopkgtest-satdep (0) ...
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'python3-wheel'], kind short, sout pipe, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 39s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 39s (Reading database ... 193849 files and directories currently installed.)
+ 39s Removing autopkgtest-satdep (0) ...
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.IwdcBs/reproduce-3-packages.all"], kind short, sout raw, serr pipe, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/reproduce-3-packages.all /home/hachi/openkylin_test/sharefolder/results/wheel/reproduce-3-packages.all
+ 40s autopkgtest: DBG: got reply from testbed: ok
+ 40s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.IwdcBs/build.R58/src'], kind short, sout raw, serr raw, env []
+ 40s autopkgtest: DBG: testbed command exited with code 0
+ 40s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.IwdcBs/build.R58/src already exists
+ 40s autopkgtest [10:23:13]: test reproduce-3: [-----------------------
+ 40s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.IwdcBs/wrapper.sh --debug --artifacts=/tmp/autopkgtest.IwdcBs/reproduce-3-artifacts --chdir=/tmp/autopkgtest.IwdcBs/build.R58/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.IwdcBs/reproduce-3-stderr --stdout=/tmp/autopkgtest.IwdcBs/reproduce-3-stdout --tmp=/tmp/autopkgtest.IwdcBs/autopkgtest_tmp --make-executable=/tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/reproduce-3 -- /tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/reproduce-3'], kind test, sout raw, serr raw, env []
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.IwdcBs/reproduce-3-artifacts
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: changing to directory: /tmp/autopkgtest.IwdcBs/build.R58/src
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: setting environment: LANG=C.UTF-8
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LANGUAGE
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_ADDRESS
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_ALL
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_COLLATE
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_CTYPE
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_MESSAGES
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_MONETARY
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_NAME
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_NUMERIC
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_PAPER
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: unsetting environment: LC_TIME
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: pretending to be a login shell
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: will write standard error to /tmp/autopkgtest.IwdcBs/reproduce-3-stderr
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: will write stdout to /tmp/autopkgtest.IwdcBs/reproduce-3-stdout
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.IwdcBs/autopkgtest_tmp
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: marking as executable: /tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/reproduce-3
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: command to run: /tmp/autopkgtest.IwdcBs/build.R58/src/debian/tests/reproduce-3
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: copying /tmp/tmp.kYr97UX2hY/out to stdout and file: /tmp/autopkgtest.IwdcBs/reproduce-3-stdout
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: copying /tmp/tmp.kYr97UX2hY/err to standard error and file: /tmp/autopkgtest.IwdcBs/reproduce-3-stdout
+ 40s /tmp/autopkgtest.IwdcBs/wrapper.sh: writing script pid 1722592 to /tmp/autopkgtest_script_pid
+ 41s running bdist_wheel
+ 41s running build
+ 41s running build_py
+ 41s installing to /tmp/autopkgtest.IwdcBs/autopkgtest_tmp/build-1
+ 41s running install
+ 42s running install_lib
+ 42s /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+ 42s   warnings.warn(
+ 42s Traceback (most recent call last):
+ 42s   File "setup.py", line 3, in <module>
+ 42s     setup(name='dummy',
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 87, in setup
+ 42s     return distutils.core.setup(**attrs)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 185, in setup
+ 42s     return run_commands(dist)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 201, in run_commands
+ 42s     dist.run_commands()
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 973, in run_commands
+ 42s     self.run_command(cmd)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 42s     super().run_command(command)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 992, in run_command
+ 42s     cmd_obj.run()
+ 42s   File "/usr/lib/python3/dist-packages/wheel/bdist_wheel.py", line 403, in run
+ 42s     self.run_command("install")
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 319, in run_command
+ 42s     self.distribution.run_command(command)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 42s     super().run_command(command)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 992, in run_command
+ 42s     cmd_obj.run()
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/command/install.py", line 68, in run
+ 42s     return orig.install.run(self)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install.py", line 709, in run
+ 42s     self.run_command(cmd_name)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 319, in run_command
+ 42s     self.distribution.run_command(command)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 42s     super().run_command(command)
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 991, in run_command
+ 42s     cmd_obj.ensure_finalized()
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 109, in ensure_finalized
+ 42s     self.finalize_options()
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/command/install_lib.py", line 17, in finalize_options
+ 42s     self.set_undefined_options('install',('install_layout','install_layout'))
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 297, in set_undefined_options
+ 42s     setattr(self, dst_option, getattr(src_cmd_obj, src_option))
+ 42s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 105, in __getattr__
+ 42s     raise AttributeError(attr)
+ 42s AttributeError: install_layout
+ 48s running bdist_wheel
+ 48s running build
+ 48s running build_py
+ 48s installing to /tmp/autopkgtest.IwdcBs/autopkgtest_tmp/build-2
+ 48s running install
+ 48s running install_lib
+ 48s /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+ 48s   warnings.warn(
+ 48s Traceback (most recent call last):
+ 48s   File "setup.py", line 3, in <module>
+ 48s     setup(name='dummy',
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 87, in setup
+ 48s     return distutils.core.setup(**attrs)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 185, in setup
+ 48s     return run_commands(dist)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 201, in run_commands
+ 48s     dist.run_commands()
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 973, in run_commands
+ 48s     self.run_command(cmd)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 48s     super().run_command(command)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 992, in run_command
+ 48s     cmd_obj.run()
+ 48s   File "/usr/lib/python3/dist-packages/wheel/bdist_wheel.py", line 403, in run
+ 48s     self.run_command("install")
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 319, in run_command
+ 48s     self.distribution.run_command(command)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 48s     super().run_command(command)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 992, in run_command
+ 48s     cmd_obj.run()
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/command/install.py", line 68, in run
+ 48s     return orig.install.run(self)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install.py", line 709, in run
+ 48s     self.run_command(cmd_name)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 319, in run_command
+ 48s     self.distribution.run_command(command)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1217, in run_command
+ 48s     super().run_command(command)
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 991, in run_command
+ 48s     cmd_obj.ensure_finalized()
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 109, in ensure_finalized
+ 48s     self.finalize_options()
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/command/install_lib.py", line 17, in finalize_options
+ 48s     self.set_undefined_options('install',('install_layout','install_layout'))
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 297, in set_undefined_options
+ 48s     setattr(self, dst_option, getattr(src_cmd_obj, src_option))
+ 48s   File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 105, in __getattr__
+ 48s     raise AttributeError(attr)
+ 48s AttributeError: install_layout
+ 49s sha256sum: /tmp/autopkgtest.IwdcBs/autopkgtest_tmp/wheels-1/dummy-0.0-py3-none-any.whl: No such file or directory
+ 49s sha256sum: /tmp/autopkgtest.IwdcBs/autopkgtest_tmp/wheels-2/dummy-0.0-py3-none-any.whl: No such file or directory
+ 49s 
+ 49s 
+ 49s /tmp/autopkgtest.IwdcBs/wrapper.sh: checking for leaked background processes...
+ 49s /tmp/autopkgtest.IwdcBs/wrapper.sh: waiting for tee/cat subprocesses...
+ 49s /tmp/autopkgtest.IwdcBs/wrapper.sh: cleaning up...
+ 49s /tmp/autopkgtest.IwdcBs/wrapper.sh: Exit status: 0
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest [10:23:22]: test reproduce-3: -----------------------]
+ 49s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 49s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/reproduce-3-stdout /home/hachi/openkylin_test/sharefolder/results/wheel/reproduce-3-stdout
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/reproduce-3-stderr /home/hachi/openkylin_test/sharefolder/results/wheel/reproduce-3-stderr
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest [10:23:22]: test reproduce-3:  - - - - - - - - - - results - - - - - - - - - -
+ 49s reproduce-3          PASS
+ 49s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/reproduce-3-artifacts/ /home/hachi/openkylin_test/sharefolder/results/wheel/artifacts/
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.IwdcBs/reproduce-3-artifacts', '/tmp/autopkgtest.IwdcBs/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest [10:23:22]: test unittests-3: preparing testbed
+ 49s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['coreutils', 'python3-setuptools', 'python3-wheel'], deps_new=['build-essential', 'python3-all-dev', 'python3-pytest', 'python3-pytest-cov', 'python3-setuptools', 'python3-wheel']
+ 49s autopkgtest: DBG: testbed reset
+ 49s autopkgtest: DBG: sending command to testbed: revert
+ 50s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 51s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.IwdcBs
+ 51s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 51s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf,--user%3Droot,--
+ 51s autopkgtest: DBG: sending command to testbed: capabilities
+ 51s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf//tmp/autopkgtest.IwdcBs
+ 51s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf//tmp/autopkgtest.IwdcBs', 'has_internet']
+ 51s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.IwdcBs/wrapper.sh
+ 51s autopkgtest: DBG: got reply from testbed: ok
+ 51s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.IwdcBs/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest [10:23:24]: testbed dpkg architecture: riscv64
+ 51s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest [10:23:24]: testbed apt version: 2.7.3-ok3
+ 51s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 127
+ 51s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.IwdcBs/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IwdcBs/testbed-packages /home/hachi/openkylin_test/sharefolder/results/wheel/testbed-packages
+ 52s autopkgtest: DBG: got reply from testbed: ok
+ 52s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 52s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'python3-all-dev', 'python3-pytest', 'python3-pytest-cov', 'python3-setuptools', 'python3-wheel']
+ 52s autopkgtest: DBG: install-deps: satisfying build-essential, python3-all-dev, python3-pytest, python3-pytest-cov, python3-setuptools, python3-wheel
+ 52s autopkgtest: DBG: install-deps: architecture resolved: build-essential, python3-all-dev, python3-pytest, python3-pytest-cov, python3-setuptools, python3-wheel
+ 52s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: can use apt-get on testbed: True
+ 52s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IwdcBs'], kind short, sout raw, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-5e873643-7a42-4a7f-b2d2-3a78b309acaf//tmp/autopkgtest.IwdcBs/3-autopkgtest-satdep.deb /tmp/autopkgtest.IwdcBs/3-autopkgtest-satdep.deb
+ 52s autopkgtest: DBG: got reply from testbed: ok
+ 52s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.IwdcBs/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 53s Reading package lists...
+ 53s Building dependency tree...
+ 53s Reading state information...
+ 54s Starting pkgProblemResolver with broken count: 5
+ 54s Starting 2 pkgProblemResolver with broken count: 5
+ 54s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 54s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 54s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 26
+ 54s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 54s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 54s Investigating (0) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+ 54s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 54s   Considering python3:riscv64 243 as a solution to python3-crypto:riscv64 0
+ 54s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+ 54s Investigating (0) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 54s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 54s Investigating (0) python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii K Ib >
+ 54s Broken python3-pyrsistent:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 54s   Considering python3:riscv64 243 as a solution to python3-pyrsistent:riscv64 -1
+ 54s   Removing python3-pyrsistent:riscv64 rather than change python3:riscv64
+ 54s Investigating (0) python3-systemd:riscv64 < 234-ok1 @ii K Ib >
+ 54s Broken python3-systemd:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 54s   Considering python3:riscv64 243 as a solution to python3-systemd:riscv64 -1
+ 54s   Removing python3-systemd:riscv64 rather than change python3:riscv64
+ 54s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+ 54s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii R >
+ 54s   Considering python3-pyrsistent:riscv64 -1 as a solution to python3-jsonschema:riscv64 -2
+ 54s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+ 54s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 54s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 54s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 26
+ 54s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 54s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 54s Investigating (1) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+ 54s Broken kylin-system-updater:riscv64 Depends on python3-crypto:riscv64 < 2.6.1-ok1 @ii R >
+ 54s   Considering python3-crypto:riscv64 0 as a solution to kylin-system-updater:riscv64 1
+ 54s   Added python3-crypto:riscv64 to the remove list
+ 54s   Fixing kylin-system-updater:riscv64 via keep of python3-crypto:riscv64
+ 54s Investigating (1) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+ 54s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 54s   Considering python3:riscv64 243 as a solution to python3-crypto:riscv64 0
+ 54s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+ 54s Investigating (1) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 54s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 54s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 54s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 54s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 26
+ 54s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 54s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 54s Investigating (2) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+ 54s Broken kylin-system-updater:riscv64 Depends on python3-crypto:riscv64 < 2.6.1-ok1 @ii R >
+ 54s   Considering python3-crypto:riscv64 0 as a solution to kylin-system-updater:riscv64 1
+ 54s   Added python3-crypto:riscv64 to the remove list
+ 54s   Fixing kylin-system-updater:riscv64 via keep of python3-crypto:riscv64
+ 54s Investigating (2) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+ 54s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 54s   Considering python3:riscv64 243 as a solution to python3-crypto:riscv64 1
+ 54s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+ 54s Investigating (2) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 54s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 54s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 54s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 54s   Considering gir1.2-girepository-2.0:riscv64 26 as a solution to python3-gi:riscv64 26
+ 54s   Re-Instated gir1.2-girepository-2.0:riscv64
+ 54s   Re-Instated python3-gi:riscv64
+ 54s Investigating (3) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+ 54s Broken kylin-system-updater:riscv64 Depends on python3-crypto:riscv64 < 2.6.1-ok1 @ii R >
+ 54s   Considering python3-crypto:riscv64 243 as a solution to kylin-system-updater:riscv64 1
+ 54s   Re-Instated kylin-system-updater:riscv64
+ 54s Investigating (3) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 54s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 54s Investigating (4) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 54s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 54s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 54s Done
+ 54s Some packages could not be installed. This may mean that you have
+ 54s requested an impossible situation or if you are using the unstable
+ 54s distribution that some required packages have not yet been created
+ 54s or been moved out of Incoming.
+ 54s The following information may help to resolve the situation:
+ 54s 
+ 54s The following packages have unmet dependencies:
+ 54s  python3-pytest-cov : Depends: python3-coverage but it is not installable
+ 54s                       Depends: libjs-jquery-hotkeys but it is not installable
+ 54s                       Depends: libjs-jquery-isonscreen but it is not installable
+ 54s                       Depends: libjs-jquery-tablesorter but it is not installable
+ 54s                       Depends: libjs-jquery-throttle-debounce but it is not installable
+ 54s E: Unable to correct problems, you have held broken packages.
+ 54s autopkgtest: DBG: testbed command exited with code 100
+ 54s autopkgtest: DBG: apt-get install /tmp/autopkgtest.IwdcBs/3-autopkgtest-satdep.deb failed; status-fd:
+ 54s 
+ 54s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 54s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential python3-all-dev python3-pytest python3-pytest-cov python3-setuptools python3-wheel -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 55s Reading package lists...
+ 55s Building dependency tree...
+ 55s Reading state information...
+ 56s Starting pkgProblemResolver with broken count: 5
+ 56s Starting 2 pkgProblemResolver with broken count: 5
+ 56s Investigating (0) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 56s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 56s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 56s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 56s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 26
+ 56s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 56s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 56s Investigating (0) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+ 56s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 56s   Considering python3:riscv64 245 as a solution to python3-crypto:riscv64 0
+ 56s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+ 56s Investigating (0) python3-systemd:riscv64 < 234-ok1 @ii K Ib >
+ 56s Broken python3-systemd:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 56s   Considering python3:riscv64 245 as a solution to python3-systemd:riscv64 -1
+ 56s   Removing python3-systemd:riscv64 rather than change python3:riscv64
+ 56s Investigating (0) python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii K Ib >
+ 56s Broken python3-pyrsistent:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 56s   Considering python3:riscv64 245 as a solution to python3-pyrsistent:riscv64 -1
+ 56s   Removing python3-pyrsistent:riscv64 rather than change python3:riscv64
+ 56s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+ 56s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii R >
+ 56s   Considering python3-pyrsistent:riscv64 -1 as a solution to python3-jsonschema:riscv64 -2
+ 56s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+ 56s Investigating (1) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 56s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 56s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 56s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 56s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 26
+ 56s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 56s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 56s Investigating (1) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+ 56s Broken kylin-system-updater:riscv64 Depends on python3-crypto:riscv64 < 2.6.1-ok1 @ii R >
+ 56s   Considering python3-crypto:riscv64 0 as a solution to kylin-system-updater:riscv64 1
+ 56s   Added python3-crypto:riscv64 to the remove list
+ 56s   Fixing kylin-system-updater:riscv64 via keep of python3-crypto:riscv64
+ 56s Investigating (1) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+ 56s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 56s   Considering python3:riscv64 245 as a solution to python3-crypto:riscv64 0
+ 56s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+ 56s Investigating (2) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 56s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 56s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 56s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 56s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 26
+ 56s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 56s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 56s Investigating (2) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+ 56s Broken kylin-system-updater:riscv64 Depends on python3-crypto:riscv64 < 2.6.1-ok1 @ii R >
+ 56s   Considering python3-crypto:riscv64 0 as a solution to kylin-system-updater:riscv64 1
+ 56s   Added python3-crypto:riscv64 to the remove list
+ 56s   Fixing kylin-system-updater:riscv64 via keep of python3-crypto:riscv64
+ 56s Investigating (2) python3-crypto:riscv64 < 2.6.1-ok1 @ii K Ib >
+ 56s Broken python3-crypto:riscv64 Depends on python3:riscv64 < 3.8.2-ok2 -> 3.12.2-ok1 @ii puU > (< 3.9)
+ 56s   Considering python3:riscv64 245 as a solution to python3-crypto:riscv64 1
+ 56s   Removing python3-crypto:riscv64 rather than change python3:riscv64
+ 56s Investigating (3) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 56s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 56s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 56s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 56s   Considering gir1.2-girepository-2.0:riscv64 26 as a solution to python3-gi:riscv64 26
+ 56s   Re-Instated gir1.2-girepository-2.0:riscv64
+ 56s   Re-Instated python3-gi:riscv64
+ 56s Investigating (3) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+ 56s Broken kylin-system-updater:riscv64 Depends on python3-crypto:riscv64 < 2.6.1-ok1 @ii R >
+ 56s   Considering python3-crypto:riscv64 245 as a solution to kylin-system-updater:riscv64 1
+ 56s   Re-Instated kylin-system-updater:riscv64
+ 56s Investigating (4) python3-pytest-cov:riscv64 < none -> 4.1.0-ok1 @un puN Ib >
+ 56s Broken python3-pytest-cov:riscv64 Depends on python3-coverage:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-hotkeys:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-isonscreen:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-tablesorter:riscv64 < none @un H >
+ 56s Broken python3-pytest-cov:riscv64 Depends on libjs-jquery-throttle-debounce:riscv64 < none @un H >
+ 56s Done
+ 56s build-essential is already the newest version (12.8-ok1).
+ 56s Some packages could not be installed. This may mean that you have
+ 56s requested an impossible situation or if you are using the unstable
+ 56s distribution that some required packages have not yet been created
+ 56s or been moved out of Incoming.
+ 56s The following information may help to resolve the situation:
+ 56s 
+ 56s The following packages have unmet dependencies:
+ 56s  python3-pytest-cov : Depends: python3-coverage but it is not installable
+ 56s                       Depends: libjs-jquery-hotkeys but it is not installable
+ 56s                       Depends: libjs-jquery-isonscreen but it is not installable
+ 56s                       Depends: libjs-jquery-tablesorter but it is not installable
+ 56s                       Depends: libjs-jquery-throttle-debounce but it is not installable
+ 56s E: Unable to correct problems, you have held broken packages.
+ 56s autopkgtest: DBG: testbed command exited with code 100
+ 56s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 56s unittests-3          FAIL badpkg
+ 56s blame: wheel_0.42.0-ok1.dsc
+ 56s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 56s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 56s autopkgtest [10:23:29]: @@@@@@@@@@@@@@@@@@@@ summary
+ 56s smoketest-3          FAIL non-zero exit status 2
+ 56s reproduce-3          PASS
+ 56s unittests-3          FAIL badpkg
+ 56s blame: wheel_0.42.0-ok1.dsc
+ 56s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 56s autopkgtest: DBG: testbed stop
+ 56s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.IwdcBs
+ 56s autopkgtest: DBG: sending command to testbed: close
+ 57s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 57s autopkgtest: DBG: got reply from testbed: ok
+ 57s autopkgtest: DBG: sending command to testbed: quit

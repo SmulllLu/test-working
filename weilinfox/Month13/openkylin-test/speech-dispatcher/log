@@ -1,0 +1,994 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [02:19:57]: starting date and time: 2024-07-19 02:19:57+0800
+  0s autopkgtest [02:19:57]: version @version@
+  0s autopkgtest [02:19:57]: host nana; command line: /usr/bin/autopkgtest 'speech-dispatcher_0.12.0~rc2-ok1.dsc' -o /home/hachi/openkylin_test/sharefolder/results/speech-dispatcher -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.g6gT7r
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-65eef1b0-9e8b-4b45-b815-f0dc150dd0a9,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-65eef1b0-9e8b-4b45-b815-f0dc150dd0a9//tmp/autopkgtest.g6gT7r
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-65eef1b0-9e8b-4b45-b815-f0dc150dd0a9//tmp/autopkgtest.g6gT7r', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.g6gT7r'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.g6gT7r/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.g6gT7r/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:19:59]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:19:59]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.g6gT7r/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.g6gT7r/testbed-packages /home/hachi/openkylin_test/sharefolder/results/speech-dispatcher/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:19:59]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [02:19:59]: @@@@@@@@@@@@@@@@@@@@ source speech-dispatcher_0.12.0~rc2-ok1.dsc
+  2s autopkgtest: DBG: blame += speech-dispatcher_0.12.0~rc2-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.g6gT7r'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown speech-dispatcher_0.12.0~rc2-ok1.dsc /tmp/autopkgtest.g6gT7r/speech-dispatcher_0.12.0~rc2-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.g6gT7r'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown speech-dispatcher_0.12.0~rc2.orig.tar.gz /tmp/autopkgtest.g6gT7r/speech-dispatcher_0.12.0~rc2.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.g6gT7r'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown speech-dispatcher_0.12.0~rc2-ok1.debian.tar.xz /tmp/autopkgtest.g6gT7r/speech-dispatcher_0.12.0~rc2-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.g6gT7r/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.g6gT7r/speech-dispatcher_0.12.0~rc2-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.g6gT7r/build.XXX
+  3s + builddir=/tmp/autopkgtest.g6gT7r/build.Idi
+  3s + cd /tmp/autopkgtest.g6gT7r/build.Idi
+  3s + dpkg-source -x /tmp/autopkgtest.g6gT7r/speech-dispatcher_0.12.0~rc2-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.pWpR9mDW/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 24 Apr 2024 05:25:39 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.g6gT7r/speech-dispatcher_0.12.0~rc2-ok1.dsc
+  4s dpkg-source: info: extracting speech-dispatcher in src
+  4s dpkg-source: info: unpacking speech-dispatcher_0.12.0~rc2.orig.tar.gz
+  4s dpkg-source: info: unpacking speech-dispatcher_0.12.0~rc2-ok1.debian.tar.xz
+  4s dpkg-source: info: using patch list from debian/patches/series
+  4s dpkg-source: info: applying doc-figures
+  4s dpkg-source: info: applying systemd-debian
+  4s dpkg-source: info: applying mbrola-paths
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [02:20:01]: testing package speech-dispatcher version 0.12.0~rc2-ok1
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.g6gT7r/build.Idi/src/debian/ /home/hachi/openkylin_test/sharefolder/results/speech-dispatcher/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency speech-dispatcher
+  4s autopkgtest: DBG: marked alternatives ['speech-dispatcher'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency libspeechd-dev
+  4s autopkgtest: DBG: marked alternatives ['libspeechd-dev'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency pulseaudio
+  4s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  4s autopkgtest: DBG: synthesised dependency dh-exec
+  4s autopkgtest: DBG: synthesised dependency dh-sequence-python3
+  4s autopkgtest: DBG: synthesised dependency automake
+  4s autopkgtest: DBG: synthesised dependency libtool
+  4s autopkgtest: DBG: synthesised dependency python3:any
+  4s autopkgtest: DBG: synthesised dependency python3-xdg
+  4s autopkgtest: DBG: synthesised dependency flite1-dev (>= 1.4)
+  4s autopkgtest: DBG: synthesised dependency flite
+  4s autopkgtest: DBG: synthesised dependency libespeak-dev
+  4s autopkgtest: DBG: synthesised dependency libespeak-ng-dev
+  4s autopkgtest: DBG: synthesised dependency libdumbtts-dev
+  4s autopkgtest: DBG: synthesised dependency libao-dev
+  4s autopkgtest: DBG: synthesised dependency libasound2-dev
+  4s autopkgtest: DBG: synthesised dependency libaudio-dev
+  4s autopkgtest: DBG: synthesised dependency libpulse-dev
+  4s autopkgtest: DBG: synthesised dependency libxau-dev
+  4s autopkgtest: DBG: synthesised dependency libsndfile1-dev
+  4s autopkgtest: DBG: synthesised dependency libdotconf-dev (>= 1.3)
+  4s autopkgtest: DBG: synthesised dependency libglib2.0-dev (>= 2.36)
+  4s autopkgtest: DBG: synthesised dependency libltdl-dev
+  4s autopkgtest: DBG: synthesised dependency pkgconf
+  4s autopkgtest: DBG: synthesised dependency systemd
+  4s autopkgtest: DBG: synthesised dependency systemd-dev
+  4s autopkgtest: DBG: synthesised dependency libsystemd-dev
+  4s autopkgtest: DBG: synthesised dependency gettext
+  4s autopkgtest: DBG: synthesised dependency texinfo
+  4s autopkgtest: DBG: synthesised dependency help2man
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: Test defined: name tests path debian/tests/tests command "None" restrictions [] features [] depends ['speech-dispatcher', 'libspeechd-dev', 'pulseaudio', 'debhelper-compat (= 13)', 'dh-exec', 'dh-sequence-python3', 'automake', 'libtool', 'python3:any', 'python3-xdg', 'flite1-dev (>= 1.4)', 'flite', 'libespeak-dev', 'libespeak-ng-dev', 'libdumbtts-dev', 'libao-dev', 'libasound2-dev', 'libaudio-dev', 'libpulse-dev', 'libxau-dev', 'libsndfile1-dev', 'libdotconf-dev (>= 1.3)', 'libglib2.0-dev (>= 2.36)', 'libltdl-dev', 'pkgconf', 'systemd', 'systemd-dev', 'libsystemd-dev', 'gettext', 'texinfo', 'help2man', 'build-essential'] 
+  4s autopkgtest [02:20:01]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.g6gT7r/build.Idi/src/ /home/hachi/openkylin_test/sharefolder/results/speech-dispatcher/tests-tree/
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: processing dependency speech-dispatcher
+  5s autopkgtest: DBG: marked alternatives ['speech-dispatcher'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency libspeechd-dev
+  5s autopkgtest: DBG: marked alternatives ['libspeechd-dev'] as a synthesised dependency
+  5s autopkgtest: DBG: processing dependency pulseaudio
+  5s autopkgtest: DBG: processing dependency @builddeps@
+  5s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+  5s autopkgtest: DBG: synthesised dependency dh-exec
+  5s autopkgtest: DBG: synthesised dependency dh-sequence-python3
+  5s autopkgtest: DBG: synthesised dependency automake
+  5s autopkgtest: DBG: synthesised dependency libtool
+  5s autopkgtest: DBG: synthesised dependency python3:any
+  5s autopkgtest: DBG: synthesised dependency python3-xdg
+  5s autopkgtest: DBG: synthesised dependency flite1-dev (>= 1.4)
+  5s autopkgtest: DBG: synthesised dependency flite
+  5s autopkgtest: DBG: synthesised dependency libespeak-dev
+  5s autopkgtest: DBG: synthesised dependency libespeak-ng-dev
+  5s autopkgtest: DBG: synthesised dependency libdumbtts-dev
+  5s autopkgtest: DBG: synthesised dependency libao-dev
+  5s autopkgtest: DBG: synthesised dependency libasound2-dev
+  5s autopkgtest: DBG: synthesised dependency libaudio-dev
+  5s autopkgtest: DBG: synthesised dependency libpulse-dev
+  5s autopkgtest: DBG: synthesised dependency libxau-dev
+  5s autopkgtest: DBG: synthesised dependency libsndfile1-dev
+  5s autopkgtest: DBG: synthesised dependency libdotconf-dev (>= 1.3)
+  5s autopkgtest: DBG: synthesised dependency libglib2.0-dev (>= 2.36)
+  5s autopkgtest: DBG: synthesised dependency libltdl-dev
+  5s autopkgtest: DBG: synthesised dependency pkgconf
+  5s autopkgtest: DBG: synthesised dependency systemd
+  5s autopkgtest: DBG: synthesised dependency systemd-dev
+  5s autopkgtest: DBG: synthesised dependency libsystemd-dev
+  5s autopkgtest: DBG: synthesised dependency gettext
+  5s autopkgtest: DBG: synthesised dependency texinfo
+  5s autopkgtest: DBG: synthesised dependency help2man
+  5s autopkgtest: DBG: synthesised dependency build-essential
+  5s autopkgtest: DBG: Test defined: name tests path debian/tests/tests command "None" restrictions [] features [] depends ['speech-dispatcher', 'libspeechd-dev', 'pulseaudio', 'debhelper-compat (= 13)', 'dh-exec', 'dh-sequence-python3', 'automake', 'libtool', 'python3:any', 'python3-xdg', 'flite1-dev (>= 1.4)', 'flite', 'libespeak-dev', 'libespeak-ng-dev', 'libdumbtts-dev', 'libao-dev', 'libasound2-dev', 'libaudio-dev', 'libpulse-dev', 'libxau-dev', 'libsndfile1-dev', 'libdotconf-dev (>= 1.3)', 'libglib2.0-dev (>= 2.36)', 'libltdl-dev', 'pkgconf', 'systemd', 'systemd-dev', 'libsystemd-dev', 'gettext', 'texinfo', 'help2man', 'build-essential'] 
+  5s autopkgtest [02:20:02]: test tests: preparing testbed
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['speech-dispatcher', 'libspeechd-dev', 'pulseaudio', 'debhelper-compat (= 13)', 'dh-exec', 'dh-sequence-python3', 'automake', 'libtool', 'python3:any', 'python3-xdg', 'flite1-dev (>= 1.4)', 'flite', 'libespeak-dev', 'libespeak-ng-dev', 'libdumbtts-dev', 'libao-dev', 'libasound2-dev', 'libaudio-dev', 'libpulse-dev', 'libxau-dev', 'libsndfile1-dev', 'libdotconf-dev (>= 1.3)', 'libglib2.0-dev (>= 2.36)', 'libltdl-dev', 'pkgconf', 'systemd', 'systemd-dev', 'libsystemd-dev', 'gettext', 'texinfo', 'help2man', 'build-essential']
+  5s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  5s autopkgtest: DBG: install_deps: deps_new=['speech-dispatcher', 'libspeechd-dev', 'pulseaudio', 'debhelper-compat (= 13)', 'dh-exec', 'dh-sequence-python3', 'automake', 'libtool', 'python3:any', 'python3-xdg', 'flite1-dev (>= 1.4)', 'flite', 'libespeak-dev', 'libespeak-ng-dev', 'libdumbtts-dev', 'libao-dev', 'libasound2-dev', 'libaudio-dev', 'libpulse-dev', 'libxau-dev', 'libsndfile1-dev', 'libdotconf-dev (>= 1.3)', 'libglib2.0-dev (>= 2.36)', 'libltdl-dev', 'pkgconf', 'systemd', 'systemd-dev', 'libsystemd-dev', 'gettext', 'texinfo', 'help2man', 'build-essential']
+  5s autopkgtest: DBG: install-deps: satisfying speech-dispatcher, libspeechd-dev, pulseaudio, debhelper-compat (= 13), dh-exec, dh-sequence-python3, automake, libtool, python3:any, python3-xdg, flite1-dev (>= 1.4), flite, libespeak-dev, libespeak-ng-dev, libdumbtts-dev, libao-dev, libasound2-dev, libaudio-dev, libpulse-dev, libxau-dev, libsndfile1-dev, libdotconf-dev (>= 1.3), libglib2.0-dev (>= 2.36), libltdl-dev, pkgconf, systemd, systemd-dev, libsystemd-dev, gettext, texinfo, help2man, build-essential
+  5s autopkgtest: DBG: install-deps: architecture resolved: speech-dispatcher, libspeechd-dev, pulseaudio, debhelper-compat (= 13), dh-exec, dh-sequence-python3, automake, libtool, python3:any, python3-xdg, flite1-dev (>= 1.4), flite, libespeak-dev, libespeak-ng-dev, libdumbtts-dev, libao-dev, libasound2-dev, libaudio-dev, libpulse-dev, libxau-dev, libsndfile1-dev, libdotconf-dev (>= 1.3), libglib2.0-dev (>= 2.36), libltdl-dev, pkgconf, systemd, systemd-dev, libsystemd-dev, gettext, texinfo, help2man, build-essential
+  5s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: can use apt-get on testbed: True
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.g6gT7r'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-65eef1b0-9e8b-4b45-b815-f0dc150dd0a9//tmp/autopkgtest.g6gT7r/1-autopkgtest-satdep.deb /tmp/autopkgtest.g6gT7r/1-autopkgtest-satdep.deb
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.g6gT7r/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  6s Reading package lists...
+  7s Building dependency tree...
+  7s Reading state information...
+  7s Starting pkgProblemResolver with broken count: 1
+  7s Starting 2 pkgProblemResolver with broken count: 1
+  7s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  7s Broken autopkgtest-satdep:riscv64 Depends on speech-dispatcher:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  7s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libao-common:riscv64
+  7s   Re-Instated libao4:riscv64
+  7s   Re-Instated libasound2-data:riscv64
+  7s   Re-Instated libasound2t64:riscv64
+  7s   Re-Instated libxt6t64:riscv64
+  7s   Re-Instated libaudio2:riscv64
+  7s   Re-Instated libglib2.0-0t64:riscv64
+  7s   Re-Instated speech-dispatcher-audio-plugins:riscv64
+  7s   Re-Instated libdotconf0:riscv64
+  7s   Re-Instated libspeechd2:riscv64
+  7s   Re-Instated speech-dispatcher:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libspeechd-dev:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  7s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libspeechd-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on debhelper-compat:riscv64 < none @un H > (= 13)
+  7s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated autotools-dev:riscv64
+  7s   Re-Instated m4:riscv64
+  7s   Re-Instated autoconf:riscv64
+  7s   Re-Instated automake:riscv64
+  7s   Re-Instated autopoint:riscv64
+  7s   Re-Instated libdebhelper-perl:riscv64
+  7s   Re-Instated libtool:riscv64
+  7s   Re-Instated dh-autoreconf:riscv64
+  7s   Re-Instated libarchive-zip-perl:riscv64
+  7s   Re-Instated libsub-override-perl:riscv64
+  7s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+  7s   Re-Instated dh-strip-nondeterminism:riscv64
+  7s   Re-Instated dwz:riscv64
+  7s   Re-Instated intltool-debian:riscv64
+  7s   Re-Instated po-debconf:riscv64
+  7s   Re-Instated debhelper:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on dh-exec:riscv64 < none | 0.29-ok1 @un uH >
+  7s   Considering dh-exec:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated dh-exec:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on dh-sequence-python3:riscv64 < none @un H >
+  7s   Considering dh-python:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated dh-python:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on flite1-dev:riscv64 < none | 2.2-ok1 @un uH > (>= 1.4)
+  7s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libflite1:riscv64
+  7s   Re-Instated flite1-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on flite:riscv64 < none | 2.2-ok1 @un uH >
+  7s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated flite:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libespeak-dev:riscv64 < none @un H >
+  7s Broken autopkgtest-satdep:riscv64 Depends on libespeak-ng-dev:riscv64 < none @un H >
+  7s Broken autopkgtest-satdep:riscv64 Depends on libdumbtts-dev:riscv64 < none @un H >
+  7s Broken autopkgtest-satdep:riscv64 Depends on libao-dev:riscv64 < none | 1.2.2+20180113-ok1 @un uH >
+  7s   Considering libao-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libao-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libasound2-dev:riscv64 < none | 1.2.11-ok1 @un uH >
+  7s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libasound2-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libaudio-dev:riscv64 < none | 1.9.4-ok1 @un uH >
+  7s   Considering libaudio-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libaudio-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libpulse-dev:riscv64 < none | 1:16.1+dfsg1-ok1 @un uH >
+  7s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libx11-6:riscv64
+  7s   Re-Instated libx11-xcb1:riscv64
+  7s   Re-Instated libpulse0:riscv64
+  7s   Re-Instated libpulse-mainloop-glib0:riscv64
+  7s   Re-Instated libpulse-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libxau-dev:riscv64 < none | 1:1.0.9-ok1 @un uH >
+  7s   Considering libxau-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated xorg-sgml-doctools:riscv64
+  7s   Re-Instated x11proto-dev:riscv64
+  7s   Re-Instated x11proto-core-dev:riscv64
+  7s   Re-Instated libxau-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libsndfile1-dev:riscv64 < none | 1.2.2-ok1 @un uH >
+  7s   Considering libsndfile1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libflac12t64:riscv64
+  7s   Re-Instated libogg0:riscv64
+  7s   Re-Instated libogg-dev:riscv64
+  7s   Re-Instated libflac-dev:riscv64
+  7s   Re-Instated libmpg123-0t64:riscv64
+  7s   Re-Instated libout123-0t64:riscv64
+  7s   Re-Instated libsyn123-0t64:riscv64
+  7s   Re-Instated libmpg123-dev:riscv64
+  7s   Re-Instated libopus0:riscv64
+  7s   Re-Instated libopus-dev:riscv64
+  7s   Re-Instated libsndfile1:riscv64
+  7s   Re-Instated libvorbis0a:riscv64
+  7s   Re-Instated libvorbisenc2:riscv64
+  7s   Re-Instated libvorbisfile3:riscv64
+  7s   Re-Instated libvorbis-dev:riscv64
+  7s   Re-Instated libsndfile1-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libdotconf-dev:riscv64 < none | 1.3-ok1 @un uH > (>= 1.3)
+  7s   Considering libdotconf-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libdotconf-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libltdl-dev:riscv64 < none | 2.4.7-ok2 @un uH >
+  7s   Considering libltdl-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libltdl-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on pkgconf:riscv64 < none | 1.9.5-ok1 @un uH >
+  7s   Considering pkgconf:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libpkgconf4:riscv64
+  7s   Re-Instated pkgconf-bin:riscv64
+  7s   Re-Instated pkg-config:riscv64
+  7s   Re-Instated pkgconf:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on systemd-dev:riscv64 < none | 255.2-ok1.4 @un uH >
+  7s   Considering systemd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libgcrypt20:riscv64
+  7s   Re-Instated libzstd1:riscv64
+  7s   Re-Instated libsystemd-shared:riscv64
+  7s   Re-Instated libsystemd0:riscv64
+  7s   Re-Instated systemd:riscv64
+  7s   Re-Instated libudev1:riscv64
+  7s   Re-Instated udev:riscv64
+  7s   Re-Instated systemd-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on libsystemd-dev:riscv64 < none | 255.2-ok1.4 @un uH >
+  7s   Considering libsystemd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libsystemd-dev:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on texinfo:riscv64 < none | 7.1-ok1 @un uH >
+  7s   Considering texinfo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated libtext-unidecode-perl:riscv64
+  7s   Re-Instated perl-base:riscv64
+  7s   Re-Instated perl-modules-5.36:riscv64
+  7s   Re-Instated libperl5.36:riscv64
+  7s   Re-Instated perl:riscv64
+  7s   Re-Instated libxml-namespacesupport-perl:riscv64
+  7s   Re-Instated libxml-sax-base-perl:riscv64
+  7s   Re-Instated libxml-sax-perl:riscv64
+  7s   Re-Instated libxml-libxml-perl:riscv64
+  7s   Re-Instated texinfo-lib:riscv64
+  7s   Re-Instated tex-common:riscv64
+  7s   Re-Instated texinfo:riscv64
+  7s Broken autopkgtest-satdep:riscv64 Depends on help2man:riscv64 < none | 1.49.3-ok2 @un uH >
+  7s   Considering help2man:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  7s   Re-Instated help2man:riscv64
+  7s Investigating (0) systemd-sysv:riscv64 < 251.4-ok1.2 | 255.2-ok1.4 @ii uH Ib >
+  7s Broken systemd-sysv:riscv64 Depends on systemd:riscv64 < 251.4-ok1.2 -> 255.2-ok1.4 @ii uU > (= 251.4-ok1.2)
+  7s   Considering systemd:riscv64 98 as a solution to systemd-sysv:riscv64 138
+  7s   Added systemd:riscv64 to the remove list
+  7s   Fixing systemd-sysv:riscv64 via keep of systemd:riscv64
+  7s Investigating (0) systemd:riscv64 < 251.4-ok1.2 | 255.2-ok1.4 @ii uH Ib >
+  7s Broken systemd:riscv64 Depends on libsystemd-shared:riscv64 < 251.4-ok1.2 -> 255.2-ok1.4 @ii uU > (= 251.4-ok1.2)
+  7s   Considering libsystemd-shared:riscv64 23 as a solution to systemd:riscv64 98
+  7s   Added libsystemd-shared:riscv64 to the remove list
+  7s Broken systemd:riscv64 Depends on libsystemd0:riscv64 < 251.4-ok1.2 -> 255.2-ok1.4 @ii uU > (= 251.4-ok1.2)
+  7s   Considering libsystemd0:riscv64 597 as a solution to systemd:riscv64 98
+  7s   Removing systemd:riscv64 rather than change libsystemd0:riscv64
+  7s Investigating (0) libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uH Ib >
+  7s Broken libkysdk-sysinfo:riscv64 Depends on systemd:riscv64 < 251.4-ok1.2 | 255.2-ok1.4 @ii uR >
+  7s   Considering systemd:riscv64 98 as a solution to libkysdk-sysinfo:riscv64 47
+  7s     Reinst Failed because of systemd:riscv64
+  7s   Removing libkysdk-sysinfo:riscv64 rather than change systemd:riscv64
+  7s Investigating (0) udev:riscv64 < 251.4-ok1.2 -> 255.2-ok1.4 @ii uU Ib >
+  7s Broken udev:riscv64 Depends on systemd:riscv64 < 251.4-ok1.2 | 255.2-ok1.4 @ii uR >
+  7s   Considering systemd:riscv64 98 as a solution to udev:riscv64 46
+  7s Broken udev:riscv64 Depends on systemd-standalone-sysusers:riscv64 < none | 255.2-ok1.4 @un uH >
+  7s   Considering systemd-standalone-sysusers:riscv64 0 as a solution to udev:riscv64 46
+  7s   Try Installing systemd-standalone-sysusers:riscv64 < none | 255.2-ok1.4 @un uH > before changing udev:riscv64
+  7s Investigating (0) libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uH Ib >
+  7s Broken libpeony3:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to libpeony3:riscv64 16
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing libpeony3:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) libukcc3:riscv64 < 4.10.0.0-ok4.6 | 4.10.0.0-ok4.28 @ii uH Ib >
+  7s Broken libukcc3:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to libukcc3:riscv64 11
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing libukcc3:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) libhtml-parser-perl:riscv64 < 3.76-ok1 | 3.81-ok1 @ii uH Ib >
+  7s Broken libhtml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libhtml-parser-perl:riscv64 8
+  7s   Re-Instated libhtml-parser-perl:riscv64
+  7s Investigating (0) ukui-polkit:riscv64 < 4.10.0.0-ok5~0105 | 4.10.0.0-ok7 @ii uH Ib >
+  7s Broken ukui-polkit:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-polkit:riscv64 7
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing ukui-polkit:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) pulseaudio:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uH Ib >
+  7s Broken pulseaudio:riscv64 Depends on libpulse0:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU > (= 1:16.1-ok6)
+  7s   Considering libpulse0:riscv64 64 as a solution to pulseaudio:riscv64 6
+  7s   Re-Instated liborc-0.4-0t64:riscv64
+  7s   Re-Instated libsoup-3.0-common:riscv64
+  7s   Re-Instated libnghttp2-14:riscv64
+  7s   Re-Instated libunistring5:riscv64
+  7s   Re-Instated libpsl5t64:riscv64
+  7s   Re-Instated libsoup-3.0-0:riscv64
+  7s   Re-Instated libsnapd-glib-2-1:riscv64
+  7s   Re-Instated pulseaudio:riscv64
+  7s Investigating (0) peony:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uH Ib >
+  7s Broken peony:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (= 4.10.0.3-ok1~0301)
+  7s   Considering libpeony3:riscv64 16 as a solution to peony:riscv64 6
+  7s     Reinst Failed because of libpeony3:riscv64
+  7s   Removing peony:riscv64 rather than change libpeony3:riscv64
+  7s Investigating (0) libclone-perl:riscv64 < 0.45-ok2 | 0.46-ok1 @ii uH Ib >
+  7s Broken libclone-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libclone-perl:riscv64 6
+  7s   Re-Instated libclone-perl:riscv64
+  7s Investigating (0) liblocale-gettext-perl:riscv64 < 1.07-ok1 | 1.07-ok2 @ii uH Ib >
+  7s Broken liblocale-gettext-perl:riscv64 PreDepends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to liblocale-gettext-perl:riscv64 6
+  7s   Re-Instated liblocale-gettext-perl:riscv64
+  7s Investigating (0) libtext-charwidth-perl:riscv64 < 0.04-ok2 | 0.04-ok3 @ii uH Ib >
+  7s Broken libtext-charwidth-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libtext-charwidth-perl:riscv64 6
+  7s   Re-Instated libtext-charwidth-perl:riscv64
+  7s Investigating (0) pulseaudio-utils:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uH Ib >
+  7s Broken pulseaudio-utils:riscv64 Depends on libpulse0:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU > (= 1:16.1-ok6)
+  7s   Considering libpulse0:riscv64 64 as a solution to pulseaudio-utils:riscv64 5
+  7s   Re-Instated pulseaudio-utils:riscv64
+  7s Investigating (0) libnet-ssleay-perl:riscv64 < 1.88-ok2 | 1.94-ok1 @ii uH Ib >
+  7s Broken libnet-ssleay-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libnet-ssleay-perl:riscv64 4
+  7s   Re-Instated perl-openssl-defaults:riscv64
+  7s   Re-Instated libnet-ssleay-perl:riscv64
+  7s Investigating (0) ukui-settings-daemon:riscv64 < 4.10.0.0-ok3.5 | 4.10.0.0-ok4.11 @ii uH Ib >
+  7s Broken ukui-settings-daemon:riscv64 Depends on ukui-polkit:riscv64 < 4.10.0.0-ok5~0105 | 4.10.0.0-ok7 @ii uR >
+  7s   Considering ukui-polkit:riscv64 7 as a solution to ukui-settings-daemon:riscv64 4
+  7s   Re-Instated ukui-settings-daemon-common:riscv64
+  7s     Reinst Failed because of ukui-polkit:riscv64
+  7s   Removing ukui-settings-daemon:riscv64 rather than change ukui-polkit:riscv64
+  7s Investigating (0) libtext-iconv-perl:riscv64 < 1.7-ok1 | 1.7-ok2 @ii uH Ib >
+  7s Broken libtext-iconv-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libtext-iconv-perl:riscv64 4
+  7s   Re-Instated libtext-iconv-perl:riscv64
+  7s Investigating (0) ukui-bluetooth:riscv64 < 4.10.1.0-ok2.4 | 4.10.1.0-ok2.9 @ii uH Ib >
+  7s Broken ukui-bluetooth:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-bluetooth:riscv64 4
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing ukui-bluetooth:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) ukui-panel:riscv64 < 4.10.0.0-ok4.0 | 4.10.2.1-ok0.1 @ii uH Ib >
+  7s Broken ukui-panel:riscv64 Depends on libukcc3:riscv64 < 4.10.0.0-ok4.6 | 4.10.0.0-ok4.28 @ii uR > (>= 4.10.0.0)
+  7s   Considering libukcc3:riscv64 11 as a solution to ukui-panel:riscv64 4
+  7s     Reinst Failed because of libukcc3:riscv64
+  7s   Removing ukui-panel:riscv64 rather than change libukcc3:riscv64
+  7s Investigating (0) pulseaudio-module-bluetooth:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uH Ib >
+  7s Broken pulseaudio-module-bluetooth:riscv64 Depends on libpulse0:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU > (= 1:16.1-ok6)
+  7s   Considering libpulse0:riscv64 64 as a solution to pulseaudio-module-bluetooth:riscv64 3
+  7s   Re-Instated pulseaudio-module-bluetooth:riscv64
+  7s Investigating (0) ukui-session-manager:riscv64 < 4.0.0.0-ok21 | 4.0.0.0-ok26 @ii uH Ib >
+  7s Broken ukui-session-manager:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-session-manager:riscv64 3
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing ukui-session-manager:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) openkylin-theme-configure:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uH Ib >
+  7s Broken openkylin-theme-configure:riscv64 Depends on ukui-session-manager:riscv64 < 4.0.0.0-ok21 | 4.0.0.0-ok26 @ii uR > (>= 4.0.0.0-ok10)
+  7s   Considering ukui-session-manager:riscv64 3 as a solution to openkylin-theme-configure:riscv64 3
+  7s     Reinst Failed because of ukui-session-manager:riscv64
+  7s   Removing openkylin-theme-configure:riscv64 rather than change ukui-session-manager:riscv64
+  7s Investigating (0) ukui-control-center:riscv64 < 4.10.0.0-ok4.6 | 4.10.0.0-ok4.28 @ii uH Ib >
+  7s Broken ukui-control-center:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 2.1.1.0)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-control-center:riscv64 2
+  7s   Re-Instated libnettle8t64:riscv64
+  7s   Re-Instated libhogweed6t64:riscv64
+  7s   Re-Instated libgnutls30t64:riscv64
+  7s   Re-Instated libcups2t64:riscv64
+  7s   Re-Instated libddcutil4:riscv64
+  7s   Re-Instated libkysdk-waylandhelper:riscv64
+  7s   Re-Instated libkysdk-qtwidgets:riscv64
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing ukui-control-center:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) peony-bluetooth:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  7s Broken peony-bluetooth:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  7s   Considering libpeony3:riscv64 16 as a solution to peony-bluetooth:riscv64 2
+  7s     Reinst Failed because of libpeony3:riscv64
+  7s   Removing peony-bluetooth:riscv64 rather than change libpeony3:riscv64
+  7s Investigating (0) peony-extension-computer-view:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  7s Broken peony-extension-computer-view:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  7s   Considering libpeony3:riscv64 16 as a solution to peony-extension-computer-view:riscv64 2
+  7s     Reinst Failed because of libpeony3:riscv64
+  7s   Removing peony-extension-computer-view:riscv64 rather than change libpeony3:riscv64
+  7s Investigating (0) ukui-greeter:riscv64 < 4.10.0.0-ok2~0914 | 4.10.0.0-ok3 @ii uH Ib >
+  7s Broken ukui-greeter:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 2.2.3.5)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-greeter:riscv64 2
+  7s   Re-Instated libsharpyuv0:riscv64
+  7s   Re-Instated libheif-plugin-aomdec:riscv64
+  7s   Re-Instated libde265-0:riscv64
+  7s   Re-Instated libheif-plugin-libde265:riscv64
+  7s   Re-Instated libheif1:riscv64
+  7s   Re-Instated libhwy1t64:riscv64
+  7s   Re-Instated liblcms2-2:riscv64
+  7s   Re-Instated libjxl0.7:riscv64
+  7s   Re-Instated libpng16-16t64:riscv64
+  7s   Re-Instated libdeflate0:riscv64
+  7s   Re-Instated liblerc4:riscv64
+  7s   Re-Instated libwebp7:riscv64
+  7s   Re-Instated libtiff6:riscv64
+  7s   Re-Instated libwebpdemux2:riscv64
+  7s   Re-Instated libimlib2t64:riscv64
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing ukui-greeter:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) kylin-nm:riscv64 < 4.10.0.0-ok0.2 | 4.10.0.0-ok0.7 @ii uH Ib >
+  7s Broken kylin-nm:riscv64 Depends on ukui-control-center:riscv64 < 4.10.0.0-ok4.6 | 4.10.0.0-ok4.28 @ii uR > (>= 3.1.1+1217)
+  7s   Considering ukui-control-center:riscv64 2 as a solution to kylin-nm:riscv64 2
+  7s     Reinst Failed because of ukui-control-center:riscv64
+  7s   Removing kylin-nm:riscv64 rather than change ukui-control-center:riscv64
+  7s Investigating (0) ukui-biometric-manager:riscv64 < 4.10.0.0-ok1~1213 | 4.10.0.0-ok4.1 @ii uH Ib >
+  7s Broken ukui-biometric-manager:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 2.3.0.0)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-biometric-manager:riscv64 2
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing ukui-biometric-manager:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) libpulsedsp:riscv64 < 1:16.1-ok6 @ii K Ib >
+  7s Broken libpulsedsp:riscv64 Depends on libpulse0:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU > (= 1:16.1-ok6)
+  7s   Considering libpulse0:riscv64 64 as a solution to libpulsedsp:riscv64 2
+  7s   Removing libpulsedsp:riscv64 rather than change libpulse0:riscv64
+  7s Investigating (0) ukui-media:riscv64 < 3.25.0.0-0ok2 | 3.25.0.0-0ok11 @ii uH Ib >
+  7s Broken ukui-media:riscv64 Depends on ukui-control-center:riscv64 < 4.10.0.0-ok4.6 | 4.10.0.0-ok4.28 @ii uR > (>= 3.1.1+1103)
+  7s   Considering ukui-control-center:riscv64 2 as a solution to ukui-media:riscv64 2
+  7s   Re-Instated ukui-media-common:riscv64
+  7s     Reinst Failed because of ukui-control-center:riscv64
+  7s   Removing ukui-media:riscv64 rather than change ukui-control-center:riscv64
+  7s Investigating (0) lightdm:riscv64 < 1.30.0-ok3nile3 | 1.30.0-ok4nile2 @ii uH Ib >
+  7s Broken lightdm:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to lightdm:riscv64 2
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing lightdm:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) ukui-search:riscv64 < 4.10.6.8-ok1 | 4.10.12.1-ok0 @ii uH Ib >
+  7s Broken ukui-search:riscv64 Depends on libukcc3:riscv64 < 4.10.0.0-ok4.6 | 4.10.0.0-ok4.28 @ii uR > (>= 4.10.0.0)
+  7s   Considering libukcc3:riscv64 11 as a solution to ukui-search:riscv64 2
+  7s   Re-Instated libarchive13t64:riscv64
+  7s   Re-Instated libtesseract5:riscv64
+  7s     Reinst Failed early because of libportaudio2:riscv64
+  7s     Reinst Failed because of kylin-ai-runtime:riscv64
+  7s     Reinst Failed because of libkylin-ai-base2:riscv64
+  7s   Removing ukui-search:riscv64 rather than change libukcc3:riscv64
+  7s Investigating (0) libkysdk-system:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uH Ib >
+  7s Broken libkysdk-system:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR >
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to libkysdk-system:riscv64 1
+  7s   Re-Instated libkysdk-disk:riscv64
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing libkysdk-system:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) libalgorithm-diff-xs-perl:riscv64 < 0.04-ok1 @ii K Ib >
+  7s Broken libalgorithm-diff-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libalgorithm-diff-xs-perl:riscv64 1
+  7s   Removing libalgorithm-diff-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  7s Investigating (0) peony-print-pictures:riscv64 < 1.0.2.0-ok2 @ii K Ib >
+  7s Broken peony-print-pictures:riscv64 Depends on peony:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR >
+  7s   Considering peony:riscv64 6 as a solution to peony-print-pictures:riscv64 1
+  7s   Removing peony-print-pictures:riscv64 rather than change peony:riscv64
+  7s Investigating (0) kylin-update-frontend:riscv64 < 2.0.0.0-ok18 | 2.0.0.0-ok22 @ii uH Ib >
+  7s Broken kylin-update-frontend:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  7s   Considering libkysdk-sysinfo:riscv64 47 as a solution to kylin-update-frontend:riscv64 1
+  7s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  7s   Removing kylin-update-frontend:riscv64 rather than change libkysdk-sysinfo:riscv64
+  7s Investigating (0) libfile-fcntllock-perl:riscv64 < 0.22-ok1 @ii K Ib >
+  7s Broken libfile-fcntllock-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libfile-fcntllock-perl:riscv64 1
+  7s   Removing libfile-fcntllock-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  7s Investigating (0) peony-open-terminal:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  7s Broken peony-open-terminal:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  7s   Considering libpeony3:riscv64 16 as a solution to peony-open-terminal:riscv64 0
+  7s     Reinst Failed because of libpeony3:riscv64
+  7s   Removing peony-open-terminal:riscv64 rather than change libpeony3:riscv64
+  7s Investigating (0) liborc-0.4-0t64:riscv64 < none -> 1:0.4.38-ok1 @un uN Ib >
+  7s Broken liborc-0.4-0t64:riscv64 Breaks on liborc-0.4-0:riscv64 < 1:0.4.31-ok2 @ii K > (< 1:0.4.38-ok1)
+  7s   Considering liborc-0.4-0:riscv64 25 as a solution to liborc-0.4-0t64:riscv64 0
+  7s   Holding Back liborc-0.4-0t64:riscv64 rather than change liborc-0.4-0:riscv64
+  7s Investigating (0) libnet-dbus-perl:riscv64 < 1.2.0-ok1 @ii K Ib >
+  7s Broken libnet-dbus-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libnet-dbus-perl:riscv64 0
+  7s   Removing libnet-dbus-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  7s Investigating (0) libpng16-16t64:riscv64 < none -> 1.6.43-ok1 @un uN Ib >
+  7s Broken libpng16-16t64:riscv64 Breaks on libpng16-16:riscv64 < 1.6.38-2 @ii K > (< 1.6.43-ok1)
+  7s   Considering libpng16-16:riscv64 330 as a solution to libpng16-16t64:riscv64 0
+  7s   Holding Back libpng16-16t64:riscv64 rather than change libpng16-16:riscv64
+  7s Investigating (0) libxml-parser-perl:riscv64 < 2.46-ok2 | 2.47-ok1 @ii uH Ib >
+  7s Broken libxml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  7s   Considering perl-base:riscv64 5256 as a solution to libxml-parser-perl:riscv64 0
+  7s   Re-Instated libxml-parser-perl:riscv64
+  7s Investigating (0) libglib2.0-0t64:riscv64 < none -> 2.80.0-ok1~0615.2 @un uN Ib >
+  7s Broken libglib2.0-0t64:riscv64 Breaks on libglib2.0-0:riscv64 < 2.78.0-ok1~0229.1 @ii K > (< 2.80.0~)
+  7s   Considering libglib2.0-0:riscv64 1518 as a solution to libglib2.0-0t64:riscv64 0
+  8s   Holding Back libglib2.0-0t64:riscv64 rather than change libglib2.0-0:riscv64
+  8s Investigating (0) qt5-ukui-platformtheme:riscv64 < 4.1.0.0-ok31 | 4.1.0.0-ok48 @ii uH Ib >
+  8s Broken qt5-ukui-platformtheme:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  8s   Considering libpeony3:riscv64 16 as a solution to qt5-ukui-platformtheme:riscv64 0
+  8s   Re-Instated libqt5-ukui-style1:riscv64
+  8s   Re-Instated qml-module-org-ukui-qqc2desktopstyle:riscv64
+  8s   Re-Instated qml-module-org-ukui-stylehelper:riscv64
+  8s   Re-Instated qt5-styles-ukui:riscv64
+  8s     Reinst Failed because of libglib2.0-0t64:riscv64
+  8s   Removing qt5-ukui-platformtheme:riscv64 rather than change libpeony3:riscv64
+  8s Investigating (0) libimlib2t64:riscv64 < none -> 1.12.1-ok1 @un uN Ib >
+  8s Broken libimlib2t64:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.12.0)
+  8s   Considering libglib2.0-0t64:riscv64 0 as a solution to libimlib2t64:riscv64 0
+  8s   Holding Back libimlib2t64:riscv64 rather than change libglib2.0-0t64:riscv64
+  8s Investigating (0) ukui-notification-server:riscv64 < 4.10.1.1-ok1 | 4.10.1.4-ok0 @ii uH Ib >
+  8s Broken ukui-notification-server:riscv64 Depends on libukcc3:riscv64 < 4.10.0.0-ok4.6 | 4.10.0.0-ok4.28 @ii uR > (>= 4.10.0.0)
+  8s   Considering libukcc3:riscv64 11 as a solution to ukui-notification-server:riscv64 0
+  8s   Re-Instated libchinese-segmentation-common:riscv64
+  8s   Re-Instated libchinese-segmentation1:riscv64
+  8s     Reinst Failed because of libglib2.0-0t64:riscv64
+  8s     Reinst Failed because of libukui-search2:riscv64
+  8s     Reinst Failed because of libukui-notification1:riscv64
+  8s   Removing ukui-notification-server:riscv64 rather than change libukcc3:riscv64
+  8s Investigating (0) libmpg123-0t64:riscv64 < none -> 1.32.5-ok1 @un uN Ib >
+  8s Broken libmpg123-0t64:riscv64 Breaks on libmpg123-0:riscv64 < 1.25.13-ok1 @ii K > (< 1.32.5-ok1)
+  8s   Considering libmpg123-0:riscv64 5 as a solution to libmpg123-0t64:riscv64 0
+  8s   Holding Back libmpg123-0t64:riscv64 rather than change libmpg123-0:riscv64
+  8s Investigating (0) libgnutls30t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+  8s Broken libgnutls30t64:riscv64 Breaks on libgnutls30:riscv64 < 3.6.13-ok3 @ii K > (< 3.8.3-ok3)
+  8s   Considering libgnutls30:riscv64 217 as a solution to libgnutls30t64:riscv64 0
+  8s   Holding Back libgnutls30t64:riscv64 rather than change libgnutls30:riscv64
+  8s Investigating (0) kylin-photo-viewer:riscv64 < 1.3.0.3-ok21.12 @ii K Ib >
+  8s Broken kylin-photo-viewer:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  8s   Considering libpeony3:riscv64 16 as a solution to kylin-photo-viewer:riscv64 0
+  8s   Removing kylin-photo-viewer:riscv64 rather than change libpeony3:riscv64
+  8s Investigating (0) ukui-sidebar:riscv64 < 4.10.1.2-ok0 | 4.10.3.0-ok0 @ii uH Ib >
+  8s Broken ukui-sidebar:riscv64 Depends on ukui-notification-server:riscv64 < 4.10.1.1-ok1 | 4.10.1.4-ok0 @ii uR >
+  8s   Considering ukui-notification-server:riscv64 0 as a solution to ukui-sidebar:riscv64 0
+  8s   Re-Instated libkf5windowsystem-data:riscv64
+  8s   Re-Instated libkf5windowsystem5:riscv64
+  8s     Reinst Failed because of libukui-notification1:riscv64
+  8s   Removing ukui-sidebar:riscv64 rather than change ukui-notification-server:riscv64
+  8s Investigating (0) libpsl5t64:riscv64 < none -> 0.21.2-ok1.2 @un uN Ib >
+  8s Broken libpsl5t64:riscv64 Breaks on libpsl5:riscv64 < 0.21.0-ok2 @ii K > (< 0.21.2-ok1.2)
+  8s   Considering libpsl5:riscv64 31 as a solution to libpsl5t64:riscv64 0
+  8s   Holding Back libpsl5t64:riscv64 rather than change libpsl5:riscv64
+  8s Investigating (0) libsnapd-glib-2-1:riscv64 < none -> 1.64-ok1 @un uN Ib >
+  8s Broken libsnapd-glib-2-1:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.79.0)
+  8s   Considering libglib2.0-0t64:riscv64 0 as a solution to libsnapd-glib-2-1:riscv64 0
+  8s   Holding Back libsnapd-glib-2-1:riscv64 rather than change libglib2.0-0t64:riscv64
+  8s Investigating (0) speech-dispatcher-audio-plugins:riscv64 < none -> 0.12.0~rc2-ok1 @un uN Ib >
+  8s Broken speech-dispatcher-audio-plugins:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.36)
+  8s   Considering libglib2.0-0t64:riscv64 0 as a solution to speech-dispatcher-audio-plugins:riscv64 0
+  8s   Holding Back speech-dispatcher-audio-plugins:riscv64 rather than change libglib2.0-0t64:riscv64
+  8s Investigating (0) libasound2t64:riscv64 < none -> 1.2.11-ok1 @un uN Ib >
+  8s Broken libasound2t64:riscv64 Breaks on libasound2:riscv64 < 1.2.2-ok3 @ii K > (< 1.2.11-ok1)
+  8s   Considering libasound2:riscv64 54 as a solution to libasound2t64:riscv64 0
+  8s   Holding Back libasound2t64:riscv64 rather than change libasound2:riscv64
+  8s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+  8s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+  8s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+  8s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+  8s Investigating (0) peony-share:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  8s Broken peony-share:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  8s   Considering libpeony3:riscv64 16 as a solution to peony-share:riscv64 0
+  8s     Reinst Failed because of libglib2.0-0t64:riscv64
+  8s   Removing peony-share:riscv64 rather than change libpeony3:riscv64
+  8s Investigating (0) libcups2t64:riscv64 < none -> 2.4.7-ok1 @un uN Ib >
+  8s Broken libcups2t64:riscv64 Depends on libgnutls30t64:riscv64 < none | 3.8.3-ok3 @un uH > (>= 3.8.1)
+  8s   Considering libgnutls30t64:riscv64 0 as a solution to libcups2t64:riscv64 0
+  8s   Holding Back libcups2t64:riscv64 rather than change libgnutls30t64:riscv64
+  8s Investigating (0) peony-device-rename:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  8s Broken peony-device-rename:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  8s   Considering libpeony3:riscv64 16 as a solution to peony-device-rename:riscv64 0
+  8s     Reinst Failed because of libglib2.0-0t64:riscv64
+  8s   Removing peony-device-rename:riscv64 rather than change libpeony3:riscv64
+  8s Investigating (0) peony-send-to-device:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  8s Broken peony-send-to-device:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  8s   Considering libpeony3:riscv64 16 as a solution to peony-send-to-device:riscv64 0
+  8s     Reinst Failed because of libglib2.0-0t64:riscv64
+  8s   Removing peony-send-to-device:riscv64 rather than change libpeony3:riscv64
+  8s Investigating (0) libxt6t64:riscv64 < none -> 1:1.2.1-ok1 @un uN Ib >
+  8s Broken libxt6t64:riscv64 Breaks on libxt6:riscv64 < 1:1.1.5-ok1 @ii K > (< 1:1.2.1-ok1)
+  8s   Considering libxt6:riscv64 24 as a solution to libxt6t64:riscv64 0
+  8s   Holding Back libxt6t64:riscv64 rather than change libxt6:riscv64
+  8s Investigating (0) libsoup-3.0-0:riscv64 < none -> 3.4.4-ok2 @un uN Ib >
+  8s Broken libsoup-3.0-0:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.79.0)
+  8s   Considering libglib2.0-0t64:riscv64 0 as a solution to libsoup-3.0-0:riscv64 0
+  8s   Holding Back libsoup-3.0-0:riscv64 rather than change libglib2.0-0t64:riscv64
+  8s Investigating (0) parchives:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  8s Broken parchives:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  8s   Considering libpeony3:riscv64 16 as a solution to parchives:riscv64 0
+  8s     Reinst Failed because of libpeony3:riscv64
+  8s   Removing parchives:riscv64 rather than change libpeony3:riscv64
+  8s Investigating (0) libukui-shortcut1:riscv64 < 4.10.1.2-ok0 | 4.10.3.0-ok0 @ii uH Ib >
+  8s Broken libukui-shortcut1:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 2.1.1.0)
+  8s   Considering libkysdk-sysinfo:riscv64 47 as a solution to libukui-shortcut1:riscv64 0
+  8s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  8s   Removing libukui-shortcut1:riscv64 rather than change libkysdk-sysinfo:riscv64
+  8s Investigating (0) ukui-power-manager:riscv64 < 4.10.0.0-ok1.16 | 4.10.0.0-ok1.26 @ii uH Ib >
+  8s Broken ukui-power-manager:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 2.1.1.0)
+  8s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-power-manager:riscv64 -1
+  8s     Reinst Failed because of libkysdk-sysinfo:riscv64
+  8s   Removing ukui-power-manager:riscv64 rather than change libkysdk-sysinfo:riscv64
+  8s Investigating (0) kylin-printer:riscv64 < 1.3.1.0-ok8 | 1.3.1.0-ok11 @ii uH Ib >
+  8s Broken kylin-printer:riscv64 Depends on qt5-ukui-platformtheme:riscv64 < 4.1.0.0-ok31 | 4.1.0.0-ok48 @ii uR > (>= 1.0.6-5kylin9)
+  8s   Considering qt5-ukui-platformtheme:riscv64 0 as a solution to kylin-printer:riscv64 -1
+  8s     Reinst Failed because of qt5-ukui-platformtheme:riscv64
+  8s   Removing kylin-printer:riscv64 rather than change qt5-ukui-platformtheme:riscv64
+  8s Investigating (0) openkylin-default-settings:riscv64 < 1:2.0.0 | 1:2.0.6 @ii uH Ib >
+  8s Broken openkylin-default-settings:riscv64 Depends on peony-print-pictures:riscv64 < 1.0.2.0-ok2 @ii R >
+  8s   Considering peony-print-pictures:riscv64 1 as a solution to openkylin-default-settings:riscv64 -1
+  8s     Reinst Failed because of peony-print-pictures:riscv64
+  8s   Removing openkylin-default-settings:riscv64 rather than change peony-print-pictures:riscv64
+  8s Investigating (0) ukui-desktop-environment-core:riscv64 < 2.0.2-ok10 | 4.10.0.0-ok2 @ii uH Ib >
+  8s Broken ukui-desktop-environment-core:riscv64 Depends on peony:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR >
+  8s   Considering peony:riscv64 6 as a solution to ukui-desktop-environment-core:riscv64 -1
+  8s     Reinst Failed because of peony:riscv64
+  8s   Removing ukui-desktop-environment-core:riscv64 rather than change peony:riscv64
+  8s Investigating (0) libintl-xs-perl:riscv64 < 1.26-ok1 @ii K Ib >
+  8s Broken libintl-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libintl-xs-perl:riscv64 -1
+  8s   Removing libintl-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  8s Investigating (0) kylin-music:riscv64 < 1.1.0.47-ok9.3 | 1.1.0.47-ok9.16 @ii uH Ib >
+  8s Broken kylin-music:riscv64 Depends on libpeony3:riscv64 < 4.10.0.3-ok1~0301 | 4.10.0.5-ok1~0701 @ii uR > (>= 3.0.2)
+  8s   Considering libpeony3:riscv64 16 as a solution to kylin-music:riscv64 -1
+  8s   Re-Instated libavutil58:riscv64
+  8s   Re-Instated libcodec2-1.2:riscv64
+  8s   Re-Instated libdav1d7:riscv64
+  8s     Reinst Failed because of libglib2.0-0t64:riscv64
+  8s     Reinst Failed because of libavcodec60:riscv64
+  8s     Reinst Failed because of libavformat60:riscv64
+  8s   Removing kylin-music:riscv64 rather than change libpeony3:riscv64
+  8s Investigating (0) kylin-device-daemon:riscv64 < 3.20.0.5-ok10 | 3.20.0.5-ok15 @ii uH Ib >
+  8s Broken kylin-device-daemon:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  8s   Considering libkysdk-sysinfo:riscv64 47 as a solution to kylin-device-daemon:riscv64 -1
+  8s     Reinst Failed because of libglib2.0-0t64:riscv64
+  8s   Removing kylin-device-daemon:riscv64 rather than change libkysdk-sysinfo:riscv64
+  8s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-ng-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libdumbtts-dev:riscv64 < none @un H >
+  8s Investigating (1) libukui-search2:riscv64 < 4.10.6.8-ok1 | 4.10.12.1-ok0 @ii uH Ib >
+  8s Broken libukui-search2:riscv64 Depends on libchinese-segmentation1:riscv64 < 4.10.6.8-ok1 -> 4.10.12.1-ok0 @ii uU > (= 4.10.6.8-ok1)
+  8s   Considering libchinese-segmentation1:riscv64 4 as a solution to libukui-search2:riscv64 16
+  8s   Added libchinese-segmentation1:riscv64 to the remove list
+  8s   Fixing libukui-search2:riscv64 via keep of libchinese-segmentation1:riscv64
+  8s Investigating (1) libflite1:riscv64 < 2.1-release-ok1 -> 2.2-ok1 @ii uU Ib >
+  8s Broken libflite1:riscv64 Depends on libasound2t64:riscv64 < none | 1.2.11-ok1 @un uH > (>= 1.0.16)
+  8s   Considering libasound2t64:riscv64 0 as a solution to libflite1:riscv64 10
+  8s   Holding Back libflite1:riscv64 rather than change libasound2t64:riscv64
+  8s Investigating (1) openkylin-theme:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uH Ib >
+  8s Broken openkylin-theme:riscv64 Depends on openkylin-theme-configure:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uR >
+  8s   Considering openkylin-theme-configure:riscv64 3 as a solution to openkylin-theme:riscv64 8
+  8s   Added openkylin-theme-configure:riscv64 to the remove list
+  8s   Fixing openkylin-theme:riscv64 via keep of openkylin-theme-configure:riscv64
+  8s Investigating (1) pulseaudio:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU Ib >
+  8s Broken pulseaudio:riscv64 Depends on libasound2t64:riscv64 < none | 1.2.11-ok1 @un uH > (>= 1.2.1.1)
+  8s   Considering libasound2t64:riscv64 0 as a solution to pulseaudio:riscv64 6
+  8s   Removing pulseaudio:riscv64 rather than change libasound2t64:riscv64
+  8s Investigating (1) libchinese-segmentation1:riscv64 < 4.10.6.8-ok1 | 4.10.12.1-ok0 @ii uH Ib >
+  8s Broken libchinese-segmentation1:riscv64 Depends on libchinese-segmentation-common:riscv64 < 4.10.6.8-ok1 -> 4.10.12.1-ok0 @ii uU > (= 4.10.6.8-ok1)
+  8s   Considering libchinese-segmentation-common:riscv64 0 as a solution to libchinese-segmentation1:riscv64 4
+  8s   Added libchinese-segmentation-common:riscv64 to the remove list
+  8s   Fixing libchinese-segmentation1:riscv64 via keep of libchinese-segmentation-common:riscv64
+  8s Investigating (1) ukui-screensaver:riscv64 < 4.10.0.0-ok17~0223 | 4.10.0.0-ok27~0708 @ii uH Ib >
+  8s Broken ukui-screensaver:riscv64 Depends on ukui-session-manager:riscv64 < 4.0.0.0-ok21 | 4.0.0.0-ok26 @ii uR > (>= 4.0.0.0-ok12)
+  8s   Considering ukui-session-manager:riscv64 3 as a solution to ukui-screensaver:riscv64 3
+  8s     Reinst Failed because of ukui-session-manager:riscv64
+  8s   Removing ukui-screensaver:riscv64 rather than change ukui-session-manager:riscv64
+  8s Investigating (1) libpulse-mainloop-glib0:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU Ib >
+  8s Broken libpulse-mainloop-glib0:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.28.0)
+  8s   Considering libglib2.0-0t64:riscv64 0 as a solution to libpulse-mainloop-glib0:riscv64 3
+  8s   Removing libpulse-mainloop-glib0:riscv64 rather than change libglib2.0-0t64:riscv64
+  8s Investigating (1) pulseaudio-module-bluetooth:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU Ib >
+  8s Broken pulseaudio-module-bluetooth:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.12.0)
+  8s   Considering libglib2.0-0t64:riscv64 0 as a solution to pulseaudio-module-bluetooth:riscv64 3
+  8s   Removing pulseaudio-module-bluetooth:riscv64 rather than change libglib2.0-0t64:riscv64
+  8s Investigating (1) openkylin-theme-configure:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uH Ib >
+  8s Broken openkylin-theme-configure:riscv64 Depends on ukui-session-manager:riscv64 < 4.0.0.0-ok21 | 4.0.0.0-ok26 @ii uR > (>= 4.0.0.0-ok10)
+  8s   Considering ukui-session-manager:riscv64 3 as a solution to openkylin-theme-configure:riscv64 3
+  8s   Removing openkylin-theme-configure:riscv64 rather than change ukui-session-manager:riscv64
+  8s Investigating (1) peony-extensions:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uH Ib >
+  8s Broken peony-extensions:riscv64 Depends on parchives:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uR > (>= 3.2.2+1015)
+  8s   Considering parchives:riscv64 0 as a solution to peony-extensions:riscv64 2
+  8s   Added parchives:riscv64 to the remove list
+  8s Broken peony-extensions:riscv64 Depends on peony-extension-computer-view:riscv64 < 4.10.0.0-ok2~0222 | 4.10.0.0-ok2~0701 @ii uR > (>= 3.2.2+1015)
+  8s   Considering peony-extension-computer-view:riscv64 2 as a solution to peony-extensions:riscv64 2
+  8s     Reinst Failed because of parchives:riscv64
+  8s   Removing peony-extensions:riscv64 rather than change peony-extension-computer-view:riscv64
+  8s Investigating (1) libspeechd2:riscv64 < 0.9.1-ok2 -> 0.12.0~rc2-ok1 @ii uU Ib >
+  8s Broken libspeechd2:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.75.3)
+  8s   Considering libglib2.0-0t64:riscv64 0 as a solution to libspeechd2:riscv64 2
+  8s   Holding Back libspeechd2:riscv64 rather than change libglib2.0-0t64:riscv64
+  8s Investigating (1) libspeechd-dev:riscv64 < none -> 0.12.0~rc2-ok1 @un uN Ib >
+  8s Broken libspeechd-dev:riscv64 Depends on libspeechd2:riscv64 < 0.9.1-ok2 | 0.12.0~rc2-ok1 @ii uH > (= 0.12.0~rc2-ok1)
+  8s   Considering libspeechd2:riscv64 2 as a solution to libspeechd-dev:riscv64 1
+  8s   Holding Back libspeechd-dev:riscv64 rather than change libspeechd2:riscv64
+  8s Investigating (1) kylin-system-updater:riscv64 < 3.0.0.0-ok14 | 3.0.0.0-ok28 @ii uH Ib >
+  8s Broken kylin-system-updater:riscv64 Depends on kylin-update-frontend:riscv64 < 2.0.0.0-ok18 | 2.0.0.0-ok22 @ii uR >
+  8s   Considering kylin-update-frontend:riscv64 1 as a solution to kylin-system-updater:riscv64 1
+  8s     Reinst Failed because of kylin-update-frontend:riscv64
+  8s   Removing kylin-system-updater:riscv64 rather than change kylin-update-frontend:riscv64
+  8s Investigating (1) flite:riscv64 < none -> 2.2-ok1 @un uN Ib >
+  8s Broken flite:riscv64 Depends on libflite1:riscv64 < 2.1-release-ok1 | 2.2-ok1 @ii uH > (= 2.2-ok1)
+  8s   Considering libflite1:riscv64 10 as a solution to flite:riscv64 1
+  8s   Holding Back flite:riscv64 rather than change libflite1:riscv64
+  8s Investigating (1) libpulse-dev:riscv64 < none -> 1:16.1+dfsg1-ok1 @un uN Ib >
+  8s Broken libpulse-dev:riscv64 Depends on libpulse-mainloop-glib0:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR > (= 1:16.1+dfsg1-ok1)
+  8s   Considering libpulse-mainloop-glib0:riscv64 3 as a solution to libpulse-dev:riscv64 1
+  8s   Holding Back libpulse-dev:riscv64 rather than change libpulse-mainloop-glib0:riscv64
+  8s Investigating (1) speech-dispatcher:riscv64 < none -> 0.12.0~rc2-ok1 @un uN Ib >
+  8s Broken speech-dispatcher:riscv64 Depends on speech-dispatcher-audio-plugins:riscv64 < none | 0.12.0~rc2-ok1 @un uH > (= 0.12.0~rc2-ok1)
+  8s   Considering speech-dispatcher-audio-plugins:riscv64 0 as a solution to speech-dispatcher:riscv64 1
+  8s   Holding Back speech-dispatcher:riscv64 rather than change speech-dispatcher-audio-plugins:riscv64
+  8s Investigating (1) libcanberra-pulse:riscv64 < 0.30-ok3 @ii K Ib >
+  8s Broken libcanberra-pulse:riscv64 Depends on pulseaudio:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR >
+  8s   Considering pulseaudio:riscv64 6 as a solution to libcanberra-pulse:riscv64 1
+  8s   Removing libcanberra-pulse:riscv64 rather than change pulseaudio:riscv64
+  8s Investigating (1) libasound2-dev:riscv64 < none -> 1.2.11-ok1 @un uN Ib >
+  8s Broken libasound2-dev:riscv64 Depends on libasound2t64:riscv64 < none | 1.2.11-ok1 @un uH > (= 1.2.11-ok1)
+  8s   Considering libasound2t64:riscv64 0 as a solution to libasound2-dev:riscv64 1
+  8s   Holding Back libasound2-dev:riscv64 rather than change libasound2t64:riscv64
+  8s Investigating (1) flite1-dev:riscv64 < none -> 2.2-ok1 @un uN Ib >
+  8s Broken flite1-dev:riscv64 Depends on libflite1:riscv64 < 2.1-release-ok1 | 2.2-ok1 @ii uH > (= 2.2-ok1)
+  8s   Considering libflite1:riscv64 10 as a solution to flite1-dev:riscv64 0
+  8s   Holding Back flite1-dev:riscv64 rather than change libflite1:riscv64
+  8s Investigating (1) libmpg123-dev:riscv64 < none -> 1.32.5-ok1 @un uN Ib >
+  8s Broken libmpg123-dev:riscv64 Depends on libmpg123-0t64:riscv64 < none | 1.32.5-ok1 @un uH > (= 1.32.5-ok1)
+  8s   Considering libmpg123-0t64:riscv64 0 as a solution to libmpg123-dev:riscv64 0
+  8s   Holding Back libmpg123-dev:riscv64 rather than change libmpg123-0t64:riscv64
+  8s Investigating (1) libmatemixer0:riscv64 < 1.24.0-ok1 | 1.26.1-ok1 @ii uH Ib >
+  8s Broken libmatemixer0:riscv64 Depends on libpulse-mainloop-glib0:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR > (>= 0.99.1)
+  8s   Considering libpulse-mainloop-glib0:riscv64 3 as a solution to libmatemixer0:riscv64 0
+  8s   Re-Instated libmatemixer-common:riscv64
+  8s     Reinst Failed because of libasound2t64:riscv64
+  8s   Removing libmatemixer0:riscv64 rather than change libpulse-mainloop-glib0:riscv64
+  8s Investigating (1) libaudio2:riscv64 < none -> 1.9.4-ok1 @un uN Ib >
+  8s Broken libaudio2:riscv64 Depends on libxt6t64:riscv64 < none | 1:1.2.1-ok1 @un uH >
+  8s   Considering libxt6t64:riscv64 0 as a solution to libaudio2:riscv64 0
+  8s   Holding Back libaudio2:riscv64 rather than change libxt6t64:riscv64
+  8s Investigating (1) libtesseract5:riscv64 < none -> 5.3.4-ok4 @un uN Ib >
+  8s Broken libtesseract5:riscv64 Depends on libarchive13t64:riscv64 < none | 3.7.2-ok1 @un uH > (>= 3.0.4)
+  8s   Considering libarchive13t64:riscv64 0 as a solution to libtesseract5:riscv64 0
+  8s   Holding Back libtesseract5:riscv64 rather than change libarchive13t64:riscv64
+  8s Investigating (1) unity-settings-daemon:riscv64 < 15.04.1+20.04.20200325-ok1 @ii K Ib >
+  8s Broken unity-settings-daemon:riscv64 Depends on libpulse-mainloop-glib0:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR > (>= 1:2.0)
+  8s   Considering libpulse-mainloop-glib0:riscv64 3 as a solution to unity-settings-daemon:riscv64 -2
+  8s   Removing unity-settings-daemon:riscv64 rather than change libpulse-mainloop-glib0:riscv64
+  8s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  8s Broken autopkgtest-satdep:riscv64 Depends on speech-dispatcher:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libspeechd-dev:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on pulseaudio:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR >
+  8s   Considering pulseaudio:riscv64 6 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Added pulseaudio:riscv64 to the remove list
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite1-dev:riscv64 < none | 2.2-ok1 @un uH > (>= 1.4)
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite:riscv64 < none | 2.2-ok1 @un uH >
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-ng-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libdumbtts-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libasound2-dev:riscv64 < none | 1.2.11-ok1 @un uH >
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libpulse-dev:riscv64 < none | 1:16.1+dfsg1-ok1 @un uH >
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Fixing autopkgtest-satdep:riscv64 via keep of pulseaudio:riscv64
+  8s Investigating (2) openkylin-theme:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uH Ib >
+  8s Broken openkylin-theme:riscv64 Depends on openkylin-theme-configure:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uR >
+  8s   Considering openkylin-theme-configure:riscv64 3 as a solution to openkylin-theme:riscv64 8
+  8s   Added openkylin-theme-configure:riscv64 to the remove list
+  8s   Fixing openkylin-theme:riscv64 via keep of openkylin-theme-configure:riscv64
+  8s Investigating (2) pulseaudio:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uH Ib >
+  8s Broken pulseaudio:riscv64 Depends on libpulse0:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU > (= 1:16.1-ok6)
+  8s   Considering libpulse0:riscv64 64 as a solution to pulseaudio:riscv64 9998
+  8s   Added libpulse0:riscv64 to the remove list
+  8s   Fixing pulseaudio:riscv64 via keep of libpulse0:riscv64
+  8s Investigating (2) pulseaudio-utils:riscv64 < 1:16.1-ok6 -> 1:16.1+dfsg1-ok1 @ii uU Ib >
+  8s Broken pulseaudio-utils:riscv64 Depends on libpulse0:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uH > (= 1:16.1+dfsg1-ok1)
+  8s   Considering libpulse0:riscv64 9998 as a solution to pulseaudio-utils:riscv64 5
+  8s   Removing pulseaudio-utils:riscv64 rather than change libpulse0:riscv64
+  8s Investigating (2) openkylin-theme-configure:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uH Ib >
+  8s Broken openkylin-theme-configure:riscv64 Depends on ukui-session-manager:riscv64 < 4.0.0.0-ok21 | 4.0.0.0-ok26 @ii uR > (>= 4.0.0.0-ok10)
+  8s   Considering ukui-session-manager:riscv64 3 as a solution to openkylin-theme-configure:riscv64 8
+  8s   Added ukui-session-manager:riscv64 to the remove list
+  8s   Fixing openkylin-theme-configure:riscv64 via keep of ukui-session-manager:riscv64
+  8s Investigating (2) libaudio-dev:riscv64 < none -> 1.9.4-ok1 @un uN Ib >
+  8s Broken libaudio-dev:riscv64 Depends on libaudio2:riscv64 < none | 1.9.4-ok1 @un uH > (= 1.9.4-ok1)
+  8s   Considering libaudio2:riscv64 0 as a solution to libaudio-dev:riscv64 1
+  8s   Holding Back libaudio-dev:riscv64 rather than change libaudio2:riscv64
+  8s Investigating (2) libsndfile1-dev:riscv64 < none -> 1.2.2-ok1 @un uN Ib >
+  8s Broken libsndfile1-dev:riscv64 Depends on libmpg123-dev:riscv64 < none | 1.32.5-ok1 @un uH >
+  8s   Considering libmpg123-dev:riscv64 0 as a solution to libsndfile1-dev:riscv64 1
+  8s   Holding Back libsndfile1-dev:riscv64 rather than change libmpg123-dev:riscv64
+  8s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  8s Broken autopkgtest-satdep:riscv64 Depends on speech-dispatcher:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libspeechd-dev:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite1-dev:riscv64 < none | 2.2-ok1 @un uH > (>= 1.4)
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite:riscv64 < none | 2.2-ok1 @un uH >
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-ng-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libdumbtts-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libasound2-dev:riscv64 < none | 1.2.11-ok1 @un uH >
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libaudio-dev:riscv64 < none | 1.9.4-ok1 @un uH >
+  8s   Considering libaudio-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libpulse-dev:riscv64 < none | 1:16.1+dfsg1-ok1 @un uH >
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libsndfile1-dev:riscv64 < none | 1.2.2-ok1 @un uH >
+  8s   Considering libsndfile1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Investigating (3) pulseaudio:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uH Ib >
+  8s Broken pulseaudio:riscv64 Depends on pulseaudio-utils:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR >
+  8s   Considering pulseaudio-utils:riscv64 9998 as a solution to pulseaudio:riscv64 9998
+  8s   Removing pulseaudio:riscv64 rather than change pulseaudio-utils:riscv64
+  8s Investigating (3) ukui-session-manager:riscv64 < 4.0.0.0-ok21 | 4.0.0.0-ok26 @ii uH Ib >
+  8s Broken ukui-session-manager:riscv64 Depends on libkysdk-sysinfo:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uR > (>= 1.2.1)
+  8s   Considering libkysdk-sysinfo:riscv64 47 as a solution to ukui-session-manager:riscv64 8
+  8s   Removing ukui-session-manager:riscv64 rather than change libkysdk-sysinfo:riscv64
+  8s Investigating (3) openkylin-theme-configure:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uH Ib >
+  8s Broken openkylin-theme-configure:riscv64 Depends on ukui-session-manager:riscv64 < 4.0.0.0-ok21 | 4.0.0.0-ok26 @ii uR > (>= 4.0.0.0-ok10)
+  8s   Considering ukui-session-manager:riscv64 47 as a solution to openkylin-theme-configure:riscv64 8
+  8s   Removing openkylin-theme-configure:riscv64 rather than change ukui-session-manager:riscv64
+  8s Investigating (4) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  8s Broken autopkgtest-satdep:riscv64 Depends on speech-dispatcher:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libspeechd-dev:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on pulseaudio:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR >
+  8s   Considering pulseaudio:riscv64 9998 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering pulseaudio:riscv64 9998 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite1-dev:riscv64 < none | 2.2-ok1 @un uH > (>= 1.4)
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite:riscv64 < none | 2.2-ok1 @un uH >
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-ng-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libdumbtts-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libasound2-dev:riscv64 < none | 1.2.11-ok1 @un uH >
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libaudio-dev:riscv64 < none | 1.9.4-ok1 @un uH >
+  8s   Considering libaudio-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libpulse-dev:riscv64 < none | 1:16.1+dfsg1-ok1 @un uH >
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libsndfile1-dev:riscv64 < none | 1.2.2-ok1 @un uH >
+  8s   Considering libsndfile1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Investigating (4) openkylin-theme:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uH Ib >
+  8s Broken openkylin-theme:riscv64 Depends on openkylin-theme-configure:riscv64 < 3.22.0.1-ok0.6 | 3.22.0.1-ok0.7 @ii uR >
+  8s   Considering openkylin-theme-configure:riscv64 47 as a solution to openkylin-theme:riscv64 8
+  8s     Reinst Failed because of openkylin-theme-configure:riscv64
+  8s   Removing openkylin-theme:riscv64 rather than change openkylin-theme-configure:riscv64
+  8s Investigating (5) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  8s Broken autopkgtest-satdep:riscv64 Depends on speech-dispatcher:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering speech-dispatcher:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libspeechd-dev:riscv64 < none | 0.12.0~rc2-ok1 @un uH >
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libspeechd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on pulseaudio:riscv64 < 1:16.1-ok6 | 1:16.1+dfsg1-ok1 @ii uR >
+  8s   Considering pulseaudio:riscv64 9998 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering pulseaudio:riscv64 9998 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite1-dev:riscv64 < none | 2.2-ok1 @un uH > (>= 1.4)
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite1-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on flite:riscv64 < none | 2.2-ok1 @un uH >
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering flite:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libespeak-ng-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libdumbtts-dev:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libasound2-dev:riscv64 < none | 1.2.11-ok1 @un uH >
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libasound2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libaudio-dev:riscv64 < none | 1.9.4-ok1 @un uH >
+  8s   Considering libaudio-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libpulse-dev:riscv64 < none | 1:16.1+dfsg1-ok1 @un uH >
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Considering libpulse-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Broken autopkgtest-satdep:riscv64 Depends on libsndfile1-dev:riscv64 < none | 1.2.2-ok1 @un uH >
+  8s   Considering libsndfile1-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s Done
+  8s Some packages could not be installed. This may mean that you have
+  8s requested an impossible situation or if you are using the unstable
+  8s distribution that some required packages have not yet been created
+  8s or been moved out of Incoming.
+  8s The following information may help to resolve the situation:
+  8s 
+  8s The following packages have unmet dependencies:
+  8s  autopkgtest-satdep : Depends: speech-dispatcher but it is not going to be installed
+  8s                       Depends: libspeechd-dev but it is not going to be installed
+  8s                       Depends: pulseaudio but it is not going to be installed
+  8s                       Depends: flite1-dev (>= 1.4) but it is not going to be installed
+  8s                       Depends: flite but it is not going to be installed
+  8s                       Depends: libespeak-dev but it is not installable
+  8s                       Depends: libespeak-ng-dev but it is not installable
+  8s                       Depends: libdumbtts-dev but it is not installable
+  8s                       Depends: libasound2-dev but it is not going to be installed
+  8s                       Depends: libaudio-dev but it is not going to be installed
+  8s                       Depends: libpulse-dev but it is not going to be installed
+  8s                       Depends: libsndfile1-dev but it is not going to be installed
+  8s E: Unable to correct problems, you have held broken packages.
+  8s autopkgtest: DBG: testbed command exited with code 100
+  8s autopkgtest: DBG: apt-get install /tmp/autopkgtest.g6gT7r/1-autopkgtest-satdep.deb failed; status-fd:
+  8s 
+  8s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+  8s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate speech-dispatcher libspeechd-dev pulseaudio debhelper-compat (= 13) dh-exec dh-sequence-python3 automake libtool python3:any python3-xdg flite1-dev (>= 1.4) flite libespeak-dev libespeak-ng-dev libdumbtts-dev libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev libdotconf-dev (>= 1.3) libglib2.0-dev (>= 2.36) libltdl-dev pkgconf systemd systemd-dev libsystemd-dev gettext texinfo help2man build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  8s autopkgtest: DBG: testbed command exited with code 2
+  8s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  8s tests                FAIL badpkg
+  8s blame: speech-dispatcher_0.12.0~rc2-ok1.dsc
+  8s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  8s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+  8s autopkgtest [02:20:05]: @@@@@@@@@@@@@@@@@@@@ summary
+  8s tests                FAIL badpkg
+  8s blame: speech-dispatcher_0.12.0~rc2-ok1.dsc
+  8s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  8s autopkgtest: DBG: testbed stop
+  8s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.g6gT7r
+  8s autopkgtest: DBG: sending command to testbed: close
+  8s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: sending command to testbed: quit

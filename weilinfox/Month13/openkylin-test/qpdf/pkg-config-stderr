@@ -1,0 +1,15 @@
++ TMP=/tmp/autopkgtest.cL3URu/autopkgtest_tmp
++ [ ! -d /tmp/autopkgtest.cL3URu/autopkgtest_tmp ]
++ awk -F" /# *define QPDF_VERSION / {print $2} include/qpdf/DLL.h
++ tail -n 1
++ WANTED_VERSION=11.9.0
++ cp pkg-test/qpdf-version.cc /tmp/autopkgtest.cL3URu/autopkgtest_tmp
++ cd /tmp/autopkgtest.cL3URu/autopkgtest_tmp
++ pkg-config libqpdf --modversion
++ [ 11.9.0 != 11.9.0 ]
++ pkg-config libqpdf --libs --static
++ pkg-config libqpdf --cflags
++ pkg-config libqpdf --libs
++ g++ qpdf-version.cc -o qpdf-version -lqpdf
++ ./qpdf-version
++ [ 11.9.0 != 11.9.0 ]

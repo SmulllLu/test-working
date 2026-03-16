@@ -1,0 +1,44 @@
++ [ -e /var/lib/dhcp/dhcpd.leases ]
++ touch /var/lib/dhcp/dhcpd.leases
++ chown root:dhcpd /var/lib/dhcp /var/lib/dhcp/dhcpd.leases
++ chmod 775 /var/lib/dhcp
++ chmod 664 /var/lib/dhcp/dhcpd.leases
++ nsserver=server
++ nsclient=client
++ ip_addr_server=10.42.42.1/24
++ ifaceserver=veth-server
++ ifaceclient=veth-client
++ ip netns add server
++ ip netns add client
++ ip link add ptp-veth-server type veth peer name ptp-veth-client
++ ip link set ptp-veth-server netns server
++ ip link set ptp-veth-client netns client
++ mkdir -p /etc/netns/client
++ echo nameserver 8.8.8.8
++ cat
++ ip netns exec server ip addr add 10.42.42.1/24 dev ptp-veth-server
++ ip netns exec server ip link set dev ptp-veth-server up
++ ip netns exec client ip link set dev ptp-veth-client up
++ /usr/sbin/dhcpd -t -q -cf /etc/dhcp/dhcpd.conf
++ ip netns exec server /usr/sbin/dhcpd -cf /etc/dhcp/dhcpd.conf
+Internet Systems Consortium DHCP Server 4.4.3-P1
+Copyright 2004-2022 Internet Systems Consortium.
+All rights reserved.
+For info, please visit https://www.isc.org/software/dhcp/
+Not searching LDAP since ldap-server, ldap-port and ldap-base-dn were not specified in the config file
+Config file: /etc/dhcp/dhcpd.conf
+Database file: /var/lib/dhcp/dhcpd.leases
+PID file: /var/run/dhcpd.pid
+Wrote 0 leases to leases file.
+Listening on LPF/ptp-veth-server/8e:03:d3:d1:74:d4/10.42.42.0/24
+Sending on   LPF/ptp-veth-server/8e:03:d3:d1:74:d4/10.42.42.0/24
+Sending on   Socket/fallback/fallback-net
++ ip netns exec client dhclient ptp-veth-client
+Running in chroot, ignoring command 'is-active'
+Failed to set LLMNR configuration: Link 12 not known
+Failed to set MulticastDNS configuration: Link 12 not known
+Failed to set domain configuration: Link 12 not known
+Failed to set DNS configuration: Link 12 not known
+Running in chroot, ignoring command 'try-restart'
++ ip netns exec client ip addr
++ grep 1.1.1.1 /etc/netns/client/resolv.conf

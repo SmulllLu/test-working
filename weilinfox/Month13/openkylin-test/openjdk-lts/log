@@ -1,0 +1,867 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:48:28]: starting date and time: 2024-07-18 23:48:28+0800
+  0s autopkgtest [23:48:28]: version @version@
+  0s autopkgtest [23:48:28]: host lili; command line: /usr/bin/autopkgtest openjdk-lts_11.0.23+9-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/openjdk-lts -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.4flNi3
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223//tmp/autopkgtest.4flNi3
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223//tmp/autopkgtest.4flNi3', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.4flNi3/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.4flNi3/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:48:29]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [23:48:30]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4flNi3/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [23:48:30]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [23:48:30]: @@@@@@@@@@@@@@@@@@@@ source openjdk-lts_11.0.23+9-ok1.dsc
+  2s autopkgtest: DBG: blame += openjdk-lts_11.0.23+9-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown openjdk-lts_11.0.23%2B9-ok1.dsc /tmp/autopkgtest.4flNi3/openjdk-lts_11.0.23%2B9-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown openjdk-lts_11.0.23%2B9.orig.tar.xz /tmp/autopkgtest.4flNi3/openjdk-lts_11.0.23%2B9.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown openjdk-lts_11.0.23%2B9-ok1.debian.tar.xz /tmp/autopkgtest.4flNi3/openjdk-lts_11.0.23%2B9-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.4flNi3/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.4flNi3/openjdk-lts_11.0.23+9-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.4flNi3/build.XXX
+  3s + builddir=/tmp/autopkgtest.4flNi3/build.OSg
+  3s + cd /tmp/autopkgtest.4flNi3/build.OSg
+  3s + dpkg-source -x /tmp/autopkgtest.4flNi3/openjdk-lts_11.0.23+9-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.Ag1j2MDs/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 07 May 2024 10:16:10 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.4flNi3/openjdk-lts_11.0.23+9-ok1.dsc
+  6s dpkg-source: info: extracting openjdk-lts in src
+  6s dpkg-source: info: unpacking openjdk-lts_11.0.23+9.orig.tar.xz
+ 28s dpkg-source: info: unpacking openjdk-lts_11.0.23+9-ok1.debian.tar.xz
+ 30s dpkg-source: info: using patch list from debian/patches/series
+ 30s dpkg-source: info: applying system-pcsclite.diff
+ 30s dpkg-source: info: applying hotspot-mips-align.diff
+ 30s dpkg-source: info: applying icc_loading_with_symlink.diff
+ 30s dpkg-source: info: applying icedtea-override-redirect-compiz.diff
+ 30s dpkg-source: info: applying libpcsclite-dlopen.diff
+ 30s dpkg-source: info: applying jexec.diff
+ 30s dpkg-source: info: applying default-jvm-cfg.diff
+ 30s dpkg-source: info: applying adlc-parser.diff
+ 30s dpkg-source: info: applying multiple-pkcs11-library-init.diff
+ 30s dpkg-source: info: applying s390x-thread-stack-size.diff
+ 30s dpkg-source: info: applying s390x-opt.diff
+ 30s dpkg-source: info: applying jdk-getAccessibleValue.diff
+ 30s dpkg-source: info: applying jtreg-location.diff
+ 30s dpkg-source: info: applying jdk-i18n-pt_BR.diff
+ 30s dpkg-source: info: applying disable-doclint-by-default.diff
+ 30s dpkg-source: info: applying 8199220.diff
+ 30s dpkg-source: info: applying machine-flag.diff
+ 30s dpkg-source: info: applying zero-x32.diff
+ 30s dpkg-source: info: applying hotspot-disable-exec-shield-workaround.diff
+ 30s dpkg-source: info: applying atk-wrapper-security.diff
+ 30s dpkg-source: info: applying dnd-files.diff
+ 30s dpkg-source: info: applying hotspot-libpath.diff
+ 30s dpkg-source: info: applying reproducible-properties-timestamp.diff
+ 30s dpkg-source: info: applying reproducible-javadoc-timestamp.diff
+ 30s dpkg-source: info: applying Don-t-optimize-fdlibm-fork-for-Zero-on-linux-sparc-Z.patch
+ 30s dpkg-source: info: applying keep-gtk2-as-default.patch
+ 30s dpkg-source: info: applying riscv64.diff
+ 30s dpkg-source: info: applying reproducible-character-data.diff
+ 30s dpkg-source: info: applying reproducible-module-info.diff
+ 30s dpkg-source: info: applying reproducible-copyright-headers.diff
+ 30s dpkg-source: info: applying reproducible-build-user.diff
+ 30s dpkg-source: info: applying reproducible-build-jmod.diff
+ 30s dpkg-source: info: applying hotspot-test-fix-npe-on-missing-file.patch
+ 30s dpkg-source: info: applying disable-thumb-assertion.patch
+ 30s dpkg-source: info: applying update-assertion-for-armhf.patch
+ 30s dpkg-source: info: applying log-generated-classes-test.patch
+ 30s dpkg-source: info: applying update-permission-test.patch
+ 30s dpkg-source: info: applying ldap-timeout-test-use-ip.patch
+ 30s dpkg-source: info: applying test-use-ip-address.patch
+ 30s dpkg-source: info: applying nss-limited-ecc-tests.patch
+ 30s dpkg-source: info: applying loong64-autoconf-config.diff
+ 31s dpkg-source: info: applying 8307977-proposed.diff
+ 31s dpkg-source: info: applying use_clock64_fns_armhf.patch
+ 31s + chmod -R a+rX .
+ 32s + cd src/.
+ 32s + pwd
+ 32s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest [23:49:00]: testing package openjdk-lts version 11.0.23+9-ok1
+ 32s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/build.OSg/src/debian/ /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/pkg/debian/
+ 32s autopkgtest: DBG: got reply from testbed: ok
+ 32s autopkgtest: DBG: processing dependency openjdk-11-jre-headless
+ 32s autopkgtest: DBG: marked alternatives ['openjdk-11-jre-headless'] as a synthesised dependency
+ 32s autopkgtest: DBG: Test defined: name command1 path None command "java --version" restrictions ['superficial'] features [] depends ['openjdk-11-jre-headless'] 
+ 32s autopkgtest: DBG: processing dependency openjdk-11-jdk-headless
+ 32s autopkgtest: DBG: marked alternatives ['openjdk-11-jdk-headless'] as a synthesised dependency
+ 32s autopkgtest: DBG: Test defined: name command2 path None command "javac --version" restrictions ['superficial'] features [] depends ['openjdk-11-jdk-headless'] 
+ 32s autopkgtest [23:49:00]: build not needed
+ 32s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/build.OSg/src/ /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/tests-tree/
+ 86s autopkgtest: DBG: got reply from testbed: ok
+ 86s autopkgtest: DBG: processing dependency openjdk-11-jre-headless
+ 86s autopkgtest: DBG: marked alternatives ['openjdk-11-jre-headless'] as a synthesised dependency
+ 86s autopkgtest: DBG: Test defined: name command1 path None command "java --version" restrictions ['superficial'] features [] depends ['openjdk-11-jre-headless'] 
+ 86s autopkgtest: DBG: processing dependency openjdk-11-jdk-headless
+ 86s autopkgtest: DBG: marked alternatives ['openjdk-11-jdk-headless'] as a synthesised dependency
+ 86s autopkgtest: DBG: Test defined: name command2 path None command "javac --version" restrictions ['superficial'] features [] depends ['openjdk-11-jdk-headless'] 
+ 86s autopkgtest [23:49:54]: test command1: preparing testbed
+ 86s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['openjdk-11-jre-headless']
+ 86s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 86s autopkgtest: DBG: install_deps: deps_new=['openjdk-11-jre-headless']
+ 86s autopkgtest: DBG: install-deps: satisfying openjdk-11-jre-headless
+ 86s autopkgtest: DBG: install-deps: architecture resolved: openjdk-11-jre-headless
+ 86s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: can use apt-get on testbed: True
+ 87s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3'], kind short, sout raw, serr pipe, env []
+ 87s autopkgtest: DBG: testbed command exited with code 0
+ 87s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223//tmp/autopkgtest.4flNi3/1-autopkgtest-satdep.deb /tmp/autopkgtest.4flNi3/1-autopkgtest-satdep.deb
+ 87s autopkgtest: DBG: got reply from testbed: ok
+ 87s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4flNi3/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 87s Reading package lists...
+ 88s Building dependency tree...
+ 88s Reading state information...
+ 89s Starting pkgProblemResolver with broken count: 0
+ 89s Starting 2 pkgProblemResolver with broken count: 0
+ 89s Done
+ 90s The following packages were automatically installed and are no longer required:
+ 90s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 90s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 90s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 90s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 90s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 90s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 90s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 90s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 90s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 90s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 90s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 90s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 90s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 90s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 90s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 90s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 90s   language-selector-common language-selector-gnome libatrildocument3
+ 90s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 90s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 90s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 90s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 90s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 90s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 90s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 90s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 90s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 90s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 90s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 90s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 90s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 90s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 90s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 90s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 90s Use 'sudo apt autoremove' to remove them.
+ 90s The following additional packages will be installed:
+ 90s   ca-certificates-java java-common openjdk-11-jre-headless
+ 90s Suggested packages:
+ 90s   default-jre fonts-ipafont-gothic fonts-ipafont-mincho fonts-wqy-microhei
+ 90s   | fonts-wqy-zenhei fonts-indic
+ 90s Recommended packages:
+ 90s   libcups2t64
+ 90s The following NEW packages will be installed:
+ 90s   autopkgtest-satdep ca-certificates-java java-common openjdk-11-jre-headless
+ 91s 0 upgraded, 4 newly installed, 0 to remove and 1066 not upgraded.
+ 91s Need to get 31.7 MB/31.7 MB of archives.
+ 91s After this operation, 140 MB of additional disk space will be used.
+ 91s Get:1 /tmp/autopkgtest.4flNi3/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [712 B]
+ 91s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 ca-certificates-java all 20240118-ok1 [9,968 B]
+ 91s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 java-common all 0.75+exp1-ok1 [5,916 B]
+ 91s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 openjdk-11-jre-headless riscv64 11.0.23+9-ok1 [31.7 MB]
+109s Fetched 31.7 MB in 15s (2,147 kB/s)
+109s Selecting previously unselected package ca-certificates-java.
+110s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+110s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+110s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+110s Preparing to unpack .../ca-certificates-java_20240118-ok1_all.deb ...
+110s Unpacking ca-certificates-java (20240118-ok1) ...
+111s Selecting previously unselected package java-common.
+111s Preparing to unpack .../java-common_0.75+exp1-ok1_all.deb ...
+111s Unpacking java-common (0.75+exp1-ok1) ...
+111s Selecting previously unselected package openjdk-11-jre-headless:riscv64.
+111s Preparing to unpack .../openjdk-11-jre-headless_11.0.23+9-ok1_riscv64.deb ...
+111s Unpacking openjdk-11-jre-headless:riscv64 (11.0.23+9-ok1) ...
+120s Selecting previously unselected package autopkgtest-satdep.
+122s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+122s Unpacking autopkgtest-satdep (0) ...
+122s Setting up java-common (0.75+exp1-ok1) ...
+122s Setting up ca-certificates-java (20240118-ok1) ...
+122s No JRE found. Skipping Java certificates setup.
+122s Setting up openjdk-11-jre-headless:riscv64 (11.0.23+9-ok1) ...
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/java to provide /usr/bin/java (java) in auto mode
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jjs to provide /usr/bin/jjs (jjs) in auto mode
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/keytool to provide /usr/bin/keytool (keytool) in auto mode
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/rmid to provide /usr/bin/rmid (rmid) in auto mode
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/rmiregistry to provide /usr/bin/rmiregistry (rmiregistry) in auto mode
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/pack200 to provide /usr/bin/pack200 (pack200) in auto mode
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/unpack200 to provide /usr/bin/unpack200 (unpack200) in auto mode
+123s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/lib/jexec to provide /usr/bin/jexec (jexec) in auto mode
+123s Processing triggers for man-db (2.10.2-2) ...
+124s Processing triggers for ca-certificates-java (20240118-ok1) ...
+129s Adding debian:ACCVRAIZ1.pem
+129s Adding debian:AC_RAIZ_FNMT-RCM.pem
+129s Adding debian:AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.pem
+129s Adding debian:Actalis_Authentication_Root_CA.pem
+129s Adding debian:AffirmTrust_Commercial.pem
+129s Adding debian:AffirmTrust_Networking.pem
+129s Adding debian:AffirmTrust_Premium_ECC.pem
+129s Adding debian:AffirmTrust_Premium.pem
+129s Adding debian:Amazon_Root_CA_1.pem
+129s Adding debian:Amazon_Root_CA_2.pem
+129s Adding debian:Amazon_Root_CA_3.pem
+129s Adding debian:Amazon_Root_CA_4.pem
+129s Adding debian:ANF_Secure_Server_Root_CA.pem
+129s Adding debian:Atos_TrustedRoot_2011.pem
+129s Adding debian:Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
+130s Adding debian:Baltimore_CyberTrust_Root.pem
+130s Adding debian:Buypass_Class_2_Root_CA.pem
+130s Adding debian:Buypass_Class_3_Root_CA.pem
+130s Adding debian:CA_Disig_Root_R2.pem
+130s Adding debian:Certigna.pem
+130s Adding debian:Certigna_Root_CA.pem
+130s Adding debian:certSIGN_Root_CA_G2.pem
+130s Adding debian:certSIGN_ROOT_CA.pem
+130s Adding debian:Certum_EC-384_CA.pem
+130s Adding debian:Certum_Trusted_Network_CA_2.pem
+130s Adding debian:Certum_Trusted_Network_CA.pem
+130s Adding debian:Certum_Trusted_Root_CA.pem
+130s Adding debian:CFCA_EV_ROOT.pem
+130s Adding debian:Comodo_AAA_Services_root.pem
+130s Adding debian:COMODO_Certification_Authority.pem
+130s Adding debian:COMODO_ECC_Certification_Authority.pem
+130s Adding debian:COMODO_RSA_Certification_Authority.pem
+130s Adding debian:Cybertrust_Global_Root.pem
+130s Adding debian:DigiCert_Assured_ID_Root_CA.pem
+130s Adding debian:DigiCert_Assured_ID_Root_G2.pem
+130s Adding debian:DigiCert_Assured_ID_Root_G3.pem
+130s Adding debian:DigiCert_Global_Root_CA.pem
+130s Adding debian:DigiCert_Global_Root_G2.pem
+130s Adding debian:DigiCert_Global_Root_G3.pem
+130s Adding debian:DigiCert_High_Assurance_EV_Root_CA.pem
+130s Adding debian:DigiCert_Trusted_Root_G4.pem
+130s Adding debian:D-TRUST_Root_Class_3_CA_2_2009.pem
+130s Adding debian:D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+130s Adding debian:EC-ACC.pem
+130s Adding debian:emSign_ECC_Root_CA_-_C3.pem
+130s Adding debian:emSign_ECC_Root_CA_-_G3.pem
+130s Adding debian:emSign_Root_CA_-_C1.pem
+130s Adding debian:emSign_Root_CA_-_G1.pem
+130s Adding debian:Entrust.net_Premium_2048_Secure_Server_CA.pem
+130s Adding debian:Entrust_Root_Certification_Authority_-_EC1.pem
+130s Adding debian:Entrust_Root_Certification_Authority_-_G2.pem
+130s Adding debian:Entrust_Root_Certification_Authority_-_G4.pem
+130s Adding debian:Entrust_Root_Certification_Authority.pem
+130s Adding debian:ePKI_Root_Certification_Authority.pem
+130s Adding debian:e-Szigno_Root_CA_2017.pem
+130s Adding debian:E-Tugra_Certification_Authority.pem
+130s Adding debian:GDCA_TrustAUTH_R5_ROOT.pem
+130s Adding debian:GlobalSign_ECC_Root_CA_-_R4.pem
+130s Adding debian:GlobalSign_ECC_Root_CA_-_R5.pem
+130s Adding debian:GlobalSign_Root_CA.pem
+130s Adding debian:GlobalSign_Root_CA_-_R2.pem
+130s Adding debian:GlobalSign_Root_CA_-_R3.pem
+130s Adding debian:GlobalSign_Root_CA_-_R6.pem
+131s Adding debian:GlobalSign_Root_E46.pem
+131s Adding debian:GlobalSign_Root_R46.pem
+131s Adding debian:GLOBALTRUST_2020.pem
+131s Adding debian:Go_Daddy_Class_2_CA.pem
+131s Adding debian:Go_Daddy_Root_Certificate_Authority_-_G2.pem
+131s Adding debian:GTS_Root_R1.pem
+131s Adding debian:GTS_Root_R2.pem
+131s Adding debian:GTS_Root_R3.pem
+131s Adding debian:GTS_Root_R4.pem
+131s Adding debian:Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
+131s Adding debian:Hellenic_Academic_and_Research_Institutions_RootCA_2011.pem
+131s Adding debian:Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
+131s Adding debian:Hongkong_Post_Root_CA_1.pem
+131s Adding debian:Hongkong_Post_Root_CA_3.pem
+131s Adding debian:IdenTrust_Commercial_Root_CA_1.pem
+131s Adding debian:IdenTrust_Public_Sector_Root_CA_1.pem
+131s Adding debian:ISRG_Root_X1.pem
+131s Adding debian:Izenpe.com.pem
+131s Adding debian:Microsec_e-Szigno_Root_CA_2009.pem
+131s Adding debian:Microsoft_ECC_Root_Certificate_Authority_2017.pem
+131s Adding debian:Microsoft_RSA_Root_Certificate_Authority_2017.pem
+131s Adding debian:NAVER_Global_Root_Certification_Authority.pem
+131s Adding debian:NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem
+131s Adding debian:Network_Solutions_Certificate_Authority.pem
+131s Adding debian:OISTE_WISeKey_Global_Root_GB_CA.pem
+131s Adding debian:OISTE_WISeKey_Global_Root_GC_CA.pem
+131s Adding debian:QuoVadis_Root_CA_1_G3.pem
+131s Adding debian:QuoVadis_Root_CA_2_G3.pem
+131s Adding debian:QuoVadis_Root_CA_2.pem
+131s Adding debian:QuoVadis_Root_CA_3_G3.pem
+131s Adding debian:QuoVadis_Root_CA_3.pem
+131s Adding debian:Secure_Global_CA.pem
+131s Adding debian:SecureSign_RootCA11.pem
+131s Adding debian:SecureTrust_CA.pem
+131s Adding debian:Security_Communication_RootCA2.pem
+131s Adding debian:Security_Communication_Root_CA.pem
+131s Adding debian:SSL.com_EV_Root_Certification_Authority_ECC.pem
+131s Adding debian:SSL.com_EV_Root_Certification_Authority_RSA_R2.pem
+131s Adding debian:SSL.com_Root_Certification_Authority_ECC.pem
+131s Adding debian:SSL.com_Root_Certification_Authority_RSA.pem
+131s Adding debian:Staat_der_Nederlanden_EV_Root_CA.pem
+131s Adding debian:Starfield_Class_2_CA.pem
+131s Adding debian:Starfield_Root_Certificate_Authority_-_G2.pem
+131s Adding debian:Starfield_Services_Root_Certificate_Authority_-_G2.pem
+131s Adding debian:SwissSign_Gold_CA_-_G2.pem
+131s Adding debian:SwissSign_Silver_CA_-_G2.pem
+131s Adding debian:SZAFIR_ROOT_CA2.pem
+131s Adding debian:TeliaSonera_Root_CA_v1.pem
+132s Adding debian:TrustCor_ECA-1.pem
+132s Adding debian:TrustCor_RootCert_CA-1.pem
+132s Adding debian:TrustCor_RootCert_CA-2.pem
+132s Adding debian:Trustwave_Global_Certification_Authority.pem
+132s Adding debian:Trustwave_Global_ECC_P256_Certification_Authority.pem
+132s Adding debian:Trustwave_Global_ECC_P384_Certification_Authority.pem
+132s Adding debian:T-TeleSec_GlobalRoot_Class_2.pem
+132s Adding debian:T-TeleSec_GlobalRoot_Class_3.pem
+132s Adding debian:TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem
+132s Adding debian:TWCA_Global_Root_CA.pem
+132s Adding debian:TWCA_Root_Certification_Authority.pem
+132s Adding debian:UCA_Extended_Validation_Root.pem
+132s Adding debian:UCA_Global_G2_Root.pem
+132s Adding debian:USERTrust_ECC_Certification_Authority.pem
+132s Adding debian:USERTrust_RSA_Certification_Authority.pem
+132s Adding debian:XRamp_Global_CA_Root.pem
+132s done.
+132s Setting up autopkgtest-satdep (0) ...
+135s autopkgtest: DBG: testbed command exited with code 0
+135s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'openjdk-11-jre-headless'], kind short, sout pipe, serr pipe, env []
+135s autopkgtest: DBG: testbed command exited with code 0
+135s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+135s autopkgtest: DBG: testbed command exited with code 0
+135s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+140s autopkgtest: DBG: testbed command exited with code 0
+140s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap openjdk-11-jre-headless ca-certificates-java cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common java-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+140s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'openjdk-11-jre-headless', 'ca-certificates-java', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax'], kind short, sout raw, serr pipe, env []
+141s autopkgtest: DBG: testbed command exited with code 0
+141s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'xfonts-thai', 'fonts-thai-tlwg', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf'], kind short, sout raw, serr pipe, env []
+142s autopkgtest: DBG: testbed command exited with code 0
+142s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0'], kind short, sout raw, serr pipe, env []
+144s autopkgtest: DBG: testbed command exited with code 0
+144s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'java-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0'], kind short, sout raw, serr pipe, env []
+145s autopkgtest: DBG: testbed command exited with code 0
+145s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6'], kind short, sout raw, serr pipe, env []
+146s autopkgtest: DBG: testbed command exited with code 0
+146s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack'], kind short, sout raw, serr pipe, env []
+147s autopkgtest: DBG: testbed command exited with code 0
+147s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+148s autopkgtest: DBG: testbed command exited with code 0
+148s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+149s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+149s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+149s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+149s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+149s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+149s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+149s (Reading database ... 194148 files and directories currently installed.)
+149s Removing autopkgtest-satdep (0) ...
+149s autopkgtest: DBG: testbed command exited with code 0
+149s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+149s autopkgtest: DBG: testbed command exited with code 0
+149s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4flNi3/command1-packages.all"], kind short, sout raw, serr pipe, env []
+149s autopkgtest: DBG: testbed command exited with code 0
+149s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command1-packages.all /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/command1-packages.all
+149s autopkgtest: DBG: got reply from testbed: ok
+149s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.4flNi3/build.OSg/src'], kind short, sout raw, serr raw, env []
+149s autopkgtest: DBG: testbed command exited with code 0
+149s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.4flNi3/build.OSg/src already exists
+149s autopkgtest [23:50:57]: test command1: java --version
+149s autopkgtest [23:50:57]: test command1: [-----------------------
+149s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', "set -e; exec /tmp/autopkgtest.4flNi3/wrapper.sh --debug --artifacts=/tmp/autopkgtest.4flNi3/command1-artifacts --chdir=/tmp/autopkgtest.4flNi3/build.OSg/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.4flNi3/command1-stderr --stdout=/tmp/autopkgtest.4flNi3/command1-stdout --tmp=/tmp/autopkgtest.4flNi3/autopkgtest_tmp -- bash -ec 'java --version'"], kind test, sout raw, serr raw, env []
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.4flNi3/command1-artifacts
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: changing to directory: /tmp/autopkgtest.4flNi3/build.OSg/src
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: setting environment: LANG=C.UTF-8
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LANGUAGE
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_ADDRESS
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_ALL
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_COLLATE
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_CTYPE
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_MEASUREMENT
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_MESSAGES
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_MONETARY
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_NAME
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_NUMERIC
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_PAPER
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_TELEPHONE
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_TIME
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: pretending to be a login shell
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: will write standard error to /tmp/autopkgtest.4flNi3/command1-stderr
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: will write stdout to /tmp/autopkgtest.4flNi3/command1-stdout
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.4flNi3/autopkgtest_tmp
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: command to run: bash -ec java --version
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: copying /tmp/tmp.HtBofeKOGh/out to stdout and file: /tmp/autopkgtest.4flNi3/command1-stdout
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: copying /tmp/tmp.HtBofeKOGh/err to standard error and file: /tmp/autopkgtest.4flNi3/command1-stdout
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: writing script pid 1322266 to /tmp/autopkgtest_script_pid
+150s openjdk 11.0.23 2024-04-16
+150s OpenJDK Runtime Environment (build 11.0.23+9-post-Ubuntu-ok1)
+150s OpenJDK 64-Bit Zero VM (build 11.0.23+9-post-Ubuntu-ok1, interpreted mode)
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: checking for leaked background processes...
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: waiting for tee/cat subprocesses...
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: cleaning up...
+150s /tmp/autopkgtest.4flNi3/wrapper.sh: Exit status: 0
+150s autopkgtest: DBG: testbed command exited with code 0
+151s autopkgtest [23:50:59]: test command1: -----------------------]
+151s autopkgtest: DBG: testbed executing test finished with exit status 0
+151s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command1-stdout /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/command1-stdout
+151s autopkgtest: DBG: got reply from testbed: ok
+151s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command1-stderr /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/command1-stderr
+151s autopkgtest: DBG: got reply from testbed: ok
+151s autopkgtest [23:50:59]: test command1:  - - - - - - - - - - results - - - - - - - - - -
+151s command1             PASS (superficial)
+151s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command1-artifacts/ /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/artifacts/
+151s autopkgtest: DBG: got reply from testbed: ok
+151s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.4flNi3/command1-artifacts', '/tmp/autopkgtest.4flNi3/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+151s autopkgtest: DBG: testbed command exited with code 0
+151s autopkgtest [23:50:59]: test command2: preparing testbed
+151s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['openjdk-11-jre-headless'], deps_new=['openjdk-11-jdk-headless']
+151s autopkgtest: DBG: testbed reset
+151s autopkgtest: DBG: sending command to testbed: revert
+154s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+156s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.4flNi3
+156s autopkgtest: DBG: sending command to testbed: print-execute-command
+156s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223,--user%3Droot,--
+156s autopkgtest: DBG: sending command to testbed: capabilities
+156s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223//tmp/autopkgtest.4flNi3
+156s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223//tmp/autopkgtest.4flNi3', 'has_internet']
+156s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3'], kind short, sout raw, serr pipe, env []
+156s autopkgtest: DBG: testbed command exited with code 0
+156s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.4flNi3/wrapper.sh
+156s autopkgtest: DBG: got reply from testbed: ok
+156s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.4flNi3/wrapper.sh'], kind short, sout raw, serr pipe, env []
+156s autopkgtest: DBG: testbed command exited with code 0
+156s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+156s autopkgtest: DBG: testbed command exited with code 0
+156s autopkgtest [23:51:04]: testbed dpkg architecture: riscv64
+156s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+156s autopkgtest: DBG: testbed command exited with code 0
+156s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+156s autopkgtest: DBG: testbed command exited with code 0
+156s autopkgtest [23:51:04]: testbed apt version: 2.7.3-ok3
+156s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+156s autopkgtest: DBG: testbed command exited with code 127
+156s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+157s autopkgtest: DBG: testbed command exited with code 0
+157s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4flNi3/testbed-packages"], kind short, sout raw, serr pipe, env []
+157s autopkgtest: DBG: testbed command exited with code 0
+157s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/testbed-packages
+157s autopkgtest: DBG: got reply from testbed: ok
+157s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+157s autopkgtest: DBG: testbed command exited with code 0
+157s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+157s autopkgtest: DBG: install_deps: deps_new=['openjdk-11-jdk-headless']
+157s autopkgtest: DBG: install-deps: satisfying openjdk-11-jdk-headless
+157s autopkgtest: DBG: install-deps: architecture resolved: openjdk-11-jdk-headless
+157s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+157s autopkgtest: DBG: testbed command exited with code 0
+157s autopkgtest: DBG: can use apt-get on testbed: True
+157s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3'], kind short, sout raw, serr pipe, env []
+157s autopkgtest: DBG: testbed command exited with code 0
+157s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b9eac590-dbf9-4fa2-a681-f9ea5dc14223//tmp/autopkgtest.4flNi3/2-autopkgtest-satdep.deb /tmp/autopkgtest.4flNi3/2-autopkgtest-satdep.deb
+157s autopkgtest: DBG: got reply from testbed: ok
+157s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4flNi3/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+158s Reading package lists...
+158s Building dependency tree...
+158s Reading state information...
+159s Starting pkgProblemResolver with broken count: 0
+159s Starting 2 pkgProblemResolver with broken count: 0
+159s Done
+160s The following packages were automatically installed and are no longer required:
+160s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+160s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+160s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+160s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+160s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+160s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+160s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+160s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+160s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+160s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+160s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+160s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+160s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+160s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+160s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+160s   indicator-messages indicator-printers indicator-session kylin-screenshot
+160s   language-selector-common language-selector-gnome libatrildocument3
+160s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+160s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+160s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+160s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+160s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+160s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+160s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+160s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+160s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+160s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+160s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+160s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+160s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+160s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+160s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+160s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+160s Use 'sudo apt autoremove' to remove them.
+160s The following additional packages will be installed:
+160s   ca-certificates-java java-common openjdk-11-jdk-headless
+160s   openjdk-11-jre-headless
+160s Suggested packages:
+160s   default-jre openjdk-11-demo openjdk-11-source fonts-ipafont-gothic
+160s   fonts-ipafont-mincho fonts-wqy-microhei | fonts-wqy-zenhei fonts-indic
+160s Recommended packages:
+160s   libcups2t64
+160s The following NEW packages will be installed:
+160s   autopkgtest-satdep ca-certificates-java java-common openjdk-11-jdk-headless
+160s   openjdk-11-jre-headless
+160s 0 upgraded, 5 newly installed, 0 to remove and 1066 not upgraded.
+160s Need to get 92.9 MB/92.9 MB of archives.
+160s After this operation, 208 MB of additional disk space will be used.
+160s Get:1 /tmp/autopkgtest.4flNi3/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [712 B]
+160s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 ca-certificates-java all 20240118-ok1 [9,968 B]
+160s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 java-common all 0.75+exp1-ok1 [5,916 B]
+160s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 openjdk-11-jre-headless riscv64 11.0.23+9-ok1 [31.7 MB]
+174s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 openjdk-11-jdk-headless riscv64 11.0.23+9-ok1 [61.2 MB]
+202s Fetched 92.9 MB in 40s (2,305 kB/s)
+202s Selecting previously unselected package ca-certificates-java.
+202s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+202s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+202s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+202s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+202s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+202s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+203s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+203s Preparing to unpack .../ca-certificates-java_20240118-ok1_all.deb ...
+203s Unpacking ca-certificates-java (20240118-ok1) ...
+203s Selecting previously unselected package java-common.
+203s Preparing to unpack .../java-common_0.75+exp1-ok1_all.deb ...
+203s Unpacking java-common (0.75+exp1-ok1) ...
+203s Selecting previously unselected package openjdk-11-jre-headless:riscv64.
+203s Preparing to unpack .../openjdk-11-jre-headless_11.0.23+9-ok1_riscv64.deb ...
+203s Unpacking openjdk-11-jre-headless:riscv64 (11.0.23+9-ok1) ...
+209s Selecting previously unselected package openjdk-11-jdk-headless:riscv64.
+209s Preparing to unpack .../openjdk-11-jdk-headless_11.0.23+9-ok1_riscv64.deb ...
+209s Unpacking openjdk-11-jdk-headless:riscv64 (11.0.23+9-ok1) ...
+217s Selecting previously unselected package autopkgtest-satdep.
+217s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+217s Unpacking autopkgtest-satdep (0) ...
+217s Setting up java-common (0.75+exp1-ok1) ...
+217s Setting up ca-certificates-java (20240118-ok1) ...
+217s No JRE found. Skipping Java certificates setup.
+217s Setting up openjdk-11-jre-headless:riscv64 (11.0.23+9-ok1) ...
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/java to provide /usr/bin/java (java) in auto mode
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jjs to provide /usr/bin/jjs (jjs) in auto mode
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/keytool to provide /usr/bin/keytool (keytool) in auto mode
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/rmid to provide /usr/bin/rmid (rmid) in auto mode
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/rmiregistry to provide /usr/bin/rmiregistry (rmiregistry) in auto mode
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/pack200 to provide /usr/bin/pack200 (pack200) in auto mode
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/unpack200 to provide /usr/bin/unpack200 (unpack200) in auto mode
+217s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/lib/jexec to provide /usr/bin/jexec (jexec) in auto mode
+217s Processing triggers for man-db (2.10.2-2) ...
+218s Processing triggers for ca-certificates-java (20240118-ok1) ...
+221s Adding debian:ACCVRAIZ1.pem
+221s Adding debian:AC_RAIZ_FNMT-RCM.pem
+221s Adding debian:AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.pem
+221s Adding debian:Actalis_Authentication_Root_CA.pem
+221s Adding debian:AffirmTrust_Commercial.pem
+221s Adding debian:AffirmTrust_Networking.pem
+221s Adding debian:AffirmTrust_Premium_ECC.pem
+221s Adding debian:AffirmTrust_Premium.pem
+221s Adding debian:Amazon_Root_CA_1.pem
+221s Adding debian:Amazon_Root_CA_2.pem
+221s Adding debian:Amazon_Root_CA_3.pem
+221s Adding debian:Amazon_Root_CA_4.pem
+221s Adding debian:ANF_Secure_Server_Root_CA.pem
+221s Adding debian:Atos_TrustedRoot_2011.pem
+221s Adding debian:Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
+221s Adding debian:Baltimore_CyberTrust_Root.pem
+221s Adding debian:Buypass_Class_2_Root_CA.pem
+221s Adding debian:Buypass_Class_3_Root_CA.pem
+221s Adding debian:CA_Disig_Root_R2.pem
+221s Adding debian:Certigna.pem
+221s Adding debian:Certigna_Root_CA.pem
+221s Adding debian:certSIGN_Root_CA_G2.pem
+221s Adding debian:certSIGN_ROOT_CA.pem
+221s Adding debian:Certum_EC-384_CA.pem
+221s Adding debian:Certum_Trusted_Network_CA_2.pem
+221s Adding debian:Certum_Trusted_Network_CA.pem
+221s Adding debian:Certum_Trusted_Root_CA.pem
+221s Adding debian:CFCA_EV_ROOT.pem
+222s Adding debian:Comodo_AAA_Services_root.pem
+222s Adding debian:COMODO_Certification_Authority.pem
+222s Adding debian:COMODO_ECC_Certification_Authority.pem
+222s Adding debian:COMODO_RSA_Certification_Authority.pem
+222s Adding debian:Cybertrust_Global_Root.pem
+222s Adding debian:DigiCert_Assured_ID_Root_CA.pem
+222s Adding debian:DigiCert_Assured_ID_Root_G2.pem
+222s Adding debian:DigiCert_Assured_ID_Root_G3.pem
+222s Adding debian:DigiCert_Global_Root_CA.pem
+222s Adding debian:DigiCert_Global_Root_G2.pem
+222s Adding debian:DigiCert_Global_Root_G3.pem
+222s Adding debian:DigiCert_High_Assurance_EV_Root_CA.pem
+222s Adding debian:DigiCert_Trusted_Root_G4.pem
+222s Adding debian:D-TRUST_Root_Class_3_CA_2_2009.pem
+222s Adding debian:D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+222s Adding debian:EC-ACC.pem
+222s Adding debian:emSign_ECC_Root_CA_-_C3.pem
+222s Adding debian:emSign_ECC_Root_CA_-_G3.pem
+222s Adding debian:emSign_Root_CA_-_C1.pem
+222s Adding debian:emSign_Root_CA_-_G1.pem
+222s Adding debian:Entrust.net_Premium_2048_Secure_Server_CA.pem
+222s Adding debian:Entrust_Root_Certification_Authority_-_EC1.pem
+222s Adding debian:Entrust_Root_Certification_Authority_-_G2.pem
+222s Adding debian:Entrust_Root_Certification_Authority_-_G4.pem
+222s Adding debian:Entrust_Root_Certification_Authority.pem
+222s Adding debian:ePKI_Root_Certification_Authority.pem
+222s Adding debian:e-Szigno_Root_CA_2017.pem
+222s Adding debian:E-Tugra_Certification_Authority.pem
+222s Adding debian:GDCA_TrustAUTH_R5_ROOT.pem
+222s Adding debian:GlobalSign_ECC_Root_CA_-_R4.pem
+222s Adding debian:GlobalSign_ECC_Root_CA_-_R5.pem
+222s Adding debian:GlobalSign_Root_CA.pem
+222s Adding debian:GlobalSign_Root_CA_-_R2.pem
+222s Adding debian:GlobalSign_Root_CA_-_R3.pem
+222s Adding debian:GlobalSign_Root_CA_-_R6.pem
+222s Adding debian:GlobalSign_Root_E46.pem
+222s Adding debian:GlobalSign_Root_R46.pem
+222s Adding debian:GLOBALTRUST_2020.pem
+222s Adding debian:Go_Daddy_Class_2_CA.pem
+222s Adding debian:Go_Daddy_Root_Certificate_Authority_-_G2.pem
+222s Adding debian:GTS_Root_R1.pem
+222s Adding debian:GTS_Root_R2.pem
+222s Adding debian:GTS_Root_R3.pem
+222s Adding debian:GTS_Root_R4.pem
+222s Adding debian:Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
+222s Adding debian:Hellenic_Academic_and_Research_Institutions_RootCA_2011.pem
+222s Adding debian:Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
+222s Adding debian:Hongkong_Post_Root_CA_1.pem
+222s Adding debian:Hongkong_Post_Root_CA_3.pem
+222s Adding debian:IdenTrust_Commercial_Root_CA_1.pem
+222s Adding debian:IdenTrust_Public_Sector_Root_CA_1.pem
+222s Adding debian:ISRG_Root_X1.pem
+222s Adding debian:Izenpe.com.pem
+222s Adding debian:Microsec_e-Szigno_Root_CA_2009.pem
+223s Adding debian:Microsoft_ECC_Root_Certificate_Authority_2017.pem
+223s Adding debian:Microsoft_RSA_Root_Certificate_Authority_2017.pem
+223s Adding debian:NAVER_Global_Root_Certification_Authority.pem
+223s Adding debian:NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem
+223s Adding debian:Network_Solutions_Certificate_Authority.pem
+223s Adding debian:OISTE_WISeKey_Global_Root_GB_CA.pem
+223s Adding debian:OISTE_WISeKey_Global_Root_GC_CA.pem
+223s Adding debian:QuoVadis_Root_CA_1_G3.pem
+223s Adding debian:QuoVadis_Root_CA_2_G3.pem
+223s Adding debian:QuoVadis_Root_CA_2.pem
+223s Adding debian:QuoVadis_Root_CA_3_G3.pem
+223s Adding debian:QuoVadis_Root_CA_3.pem
+223s Adding debian:Secure_Global_CA.pem
+223s Adding debian:SecureSign_RootCA11.pem
+223s Adding debian:SecureTrust_CA.pem
+223s Adding debian:Security_Communication_RootCA2.pem
+223s Adding debian:Security_Communication_Root_CA.pem
+223s Adding debian:SSL.com_EV_Root_Certification_Authority_ECC.pem
+223s Adding debian:SSL.com_EV_Root_Certification_Authority_RSA_R2.pem
+223s Adding debian:SSL.com_Root_Certification_Authority_ECC.pem
+223s Adding debian:SSL.com_Root_Certification_Authority_RSA.pem
+223s Adding debian:Staat_der_Nederlanden_EV_Root_CA.pem
+223s Adding debian:Starfield_Class_2_CA.pem
+223s Adding debian:Starfield_Root_Certificate_Authority_-_G2.pem
+223s Adding debian:Starfield_Services_Root_Certificate_Authority_-_G2.pem
+223s Adding debian:SwissSign_Gold_CA_-_G2.pem
+223s Adding debian:SwissSign_Silver_CA_-_G2.pem
+223s Adding debian:SZAFIR_ROOT_CA2.pem
+223s Adding debian:TeliaSonera_Root_CA_v1.pem
+223s Adding debian:TrustCor_ECA-1.pem
+223s Adding debian:TrustCor_RootCert_CA-1.pem
+223s Adding debian:TrustCor_RootCert_CA-2.pem
+223s Adding debian:Trustwave_Global_Certification_Authority.pem
+223s Adding debian:Trustwave_Global_ECC_P256_Certification_Authority.pem
+223s Adding debian:Trustwave_Global_ECC_P384_Certification_Authority.pem
+223s Adding debian:T-TeleSec_GlobalRoot_Class_2.pem
+223s Adding debian:T-TeleSec_GlobalRoot_Class_3.pem
+223s Adding debian:TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem
+223s Adding debian:TWCA_Global_Root_CA.pem
+223s Adding debian:TWCA_Root_Certification_Authority.pem
+223s Adding debian:UCA_Extended_Validation_Root.pem
+223s Adding debian:UCA_Global_G2_Root.pem
+223s Adding debian:USERTrust_ECC_Certification_Authority.pem
+223s Adding debian:USERTrust_RSA_Certification_Authority.pem
+223s Adding debian:XRamp_Global_CA_Root.pem
+224s done.
+224s Setting up openjdk-11-jdk-headless:riscv64 (11.0.23+9-ok1) ...
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jar to provide /usr/bin/jar (jar) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jarsigner to provide /usr/bin/jarsigner (jarsigner) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/javac to provide /usr/bin/javac (javac) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/javadoc to provide /usr/bin/javadoc (javadoc) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/javap to provide /usr/bin/javap (javap) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jcmd to provide /usr/bin/jcmd (jcmd) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jdb to provide /usr/bin/jdb (jdb) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jdeprscan to provide /usr/bin/jdeprscan (jdeprscan) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jdeps to provide /usr/bin/jdeps (jdeps) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jfr to provide /usr/bin/jfr (jfr) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jimage to provide /usr/bin/jimage (jimage) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jinfo to provide /usr/bin/jinfo (jinfo) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jlink to provide /usr/bin/jlink (jlink) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jmap to provide /usr/bin/jmap (jmap) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jmod to provide /usr/bin/jmod (jmod) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jps to provide /usr/bin/jps (jps) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jrunscript to provide /usr/bin/jrunscript (jrunscript) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jshell to provide /usr/bin/jshell (jshell) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jstack to provide /usr/bin/jstack (jstack) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jstat to provide /usr/bin/jstat (jstat) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/jstatd to provide /usr/bin/jstatd (jstatd) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/rmic to provide /usr/bin/rmic (rmic) in auto mode
+224s update-alternatives: using /usr/lib/jvm/java-11-openjdk-riscv64/bin/serialver to provide /usr/bin/serialver (serialver) in auto mode
+224s Setting up autopkgtest-satdep (0) ...
+225s autopkgtest: DBG: testbed command exited with code 0
+225s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'openjdk-11-jdk-headless'], kind short, sout pipe, serr pipe, env []
+225s autopkgtest: DBG: testbed command exited with code 0
+225s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+225s autopkgtest: DBG: testbed command exited with code 0
+225s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+229s autopkgtest: DBG: testbed command exited with code 0
+229s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap openjdk-11-jdk-headless openjdk-11-jre-headless ca-certificates-java cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common java-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+229s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'openjdk-11-jdk-headless', 'openjdk-11-jre-headless', 'ca-certificates-java', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax'], kind short, sout raw, serr pipe, env []
+230s autopkgtest: DBG: testbed command exited with code 0
+230s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter'], kind short, sout raw, serr pipe, env []
+231s autopkgtest: DBG: testbed command exited with code 0
+231s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0'], kind short, sout raw, serr pipe, env []
+231s autopkgtest: DBG: testbed command exited with code 0
+231s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'java-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module'], kind short, sout raw, serr pipe, env []
+232s autopkgtest: DBG: testbed command exited with code 0
+232s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7'], kind short, sout raw, serr pipe, env []
+233s autopkgtest: DBG: testbed command exited with code 0
+233s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa'], kind short, sout raw, serr pipe, env []
+234s autopkgtest: DBG: testbed command exited with code 0
+234s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+235s autopkgtest: DBG: testbed command exited with code 0
+235s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+235s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+235s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+235s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+235s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+235s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+235s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+236s (Reading database ... 194282 files and directories currently installed.)
+236s Removing autopkgtest-satdep (0) ...
+236s autopkgtest: DBG: testbed command exited with code 0
+236s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+236s autopkgtest: DBG: testbed command exited with code 0
+236s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4flNi3/command2-packages.all"], kind short, sout raw, serr pipe, env []
+236s autopkgtest: DBG: testbed command exited with code 0
+236s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command2-packages.all /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/command2-packages.all
+236s autopkgtest: DBG: got reply from testbed: ok
+236s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.4flNi3/build.OSg/src'], kind short, sout raw, serr raw, env []
+236s autopkgtest: DBG: testbed command exited with code 1
+236s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4flNi3/build.OSg'], kind short, sout raw, serr pipe, env []
+236s autopkgtest: DBG: testbed command exited with code 0
+236s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/tests-tree/ /tmp/autopkgtest.4flNi3/build.OSg/src/
+298s autopkgtest: DBG: got reply from testbed: ok
+298s autopkgtest [23:53:26]: test command2: javac --version
+298s autopkgtest [23:53:26]: test command2: [-----------------------
+298s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', "set -e; exec /tmp/autopkgtest.4flNi3/wrapper.sh --debug --artifacts=/tmp/autopkgtest.4flNi3/command2-artifacts --chdir=/tmp/autopkgtest.4flNi3/build.OSg/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.4flNi3/command2-stderr --stdout=/tmp/autopkgtest.4flNi3/command2-stdout --tmp=/tmp/autopkgtest.4flNi3/autopkgtest_tmp -- bash -ec 'javac --version'"], kind test, sout raw, serr raw, env []
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.4flNi3/command2-artifacts
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: changing to directory: /tmp/autopkgtest.4flNi3/build.OSg/src
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: setting environment: LANG=C.UTF-8
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LANGUAGE
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_ADDRESS
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_ALL
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_COLLATE
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_CTYPE
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_MEASUREMENT
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_MESSAGES
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_MONETARY
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_NAME
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_NUMERIC
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_PAPER
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_TELEPHONE
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: unsetting environment: LC_TIME
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: pretending to be a login shell
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: will write standard error to /tmp/autopkgtest.4flNi3/command2-stderr
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: will write stdout to /tmp/autopkgtest.4flNi3/command2-stdout
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.4flNi3/autopkgtest_tmp
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: command to run: bash -ec javac --version
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: copying /tmp/tmp.QRiWxybvYi/out to stdout and file: /tmp/autopkgtest.4flNi3/command2-stdout
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: copying /tmp/tmp.QRiWxybvYi/err to standard error and file: /tmp/autopkgtest.4flNi3/command2-stdout
+298s /tmp/autopkgtest.4flNi3/wrapper.sh: writing script pid 1322903 to /tmp/autopkgtest_script_pid
+299s javac 11.0.23
+299s /tmp/autopkgtest.4flNi3/wrapper.sh: checking for leaked background processes...
+299s /tmp/autopkgtest.4flNi3/wrapper.sh: waiting for tee/cat subprocesses...
+299s /tmp/autopkgtest.4flNi3/wrapper.sh: cleaning up...
+299s /tmp/autopkgtest.4flNi3/wrapper.sh: Exit status: 0
+299s autopkgtest: DBG: testbed command exited with code 0
+300s autopkgtest [23:53:28]: test command2: -----------------------]
+300s autopkgtest: DBG: testbed executing test finished with exit status 0
+300s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command2-stdout /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/command2-stdout
+300s autopkgtest: DBG: got reply from testbed: ok
+300s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command2-stderr /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/command2-stderr
+300s autopkgtest: DBG: got reply from testbed: ok
+300s autopkgtest [23:53:28]: test command2:  - - - - - - - - - - results - - - - - - - - - -
+300s command2             PASS (superficial)
+300s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4flNi3/command2-artifacts/ /home/hachi/openkylin_test/sharefolder/results/openjdk-lts/artifacts/
+300s autopkgtest: DBG: got reply from testbed: ok
+300s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.4flNi3/command2-artifacts', '/tmp/autopkgtest.4flNi3/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+300s autopkgtest: DBG: testbed command exited with code 0
+300s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+300s autopkgtest [23:53:28]: @@@@@@@@@@@@@@@@@@@@ summary
+300s command1             PASS (superficial)
+300s command2             PASS (superficial)
+300s autopkgtest: DBG: testbed stop
+300s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.4flNi3
+300s autopkgtest: DBG: sending command to testbed: close
+303s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+304s autopkgtest: DBG: got reply from testbed: ok
+304s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,19 @@
++ package=libcupsfilters
++ mktemp -d
++ WORKDIR=/tmp/tmp.jxamC5uX4R
++ export HOME=/tmp/tmp.jxamC5uX4R
++ export XDG_RUNTIME_DIR=/tmp/tmp.jxamC5uX4R
++ trap cd /; rm -rf "$WORKDIR" 0 INT QUIT ABRT PIPE TERM
++ [ -n  ]
++ CROSS_COMPILE=
++ cd /tmp/tmp.jxamC5uX4R
++ cat
++ pkg-config --cflags --libs libcupsfilters
++ gcc -o libcupsfilters-test test.c -I/usr/include/cupsfilters -lcupsfilters
++ echo build (libcupsfilters): OK
++ [ -x libcupsfilters-test ]
++ dbus-run-session -- ./libcupsfilters-test
++ grep -q DEBUG: TEST OUTPUT 1 2 3
++ echo run (libcupsfilters): OK
++ cd /
++ rm -rf /tmp/tmp.jxamC5uX4R

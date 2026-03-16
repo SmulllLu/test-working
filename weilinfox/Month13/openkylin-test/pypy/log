@@ -1,0 +1,614 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [02:16:39]: starting date and time: 2024-07-19 02:16:39+0800
+  0s autopkgtest [02:16:39]: version @version@
+  0s autopkgtest [02:16:39]: host lili; command line: /usr/bin/autopkgtest pypy_7.3.9-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/pypy -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.4p2O6i
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.4p2O6i/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.4p2O6i/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:16:41]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:16:41]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4p2O6i/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4p2O6i/testbed-packages /home/hachi/openkylin_test/sharefolder/results/pypy/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [02:16:41]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [02:16:42]: @@@@@@@@@@@@@@@@@@@@ source pypy_7.3.9-ok1.dsc
+  3s autopkgtest: DBG: blame += pypy_7.3.9-ok1.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown pypy_7.3.9-ok1.dsc /tmp/autopkgtest.4p2O6i/pypy_7.3.9-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown pypy_7.3.9.orig.tar.gz /tmp/autopkgtest.4p2O6i/pypy_7.3.9.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown pypy_7.3.9-ok1.debian.tar.xz /tmp/autopkgtest.4p2O6i/pypy_7.3.9-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.4p2O6i/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.4p2O6i/pypy_7.3.9-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.4p2O6i/build.XXX
+  3s + builddir=/tmp/autopkgtest.4p2O6i/build.REt
+  3s + cd /tmp/autopkgtest.4p2O6i/build.REt
+  3s + dpkg-source -x /tmp/autopkgtest.4p2O6i/pypy_7.3.9-ok1.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.2ZfMPuv9/trustedkeys.kbx': General error
+  4s gpgv: Signature made Wed 09 Nov 2022 11:03:25 AM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.4p2O6i/pypy_7.3.9-ok1.dsc
+  5s dpkg-source: info: extracting pypy in src
+  5s dpkg-source: info: unpacking pypy_7.3.9.orig.tar.gz
+  6s dpkg-source: info: unpacking pypy_7.3.9-ok1.debian.tar.xz
+  6s dpkg-source: info: using patch list from debian/patches/series
+  6s dpkg-source: info: applying 0001-python3-sphinx.patch
+  7s + chmod -R a+rX .
+  7s + cd src/.
+  7s + pwd
+  7s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest [02:16:46]: testing package pypy version 7.3.9-ok1
+  7s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4p2O6i/build.REt/src/debian/ /home/hachi/openkylin_test/sharefolder/results/pypy/pkg/debian/
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: processing dependency pypy
+  7s autopkgtest: DBG: marked alternatives ['pypy'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency shunit2
+  7s autopkgtest: DBG: Test defined: name byte-compilation path debian/tests/byte-compilation command "None" restrictions [] features [] depends ['pypy', 'shunit2'] 
+  7s autopkgtest: DBG: processing dependency pypy
+  7s autopkgtest: DBG: marked alternatives ['pypy'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency shunit2
+  7s autopkgtest: DBG: Test defined: name command-line path debian/tests/command-line command "None" restrictions ['superficial'] features [] depends ['pypy', 'shunit2'] 
+  7s autopkgtest: DBG: processing dependency pypy-tk
+  7s autopkgtest: DBG: marked alternatives ['pypy-tk'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency shunit2
+  7s autopkgtest: DBG: Test defined: name pypy-tk path debian/tests/pypy-tk command "None" restrictions ['superficial'] features [] depends ['pypy-tk', 'shunit2'] 
+  7s autopkgtest: DBG: processing dependency build-essential
+  7s autopkgtest: DBG: processing dependency pypy-dev
+  7s autopkgtest: DBG: marked alternatives ['pypy-dev'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency pypy-setuptools
+  7s autopkgtest: DBG: processing dependency shunit2
+  7s autopkgtest: DBG: Test defined: name module-install-local path debian/tests/module-install-local command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2'] 
+  7s autopkgtest: DBG: processing dependency build-essential
+  7s autopkgtest: DBG: processing dependency pypy-dev
+  7s autopkgtest: DBG: marked alternatives ['pypy-dev'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency pypy-setuptools
+  7s autopkgtest: DBG: processing dependency shunit2
+  7s autopkgtest: DBG: Test defined: name module-install-user path debian/tests/module-install-user command "None" restrictions [] features [] depends ['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2'] 
+  7s autopkgtest: DBG: processing dependency build-essential
+  7s autopkgtest: DBG: processing dependency pypy-dev
+  7s autopkgtest: DBG: marked alternatives ['pypy-dev'] as a synthesised dependency
+  7s autopkgtest: DBG: processing dependency python2-pip-whl (>= 20.3.4+dfsg-4~)
+  7s autopkgtest: DBG: processing dependency python2-setuptools-whl
+  7s autopkgtest: DBG: processing dependency python2-wheel-whl
+  7s autopkgtest: DBG: processing dependency shunit2
+  7s autopkgtest: DBG: processing dependency virtualenv
+  7s autopkgtest: DBG: Test defined: name module-install-virtualenv path debian/tests/module-install-virtualenv command "None" restrictions ['allow-stderr'] features [] depends ['build-essential', 'pypy-dev', 'python2-pip-whl (>= 20.3.4+dfsg-4~)', 'python2-setuptools-whl', 'python2-wheel-whl', 'shunit2', 'virtualenv'] 
+  7s autopkgtest [02:16:46]: build not needed
+  7s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4p2O6i/build.REt/src/ /home/hachi/openkylin_test/sharefolder/results/pypy/tests-tree/
+ 11s autopkgtest: DBG: got reply from testbed: ok
+ 11s autopkgtest: DBG: processing dependency pypy
+ 11s autopkgtest: DBG: marked alternatives ['pypy'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency shunit2
+ 11s autopkgtest: DBG: Test defined: name byte-compilation path debian/tests/byte-compilation command "None" restrictions [] features [] depends ['pypy', 'shunit2'] 
+ 11s autopkgtest: DBG: processing dependency pypy
+ 11s autopkgtest: DBG: marked alternatives ['pypy'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency shunit2
+ 11s autopkgtest: DBG: Test defined: name command-line path debian/tests/command-line command "None" restrictions ['superficial'] features [] depends ['pypy', 'shunit2'] 
+ 11s autopkgtest: DBG: processing dependency pypy-tk
+ 11s autopkgtest: DBG: marked alternatives ['pypy-tk'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency shunit2
+ 11s autopkgtest: DBG: Test defined: name pypy-tk path debian/tests/pypy-tk command "None" restrictions ['superficial'] features [] depends ['pypy-tk', 'shunit2'] 
+ 11s autopkgtest: DBG: processing dependency build-essential
+ 11s autopkgtest: DBG: processing dependency pypy-dev
+ 11s autopkgtest: DBG: marked alternatives ['pypy-dev'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency pypy-setuptools
+ 11s autopkgtest: DBG: processing dependency shunit2
+ 11s autopkgtest: DBG: Test defined: name module-install-local path debian/tests/module-install-local command "None" restrictions ['needs-root'] features [] depends ['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2'] 
+ 11s autopkgtest: DBG: processing dependency build-essential
+ 11s autopkgtest: DBG: processing dependency pypy-dev
+ 11s autopkgtest: DBG: marked alternatives ['pypy-dev'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency pypy-setuptools
+ 11s autopkgtest: DBG: processing dependency shunit2
+ 11s autopkgtest: DBG: Test defined: name module-install-user path debian/tests/module-install-user command "None" restrictions [] features [] depends ['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2'] 
+ 11s autopkgtest: DBG: processing dependency build-essential
+ 11s autopkgtest: DBG: processing dependency pypy-dev
+ 11s autopkgtest: DBG: marked alternatives ['pypy-dev'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency python2-pip-whl (>= 20.3.4+dfsg-4~)
+ 11s autopkgtest: DBG: processing dependency python2-setuptools-whl
+ 11s autopkgtest: DBG: processing dependency python2-wheel-whl
+ 11s autopkgtest: DBG: processing dependency shunit2
+ 11s autopkgtest: DBG: processing dependency virtualenv
+ 11s autopkgtest: DBG: Test defined: name module-install-virtualenv path debian/tests/module-install-virtualenv command "None" restrictions ['allow-stderr'] features [] depends ['build-essential', 'pypy-dev', 'python2-pip-whl (>= 20.3.4+dfsg-4~)', 'python2-setuptools-whl', 'python2-wheel-whl', 'shunit2', 'virtualenv'] 
+ 11s autopkgtest [02:16:50]: test byte-compilation: preparing testbed
+ 11s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['pypy', 'shunit2']
+ 11s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 11s autopkgtest: DBG: install_deps: deps_new=['pypy', 'shunit2']
+ 11s autopkgtest: DBG: install-deps: satisfying pypy, shunit2
+ 11s autopkgtest: DBG: install-deps: architecture resolved: pypy, shunit2
+ 11s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest: DBG: can use apt-get on testbed: True
+ 11s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i/1-autopkgtest-satdep.deb /tmp/autopkgtest.4p2O6i/1-autopkgtest-satdep.deb
+ 11s autopkgtest: DBG: got reply from testbed: ok
+ 11s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4p2O6i/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s Reading package lists...
+ 12s Building dependency tree...
+ 12s Reading state information...
+ 13s Starting pkgProblemResolver with broken count: 1
+ 13s Starting 2 pkgProblemResolver with broken count: 1
+ 13s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 13s Broken autopkgtest-satdep:riscv64 Depends on pypy:riscv64 < none | 7.3.9-ok1 @un uH >
+ 13s   Considering pypy:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 13s   Re-Instated pypy-lib:riscv64
+ 13s   Re-Instated pypy:riscv64
+ 13s Broken autopkgtest-satdep:riscv64 Depends on shunit2:riscv64 < none @un H >
+ 13s Done
+ 13s Some packages could not be installed. This may mean that you have
+ 13s requested an impossible situation or if you are using the unstable
+ 13s distribution that some required packages have not yet been created
+ 13s or been moved out of Incoming.
+ 13s The following information may help to resolve the situation:
+ 13s 
+ 13s The following packages have unmet dependencies:
+ 13s  autopkgtest-satdep : Depends: shunit2 but it is not installable
+ 13s E: Unable to correct problems, you have held broken packages.
+ 13s autopkgtest: DBG: testbed command exited with code 100
+ 13s autopkgtest: DBG: apt-get install /tmp/autopkgtest.4p2O6i/1-autopkgtest-satdep.deb failed; status-fd:
+ 13s 
+ 13s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate pypy shunit2 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 14s Building dependency tree...
+ 14s Reading state information...
+ 14s Package shunit2 is not available, but is referred to by another package.
+ 14s This may mean that the package is missing, has been obsoleted, or
+ 14s is only available from another source
+ 14s 
+ 14s E: Package 'shunit2' has no installation candidate
+ 14s autopkgtest: DBG: testbed command exited with code 100
+ 14s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s byte-compilation     FAIL badpkg
+ 14s blame: pypy_7.3.9-ok1.dsc
+ 14s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 14s autopkgtest [02:16:53]: test command-line: preparing testbed
+ 14s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['pypy', 'shunit2'], deps_new=['pypy', 'shunit2']
+ 14s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 14s autopkgtest: DBG: install_deps: deps_new=['pypy', 'shunit2']
+ 14s autopkgtest: DBG: install-deps: satisfying pypy, shunit2
+ 14s autopkgtest: DBG: install-deps: architecture resolved: pypy, shunit2
+ 14s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: can use apt-get on testbed: True
+ 14s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 15s autopkgtest: DBG: testbed command exited with code 0
+ 15s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i/2-autopkgtest-satdep.deb /tmp/autopkgtest.4p2O6i/2-autopkgtest-satdep.deb
+ 15s autopkgtest: DBG: got reply from testbed: ok
+ 15s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4p2O6i/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 15s Reading package lists...
+ 16s Building dependency tree...
+ 16s Reading state information...
+ 16s Starting pkgProblemResolver with broken count: 1
+ 16s Starting 2 pkgProblemResolver with broken count: 1
+ 16s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 16s Broken autopkgtest-satdep:riscv64 Depends on pypy:riscv64 < none | 7.3.9-ok1 @un uH >
+ 16s   Considering pypy:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s   Re-Instated pypy-lib:riscv64
+ 16s   Re-Instated pypy:riscv64
+ 16s Broken autopkgtest-satdep:riscv64 Depends on shunit2:riscv64 < none @un H >
+ 16s Done
+ 16s Some packages could not be installed. This may mean that you have
+ 16s requested an impossible situation or if you are using the unstable
+ 16s distribution that some required packages have not yet been created
+ 16s or been moved out of Incoming.
+ 16s The following information may help to resolve the situation:
+ 16s 
+ 16s The following packages have unmet dependencies:
+ 17s  autopkgtest-satdep : Depends: shunit2 but it is not installable
+ 17s E: Unable to correct problems, you have held broken packages.
+ 17s autopkgtest: DBG: testbed command exited with code 100
+ 17s autopkgtest: DBG: apt-get install /tmp/autopkgtest.4p2O6i/2-autopkgtest-satdep.deb failed; status-fd:
+ 17s 
+ 17s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate pypy shunit2 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 17s Building dependency tree...
+ 17s Reading state information...
+ 17s Package shunit2 is not available, but is referred to by another package.
+ 17s This may mean that the package is missing, has been obsoleted, or
+ 17s is only available from another source
+ 17s 
+ 17s E: Package 'shunit2' has no installation candidate
+ 17s autopkgtest: DBG: testbed command exited with code 100
+ 17s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 17s command-line         FAIL badpkg
+ 17s blame: pypy_7.3.9-ok1.dsc
+ 17s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 17s autopkgtest [02:16:56]: test pypy-tk: preparing testbed
+ 17s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['pypy', 'shunit2'], deps_new=['pypy-tk', 'shunit2']
+ 17s autopkgtest: DBG: testbed reset
+ 17s autopkgtest: DBG: sending command to testbed: revert
+ 18s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 19s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.4p2O6i
+ 19s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 19s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48,--user%3Droot,--
+ 19s autopkgtest: DBG: sending command to testbed: capabilities
+ 19s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i
+ 19s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i', 'has_internet']
+ 19s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.4p2O6i/wrapper.sh
+ 19s autopkgtest: DBG: got reply from testbed: ok
+ 19s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.4p2O6i/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest [02:16:58]: testbed dpkg architecture: riscv64
+ 19s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest [02:16:59]: testbed apt version: 2.7.3-ok3
+ 20s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 127
+ 20s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4p2O6i/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4p2O6i/testbed-packages /home/hachi/openkylin_test/sharefolder/results/pypy/testbed-packages
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['pypy-tk', 'shunit2']
+ 20s autopkgtest: DBG: install-deps: satisfying pypy-tk, shunit2
+ 20s autopkgtest: DBG: install-deps: architecture resolved: pypy-tk, shunit2
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 20s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i/3-autopkgtest-satdep.deb /tmp/autopkgtest.4p2O6i/3-autopkgtest-satdep.deb
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4p2O6i/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 21s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 22s Starting pkgProblemResolver with broken count: 1
+ 22s Starting 2 pkgProblemResolver with broken count: 1
+ 22s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 22s Broken autopkgtest-satdep:riscv64 Depends on pypy-tk:riscv64 < none | 7.3.9-ok1 @un uH >
+ 22s   Considering pypy-tk:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 22s   Re-Instated pypy-lib:riscv64
+ 22s   Re-Instated pypy:riscv64
+ 22s   Re-Instated libtk8.6:riscv64
+ 22s   Re-Instated pypy-tk:riscv64
+ 22s Broken autopkgtest-satdep:riscv64 Depends on shunit2:riscv64 < none @un H >
+ 22s Done
+ 22s Some packages could not be installed. This may mean that you have
+ 22s requested an impossible situation or if you are using the unstable
+ 22s distribution that some required packages have not yet been created
+ 22s or been moved out of Incoming.
+ 22s The following information may help to resolve the situation:
+ 22s 
+ 22s The following packages have unmet dependencies:
+ 23s  autopkgtest-satdep : Depends: shunit2 but it is not installable
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.4p2O6i/3-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate pypy-tk shunit2 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s Reading package lists...
+ 23s Building dependency tree...
+ 23s Reading state information...
+ 23s Package shunit2 is not available, but is referred to by another package.
+ 23s This may mean that the package is missing, has been obsoleted, or
+ 23s is only available from another source
+ 23s 
+ 23s E: Package 'shunit2' has no installation candidate
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s pypy-tk              FAIL badpkg
+ 23s blame: pypy_7.3.9-ok1.dsc
+ 23s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s autopkgtest [02:17:02]: test module-install-local: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['pypy-tk', 'shunit2'], deps_new=['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2']
+ 23s autopkgtest: DBG: testbed reset
+ 23s autopkgtest: DBG: sending command to testbed: revert
+ 24s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 25s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.4p2O6i
+ 25s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 25s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48,--user%3Droot,--
+ 25s autopkgtest: DBG: sending command to testbed: capabilities
+ 25s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i
+ 25s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i', 'has_internet']
+ 25s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.4p2O6i/wrapper.sh
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.4p2O6i/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest [02:17:04]: testbed dpkg architecture: riscv64
+ 25s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest [02:17:04]: testbed apt version: 2.7.3-ok3
+ 25s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 127
+ 25s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4p2O6i/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4p2O6i/testbed-packages /home/hachi/openkylin_test/sharefolder/results/pypy/testbed-packages
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 26s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2']
+ 26s autopkgtest: DBG: install-deps: satisfying build-essential, pypy-dev, pypy-setuptools, shunit2
+ 26s autopkgtest: DBG: install-deps: architecture resolved: build-essential, pypy-dev, pypy-setuptools, shunit2
+ 26s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: can use apt-get on testbed: True
+ 26s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i/4-autopkgtest-satdep.deb /tmp/autopkgtest.4p2O6i/4-autopkgtest-satdep.deb
+ 26s autopkgtest: DBG: got reply from testbed: ok
+ 26s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4p2O6i/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s Reading package lists...
+ 27s Building dependency tree...
+ 27s Reading state information...
+ 28s Starting pkgProblemResolver with broken count: 1
+ 28s Starting 2 pkgProblemResolver with broken count: 1
+ 28s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on pypy-dev:riscv64 < none | 7.3.9-ok1 @un uH >
+ 28s   Considering pypy-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated pypy-lib:riscv64
+ 28s   Re-Instated pypy:riscv64
+ 28s   Re-Instated pypy-dev:riscv64
+ 28s Broken autopkgtest-satdep:riscv64 Depends on pypy-setuptools:riscv64 < none @un H >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on shunit2:riscv64 < none @un H >
+ 28s Done
+ 28s Some packages could not be installed. This may mean that you have
+ 28s requested an impossible situation or if you are using the unstable
+ 28s distribution that some required packages have not yet been created
+ 28s or been moved out of Incoming.
+ 28s The following information may help to resolve the situation:
+ 28s 
+ 28s The following packages have unmet dependencies:
+ 28s  autopkgtest-satdep : Depends: pypy-setuptools but it is not installable
+ 28s                       Depends: shunit2 but it is not installable
+ 28s E: Unable to correct problems, you have held broken packages.
+ 28s autopkgtest: DBG: testbed command exited with code 100
+ 28s autopkgtest: DBG: apt-get install /tmp/autopkgtest.4p2O6i/4-autopkgtest-satdep.deb failed; status-fd:
+ 28s 
+ 28s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential pypy-dev pypy-setuptools shunit2 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 29s Building dependency tree...
+ 29s Reading state information...
+ 29s Package shunit2 is not available, but is referred to by another package.
+ 29s This may mean that the package is missing, has been obsoleted, or
+ 29s is only available from another source
+ 29s 
+ 29s E: Unable to locate package pypy-setuptools
+ 29s E: Package 'shunit2' has no installation candidate
+ 29s autopkgtest: DBG: testbed command exited with code 100
+ 29s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 29s module-install-local FAIL badpkg
+ 29s blame: pypy_7.3.9-ok1.dsc
+ 29s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 29s autopkgtest [02:17:08]: test module-install-user: preparing testbed
+ 29s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2'], deps_new=['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2']
+ 29s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 29s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2']
+ 29s autopkgtest: DBG: install-deps: satisfying build-essential, pypy-dev, pypy-setuptools, shunit2
+ 29s autopkgtest: DBG: install-deps: architecture resolved: build-essential, pypy-dev, pypy-setuptools, shunit2
+ 29s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: can use apt-get on testbed: True
+ 29s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i/5-autopkgtest-satdep.deb /tmp/autopkgtest.4p2O6i/5-autopkgtest-satdep.deb
+ 29s autopkgtest: DBG: got reply from testbed: ok
+ 29s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4p2O6i/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 30s Reading package lists...
+ 30s Building dependency tree...
+ 30s Reading state information...
+ 31s Starting pkgProblemResolver with broken count: 1
+ 31s Starting 2 pkgProblemResolver with broken count: 1
+ 31s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 31s Broken autopkgtest-satdep:riscv64 Depends on pypy-dev:riscv64 < none | 7.3.9-ok1 @un uH >
+ 31s   Considering pypy-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 31s   Re-Instated pypy-lib:riscv64
+ 31s   Re-Instated pypy:riscv64
+ 31s   Re-Instated pypy-dev:riscv64
+ 31s Broken autopkgtest-satdep:riscv64 Depends on pypy-setuptools:riscv64 < none @un H >
+ 31s Broken autopkgtest-satdep:riscv64 Depends on shunit2:riscv64 < none @un H >
+ 31s Done
+ 31s Some packages could not be installed. This may mean that you have
+ 31s requested an impossible situation or if you are using the unstable
+ 31s distribution that some required packages have not yet been created
+ 31s or been moved out of Incoming.
+ 31s The following information may help to resolve the situation:
+ 31s 
+ 31s The following packages have unmet dependencies:
+ 31s  autopkgtest-satdep : Depends: pypy-setuptools but it is not installable
+ 31s                       Depends: shunit2 but it is not installable
+ 31s E: Unable to correct problems, you have held broken packages.
+ 31s autopkgtest: DBG: testbed command exited with code 100
+ 31s autopkgtest: DBG: apt-get install /tmp/autopkgtest.4p2O6i/5-autopkgtest-satdep.deb failed; status-fd:
+ 31s 
+ 31s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential pypy-dev pypy-setuptools shunit2 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 32s Reading package lists...
+ 32s Building dependency tree...
+ 32s Reading state information...
+ 32s Package shunit2 is not available, but is referred to by another package.
+ 32s This may mean that the package is missing, has been obsoleted, or
+ 32s is only available from another source
+ 32s 
+ 32s E: Unable to locate package pypy-setuptools
+ 32s E: Package 'shunit2' has no installation candidate
+ 32s autopkgtest: DBG: testbed command exited with code 100
+ 32s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 32s module-install-user  FAIL badpkg
+ 32s blame: pypy_7.3.9-ok1.dsc
+ 32s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 32s autopkgtest [02:17:11]: test module-install-virtualenv: preparing testbed
+ 32s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'pypy-dev', 'pypy-setuptools', 'shunit2'], deps_new=['build-essential', 'pypy-dev', 'python2-pip-whl (>= 20.3.4+dfsg-4~)', 'python2-setuptools-whl', 'python2-wheel-whl', 'shunit2', 'virtualenv']
+ 32s autopkgtest: DBG: testbed reset
+ 32s autopkgtest: DBG: sending command to testbed: revert
+ 33s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 34s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.4p2O6i
+ 34s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 34s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48,--user%3Droot,--
+ 34s autopkgtest: DBG: sending command to testbed: capabilities
+ 34s autopkgtest: DBG: got reply from testbed: ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i
+ 34s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i', 'has_internet']
+ 34s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.4p2O6i/wrapper.sh
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.4p2O6i/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest [02:17:13]: testbed dpkg architecture: riscv64
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest [02:17:13]: testbed apt version: 2.7.3-ok3
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 127
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.4p2O6i/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.4p2O6i/testbed-packages /home/hachi/openkylin_test/sharefolder/results/pypy/testbed-packages
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 35s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'pypy-dev', 'python2-pip-whl (>= 20.3.4+dfsg-4~)', 'python2-setuptools-whl', 'python2-wheel-whl', 'shunit2', 'virtualenv']
+ 35s autopkgtest: DBG: install-deps: satisfying build-essential, pypy-dev, python2-pip-whl (>= 20.3.4+dfsg-4~), python2-setuptools-whl, python2-wheel-whl, shunit2, virtualenv
+ 35s autopkgtest: DBG: install-deps: architecture resolved: build-essential, pypy-dev, python2-pip-whl (>= 20.3.4+dfsg-4~), python2-setuptools-whl, python2-wheel-whl, shunit2, virtualenv
+ 35s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: can use apt-get on testbed: True
+ 35s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.4p2O6i'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-2d32c577-d68c-4557-9497-aed641b43c48//tmp/autopkgtest.4p2O6i/6-autopkgtest-satdep.deb /tmp/autopkgtest.4p2O6i/6-autopkgtest-satdep.deb
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.4p2O6i/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 36s Reading package lists...
+ 36s Building dependency tree...
+ 36s Reading state information...
+ 37s Starting pkgProblemResolver with broken count: 1
+ 37s Starting 2 pkgProblemResolver with broken count: 1
+ 37s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 37s Broken autopkgtest-satdep:riscv64 Depends on pypy-dev:riscv64 < none | 7.3.9-ok1 @un uH >
+ 37s   Considering pypy-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s   Re-Instated pypy-lib:riscv64
+ 37s   Re-Instated pypy:riscv64
+ 37s   Re-Instated pypy-dev:riscv64
+ 37s Broken autopkgtest-satdep:riscv64 Depends on python2-pip-whl:riscv64 < none @un H > (>= 20.3.4+dfsg-4~)
+ 37s Broken autopkgtest-satdep:riscv64 Depends on python2-setuptools-whl:riscv64 < none @un H >
+ 37s Broken autopkgtest-satdep:riscv64 Depends on python2-wheel-whl:riscv64 < none @un H >
+ 37s Broken autopkgtest-satdep:riscv64 Depends on shunit2:riscv64 < none @un H >
+ 37s Broken autopkgtest-satdep:riscv64 Depends on virtualenv:riscv64 < none | 20.25.0+ds-ok1 @un uH >
+ 37s   Considering virtualenv:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 37s   Re-Instated python3-pip-whl:riscv64
+ 37s   Re-Instated python3-setuptools-whl:riscv64
+ 37s   Re-Instated python3-wheel-whl:riscv64
+ 37s   Re-Instated python3-distlib:riscv64
+ 37s     Reinst Failed early because of python3-filelock:riscv64
+ 37s     Reinst Failed because of python3-virtualenv:riscv64
+ 37s Done
+ 37s Some packages could not be installed. This may mean that you have
+ 37s requested an impossible situation or if you are using the unstable
+ 37s distribution that some required packages have not yet been created
+ 37s or been moved out of Incoming.
+ 37s The following information may help to resolve the situation:
+ 37s 
+ 37s The following packages have unmet dependencies:
+ 37s  autopkgtest-satdep : Depends: python2-pip-whl (>= 20.3.4+dfsg-4~) but it is not installable
+ 37s                       Depends: python2-setuptools-whl but it is not installable
+ 37s                       Depends: python2-wheel-whl but it is not installable
+ 37s                       Depends: shunit2 but it is not installable
+ 37s                       Depends: virtualenv but it is not going to be installed
+ 37s E: Unable to correct problems, you have held broken packages.
+ 37s autopkgtest: DBG: testbed command exited with code 100
+ 37s autopkgtest: DBG: apt-get install /tmp/autopkgtest.4p2O6i/6-autopkgtest-satdep.deb failed; status-fd:
+ 37s 
+ 37s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 37s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate build-essential pypy-dev python2-pip-whl (>= 20.3.4+dfsg-4~) python2-setuptools-whl python2-wheel-whl shunit2 virtualenv -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 37s autopkgtest: DBG: testbed command exited with code 2
+ 37s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s module-install-virtualenv FAIL badpkg
+ 37s blame: pypy_7.3.9-ok1.dsc
+ 37s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 37s autopkgtest [02:17:16]: @@@@@@@@@@@@@@@@@@@@ summary
+ 37s byte-compilation     FAIL badpkg
+ 37s blame: pypy_7.3.9-ok1.dsc
+ 37s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s command-line         FAIL badpkg
+ 37s blame: pypy_7.3.9-ok1.dsc
+ 37s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s pypy-tk              FAIL badpkg
+ 37s blame: pypy_7.3.9-ok1.dsc
+ 37s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s module-install-local FAIL badpkg
+ 37s blame: pypy_7.3.9-ok1.dsc
+ 37s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s module-install-user  FAIL badpkg
+ 37s blame: pypy_7.3.9-ok1.dsc
+ 37s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s module-install-virtualenv FAIL badpkg
+ 37s blame: pypy_7.3.9-ok1.dsc
+ 37s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 37s autopkgtest: DBG: testbed stop
+ 37s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.4p2O6i
+ 37s autopkgtest: DBG: sending command to testbed: close
+ 37s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 38s autopkgtest: DBG: got reply from testbed: ok
+ 38s autopkgtest: DBG: sending command to testbed: quit

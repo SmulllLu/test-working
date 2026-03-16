@@ -1,0 +1,510 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:11:27]: starting date and time: 2024-07-18 23:11:27+0800
+  0s autopkgtest [23:11:27]: version @version@
+  0s autopkgtest [23:11:27]: host nana; command line: /usr/bin/autopkgtest rust-event-listener_5.3.0-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-event-listener -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.V38dUf
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.V38dUf/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.V38dUf/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [23:11:30]: testbed dpkg architecture: riscv64
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [23:11:31]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.V38dUf/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.V38dUf/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-event-listener/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [23:11:32]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: Binaries: initialising
+  5s autopkgtest [23:11:32]: @@@@@@@@@@@@@@@@@@@@ source rust-event-listener_5.3.0-ok1.dsc
+  5s autopkgtest: DBG: blame += rust-event-listener_5.3.0-ok1.dsc
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-event-listener_5.3.0-ok1.dsc /tmp/autopkgtest.V38dUf/rust-event-listener_5.3.0-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-event-listener_5.3.0.orig.tar.gz /tmp/autopkgtest.V38dUf/rust-event-listener_5.3.0.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-event-listener_5.3.0-ok1.debian.tar.xz /tmp/autopkgtest.V38dUf/rust-event-listener_5.3.0-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.V38dUf/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.V38dUf/rust-event-listener_5.3.0-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.V38dUf/build.XXX
+  7s + builddir=/tmp/autopkgtest.V38dUf/build.uRL
+  7s + cd /tmp/autopkgtest.V38dUf/build.uRL
+  7s + dpkg-source -x /tmp/autopkgtest.V38dUf/rust-event-listener_5.3.0-ok1.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.qfjso5q9/trustedkeys.kbx': General error
+  8s gpgv: Signature made Tue 07 May 2024 04:15:54 PM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.V38dUf/rust-event-listener_5.3.0-ok1.dsc
+  8s dpkg-source: info: extracting rust-event-listener in src
+  8s dpkg-source: info: unpacking rust-event-listener_5.3.0.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-event-listener_5.3.0-ok1.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying 2001_futures-lite.patch
+  8s dpkg-source: info: applying 2001_portable-atomic-util.patch
+  8s dpkg-source: info: applying 2001_try-lock.patch
+  8s dpkg-source: info: applying 2002_not_wasm.patch
+  8s dpkg-source: info: applying 2003_no_benches.patch
+  8s dpkg-source: info: applying 2004_no_feature_loom.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [23:11:35]: testing package rust-event-listener version 5.3.0-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.V38dUf/build.uRL/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-event-listener/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5:@ path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets --all-features" restrictions ['allow-stderr'] features ['test-name=rust-event-listener-5:@'] depends ['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5: path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'flaky'] features ['test-name=rust-event-listener-5:'] depends ['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5+default-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5:default path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets" restrictions ['allow-stderr'] features ['test-name=rust-event-listener-5:default'] depends ['dh-cargo', 'librust-event-listener-5+default-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5+std-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5:std path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets --no-default-features --features std" restrictions ['allow-stderr'] features ['test-name=rust-event-listener-5:std'] depends ['dh-cargo', 'librust-event-listener-5+std-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest [23:11:35]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.V38dUf/build.uRL/src/ /home/hachi/openkylin_test/sharefolder/results/rust-event-listener/tests-tree/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5:@ path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets --all-features" restrictions ['allow-stderr'] features ['test-name=rust-event-listener-5:@'] depends ['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5: path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets --no-default-features" restrictions ['allow-stderr', 'flaky'] features ['test-name=rust-event-listener-5:'] depends ['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5+default-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5:default path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets" restrictions ['allow-stderr'] features ['test-name=rust-event-listener-5:default'] depends ['dh-cargo', 'librust-event-listener-5+default-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo
+  8s autopkgtest: DBG: processing dependency librust-event-listener-5+std-dev
+  8s autopkgtest: DBG: processing dependency librust-futures-lite-1+default-dev
+  8s autopkgtest: DBG: processing dependency librust-try-lock-0.2+default-dev
+  8s autopkgtest: DBG: processing dependency librust-waker-fn-1+default-dev
+  8s autopkgtest: DBG: Test defined: name rust-event-listener-5:std path None command "/usr/share/cargo/bin/cargo-auto-test event-listener 5.3.0 --all-targets --no-default-features --features std" restrictions ['allow-stderr'] features ['test-name=rust-event-listener-5:std'] depends ['dh-cargo', 'librust-event-listener-5+std-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'] 
+  8s autopkgtest [23:11:35]: test rust-event-listener-5:@: preparing testbed
+  8s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+  8s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  8s autopkgtest: DBG: install_deps: deps_new=['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+  8s autopkgtest: DBG: install-deps: satisfying dh-cargo, librust-event-listener-5-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+  9s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo, librust-event-listener-5-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf/1-autopkgtest-satdep.deb /tmp/autopkgtest.V38dUf/1-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.V38dUf/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 1
+ 11s Starting 2 pkgProblemResolver with broken count: 1
+ 11s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 11s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH >
+ 11s   Considering dh-cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 11s     Reinst Failed because of libgit2-1.7:riscv64
+ 11s     Reinst Failed because of cargo:riscv64
+ 11s Broken autopkgtest-satdep:riscv64 Depends on librust-event-listener-5-dev:riscv64 < none @un H >
+ 11s   Considering librust-event-listener-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 11s   Re-Instated librust-concurrent-queue-dev:riscv64
+ 11s   Re-Instated librust-parking-dev:riscv64
+ 11s   Re-Instated librust-pin-project-lite-dev:riscv64
+ 11s   Re-Instated librust-event-listener-dev:riscv64
+ 11s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-lite-1+default-dev:riscv64 < none @un H >
+ 11s   Considering librust-futures-lite-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated librust-fastrand-dev:riscv64
+ 11s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 11s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 11s Broken autopkgtest-satdep:riscv64 Depends on librust-try-lock-0.2+default-dev:riscv64 < none @un H >
+ 11s Broken autopkgtest-satdep:riscv64 Depends on librust-waker-fn-1+default-dev:riscv64 < none @un H >
+ 11s   Considering librust-waker-fn-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated librust-waker-fn-dev:riscv64
+ 11s Done
+ 11s Some packages could not be installed. This may mean that you have
+ 11s requested an impossible situation or if you are using the unstable
+ 11s distribution that some required packages have not yet been created
+ 11s or been moved out of Incoming.
+ 11s The following information may help to resolve the situation:
+ 11s 
+ 11s The following packages have unmet dependencies:
+ 12s  autopkgtest-satdep : Depends: dh-cargo but it is not going to be installed
+ 12s                       Depends: librust-futures-lite-1+default-dev
+ 12s                       Depends: librust-try-lock-0.2+default-dev but it is not installable
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.V38dUf/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo librust-event-listener-5-dev librust-futures-lite-1+default-dev librust-try-lock-0.2+default-dev librust-waker-fn-1+default-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 13s Reading package lists...
+ 13s Building dependency tree...
+ 13s Reading state information...
+ 13s Package librust-try-lock-0.2+default-dev is not available, but is referred to by another package.
+ 13s This may mean that the package is missing, has been obsoleted, or
+ 13s is only available from another source
+ 13s 
+ 13s E: Package 'librust-try-lock-0.2+default-dev' has no installation candidate
+ 13s autopkgtest: DBG: testbed command exited with code 100
+ 13s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 13s rust-event-listener-5:@ FAIL badpkg
+ 13s blame: rust-event-listener_5.3.0-ok1.dsc
+ 13s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 13s autopkgtest [23:11:40]: test rust-event-listener-5:: preparing testbed
+ 13s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'], deps_new=['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+ 13s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 13s autopkgtest: DBG: install_deps: deps_new=['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+ 13s autopkgtest: DBG: install-deps: satisfying dh-cargo, librust-event-listener-5-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+ 14s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo, librust-event-listener-5-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+ 14s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: can use apt-get on testbed: True
+ 14s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf/2-autopkgtest-satdep.deb /tmp/autopkgtest.V38dUf/2-autopkgtest-satdep.deb
+ 14s autopkgtest: DBG: got reply from testbed: ok
+ 14s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.V38dUf/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 15s Reading package lists...
+ 16s Building dependency tree...
+ 16s Reading state information...
+ 16s Starting pkgProblemResolver with broken count: 1
+ 16s Starting 2 pkgProblemResolver with broken count: 1
+ 16s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 16s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH >
+ 16s   Considering dh-cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 16s     Reinst Failed because of libgit2-1.7:riscv64
+ 16s     Reinst Failed because of cargo:riscv64
+ 16s Broken autopkgtest-satdep:riscv64 Depends on librust-event-listener-5-dev:riscv64 < none @un H >
+ 16s   Considering librust-event-listener-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 16s   Re-Instated librust-concurrent-queue-dev:riscv64
+ 16s   Re-Instated librust-parking-dev:riscv64
+ 16s   Re-Instated librust-pin-project-lite-dev:riscv64
+ 16s   Re-Instated librust-event-listener-dev:riscv64
+ 16s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-lite-1+default-dev:riscv64 < none @un H >
+ 16s   Considering librust-futures-lite-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s   Re-Instated librust-fastrand-dev:riscv64
+ 16s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 16s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 16s Broken autopkgtest-satdep:riscv64 Depends on librust-try-lock-0.2+default-dev:riscv64 < none @un H >
+ 16s Broken autopkgtest-satdep:riscv64 Depends on librust-waker-fn-1+default-dev:riscv64 < none @un H >
+ 16s   Considering librust-waker-fn-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s   Re-Instated librust-waker-fn-dev:riscv64
+ 16s Done
+ 16s Some packages could not be installed. This may mean that you have
+ 16s requested an impossible situation or if you are using the unstable
+ 16s distribution that some required packages have not yet been created
+ 16s or been moved out of Incoming.
+ 16s The following information may help to resolve the situation:
+ 16s 
+ 16s The following packages have unmet dependencies:
+ 17s  autopkgtest-satdep : Depends: dh-cargo but it is not going to be installed
+ 17s                       Depends: librust-futures-lite-1+default-dev
+ 17s                       Depends: librust-try-lock-0.2+default-dev but it is not installable
+ 17s E: Unable to correct problems, you have held broken packages.
+ 17s autopkgtest: DBG: testbed command exited with code 100
+ 17s autopkgtest: DBG: apt-get install /tmp/autopkgtest.V38dUf/2-autopkgtest-satdep.deb failed; status-fd:
+ 17s 
+ 17s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo librust-event-listener-5-dev librust-futures-lite-1+default-dev librust-try-lock-0.2+default-dev librust-waker-fn-1+default-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 18s Package librust-try-lock-0.2+default-dev is not available, but is referred to by another package.
+ 18s This may mean that the package is missing, has been obsoleted, or
+ 18s is only available from another source
+ 18s 
+ 18s E: Package 'librust-try-lock-0.2+default-dev' has no installation candidate
+ 18s autopkgtest: DBG: testbed command exited with code 100
+ 18s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 18s rust-event-listener-5: FAIL badpkg
+ 18s blame: rust-event-listener_5.3.0-ok1.dsc
+ 18s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 18s autopkgtest [23:11:45]: test rust-event-listener-5:default: preparing testbed
+ 18s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo', 'librust-event-listener-5-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'], deps_new=['dh-cargo', 'librust-event-listener-5+default-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+ 18s autopkgtest: DBG: testbed reset
+ 18s autopkgtest: DBG: sending command to testbed: revert
+ 19s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 22s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.V38dUf
+ 22s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 22s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9,--user%3Droot,--
+ 22s autopkgtest: DBG: sending command to testbed: capabilities
+ 22s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf
+ 22s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf', 'has_internet']
+ 22s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.V38dUf/wrapper.sh
+ 22s autopkgtest: DBG: got reply from testbed: ok
+ 22s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.V38dUf/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest [23:11:50]: testbed dpkg architecture: riscv64
+ 23s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest [23:11:51]: testbed apt version: 2.7.3-ok3
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 127
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.V38dUf/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.V38dUf/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-event-listener/testbed-packages
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 25s autopkgtest: DBG: install_deps: deps_new=['dh-cargo', 'librust-event-listener-5+default-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+ 25s autopkgtest: DBG: install-deps: satisfying dh-cargo, librust-event-listener-5+default-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+ 25s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo, librust-event-listener-5+default-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+ 25s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: can use apt-get on testbed: True
+ 25s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf/3-autopkgtest-satdep.deb /tmp/autopkgtest.V38dUf/3-autopkgtest-satdep.deb
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.V38dUf/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 26s Reading package lists...
+ 27s Building dependency tree...
+ 27s Reading state information...
+ 27s Starting pkgProblemResolver with broken count: 1
+ 28s Starting 2 pkgProblemResolver with broken count: 1
+ 28s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH >
+ 28s   Considering dh-cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 28s     Reinst Failed because of libgit2-1.7:riscv64
+ 28s     Reinst Failed because of cargo:riscv64
+ 28s Broken autopkgtest-satdep:riscv64 Depends on librust-event-listener-5+default-dev:riscv64 < none @un H >
+ 28s   Considering librust-event-listener-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 28s   Re-Instated librust-concurrent-queue-dev:riscv64
+ 28s   Re-Instated librust-parking-dev:riscv64
+ 28s   Re-Instated librust-pin-project-lite-dev:riscv64
+ 28s   Re-Instated librust-event-listener-dev:riscv64
+ 28s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-lite-1+default-dev:riscv64 < none @un H >
+ 28s   Considering librust-futures-lite-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated librust-fastrand-dev:riscv64
+ 28s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 28s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 28s Broken autopkgtest-satdep:riscv64 Depends on librust-try-lock-0.2+default-dev:riscv64 < none @un H >
+ 28s Broken autopkgtest-satdep:riscv64 Depends on librust-waker-fn-1+default-dev:riscv64 < none @un H >
+ 28s   Considering librust-waker-fn-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 28s   Re-Instated librust-waker-fn-dev:riscv64
+ 28s Done
+ 28s Some packages could not be installed. This may mean that you have
+ 28s requested an impossible situation or if you are using the unstable
+ 28s distribution that some required packages have not yet been created
+ 28s or been moved out of Incoming.
+ 28s The following information may help to resolve the situation:
+ 28s 
+ 28s The following packages have unmet dependencies:
+ 28s  autopkgtest-satdep : Depends: dh-cargo but it is not going to be installed
+ 28s                       Depends: librust-futures-lite-1+default-dev
+ 28s                       Depends: librust-try-lock-0.2+default-dev but it is not installable
+ 28s E: Unable to correct problems, you have held broken packages.
+ 28s autopkgtest: DBG: testbed command exited with code 100
+ 28s autopkgtest: DBG: apt-get install /tmp/autopkgtest.V38dUf/3-autopkgtest-satdep.deb failed; status-fd:
+ 28s 
+ 28s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo librust-event-listener-5+default-dev librust-futures-lite-1+default-dev librust-try-lock-0.2+default-dev librust-waker-fn-1+default-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 29s Building dependency tree...
+ 29s Reading state information...
+ 29s Package librust-try-lock-0.2+default-dev is not available, but is referred to by another package.
+ 29s This may mean that the package is missing, has been obsoleted, or
+ 29s is only available from another source
+ 29s 
+ 29s E: Package 'librust-try-lock-0.2+default-dev' has no installation candidate
+ 29s autopkgtest: DBG: testbed command exited with code 100
+ 29s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 29s rust-event-listener-5:default FAIL badpkg
+ 29s blame: rust-event-listener_5.3.0-ok1.dsc
+ 29s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 29s autopkgtest [23:11:56]: test rust-event-listener-5:std: preparing testbed
+ 29s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo', 'librust-event-listener-5+default-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev'], deps_new=['dh-cargo', 'librust-event-listener-5+std-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+ 29s autopkgtest: DBG: testbed reset
+ 29s autopkgtest: DBG: sending command to testbed: revert
+ 30s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 33s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.V38dUf
+ 33s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 33s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9,--user%3Droot,--
+ 33s autopkgtest: DBG: sending command to testbed: capabilities
+ 33s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf
+ 33s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf', 'has_internet']
+ 33s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.V38dUf/wrapper.sh
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.V38dUf/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest [23:12:01]: testbed dpkg architecture: riscv64
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest [23:12:02]: testbed apt version: 2.7.3-ok3
+ 35s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 127
+ 35s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.V38dUf/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.V38dUf/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-event-listener/testbed-packages
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 36s autopkgtest: DBG: install_deps: deps_new=['dh-cargo', 'librust-event-listener-5+std-dev', 'librust-futures-lite-1+default-dev', 'librust-try-lock-0.2+default-dev', 'librust-waker-fn-1+default-dev']
+ 36s autopkgtest: DBG: install-deps: satisfying dh-cargo, librust-event-listener-5+std-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+ 36s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo, librust-event-listener-5+std-dev, librust-futures-lite-1+default-dev, librust-try-lock-0.2+default-dev, librust-waker-fn-1+default-dev
+ 36s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: can use apt-get on testbed: True
+ 36s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.V38dUf'], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-07ad8ac0-dfa7-4d4b-995b-0f9e7db32bb9//tmp/autopkgtest.V38dUf/4-autopkgtest-satdep.deb /tmp/autopkgtest.V38dUf/4-autopkgtest-satdep.deb
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.V38dUf/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s Reading package lists...
+ 38s Building dependency tree...
+ 38s Reading state information...
+ 39s Starting pkgProblemResolver with broken count: 1
+ 39s Starting 2 pkgProblemResolver with broken count: 1
+ 39s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 39s Broken autopkgtest-satdep:riscv64 Depends on dh-cargo:riscv64 < none | 31-ok1 @un uH >
+ 39s   Considering dh-cargo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 39s     Reinst Failed early because of libhttp-parser2.9:riscv64
+ 39s     Reinst Failed because of libgit2-1.7:riscv64
+ 39s     Reinst Failed because of cargo:riscv64
+ 39s Broken autopkgtest-satdep:riscv64 Depends on librust-event-listener-5+std-dev:riscv64 < none @un H >
+ 39s   Considering librust-event-listener-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 39s   Re-Instated librust-crossbeam-utils-dev:riscv64
+ 39s   Re-Instated librust-concurrent-queue-dev:riscv64
+ 39s   Re-Instated librust-parking-dev:riscv64
+ 39s   Re-Instated librust-pin-project-lite-dev:riscv64
+ 39s   Re-Instated librust-event-listener-dev:riscv64
+ 39s Broken autopkgtest-satdep:riscv64 Depends on librust-futures-lite-1+default-dev:riscv64 < none @un H >
+ 39s   Considering librust-futures-lite-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 39s   Re-Instated librust-fastrand-dev:riscv64
+ 39s     Reinst Failed early because of librust-portable-atomic-1+require-cas-dev:riscv64
+ 39s     Reinst Failed because of librust-futures-core-dev:riscv64
+ 39s Broken autopkgtest-satdep:riscv64 Depends on librust-try-lock-0.2+default-dev:riscv64 < none @un H >
+ 39s Broken autopkgtest-satdep:riscv64 Depends on librust-waker-fn-1+default-dev:riscv64 < none @un H >
+ 39s   Considering librust-waker-fn-dev:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 39s   Re-Instated librust-waker-fn-dev:riscv64
+ 39s Done
+ 39s Some packages could not be installed. This may mean that you have
+ 39s requested an impossible situation or if you are using the unstable
+ 39s distribution that some required packages have not yet been created
+ 39s or been moved out of Incoming.
+ 39s The following information may help to resolve the situation:
+ 39s 
+ 39s The following packages have unmet dependencies:
+ 39s  autopkgtest-satdep : Depends: dh-cargo but it is not going to be installed
+ 39s                       Depends: librust-futures-lite-1+default-dev
+ 39s                       Depends: librust-try-lock-0.2+default-dev but it is not installable
+ 39s E: Unable to correct problems, you have held broken packages.
+ 39s autopkgtest: DBG: testbed command exited with code 100
+ 39s autopkgtest: DBG: apt-get install /tmp/autopkgtest.V38dUf/4-autopkgtest-satdep.deb failed; status-fd:
+ 39s 
+ 39s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo librust-event-listener-5+std-dev librust-futures-lite-1+default-dev librust-try-lock-0.2+default-dev librust-waker-fn-1+default-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 41s Building dependency tree...
+ 41s Reading state information...
+ 41s Package librust-try-lock-0.2+default-dev is not available, but is referred to by another package.
+ 41s This may mean that the package is missing, has been obsoleted, or
+ 41s is only available from another source
+ 41s 
+ 41s E: Package 'librust-try-lock-0.2+default-dev' has no installation candidate
+ 41s autopkgtest: DBG: testbed command exited with code 100
+ 41s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s rust-event-listener-5:std FAIL badpkg
+ 41s blame: rust-event-listener_5.3.0-ok1.dsc
+ 41s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 41s autopkgtest [23:12:08]: @@@@@@@@@@@@@@@@@@@@ summary
+ 41s rust-event-listener-5:@ FAIL badpkg
+ 41s blame: rust-event-listener_5.3.0-ok1.dsc
+ 41s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s rust-event-listener-5: FAIL badpkg
+ 41s blame: rust-event-listener_5.3.0-ok1.dsc
+ 41s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s rust-event-listener-5:default FAIL badpkg
+ 41s blame: rust-event-listener_5.3.0-ok1.dsc
+ 41s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s rust-event-listener-5:std FAIL badpkg
+ 41s blame: rust-event-listener_5.3.0-ok1.dsc
+ 41s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s autopkgtest: DBG: testbed stop
+ 41s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.V38dUf
+ 41s autopkgtest: DBG: sending command to testbed: close
+ 41s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 42s autopkgtest: DBG: got reply from testbed: ok
+ 42s autopkgtest: DBG: sending command to testbed: quit

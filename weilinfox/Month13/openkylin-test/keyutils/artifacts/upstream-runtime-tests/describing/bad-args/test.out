@@ -1,0 +1,22 @@
+++++ BEGINNING TEST
++++ CHECK BAD KEY ID
+keyctl rdescribe 0 @
+keyctl_describe: Invalid argument
+keyctl describe 0
+keyctl_describe_alloc: Invalid argument
++++ CREATE KEY
+keyctl add user lizard gizzard @s
+142571269
++++ UNLINK KEY
+keyctl unlink 142571269 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 142571269 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 142571269 @s
+keyctl_unlink: Required key not available
++++ CHECK NON-EXISTENT KEY ID
+keyctl rdescribe 142571269 @
+keyctl_describe: Required key not available
+keyctl describe 142571269
+keyctl_describe_alloc: Required key not available
+++++ FINISHED TEST: PASS

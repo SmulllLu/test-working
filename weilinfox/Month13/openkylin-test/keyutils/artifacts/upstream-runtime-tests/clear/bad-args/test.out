@@ -1,0 +1,21 @@
+++++ BEGINNING TEST
++++ CHECK CLEAR BAD KEY ID
+keyctl clear 0
+keyctl_clear: Invalid argument
++++ CREATE KEY
+keyctl add user lizard gizzard @s
+847342426
++++ CHECK CLEAR NON-KEYRING KEY
+keyctl clear 847342426
+keyctl_clear: Not a directory
++++ UNLINK KEY
+keyctl unlink 847342426 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 847342426 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 847342426 @s
+keyctl_unlink: Required key not available
++++ CHECK CLEAR NON-EXISTENT KEY ID
+keyctl clear 847342426
+keyctl_clear: Required key not available
+++++ FINISHED TEST: PASS

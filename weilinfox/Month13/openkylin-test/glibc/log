@@ -1,0 +1,478 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [06:09:50]: starting date and time: 2024-07-18 06:09:50+0800
+  0s autopkgtest [06:09:50]: version @version@
+  0s autopkgtest [06:09:50]: host lili; command line: /usr/bin/autopkgtest glibc_2.38-1ok6.9.dsc -o /home/hachi/openkylin_test/sharefolder/results/glibc -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.7odDoG
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-66c9a8ff-2aaa-4b0e-af7d-40ccc0b72ebf,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-66c9a8ff-2aaa-4b0e-af7d-40ccc0b72ebf//tmp/autopkgtest.7odDoG
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-66c9a8ff-2aaa-4b0e-af7d-40ccc0b72ebf//tmp/autopkgtest.7odDoG', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.7odDoG'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.7odDoG/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.7odDoG/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [06:09:51]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [06:09:51]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.7odDoG/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.7odDoG/testbed-packages /home/hachi/openkylin_test/sharefolder/results/glibc/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [06:09:52]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [06:09:52]: @@@@@@@@@@@@@@@@@@@@ source glibc_2.38-1ok6.9.dsc
+  2s autopkgtest: DBG: blame += glibc_2.38-1ok6.9.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.7odDoG'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown glibc_2.38-1ok6.9.dsc /tmp/autopkgtest.7odDoG/glibc_2.38-1ok6.9.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.7odDoG'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown glibc_2.38.orig.tar.xz /tmp/autopkgtest.7odDoG/glibc_2.38.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.7odDoG'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown glibc_2.38.orig.tar.xz.asc /tmp/autopkgtest.7odDoG/glibc_2.38.orig.tar.xz.asc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.7odDoG'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown glibc_2.38-1ok6.9.debian.tar.xz /tmp/autopkgtest.7odDoG/glibc_2.38-1ok6.9.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.7odDoG/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.7odDoG/glibc_2.38-1ok6.9.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.7odDoG/build.XXX
+  3s + builddir=/tmp/autopkgtest.7odDoG/build.sSv
+  3s + cd /tmp/autopkgtest.7odDoG/build.sSv
+  3s + dpkg-source -x /tmp/autopkgtest.7odDoG/glibc_2.38-1ok6.9.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.S9ynGvgj/trustedkeys.kbx': General error
+  3s gpgv: Signature made Fri 10 May 2024 11:05:58 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.7odDoG/glibc_2.38-1ok6.9.dsc
+  4s dpkg-source: info: extracting glibc in src
+  4s dpkg-source: info: unpacking glibc_2.38.orig.tar.xz
+  9s dpkg-source: info: unpacking glibc_2.38-1ok6.9.debian.tar.xz
+  9s dpkg-source: info: using patch list from debian/patches/series
+  9s dpkg-source: info: applying git-updates.diff
+  9s dpkg-source: info: applying locale/check-unknown-symbols.diff
+  9s dpkg-source: info: applying locale/locale-print-LANGUAGE.diff
+  9s dpkg-source: info: applying locale/LC_IDENTIFICATION-optional-fields.diff
+  9s dpkg-source: info: applying localedata/sort-UTF8-first.diff
+ 10s dpkg-source: info: applying localedata/supported.diff
+ 10s dpkg-source: info: applying localedata/locale-eu_FR.diff
+ 10s dpkg-source: info: applying localedata/locale-ku_TR.diff
+ 10s dpkg-source: info: applying localedata/fo_FO-date_fmt.diff
+ 10s dpkg-source: info: applying localedata/locales-fr.diff
+ 10s dpkg-source: info: applying localedata/locale-en_DK.diff
+ 10s dpkg-source: info: applying localedata/locale-zh_TW.diff
+ 10s dpkg-source: info: applying localedata/tailor-iso14651_t1.diff
+ 10s dpkg-source: info: applying localedata/submitted-es_MX-decimal_point.diff
+ 10s dpkg-source: info: applying alpha/local-gcc4.1.diff
+ 10s dpkg-source: info: applying alpha/submitted-dl-support.diff
+ 10s dpkg-source: info: applying alpha/submitted-fts64.diff
+ 10s dpkg-source: info: applying alpha/submitted-makecontext.diff
+ 10s dpkg-source: info: applying arm/local-sigaction.diff
+ 10s dpkg-source: info: applying arm/local-vfp-sysdeps.diff
+ 10s dpkg-source: info: applying arm/unsubmitted-ldso-multilib.diff
+ 10s dpkg-source: info: applying arm/local-arm-futex.diff
+ 10s dpkg-source: info: applying hppa/local-inlining.diff
+ 10s dpkg-source: info: applying hurd-i386/git-realpath_NULL.diff
+ 10s dpkg-source: info: applying hurd-i386/git-tst-realpath-toolong.diff
+ 10s dpkg-source: info: applying hurd-i386/git-hidden_chk.diff
+ 10s dpkg-source: info: applying hurd-i386/git-glob_dirent.diff
+ 10s dpkg-source: info: applying hurd-i386/git-powerpc-longjmp.diff
+ 10s dpkg-source: info: applying hurd-i386/local-enable-ldconfig.diff
+ 10s dpkg-source: info: applying hurd-i386/tg-sysvshm.diff
+ 10s dpkg-source: info: applying hurd-i386/tg-thread-cancel.diff
+ 10s dpkg-source: info: applying hurd-i386/local-disable-ioctls.diff
+ 10s dpkg-source: info: applying hurd-i386/tg-sendmsg-SCM_CREDS.diff
+ 10s dpkg-source: info: applying hurd-i386/tg-mach-hurd-link.diff
+ 10s dpkg-source: info: applying hurd-i386/local-ED.diff
+ 10s dpkg-source: info: applying hurd-i386/local-madvise_warn.diff
+ 10s dpkg-source: info: applying hurd-i386/local-usr.diff
+ 10s dpkg-source: info: applying hurd-i386/tg-ifaddrs_v6.diff
+ 10s dpkg-source: info: applying hurd-i386/unsubmitted-clock_t_centiseconds.diff
+ 10s dpkg-source: info: applying hurd-i386/submitted-path_mounted.diff
+ 10s dpkg-source: info: applying hurd-i386/submitted-bind_umask2.diff
+ 10s dpkg-source: info: applying hurd-i386/tg-bootstrap.diff
+ 10s dpkg-source: info: applying hurd-i386/tg-libc_rwlock_recursive.diff
+ 10s dpkg-source: info: applying hurd-i386/local-no_unsupported_ioctls.diff
+ 10s dpkg-source: info: applying hurd-i386/local-exec_filename.diff
+ 10s dpkg-source: info: applying hurd-i386/proc_reauth.diff
+ 10s dpkg-source: info: applying hurd-i386/local-stack_chk_guard.diff
+ 10s dpkg-source: info: applying i386/local-biarch.diff
+ 10s dpkg-source: info: applying i386/unsubmitted-quiet-ldconfig.diff
+ 10s dpkg-source: info: applying i386/local-setcontext-revert-eax-ecx-edx.patch
+ 10s dpkg-source: info: applying m68k/local-dwarf2-buildfix.diff
+ 10s dpkg-source: info: applying m68k/local-reloc.diff
+ 10s dpkg-source: info: applying m68k/submitted-gcc34-seccomment.diff
+ 10s dpkg-source: info: applying mips/submitted-rld_map.diff
+ 10s dpkg-source: info: applying powerpc/local-powerpc8xx-dcbz.diff
+ 10s dpkg-source: info: applying sh4/local-fpscr_values.diff
+ 10s dpkg-source: info: applying all/local-alias-et_EE.diff
+ 10s dpkg-source: info: applying all/local-remove-manual.diff
+ 10s dpkg-source: info: applying all/local-ru_RU.diff
+ 10s dpkg-source: info: applying all/local-ldd.diff
+ 10s dpkg-source: info: applying any/local-asserth-decls.diff
+ 10s dpkg-source: info: applying any/local-fhs-linux-paths.diff
+ 10s dpkg-source: info: applying any/local-fhs-nscd.diff
+ 10s dpkg-source: info: applying any/local-ld-multiarch.diff
+ 10s dpkg-source: info: applying any/local-stubs_h.diff
+ 10s dpkg-source: info: applying any/local-tcsetaddr.diff
+ 10s dpkg-source: info: applying any/local-nss-overflow.diff
+ 10s dpkg-source: info: applying any/submitted-missing-etc-hosts.diff
+ 10s dpkg-source: info: applying any/submitted-nptl-invalid-td.patch
+ 10s dpkg-source: info: applying any/local-ldconfig-multiarch.diff
+ 10s dpkg-source: info: applying any/local-disable-libnss-db.diff
+ 10s dpkg-source: info: applying any/local-revert-bz13979.diff
+ 10s dpkg-source: info: applying any/unsubmitted-ldso-machine-mismatch.diff
+ 10s dpkg-source: info: applying any/local-ldconfig-ignore-ld.so.diff
+ 10s dpkg-source: info: applying any/local-bootstrap-headers.diff
+ 10s dpkg-source: info: applying any/local-test-install.diff
+ 10s dpkg-source: info: applying any/local-cross.patch
+ 10s dpkg-source: info: applying any/local-disable-tst-bz29951.diff
+ 10s dpkg-source: info: applying ubuntu/local-altlocaledir.diff
+ 10s dpkg-source: info: applying ubuntu/local-disable-ld_audit.diff
+ 10s dpkg-source: info: applying ubuntu/local-disable-nscd-netgroup-caching.diff
+ 10s dpkg-source: info: applying ubuntu/localedata/en_IE-am_pm.diff
+ 10s dpkg-source: info: applying ubuntu/localedata/eo_US.diff
+ 11s dpkg-source: info: applying ubuntu/localedata/es_DO-am_pm.diff
+ 11s dpkg-source: info: applying ubuntu/localedata/lv_LV-currency.diff
+ 11s dpkg-source: info: applying ubuntu/localedata/sd_PK.diff
+ 11s dpkg-source: info: applying ubuntu/localedata/ug_CN@latin.diff
+ 11s dpkg-source: info: applying ubuntu/local-pldd-root.diff
+ 11s dpkg-source: info: applying ubuntu/local-fallback-to-monotonic.diff
+ 11s dpkg-source: info: applying ubuntu/submitted-broadcast-to-prevent-deadlock.diff
+ 11s dpkg-source: info: applying ubuntu/sdt-headers.patch
+ 11s dpkg-source: info: applying lp2031495.patch
+ 11s dpkg-source: info: applying ubuntu/0001-Fix-leak-in-getaddrinfo-introduced-by-the-fix-for-CV.patch
+ 11s dpkg-source: info: applying lp2032624.patch
+ 11s dpkg-source: info: applying CVE-2023-4911.patch
+ 11s dpkg-source: info: applying 0096-update-changelog.patch
+ 11s dpkg-source: info: applying 0097-arm-i386.patch
+ 11s dpkg-source: info: applying 0098-tst-getdents64.patch
+ 11s dpkg-source: info: applying 0099-check-cet.patch
+ 11s dpkg-source: info: applying 0100-check-abi-libc.patch
+ 11s dpkg-source: info: applying 0101-changelog.patch
+ 11s dpkg-source: info: applying 0102-14-x86-Optimizing-memcpy-for-KH-40000-and-KX-7000-Zh.patch
+ 11s + chmod -R a+rX .
+ 11s + cd src/.
+ 11s + pwd
+ 11s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 11s autopkgtest: DBG: testbed command exited with code 0
+ 11s autopkgtest [06:10:01]: testing package glibc version 2.38-1ok6.9
+ 11s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.7odDoG/build.sSv/src/debian/ /home/hachi/openkylin_test/sharefolder/results/glibc/pkg/debian/
+ 11s autopkgtest: DBG: got reply from testbed: ok
+ 11s autopkgtest: DBG: processing dependency @builddeps@
+ 12s autopkgtest: DBG: synthesised dependency gettext
+ 12s autopkgtest: DBG: synthesised dependency dpkg (>= 1.18.7)
+ 12s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.17.14)
+ 12s autopkgtest: DBG: synthesised dependency xz-utils
+ 12s autopkgtest: DBG: synthesised dependency file
+ 12s autopkgtest: DBG: synthesised dependency quilt
+ 12s autopkgtest: DBG: synthesised dependency autoconf
+ 12s autopkgtest: DBG: synthesised dependency gawk
+ 12s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+ 12s autopkgtest: DBG: synthesised dependency rdfind
+ 12s autopkgtest: DBG: synthesised dependency symlinks
+ 12s autopkgtest: DBG: synthesised dependency netbase
+ 12s autopkgtest: DBG: synthesised dependency gperf
+ 12s autopkgtest: DBG: synthesised dependency bison
+ 12s autopkgtest: DBG: synthesised dependency linux-libc-dev (>= 3.9)
+ 12s autopkgtest: DBG: synthesised dependency systemtap-sdt-dev
+ 12s autopkgtest: DBG: synthesised dependency libaudit-dev
+ 12s autopkgtest: DBG: synthesised dependency libcap-dev
+ 12s autopkgtest: DBG: synthesised dependency libselinux1-dev
+ 12s autopkgtest: DBG: synthesised dependency binutils-for-host (>= 2.38)
+ 12s autopkgtest: DBG: synthesised dependency python3:native
+ 12s autopkgtest: DBG: synthesised dependency libidn2-0 (>= 2.0.5~)
+ 12s autopkgtest: DBG: synthesised dependency libgd-dev
+ 12s autopkgtest: DBG: synthesised dependency perl
+ 12s autopkgtest: DBG: synthesised dependency po-debconf (>= 1.0)
+ 12s autopkgtest: DBG: synthesised dependency build-essential
+ 12s autopkgtest: DBG: processing dependency fakeroot
+ 12s autopkgtest: DBG: processing dependency binutils
+ 12s autopkgtest: DBG: processing dependency linux-libc-dev [linux-any]
+ 12s autopkgtest: DBG: processing dependency gcc
+ 12s autopkgtest: DBG: Test defined: name rebuild path debian/tests/rebuild command "None" restrictions ['allow-stderr'] features [] depends ['gettext', 'dpkg (>= 1.18.7)', 'dpkg-dev (>= 1.17.14)', 'xz-utils', 'file', 'quilt', 'autoconf', 'gawk', 'debhelper-compat (= 13)', 'rdfind', 'symlinks', 'netbase', 'gperf', 'bison', 'linux-libc-dev (>= 3.9)', 'systemtap-sdt-dev', 'libaudit-dev', 'libcap-dev', 'libselinux1-dev', 'binutils-for-host (>= 2.38)', 'python3:native', 'libidn2-0 (>= 2.0.5~)', 'libgd-dev', 'perl', 'po-debconf (>= 1.0)', 'build-essential', 'fakeroot', 'binutils', 'linux-libc-dev [linux-any]', 'gcc'] 
+ 12s autopkgtest [06:10:02]: build not needed
+ 12s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.7odDoG/build.sSv/src/ /home/hachi/openkylin_test/sharefolder/results/glibc/tests-tree/
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: processing dependency @builddeps@
+ 25s autopkgtest: DBG: synthesised dependency gettext
+ 25s autopkgtest: DBG: synthesised dependency dpkg (>= 1.18.7)
+ 25s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.17.14)
+ 25s autopkgtest: DBG: synthesised dependency xz-utils
+ 25s autopkgtest: DBG: synthesised dependency file
+ 25s autopkgtest: DBG: synthesised dependency quilt
+ 25s autopkgtest: DBG: synthesised dependency autoconf
+ 25s autopkgtest: DBG: synthesised dependency gawk
+ 25s autopkgtest: DBG: synthesised dependency debhelper-compat (= 13)
+ 25s autopkgtest: DBG: synthesised dependency rdfind
+ 25s autopkgtest: DBG: synthesised dependency symlinks
+ 25s autopkgtest: DBG: synthesised dependency netbase
+ 25s autopkgtest: DBG: synthesised dependency gperf
+ 25s autopkgtest: DBG: synthesised dependency bison
+ 25s autopkgtest: DBG: synthesised dependency linux-libc-dev (>= 3.9)
+ 25s autopkgtest: DBG: synthesised dependency systemtap-sdt-dev
+ 25s autopkgtest: DBG: synthesised dependency libaudit-dev
+ 25s autopkgtest: DBG: synthesised dependency libcap-dev
+ 25s autopkgtest: DBG: synthesised dependency libselinux1-dev
+ 25s autopkgtest: DBG: synthesised dependency binutils-for-host (>= 2.38)
+ 25s autopkgtest: DBG: synthesised dependency python3:native
+ 25s autopkgtest: DBG: synthesised dependency libidn2-0 (>= 2.0.5~)
+ 25s autopkgtest: DBG: synthesised dependency libgd-dev
+ 25s autopkgtest: DBG: synthesised dependency perl
+ 25s autopkgtest: DBG: synthesised dependency po-debconf (>= 1.0)
+ 25s autopkgtest: DBG: synthesised dependency build-essential
+ 25s autopkgtest: DBG: processing dependency fakeroot
+ 25s autopkgtest: DBG: processing dependency binutils
+ 25s autopkgtest: DBG: processing dependency linux-libc-dev [linux-any]
+ 25s autopkgtest: DBG: processing dependency gcc
+ 25s autopkgtest: DBG: Test defined: name rebuild path debian/tests/rebuild command "None" restrictions ['allow-stderr'] features [] depends ['gettext', 'dpkg (>= 1.18.7)', 'dpkg-dev (>= 1.17.14)', 'xz-utils', 'file', 'quilt', 'autoconf', 'gawk', 'debhelper-compat (= 13)', 'rdfind', 'symlinks', 'netbase', 'gperf', 'bison', 'linux-libc-dev (>= 3.9)', 'systemtap-sdt-dev', 'libaudit-dev', 'libcap-dev', 'libselinux1-dev', 'binutils-for-host (>= 2.38)', 'python3:native', 'libidn2-0 (>= 2.0.5~)', 'libgd-dev', 'perl', 'po-debconf (>= 1.0)', 'build-essential', 'fakeroot', 'binutils', 'linux-libc-dev [linux-any]', 'gcc'] 
+ 25s autopkgtest [06:10:15]: test rebuild: preparing testbed
+ 25s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['gettext', 'dpkg (>= 1.18.7)', 'dpkg-dev (>= 1.17.14)', 'xz-utils', 'file', 'quilt', 'autoconf', 'gawk', 'debhelper-compat (= 13)', 'rdfind', 'symlinks', 'netbase', 'gperf', 'bison', 'linux-libc-dev (>= 3.9)', 'systemtap-sdt-dev', 'libaudit-dev', 'libcap-dev', 'libselinux1-dev', 'binutils-for-host (>= 2.38)', 'python3:native', 'libidn2-0 (>= 2.0.5~)', 'libgd-dev', 'perl', 'po-debconf (>= 1.0)', 'build-essential', 'fakeroot', 'binutils', 'linux-libc-dev [linux-any]', 'gcc']
+ 25s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 25s autopkgtest: DBG: install_deps: deps_new=['gettext', 'dpkg (>= 1.18.7)', 'dpkg-dev (>= 1.17.14)', 'xz-utils', 'file', 'quilt', 'autoconf', 'gawk', 'debhelper-compat (= 13)', 'rdfind', 'symlinks', 'netbase', 'gperf', 'bison', 'linux-libc-dev (>= 3.9)', 'systemtap-sdt-dev', 'libaudit-dev', 'libcap-dev', 'libselinux1-dev', 'binutils-for-host (>= 2.38)', 'python3:native', 'libidn2-0 (>= 2.0.5~)', 'libgd-dev', 'perl', 'po-debconf (>= 1.0)', 'build-essential', 'fakeroot', 'binutils', 'linux-libc-dev [linux-any]', 'gcc']
+ 25s autopkgtest: DBG: install-deps: satisfying gettext, dpkg (>= 1.18.7), dpkg-dev (>= 1.17.14), xz-utils, file, quilt, autoconf, gawk, debhelper-compat (= 13), rdfind, symlinks, netbase, gperf, bison, linux-libc-dev (>= 3.9), systemtap-sdt-dev, libaudit-dev, libcap-dev, libselinux1-dev, binutils-for-host (>= 2.38), python3:native, libidn2-0 (>= 2.0.5~), libgd-dev, perl, po-debconf (>= 1.0), build-essential, fakeroot, binutils, linux-libc-dev [linux-any], gcc
+ 25s autopkgtest: DBG: install-deps: architecture resolved: gettext, dpkg (>= 1.18.7), dpkg-dev (>= 1.17.14), xz-utils, file, quilt, autoconf, gawk, debhelper-compat (= 13), rdfind, symlinks, netbase, gperf, bison, linux-libc-dev (>= 3.9), systemtap-sdt-dev, libaudit-dev, libcap-dev, libselinux1-dev, binutils-for-host (>= 2.38), python3, libidn2-0 (>= 2.0.5~), libgd-dev, perl, po-debconf (>= 1.0), build-essential, fakeroot, binutils, linux-libc-dev, gcc
+ 25s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: can use apt-get on testbed: True
+ 25s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.7odDoG'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-66c9a8ff-2aaa-4b0e-af7d-40ccc0b72ebf//tmp/autopkgtest.7odDoG/1-autopkgtest-satdep.deb /tmp/autopkgtest.7odDoG/1-autopkgtest-satdep.deb
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.7odDoG/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 26s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 27s Starting pkgProblemResolver with broken count: 1
+ 27s Starting 2 pkgProblemResolver with broken count: 1
+ 27s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on quilt:riscv64 < none | 0.67+really0.67-ok1 @un uH >
+ 27s   Considering quilt:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated diffstat:riscv64
+ 27s   Re-Instated quilt:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on autoconf:riscv64 < none | 2.71-ok2 @un uH >
+ 27s   Considering autoconf:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated m4:riscv64
+ 27s   Re-Instated autoconf:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on debhelper-compat:riscv64 < none @un H > (= 13)
+ 27s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated autotools-dev:riscv64
+ 27s   Re-Instated automake:riscv64
+ 27s   Re-Instated autopoint:riscv64
+ 27s   Re-Instated libdebhelper-perl:riscv64
+ 27s   Re-Instated libtool:riscv64
+ 27s   Re-Instated dh-autoreconf:riscv64
+ 27s   Re-Instated libarchive-zip-perl:riscv64
+ 27s   Re-Instated libsub-override-perl:riscv64
+ 27s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+ 27s   Re-Instated dh-strip-nondeterminism:riscv64
+ 27s   Re-Instated dwz:riscv64
+ 27s   Re-Instated intltool-debian:riscv64
+ 27s   Re-Instated po-debconf:riscv64
+ 27s   Re-Instated debhelper:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on rdfind:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on symlinks:riscv64 < none | 1.4-ok1 @un uH >
+ 27s   Considering symlinks:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated symlinks:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on gperf:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on bison:riscv64 < none | 2:3.8.2+dfsg-ok1 @un uH >
+ 27s   Considering bison:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated bison:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on systemtap-sdt-dev:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on libaudit-dev:riscv64 < none | 1:3.1.2-ok1.2 @un uH >
+ 27s   Considering libaudit-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated libaudit-common:riscv64
+ 27s   Re-Instated libaudit1:riscv64
+ 27s   Re-Instated libcap-ng0:riscv64
+ 27s   Re-Instated libcap-ng-dev:riscv64
+ 27s   Re-Instated libaudit-dev:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on libcap-dev:riscv64 < none | 1:2.69-1ok2 @un uH >
+ 27s   Considering libcap-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated libcap2:riscv64
+ 27s   Re-Instated libcap-dev:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on binutils-for-host:riscv64 < none | 2.41-ok13 @un uH > (>= 2.38)
+ 27s   Considering binutils-for-host:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated binutils-common:riscv64
+ 27s   Re-Instated binutils-for-host:riscv64
+ 27s Broken autopkgtest-satdep:riscv64 Depends on libgd-dev:riscv64 < none | 2.3.3-ok1 @un uH >
+ 27s   Considering libgd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Re-Instated fontconfig-config:riscv64
+ 27s   Re-Instated libfontconfig1:riscv64
+ 27s   Re-Instated libexpat1:riscv64
+ 27s   Re-Instated libexpat1-dev:riscv64
+ 27s   Re-Instated libfreetype6:riscv64
+ 27s   Re-Instated libbrotli1:riscv64
+ 27s   Re-Instated libbrotli-dev:riscv64
+ 27s   Re-Instated libbz2-dev:riscv64
+ 27s   Re-Instated libpng16-16t64:riscv64
+ 27s   Re-Instated libpng-dev:riscv64
+ 27s   Re-Instated libfreetype-dev:riscv64
+ 27s   Re-Instated libpkgconf4:riscv64
+ 27s   Re-Instated pkgconf-bin:riscv64
+ 27s   Re-Instated pkg-config:riscv64
+ 27s   Re-Instated pkgconf:riscv64
+ 27s   Re-Instated libfontconfig-dev:riscv64
+ 27s   Re-Instated libsharpyuv0:riscv64
+ 27s   Re-Instated libheif-plugin-aomdec:riscv64
+ 27s   Re-Instated libde265-0:riscv64
+ 27s   Re-Instated libheif-plugin-libde265:riscv64
+ 27s   Re-Instated libheif1:riscv64
+ 27s   Re-Instated libdeflate0:riscv64
+ 27s   Re-Instated liblerc4:riscv64
+ 27s   Re-Instated libwebp7:riscv64
+ 27s   Re-Instated libzstd1:riscv64
+ 27s   Re-Instated libtiff6:riscv64
+ 27s   Re-Instated libgd3:riscv64
+ 27s   Re-Instated libaom3:riscv64
+ 27s   Re-Instated libaom-dev:riscv64
+ 27s   Re-Instated libdav1d7:riscv64
+ 27s   Re-Instated libdav1d-dev:riscv64
+ 27s   Re-Instated libde265-dev:riscv64
+ 27s   Re-Instated libsharpyuv-dev:riscv64
+ 27s   Re-Instated libx265-199:riscv64
+ 27s   Re-Instated libx265-dev:riscv64
+ 27s   Re-Instated libheif-dev:riscv64
+ 27s   Re-Instated libjpeg62-turbo-dev:riscv64
+ 27s   Re-Instated libjpeg-dev:riscv64
+ 27s   Re-Instated libjbig-dev:riscv64
+ 27s   Re-Instated liblzma5:riscv64
+ 27s   Re-Instated liblzma-dev:riscv64
+ 27s   Re-Instated libzstd-dev:riscv64
+ 27s   Re-Instated libwebpdemux2:riscv64
+ 27s   Re-Instated libwebpmux3:riscv64
+ 27s   Re-Instated libwebpdecoder3:riscv64
+ 27s   Re-Instated libwebp-dev:riscv64
+ 27s   Re-Instated libtiffxx6:riscv64
+ 27s   Re-Instated libdeflate-dev:riscv64
+ 27s   Re-Instated liblerc-dev:riscv64
+ 27s   Re-Instated libtiff-dev:riscv64
+ 27s   Re-Instated libvpx-dev:riscv64
+ 27s   Re-Instated libx11-6:riscv64
+ 27s   Re-Instated xorg-sgml-doctools:riscv64
+ 27s   Re-Instated x11proto-dev:riscv64
+ 27s   Re-Instated x11proto-core-dev:riscv64
+ 27s   Re-Instated libxau-dev:riscv64
+ 27s   Re-Instated libxdmcp-dev:riscv64
+ 27s   Re-Instated xtrans-dev:riscv64
+ 27s   Re-Instated libpthread-stubs0-dev:riscv64
+ 27s   Re-Instated libxcb1:riscv64
+ 27s   Re-Instated libxcb1-dev:riscv64
+ 27s   Re-Instated libx11-dev:riscv64
+ 27s   Re-Instated libxpm4:riscv64
+ 27s   Re-Instated libxpm-dev:riscv64
+ 27s   Re-Instated libgd-dev:riscv64
+ 27s Investigating (0) libx11-xcb1:riscv64 < 2:1.8.6-ok1 | 2:1.8.7-ok1 @ii uH Ib >
+ 27s Broken libx11-xcb1:riscv64 Depends on libx11-6:riscv64 < 2:1.8.6-ok1 -> 2:1.8.7-ok1 @ii uU > (= 2:1.8.6-ok1)
+ 27s   Considering libx11-6:riscv64 905 as a solution to libx11-xcb1:riscv64 228
+ 27s   Re-Instated libx11-xcb1:riscv64
+ 27s Investigating (0) binutils:riscv64 < 2.39.50.20221224-ok6 | 2.41-ok13 @ii uH Ib >
+ 27s Broken binutils:riscv64 Depends on binutils-common:riscv64 < 2.39.50.20221224-ok6 -> 2.41-ok13 @ii uU > (= 2.39.50.20221224-ok6)
+ 27s   Considering binutils-common:riscv64 7 as a solution to binutils:riscv64 12
+ 27s   Added binutils-common:riscv64 to the remove list
+ 27s   Fixing binutils:riscv64 via keep of binutils-common:riscv64
+ 27s Investigating (0) libpng16-16t64:riscv64 < none -> 1.6.43-ok1 @un uN Ib >
+ 27s Broken libpng16-16t64:riscv64 Breaks on libpng16-16:riscv64 < 1.6.38-2 @ii K > (< 1.6.43-ok1)
+ 27s   Considering libpng16-16:riscv64 330 as a solution to libpng16-16t64:riscv64 0
+ 27s   Holding Back libpng16-16t64:riscv64 rather than change libpng16-16:riscv64
+ 27s Investigating (0) binutils-for-host:riscv64 < none -> 2.41-ok13 @un uN Ib >
+ 27s Broken binutils-for-host:riscv64 Depends on binutils-common:riscv64 < 2.39.50.20221224-ok6 | 2.41-ok13 @ii uH > (= 2.41-ok13)
+ 27s   Considering binutils-common:riscv64 7 as a solution to binutils-for-host:riscv64 0
+ 27s   Holding Back binutils-for-host:riscv64 rather than change binutils-common:riscv64
+ 27s Investigating (0) libpng-dev:riscv64 < none -> 1.6.43-ok1 @un uN Ib >
+ 27s Broken libpng-dev:riscv64 Depends on libpng16-16t64:riscv64 < none | 1.6.43-ok1 @un uH > (= 1.6.43-ok1)
+ 27s   Considering libpng16-16t64:riscv64 0 as a solution to libpng-dev:riscv64 0
+ 27s   Holding Back libpng-dev:riscv64 rather than change libpng16-16t64:riscv64
+ 27s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on rdfind:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on gperf:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on systemtap-sdt-dev:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on binutils-for-host:riscv64 < none | 2.41-ok13 @un uH > (>= 2.38)
+ 27s   Considering binutils-for-host:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s Investigating (1) libgd3:riscv64 < 2.2.5-ok6 -> 2.3.3-ok1 @ii uU Ib >
+ 27s Broken libgd3:riscv64 Depends on libpng16-16t64:riscv64 < none | 1.6.43-ok1 @un uH > (>= 1.6.2)
+ 27s   Considering libpng16-16t64:riscv64 0 as a solution to libgd3:riscv64 4
+ 27s   Holding Back libgd3:riscv64 rather than change libpng16-16t64:riscv64
+ 27s Investigating (1) libgd-dev:riscv64 < none -> 2.3.3-ok1 @un uN Ib >
+ 27s Broken libgd-dev:riscv64 Depends on libgd3:riscv64 < 2.2.5-ok6 | 2.3.3-ok1 @ii uH > (= 2.3.3-ok1)
+ 27s   Considering libgd3:riscv64 4 as a solution to libgd-dev:riscv64 1
+ 27s   Holding Back libgd-dev:riscv64 rather than change libgd3:riscv64
+ 27s Investigating (1) libfreetype-dev:riscv64 < none -> 2.13.2+dfsg-ok1 @un uN Ib >
+ 27s Broken libfreetype-dev:riscv64 Depends on libpng-dev:riscv64 < none | 1.6.43-ok1 @un uH >
+ 27s   Considering libpng-dev:riscv64 0 as a solution to libfreetype-dev:riscv64 0
+ 27s   Holding Back libfreetype-dev:riscv64 rather than change libpng-dev:riscv64
+ 27s Investigating (1) libfontconfig-dev:riscv64 < none -> 2.15.0-ok4 @un uN Ib >
+ 27s Broken libfontconfig-dev:riscv64 Depends on libfreetype-dev:riscv64 < none | 2.13.2+dfsg-ok1 @un uH > (>= 2.8.1)
+ 27s   Considering libfreetype-dev:riscv64 0 as a solution to libfontconfig-dev:riscv64 0
+ 27s   Holding Back libfontconfig-dev:riscv64 rather than change libfreetype-dev:riscv64
+ 27s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on rdfind:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on gperf:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on systemtap-sdt-dev:riscv64 < none @un H >
+ 27s Broken autopkgtest-satdep:riscv64 Depends on binutils-for-host:riscv64 < none | 2.41-ok13 @un uH > (>= 2.38)
+ 27s   Considering binutils-for-host:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s Broken autopkgtest-satdep:riscv64 Depends on libgd-dev:riscv64 < none | 2.3.3-ok1 @un uH >
+ 27s   Considering libgd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s   Considering libgd-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 27s Done
+ 27s Some packages could not be installed. This may mean that you have
+ 27s requested an impossible situation or if you are using the unstable
+ 27s distribution that some required packages have not yet been created
+ 27s or been moved out of Incoming.
+ 27s The following information may help to resolve the situation:
+ 27s 
+ 27s The following packages have unmet dependencies:
+ 27s  autopkgtest-satdep : Depends: rdfind but it is not installable
+ 27s                       Depends: gperf but it is not installable
+ 27s                       Depends: systemtap-sdt-dev but it is not installable
+ 27s                       Depends: binutils-for-host (>= 2.38) but it is not going to be installed
+ 27s                       Depends: libgd-dev but it is not going to be installed
+ 27s E: Unable to correct problems, you have held broken packages.
+ 27s autopkgtest: DBG: testbed command exited with code 100
+ 27s autopkgtest: DBG: apt-get install /tmp/autopkgtest.7odDoG/1-autopkgtest-satdep.deb failed; status-fd:
+ 27s 
+ 27s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gettext dpkg (>= 1.18.7) dpkg-dev (>= 1.17.14) xz-utils file quilt autoconf gawk debhelper-compat (= 13) rdfind symlinks netbase gperf bison linux-libc-dev (>= 3.9) systemtap-sdt-dev libaudit-dev libcap-dev libselinux1-dev binutils-for-host (>= 2.38) python3 libidn2-0 (>= 2.0.5~) libgd-dev perl po-debconf (>= 1.0) build-essential fakeroot binutils linux-libc-dev gcc -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s autopkgtest: DBG: testbed command exited with code 2
+ 27s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s rebuild              FAIL badpkg
+ 27s blame: glibc_2.38-1ok6.9.dsc
+ 27s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 27s autopkgtest [06:10:17]: @@@@@@@@@@@@@@@@@@@@ summary
+ 27s rebuild              FAIL badpkg
+ 27s blame: glibc_2.38-1ok6.9.dsc
+ 27s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s autopkgtest: DBG: testbed stop
+ 27s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.7odDoG
+ 27s autopkgtest: DBG: sending command to testbed: close
+ 28s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 30s autopkgtest: DBG: got reply from testbed: ok
+ 30s autopkgtest: DBG: sending command to testbed: quit

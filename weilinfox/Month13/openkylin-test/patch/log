@@ -1,0 +1,110 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:40:59]: starting date and time: 2024-07-19 00:40:59+0800
+  0s autopkgtest [00:40:59]: version @version@
+  0s autopkgtest [00:40:59]: host lili; command line: /usr/bin/autopkgtest patch_2.7.6-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/patch -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.Z0YKAR
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a92fe99e-579d-4332-b54c-6cbbed490ea3,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a92fe99e-579d-4332-b54c-6cbbed490ea3//tmp/autopkgtest.Z0YKAR
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a92fe99e-579d-4332-b54c-6cbbed490ea3//tmp/autopkgtest.Z0YKAR', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Z0YKAR'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.Z0YKAR/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.Z0YKAR/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [00:41:00]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:41:01]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.Z0YKAR/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Z0YKAR/testbed-packages /home/hachi/openkylin_test/sharefolder/results/patch/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:41:01]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [00:41:01]: @@@@@@@@@@@@@@@@@@@@ source patch_2.7.6-ok1.dsc
+  2s autopkgtest: DBG: blame += patch_2.7.6-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Z0YKAR'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown patch_2.7.6-ok1.dsc /tmp/autopkgtest.Z0YKAR/patch_2.7.6-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Z0YKAR'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown patch_2.7.6.orig.tar.xz /tmp/autopkgtest.Z0YKAR/patch_2.7.6.orig.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Z0YKAR'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown patch_2.7.6-ok1.debian.tar.xz /tmp/autopkgtest.Z0YKAR/patch_2.7.6-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.Z0YKAR/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.Z0YKAR/patch_2.7.6-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.Z0YKAR/build.XXX
+  3s + builddir=/tmp/autopkgtest.Z0YKAR/build.SOL
+  3s + cd /tmp/autopkgtest.Z0YKAR/build.SOL
+  3s + dpkg-source -x /tmp/autopkgtest.Z0YKAR/patch_2.7.6-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.qSty807s/trustedkeys.kbx': General error
+  3s gpgv: Signature made Sat 14 May 2022 03:38:01 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.Z0YKAR/patch_2.7.6-ok1.dsc
+  3s dpkg-source: info: extracting patch in src
+  3s dpkg-source: info: unpacking patch_2.7.6.orig.tar.xz
+  3s dpkg-source: info: unpacking patch_2.7.6-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying path_max
+  3s dpkg-source: info: applying 558485-backupmode
+  3s dpkg-source: info: applying m-merge
+  3s dpkg-source: info: applying Fix_segfault_with_mangled_rename_patch.patch
+  3s dpkg-source: info: applying Allow_input_files_to_be_missing_for_ed-style_patches.patch
+  3s dpkg-source: info: applying Fix_arbitrary_command_execution_in_ed-style_patches.patch
+  3s dpkg-source: info: applying 0001-Fix-ed-style-test-failure.patch
+  3s dpkg-source: info: applying 0002-Abort_when_cleaning_up_fails.patch
+  3s dpkg-source: info: applying 0003-Do_not_crash_when_RLIMIT_NOFILE_is_set_to_RLIM_INFINITY.patch
+  3s dpkg-source: info: applying 0004-CVE-2019-13636.patch
+  3s dpkg-source: info: applying 0005-CVE-2019-13638.patch
+  3s dpkg-source: info: applying 0006-Do_not_leak_temporary_file.patch
+  3s dpkg-source: info: applying 0007-Do_not_leak_temporary_file_on_failed_multi-file.patch
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [00:41:03]: testing package patch version 2.7.6-ok1
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Z0YKAR/build.SOL/src/debian/ /home/hachi/openkylin_test/sharefolder/results/patch/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: autodep8 not available ([Errno 2] No such file or directory: 'autodep8')
+  4s autopkgtest [00:41:03]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Z0YKAR/build.SOL/src/ /home/hachi/openkylin_test/sharefolder/results/patch/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: autodep8 not available ([Errno 2] No such file or directory: 'autodep8')
+  4s *                    SKIP no tests in this package
+  4s autopkgtest [00:41:03]: @@@@@@@@@@@@@@@@@@@@ summary
+  4s *                    SKIP no tests in this package
+  4s autopkgtest: DBG: testbed stop
+  4s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.Z0YKAR
+  4s autopkgtest: DBG: sending command to testbed: close
+  4s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: sending command to testbed: quit

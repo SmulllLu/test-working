@@ -1,0 +1,834 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [17:15:51]: starting date and time: 2024-07-18 17:15:51+0800
+  0s autopkgtest [17:15:51]: version @version@
+  0s autopkgtest [17:15:51]: host lili; command line: /usr/bin/autopkgtest llvm-toolchain-10_10.0.0-ok3.dsc -o /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10 -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.pq6orO
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.pq6orO/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.pq6orO/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [17:15:52]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [17:15:53]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.pq6orO/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/testbed-packages /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [17:15:53]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [17:15:53]: @@@@@@@@@@@@@@@@@@@@ source llvm-toolchain-10_10.0.0-ok3.dsc
+  2s autopkgtest: DBG: blame += llvm-toolchain-10_10.0.0-ok3.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown llvm-toolchain-10_10.0.0-ok3.dsc /tmp/autopkgtest.pq6orO/llvm-toolchain-10_10.0.0-ok3.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown llvm-toolchain-10_10.0.0.orig.tar.xz /tmp/autopkgtest.pq6orO/llvm-toolchain-10_10.0.0.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown llvm-toolchain-10_10.0.0-ok3.debian.tar.xz /tmp/autopkgtest.pq6orO/llvm-toolchain-10_10.0.0-ok3.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.pq6orO/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.pq6orO/llvm-toolchain-10_10.0.0-ok3.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.pq6orO/build.XXX
+  3s + builddir=/tmp/autopkgtest.pq6orO/build.pYQ
+  3s + cd /tmp/autopkgtest.pq6orO/build.pYQ
+  3s + dpkg-source -x /tmp/autopkgtest.pq6orO/llvm-toolchain-10_10.0.0-ok3.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.tSV6wK_m/trustedkeys.kbx': General error
+  3s gpgv: Signature made Mon 22 Aug 2022 05:19:21 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.pq6orO/llvm-toolchain-10_10.0.0-ok3.dsc
+  6s dpkg-source: info: extracting llvm-toolchain-10 in src
+  6s dpkg-source: info: unpacking llvm-toolchain-10_10.0.0.orig.tar.xz
+ 28s dpkg-source: info: unpacking llvm-toolchain-10_10.0.0-ok3.debian.tar.xz
+ 30s dpkg-source: info: using patch list from debian/patches/series
+ 30s dpkg-source: info: applying 19-clang_debian_version.patch
+ 30s dpkg-source: info: applying 0003-Debian-version-info-and-bugreport.patch
+ 30s dpkg-source: info: applying clang-format-version.diff
+ 30s dpkg-source: info: applying clang-analyzer-force-version.diff
+ 30s dpkg-source: info: applying 23-strlcpy_strlcat_warning_removed.diff
+ 30s dpkg-source: info: applying declare_clear_cache.diff
+ 30s dpkg-source: info: applying unwind-chain-inclusion.diff
+ 30s dpkg-source: info: applying atomic_library_1.diff
+ 30s dpkg-source: info: applying python-clangpath.diff
+ 30s dpkg-source: info: applying fix-clang-path-and-build.diff
+ 30s dpkg-source: info: applying 0048-Set-html_static_path-_static-everywhere.patch
+ 30s dpkg-source: info: applying symbolizer-path.diff
+ 30s dpkg-source: info: applying clang-tidy-run-bin.diff
+ 30s dpkg-source: info: applying 0001-tools-clang-cmake-resolve-symlinks-in-ClangConfig.cmake.patch
+ 31s dpkg-source: info: applying debug-jit-path.diff
+ 31s dpkg-source: info: applying do-not-fail-on-unexpected-pass.diff
+ 31s dpkg-source: info: applying disable-display-PASS-UNSUPPORTED-XFAIL.diff
+ 31s dpkg-source: info: applying fix-llvm-config-obj-src-root.patch
+ 31s dpkg-source: info: applying 0001-llvm-cmake-resolve-symlinks-in-LLVMConfig.cmake.patch
+ 31s dpkg-source: info: applying 0044-soname.diff
+ 31s dpkg-source: info: applying lldb-soname.diff
+ 31s dpkg-source: info: applying openmp-soname.diff
+ 31s dpkg-source: info: applying silent-gold-test.diff
+ 31s dpkg-source: info: applying silent-more-tests.diff
+ 31s dpkg-source: info: applying silent-MCJIIT-tests.diff
+ 31s dpkg-source: info: applying silent-gold-utils.diff
+ 31s dpkg-source: info: applying silent-test-failing-codeverage.diff
+ 31s dpkg-source: info: applying silent-amd-tet.diff
+ 31s dpkg-source: info: applying silent-test-macho.diff
+ 31s dpkg-source: info: applying silent-llvm-isel-fuzzer.diff
+ 31s dpkg-source: info: applying remove-test-freezing.diff
+ 31s dpkg-source: info: applying disable-llvm-symbolizer-test.diff
+ 31s dpkg-source: info: applying disable-path-test-failing.diff
+ 31s dpkg-source: info: applying test-keep-alive.diff
+ 31s dpkg-source: info: applying scan-build-clang-path.diff
+ 31s dpkg-source: info: applying install-scan-build-py.diff
+ 31s dpkg-source: info: applying scan-view-fix-path.diff
+ 31s dpkg-source: info: applying fix-scan-view-path.diff
+ 31s dpkg-source: info: applying lldb/lldb-link-atomic-cmake.patch
+ 31s dpkg-source: info: applying lldb/lldb-addversion-suffix-to-llvm-server-exec.patch
+ 31s dpkg-source: info: applying lldb/lldb-missing-install.diff
+ 31s dpkg-source: info: applying lldb/lldb-disable-swig-error.diff
+ 31s dpkg-source: info: applying disable-error-xray.diff
+ 31s dpkg-source: info: applying openmp/openmp-check-execstack.diff
+ 31s dpkg-source: info: applying openmp/openmp-mips-affinity.patch
+ 31s dpkg-source: info: applying openmp/bootstrap-with-openmp-version-export-missing.diff
+ 31s dpkg-source: info: applying libcxx/libcxxabi-test-don-t-fail-extended-long-double.patch
+ 31s dpkg-source: info: applying libcxx/libcxx-test-fix-lockfree-test-for-i386.patch
+ 31s dpkg-source: info: applying libcxx/libcxxabi-arm-ehabi-fix.patch
+ 31s dpkg-source: info: applying libcxx/libcxx-test-atomics-set-compare-exchange-to-be-expected-fails-on-arm.patch
+ 31s dpkg-source: info: applying libcxx/libcxx-silent-test-libcxx.diff
+ 31s dpkg-source: info: applying libcxx/libcxx-silent-failure-ppc64el.diff
+ 31s dpkg-source: info: applying libcxx/libcxx-silent-failure-arm64.diff
+ 31s dpkg-source: info: applying mips-fpxx-enable.diff
+ 31s dpkg-source: info: applying 26-set-correct-float-abi.diff
+ 31s dpkg-source: info: applying clang-baseline-fix-i386.patch
+ 31s dpkg-source: info: applying disable-sse2-old-x86.diff
+ 31s dpkg-source: info: applying clang-arm-default-vfp3-on-armv7a.patch
+ 31s dpkg-source: info: applying clangd-atomic-cmake.patch
+ 31s dpkg-source: info: applying remove-apple-clang-manpage.diff
+ 31s dpkg-source: info: applying 0049-Use-Debian-provided-MathJax-everywhere.patch
+ 31s dpkg-source: info: applying hurd/hurd-cxx-paths.diff
+ 31s dpkg-source: info: applying hurd/hurd-pathmax.diff
+ 31s dpkg-source: info: applying 930008-arm.diff
+ 31s dpkg-source: info: applying bootstrap-fix-include-next.diff
+ 31s dpkg-source: info: applying clang-riscv64-multiarch.diff
+ 31s dpkg-source: info: applying D74453-riscv-atomic_cmp_xchg.diff
+ 31s dpkg-source: info: applying workaround-bug-42994-use-linker.diff
+ 31s dpkg-source: info: applying D67877.patch
+ 31s dpkg-source: info: applying disable-fuzzer-compiler-rt-x86.diff
+ 31s dpkg-source: info: applying no-z3.patch
+ 31s dpkg-source: info: applying python3-shebang.patch
+ 31s dpkg-source: info: applying print-lldb-path.patch
+ 31s dpkg-source: info: applying no-cgi.patch
+ 31s dpkg-source: info: applying d21664cce1db8debe2528f36b1fbd2b8af9c9401.patch
+ 31s dpkg-source: info: applying 0001-systemz-allow-configuring-default-SYSTEMZ_DEFAULT_AR.patch
+ 31s dpkg-source: info: applying D76596.diff
+ 32s dpkg-source: info: applying riscv64-multilib-empty.patch
+ 32s + chmod -R a+rX .
+ 33s + cd src/.
+ 33s + pwd
+ 33s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest [17:16:24]: testing package llvm-toolchain-10 version 1:10.0.0-ok3
+ 33s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/build.pYQ/src/debian/ /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/pkg/debian/
+ 33s autopkgtest: DBG: got reply from testbed: ok
+ 33s autopkgtest: DBG: processing dependency @
+ 33s autopkgtest: DBG: synthesised dependency clang-10
+ 33s autopkgtest: DBG: synthesised dependency clang-tools-10
+ 33s autopkgtest: DBG: synthesised dependency clang-format-10
+ 33s autopkgtest: DBG: synthesised dependency clang-tidy-10
+ 33s autopkgtest: DBG: synthesised dependency clangd-10
+ 33s autopkgtest: DBG: synthesised dependency clang-10-doc
+ 33s autopkgtest: DBG: synthesised dependency libclang1-10
+ 33s autopkgtest: DBG: synthesised dependency libclang-10-dev
+ 33s autopkgtest: DBG: synthesised dependency libclang-common-10-dev
+ 33s autopkgtest: DBG: synthesised dependency libclang-cpp10
+ 33s autopkgtest: DBG: synthesised dependency libclang-cpp10-dev
+ 33s autopkgtest: DBG: synthesised dependency libfuzzer-10-dev [linux-any]
+ 33s autopkgtest: DBG: synthesised dependency python3-clang-10
+ 33s autopkgtest: DBG: synthesised dependency clang-10-examples
+ 33s autopkgtest: DBG: synthesised dependency libllvm10
+ 33s autopkgtest: DBG: synthesised dependency llvm-10
+ 33s autopkgtest: DBG: synthesised dependency llvm-10-runtime
+ 33s autopkgtest: DBG: synthesised dependency llvm-10-dev
+ 33s autopkgtest: DBG: synthesised dependency llvm-10-tools
+ 33s autopkgtest: DBG: synthesised dependency libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x]
+ 33s autopkgtest: DBG: synthesised dependency llvm-10-doc
+ 33s autopkgtest: DBG: synthesised dependency llvm-10-examples
+ 33s autopkgtest: DBG: synthesised dependency lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]
+ 33s autopkgtest: DBG: synthesised dependency liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]
+ 34s autopkgtest: DBG: synthesised dependency liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]
+ 34s autopkgtest: DBG: synthesised dependency lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 34s autopkgtest: DBG: synthesised dependency liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 34s autopkgtest: DBG: synthesised dependency python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 34s autopkgtest: DBG: synthesised dependency liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 34s autopkgtest: DBG: synthesised dependency libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64]
+ 34s autopkgtest: DBG: synthesised dependency libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64]
+ 34s autopkgtest: DBG: synthesised dependency libomp-10-doc
+ 34s autopkgtest: DBG: synthesised dependency libc++1-10
+ 34s autopkgtest: DBG: synthesised dependency libc++-10-dev
+ 34s autopkgtest: DBG: synthesised dependency libc++abi1-10
+ 34s autopkgtest: DBG: synthesised dependency libc++abi-10-dev
+ 34s autopkgtest: DBG: processing dependency cmake
+ 34s autopkgtest: DBG: processing dependency g++
+ 34s autopkgtest: DBG: processing dependency file
+ 34s autopkgtest: DBG: processing dependency dpkg-dev
+ 34s autopkgtest: DBG: Test defined: name command1 path None command "bash -v ./debian/qualify-clang.sh" restrictions ['allow-stderr'] features [] depends ['clang-10', 'clang-tools-10', 'clang-format-10', 'clang-tidy-10', 'clangd-10', 'clang-10-doc', 'libclang1-10', 'libclang-10-dev', 'libclang-common-10-dev', 'libclang-cpp10', 'libclang-cpp10-dev', 'libfuzzer-10-dev [linux-any]', 'python3-clang-10', 'clang-10-examples', 'libllvm10', 'llvm-10', 'llvm-10-runtime', 'llvm-10-dev', 'llvm-10-tools', 'libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x]', 'llvm-10-doc', 'llvm-10-examples', 'lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp-10-doc', 'libc++1-10', 'libc++-10-dev', 'libc++abi1-10', 'libc++abi-10-dev', 'cmake', 'g++', 'file', 'dpkg-dev'] 
+ 34s autopkgtest: DBG: processing dependency gcc
+ 34s autopkgtest: DBG: processing dependency build-essential
+ 34s autopkgtest: DBG: processing dependency cmake
+ 34s autopkgtest: DBG: processing dependency llvm-10-dev
+ 34s autopkgtest: DBG: marked alternatives ['llvm-10-dev'] as a synthesised dependency
+ 34s autopkgtest: DBG: processing dependency libclang-common-10-dev
+ 34s autopkgtest: DBG: marked alternatives ['libclang-common-10-dev'] as a synthesised dependency
+ 34s autopkgtest: DBG: Test defined: name cmake-test path debian/tests/cmake-test command "None" restrictions [] features [] depends ['gcc', 'build-essential', 'cmake', 'llvm-10-dev', 'libclang-common-10-dev'] 
+ 34s autopkgtest: DBG: processing dependency python3-lldb-10
+ 34s autopkgtest: DBG: marked alternatives ['python3-lldb-10'] as a synthesised dependency
+ 34s autopkgtest: DBG: Test defined: name command2 path None command "python3 -c "import lldb; print(lldb.__file__); print(lldb)"" restrictions [] features [] depends ['python3-lldb-10'] 
+ 34s autopkgtest: DBG: processing dependency python3-clang-10
+ 34s autopkgtest: DBG: marked alternatives ['python3-clang-10'] as a synthesised dependency
+ 34s autopkgtest: DBG: Test defined: name command3 path None command "python3 -c "import clang; print(clang.__file__); print(clang)"" restrictions [] features [] depends ['python3-clang-10'] 
+ 34s autopkgtest [17:16:25]: build not needed
+ 34s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/build.pYQ/src/ /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/tests-tree/
+ 99s autopkgtest: DBG: got reply from testbed: ok
+ 99s autopkgtest: DBG: processing dependency @
+ 99s autopkgtest: DBG: synthesised dependency clang-10
+ 99s autopkgtest: DBG: synthesised dependency clang-tools-10
+ 99s autopkgtest: DBG: synthesised dependency clang-format-10
+ 99s autopkgtest: DBG: synthesised dependency clang-tidy-10
+ 99s autopkgtest: DBG: synthesised dependency clangd-10
+ 99s autopkgtest: DBG: synthesised dependency clang-10-doc
+ 99s autopkgtest: DBG: synthesised dependency libclang1-10
+ 99s autopkgtest: DBG: synthesised dependency libclang-10-dev
+ 99s autopkgtest: DBG: synthesised dependency libclang-common-10-dev
+ 99s autopkgtest: DBG: synthesised dependency libclang-cpp10
+ 99s autopkgtest: DBG: synthesised dependency libclang-cpp10-dev
+ 99s autopkgtest: DBG: synthesised dependency libfuzzer-10-dev [linux-any]
+ 99s autopkgtest: DBG: synthesised dependency python3-clang-10
+ 99s autopkgtest: DBG: synthesised dependency clang-10-examples
+ 99s autopkgtest: DBG: synthesised dependency libllvm10
+ 99s autopkgtest: DBG: synthesised dependency llvm-10
+ 99s autopkgtest: DBG: synthesised dependency llvm-10-runtime
+ 99s autopkgtest: DBG: synthesised dependency llvm-10-dev
+ 99s autopkgtest: DBG: synthesised dependency llvm-10-tools
+ 99s autopkgtest: DBG: synthesised dependency libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x]
+ 99s autopkgtest: DBG: synthesised dependency llvm-10-doc
+ 99s autopkgtest: DBG: synthesised dependency llvm-10-examples
+ 99s autopkgtest: DBG: synthesised dependency lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]
+ 99s autopkgtest: DBG: synthesised dependency liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]
+ 99s autopkgtest: DBG: synthesised dependency liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]
+ 99s autopkgtest: DBG: synthesised dependency lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+ 99s autopkgtest: DBG: synthesised dependency liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+100s autopkgtest: DBG: synthesised dependency python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+100s autopkgtest: DBG: synthesised dependency liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]
+100s autopkgtest: DBG: synthesised dependency libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64]
+100s autopkgtest: DBG: synthesised dependency libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64]
+100s autopkgtest: DBG: synthesised dependency libomp-10-doc
+100s autopkgtest: DBG: synthesised dependency libc++1-10
+100s autopkgtest: DBG: synthesised dependency libc++-10-dev
+100s autopkgtest: DBG: synthesised dependency libc++abi1-10
+100s autopkgtest: DBG: synthesised dependency libc++abi-10-dev
+100s autopkgtest: DBG: processing dependency cmake
+100s autopkgtest: DBG: processing dependency g++
+100s autopkgtest: DBG: processing dependency file
+100s autopkgtest: DBG: processing dependency dpkg-dev
+100s autopkgtest: DBG: Test defined: name command1 path None command "bash -v ./debian/qualify-clang.sh" restrictions ['allow-stderr'] features [] depends ['clang-10', 'clang-tools-10', 'clang-format-10', 'clang-tidy-10', 'clangd-10', 'clang-10-doc', 'libclang1-10', 'libclang-10-dev', 'libclang-common-10-dev', 'libclang-cpp10', 'libclang-cpp10-dev', 'libfuzzer-10-dev [linux-any]', 'python3-clang-10', 'clang-10-examples', 'libllvm10', 'llvm-10', 'llvm-10-runtime', 'llvm-10-dev', 'llvm-10-tools', 'libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x]', 'llvm-10-doc', 'llvm-10-examples', 'lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp-10-doc', 'libc++1-10', 'libc++-10-dev', 'libc++abi1-10', 'libc++abi-10-dev', 'cmake', 'g++', 'file', 'dpkg-dev'] 
+100s autopkgtest: DBG: processing dependency gcc
+100s autopkgtest: DBG: processing dependency build-essential
+100s autopkgtest: DBG: processing dependency cmake
+100s autopkgtest: DBG: processing dependency llvm-10-dev
+100s autopkgtest: DBG: marked alternatives ['llvm-10-dev'] as a synthesised dependency
+100s autopkgtest: DBG: processing dependency libclang-common-10-dev
+100s autopkgtest: DBG: marked alternatives ['libclang-common-10-dev'] as a synthesised dependency
+100s autopkgtest: DBG: Test defined: name cmake-test path debian/tests/cmake-test command "None" restrictions [] features [] depends ['gcc', 'build-essential', 'cmake', 'llvm-10-dev', 'libclang-common-10-dev'] 
+100s autopkgtest: DBG: processing dependency python3-lldb-10
+100s autopkgtest: DBG: marked alternatives ['python3-lldb-10'] as a synthesised dependency
+100s autopkgtest: DBG: Test defined: name command2 path None command "python3 -c "import lldb; print(lldb.__file__); print(lldb)"" restrictions [] features [] depends ['python3-lldb-10'] 
+100s autopkgtest: DBG: processing dependency python3-clang-10
+100s autopkgtest: DBG: marked alternatives ['python3-clang-10'] as a synthesised dependency
+100s autopkgtest: DBG: Test defined: name command3 path None command "python3 -c "import clang; print(clang.__file__); print(clang)"" restrictions [] features [] depends ['python3-clang-10'] 
+100s autopkgtest [17:17:31]: test command1: preparing testbed
+100s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['clang-10', 'clang-tools-10', 'clang-format-10', 'clang-tidy-10', 'clangd-10', 'clang-10-doc', 'libclang1-10', 'libclang-10-dev', 'libclang-common-10-dev', 'libclang-cpp10', 'libclang-cpp10-dev', 'libfuzzer-10-dev [linux-any]', 'python3-clang-10', 'clang-10-examples', 'libllvm10', 'llvm-10', 'llvm-10-runtime', 'llvm-10-dev', 'llvm-10-tools', 'libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x]', 'llvm-10-doc', 'llvm-10-examples', 'lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp-10-doc', 'libc++1-10', 'libc++-10-dev', 'libc++abi1-10', 'libc++abi-10-dev', 'cmake', 'g++', 'file', 'dpkg-dev']
+100s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+100s autopkgtest: DBG: install_deps: deps_new=['clang-10', 'clang-tools-10', 'clang-format-10', 'clang-tidy-10', 'clangd-10', 'clang-10-doc', 'libclang1-10', 'libclang-10-dev', 'libclang-common-10-dev', 'libclang-cpp10', 'libclang-cpp10-dev', 'libfuzzer-10-dev [linux-any]', 'python3-clang-10', 'clang-10-examples', 'libllvm10', 'llvm-10', 'llvm-10-runtime', 'llvm-10-dev', 'llvm-10-tools', 'libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x]', 'llvm-10-doc', 'llvm-10-examples', 'lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp-10-doc', 'libc++1-10', 'libc++-10-dev', 'libc++abi1-10', 'libc++abi-10-dev', 'cmake', 'g++', 'file', 'dpkg-dev']
+100s autopkgtest: DBG: install-deps: satisfying clang-10, clang-tools-10, clang-format-10, clang-tidy-10, clangd-10, clang-10-doc, libclang1-10, libclang-10-dev, libclang-common-10-dev, libclang-cpp10, libclang-cpp10-dev, libfuzzer-10-dev [linux-any], python3-clang-10, clang-10-examples, libllvm10, llvm-10, llvm-10-runtime, llvm-10-dev, llvm-10-tools, libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x], llvm-10-doc, llvm-10-examples, lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32], liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32], liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32], lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32], liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32], python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32], liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32], libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64], libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64], libomp-10-doc, libc++1-10, libc++-10-dev, libc++abi1-10, libc++abi-10-dev, cmake, g++, file, dpkg-dev
+100s autopkgtest: DBG: install-deps: architecture resolved: clang-10, clang-tools-10, clang-format-10, clang-tidy-10, clangd-10, clang-10-doc, libclang1-10, libclang-10-dev, libclang-common-10-dev, libclang-cpp10, libclang-cpp10-dev, libfuzzer-10-dev, python3-clang-10, clang-10-examples, libllvm10, llvm-10, llvm-10-runtime, llvm-10-dev, llvm-10-tools, llvm-10-doc, llvm-10-examples, libomp-10-doc, libc++1-10, libc++-10-dev, libc++abi1-10, libc++abi-10-dev, cmake, g++, file, dpkg-dev
+100s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+100s autopkgtest: DBG: testbed command exited with code 0
+100s autopkgtest: DBG: can use apt-get on testbed: True
+100s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+100s autopkgtest: DBG: testbed command exited with code 0
+100s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO/1-autopkgtest-satdep.deb /tmp/autopkgtest.pq6orO/1-autopkgtest-satdep.deb
+100s autopkgtest: DBG: got reply from testbed: ok
+100s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.pq6orO/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+101s Reading package lists...
+101s Building dependency tree...
+101s Reading state information...
+102s Starting pkgProblemResolver with broken count: 1
+102s Starting 2 pkgProblemResolver with broken count: 1
+102s Investigating (0) llvm-10:riscv64 < none -> 1:10.0.0-ok3 @un puN Ib >
+102s Broken llvm-10:riscv64 Depends on libpfm4:riscv64 < none @un H >
+102s Done
+102s Some packages could not be installed. This may mean that you have
+102s requested an impossible situation or if you are using the unstable
+102s distribution that some required packages have not yet been created
+102s or been moved out of Incoming.
+102s The following information may help to resolve the situation:
+102s 
+102s The following packages have unmet dependencies:
+103s  llvm-10 : Depends: libpfm4 but it is not installable
+103s E: Unable to correct problems, you have held broken packages.
+103s autopkgtest: DBG: testbed command exited with code 100
+103s autopkgtest: DBG: apt-get install /tmp/autopkgtest.pq6orO/1-autopkgtest-satdep.deb failed; status-fd:
+103s 
+103s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+103s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate clang-10 clang-tools-10 clang-format-10 clang-tidy-10 clangd-10 clang-10-doc libclang1-10 libclang-10-dev libclang-common-10-dev libclang-cpp10 libclang-cpp10-dev libfuzzer-10-dev python3-clang-10 clang-10-examples libllvm10 llvm-10 llvm-10-runtime llvm-10-dev llvm-10-tools llvm-10-doc llvm-10-examples libomp-10-doc libc++1-10 libc++-10-dev libc++abi1-10 libc++abi-10-dev cmake g++ file dpkg-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+103s Reading package lists...
+103s Building dependency tree...
+103s Reading state information...
+104s Starting pkgProblemResolver with broken count: 1
+104s Starting 2 pkgProblemResolver with broken count: 1
+104s Investigating (0) llvm-10:riscv64 < none -> 1:10.0.0-ok3 @un puN Ib >
+104s Broken llvm-10:riscv64 Depends on libpfm4:riscv64 < none @un H >
+104s Done
+104s g++ is already the newest version (4:12.2.0-ok1).
+104s Some packages could not be installed. This may mean that you have
+104s requested an impossible situation or if you are using the unstable
+104s distribution that some required packages have not yet been created
+104s or been moved out of Incoming.
+104s The following information may help to resolve the situation:
+104s 
+104s The following packages have unmet dependencies:
+105s  llvm-10 : Depends: libpfm4 but it is not installable
+105s E: Unable to correct problems, you have held broken packages.
+105s autopkgtest: DBG: testbed command exited with code 100
+105s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+105s command1             FAIL badpkg
+105s blame: llvm-toolchain-10_10.0.0-ok3.dsc
+105s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+105s autopkgtest [17:17:36]: test cmake-test: preparing testbed
+105s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['clang-10', 'clang-tools-10', 'clang-format-10', 'clang-tidy-10', 'clangd-10', 'clang-10-doc', 'libclang1-10', 'libclang-10-dev', 'libclang-common-10-dev', 'libclang-cpp10', 'libclang-cpp10-dev', 'libfuzzer-10-dev [linux-any]', 'python3-clang-10', 'clang-10-examples', 'libllvm10', 'llvm-10', 'llvm-10-runtime', 'llvm-10-dev', 'llvm-10-tools', 'libllvm-10-ocaml-dev [amd64 arm64 armhf i386 ppc64el s390x]', 'llvm-10-doc', 'llvm-10-examples', 'lld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'liblld-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 sparc alpha hppa m68k powerpcspe ppc64 sh4 sparc64 x32]', 'lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'python3-lldb-10 [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'liblldb-10-dev [amd64 arm64 armel armhf i386 mips mipsel mips64el ppc64el kfreebsd-amd64 kfreebsd-i386 s390 s390x sparc hppa m68k sh4 x32]', 'libomp-10-dev [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp5-10 [amd64 arm64 armhf i386 mips64el ppc64el ppc64]', 'libomp-10-doc', 'libc++1-10', 'libc++-10-dev', 'libc++abi1-10', 'libc++abi-10-dev', 'cmake', 'g++', 'file', 'dpkg-dev'], deps_new=['gcc', 'build-essential', 'cmake', 'llvm-10-dev', 'libclang-common-10-dev']
+105s autopkgtest: DBG: testbed reset
+105s autopkgtest: DBG: sending command to testbed: revert
+109s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+111s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.pq6orO
+111s autopkgtest: DBG: sending command to testbed: print-execute-command
+111s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500,--user%3Droot,--
+111s autopkgtest: DBG: sending command to testbed: capabilities
+111s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO
+111s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO', 'has_internet']
+111s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+111s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.pq6orO/wrapper.sh
+111s autopkgtest: DBG: got reply from testbed: ok
+111s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.pq6orO/wrapper.sh'], kind short, sout raw, serr pipe, env []
+111s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+111s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest [17:17:42]: testbed dpkg architecture: riscv64
+111s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+111s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+112s autopkgtest: DBG: testbed command exited with code 0
+112s autopkgtest [17:17:43]: testbed apt version: 2.7.3-ok3
+112s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+112s autopkgtest: DBG: testbed command exited with code 127
+112s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+112s autopkgtest: DBG: testbed command exited with code 0
+112s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.pq6orO/testbed-packages"], kind short, sout raw, serr pipe, env []
+112s autopkgtest: DBG: testbed command exited with code 0
+112s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/testbed-packages /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/testbed-packages
+112s autopkgtest: DBG: got reply from testbed: ok
+112s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+112s autopkgtest: DBG: testbed command exited with code 0
+112s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+112s autopkgtest: DBG: install_deps: deps_new=['gcc', 'build-essential', 'cmake', 'llvm-10-dev', 'libclang-common-10-dev']
+112s autopkgtest: DBG: install-deps: satisfying gcc, build-essential, cmake, llvm-10-dev, libclang-common-10-dev
+112s autopkgtest: DBG: install-deps: architecture resolved: gcc, build-essential, cmake, llvm-10-dev, libclang-common-10-dev
+112s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+112s autopkgtest: DBG: testbed command exited with code 0
+112s autopkgtest: DBG: can use apt-get on testbed: True
+112s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+112s autopkgtest: DBG: testbed command exited with code 0
+112s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO/2-autopkgtest-satdep.deb /tmp/autopkgtest.pq6orO/2-autopkgtest-satdep.deb
+112s autopkgtest: DBG: got reply from testbed: ok
+112s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.pq6orO/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+113s Reading package lists...
+113s Building dependency tree...
+113s Reading state information...
+114s Starting pkgProblemResolver with broken count: 1
+114s Starting 2 pkgProblemResolver with broken count: 1
+114s Investigating (0) llvm-10:riscv64 < none -> 1:10.0.0-ok3 @un puN Ib >
+114s Broken llvm-10:riscv64 Depends on llvm-10-runtime:riscv64 < none | 1:10.0.0-ok3 @un uH > (= 1:10.0.0-ok3)
+114s   Considering llvm-10-runtime:riscv64 0 as a solution to llvm-10:riscv64 1
+114s   Re-Instated binfmt-support:riscv64
+114s   Re-Instated llvm-10-runtime:riscv64
+114s Broken llvm-10:riscv64 Depends on libpfm4:riscv64 < none @un H >
+114s Done
+114s Some packages could not be installed. This may mean that you have
+114s requested an impossible situation or if you are using the unstable
+114s distribution that some required packages have not yet been created
+114s or been moved out of Incoming.
+114s The following information may help to resolve the situation:
+114s 
+114s The following packages have unmet dependencies:
+114s  llvm-10 : Depends: libpfm4 but it is not installable
+114s E: Unable to correct problems, you have held broken packages.
+114s autopkgtest: DBG: testbed command exited with code 100
+114s autopkgtest: DBG: apt-get install /tmp/autopkgtest.pq6orO/2-autopkgtest-satdep.deb failed; status-fd:
+114s 
+114s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+114s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gcc build-essential cmake llvm-10-dev libclang-common-10-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+115s Reading package lists...
+115s Building dependency tree...
+115s Reading state information...
+116s Starting pkgProblemResolver with broken count: 1
+116s Starting 2 pkgProblemResolver with broken count: 1
+116s Investigating (0) llvm-10:riscv64 < none -> 1:10.0.0-ok3 @un puN Ib >
+116s Broken llvm-10:riscv64 Depends on llvm-10-runtime:riscv64 < none | 1:10.0.0-ok3 @un uH > (= 1:10.0.0-ok3)
+116s   Considering llvm-10-runtime:riscv64 0 as a solution to llvm-10:riscv64 0
+116s   Re-Instated binfmt-support:riscv64
+116s   Re-Instated llvm-10-runtime:riscv64
+116s Broken llvm-10:riscv64 Depends on libpfm4:riscv64 < none @un H >
+116s Done
+116s gcc is already the newest version (4:12.2.0-ok1).
+116s build-essential is already the newest version (12.8-ok1).
+116s Some packages could not be installed. This may mean that you have
+116s requested an impossible situation or if you are using the unstable
+116s distribution that some required packages have not yet been created
+116s or been moved out of Incoming.
+116s The following information may help to resolve the situation:
+116s 
+116s The following packages have unmet dependencies:
+116s  llvm-10 : Depends: libpfm4 but it is not installable
+116s E: Unable to correct problems, you have held broken packages.
+116s autopkgtest: DBG: testbed command exited with code 100
+116s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+116s cmake-test           FAIL badpkg
+116s blame: llvm-toolchain-10_10.0.0-ok3.dsc
+116s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+116s autopkgtest [17:17:47]: test command2: preparing testbed
+116s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gcc', 'build-essential', 'cmake', 'llvm-10-dev', 'libclang-common-10-dev'], deps_new=['python3-lldb-10']
+116s autopkgtest: DBG: testbed reset
+116s autopkgtest: DBG: sending command to testbed: revert
+117s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+118s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.pq6orO
+118s autopkgtest: DBG: sending command to testbed: print-execute-command
+118s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500,--user%3Droot,--
+118s autopkgtest: DBG: sending command to testbed: capabilities
+118s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO
+118s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO', 'has_internet']
+118s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+118s autopkgtest: DBG: testbed command exited with code 0
+118s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.pq6orO/wrapper.sh
+118s autopkgtest: DBG: got reply from testbed: ok
+118s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.pq6orO/wrapper.sh'], kind short, sout raw, serr pipe, env []
+118s autopkgtest: DBG: testbed command exited with code 0
+118s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+118s autopkgtest: DBG: testbed command exited with code 0
+118s autopkgtest [17:17:49]: testbed dpkg architecture: riscv64
+118s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+118s autopkgtest: DBG: testbed command exited with code 0
+118s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+118s autopkgtest: DBG: testbed command exited with code 0
+118s autopkgtest [17:17:49]: testbed apt version: 2.7.3-ok3
+118s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+118s autopkgtest: DBG: testbed command exited with code 127
+118s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+118s autopkgtest: DBG: testbed command exited with code 0
+118s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.pq6orO/testbed-packages"], kind short, sout raw, serr pipe, env []
+119s autopkgtest: DBG: testbed command exited with code 0
+119s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/testbed-packages /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/testbed-packages
+119s autopkgtest: DBG: got reply from testbed: ok
+119s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+119s autopkgtest: DBG: testbed command exited with code 0
+119s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+119s autopkgtest: DBG: install_deps: deps_new=['python3-lldb-10']
+119s autopkgtest: DBG: install-deps: satisfying python3-lldb-10
+119s autopkgtest: DBG: install-deps: architecture resolved: python3-lldb-10
+119s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+119s autopkgtest: DBG: testbed command exited with code 0
+119s autopkgtest: DBG: can use apt-get on testbed: True
+119s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+119s autopkgtest: DBG: testbed command exited with code 0
+119s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO/3-autopkgtest-satdep.deb /tmp/autopkgtest.pq6orO/3-autopkgtest-satdep.deb
+119s autopkgtest: DBG: got reply from testbed: ok
+119s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.pq6orO/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+120s Reading package lists...
+120s Building dependency tree...
+120s Reading state information...
+120s Starting pkgProblemResolver with broken count: 1
+121s Starting 2 pkgProblemResolver with broken count: 1
+121s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+121s Broken autopkgtest-satdep:riscv64 Depends on python3-lldb-10:riscv64 < none @un H >
+121s Done
+121s Some packages could not be installed. This may mean that you have
+121s requested an impossible situation or if you are using the unstable
+121s distribution that some required packages have not yet been created
+121s or been moved out of Incoming.
+121s The following information may help to resolve the situation:
+121s 
+121s The following packages have unmet dependencies:
+121s  autopkgtest-satdep : Depends: python3-lldb-10 but it is not installable
+121s E: Unable to correct problems, you have held broken packages.
+121s autopkgtest: DBG: testbed command exited with code 100
+121s autopkgtest: DBG: apt-get install /tmp/autopkgtest.pq6orO/3-autopkgtest-satdep.deb failed; status-fd:
+121s 
+121s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+121s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate python3-lldb-10 -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+121s Reading package lists...
+122s Building dependency tree...
+122s Reading state information...
+122s E: Unable to locate package python3-lldb-10
+122s autopkgtest: DBG: testbed command exited with code 100
+122s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+122s command2             FAIL badpkg
+122s blame: llvm-toolchain-10_10.0.0-ok3.dsc
+122s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+122s autopkgtest [17:17:53]: test command3: preparing testbed
+122s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['python3-lldb-10'], deps_new=['python3-clang-10']
+122s autopkgtest: DBG: testbed reset
+122s autopkgtest: DBG: sending command to testbed: revert
+122s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+123s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.pq6orO
+123s autopkgtest: DBG: sending command to testbed: print-execute-command
+123s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500,--user%3Droot,--
+123s autopkgtest: DBG: sending command to testbed: capabilities
+123s autopkgtest: DBG: got reply from testbed: ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO
+123s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO', 'has_internet']
+123s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.pq6orO/wrapper.sh
+123s autopkgtest: DBG: got reply from testbed: ok
+123s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.pq6orO/wrapper.sh'], kind short, sout raw, serr pipe, env []
+123s autopkgtest: DBG: testbed command exited with code 0
+123s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest [17:17:55]: testbed dpkg architecture: riscv64
+124s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest [17:17:55]: testbed apt version: 2.7.3-ok3
+124s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 127
+124s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.pq6orO/testbed-packages"], kind short, sout raw, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/testbed-packages /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/testbed-packages
+124s autopkgtest: DBG: got reply from testbed: ok
+124s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+124s autopkgtest: DBG: install_deps: deps_new=['python3-clang-10']
+124s autopkgtest: DBG: install-deps: satisfying python3-clang-10
+124s autopkgtest: DBG: install-deps: architecture resolved: python3-clang-10
+124s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+124s autopkgtest: DBG: testbed command exited with code 0
+124s autopkgtest: DBG: can use apt-get on testbed: True
+125s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO'], kind short, sout raw, serr pipe, env []
+125s autopkgtest: DBG: testbed command exited with code 0
+125s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a56095fe-4c14-4f66-a39b-96a751712500//tmp/autopkgtest.pq6orO/4-autopkgtest-satdep.deb /tmp/autopkgtest.pq6orO/4-autopkgtest-satdep.deb
+125s autopkgtest: DBG: got reply from testbed: ok
+125s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.pq6orO/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+125s Reading package lists...
+126s Building dependency tree...
+126s Reading state information...
+126s Starting pkgProblemResolver with broken count: 0
+126s Starting 2 pkgProblemResolver with broken count: 0
+126s Done
+127s The following packages were automatically installed and are no longer required:
+127s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+127s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+127s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+127s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+127s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+127s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+127s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+127s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+127s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+127s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+127s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+127s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+127s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+127s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+127s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+127s   indicator-messages indicator-printers indicator-session kylin-screenshot
+127s   language-selector-common language-selector-gnome libatrildocument3
+127s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+127s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+127s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+127s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+127s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+127s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+127s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+127s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+127s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+127s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+127s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+127s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+127s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+127s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+127s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+127s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+127s Use 'sudo apt autoremove' to remove them.
+127s The following additional packages will be installed:
+127s   gcc-13-base libasan8 libatomic1 libcc1-0 libclang-10-dev
+127s   libclang-common-10-dev libclang1-10 libgc1c2 libgcc-s1 libgfortran5 libgomp1
+127s   libllvm10 libobjc-9-dev libobjc4 libstdc++6 python3-clang-10
+128s The following NEW packages will be installed:
+128s   autopkgtest-satdep gcc-13-base libclang-10-dev libclang-common-10-dev
+128s   libclang1-10 libgc1c2 libllvm10 libobjc-9-dev libobjc4 python3-clang-10
+128s The following packages will be upgraded:
+128s   libasan8 libatomic1 libcc1-0 libgcc-s1 libgfortran5 libgomp1 libstdc++6
+128s 7 upgraded, 10 newly installed, 0 to remove and 1059 not upgraded.
+128s Need to get 76.9 MB/77.0 MB of archives.
+128s After this operation, 681 MB of additional disk space will be used.
+128s Get:1 /tmp/autopkgtest.pq6orO/4-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [708 B]
+128s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 gcc-13-base riscv64 13.2.0-4ok3.3 [18.2 kB]
+128s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgcc-s1 riscv64 13.2.0-4ok3.3 [57.1 kB]
+128s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libstdc++6 riscv64 13.2.0-4ok3.3 [753 kB]
+128s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgc1c2 riscv64 1:7.6.4-ok2 [82.0 kB]
+128s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libasan8 riscv64 13.2.0-4ok3.3 [2,634 kB]
+129s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libatomic1 riscv64 13.2.0-4ok3.3 [9,156 B]
+129s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libcc1-0 riscv64 13.2.0-4ok3.3 [43.6 kB]
+129s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libobjc4 riscv64 13.2.0-4ok3.3 [46.4 kB]
+129s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libobjc-9-dev riscv64 9.3.0-ok12 [476 kB]
+130s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libllvm10 riscv64 1:10.0.0-ok3 [16.2 MB]
+136s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 libclang1-10 riscv64 1:10.0.0-ok3 [7,594 kB]
+140s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libclang-common-10-dev riscv64 1:10.0.0-ok3 [3,790 kB]
+141s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 libclang-10-dev riscv64 1:10.0.0-ok3 [44.7 MB]
+160s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgfortran5 riscv64 13.2.0-4ok3.3 [433 kB]
+160s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgomp1 riscv64 13.2.0-4ok3.3 [135 kB]
+160s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-clang-10 riscv64 1:10.0.0-ok3 [29.5 kB]
+162s Fetched 76.9 MB in 33s (2,367 kB/s)
+162s Selecting previously unselected package gcc-13-base:riscv64.
+162s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+162s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+162s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+162s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+162s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+162s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+163s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+163s Preparing to unpack .../gcc-13-base_13.2.0-4ok3.3_riscv64.deb ...
+163s Unpacking gcc-13-base:riscv64 (13.2.0-4ok3.3) ...
+164s Setting up gcc-13-base:riscv64 (13.2.0-4ok3.3) ...
+164s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+164s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+164s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+164s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+164s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+164s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+164s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193814 files and directories currently installed.)
+164s Preparing to unpack .../libgcc-s1_13.2.0-4ok3.3_riscv64.deb ...
+164s Unpacking libgcc-s1:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+165s Setting up libgcc-s1:riscv64 (13.2.0-4ok3.3) ...
+165s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+165s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+165s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+165s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+165s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+165s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+165s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193814 files and directories currently installed.)
+165s Preparing to unpack .../libstdc++6_13.2.0-4ok3.3_riscv64.deb ...
+166s Unpacking libstdc++6:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+166s Setting up libstdc++6:riscv64 (13.2.0-4ok3.3) ...
+166s Selecting previously unselected package libgc1c2:riscv64.
+166s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+166s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+166s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+166s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+166s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+166s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+166s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193814 files and directories currently installed.)
+166s Preparing to unpack .../00-libgc1c2_1%3a7.6.4-ok2_riscv64.deb ...
+166s Unpacking libgc1c2:riscv64 (1:7.6.4-ok2) ...
+167s Preparing to unpack .../01-libasan8_13.2.0-4ok3.3_riscv64.deb ...
+167s Unpacking libasan8:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+167s Preparing to unpack .../02-libatomic1_13.2.0-4ok3.3_riscv64.deb ...
+167s Unpacking libatomic1:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+167s Preparing to unpack .../03-libcc1-0_13.2.0-4ok3.3_riscv64.deb ...
+167s Unpacking libcc1-0:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+168s Selecting previously unselected package libobjc4:riscv64.
+168s Preparing to unpack .../04-libobjc4_13.2.0-4ok3.3_riscv64.deb ...
+168s Unpacking libobjc4:riscv64 (13.2.0-4ok3.3) ...
+168s Selecting previously unselected package libobjc-9-dev:riscv64.
+168s Preparing to unpack .../05-libobjc-9-dev_9.3.0-ok12_riscv64.deb ...
+168s Unpacking libobjc-9-dev:riscv64 (9.3.0-ok12) ...
+168s Selecting previously unselected package libllvm10:riscv64.
+168s Preparing to unpack .../06-libllvm10_1%3a10.0.0-ok3_riscv64.deb ...
+168s Unpacking libllvm10:riscv64 (1:10.0.0-ok3) ...
+170s Selecting previously unselected package libclang1-10.
+170s Preparing to unpack .../07-libclang1-10_1%3a10.0.0-ok3_riscv64.deb ...
+170s Unpacking libclang1-10 (1:10.0.0-ok3) ...
+171s Selecting previously unselected package libclang-common-10-dev.
+171s Preparing to unpack .../08-libclang-common-10-dev_1%3a10.0.0-ok3_riscv64.deb ...
+171s Unpacking libclang-common-10-dev (1:10.0.0-ok3) ...
+173s Selecting previously unselected package libclang-10-dev.
+173s Preparing to unpack .../09-libclang-10-dev_1%3a10.0.0-ok3_riscv64.deb ...
+173s Unpacking libclang-10-dev (1:10.0.0-ok3) ...
+185s Preparing to unpack .../10-libgfortran5_13.2.0-4ok3.3_riscv64.deb ...
+185s Unpacking libgfortran5:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+186s Preparing to unpack .../11-libgomp1_13.2.0-4ok3.3_riscv64.deb ...
+186s Unpacking libgomp1:riscv64 (13.2.0-4ok3.3) over (12.2.0-ok7) ...
+186s Selecting previously unselected package python3-clang-10.
+186s Preparing to unpack .../12-python3-clang-10_1%3a10.0.0-ok3_riscv64.deb ...
+186s Unpacking python3-clang-10 (1:10.0.0-ok3) ...
+186s Selecting previously unselected package autopkgtest-satdep.
+186s Preparing to unpack .../13-4-autopkgtest-satdep.deb ...
+186s Unpacking autopkgtest-satdep (0) ...
+186s Setting up libgc1c2:riscv64 (1:7.6.4-ok2) ...
+186s Setting up libobjc4:riscv64 (13.2.0-4ok3.3) ...
+186s Setting up libgomp1:riscv64 (13.2.0-4ok3.3) ...
+186s Setting up libatomic1:riscv64 (13.2.0-4ok3.3) ...
+186s Setting up libobjc-9-dev:riscv64 (9.3.0-ok12) ...
+186s Setting up libgfortran5:riscv64 (13.2.0-4ok3.3) ...
+186s Setting up libasan8:riscv64 (13.2.0-4ok3.3) ...
+186s Setting up libcc1-0:riscv64 (13.2.0-4ok3.3) ...
+186s Setting up libllvm10:riscv64 (1:10.0.0-ok3) ...
+186s Setting up libclang1-10 (1:10.0.0-ok3) ...
+186s Setting up libclang-common-10-dev (1:10.0.0-ok3) ...
+186s Setting up libclang-10-dev (1:10.0.0-ok3) ...
+186s Setting up python3-clang-10 (1:10.0.0-ok3) ...
+186s Setting up autopkgtest-satdep (0) ...
+186s Processing triggers for libc-bin (2.38-1ok6.8) ...
+188s autopkgtest: DBG: testbed command exited with code 0
+188s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'python3-clang-10'], kind short, sout pipe, serr pipe, env []
+189s autopkgtest: DBG: testbed command exited with code 0
+189s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+189s autopkgtest: DBG: testbed command exited with code 0
+189s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+192s autopkgtest: DBG: testbed command exited with code 0
+192s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 python3-clang-10 libclang-10-dev libclang-common-10-dev libclang1-10 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libobjc-9-dev libobjc4 libgc1c2 libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libllvm10 libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+192s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+193s autopkgtest: DBG: testbed command exited with code 0
+193s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+194s autopkgtest: DBG: testbed command exited with code 0
+194s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+195s autopkgtest: DBG: testbed command exited with code 0
+195s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'python3-clang-10', 'libclang-10-dev', 'libclang-common-10-dev'], kind short, sout raw, serr pipe, env []
+196s autopkgtest: DBG: testbed command exited with code 0
+196s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libclang1-10', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libobjc-9-dev', 'libobjc4', 'libgc1c2', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2'], kind short, sout raw, serr pipe, env []
+197s autopkgtest: DBG: testbed command exited with code 0
+197s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libllvm10', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2'], kind short, sout raw, serr pipe, env []
+198s autopkgtest: DBG: testbed command exited with code 0
+198s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+199s autopkgtest: DBG: testbed command exited with code 0
+199s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+199s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+199s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+199s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+199s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+199s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+199s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+199s (Reading database ... 194934 files and directories currently installed.)
+199s Removing autopkgtest-satdep (0) ...
+199s autopkgtest: DBG: testbed command exited with code 0
+199s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+199s autopkgtest: DBG: testbed command exited with code 0
+199s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.pq6orO/command3-packages.all"], kind short, sout raw, serr pipe, env []
+200s autopkgtest: DBG: testbed command exited with code 0
+200s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/command3-packages.all /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/command3-packages.all
+200s autopkgtest: DBG: got reply from testbed: ok
+200s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.pq6orO/build.pYQ/src'], kind short, sout raw, serr raw, env []
+200s autopkgtest: DBG: testbed command exited with code 1
+200s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.pq6orO/build.pYQ'], kind short, sout raw, serr pipe, env []
+200s autopkgtest: DBG: testbed command exited with code 0
+200s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/tests-tree/ /tmp/autopkgtest.pq6orO/build.pYQ/src/
+273s autopkgtest: DBG: got reply from testbed: ok
+273s autopkgtest [17:20:24]: test command3: python3 -c "import clang; print(clang.__file__); print(clang)"
+273s autopkgtest [17:20:24]: test command3: [-----------------------
+273s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.pq6orO/wrapper.sh --debug --artifacts=/tmp/autopkgtest.pq6orO/command3-artifacts --chdir=/tmp/autopkgtest.pq6orO/build.pYQ/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.pq6orO/command3-stderr --stdout=/tmp/autopkgtest.pq6orO/command3-stdout --tmp=/tmp/autopkgtest.pq6orO/autopkgtest_tmp -- bash -ec \'python3 -c "import clang; print(clang.__file__); print(clang)"\''], kind test, sout raw, serr raw, env []
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.pq6orO/command3-artifacts
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: changing to directory: /tmp/autopkgtest.pq6orO/build.pYQ/src
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: setting environment: LANG=C.UTF-8
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LANGUAGE
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_ADDRESS
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_ALL
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_COLLATE
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_CTYPE
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_MEASUREMENT
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_MESSAGES
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_MONETARY
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_NAME
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_NUMERIC
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_PAPER
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_TELEPHONE
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: unsetting environment: LC_TIME
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: pretending to be a login shell
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: will write standard error to /tmp/autopkgtest.pq6orO/command3-stderr
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: will write stdout to /tmp/autopkgtest.pq6orO/command3-stdout
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.pq6orO/autopkgtest_tmp
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: command to run: bash -ec python3 -c "import clang; print(clang.__file__); print(clang)"
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: copying /tmp/tmp.JVkUVejZ0r/out to stdout and file: /tmp/autopkgtest.pq6orO/command3-stdout
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: copying /tmp/tmp.JVkUVejZ0r/err to standard error and file: /tmp/autopkgtest.pq6orO/command3-stdout
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: writing script pid 1199329 to /tmp/autopkgtest_script_pid
+273s /usr/lib/python3/dist-packages/clang/__init__.py
+273s <module 'clang' from '/usr/lib/python3/dist-packages/clang/__init__.py'>
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: checking for leaked background processes...
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: waiting for tee/cat subprocesses...
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: cleaning up...
+273s /tmp/autopkgtest.pq6orO/wrapper.sh: Exit status: 0
+273s autopkgtest: DBG: testbed command exited with code 0
+273s autopkgtest [17:20:24]: test command3: -----------------------]
+273s autopkgtest: DBG: testbed executing test finished with exit status 0
+273s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/command3-stdout /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/command3-stdout
+273s autopkgtest: DBG: got reply from testbed: ok
+273s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/command3-stderr /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/command3-stderr
+273s autopkgtest: DBG: got reply from testbed: ok
+274s autopkgtest [17:20:24]: test command3:  - - - - - - - - - - results - - - - - - - - - -
+274s command3             PASS
+274s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.pq6orO/command3-artifacts/ /home/hachi/openkylin_test/sharefolder/results/llvm-toolchain-10/artifacts/
+274s autopkgtest: DBG: got reply from testbed: ok
+274s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.pq6orO/command3-artifacts', '/tmp/autopkgtest.pq6orO/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+274s autopkgtest: DBG: testbed command exited with code 0
+274s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+274s autopkgtest [17:20:25]: @@@@@@@@@@@@@@@@@@@@ summary
+274s command1             FAIL badpkg
+274s blame: llvm-toolchain-10_10.0.0-ok3.dsc
+274s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+274s cmake-test           FAIL badpkg
+274s blame: llvm-toolchain-10_10.0.0-ok3.dsc
+274s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+274s command2             FAIL badpkg
+274s blame: llvm-toolchain-10_10.0.0-ok3.dsc
+274s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+274s command3             PASS
+274s autopkgtest: DBG: testbed stop
+274s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.pq6orO
+274s autopkgtest: DBG: sending command to testbed: close
+277s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+278s autopkgtest: DBG: got reply from testbed: ok
+278s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,26 @@
++ pwd
++ srcdir=/tmp/autopkgtest.HitqkI/build.vcE/src
++ mktemp -d
++ workdir=/tmp/tmp.xBUGto94Bk
++ trap rm -rf "$workdir" 0 INT QUIT ABRT PIPE TERM
++ [ -n  ]
++ CROSS_COMPILE=
++ cp tools/linebreak_test.c /tmp/tmp.xBUGto94Bk
++ cp tools/wordbreak_test.c /tmp/tmp.xBUGto94Bk
++ cd /tmp/tmp.xBUGto94Bk
++ CC=gcc
++ PKG_CONFIG=pkg-config
++ pkg-config --cflags --libs libunibreak
++ gcc -o linebreak_test linebreak_test.c -lunibreak
++ CC=gcc
++ PKG_CONFIG=pkg-config
++ pkg-config --cflags --libs libunibreak
++ gcc -o wordbreak_test wordbreak_test.c -lunibreak
++ fail=0
++ ./wordbreak_test The quick brown fox jumped over the lazy dog
++ diff -u /tmp/autopkgtest.HitqkI/build.vcE/src/debian/tests/wordbreaks.txt wordbreaks.txt
++ echo Jackdaws love my big sphinx of quartz
++ ./linebreak_test -l en input.txt
++ diff -u /tmp/autopkgtest.HitqkI/build.vcE/src/debian/tests/linebreaks.txt linebreaks.txt
++ exit 0
++ rm -rf /tmp/tmp.xBUGto94Bk

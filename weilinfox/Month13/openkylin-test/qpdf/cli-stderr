@@ -1,0 +1,11 @@
++ TMP=/tmp/autopkgtest.cL3URu/autopkgtest_tmp
++ [ ! -d /tmp/autopkgtest.cL3URu/autopkgtest_tmp ]
++ awk -F" /# *define QPDF_VERSION / {print $2} include/qpdf/DLL.h
++ tail -n 1
++ WANTED_VERSION=11.9.0
++ qpdf --version
++ grep -F 11.9.0
++ qpdf --help
++ qpdf --check qpdf/qtest/qpdf/minimal.pdf
++ qpdf qpdf/qtest/qpdf/minimal.pdf --encrypt u o 256 -- /tmp/autopkgtest.cL3URu/autopkgtest_tmp/out.pdf
++ qpdf --check --password=u /tmp/autopkgtest.cL3URu/autopkgtest_tmp/out.pdf

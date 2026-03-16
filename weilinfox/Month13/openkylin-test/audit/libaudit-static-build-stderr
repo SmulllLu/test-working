@@ -1,0 +1,18 @@
++ cd /tmp/autopkgtest.Keu4AP/autopkgtest_tmp
++ [ -n  ]
++ CROSS_COMPILE=
++ cat
++ pkg-config --static --cflags --libs audit
++ gcc -static -o libaudit-static libaudit-static.c -laudit -lcap-ng
+/usr/bin/ld: /lib/riscv64-linux-gnu/libcap-ng.a(cap-ng.o): in function `.L0 ':
+(.text+0x1588): warning: Using 'initgroups' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+/usr/bin/ld: /lib/riscv64-linux-gnu/libaudit.a(libaudit.o): in function `.L0 ':
+(.text+0x2058): warning: Using 'getgrnam' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+/usr/bin/ld: (.text+0x2602): warning: Using 'getpwnam' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+/usr/bin/ld: /lib/riscv64-linux-gnu/libcap-ng.a(cap-ng.o): in function `.L0 ':
+(.text+0x1570): warning: Using 'getpwuid' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+/usr/bin/ld: /lib/riscv64-linux-gnu/libaudit.a(audit_logging.o): in function `.L0 ':
+(.text+0x1e4): warning: Using 'getaddrinfo' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
++ echo build: OK
++ ./libaudit-static
++ echo run: OK

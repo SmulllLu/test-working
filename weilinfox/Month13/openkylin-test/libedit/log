@@ -1,0 +1,446 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:03:13]: starting date and time: 2024-07-18 00:03:13+0800
+  0s autopkgtest [00:03:13]: version @version@
+  0s autopkgtest [00:03:13]: host nana; command line: /usr/bin/autopkgtest libedit_3.1-20230828-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/libedit -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.Lz6tPV
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-69679615-2246-4235-8c9b-5614b464052d,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-69679615-2246-4235-8c9b-5614b464052d//tmp/autopkgtest.Lz6tPV
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-69679615-2246-4235-8c9b-5614b464052d//tmp/autopkgtest.Lz6tPV', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Lz6tPV'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.Lz6tPV/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.Lz6tPV/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [00:03:14]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [00:03:14]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.Lz6tPV/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Lz6tPV/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libedit/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:03:15]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [00:03:15]: @@@@@@@@@@@@@@@@@@@@ source libedit_3.1-20230828-ok1.dsc
+  2s autopkgtest: DBG: blame += libedit_3.1-20230828-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Lz6tPV'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libedit_3.1-20230828-ok1.dsc /tmp/autopkgtest.Lz6tPV/libedit_3.1-20230828-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Lz6tPV'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libedit_3.1-20230828.orig.tar.gz /tmp/autopkgtest.Lz6tPV/libedit_3.1-20230828.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Lz6tPV'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libedit_3.1-20230828-ok1.debian.tar.xz /tmp/autopkgtest.Lz6tPV/libedit_3.1-20230828-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.Lz6tPV/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.Lz6tPV/libedit_3.1-20230828-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.Lz6tPV/build.XXX
+  3s + builddir=/tmp/autopkgtest.Lz6tPV/build.fwU
+  3s + cd /tmp/autopkgtest.Lz6tPV/build.fwU
+  3s + dpkg-source -x /tmp/autopkgtest.Lz6tPV/libedit_3.1-20230828-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.fQDIA8Ps/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 09 Apr 2024 09:52:18 AM CST
+  3s gpgv:                using RSA key 07D997677A063C0C6C5AD8ED1375949CC26620BB
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.Lz6tPV/libedit_3.1-20230828-ok1.dsc
+  3s dpkg-source: info: extracting libedit in src
+  3s dpkg-source: info: unpacking libedit_3.1-20230828.orig.tar.gz
+  3s dpkg-source: info: unpacking libedit_3.1-20230828-ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying update-soname.diff
+  3s dpkg-source: info: applying libbsd.patch
+  3s dpkg-source: info: applying wcsdup.patch
+  3s dpkg-source: info: applying PATH_MAX.diff
+  3s dpkg-source: info: applying conflictmanpages.diff
+  3s dpkg-source: info: applying termcap.patch
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [00:03:16]: testing package libedit version 3.1-20230828-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Lz6tPV/build.fwU/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libedit/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency gcc
+  3s autopkgtest: DBG: processing dependency libedit-dev
+  3s autopkgtest: DBG: marked alternatives ['libedit-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency pkgconf
+  3s autopkgtest: DBG: Test defined: name command1 path None command "gcc -o "$AUTOPKGTEST_TMP"/test debian/tests/test.c $(pkgconf --cflags --libs libedit) && "$AUTOPKGTEST_TMP"/test" restrictions [] features [] depends ['build-essential', 'gcc', 'libedit-dev', 'pkgconf'] 
+  3s autopkgtest [00:03:16]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Lz6tPV/build.fwU/src/ /home/hachi/openkylin_test/sharefolder/results/libedit/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency gcc
+  3s autopkgtest: DBG: processing dependency libedit-dev
+  3s autopkgtest: DBG: marked alternatives ['libedit-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency pkgconf
+  3s autopkgtest: DBG: Test defined: name command1 path None command "gcc -o "$AUTOPKGTEST_TMP"/test debian/tests/test.c $(pkgconf --cflags --libs libedit) && "$AUTOPKGTEST_TMP"/test" restrictions [] features [] depends ['build-essential', 'gcc', 'libedit-dev', 'pkgconf'] 
+  3s autopkgtest [00:03:16]: test command1: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['build-essential', 'gcc', 'libedit-dev', 'pkgconf']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'gcc', 'libedit-dev', 'pkgconf']
+  3s autopkgtest: DBG: install-deps: satisfying build-essential, gcc, libedit-dev, pkgconf
+  3s autopkgtest: DBG: install-deps: architecture resolved: build-essential, gcc, libedit-dev, pkgconf
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.Lz6tPV'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-69679615-2246-4235-8c9b-5614b464052d//tmp/autopkgtest.Lz6tPV/1-autopkgtest-satdep.deb /tmp/autopkgtest.Lz6tPV/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.Lz6tPV/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   cryptsetup cryptsetup-bin cryptsetup-initramfs cryptsetup-run libbsd-dev
+  6s   libbsd0 libcryptsetup12 libedit-dev libedit2 libmd-dev libmd0 libncurses-dev
+  6s   libncurses6 libncursesw6 libpkgconf4 libtinfo6 ncurses-base ncurses-bin
+  6s   ncurses-term pkg-config pkgconf pkgconf-bin vim vim-common vim-runtime
+  6s   vim-tiny xxd
+  6s Suggested packages:
+  6s   keyutils ncurses-doc ctags vim-doc vim-scripts indent
+  7s The following NEW packages will be installed:
+  7s   autopkgtest-satdep libbsd-dev libedit-dev libmd-dev libncurses-dev
+  7s   libpkgconf4 pkgconf pkgconf-bin
+  7s The following packages will be upgraded:
+  7s   cryptsetup cryptsetup-bin cryptsetup-initramfs cryptsetup-run libbsd0
+  7s   libcryptsetup12 libedit2 libmd0 libncurses6 libncursesw6 libtinfo6
+  7s   ncurses-base ncurses-bin ncurses-term pkg-config vim vim-common vim-runtime
+  7s   vim-tiny xxd
+  7s 20 upgraded, 8 newly installed, 0 to remove and 1046 not upgraded.
+  7s Need to get 12.6 MB/12.6 MB of archives.
+  7s After this operation, 19.1 MB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.Lz6tPV/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libncurses6 riscv64 6.4+20240113-1ok1 [94.4 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libncursesw6 riscv64 6.4+20240113-1ok1 [127 kB]
+  7s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtinfo6 riscv64 6.4+20240113-1ok1 [91.5 kB]
+  7s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 ncurses-bin riscv64 6.4+20240113-1ok1 [182 kB]
+  7s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libcryptsetup12 riscv64 2:2.6.1-ok5 [180 kB]
+  7s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup-bin riscv64 2:2.6.1-ok5 [457 kB]
+  7s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup-initramfs all 2:2.6.1-ok5 [15.3 kB]
+  7s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup riscv64 2:2.6.1-ok5 [41.8 kB]
+  7s Get:10 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 vim riscv64 2:9.1.0016-ok1 [1,304 kB]
+  8s Get:11 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 vim-tiny riscv64 2:9.1.0016-ok1 [562 kB]
+  8s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 vim-runtime all 2:9.1.0016-ok1 [7,259 kB]
+ 11s Get:13 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 xxd riscv64 2:9.1.0016-ok1 [49.7 kB]
+ 11s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 vim-common all 2:9.1.0016-ok1 [374 kB]
+ 11s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 ncurses-term all 6.4+20240113-1ok1 [275 kB]
+ 12s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 ncurses-base all 6.4+20240113-1ok1 [19.0 kB]
+ 12s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 cryptsetup-run all 2:2.6.1-ok5 [2,044 B]
+ 12s Get:18 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libmd0 riscv64 1.1.0-ok1 [25.8 kB]
+ 12s Get:19 http://archive.build.openkylin.top/openkylin nile/main riscv64 libbsd0 riscv64 0.11.7-4ok1 [37.7 kB]
+ 12s Get:20 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libmd-dev riscv64 1.1.0-ok1 [59.9 kB]
+ 12s Get:21 http://archive.build.openkylin.top/openkylin nile/main riscv64 libbsd-dev riscv64 0.11.7-4ok1 [210 kB]
+ 12s Get:22 http://archive.build.openkylin.top/openkylin nile/main riscv64 libedit2 riscv64 3.1-20230828-ok1 [81.9 kB]
+ 12s Get:23 http://archive.build.openkylin.top/openkylin nile/main riscv64 libncurses-dev riscv64 6.4+20240113-1ok1 [885 kB]
+ 12s Get:24 http://archive.build.openkylin.top/openkylin nile/main riscv64 libedit-dev riscv64 3.1-20230828-ok1 [227 kB]
+ 12s Get:25 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpkgconf4 riscv64 1.9.5-ok1 [26.2 kB]
+ 12s Get:26 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkgconf-bin riscv64 1.9.5-ok1 [22.8 kB]
+ 12s Get:27 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkg-config riscv64 1.9.5-ok1 [4,500 B]
+ 12s Get:28 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkgconf riscv64 1.9.5-ok1 [16.5 kB]
+ 14s Preconfiguring packages ...
+ 15s Fetched 12.6 MB in 6s (2,226 kB/s)
+ 15s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 15s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 15s Preparing to unpack .../libncurses6_6.4+20240113-1ok1_riscv64.deb ...
+ 15s Unpacking libncurses6:riscv64 (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 16s Preparing to unpack .../libncursesw6_6.4+20240113-1ok1_riscv64.deb ...
+ 16s Unpacking libncursesw6:riscv64 (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 17s Preparing to unpack .../libtinfo6_6.4+20240113-1ok1_riscv64.deb ...
+ 17s Unpacking libtinfo6:riscv64 (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 17s Setting up libtinfo6:riscv64 (6.4+20240113-1ok1) ...
+ 17s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 17s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 18s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 18s Preparing to unpack .../ncurses-bin_6.4+20240113-1ok1_riscv64.deb ...
+ 18s Unpacking ncurses-bin (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 19s Setting up ncurses-bin (6.4+20240113-1ok1) ...
+ 19s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 19s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 19s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 19s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 19s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 19s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 19s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 19s Preparing to unpack .../00-libcryptsetup12_2%3a2.6.1-ok5_riscv64.deb ...
+ 19s Unpacking libcryptsetup12:riscv64 (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 19s Preparing to unpack .../01-cryptsetup-bin_2%3a2.6.1-ok5_riscv64.deb ...
+ 19s Unpacking cryptsetup-bin (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 20s Preparing to unpack .../02-cryptsetup-initramfs_2%3a2.6.1-ok5_all.deb ...
+ 20s Unpacking cryptsetup-initramfs (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 21s Preparing to unpack .../03-cryptsetup_2%3a2.6.1-ok5_riscv64.deb ...
+ 21s Unpacking cryptsetup (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 22s Preparing to unpack .../04-vim_2%3a9.1.0016-ok1_riscv64.deb ...
+ 22s Unpacking vim (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 22s Preparing to unpack .../05-vim-tiny_2%3a9.1.0016-ok1_riscv64.deb ...
+ 22s Unpacking vim-tiny (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 23s Preparing to unpack .../06-vim-runtime_2%3a9.1.0016-ok1_all.deb ...
+ 23s Adding 'diversion of /usr/share/vim/vim91/doc/help.txt to /usr/share/vim/vim91/doc/help.txt.vim-tiny by vim-runtime'
+ 23s Adding 'diversion of /usr/share/vim/vim91/doc/tags to /usr/share/vim/vim91/doc/tags.vim-tiny by vim-runtime'
+ 23s Unpacking vim-runtime (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 31s Removing 'diversion of /usr/share/vim/vim81/doc/help.txt to /usr/share/vim/vim81/doc/help.txt.vim-tiny by vim-runtime'
+ 31s Removing 'diversion of /usr/share/vim/vim81/doc/tags to /usr/share/vim/vim81/doc/tags.vim-tiny by vim-runtime'
+ 31s Preparing to unpack .../07-xxd_2%3a9.1.0016-ok1_riscv64.deb ...
+ 31s Unpacking xxd (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 32s Preparing to unpack .../08-vim-common_2%3a9.1.0016-ok1_all.deb ...
+ 32s Unpacking vim-common (2:9.1.0016-ok1) over (2:8.1.2269-ok7) ...
+ 32s Preparing to unpack .../09-ncurses-term_6.4+20240113-1ok1_all.deb ...
+ 32s Unpacking ncurses-term (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 44s Preparing to unpack .../10-ncurses-base_6.4+20240113-1ok1_all.deb ...
+ 44s Unpacking ncurses-base (6.4+20240113-1ok1) over (6.3+20220423-2) ...
+ 45s Setting up ncurses-base (6.4+20240113-1ok1) ...
+ 45s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 46s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194092 files and directories currently installed.)
+ 46s Preparing to unpack .../00-cryptsetup-run_2%3a2.6.1-ok5_all.deb ...
+ 46s Unpacking cryptsetup-run (2:2.6.1-ok5) over (2:2.4.3-ok1) ...
+ 46s Preparing to unpack .../01-libmd0_1.1.0-ok1_riscv64.deb ...
+ 46s Unpacking libmd0:riscv64 (1.1.0-ok1) over (1.0.4-ok1) ...
+ 46s Preparing to unpack .../02-libbsd0_0.11.7-4ok1_riscv64.deb ...
+ 46s Unpacking libbsd0:riscv64 (0.11.7-4ok1) over (0.11.6-1) ...
+ 46s Selecting previously unselected package libmd-dev:riscv64.
+ 46s Preparing to unpack .../03-libmd-dev_1.1.0-ok1_riscv64.deb ...
+ 46s Unpacking libmd-dev:riscv64 (1.1.0-ok1) ...
+ 47s Selecting previously unselected package libbsd-dev:riscv64.
+ 47s Preparing to unpack .../04-libbsd-dev_0.11.7-4ok1_riscv64.deb ...
+ 47s Unpacking libbsd-dev:riscv64 (0.11.7-4ok1) ...
+ 47s Preparing to unpack .../05-libedit2_3.1-20230828-ok1_riscv64.deb ...
+ 47s Unpacking libedit2:riscv64 (3.1-20230828-ok1) over (3.1-20221030-ok1.2) ...
+ 47s Selecting previously unselected package libncurses-dev:riscv64.
+ 47s Preparing to unpack .../06-libncurses-dev_6.4+20240113-1ok1_riscv64.deb ...
+ 47s Unpacking libncurses-dev:riscv64 (6.4+20240113-1ok1) ...
+ 48s Selecting previously unselected package libedit-dev:riscv64.
+ 48s Preparing to unpack .../07-libedit-dev_3.1-20230828-ok1_riscv64.deb ...
+ 48s Unpacking libedit-dev:riscv64 (3.1-20230828-ok1) ...
+ 48s Selecting previously unselected package libpkgconf4:riscv64.
+ 48s Preparing to unpack .../08-libpkgconf4_1.9.5-ok1_riscv64.deb ...
+ 48s Unpacking libpkgconf4:riscv64 (1.9.5-ok1) ...
+ 48s Selecting previously unselected package pkgconf-bin.
+ 48s Preparing to unpack .../09-pkgconf-bin_1.9.5-ok1_riscv64.deb ...
+ 48s Unpacking pkgconf-bin (1.9.5-ok1) ...
+ 49s Preparing to unpack .../10-pkg-config_1.9.5-ok1_riscv64.deb ...
+ 49s Removing leftover symlink /usr/bin/riscv64-linux-gnu-pkg-config
+ 49s Unpacking pkg-config:riscv64 (1.9.5-ok1) over (0.29.1-ok1) ...
+ 49s Removing obsolete conffile /etc/dpkg/dpkg.cfg.d/pkg-config-hook-config ...
+ 49s Selecting previously unselected package pkgconf:riscv64.
+ 49s Preparing to unpack .../11-pkgconf_1.9.5-ok1_riscv64.deb ...
+ 49s Unpacking pkgconf:riscv64 (1.9.5-ok1) ...
+ 49s Selecting previously unselected package autopkgtest-satdep.
+ 49s Preparing to unpack .../12-1-autopkgtest-satdep.deb ...
+ 49s Unpacking autopkgtest-satdep (0) ...
+ 49s Setting up libpkgconf4:riscv64 (1.9.5-ok1) ...
+ 49s Setting up xxd (2:9.1.0016-ok1) ...
+ 49s Setting up vim-common (2:9.1.0016-ok1) ...
+ 49s Installing new version of config file /etc/vim/vimrc ...
+ 49s Setting up libncurses6:riscv64 (6.4+20240113-1ok1) ...
+ 49s Setting up pkgconf-bin (1.9.5-ok1) ...
+ 49s Setting up libncursesw6:riscv64 (6.4+20240113-1ok1) ...
+ 49s Setting up libmd0:riscv64 (1.1.0-ok1) ...
+ 49s Setting up libmd-dev:riscv64 (1.1.0-ok1) ...
+ 49s Setting up libcryptsetup12:riscv64 (2:2.6.1-ok5) ...
+ 49s Setting up vim-runtime (2:9.1.0016-ok1) ...
+ 50s Setting up libbsd0:riscv64 (0.11.7-4ok1) ...
+ 50s Setting up libbsd-dev:riscv64 (0.11.7-4ok1) ...
+ 50s Setting up ncurses-term (6.4+20240113-1ok1) ...
+ 50s Setting up cryptsetup-bin (2:2.6.1-ok5) ...
+ 50s Setting up libncurses-dev:riscv64 (6.4+20240113-1ok1) ...
+ 50s Setting up vim (2:9.1.0016-ok1) ...
+ 50s update-alternatives: updating alternative /usr/bin/vim.basic because link group ex has changed slave links
+ 50s update-alternatives: updating alternative /usr/bin/vim.basic because link group vi has changed slave links
+ 50s update-alternatives: updating alternative /usr/bin/vim.basic because link group view has changed slave links
+ 50s Setting up cryptsetup (2:2.6.1-ok5) ...
+ 50s Running in chroot, ignoring command 'daemon-reload'
+ 50s Running in chroot, ignoring command 'daemon-reload'
+ 50s Setting up libedit2:riscv64 (3.1-20230828-ok1) ...
+ 50s Setting up vim-tiny (2:9.1.0016-ok1) ...
+ 50s Installing new version of config file /etc/vim/vimrc.tiny ...
+ 50s Setting up pkgconf:riscv64 (1.9.5-ok1) ...
+ 50s Setting up cryptsetup-run (2:2.6.1-ok5) ...
+ 50s Setting up libedit-dev:riscv64 (3.1-20230828-ok1) ...
+ 51s Setting up pkg-config:riscv64 (1.9.5-ok1) ...
+ 51s Setting up cryptsetup-initramfs (2:2.6.1-ok5) ...
+ 51s update-initramfs: deferring update (trigger activated)
+ 51s Setting up autopkgtest-satdep (0) ...
+ 51s Processing triggers for man-db (2.10.2-2) ...
+ 53s Processing triggers for desktop-file-utils (0.24-ok2) ...
+ 53s Processing triggers for mime-support (3.64-ok1) ...
+ 53s Processing triggers for initramfs-tools (0.142kylin13.1.7) ...
+ 53s Processing triggers for hicolor-icon-theme (0.17-ok1) ...
+ 53s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libedit-dev'], kind short, sout pipe, serr pipe, env []
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 54s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 58s autopkgtest: DBG: testbed command exited with code 0
+ 58s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libedit-dev libbsd-dev libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmd-dev libmount-dev libncurses-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common pkg-config pkgconf pkgconf-bin libpkgconf4 libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 58s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libedit-dev', 'libbsd-dev', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21'], kind short, sout raw, serr pipe, env []
+ 62s autopkgtest: DBG: testbed command exited with code 0
+ 62s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1'], kind short, sout raw, serr pipe, env []
+ 63s autopkgtest: DBG: testbed command exited with code 0
+ 63s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmd-dev', 'libmount-dev', 'libncurses-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'pkg-config', 'pkgconf', 'pkgconf-bin', 'libpkgconf4', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2'], kind short, sout raw, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 65s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 65s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 65s (Reading database ... 194618 files and directories currently installed.)
+ 65s Removing autopkgtest-satdep (0) ...
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.Lz6tPV/command1-packages.all"], kind short, sout raw, serr pipe, env []
+ 65s autopkgtest: DBG: testbed command exited with code 0
+ 65s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Lz6tPV/command1-packages.all /home/hachi/openkylin_test/sharefolder/results/libedit/command1-packages.all
+ 65s autopkgtest: DBG: got reply from testbed: ok
+ 65s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.Lz6tPV/build.fwU/src'], kind short, sout raw, serr raw, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.Lz6tPV/build.fwU/src already exists
+ 66s autopkgtest [00:04:19]: test command1: gcc -o "$AUTOPKGTEST_TMP"/test debian/tests/test.c $(pkgconf --cflags --libs libedit) && "$AUTOPKGTEST_TMP"/test
+ 66s autopkgtest [00:04:19]: test command1: [-----------------------
+ 66s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.Lz6tPV/wrapper.sh --debug --artifacts=/tmp/autopkgtest.Lz6tPV/command1-artifacts --chdir=/tmp/autopkgtest.Lz6tPV/build.fwU/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.Lz6tPV/command1-stderr --stdout=/tmp/autopkgtest.Lz6tPV/command1-stdout --tmp=/tmp/autopkgtest.Lz6tPV/autopkgtest_tmp -- bash -ec \'gcc -o "$AUTOPKGTEST_TMP"/test debian/tests/test.c $(pkgconf --cflags --libs libedit) && "$AUTOPKGTEST_TMP"/test\''], kind test, sout raw, serr raw, env []
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.Lz6tPV/command1-artifacts
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: changing to directory: /tmp/autopkgtest.Lz6tPV/build.fwU/src
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: setting environment: LANG=C.UTF-8
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LANGUAGE
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_ADDRESS
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_ALL
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_COLLATE
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_CTYPE
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_MESSAGES
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_MONETARY
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_NAME
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_NUMERIC
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_PAPER
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: unsetting environment: LC_TIME
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: pretending to be a login shell
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: will write standard error to /tmp/autopkgtest.Lz6tPV/command1-stderr
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: will write stdout to /tmp/autopkgtest.Lz6tPV/command1-stdout
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.Lz6tPV/autopkgtest_tmp
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: command to run: bash -ec gcc -o "$AUTOPKGTEST_TMP"/test debian/tests/test.c $(pkgconf --cflags --libs libedit) && "$AUTOPKGTEST_TMP"/test
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: copying /tmp/tmp.OVoOdXv9r3/out to stdout and file: /tmp/autopkgtest.Lz6tPV/command1-stdout
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: copying /tmp/tmp.OVoOdXv9r3/err to standard error and file: /tmp/autopkgtest.Lz6tPV/command1-stdout
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: writing script pid 679312 to /tmp/autopkgtest_script_pid
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: checking for leaked background processes...
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: waiting for tee/cat subprocesses...
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: cleaning up...
+ 66s /tmp/autopkgtest.Lz6tPV/wrapper.sh: Exit status: 0
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest [00:04:19]: test command1: -----------------------]
+ 66s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 66s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Lz6tPV/command1-stdout /home/hachi/openkylin_test/sharefolder/results/libedit/command1-stdout
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Lz6tPV/command1-stderr /home/hachi/openkylin_test/sharefolder/results/libedit/command1-stderr
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 67s autopkgtest [00:04:20]: test command1:  - - - - - - - - - - results - - - - - - - - - -
+ 67s command1             PASS
+ 67s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.Lz6tPV/command1-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libedit/artifacts/
+ 67s autopkgtest: DBG: got reply from testbed: ok
+ 67s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.Lz6tPV/command1-artifacts', '/tmp/autopkgtest.Lz6tPV/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 67s autopkgtest: DBG: testbed command exited with code 0
+ 67s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 67s autopkgtest [00:04:20]: @@@@@@@@@@@@@@@@@@@@ summary
+ 67s command1             PASS
+ 67s autopkgtest: DBG: testbed stop
+ 67s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.Lz6tPV
+ 67s autopkgtest: DBG: sending command to testbed: close
+ 67s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 69s autopkgtest: DBG: got reply from testbed: ok
+ 69s autopkgtest: DBG: sending command to testbed: quit

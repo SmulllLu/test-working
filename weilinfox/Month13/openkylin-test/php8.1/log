@@ -1,0 +1,631 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:56:52]: starting date and time: 2024-07-19 00:56:52+0800
+  0s autopkgtest [00:56:52]: version @version@
+  0s autopkgtest [00:56:52]: host lili; command line: /usr/bin/autopkgtest php8.1_8.1.12-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/php8.1 -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  2s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.h4F6c4
+  2s autopkgtest: DBG: sending command to testbed: print-execute-command
+  2s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af,--user%3Droot,--
+  2s autopkgtest: DBG: sending command to testbed: capabilities
+  2s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4
+  2s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4', 'has_internet']
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.h4F6c4/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.h4F6c4/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:56:54]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:56:54]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.h4F6c4/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.h4F6c4/testbed-packages /home/hachi/openkylin_test/sharefolder/results/php8.1/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [00:56:55]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  3s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [00:56:55]: @@@@@@@@@@@@@@@@@@@@ source php8.1_8.1.12-ok1.dsc
+  3s autopkgtest: DBG: blame += php8.1_8.1.12-ok1.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown php8.1_8.1.12-ok1.dsc /tmp/autopkgtest.h4F6c4/php8.1_8.1.12-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown php8.1_8.1.12.orig.tar.xz /tmp/autopkgtest.h4F6c4/php8.1_8.1.12.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown php8.1_8.1.12-ok1.debian.tar.xz /tmp/autopkgtest.h4F6c4/php8.1_8.1.12-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.h4F6c4/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.h4F6c4/php8.1_8.1.12-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.h4F6c4/build.XXX
+  3s + builddir=/tmp/autopkgtest.h4F6c4/build.59Y
+  3s + cd /tmp/autopkgtest.h4F6c4/build.59Y
+  3s + dpkg-source -x /tmp/autopkgtest.h4F6c4/php8.1_8.1.12-ok1.dsc src
+  4s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  4s gpgv: keyblock resource '/tmp/dpkg-verify-sig.2bDx717x/trustedkeys.kbx': General error
+  4s gpgv: Signature made Fri 13 Jan 2023 05:16:37 PM CST
+  4s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  4s gpgv: Can't check signature: No public key
+  4s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.h4F6c4/php8.1_8.1.12-ok1.dsc
+  4s dpkg-source: info: extracting php8.1 in src
+  4s dpkg-source: info: unpacking php8.1_8.1.12.orig.tar.xz
+  8s dpkg-source: info: unpacking php8.1_8.1.12-ok1.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying 0001-libtool_fixes.patch
+  8s dpkg-source: info: applying 0002-debian_quirks.patch
+  8s dpkg-source: info: applying 0003-php-5.4.9-phpinfo.patch
+  8s dpkg-source: info: applying 0004-extension_api.patch
+  8s dpkg-source: info: applying 0005-php.ini_securitynotes.patch
+  8s dpkg-source: info: applying 0006-php-5.4.7-libdb.patch
+  8s dpkg-source: info: applying 0007-Add-support-for-use-of-the-system-timezone-database.patch
+  8s dpkg-source: info: applying 0008-strcmp_null-OnUpdateErrorLog.patch
+  8s dpkg-source: info: applying 0009-qdbm-is-usr_include_qdbm.patch
+  8s dpkg-source: info: applying 0010-session_save_path.patch
+  8s dpkg-source: info: applying 0011-php-fpm-man-section-and-cleanup.patch
+  8s dpkg-source: info: applying 0012-fpm-config.patch
+  8s dpkg-source: info: applying 0013-php-fpm-sysconfdir.patch
+  8s dpkg-source: info: applying 0014-lp564920-fix-big-files.patch
+  8s dpkg-source: info: applying 0015-temporary-path-fixes-for-multiarch.patch
+  8s dpkg-source: info: applying 0016-hurd-noptrace.patch
+  8s dpkg-source: info: applying 0017-php-5.3.9-gnusrc.patch
+  8s dpkg-source: info: applying 0018-php-5.3.3-macropen.patch
+  8s dpkg-source: info: applying 0019-php-5.2.4-embed.patch
+  8s dpkg-source: info: applying 0020-php-fpm-m68k.patch
+  8s dpkg-source: info: applying 0021-expose_all_built_and_installed_apis.patch
+  8s dpkg-source: info: applying 0022-Use-system-timezone.patch
+  8s dpkg-source: info: applying 0023-php-fpm-do-reload-on-SIGHUP.patch
+  8s dpkg-source: info: applying 0024-php-5.4.8-ldap_r.patch
+  8s dpkg-source: info: applying 0025-php-5.4.9-fixheader.patch
+  8s dpkg-source: info: applying 0026-php-5.6.0-noNO.patch
+  8s dpkg-source: info: applying 0027-php-5.6.0-oldpcre.patch
+  8s dpkg-source: info: applying 0028-hack-phpdbg-to-explicitly-link-with-libedit.patch
+  8s dpkg-source: info: applying 0029-Fix-ZEND_MM_ALIGNMENT-on-m64k.patch
+  8s dpkg-source: info: applying 0030-Remove-W3C-validation-icon-to-not-expose-the-reader-.patch
+  8s dpkg-source: info: applying 0031-Don-t-put-INSTALL_ROOT-into-phar.phar-exec-stanza.patch
+  8s dpkg-source: info: applying 0032-Really-expand-libdir-datadir-into-EXPANDED_LIBDIR-DA.patch
+  8s dpkg-source: info: applying 0033-Fix-ext-date-lib-parse_tz-PATH_MAX-HURD-FTBFS.patch
+  8s dpkg-source: info: applying 0034-Amend-C-11-for-intl-compilation-on-older-distributio.patch
+  8s dpkg-source: info: applying 0035-Add-patch-to-install-php7-module-directly-to-APXS_LI.patch
+  8s dpkg-source: info: applying 0036-libtool2.2.patch
+  8s dpkg-source: info: applying 0037-Include-all-libtool-files-from-phpize.m4.patch
+  8s dpkg-source: info: applying 0038-In-phpize-also-copy-config.guess-config.sub-ltmain.s.patch
+  8s dpkg-source: info: applying 0039-Don-t-use-hrtimers-on-GNU-Hurd.patch
+  8s dpkg-source: info: applying 0040-Show-packaging-credits.patch
+  8s dpkg-source: info: applying 0041-Allow-printing-credits-buffer-larger-than-4k.patch
+  8s dpkg-source: info: applying 0042-Don-t-close-the-credits-buffer-file-descriptor-too-e.patch
+  8s dpkg-source: info: applying 0043-Lower-the-OpenSSL-requirement-to-1.0.1.patch
+  8s dpkg-source: info: applying 0044-Fail-the-build-when-the-dtrace-call-fails.patch
+  8s dpkg-source: info: applying 0045-Override-result-of-AC_PROG_LN_S-to-fix-FTBFS-on-ppc6.patch
+  8s dpkg-source: info: applying 0046-Update-gcc-func-attr-macro.patch
+  9s + chmod -R a+rX .
+  9s + cd src/.
+  9s + pwd
+  9s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest [00:57:01]: testing package php8.1 version 8.1.12-ok1
+  9s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.h4F6c4/build.59Y/src/debian/ /home/hachi/openkylin_test/sharefolder/results/php8.1/pkg/debian/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency php8.1-cli
+  9s autopkgtest: DBG: marked alternatives ['php8.1-cli'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency wget
+  9s autopkgtest: DBG: Test defined: name cli path debian/tests/cli command "None" restrictions [] features [] depends ['php8.1-cli', 'wget'] 
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: processing dependency php8.1-cgi
+  9s autopkgtest: DBG: marked alternatives ['php8.1-cgi'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency wget
+  9s autopkgtest: DBG: Test defined: name cgi path debian/tests/cgi command "None" restrictions ['needs-root'] features [] depends ['apache2', 'php8.1-cgi', 'wget'] 
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: processing dependency libapache2-mod-php8.1
+  9s autopkgtest: DBG: marked alternatives ['libapache2-mod-php8.1'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency wget
+  9s autopkgtest: DBG: Test defined: name mod-php path debian/tests/mod-php command "None" restrictions ['needs-root'] features [] depends ['apache2', 'libapache2-mod-php8.1', 'wget'] 
+  9s autopkgtest: DBG: processing dependency apache2
+  9s autopkgtest: DBG: processing dependency php8.1-fpm
+  9s autopkgtest: DBG: marked alternatives ['php8.1-fpm'] as a synthesised dependency
+  9s autopkgtest: DBG: processing dependency wget
+  9s autopkgtest: DBG: Test defined: name fpm path debian/tests/fpm command "None" restrictions ['needs-root'] features [] depends ['apache2', 'php8.1-fpm', 'wget'] 
+  9s autopkgtest: DBG: processing dependency php8.1-cli
+  9s autopkgtest: DBG: marked alternatives ['php8.1-cli'] as a synthesised dependency
+  9s autopkgtest: DBG: Test defined: name version path debian/tests/version command "None" restrictions [] features [] depends ['php8.1-cli'] 
+  9s autopkgtest [00:57:01]: build not needed
+  9s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.h4F6c4/build.59Y/src/ /home/hachi/openkylin_test/sharefolder/results/php8.1/tests-tree/
+ 22s autopkgtest: DBG: got reply from testbed: ok
+ 22s autopkgtest: DBG: processing dependency php8.1-cli
+ 22s autopkgtest: DBG: marked alternatives ['php8.1-cli'] as a synthesised dependency
+ 22s autopkgtest: DBG: processing dependency wget
+ 22s autopkgtest: DBG: Test defined: name cli path debian/tests/cli command "None" restrictions [] features [] depends ['php8.1-cli', 'wget'] 
+ 22s autopkgtest: DBG: processing dependency apache2
+ 22s autopkgtest: DBG: processing dependency php8.1-cgi
+ 22s autopkgtest: DBG: marked alternatives ['php8.1-cgi'] as a synthesised dependency
+ 22s autopkgtest: DBG: processing dependency wget
+ 22s autopkgtest: DBG: Test defined: name cgi path debian/tests/cgi command "None" restrictions ['needs-root'] features [] depends ['apache2', 'php8.1-cgi', 'wget'] 
+ 22s autopkgtest: DBG: processing dependency apache2
+ 22s autopkgtest: DBG: processing dependency libapache2-mod-php8.1
+ 22s autopkgtest: DBG: marked alternatives ['libapache2-mod-php8.1'] as a synthesised dependency
+ 22s autopkgtest: DBG: processing dependency wget
+ 22s autopkgtest: DBG: Test defined: name mod-php path debian/tests/mod-php command "None" restrictions ['needs-root'] features [] depends ['apache2', 'libapache2-mod-php8.1', 'wget'] 
+ 22s autopkgtest: DBG: processing dependency apache2
+ 22s autopkgtest: DBG: processing dependency php8.1-fpm
+ 22s autopkgtest: DBG: marked alternatives ['php8.1-fpm'] as a synthesised dependency
+ 22s autopkgtest: DBG: processing dependency wget
+ 22s autopkgtest: DBG: Test defined: name fpm path debian/tests/fpm command "None" restrictions ['needs-root'] features [] depends ['apache2', 'php8.1-fpm', 'wget'] 
+ 22s autopkgtest: DBG: processing dependency php8.1-cli
+ 22s autopkgtest: DBG: marked alternatives ['php8.1-cli'] as a synthesised dependency
+ 22s autopkgtest: DBG: Test defined: name version path debian/tests/version command "None" restrictions [] features [] depends ['php8.1-cli'] 
+ 22s autopkgtest [00:57:14]: test cli: preparing testbed
+ 22s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['php8.1-cli', 'wget']
+ 22s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 22s autopkgtest: DBG: install_deps: deps_new=['php8.1-cli', 'wget']
+ 22s autopkgtest: DBG: install-deps: satisfying php8.1-cli, wget
+ 22s autopkgtest: DBG: install-deps: architecture resolved: php8.1-cli, wget
+ 22s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: can use apt-get on testbed: True
+ 23s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4/1-autopkgtest-satdep.deb /tmp/autopkgtest.h4F6c4/1-autopkgtest-satdep.deb
+ 23s autopkgtest: DBG: got reply from testbed: ok
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.h4F6c4/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s Reading package lists...
+ 24s Building dependency tree...
+ 24s Reading state information...
+ 24s Starting pkgProblemResolver with broken count: 1
+ 24s Starting 2 pkgProblemResolver with broken count: 1
+ 24s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 24s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 24s   Considering php8.1-common:riscv64 1 as a solution to php-common:riscv64 3
+ 24s Done
+ 24s Some packages could not be installed. This may mean that you have
+ 24s requested an impossible situation or if you are using the unstable
+ 24s distribution that some required packages have not yet been created
+ 24s or been moved out of Incoming.
+ 24s The following information may help to resolve the situation:
+ 24s 
+ 24s The following packages have unmet dependencies:
+ 25s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 25s E: Unable to correct problems, you have held broken packages.
+ 25s autopkgtest: DBG: testbed command exited with code 100
+ 25s autopkgtest: DBG: apt-get install /tmp/autopkgtest.h4F6c4/1-autopkgtest-satdep.deb failed; status-fd:
+ 25s 
+ 25s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 25s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate php8.1-cli wget -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 25s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 26s Starting pkgProblemResolver with broken count: 1
+ 26s Starting 2 pkgProblemResolver with broken count: 1
+ 26s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 26s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 26s   Considering php8.1-common:riscv64 1 as a solution to php-common:riscv64 3
+ 26s Done
+ 26s Some packages could not be installed. This may mean that you have
+ 26s requested an impossible situation or if you are using the unstable
+ 26s distribution that some required packages have not yet been created
+ 26s or been moved out of Incoming.
+ 26s The following information may help to resolve the situation:
+ 26s 
+ 26s The following packages have unmet dependencies:
+ 27s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 27s E: Unable to correct problems, you have held broken packages.
+ 27s autopkgtest: DBG: testbed command exited with code 100
+ 27s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s cli                  FAIL badpkg
+ 27s blame: php8.1_8.1.12-ok1.dsc
+ 27s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s autopkgtest [00:57:19]: test cgi: preparing testbed
+ 27s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['php8.1-cli', 'wget'], deps_new=['apache2', 'php8.1-cgi', 'wget']
+ 27s autopkgtest: DBG: testbed reset
+ 27s autopkgtest: DBG: sending command to testbed: revert
+ 28s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 29s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.h4F6c4
+ 29s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 29s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af,--user%3Droot,--
+ 29s autopkgtest: DBG: sending command to testbed: capabilities
+ 29s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4
+ 29s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4', 'has_internet']
+ 29s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.h4F6c4/wrapper.sh
+ 29s autopkgtest: DBG: got reply from testbed: ok
+ 29s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.h4F6c4/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest [00:57:22]: testbed dpkg architecture: riscv64
+ 30s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest [00:57:22]: testbed apt version: 2.7.3-ok3
+ 30s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 127
+ 30s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.h4F6c4/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.h4F6c4/testbed-packages /home/hachi/openkylin_test/sharefolder/results/php8.1/testbed-packages
+ 30s autopkgtest: DBG: got reply from testbed: ok
+ 30s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 30s autopkgtest: DBG: install_deps: deps_new=['apache2', 'php8.1-cgi', 'wget']
+ 30s autopkgtest: DBG: install-deps: satisfying apache2, php8.1-cgi, wget
+ 30s autopkgtest: DBG: install-deps: architecture resolved: apache2, php8.1-cgi, wget
+ 30s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: can use apt-get on testbed: True
+ 31s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4/2-autopkgtest-satdep.deb /tmp/autopkgtest.h4F6c4/2-autopkgtest-satdep.deb
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.h4F6c4/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s Reading package lists...
+ 32s Building dependency tree...
+ 32s Reading state information...
+ 32s Starting pkgProblemResolver with broken count: 1
+ 32s Starting 2 pkgProblemResolver with broken count: 1
+ 32s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 32s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 32s   Considering php8.1-common:riscv64 3 as a solution to php-common:riscv64 5
+ 32s Done
+ 32s Some packages could not be installed. This may mean that you have
+ 32s requested an impossible situation or if you are using the unstable
+ 32s distribution that some required packages have not yet been created
+ 32s or been moved out of Incoming.
+ 32s The following information may help to resolve the situation:
+ 32s 
+ 32s The following packages have unmet dependencies:
+ 33s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 33s E: Unable to correct problems, you have held broken packages.
+ 33s autopkgtest: DBG: testbed command exited with code 100
+ 33s autopkgtest: DBG: apt-get install /tmp/autopkgtest.h4F6c4/2-autopkgtest-satdep.deb failed; status-fd:
+ 33s 
+ 33s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 33s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate apache2 php8.1-cgi wget -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 33s Reading package lists...
+ 33s Building dependency tree...
+ 34s Reading state information...
+ 34s Starting pkgProblemResolver with broken count: 1
+ 34s Starting 2 pkgProblemResolver with broken count: 1
+ 34s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 34s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 34s   Considering php8.1-common:riscv64 3 as a solution to php-common:riscv64 5
+ 34s Done
+ 34s Some packages could not be installed. This may mean that you have
+ 34s requested an impossible situation or if you are using the unstable
+ 34s distribution that some required packages have not yet been created
+ 34s or been moved out of Incoming.
+ 34s The following information may help to resolve the situation:
+ 34s 
+ 34s The following packages have unmet dependencies:
+ 35s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 35s E: Unable to correct problems, you have held broken packages.
+ 35s autopkgtest: DBG: testbed command exited with code 100
+ 35s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s cgi                  FAIL badpkg
+ 35s blame: php8.1_8.1.12-ok1.dsc
+ 35s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s autopkgtest [00:57:27]: test mod-php: preparing testbed
+ 35s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['apache2', 'php8.1-cgi', 'wget'], deps_new=['apache2', 'libapache2-mod-php8.1', 'wget']
+ 35s autopkgtest: DBG: testbed reset
+ 35s autopkgtest: DBG: sending command to testbed: revert
+ 35s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 36s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.h4F6c4
+ 36s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 36s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af,--user%3Droot,--
+ 36s autopkgtest: DBG: sending command to testbed: capabilities
+ 36s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4
+ 36s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4', 'has_internet']
+ 36s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.h4F6c4/wrapper.sh
+ 36s autopkgtest: DBG: got reply from testbed: ok
+ 36s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.h4F6c4/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest [00:57:28]: testbed dpkg architecture: riscv64
+ 36s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest [00:57:29]: testbed apt version: 2.7.3-ok3
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 127
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.h4F6c4/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.h4F6c4/testbed-packages /home/hachi/openkylin_test/sharefolder/results/php8.1/testbed-packages
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 37s autopkgtest: DBG: install_deps: deps_new=['apache2', 'libapache2-mod-php8.1', 'wget']
+ 37s autopkgtest: DBG: install-deps: satisfying apache2, libapache2-mod-php8.1, wget
+ 37s autopkgtest: DBG: install-deps: architecture resolved: apache2, libapache2-mod-php8.1, wget
+ 37s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: can use apt-get on testbed: True
+ 37s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4/3-autopkgtest-satdep.deb /tmp/autopkgtest.h4F6c4/3-autopkgtest-satdep.deb
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.h4F6c4/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s Reading package lists...
+ 38s Building dependency tree...
+ 38s Reading state information...
+ 39s Starting pkgProblemResolver with broken count: 1
+ 39s Starting 2 pkgProblemResolver with broken count: 1
+ 39s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 39s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 39s   Considering php8.1-common:riscv64 3 as a solution to php-common:riscv64 5
+ 39s Done
+ 39s Some packages could not be installed. This may mean that you have
+ 39s requested an impossible situation or if you are using the unstable
+ 39s distribution that some required packages have not yet been created
+ 39s or been moved out of Incoming.
+ 39s The following information may help to resolve the situation:
+ 39s 
+ 39s The following packages have unmet dependencies:
+ 39s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 39s E: Unable to correct problems, you have held broken packages.
+ 39s autopkgtest: DBG: testbed command exited with code 100
+ 39s autopkgtest: DBG: apt-get install /tmp/autopkgtest.h4F6c4/3-autopkgtest-satdep.deb failed; status-fd:
+ 39s 
+ 39s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate apache2 libapache2-mod-php8.1 wget -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 40s Building dependency tree...
+ 40s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 41s Starting 2 pkgProblemResolver with broken count: 1
+ 41s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 41s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 41s   Considering php8.1-common:riscv64 3 as a solution to php-common:riscv64 5
+ 41s Done
+ 41s Some packages could not be installed. This may mean that you have
+ 41s requested an impossible situation or if you are using the unstable
+ 41s distribution that some required packages have not yet been created
+ 41s or been moved out of Incoming.
+ 41s The following information may help to resolve the situation:
+ 41s 
+ 41s The following packages have unmet dependencies:
+ 41s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 41s E: Unable to correct problems, you have held broken packages.
+ 41s autopkgtest: DBG: testbed command exited with code 100
+ 41s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s mod-php              FAIL badpkg
+ 41s blame: php8.1_8.1.12-ok1.dsc
+ 41s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 41s autopkgtest [00:57:33]: test fpm: preparing testbed
+ 41s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['apache2', 'libapache2-mod-php8.1', 'wget'], deps_new=['apache2', 'php8.1-fpm', 'wget']
+ 41s autopkgtest: DBG: testbed reset
+ 41s autopkgtest: DBG: sending command to testbed: revert
+ 41s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 43s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.h4F6c4
+ 43s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 43s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af,--user%3Droot,--
+ 43s autopkgtest: DBG: sending command to testbed: capabilities
+ 43s autopkgtest: DBG: got reply from testbed: ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4
+ 43s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4', 'has_internet']
+ 43s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.h4F6c4/wrapper.sh
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.h4F6c4/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest [00:57:35]: testbed dpkg architecture: riscv64
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest [00:57:35]: testbed apt version: 2.7.3-ok3
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 127
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.h4F6c4/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.h4F6c4/testbed-packages /home/hachi/openkylin_test/sharefolder/results/php8.1/testbed-packages
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 44s autopkgtest: DBG: install_deps: deps_new=['apache2', 'php8.1-fpm', 'wget']
+ 44s autopkgtest: DBG: install-deps: satisfying apache2, php8.1-fpm, wget
+ 44s autopkgtest: DBG: install-deps: architecture resolved: apache2, php8.1-fpm, wget
+ 44s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: can use apt-get on testbed: True
+ 44s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 44s autopkgtest: DBG: testbed command exited with code 0
+ 44s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4/4-autopkgtest-satdep.deb /tmp/autopkgtest.h4F6c4/4-autopkgtest-satdep.deb
+ 44s autopkgtest: DBG: got reply from testbed: ok
+ 44s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.h4F6c4/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 44s Reading package lists...
+ 45s Building dependency tree...
+ 45s Reading state information...
+ 45s Starting pkgProblemResolver with broken count: 1
+ 46s Starting 2 pkgProblemResolver with broken count: 1
+ 46s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 46s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 46s   Considering php8.1-common:riscv64 3 as a solution to php-common:riscv64 5
+ 46s Done
+ 46s Some packages could not be installed. This may mean that you have
+ 46s requested an impossible situation or if you are using the unstable
+ 46s distribution that some required packages have not yet been created
+ 46s or been moved out of Incoming.
+ 46s The following information may help to resolve the situation:
+ 46s 
+ 46s The following packages have unmet dependencies:
+ 46s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 46s E: Unable to correct problems, you have held broken packages.
+ 46s autopkgtest: DBG: testbed command exited with code 100
+ 46s autopkgtest: DBG: apt-get install /tmp/autopkgtest.h4F6c4/4-autopkgtest-satdep.deb failed; status-fd:
+ 46s 
+ 46s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 46s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate apache2 php8.1-fpm wget -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 46s Reading package lists...
+ 47s Building dependency tree...
+ 47s Reading state information...
+ 47s Starting pkgProblemResolver with broken count: 1
+ 47s Starting 2 pkgProblemResolver with broken count: 1
+ 47s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 47s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 47s   Considering php8.1-common:riscv64 3 as a solution to php-common:riscv64 5
+ 47s Done
+ 47s Some packages could not be installed. This may mean that you have
+ 47s requested an impossible situation or if you are using the unstable
+ 47s distribution that some required packages have not yet been created
+ 47s or been moved out of Incoming.
+ 47s The following information may help to resolve the situation:
+ 47s 
+ 47s The following packages have unmet dependencies:
+ 48s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 48s E: Unable to correct problems, you have held broken packages.
+ 48s autopkgtest: DBG: testbed command exited with code 100
+ 48s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 48s fpm                  FAIL badpkg
+ 48s blame: php8.1_8.1.12-ok1.dsc
+ 48s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 48s autopkgtest [00:57:40]: test version: preparing testbed
+ 48s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['apache2', 'php8.1-fpm', 'wget'], deps_new=['php8.1-cli']
+ 48s autopkgtest: DBG: testbed reset
+ 48s autopkgtest: DBG: sending command to testbed: revert
+ 48s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 49s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.h4F6c4
+ 49s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 49s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af,--user%3Droot,--
+ 49s autopkgtest: DBG: sending command to testbed: capabilities
+ 49s autopkgtest: DBG: got reply from testbed: ok ok ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4
+ 49s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4', 'has_internet']
+ 49s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.h4F6c4/wrapper.sh
+ 49s autopkgtest: DBG: got reply from testbed: ok
+ 49s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.h4F6c4/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest [00:57:41]: testbed dpkg architecture: riscv64
+ 49s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest [00:57:42]: testbed apt version: 2.7.3-ok3
+ 50s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 127
+ 50s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.h4F6c4/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.h4F6c4/testbed-packages /home/hachi/openkylin_test/sharefolder/results/php8.1/testbed-packages
+ 50s autopkgtest: DBG: got reply from testbed: ok
+ 50s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 50s autopkgtest: DBG: install_deps: deps_new=['php8.1-cli']
+ 50s autopkgtest: DBG: install-deps: satisfying php8.1-cli
+ 50s autopkgtest: DBG: install-deps: architecture resolved: php8.1-cli
+ 50s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: can use apt-get on testbed: True
+ 50s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.h4F6c4'], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-b2870bb1-09f3-4ade-abcb-f232025f89af//tmp/autopkgtest.h4F6c4/5-autopkgtest-satdep.deb /tmp/autopkgtest.h4F6c4/5-autopkgtest-satdep.deb
+ 50s autopkgtest: DBG: got reply from testbed: ok
+ 50s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.h4F6c4/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 51s Reading package lists...
+ 51s Building dependency tree...
+ 51s Reading state information...
+ 52s Starting pkgProblemResolver with broken count: 1
+ 52s Starting 2 pkgProblemResolver with broken count: 1
+ 52s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 52s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 52s   Considering php8.1-common:riscv64 1 as a solution to php-common:riscv64 3
+ 52s Done
+ 52s Some packages could not be installed. This may mean that you have
+ 52s requested an impossible situation or if you are using the unstable
+ 52s distribution that some required packages have not yet been created
+ 52s or been moved out of Incoming.
+ 52s The following information may help to resolve the situation:
+ 52s 
+ 52s The following packages have unmet dependencies:
+ 52s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 52s E: Unable to correct problems, you have held broken packages.
+ 52s autopkgtest: DBG: testbed command exited with code 100
+ 52s autopkgtest: DBG: apt-get install /tmp/autopkgtest.h4F6c4/5-autopkgtest-satdep.deb failed; status-fd:
+ 52s 
+ 52s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 52s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate php8.1-cli -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 53s Reading package lists...
+ 53s Building dependency tree...
+ 53s Reading state information...
+ 54s Starting pkgProblemResolver with broken count: 1
+ 54s Starting 2 pkgProblemResolver with broken count: 1
+ 54s Investigating (0) php-common:riscv64 < none -> 2:93-ok1 @un puN Ib >
+ 54s Broken php-common:riscv64 Breaks on php8.1-common:riscv64 < none -> 8.1.12-ok1 @un puN >
+ 54s   Considering php8.1-common:riscv64 1 as a solution to php-common:riscv64 3
+ 54s Done
+ 54s Some packages could not be installed. This may mean that you have
+ 54s requested an impossible situation or if you are using the unstable
+ 54s distribution that some required packages have not yet been created
+ 54s or been moved out of Incoming.
+ 54s The following information may help to resolve the situation:
+ 54s 
+ 54s The following packages have unmet dependencies:
+ 54s  php-common : Breaks: php8.1-common but 8.1.12-ok1 is to be installed
+ 54s E: Unable to correct problems, you have held broken packages.
+ 54s autopkgtest: DBG: testbed command exited with code 100
+ 54s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 54s version              FAIL badpkg
+ 54s blame: php8.1_8.1.12-ok1.dsc
+ 54s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 54s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 54s autopkgtest [00:57:46]: @@@@@@@@@@@@@@@@@@@@ summary
+ 54s cli                  FAIL badpkg
+ 54s blame: php8.1_8.1.12-ok1.dsc
+ 54s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 54s cgi                  FAIL badpkg
+ 54s blame: php8.1_8.1.12-ok1.dsc
+ 54s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 54s mod-php              FAIL badpkg
+ 54s blame: php8.1_8.1.12-ok1.dsc
+ 54s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 54s fpm                  FAIL badpkg
+ 54s blame: php8.1_8.1.12-ok1.dsc
+ 54s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 54s version              FAIL badpkg
+ 54s blame: php8.1_8.1.12-ok1.dsc
+ 54s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 54s autopkgtest: DBG: testbed stop
+ 54s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.h4F6c4
+ 54s autopkgtest: DBG: sending command to testbed: close
+ 55s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: sending command to testbed: quit

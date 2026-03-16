@@ -1,0 +1,779 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:00:53]: starting date and time: 2024-07-19 00:00:53+0800
+  0s autopkgtest [00:00:53]: version @version@
+  0s autopkgtest [00:00:53]: host lili; command line: /usr/bin/autopkgtest openmpi_4.1.6-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/openmpi -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.r06TiA
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.r06TiA/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.r06TiA/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:00:55]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:00:55]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.r06TiA/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openmpi/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:00:55]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [00:00:56]: @@@@@@@@@@@@@@@@@@@@ source openmpi_4.1.6-ok1.dsc
+  3s autopkgtest: DBG: blame += openmpi_4.1.6-ok1.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown openmpi_4.1.6-ok1.dsc /tmp/autopkgtest.r06TiA/openmpi_4.1.6-ok1.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown openmpi_4.1.6.orig.tar.xz /tmp/autopkgtest.r06TiA/openmpi_4.1.6.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown openmpi_4.1.6-ok1.debian.tar.xz /tmp/autopkgtest.r06TiA/openmpi_4.1.6-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.r06TiA/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.r06TiA/openmpi_4.1.6-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.r06TiA/build.XXX
+  3s + builddir=/tmp/autopkgtest.r06TiA/build.pp1
+  3s + cd /tmp/autopkgtest.r06TiA/build.pp1
+  3s + dpkg-source -x /tmp/autopkgtest.r06TiA/openmpi_4.1.6-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.8zyuoVis/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 07 May 2024 10:52:58 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.r06TiA/openmpi_4.1.6-ok1.dsc
+  4s dpkg-source: info: extracting openmpi in src
+  4s dpkg-source: info: unpacking openmpi_4.1.6.orig.tar.xz
+  5s dpkg-source: info: unpacking openmpi_4.1.6-ok1.debian.tar.xz
+  6s dpkg-source: info: using patch list from debian/patches/series
+  6s dpkg-source: info: applying pkg-config.patch
+  6s dpkg-source: info: applying mpifort.patch
+  6s dpkg-source: info: applying manpage_macros
+  6s dpkg-source: info: applying build_hurd
+  6s dpkg-source: info: applying libdir.patch
+  6s dpkg-source: info: applying hppa.patch
+  6s dpkg-source: info: applying opal_fifo.patch
+  6s dpkg-source: info: applying verbose-ompi-rules.patch
+  6s dpkg-source: info: applying fix-underlinking.patch
+  6s dpkg-source: info: applying no-warning-unused.patch
+  6s dpkg-source: info: applying ia64.patch
+  6s + chmod -R a+rX .
+  6s + cd src/.
+  6s + pwd
+  6s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest [00:00:59]: testing package openmpi version 4.1.6-ok1
+  6s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/build.pp1/src/debian/ /home/hachi/openkylin_test/sharefolder/results/openmpi/pkg/debian/
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: processing dependency gcc
+  6s autopkgtest: DBG: processing dependency openmpi-bin
+  6s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency libopenmpi-dev
+  6s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+  6s autopkgtest: DBG: Test defined: name compile_run_mpicc path debian/tests/compile_run_mpicc command "None" restrictions [] features [] depends ['gcc', 'openmpi-bin', 'libopenmpi-dev'] 
+  6s autopkgtest: DBG: processing dependency gfortran
+  6s autopkgtest: DBG: processing dependency libopenmpi-dev
+  6s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency openmpi-bin
+  6s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+  6s autopkgtest: DBG: Test defined: name compile_run_mpif90 path debian/tests/compile_run_mpif90 command "None" restrictions [] features [] depends ['gfortran', 'libopenmpi-dev', 'openmpi-bin'] 
+  6s autopkgtest: DBG: processing dependency gfortran
+  6s autopkgtest: DBG: processing dependency libopenmpi-dev
+  6s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency openmpi-bin
+  6s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+  6s autopkgtest: DBG: Test defined: name compile_run_mpif77 path debian/tests/compile_run_mpif77 command "None" restrictions [] features [] depends ['gfortran', 'libopenmpi-dev', 'openmpi-bin'] 
+  6s autopkgtest: DBG: processing dependency gfortran
+  6s autopkgtest: DBG: processing dependency libopenmpi-dev
+  6s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency openmpi-bin
+  6s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+  6s autopkgtest: DBG: processing dependency pkg-config
+  6s autopkgtest: DBG: Test defined: name compile_run_cc_pkgconfig path debian/tests/compile_run_cc_pkgconfig command "None" restrictions [] features [] depends ['gfortran', 'libopenmpi-dev', 'openmpi-bin', 'pkg-config'] 
+  6s autopkgtest: DBG: processing dependency openmpi-bin
+  6s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+  6s autopkgtest: DBG: Test defined: name check_shared_objs path debian/tests/check_shared_objs command "None" restrictions [] features [] depends ['openmpi-bin'] 
+  6s autopkgtest [00:00:59]: build not needed
+  6s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/build.pp1/src/ /home/hachi/openkylin_test/sharefolder/results/openmpi/tests-tree/
+ 11s autopkgtest: DBG: got reply from testbed: ok
+ 11s autopkgtest: DBG: processing dependency gcc
+ 11s autopkgtest: DBG: processing dependency openmpi-bin
+ 11s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency libopenmpi-dev
+ 11s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+ 11s autopkgtest: DBG: Test defined: name compile_run_mpicc path debian/tests/compile_run_mpicc command "None" restrictions [] features [] depends ['gcc', 'openmpi-bin', 'libopenmpi-dev'] 
+ 11s autopkgtest: DBG: processing dependency gfortran
+ 11s autopkgtest: DBG: processing dependency libopenmpi-dev
+ 11s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency openmpi-bin
+ 11s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+ 11s autopkgtest: DBG: Test defined: name compile_run_mpif90 path debian/tests/compile_run_mpif90 command "None" restrictions [] features [] depends ['gfortran', 'libopenmpi-dev', 'openmpi-bin'] 
+ 11s autopkgtest: DBG: processing dependency gfortran
+ 11s autopkgtest: DBG: processing dependency libopenmpi-dev
+ 11s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency openmpi-bin
+ 11s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+ 11s autopkgtest: DBG: Test defined: name compile_run_mpif77 path debian/tests/compile_run_mpif77 command "None" restrictions [] features [] depends ['gfortran', 'libopenmpi-dev', 'openmpi-bin'] 
+ 11s autopkgtest: DBG: processing dependency gfortran
+ 11s autopkgtest: DBG: processing dependency libopenmpi-dev
+ 11s autopkgtest: DBG: marked alternatives ['libopenmpi-dev'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency openmpi-bin
+ 11s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency pkg-config
+ 11s autopkgtest: DBG: Test defined: name compile_run_cc_pkgconfig path debian/tests/compile_run_cc_pkgconfig command "None" restrictions [] features [] depends ['gfortran', 'libopenmpi-dev', 'openmpi-bin', 'pkg-config'] 
+ 11s autopkgtest: DBG: processing dependency openmpi-bin
+ 11s autopkgtest: DBG: marked alternatives ['openmpi-bin'] as a synthesised dependency
+ 11s autopkgtest: DBG: Test defined: name check_shared_objs path debian/tests/check_shared_objs command "None" restrictions [] features [] depends ['openmpi-bin'] 
+ 11s autopkgtest [00:01:04]: test compile_run_mpicc: preparing testbed
+ 11s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['gcc', 'openmpi-bin', 'libopenmpi-dev']
+ 11s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 11s autopkgtest: DBG: install_deps: deps_new=['gcc', 'openmpi-bin', 'libopenmpi-dev']
+ 11s autopkgtest: DBG: install-deps: satisfying gcc, openmpi-bin, libopenmpi-dev
+ 11s autopkgtest: DBG: install-deps: architecture resolved: gcc, openmpi-bin, libopenmpi-dev
+ 11s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: can use apt-get on testbed: True
+ 12s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA/1-autopkgtest-satdep.deb /tmp/autopkgtest.r06TiA/1-autopkgtest-satdep.deb
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.r06TiA/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 12s Reading package lists...
+ 13s Building dependency tree...
+ 13s Reading state information...
+ 13s Starting pkgProblemResolver with broken count: 1
+ 13s Starting 2 pkgProblemResolver with broken count: 1
+ 13s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 13s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 13s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 13s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 13s   Added libpmix2:riscv64 to the remove list
+ 13s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 13s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 13s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 13s Done
+ 13s Some packages could not be installed. This may mean that you have
+ 13s requested an impossible situation or if you are using the unstable
+ 13s distribution that some required packages have not yet been created
+ 13s or been moved out of Incoming.
+ 13s The following information may help to resolve the situation:
+ 13s 
+ 13s The following packages have unmet dependencies:
+ 14s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 14s E: Unable to correct problems, you have held broken packages.
+ 14s autopkgtest: DBG: testbed command exited with code 100
+ 14s autopkgtest: DBG: apt-get install /tmp/autopkgtest.r06TiA/1-autopkgtest-satdep.deb failed; status-fd:
+ 14s 
+ 14s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 14s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gcc openmpi-bin libopenmpi-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 15s Building dependency tree...
+ 15s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 15s Starting 2 pkgProblemResolver with broken count: 1
+ 15s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 15s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 15s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 15s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 15s   Added libpmix2:riscv64 to the remove list
+ 15s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 15s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 15s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 15s Done
+ 15s gcc is already the newest version (4:12.2.0-ok1).
+ 15s Some packages could not be installed. This may mean that you have
+ 15s requested an impossible situation or if you are using the unstable
+ 15s distribution that some required packages have not yet been created
+ 15s or been moved out of Incoming.
+ 15s The following information may help to resolve the situation:
+ 15s 
+ 15s The following packages have unmet dependencies:
+ 16s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 16s E: Unable to correct problems, you have held broken packages.
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s compile_run_mpicc    FAIL badpkg
+ 16s blame: openmpi_4.1.6-ok1.dsc
+ 16s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s autopkgtest [00:01:09]: test compile_run_mpif90: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gcc', 'openmpi-bin', 'libopenmpi-dev'], deps_new=['gfortran', 'libopenmpi-dev', 'openmpi-bin']
+ 16s autopkgtest: DBG: testbed reset
+ 16s autopkgtest: DBG: sending command to testbed: revert
+ 16s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 18s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.r06TiA
+ 18s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 18s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984,--user%3Droot,--
+ 18s autopkgtest: DBG: sending command to testbed: capabilities
+ 18s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA
+ 18s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA', 'has_internet']
+ 18s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.r06TiA/wrapper.sh
+ 18s autopkgtest: DBG: got reply from testbed: ok
+ 18s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.r06TiA/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest [00:01:11]: testbed dpkg architecture: riscv64
+ 18s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest [00:01:11]: testbed apt version: 2.7.3-ok3
+ 18s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 127
+ 18s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.r06TiA/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openmpi/testbed-packages
+ 19s autopkgtest: DBG: got reply from testbed: ok
+ 19s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 19s autopkgtest: DBG: install_deps: deps_new=['gfortran', 'libopenmpi-dev', 'openmpi-bin']
+ 19s autopkgtest: DBG: install-deps: satisfying gfortran, libopenmpi-dev, openmpi-bin
+ 19s autopkgtest: DBG: install-deps: architecture resolved: gfortran, libopenmpi-dev, openmpi-bin
+ 19s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: can use apt-get on testbed: True
+ 19s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA/2-autopkgtest-satdep.deb /tmp/autopkgtest.r06TiA/2-autopkgtest-satdep.deb
+ 19s autopkgtest: DBG: got reply from testbed: ok
+ 19s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.r06TiA/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 20s Reading package lists...
+ 20s Building dependency tree...
+ 20s Reading state information...
+ 21s Starting pkgProblemResolver with broken count: 1
+ 21s Starting 2 pkgProblemResolver with broken count: 1
+ 21s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 21s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 21s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 21s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 21s   Added libpmix2:riscv64 to the remove list
+ 21s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 21s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 21s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 21s Done
+ 21s Some packages could not be installed. This may mean that you have
+ 21s requested an impossible situation or if you are using the unstable
+ 21s distribution that some required packages have not yet been created
+ 21s or been moved out of Incoming.
+ 21s The following information may help to resolve the situation:
+ 21s 
+ 21s The following packages have unmet dependencies:
+ 21s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 21s E: Unable to correct problems, you have held broken packages.
+ 21s autopkgtest: DBG: testbed command exited with code 100
+ 21s autopkgtest: DBG: apt-get install /tmp/autopkgtest.r06TiA/2-autopkgtest-satdep.deb failed; status-fd:
+ 21s 
+ 21s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 21s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gfortran libopenmpi-dev openmpi-bin -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 22s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 23s Starting pkgProblemResolver with broken count: 1
+ 23s Starting 2 pkgProblemResolver with broken count: 1
+ 23s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 23s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 23s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 23s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 23s   Added libpmix2:riscv64 to the remove list
+ 23s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 23s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 23s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 23s Done
+ 23s Some packages could not be installed. This may mean that you have
+ 23s requested an impossible situation or if you are using the unstable
+ 23s distribution that some required packages have not yet been created
+ 23s or been moved out of Incoming.
+ 23s The following information may help to resolve the situation:
+ 23s 
+ 23s The following packages have unmet dependencies:
+ 23s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s compile_run_mpif90   FAIL badpkg
+ 23s blame: openmpi_4.1.6-ok1.dsc
+ 23s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 23s autopkgtest [00:01:16]: test compile_run_mpif77: preparing testbed
+ 23s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gfortran', 'libopenmpi-dev', 'openmpi-bin'], deps_new=['gfortran', 'libopenmpi-dev', 'openmpi-bin']
+ 23s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 23s autopkgtest: DBG: install_deps: deps_new=['gfortran', 'libopenmpi-dev', 'openmpi-bin']
+ 23s autopkgtest: DBG: install-deps: satisfying gfortran, libopenmpi-dev, openmpi-bin
+ 23s autopkgtest: DBG: install-deps: architecture resolved: gfortran, libopenmpi-dev, openmpi-bin
+ 23s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: can use apt-get on testbed: True
+ 23s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA/3-autopkgtest-satdep.deb /tmp/autopkgtest.r06TiA/3-autopkgtest-satdep.deb
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.r06TiA/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 24s Reading package lists...
+ 25s Building dependency tree...
+ 25s Reading state information...
+ 25s Starting pkgProblemResolver with broken count: 1
+ 25s Starting 2 pkgProblemResolver with broken count: 1
+ 25s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 25s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 25s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 25s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 25s   Added libpmix2:riscv64 to the remove list
+ 25s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 25s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 25s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 25s Done
+ 25s Some packages could not be installed. This may mean that you have
+ 25s requested an impossible situation or if you are using the unstable
+ 25s distribution that some required packages have not yet been created
+ 25s or been moved out of Incoming.
+ 25s The following information may help to resolve the situation:
+ 25s 
+ 25s The following packages have unmet dependencies:
+ 26s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 26s E: Unable to correct problems, you have held broken packages.
+ 26s autopkgtest: DBG: testbed command exited with code 100
+ 26s autopkgtest: DBG: apt-get install /tmp/autopkgtest.r06TiA/3-autopkgtest-satdep.deb failed; status-fd:
+ 26s 
+ 26s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 26s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gfortran libopenmpi-dev openmpi-bin -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 26s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 27s Starting pkgProblemResolver with broken count: 1
+ 27s Starting 2 pkgProblemResolver with broken count: 1
+ 27s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 27s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 27s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 27s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 27s   Added libpmix2:riscv64 to the remove list
+ 27s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 27s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 27s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 27s Done
+ 27s Some packages could not be installed. This may mean that you have
+ 27s requested an impossible situation or if you are using the unstable
+ 27s distribution that some required packages have not yet been created
+ 27s or been moved out of Incoming.
+ 27s The following information may help to resolve the situation:
+ 27s 
+ 27s The following packages have unmet dependencies:
+ 27s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 27s E: Unable to correct problems, you have held broken packages.
+ 28s autopkgtest: DBG: testbed command exited with code 100
+ 28s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 28s compile_run_mpif77   FAIL badpkg
+ 28s blame: openmpi_4.1.6-ok1.dsc
+ 28s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 28s autopkgtest [00:01:21]: test compile_run_cc_pkgconfig: preparing testbed
+ 28s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gfortran', 'libopenmpi-dev', 'openmpi-bin'], deps_new=['gfortran', 'libopenmpi-dev', 'openmpi-bin', 'pkg-config']
+ 28s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 28s autopkgtest: DBG: install_deps: deps_new=['gfortran', 'libopenmpi-dev', 'openmpi-bin', 'pkg-config']
+ 28s autopkgtest: DBG: install-deps: satisfying gfortran, libopenmpi-dev, openmpi-bin, pkg-config
+ 28s autopkgtest: DBG: install-deps: architecture resolved: gfortran, libopenmpi-dev, openmpi-bin, pkg-config
+ 28s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: can use apt-get on testbed: True
+ 28s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA/4-autopkgtest-satdep.deb /tmp/autopkgtest.r06TiA/4-autopkgtest-satdep.deb
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.r06TiA/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 28s Reading package lists...
+ 29s Building dependency tree...
+ 29s Reading state information...
+ 29s Starting pkgProblemResolver with broken count: 1
+ 30s Starting 2 pkgProblemResolver with broken count: 1
+ 30s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 30s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 30s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 30s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 30s   Added libpmix2:riscv64 to the remove list
+ 30s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 30s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 30s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 30s Done
+ 30s Some packages could not be installed. This may mean that you have
+ 30s requested an impossible situation or if you are using the unstable
+ 30s distribution that some required packages have not yet been created
+ 30s or been moved out of Incoming.
+ 30s The following information may help to resolve the situation:
+ 30s 
+ 30s The following packages have unmet dependencies:
+ 30s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 30s E: Unable to correct problems, you have held broken packages.
+ 30s autopkgtest: DBG: testbed command exited with code 100
+ 30s autopkgtest: DBG: apt-get install /tmp/autopkgtest.r06TiA/4-autopkgtest-satdep.deb failed; status-fd:
+ 30s 
+ 30s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 30s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate gfortran libopenmpi-dev openmpi-bin pkg-config -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 30s Reading package lists...
+ 31s Building dependency tree...
+ 31s Reading state information...
+ 31s Starting pkgProblemResolver with broken count: 1
+ 32s Starting 2 pkgProblemResolver with broken count: 1
+ 32s Investigating (0) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 32s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 32s Broken libpmix2t64:riscv64 Breaks on libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN > (< 5.0.1-ok1)
+ 32s   Considering libpmix2:riscv64 0 as a solution to libpmix2t64:riscv64 2
+ 32s   Added libpmix2:riscv64 to the remove list
+ 32s   Fixing libpmix2t64:riscv64 via keep of libpmix2:riscv64
+ 32s Investigating (1) libpmix2t64:riscv64 < none -> 5.0.1-ok1 @un puN Ib >
+ 32s Broken libpmix2t64:riscv64 Depends on libmunge2:riscv64 < none @un H > (>= 0.5.8)
+ 32s Done
+ 32s Some packages could not be installed. This may mean that you have
+ 32s requested an impossible situation or if you are using the unstable
+ 32s distribution that some required packages have not yet been created
+ 32s or been moved out of Incoming.
+ 32s The following information may help to resolve the situation:
+ 32s 
+ 32s The following packages have unmet dependencies:
+ 32s  libpmix2t64 : Depends: libmunge2 (>= 0.5.8) but it is not installable
+ 32s E: Unable to correct problems, you have held broken packages.
+ 32s autopkgtest: DBG: testbed command exited with code 100
+ 32s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 32s compile_run_cc_pkgconfig FAIL badpkg
+ 32s blame: openmpi_4.1.6-ok1.dsc
+ 32s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 32s autopkgtest [00:01:25]: test check_shared_objs: preparing testbed
+ 32s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['gfortran', 'libopenmpi-dev', 'openmpi-bin', 'pkg-config'], deps_new=['openmpi-bin']
+ 32s autopkgtest: DBG: testbed reset
+ 32s autopkgtest: DBG: sending command to testbed: revert
+ 32s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 33s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.r06TiA
+ 33s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 33s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984,--user%3Droot,--
+ 33s autopkgtest: DBG: sending command to testbed: capabilities
+ 33s autopkgtest: DBG: got reply from testbed: ok ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA
+ 33s autopkgtest: DBG: testbed capabilities: ['ok', 'ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA', 'has_internet']
+ 33s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.r06TiA/wrapper.sh
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.r06TiA/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest [00:01:27]: testbed dpkg architecture: riscv64
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest [00:01:27]: testbed apt version: 2.7.3-ok3
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 127
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.r06TiA/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/testbed-packages /home/hachi/openkylin_test/sharefolder/results/openmpi/testbed-packages
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 34s autopkgtest: DBG: install_deps: deps_new=['openmpi-bin']
+ 34s autopkgtest: DBG: install-deps: satisfying openmpi-bin
+ 35s autopkgtest: DBG: install-deps: architecture resolved: openmpi-bin
+ 35s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: can use apt-get on testbed: True
+ 35s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-62e3a024-668c-4664-8579-2ac4371f3984//tmp/autopkgtest.r06TiA/5-autopkgtest-satdep.deb /tmp/autopkgtest.r06TiA/5-autopkgtest-satdep.deb
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.r06TiA/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 35s Reading package lists...
+ 36s Building dependency tree...
+ 36s Reading state information...
+ 36s Starting pkgProblemResolver with broken count: 0
+ 36s Starting 2 pkgProblemResolver with broken count: 0
+ 36s Done
+ 37s The following packages were automatically installed and are no longer required:
+ 37s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 37s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 37s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 37s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 37s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 37s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 37s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 37s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 37s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 37s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 37s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 37s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 37s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 37s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 37s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 37s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 37s   language-selector-common language-selector-gnome libatrildocument3
+ 37s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 37s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 37s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 37s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 37s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 37s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 37s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 37s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 37s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 37s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 37s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 37s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 37s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 37s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 37s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 37s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 37s Use 'sudo apt autoremove' to remove them.
+ 37s The following additional packages will be installed:
+ 37s   ibverbs-providers libevent-core-2.1-7t64 libevent-pthreads-2.1-7t64
+ 37s   libfabric1 libhwloc-plugins libhwloc15 libibverbs1 libopenmpi3t64 libpmix2
+ 37s   librdmacm1 libxnvctrl0 openmpi-bin openmpi-common
+ 37s Suggested packages:
+ 37s   gfortran | fortran-compiler
+ 37s The following packages will be REMOVED:
+ 37s   libevent-core-2.1-7
+ 37s The following NEW packages will be installed:
+ 37s   autopkgtest-satdep ibverbs-providers libevent-core-2.1-7t64
+ 37s   libevent-pthreads-2.1-7t64 libfabric1 libhwloc-plugins libhwloc15
+ 37s   libibverbs1 libopenmpi3t64 libpmix2 librdmacm1 libxnvctrl0 openmpi-bin
+ 37s   openmpi-common
+ 38s 0 upgraded, 14 newly installed, 1 to remove and 1066 not upgraded.
+ 38s Need to get 3,775 kB/3,776 kB of archives.
+ 38s After this operation, 11.0 MB of additional disk space will be used.
+ 38s Get:1 /tmp/autopkgtest.r06TiA/5-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [704 B]
+ 38s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-core-2.1-7t64 riscv64 2.1.12-stable-ok2 [72.4 kB]
+ 38s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libibverbs1 riscv64 50.0-ok3 [53.2 kB]
+ 38s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 ibverbs-providers riscv64 50.0-ok3 [312 kB]
+ 38s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libevent-pthreads-2.1-7t64 riscv64 2.1.12-stable-ok2 [7,204 B]
+ 38s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 librdmacm1 riscv64 42.0-ok1 [65.6 kB]
+ 38s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfabric1 riscv64 1.17.0-ok1 [447 kB]
+ 38s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxnvctrl0 riscv64 510.47.03-ok1 [9,744 B]
+ 39s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhwloc15 riscv64 2.10.0-ok1 [133 kB]
+ 39s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhwloc-plugins riscv64 2.10.0-ok1 [13.0 kB]
+ 39s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpmix2 riscv64 4.1.2-ok1 [571 kB]
+ 39s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 libopenmpi3t64 riscv64 4.1.6-ok1 [1,849 kB]
+ 40s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 openmpi-common all 4.1.6-ok1 [163 kB]
+ 40s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 openmpi-bin riscv64 4.1.6-ok1 [79.4 kB]
+ 42s Fetched 3,775 kB in 2s (1,513 kB/s)
+ 42s dpkg: libevent-core-2.1-7:riscv64: dependency problems, but removing anyway as you requested:
+ 42s  tmux depends on libevent-core-2.1-7 (>= 2.1.8-stable).
+ 42s 
+ 42s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 43s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 43s Removing libevent-core-2.1-7:riscv64 (2.1.11-stable-ok1) ...
+ 43s Selecting previously unselected package libevent-core-2.1-7t64:riscv64.
+ 43s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 43s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 44s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193804 files and directories currently installed.)
+ 44s Preparing to unpack .../00-libevent-core-2.1-7t64_2.1.12-stable-ok2_riscv64.deb ...
+ 44s Unpacking libevent-core-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 44s Selecting previously unselected package libibverbs1:riscv64.
+ 44s Preparing to unpack .../01-libibverbs1_50.0-ok3_riscv64.deb ...
+ 44s Unpacking libibverbs1:riscv64 (50.0-ok3) ...
+ 44s Selecting previously unselected package ibverbs-providers:riscv64.
+ 44s Preparing to unpack .../02-ibverbs-providers_50.0-ok3_riscv64.deb ...
+ 44s Unpacking ibverbs-providers:riscv64 (50.0-ok3) ...
+ 44s Selecting previously unselected package libevent-pthreads-2.1-7t64:riscv64.
+ 44s Preparing to unpack .../03-libevent-pthreads-2.1-7t64_2.1.12-stable-ok2_riscv64.deb ...
+ 44s Unpacking libevent-pthreads-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 44s Selecting previously unselected package librdmacm1:riscv64.
+ 45s Preparing to unpack .../04-librdmacm1_42.0-ok1_riscv64.deb ...
+ 45s Unpacking librdmacm1:riscv64 (42.0-ok1) ...
+ 45s Selecting previously unselected package libfabric1:riscv64.
+ 45s Preparing to unpack .../05-libfabric1_1.17.0-ok1_riscv64.deb ...
+ 45s Unpacking libfabric1:riscv64 (1.17.0-ok1) ...
+ 45s Selecting previously unselected package libxnvctrl0:riscv64.
+ 45s Preparing to unpack .../06-libxnvctrl0_510.47.03-ok1_riscv64.deb ...
+ 45s Unpacking libxnvctrl0:riscv64 (510.47.03-ok1) ...
+ 45s Selecting previously unselected package libhwloc15:riscv64.
+ 45s Preparing to unpack .../07-libhwloc15_2.10.0-ok1_riscv64.deb ...
+ 45s Unpacking libhwloc15:riscv64 (2.10.0-ok1) ...
+ 45s Selecting previously unselected package libhwloc-plugins:riscv64.
+ 45s Preparing to unpack .../08-libhwloc-plugins_2.10.0-ok1_riscv64.deb ...
+ 45s Unpacking libhwloc-plugins:riscv64 (2.10.0-ok1) ...
+ 46s Selecting previously unselected package libpmix2:riscv64.
+ 46s Preparing to unpack .../09-libpmix2_4.1.2-ok1_riscv64.deb ...
+ 46s Unpacking libpmix2:riscv64 (4.1.2-ok1) ...
+ 46s Selecting previously unselected package libopenmpi3t64:riscv64.
+ 46s Preparing to unpack .../10-libopenmpi3t64_4.1.6-ok1_riscv64.deb ...
+ 46s Unpacking libopenmpi3t64:riscv64 (4.1.6-ok1) ...
+ 47s Selecting previously unselected package openmpi-common.
+ 47s Preparing to unpack .../11-openmpi-common_4.1.6-ok1_all.deb ...
+ 47s Unpacking openmpi-common (4.1.6-ok1) ...
+ 48s Selecting previously unselected package openmpi-bin.
+ 48s Preparing to unpack .../12-openmpi-bin_4.1.6-ok1_riscv64.deb ...
+ 48s Unpacking openmpi-bin (4.1.6-ok1) ...
+ 49s Selecting previously unselected package autopkgtest-satdep.
+ 49s Preparing to unpack .../13-5-autopkgtest-satdep.deb ...
+ 49s Unpacking autopkgtest-satdep (0) ...
+ 49s Setting up libibverbs1:riscv64 (50.0-ok3) ...
+ 49s Setting up ibverbs-providers:riscv64 (50.0-ok3) ...
+ 50s Setting up libxnvctrl0:riscv64 (510.47.03-ok1) ...
+ 50s Setting up libhwloc15:riscv64 (2.10.0-ok1) ...
+ 50s Setting up openmpi-common (4.1.6-ok1) ...
+ 50s Setting up libevent-core-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 50s Setting up librdmacm1:riscv64 (42.0-ok1) ...
+ 50s Setting up libevent-pthreads-2.1-7t64:riscv64 (2.1.12-stable-ok2) ...
+ 50s Setting up libhwloc-plugins:riscv64 (2.10.0-ok1) ...
+ 50s Setting up libfabric1:riscv64 (1.17.0-ok1) ...
+ 50s Setting up libpmix2:riscv64 (4.1.2-ok1) ...
+ 50s Setting up libopenmpi3t64:riscv64 (4.1.6-ok1) ...
+ 50s Setting up openmpi-bin (4.1.6-ok1) ...
+ 50s update-alternatives: using /usr/bin/mpirun.openmpi to provide /usr/bin/mpirun (mpirun) in auto mode
+ 50s update-alternatives: using /usr/bin/mpicc.openmpi to provide /usr/bin/mpicc (mpi) in auto mode
+ 50s Setting up autopkgtest-satdep (0) ...
+ 50s Processing triggers for man-db (2.10.2-2) ...
+ 51s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'openmpi-bin'], kind short, sout pipe, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 56s autopkgtest: DBG: testbed command exited with code 0
+ 56s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 openmpi-bin libopenmpi3t64 libfabric1 ibverbs-providers indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libpmix2 libevent-pthreads-2.1-7t64 libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libhwloc-plugins libhwloc15 libibus-1.0-5 librdmacm1 libibverbs1 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 libxnvctrl0 nautilus-data openmpi-common pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 56s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 58s autopkgtest: DBG: testbed command exited with code 0
+ 58s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'openmpi-bin', 'libopenmpi3t64', 'libfabric1', 'ibverbs-providers', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module'], kind short, sout raw, serr pipe, env []
+ 59s autopkgtest: DBG: testbed command exited with code 0
+ 59s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libpmix2', 'libevent-pthreads-2.1-7t64', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libhwloc-plugins'], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libhwloc15', 'libibus-1.0-5', 'librdmacm1', 'libibverbs1', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'libxnvctrl0', 'nautilus-data', 'openmpi-common', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec'], kind short, sout raw, serr pipe, env []
+ 62s autopkgtest: DBG: testbed command exited with code 0
+ 62s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 63s autopkgtest: DBG: testbed command exited with code 0
+ 63s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 63s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 63s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 64s (Reading database ... 194280 files and directories currently installed.)
+ 64s Removing autopkgtest-satdep (0) ...
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.r06TiA/check_shared_objs-packages.all"], kind short, sout raw, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/check_shared_objs-packages.all /home/hachi/openkylin_test/sharefolder/results/openmpi/check_shared_objs-packages.all
+ 64s autopkgtest: DBG: got reply from testbed: ok
+ 64s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.r06TiA/build.pp1/src'], kind short, sout raw, serr raw, env []
+ 64s autopkgtest: DBG: testbed command exited with code 1
+ 64s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.r06TiA/build.pp1'], kind short, sout raw, serr pipe, env []
+ 64s autopkgtest: DBG: testbed command exited with code 0
+ 64s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/openmpi/tests-tree/ /tmp/autopkgtest.r06TiA/build.pp1/src/
+ 70s autopkgtest: DBG: got reply from testbed: ok
+ 70s autopkgtest [00:02:03]: test check_shared_objs: [-----------------------
+ 70s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.r06TiA/wrapper.sh --debug --artifacts=/tmp/autopkgtest.r06TiA/check_shared_objs-artifacts --chdir=/tmp/autopkgtest.r06TiA/build.pp1/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.r06TiA/check_shared_objs-stderr --stdout=/tmp/autopkgtest.r06TiA/check_shared_objs-stdout --tmp=/tmp/autopkgtest.r06TiA/autopkgtest_tmp --make-executable=/tmp/autopkgtest.r06TiA/build.pp1/src/debian/tests/check_shared_objs -- /tmp/autopkgtest.r06TiA/build.pp1/src/debian/tests/check_shared_objs'], kind test, sout raw, serr raw, env []
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.r06TiA/check_shared_objs-artifacts
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: changing to directory: /tmp/autopkgtest.r06TiA/build.pp1/src
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: setting environment: LANG=C.UTF-8
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LANGUAGE
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_ADDRESS
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_ALL
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_COLLATE
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_CTYPE
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_MESSAGES
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_MONETARY
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_NAME
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_NUMERIC
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_PAPER
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: unsetting environment: LC_TIME
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: pretending to be a login shell
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: will write standard error to /tmp/autopkgtest.r06TiA/check_shared_objs-stderr
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: will write stdout to /tmp/autopkgtest.r06TiA/check_shared_objs-stdout
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.r06TiA/autopkgtest_tmp
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: marking as executable: /tmp/autopkgtest.r06TiA/build.pp1/src/debian/tests/check_shared_objs
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: command to run: /tmp/autopkgtest.r06TiA/build.pp1/src/debian/tests/check_shared_objs
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: copying /tmp/tmp.Mw1zvneHWb/out to stdout and file: /tmp/autopkgtest.r06TiA/check_shared_objs-stdout
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: copying /tmp/tmp.Mw1zvneHWb/err to standard error and file: /tmp/autopkgtest.r06TiA/check_shared_objs-stdout
+ 70s /tmp/autopkgtest.r06TiA/wrapper.sh: writing script pid 1331873 to /tmp/autopkgtest_script_pid
+ 71s /tmp/autopkgtest.r06TiA/wrapper.sh: checking for leaked background processes...
+ 71s /tmp/autopkgtest.r06TiA/wrapper.sh: waiting for tee/cat subprocesses...
+ 71s /tmp/autopkgtest.r06TiA/wrapper.sh: cleaning up...
+ 71s /tmp/autopkgtest.r06TiA/wrapper.sh: Exit status: 0
+ 71s autopkgtest: DBG: testbed command exited with code 0
+ 71s autopkgtest [00:02:04]: test check_shared_objs: -----------------------]
+ 71s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 71s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/check_shared_objs-stdout /home/hachi/openkylin_test/sharefolder/results/openmpi/check_shared_objs-stdout
+ 71s autopkgtest: DBG: got reply from testbed: ok
+ 71s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/check_shared_objs-stderr /home/hachi/openkylin_test/sharefolder/results/openmpi/check_shared_objs-stderr
+ 71s autopkgtest: DBG: got reply from testbed: ok
+ 72s autopkgtest [00:02:05]: test check_shared_objs:  - - - - - - - - - - results - - - - - - - - - -
+ 72s check_shared_objs    PASS
+ 72s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.r06TiA/check_shared_objs-artifacts/ /home/hachi/openkylin_test/sharefolder/results/openmpi/artifacts/
+ 72s autopkgtest: DBG: got reply from testbed: ok
+ 72s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.r06TiA/check_shared_objs-artifacts', '/tmp/autopkgtest.r06TiA/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 72s autopkgtest: DBG: testbed command exited with code 0
+ 72s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 72s autopkgtest [00:02:05]: @@@@@@@@@@@@@@@@@@@@ summary
+ 72s compile_run_mpicc    FAIL badpkg
+ 72s blame: openmpi_4.1.6-ok1.dsc
+ 72s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 72s compile_run_mpif90   FAIL badpkg
+ 72s blame: openmpi_4.1.6-ok1.dsc
+ 72s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 72s compile_run_mpif77   FAIL badpkg
+ 72s blame: openmpi_4.1.6-ok1.dsc
+ 72s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 72s compile_run_cc_pkgconfig FAIL badpkg
+ 72s blame: openmpi_4.1.6-ok1.dsc
+ 72s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 72s check_shared_objs    PASS
+ 72s autopkgtest: DBG: testbed stop
+ 72s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.r06TiA
+ 72s autopkgtest: DBG: sending command to testbed: close
+ 72s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 73s autopkgtest: DBG: got reply from testbed: ok
+ 73s autopkgtest: DBG: sending command to testbed: quit

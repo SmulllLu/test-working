@@ -1,0 +1,1395 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [00:58:40]: starting date and time: 2024-07-19 00:58:40+0800
+  0s autopkgtest [00:58:40]: version @version@
+  0s autopkgtest [00:58:40]: host lili; command line: /usr/bin/autopkgtest pillow_10.2.0-ok2.dsc -o /home/hachi/openkylin_test/sharefolder/results/pillow -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.PU3o1k
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-dde9a08e-a853-44ca-aac7-c750bdb82636,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-dde9a08e-a853-44ca-aac7-c750bdb82636//tmp/autopkgtest.PU3o1k
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-dde9a08e-a853-44ca-aac7-c750bdb82636//tmp/autopkgtest.PU3o1k', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.PU3o1k'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.PU3o1k/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.PU3o1k/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:58:42]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:58:42]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.PU3o1k/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.PU3o1k/testbed-packages /home/hachi/openkylin_test/sharefolder/results/pillow/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [00:58:42]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [00:58:42]: @@@@@@@@@@@@@@@@@@@@ source pillow_10.2.0-ok2.dsc
+  2s autopkgtest: DBG: blame += pillow_10.2.0-ok2.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.PU3o1k'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown pillow_10.2.0-ok2.dsc /tmp/autopkgtest.PU3o1k/pillow_10.2.0-ok2.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.PU3o1k'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown pillow_10.2.0.orig.tar.xz /tmp/autopkgtest.PU3o1k/pillow_10.2.0.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.PU3o1k'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown pillow_10.2.0-ok2.debian.tar.xz /tmp/autopkgtest.PU3o1k/pillow_10.2.0-ok2.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.PU3o1k/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.PU3o1k/pillow_10.2.0-ok2.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.PU3o1k/build.XXX
+  3s + builddir=/tmp/autopkgtest.PU3o1k/build.2fo
+  3s + cd /tmp/autopkgtest.PU3o1k/build.2fo
+  3s + dpkg-source -x /tmp/autopkgtest.PU3o1k/pillow_10.2.0-ok2.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.pDqbsqxc/trustedkeys.kbx': General error
+  3s gpgv: Signature made Thu 11 Apr 2024 05:00:24 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.PU3o1k/pillow_10.2.0-ok2.dsc
+  5s dpkg-source: info: extracting pillow in src
+  5s dpkg-source: info: unpacking pillow_10.2.0.orig.tar.xz
+  8s dpkg-source: info: unpacking pillow_10.2.0-ok2.debian.tar.xz
+  8s dpkg-source: info: using patch list from debian/patches/series
+  8s dpkg-source: info: applying 0001-sync-upstream-config.patch
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [00:58:48]: testing package pillow version 10.2.0-ok2
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.PU3o1k/build.2fo/src/debian/ /home/hachi/openkylin_test/sharefolder/results/pillow/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency python3-pil
+  8s autopkgtest: DBG: synthesised dependency python3-pil.imagetk
+  8s autopkgtest: DBG: synthesised dependency python-pil-doc
+  8s autopkgtest: DBG: Test defined: name selftest-py3 path debian/tests/selftest-py3 command "None" restrictions [] features [] depends ['python3-pil', 'python3-pil.imagetk', 'python-pil-doc'] 
+  8s autopkgtest [00:58:48]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.PU3o1k/build.2fo/src/ /home/hachi/openkylin_test/sharefolder/results/pillow/tests-tree/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency python3-pil
+  9s autopkgtest: DBG: synthesised dependency python3-pil.imagetk
+  9s autopkgtest: DBG: synthesised dependency python-pil-doc
+  9s autopkgtest: DBG: Test defined: name selftest-py3 path debian/tests/selftest-py3 command "None" restrictions [] features [] depends ['python3-pil', 'python3-pil.imagetk', 'python-pil-doc'] 
+  9s autopkgtest [00:58:49]: test selftest-py3: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['python3-pil', 'python3-pil.imagetk', 'python-pil-doc']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['python3-pil', 'python3-pil.imagetk', 'python-pil-doc']
+  9s autopkgtest: DBG: install-deps: satisfying python3-pil, python3-pil.imagetk, python-pil-doc
+  9s autopkgtest: DBG: install-deps: architecture resolved: python3-pil, python3-pil.imagetk, python-pil-doc
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.PU3o1k'], kind short, sout raw, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-dde9a08e-a853-44ca-aac7-c750bdb82636//tmp/autopkgtest.PU3o1k/1-autopkgtest-satdep.deb /tmp/autopkgtest.PU3o1k/1-autopkgtest-satdep.deb
+ 10s autopkgtest: DBG: got reply from testbed: ok
+ 10s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.PU3o1k/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 11s Starting pkgProblemResolver with broken count: 2
+ 11s Starting 2 pkgProblemResolver with broken count: 2
+ 11s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 11s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 11s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 11s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 11s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 11s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+ 11s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+ 11s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+ 11s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+ 11s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 11s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 11s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 11s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 11s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 11s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 11s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 11s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 11s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 11s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 11s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 11s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 11s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+ 11s   Re-Instated gir1.2-girepository-2.0:riscv64
+ 11s   Re-Instated python3-gi:riscv64
+ 11s Done
+ 12s The following packages were automatically installed and are no longer required:
+ 12s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 12s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 12s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 12s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 12s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 12s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 12s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 12s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 12s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 12s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 12s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 12s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 12s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 12s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 12s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 12s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 12s   language-selector-common language-selector-gnome libatrildocument3
+ 12s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 12s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 12s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libgirepository-2.0-0
+ 12s   libglib2.0-dev libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0
+ 12s   libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common
+ 12s   libgxps2 libharfbuzz-gobject0 libibus-1.0-5 libido3-0.1-0 libindicator3-7
+ 12s   libjs-mathjax libkpathsea6 libkylin-chkname1 libkysdk-appcommon
+ 12s   libmatemixer-common libmatemixer0 libmount-dev libpangoxft-1.0-0
+ 12s   libpeas-1.0-0 libpeas-common libpkgconf4 libpython3.8 libquazip5-1
+ 12s   librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1
+ 12s   libsynctex2 libukui-appwidget-qmlplugin0 libunity-settings-daemon1
+ 12s   libwhoopsie0 nautilus-data pipewire-alsa pipewire-audio-client-libraries
+ 12s   pipewire-jack pkg-config pkgconf pkgconf-bin pluma pluma-common
+ 12s   python3-aptdaemon.gtk3widgets python3-ibus-1.0 python3-packaging python3-xdg
+ 12s   session-migration ukui-appwidget-manager ukui-notebook ukui-system-appwidget
+ 12s   unicode-cldr-core unity-settings-daemon unity-settings-daemon-schemas
+ 12s   xfonts-thai xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec
+ 12s   xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 12s Use 'sudo apt autoremove' to remove them.
+ 12s The following additional packages will be installed:
+ 12s   apt apt-utils blt gir1.2-freedesktop gir1.2-girepository-2.0 gir1.2-glib-2.0
+ 12s   gir1.2-harfbuzz-0.0 kylin-system-updater libapt-pkg6.0t64 libdeflate0
+ 12s   libelf1t64 libfreetype6 libgcrypt20 libgdbm6t64 libgirepository-1.0-1
+ 12s   libgirepository-2.0-0 libglib2.0-0t64 libglib2.0-bin libglib2.0-dev
+ 12s   libglib2.0-dev-bin libgnutls30t64 libgpgme11 libgpgmepp6
+ 12s   libharfbuzz-gobject0 libharfbuzz-icu0 libharfbuzz0b libhogweed6t64 libicu74
+ 12s   libimagequant0 libjs-jquery libjs-sphinxdoc libjs-underscore libldb2
+ 12s   liblerc4 libnettle8t64 libnewt0.52 libopenjp2-7 libpkgconf4
+ 12s   libpython3-stdlib libpython3.12-minimal libpython3.12-stdlib
+ 12s   libpython3.12t64 libraqm0 libsharpyuv0 libsmbclient libtalloc2 libtdb1
+ 12s   libtiff6 libtirpc-common libtirpc-dev libtirpc3t64 libtk8.6 libunistring5
+ 12s   liburing2 libwbclient0 libwebp7 libwebpdemux2 libwebpmux3 libzstd1 mailcap
+ 12s   media-types mime-support pkg-config pkgconf pkgconf-bin python-apt-common
+ 12s   python-pil-doc python3 python3-apt python3-cffi-backend python3-cups
+ 12s   python3-dbus python3-distutils python3-gdbm python3-gi python3-gpg
+ 12s   python3-ldb python3-lib2to3 python3-markupsafe python3-minimal
+ 12s   python3-netifaces python3-newt python3-packaging python3-pil
+ 12s   python3-pil.imagetk python3-psutil python3-samba python3-simplejson
+ 12s   python3-talloc python3-tdb python3-tk python3-yaml python3.12
+ 12s   python3.12-minimal samba samba-ad-provision samba-common samba-common-bin
+ 12s   samba-dsdb-modules samba-libs samba-vfs-modules tdb-tools tk8.6-blt2.5
+ 12s   whiptail zstd
+ 12s Suggested packages:
+ 12s   apt-doc powermgmt-base blt-demo gir1.2-dbusmenu-glib-0.4 gir1.2-unity-5.0
+ 12s   rng-tools gdbm-l10n low-memory-monitor gir1.2-glib-2.0-dev libglib2.0-doc
+ 12s   libxml2-utils gnutls-bin tk8.6 python3-doc python3-venv python-apt-doc
+ 12s   python-dbus-doc python3-gdbm-dbg tix python3-tk-dbg python3.12-venv
+ 12s   python3.12-doc binfmt-support bind9 bind9utils ctdb ldb-tools ntp | chrony
+ 12s   winbind heimdal-clients
+ 12s Recommended packages:
+ 12s   javascript-common python3-olefile attr libcephfs2 libgfapi0
+ 13s The following packages will be REMOVED:
+ 13s   libapt-pkg6.0 libelf1 libgdbm6 libglib2.0-0 libgnutls30 libtirpc3
+ 13s   python3-crypto python3-jsonschema python3-pyrsistent python3-systemd
+ 13s The following NEW packages will be installed:
+ 13s   autopkgtest-satdep blt gir1.2-girepository-2.0 libapt-pkg6.0t64 libdeflate0
+ 13s   libelf1t64 libgdbm6t64 libgirepository-2.0-0 libglib2.0-0t64 libgnutls30t64
+ 13s   libharfbuzz-gobject0 libhogweed6t64 libicu74 libimagequant0 libjs-jquery
+ 13s   libjs-sphinxdoc libjs-underscore liblerc4 libnettle8t64 libpkgconf4
+ 13s   libpython3.12-minimal libpython3.12-stdlib libpython3.12t64 libraqm0
+ 13s   libsharpyuv0 libtiff6 libtirpc3t64 libtk8.6 libunistring5 mailcap
+ 13s   media-types pkgconf pkgconf-bin python-pil-doc python3-packaging python3-pil
+ 13s   python3-pil.imagetk python3-tk python3.12 python3.12-minimal tk8.6-blt2.5
+ 13s The following packages will be upgraded:
+ 13s   apt apt-utils gir1.2-freedesktop gir1.2-glib-2.0 gir1.2-harfbuzz-0.0
+ 13s   kylin-system-updater libfreetype6 libgcrypt20 libgirepository-1.0-1
+ 13s   libglib2.0-bin libglib2.0-dev libglib2.0-dev-bin libgpgme11 libgpgmepp6
+ 13s   libharfbuzz-icu0 libharfbuzz0b libldb2 libnewt0.52 libopenjp2-7
+ 13s   libpython3-stdlib libsmbclient libtalloc2 libtdb1 libtirpc-common
+ 13s   libtirpc-dev liburing2 libwbclient0 libwebp7 libwebpdemux2 libwebpmux3
+ 13s   libzstd1 mime-support pkg-config python-apt-common python3 python3-apt
+ 13s   python3-cffi-backend python3-cups python3-dbus python3-distutils
+ 13s   python3-gdbm python3-gi python3-gpg python3-ldb python3-lib2to3
+ 13s   python3-markupsafe python3-minimal python3-netifaces python3-newt
+ 13s   python3-psutil python3-samba python3-simplejson python3-talloc python3-tdb
+ 13s   python3-yaml samba samba-ad-provision samba-common samba-common-bin
+ 13s   samba-dsdb-modules samba-libs samba-vfs-modules tdb-tools whiptail zstd
+ 13s 65 upgraded, 41 newly installed, 10 to remove and 1001 not upgraded.
+ 13s Need to get 45.5 MB/45.5 MB of archives.
+ 13s After this operation, 69.4 MB of additional disk space will be used.
+ 13s Get:1 /tmp/autopkgtest.PU3o1k/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [720 B]
+ 13s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgcrypt20 riscv64 1.10.3-ok2 [464 kB]
+ 14s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzstd1 riscv64 1.5.5-ok3 [286 kB]
+ 14s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpython3.12-minimal riscv64 3.12.2-ok4 [786 kB]
+ 14s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3.12-minimal riscv64 3.12.2-ok4 [1,817 kB]
+ 15s Get:6 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-minimal riscv64 3.12.2-ok1 [23.2 kB]
+ 15s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 mime-support all 3.66-ok1 [1,508 B]
+ 15s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 mailcap all 3.70+nmu1-ok1 [22.4 kB]
+ 15s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 media-types all 10.1.0-ok1 [20.0 kB]
+ 15s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtirpc-common all 1.3.4+ds-ok1 [6,304 B]
+ 15s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libnettle8t64 riscv64 3.9.1-ok2 [191 kB]
+ 15s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 libhogweed6t64 riscv64 3.9.1-ok2 [190 kB]
+ 15s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libunistring5 riscv64 1.1-ok1 [540 kB]
+ 15s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpython3.12t64 riscv64 3.12.2-ok4 [1,873 kB]
+ 16s Get:15 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-ldb riscv64 2:2.8.0+samba4.19.2+dfsg-ok1~1207.6 [34.1 kB]
+ 16s Get:16 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libldb2 riscv64 2:2.8.0+samba4.19.2+dfsg-ok1~1207.6 [121 kB]
+ 16s Get:17 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-dsdb-modules riscv64 2:4.19.2+dfsg-ok1~1207.6 [255 kB]
+ 16s Get:18 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-samba riscv64 2:4.19.2+dfsg-ok1~1207.6 [2,699 kB]
+ 17s Get:19 http://archive.build.openkylin.top/openkylin nile/main riscv64 samba-ad-provision all 2:4.19.2+dfsg-ok1~1207.6 [468 kB]
+ 18s Get:20 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba riscv64 2:4.19.2+dfsg-ok1~1207.6 [852 kB]
+ 18s Get:21 http://archive.build.openkylin.top/openkylin nile/main riscv64 samba-common all 2:4.19.2+dfsg-ok1~1207.6 [57.5 kB]
+ 18s Get:22 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-common-bin riscv64 2:4.19.2+dfsg-ok1~1207.6 [1,079 kB]
+ 19s Get:23 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgnutls30t64 riscv64 3.8.3-ok3 [920 kB]
+ 19s Get:24 http://archive.build.openkylin.top/openkylin nile/main riscv64 libicu74 riscv64 74.2-ok6 [9,323 kB]
+ 23s Get:25 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libwbclient0 riscv64 2:4.19.2+dfsg-ok1~1207.6 [31.0 kB]
+ 23s Get:26 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libsmbclient riscv64 2:4.19.2+dfsg-ok1~1207.6 [52.2 kB]
+ 23s Get:27 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-libs riscv64 2:4.19.2+dfsg-ok1~1207.6 [5,006 kB]
+ 25s Get:28 http://archive.build.openkylin.top/openkylin nile/main riscv64 liburing2 riscv64 2.5-ok1 [16.2 kB]
+ 25s Get:29 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 samba-vfs-modules riscv64 2:4.19.2+dfsg-ok1~1207.6 [367 kB]
+ 25s Get:30 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtirpc-dev riscv64 1.3.4+ds-ok1 [273 kB]
+ 25s Get:31 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtirpc3t64 riscv64 1.3.4+ds-ok1 [69.0 kB]
+ 25s Get:32 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpython3.12-stdlib riscv64 3.12.2-ok4 [1,813 kB]
+ 26s Get:33 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3.12 riscv64 3.12.2-ok4 [644 kB]
+ 26s Get:34 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpython3-stdlib riscv64 3.12.2-ok1 [6,252 B]
+ 26s Get:35 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-markupsafe riscv64 2.1.5-ok1 [10.7 kB]
+ 26s Get:36 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-gpg riscv64 1.22.0-ok4 [178 kB]
+ 26s Get:37 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgdbm6t64 riscv64 1.23-ok5 [27.8 kB]
+ 26s Get:38 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-gdbm riscv64 3.12.3-ok6 [12.0 kB]
+ 26s Get:39 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-cups riscv64 2.0.1-ok2 [52.9 kB]
+ 26s Get:40 http://archive.build.openkylin.top/openkylin nile/pty riscv64 kylin-system-updater all 3.0.0.0-ok28 [138 kB]
+ 27s Get:41 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-yaml riscv64 6.0.1-ok1 [104 kB]
+ 27s Get:42 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtdb1 riscv64 1.4.10-ok2 [38.6 kB]
+ 27s Get:43 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-tdb riscv64 1.4.10-ok2 [12.9 kB]
+ 27s Get:44 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtalloc2 riscv64 2.4.2-ok2 [20.9 kB]
+ 27s Get:45 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-talloc riscv64 2.4.2-ok2 [11.0 kB]
+ 27s Get:46 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-simplejson riscv64 3.19.2-ok1 [49.6 kB]
+ 27s Get:47 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-psutil riscv64 5.9.8-ok2 [188 kB]
+ 27s Get:48 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libnewt0.52 riscv64 0.52.24-2ok3 [46.3 kB]
+ 27s Get:49 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-newt riscv64 0.52.24-2ok3 [18.2 kB]
+ 27s Get:50 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-netifaces riscv64 0.11.0-ok3 [15.5 kB]
+ 27s Get:51 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-packaging all 24.0-ok1 [39.6 kB]
+ 27s Get:52 http://archive.build.openkylin.top/openkylin nile/main riscv64 libelf1t64 riscv64 0.190-ok3 [161 kB]
+ 27s Get:53 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-bin riscv64 2.80.0-ok1~0615.2 [86.6 kB]
+ 27s Get:54 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpkgconf4 riscv64 1.9.5-ok1 [26.2 kB]
+ 27s Get:55 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkgconf-bin riscv64 1.9.5-ok1 [22.8 kB]
+ 27s Get:56 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkg-config riscv64 1.9.5-ok1 [4,500 B]
+ 27s Get:57 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 pkgconf riscv64 1.9.5-ok1 [16.5 kB]
+ 27s Get:58 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgirepository-2.0-0 riscv64 2.80.0-ok1~0615.2 [92.5 kB]
+ 27s Get:59 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-dev riscv64 2.80.0-ok1~0615.2 [3,576 kB]
+ 28s Get:60 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-dev-bin riscv64 2.80.0-ok1~0615.2 [137 kB]
+ 29s Get:61 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-freedesktop riscv64 1.80.1-ok1 [32.5 kB]
+ 29s Get:62 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-gi riscv64 3.48.2-ok3 [205 kB]
+ 29s Get:63 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgirepository-1.0-1 riscv64 1.80.1-ok1 [88.1 kB]
+ 29s Get:64 http://archive.build.openkylin.top/openkylin nile/main riscv64 gir1.2-glib-2.0 riscv64 2.80.0-ok1~0615.2 [159 kB]
+ 29s Get:65 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-dbus riscv64 1.3.2-ok3 [87.2 kB]
+ 29s Get:66 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfreetype6 riscv64 2.13.2+dfsg-ok1 [338 kB]
+ 29s Get:67 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz0b riscv64 8.3.0-ok2 [456 kB]
+ 29s Get:68 http://archive.build.openkylin.top/openkylin nile/main riscv64 libglib2.0-0t64 riscv64 2.80.0-ok1~0615.2 [1,278 kB]
+ 30s Get:69 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-cffi-backend riscv64 1.16.0-ok2 [66.0 kB]
+ 30s Get:70 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-distutils all 3.12.3-ok6 [6,484 B]
+ 30s Get:71 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-lib2to3 all 3.12.3-ok6 [74.3 kB]
+ 30s Get:72 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3 riscv64 3.12.2-ok1 [22.8 kB]
+ 30s Get:73 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-apt riscv64 2.7.7-ok3 [152 kB]
+ 30s Get:74 http://archive.build.openkylin.top/openkylin nile/main riscv64 libapt-pkg6.0t64 riscv64 2.8.0-ok1 [872 kB]
+ 30s Get:75 http://archive.build.openkylin.top/openkylin nile/main riscv64 apt riscv64 2.8.0-ok1 [1,255 kB]
+ 31s Get:76 http://archive.build.openkylin.top/openkylin nile/main riscv64 apt-utils riscv64 2.8.0-ok1 [278 kB]
+ 31s Get:77 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgpgme11 riscv64 1.22.0-ok4 [107 kB]
+ 31s Get:78 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 tdb-tools riscv64 1.4.10-ok2 [23.9 kB]
+ 31s Get:79 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-girepository-2.0 riscv64 1.80.1-ok1 [23.0 kB]
+ 31s Get:80 http://archive.build.openkylin.top/openkylin nile/main riscv64 python-apt-common all 2.7.7-ok3 [60.2 kB]
+ 31s Get:81 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtk8.6 riscv64 8.6.14-ok1 [656 kB]
+ 31s Get:82 http://archive.build.openkylin.top/openkylin nile/main riscv64 tk8.6-blt2.5 riscv64 2.5.3+dfsg-ok3 [520 kB]
+ 31s Get:83 http://archive.build.openkylin.top/openkylin nile/main riscv64 blt riscv64 2.5.3+dfsg-ok3 [9,876 B]
+ 31s Get:84 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz-gobject0 riscv64 8.3.0-ok2 [26.7 kB]
+ 31s Get:85 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 gir1.2-harfbuzz-0.0 riscv64 8.3.0-ok2 [39.0 kB]
+ 31s Get:86 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdeflate0 riscv64 1.19-ok1 [35.1 kB]
+ 31s Get:87 http://archive.build.openkylin.top/openkylin nile/main riscv64 libgpgmepp6 riscv64 1.22.0-ok4 [115 kB]
+ 32s Get:88 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libharfbuzz-icu0 riscv64 8.3.0-ok2 [12.0 kB]
+ 32s Get:89 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libimagequant0 riscv64 2.18.0-ok1 [30.7 kB]
+ 32s Get:90 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjs-jquery all 3.6.1+dfsg+~3.5.14-ok1 [324 kB]
+ 32s Get:91 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjs-underscore all 1.13.4~dfsg+~1.11.4-ok1 [115 kB]
+ 32s Get:92 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjs-sphinxdoc all 7.2.6-ok1 [142 kB]
+ 32s Get:93 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 liblerc4 riscv64 4.0.0+ds-ok1 [154 kB]
+ 32s Get:94 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libopenjp2-7 riscv64 2.5.0-ok1 [162 kB]
+ 32s Get:95 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libraqm0 riscv64 0.10.1-ok2 [11.7 kB]
+ 32s Get:96 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsharpyuv0 riscv64 1.3.2-ok1 [10.4 kB]
+ 32s Get:97 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebp7 riscv64 1.3.2-ok1 [164 kB]
+ 32s Get:98 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libtiff6 riscv64 4.5.1+git230720-ok1 [160 kB]
+ 32s Get:99 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebpdemux2 riscv64 1.3.2-ok1 [10.9 kB]
+ 32s Get:100 http://archive.build.openkylin.top/openkylin nile/main riscv64 libwebpmux3 riscv64 1.3.2-ok1 [22.2 kB]
+ 32s Get:101 http://archive.build.openkylin.top/openkylin nile/main riscv64 python-pil-doc all 10.2.0-ok2 [578 kB]
+ 32s Get:102 http://archive.build.openkylin.top/openkylin nile/main riscv64 python3-tk riscv64 3.12.3-ok6 [94.1 kB]
+ 32s Get:103 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-pil.imagetk riscv64 10.2.0-ok2 [8,336 B]
+ 32s Get:104 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 python3-pil riscv64 10.2.0-ok2 [412 kB]
+ 33s Get:105 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 whiptail riscv64 0.52.24-2ok3 [16.6 kB]
+ 33s Get:106 http://archive.build.openkylin.top/openkylin nile/main riscv64 zstd riscv64 1.5.5-ok3 [643 kB]
+ 36s Preconfiguring packages ...
+ 36s Fetched 45.5 MB in 20s (2,323 kB/s)
+ 37s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 37s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 37s Preparing to unpack .../libgcrypt20_1.10.3-ok2_riscv64.deb ...
+ 37s Unpacking libgcrypt20:riscv64 (1.10.3-ok2) over (1.10.1-ok1) ...
+ 38s Setting up libgcrypt20:riscv64 (1.10.3-ok2) ...
+ 38s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 38s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 38s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 38s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 38s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 38s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 39s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193807 files and directories currently installed.)
+ 39s Preparing to unpack .../libzstd1_1.5.5-ok3_riscv64.deb ...
+ 39s Unpacking libzstd1:riscv64 (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+ 39s Setting up libzstd1:riscv64 (1.5.5-ok3) ...
+ 39s Selecting previously unselected package libpython3.12-minimal:riscv64.
+ 39s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 39s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193807 files and directories currently installed.)
+ 39s Preparing to unpack .../libpython3.12-minimal_3.12.2-ok4_riscv64.deb ...
+ 39s Unpacking libpython3.12-minimal:riscv64 (3.12.2-ok4) ...
+ 41s Selecting previously unselected package python3.12-minimal.
+ 41s Preparing to unpack .../python3.12-minimal_3.12.2-ok4_riscv64.deb ...
+ 41s Unpacking python3.12-minimal (3.12.2-ok4) ...
+ 41s Setting up libpython3.12-minimal:riscv64 (3.12.2-ok4) ...
+ 41s Setting up python3.12-minimal (3.12.2-ok4) ...
+ 45s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 45s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 46s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194116 files and directories currently installed.)
+ 46s Preparing to unpack .../0-python3-minimal_3.12.2-ok1_riscv64.deb ...
+ 46s Unpacking python3-minimal (3.12.2-ok1) over (3.8.2-ok2) ...
+ 47s Preparing to unpack .../1-mime-support_3.66-ok1_all.deb ...
+ 47s Unpacking mime-support (3.66-ok1) over (3.64-ok1) ...
+ 47s Selecting previously unselected package mailcap.
+ 47s Preparing to unpack .../2-mailcap_3.70+nmu1-ok1_all.deb ...
+ 47s Unpacking mailcap (3.70+nmu1-ok1) ...
+ 48s Selecting previously unselected package media-types.
+ 48s Preparing to unpack .../3-media-types_10.1.0-ok1_all.deb ...
+ 48s Unpacking media-types (10.1.0-ok1) ...
+ 48s Preparing to unpack .../4-libtirpc-common_1.3.4+ds-ok1_all.deb ...
+ 48s Unpacking libtirpc-common (1.3.4+ds-ok1) over (1.3.3+ds-1) ...
+ 49s Selecting previously unselected package libnettle8t64:riscv64.
+ 49s Preparing to unpack .../5-libnettle8t64_3.9.1-ok2_riscv64.deb ...
+ 49s Unpacking libnettle8t64:riscv64 (3.9.1-ok2) ...
+ 49s Setting up libnettle8t64:riscv64 (3.9.1-ok2) ...
+ 50s Selecting previously unselected package libhogweed6t64:riscv64.
+ 50s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 50s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194129 files and directories currently installed.)
+ 50s Preparing to unpack .../libhogweed6t64_3.9.1-ok2_riscv64.deb ...
+ 50s Unpacking libhogweed6t64:riscv64 (3.9.1-ok2) ...
+ 50s Setting up libhogweed6t64:riscv64 (3.9.1-ok2) ...
+ 50s Selecting previously unselected package libunistring5:riscv64.
+ 50s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 50s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 51s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194135 files and directories currently installed.)
+ 51s Preparing to unpack .../libunistring5_1.1-ok1_riscv64.deb ...
+ 51s Unpacking libunistring5:riscv64 (1.1-ok1) ...
+ 51s Setting up libunistring5:riscv64 (1.1-ok1) ...
+ 51s Selecting previously unselected package libpython3.12t64:riscv64.
+ 51s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 51s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 52s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194140 files and directories currently installed.)
+ 52s Preparing to unpack .../0-libpython3.12t64_3.12.2-ok4_riscv64.deb ...
+ 52s Unpacking libpython3.12t64:riscv64 (3.12.2-ok4) ...
+ 53s Preparing to unpack .../1-python3-ldb_2%3a2.8.0+samba4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 54s Unpacking python3-ldb (2:2.8.0+samba4.19.2+dfsg-ok1~1207.6) over (2:2.8.0+samba4.19.2+dfsg-ok1~1207.5) ...
+ 54s Preparing to unpack .../2-libldb2_2%3a2.8.0+samba4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 54s Unpacking libldb2:riscv64 (2:2.8.0+samba4.19.2+dfsg-ok1~1207.6) over (2:2.8.0+samba4.19.2+dfsg-ok1~1207.5) ...
+ 55s Preparing to unpack .../3-samba-dsdb-modules_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 55s Unpacking samba-dsdb-modules:riscv64 (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 56s Preparing to unpack .../4-python3-samba_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 59s Unpacking python3-samba (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 65s Preparing to unpack .../5-samba-ad-provision_2%3a4.19.2+dfsg-ok1~1207.6_all.deb ...
+ 65s Unpacking samba-ad-provision (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 67s Preparing to unpack .../6-samba_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 68s Unpacking samba (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 70s Preparing to unpack .../7-samba-common_2%3a4.19.2+dfsg-ok1~1207.6_all.deb ...
+ 70s Unpacking samba-common (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 71s Preparing to unpack .../8-samba-common-bin_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 71s Unpacking samba-common-bin (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 72s dpkg: libgnutls30:riscv64: dependency problems, but removing anyway as you requested:
+ 72s  samba-vfs-modules:riscv64 depends on libgnutls30 (>= 3.6.5).
+ 72s  samba-libs:riscv64 depends on libgnutls30 (>= 3.6.13).
+ 72s  ntfs-3g depends on libgnutls30 (>= 3.6.12).
+ 72s  network-manager depends on libgnutls30 (>= 3.6.12).
+ 72s  libvte-2.91-0:riscv64 depends on libgnutls30 (>= 3.6.10).
+ 72s  libsrt1.5-gnutls:riscv64 depends on libgnutls30 (>= 3.6.5).
+ 72s  librtmp1:riscv64 depends on libgnutls30 (>= 3.6.6).
+ 72s  libqpdf26:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libnm0:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libldap2:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libldap-2.5-0:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libldap-2.4-2:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libjcat1:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libimobiledevice6:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libcurl3-gnutls:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libcups2:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libavformat59:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  libavformat58:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  glib-networking:riscv64 depends on libgnutls30 (>= 3.6.12).
+ 72s  dirmngr depends on libgnutls30 (>= 3.6.12).
+ 72s  apt depends on libgnutls30 (>= 3.6.12).
+ 72s 
+ 73s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 73s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194145 files and directories currently installed.)
+ 73s Removing libgnutls30:riscv64 (3.6.13-ok3) ...
+ 73s Selecting previously unselected package libgnutls30t64:riscv64.
+ 73s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 74s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194119 files and directories currently installed.)
+ 74s Preparing to unpack .../libgnutls30t64_3.8.3-ok3_riscv64.deb ...
+ 74s Unpacking libgnutls30t64:riscv64 (3.8.3-ok3) ...
+ 74s Setting up libgnutls30t64:riscv64 (3.8.3-ok3) ...
+ 74s Selecting previously unselected package libicu74:riscv64.
+ 74s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 74s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 74s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 74s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 74s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 74s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 75s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194147 files and directories currently installed.)
+ 75s Preparing to unpack .../0-libicu74_74.2-ok6_riscv64.deb ...
+ 75s Unpacking libicu74:riscv64 (74.2-ok6) ...
+ 76s Preparing to unpack .../1-libwbclient0_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 76s Unpacking libwbclient0:riscv64 (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 77s Preparing to unpack .../2-libsmbclient_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 77s Unpacking libsmbclient:riscv64 (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 77s Preparing to unpack .../3-samba-libs_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 77s Unpacking samba-libs:riscv64 (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 79s Preparing to unpack .../4-liburing2_2.5-ok1_riscv64.deb ...
+ 79s Unpacking liburing2:riscv64 (2.5-ok1) over (2.2-ok1) ...
+ 79s Preparing to unpack .../5-samba-vfs-modules_2%3a4.19.2+dfsg-ok1~1207.6_riscv64.deb ...
+ 79s Unpacking samba-vfs-modules:riscv64 (2:4.19.2+dfsg-ok1~1207.6) over (2:4.19.2+dfsg-ok1~1207.5) ...
+ 80s Preparing to unpack .../6-libtirpc-dev_1.3.4+ds-ok1_riscv64.deb ...
+ 80s Unpacking libtirpc-dev:riscv64 (1.3.4+ds-ok1) over (1.3.3-ok1) ...
+ 81s dpkg: libtirpc3:riscv64: dependency problems, but removing anyway as you requested:
+ 81s  xwayland depends on libtirpc3 (>= 1.0.2).
+ 81s  lsof depends on libtirpc3 (>= 1.0.2).
+ 81s  libpython3.8-stdlib:riscv64 depends on libtirpc3 (>= 1.0.2).
+ 81s  libpam-modules:riscv64 depends on libtirpc3 (>= 1.0.2).
+ 81s  libnsl2:riscv64 depends on libtirpc3 (>= 1.0.2).
+ 81s 
+ 81s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 81s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 81s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 81s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 81s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 81s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 81s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194165 files and directories currently installed.)
+ 81s Removing libtirpc3:riscv64 (1.3.3-ok1) ...
+ 82s Selecting previously unselected package libtirpc3t64:riscv64.
+ 82s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 82s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194160 files and directories currently installed.)
+ 82s Preparing to unpack .../libtirpc3t64_1.3.4+ds-ok1_riscv64.deb ...
+ 82s Adding 'diversion of /lib/riscv64-linux-gnu/libtirpc.so.3 to /lib/riscv64-linux-gnu/libtirpc.so.3.usr-is-merged by libtirpc3t64'
+ 82s Adding 'diversion of /lib/riscv64-linux-gnu/libtirpc.so.3.0.0 to /lib/riscv64-linux-gnu/libtirpc.so.3.0.0.usr-is-merged by libtirpc3t64'
+ 82s Unpacking libtirpc3t64:riscv64 (1.3.4+ds-ok1) ...
+ 82s Selecting previously unselected package libpython3.12-stdlib:riscv64.
+ 82s Preparing to unpack .../libpython3.12-stdlib_3.12.2-ok4_riscv64.deb ...
+ 82s Unpacking libpython3.12-stdlib:riscv64 (3.12.2-ok4) ...
+ 84s Selecting previously unselected package python3.12.
+ 84s Preparing to unpack .../python3.12_3.12.2-ok4_riscv64.deb ...
+ 84s Unpacking python3.12 (3.12.2-ok4) ...
+ 84s Preparing to unpack .../libpython3-stdlib_3.12.2-ok1_riscv64.deb ...
+ 84s Unpacking libpython3-stdlib:riscv64 (3.12.2-ok1) over (3.8.2-ok2) ...
+ 85s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 85s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 85s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 85s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 85s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 85s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 85s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194571 files and directories currently installed.)
+ 85s Removing python3-systemd (234-ok1) ...
+ 85s Removing python3-jsonschema (3.2.0-ok1) ...
+ 86s Removing python3-pyrsistent:riscv64 (0.15.5-ok1) ...
+ 87s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 87s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 87s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194481 files and directories currently installed.)
+ 87s Preparing to unpack .../python3-markupsafe_2.1.5-ok1_riscv64.deb ...
+ 87s Unpacking python3-markupsafe (2.1.5-ok1) over (2.0.1-ok2) ...
+ 87s Preparing to unpack .../python3-gpg_1.22.0-ok4_riscv64.deb ...
+ 88s Unpacking python3-gpg (1.22.0-ok4) over (1.22.0-ok1) ...
+ 89s dpkg: libgdbm6:riscv64: dependency problems, but removing anyway as you requested:
+ 89s  python3-gdbm:riscv64 depends on libgdbm6 (>= 1.16).
+ 89s  man-db depends on libgdbm6 (>= 1.16).
+ 89s  libperl5.30:riscv64 depends on libgdbm6 (>= 1.18-0).
+ 89s  libgdbm-compat4:riscv64 depends on libgdbm6 (>= 1.16).
+ 89s 
+ 89s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 89s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 89s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194489 files and directories currently installed.)
+ 89s Removing libgdbm6:riscv64 (1.23-1) ...
+ 90s Selecting previously unselected package libgdbm6t64:riscv64.
+ 90s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 90s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 90s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 90s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 90s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 90s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 90s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194484 files and directories currently installed.)
+ 90s Preparing to unpack .../libgdbm6t64_1.23-ok5_riscv64.deb ...
+ 90s Unpacking libgdbm6t64:riscv64 (1.23-ok5) ...
+ 90s Preparing to unpack .../python3-gdbm_3.12.3-ok6_riscv64.deb ...
+ 90s Unpacking python3-gdbm:riscv64 (3.12.3-ok6) over (3.10.7-ok2) ...
+ 91s Preparing to unpack .../python3-cups_2.0.1-ok2_riscv64.deb ...
+ 91s Unpacking python3-cups:riscv64 (2.0.1-ok2) over (1.9.73-ok2.1) ...
+ 91s Preparing to unpack .../kylin-system-updater_3.0.0.0-ok28_all.deb ...
+ 91s Unpacking kylin-system-updater (3.0.0.0-ok28) over (3.0.0.0-ok14) ...
+ 92s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 92s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 92s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 92s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 92s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 92s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 92s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194490 files and directories currently installed.)
+ 92s Removing python3-crypto (2.6.1-ok1) ...
+ 93s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 93s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 93s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 93s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 93s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 93s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 93s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194327 files and directories currently installed.)
+ 93s Preparing to unpack .../00-python3-yaml_6.0.1-ok1_riscv64.deb ...
+ 94s Unpacking python3-yaml (6.0.1-ok1) over (5.3.1-ok2) ...
+ 95s Preparing to unpack .../01-libtdb1_1.4.10-ok2_riscv64.deb ...
+ 95s Unpacking libtdb1:riscv64 (1.4.10-ok2) over (1.4.9-ok1) ...
+ 96s Preparing to unpack .../02-python3-tdb_1.4.10-ok2_riscv64.deb ...
+ 96s Unpacking python3-tdb (1.4.10-ok2) over (1.4.9-ok1) ...
+ 97s Preparing to unpack .../03-libtalloc2_2.4.2-ok2_riscv64.deb ...
+ 97s Unpacking libtalloc2:riscv64 (2.4.2-ok2) over (2.4.1-ok1) ...
+ 97s Preparing to unpack .../04-python3-talloc_2.4.2-ok2_riscv64.deb ...
+ 97s Unpacking python3-talloc:riscv64 (2.4.2-ok2) over (2.4.1-ok1) ...
+ 98s Preparing to unpack .../05-python3-simplejson_3.19.2-ok1_riscv64.deb ...
+ 99s Unpacking python3-simplejson (3.19.2-ok1) over (3.16.0-ok1) ...
+100s Preparing to unpack .../06-python3-psutil_5.9.8-ok2_riscv64.deb ...
+100s Unpacking python3-psutil (5.9.8-ok2) over (5.5.1-ok1) ...
+101s Preparing to unpack .../07-libnewt0.52_0.52.24-2ok3_riscv64.deb ...
+101s Unpacking libnewt0.52:riscv64 (0.52.24-2ok3) over (0.52.21-ok2) ...
+102s Preparing to unpack .../08-python3-newt_0.52.24-2ok3_riscv64.deb ...
+102s Unpacking python3-newt:riscv64 (0.52.24-2ok3) over (0.52.21-ok2) ...
+103s Preparing to unpack .../09-python3-netifaces_0.11.0-ok3_riscv64.deb ...
+103s Unpacking python3-netifaces:riscv64 (0.11.0-ok3) over (0.11.0-ok1) ...
+103s Selecting previously unselected package python3-packaging.
+103s Preparing to unpack .../10-python3-packaging_24.0-ok1_all.deb ...
+103s Unpacking python3-packaging (24.0-ok1) ...
+103s dpkg: libelf1:riscv64: dependency problems, but removing anyway as you requested:
+103s  mesa-vulkan-drivers:riscv64 depends on libelf1 (>= 0.142).
+103s  mesa-vdpau-drivers:riscv64 depends on libelf1 (>= 0.142).
+103s  mesa-va-drivers:riscv64 depends on libelf1 (>= 0.142).
+103s  linux-headers-5.19.0-1004-generic depends on libelf1 (>= 0.144).
+103s  libglib2.0-bin depends on libelf1 (>= 0.142).
+103s  libgl1-mesa-dri:riscv64 depends on libelf1 (>= 0.142).
+103s  libbpf0:riscv64 depends on libelf1 (>= 0.144).
+103s  iproute2 depends on libelf1 (>= 0.131).
+103s 
+103s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+103s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+103s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+103s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+103s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+103s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+104s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194418 files and directories currently installed.)
+104s Removing libelf1:riscv64 (0.187-ok1) ...
+104s Selecting previously unselected package libelf1t64:riscv64.
+104s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+104s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+104s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+104s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+104s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+104s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+104s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194406 files and directories currently installed.)
+104s Preparing to unpack .../00-libelf1t64_0.190-ok3_riscv64.deb ...
+104s Unpacking libelf1t64:riscv64 (0.190-ok3) ...
+105s Preparing to unpack .../01-libglib2.0-bin_2.80.0-ok1~0615.2_riscv64.deb ...
+105s Unpacking libglib2.0-bin (2.80.0-ok1~0615.2) over (2.78.0-ok1~0229.1) ...
+105s Selecting previously unselected package libpkgconf4:riscv64.
+105s Preparing to unpack .../02-libpkgconf4_1.9.5-ok1_riscv64.deb ...
+105s Unpacking libpkgconf4:riscv64 (1.9.5-ok1) ...
+105s Selecting previously unselected package pkgconf-bin.
+105s Preparing to unpack .../03-pkgconf-bin_1.9.5-ok1_riscv64.deb ...
+105s Unpacking pkgconf-bin (1.9.5-ok1) ...
+105s Preparing to unpack .../04-pkg-config_1.9.5-ok1_riscv64.deb ...
+106s Removing leftover symlink /usr/bin/riscv64-linux-gnu-pkg-config
+106s Unpacking pkg-config:riscv64 (1.9.5-ok1) over (0.29.1-ok1) ...
+106s Removing obsolete conffile /etc/dpkg/dpkg.cfg.d/pkg-config-hook-config ...
+106s Selecting previously unselected package pkgconf:riscv64.
+106s Preparing to unpack .../05-pkgconf_1.9.5-ok1_riscv64.deb ...
+106s Unpacking pkgconf:riscv64 (1.9.5-ok1) ...
+106s Selecting previously unselected package libgirepository-2.0-0:riscv64.
+106s Preparing to unpack .../06-libgirepository-2.0-0_2.80.0-ok1~0615.2_riscv64.deb ...
+106s Unpacking libgirepository-2.0-0:riscv64 (2.80.0-ok1~0615.2) ...
+106s Preparing to unpack .../07-libglib2.0-dev_2.80.0-ok1~0615.2_riscv64.deb ...
+106s Unpacking libglib2.0-dev:riscv64 (2.80.0-ok1~0615.2) over (2.78.0-ok1~0229.1) ...
+110s Preparing to unpack .../08-libglib2.0-dev-bin_2.80.0-ok1~0615.2_riscv64.deb ...
+111s Unpacking libglib2.0-dev-bin (2.80.0-ok1~0615.2) over (2.78.0-ok1~0229.1) ...
+111s Preparing to unpack .../09-gir1.2-freedesktop_1.80.1-ok1_riscv64.deb ...
+111s Unpacking gir1.2-freedesktop:riscv64 (1.80.1-ok1) over (1.71.0-ok2) ...
+111s Preparing to unpack .../10-python3-gi_3.48.2-ok3_riscv64.deb ...
+112s Unpacking python3-gi (3.48.2-ok3) over (3.36.0-ok3) ...
+112s Preparing to unpack .../11-libgirepository-1.0-1_1.80.1-ok1_riscv64.deb ...
+112s Unpacking libgirepository-1.0-1:riscv64 (1.80.1-ok1) over (1.71.0-ok2) ...
+113s Preparing to unpack .../12-gir1.2-glib-2.0_2.80.0-ok1~0615.2_riscv64.deb ...
+113s Unpacking gir1.2-glib-2.0:riscv64 (2.80.0-ok1~0615.2) over (1.71.0-ok2) ...
+113s Preparing to unpack .../13-python3-dbus_1.3.2-ok3_riscv64.deb ...
+113s Unpacking python3-dbus (1.3.2-ok3) over (1.2.16-ok1) ...
+113s Preparing to unpack .../14-libfreetype6_2.13.2+dfsg-ok1_riscv64.deb ...
+113s Unpacking libfreetype6:riscv64 (2.13.2+dfsg-ok1) over (2.10.1-ok1) ...
+114s Preparing to unpack .../15-libharfbuzz0b_8.3.0-ok2_riscv64.deb ...
+114s Unpacking libharfbuzz0b:riscv64 (8.3.0-ok2) over (2.6.4-ok1) ...
+117s dpkg: libglib2.0-0:riscv64: dependency problems, but removing anyway as you requested:
+117s  zenity depends on libglib2.0-0 (>= 2.24.0).
+117s  yelp depends on libglib2.0-0 (>= 2.38.0).
+117s  xdg-user-dirs-gtk depends on libglib2.0-0 (>= 2.35.9).
+117s  wireplumber depends on libglib2.0-0 (>= 2.62).
+117s  upower depends on libglib2.0-0 (>= 2.41.1).
+117s  unity-settings-daemon depends on libglib2.0-0 (>= 2.39.4).
+117s  ukui-settings-daemon depends on libglib2.0-0 (>= 2.45.3).
+117s  ukui-search-service depends on libglib2.0-0 (>= 2.16.0).
+117s  ukui-screensaver depends on libglib2.0-0 (>= 2.39.4).
+117s  ukui-polkit depends on libglib2.0-0 (>= 2.26.0).
+117s  ukui-panel depends on libglib2.0-0 (>= 2.36).
+117s  ukui-menu-recent-file depends on libglib2.0-0 (>= 2.36.0).
+117s  ukui-media depends on libglib2.0-0 (>= 2.24.0).
+117s  ukui-greeter depends on libglib2.0-0 (>= 2.39.4).
+117s  ukui-control-center depends on libglib2.0-0 (>= 2.39.4).
+117s  ukui-bluetooth depends on libglib2.0-0 (>= 2.34.0).
+117s  ukui-biometric-manager depends on libglib2.0-0 (>= 2.26.0).
+117s  udisks2 depends on libglib2.0-0 (>= 2.50).
+117s  snapd-glib-tests:riscv64 depends on libglib2.0-0 (>= 2.46).
+117s  shared-mime-info depends on libglib2.0-0 (>= 2.35.9).
+117s  session-migration depends on libglib2.0-0 (>= 2.51.1).
+117s  qt5-ukui-platformtheme depends on libglib2.0-0 (>= 2.12.0).
+117s  qt5-gtk-platformtheme:riscv64 depends on libglib2.0-0 (>= 2.33.14).
+117s  pulseaudio-module-bluetooth depends on libglib2.0-0 (>= 2.12.0).
+117s  pulseaudio depends on libglib2.0-0 (>= 2.31.18).
+117s  polkitd depends on libglib2.0-0 (>= 2.37.3).
+117s  policykit-1-gnome depends on libglib2.0-0 (>= 2.37.3).
+117s  pluma depends on libglib2.0-0 (>= 2.37.3).
+117s  pkexec depends on libglib2.0-0 (>= 2.35.9).
+117s  pinentry-gnome3 depends on libglib2.0-0 (>= 2.26.0).
+117s  peony-share depends on libglib2.0-0 (>= 2.16.0).
+117s  peony-set-wallpaper depends on libglib2.0-0 (>= 2.26.0).
+117s  peony-send-to-device depends on libglib2.0-0 (>= 2.55.2).
+117s  peony-open-terminal depends on libglib2.0-0 (>= 2.28.0).
+117s  peony-extension-computer-view depends on libglib2.0-0 (>= 2.51.0).
+117s  peony-device-rename depends on libglib2.0-0 (>= 2.31.18).
+117s  peony depends on libglib2.0-0 (>= 2.56.0).
+117s  packagekit-tools depends on libglib2.0-0 (>= 2.46).
+117s  packagekit depends on libglib2.0-0 (>= 2.46).
+117s  openkylin-theme-configure depends on libglib2.0-0 (>= 2.16.0).
+117s  notification-daemon depends on libglib2.0-0 (>= 2.37.3).
+117s  network-manager-pptp depends on libglib2.0-0 (>= 2.41.1).
+117s  network-manager-gnome depends on libglib2.0-0 (>= 2.43.2).
+117s  network-manager depends on libglib2.0-0 (>= 2.68.0).
+117s  mate-terminal depends on libglib2.0-0 (>= 2.50).
+117s  mate-desktop depends on libglib2.0-0 (>= 2.50.0).
+117s  lightdm depends on libglib2.0-0 (>= 2.39.4).
+117s  libyelp0:riscv64 depends on libglib2.0-0 (>= 2.39.90).
+117s  libxmlb2:riscv64 depends on libglib2.0-0 (>= 2.53.2).
+117s  libxklavier16:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libwireplumber-0.4-0:riscv64 depends on libglib2.0-0 (>= 2.62).
+117s  libwhoopsie0:riscv64 depends on libglib2.0-0 (>= 2.32).
+117s  libwebkit2gtk-4.0-37:riscv64 depends on libglib2.0-0 (>= 2.59.0).
+117s  libwacom2:riscv64 depends on libglib2.0-0 (>= 2.24.0).
+117s  libwacom-bin depends on libglib2.0-0 (>= 2.12.0).
+117s  libvte-2.91-0:riscv64 depends on libglib2.0-0 (>= 2.52.0).
+117s  libvolume-key1 depends on libglib2.0-0 (>= 2.18.0).
+117s  libupower-glib3:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libunity-settings-daemon1:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libukui-search2 depends on libglib2.0-0 (>= 2.16.0).
+117s  libudisks2-0:riscv64 depends on libglib2.0-0 (>= 2.50).
+117s  libspeechd2:riscv64 depends on libglib2.0-0 (>= 2.36).
+117s  libspa-0.2-bluetooth:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libsoup2.4-1:riscv64 depends on libglib2.0-0 (>= 2.61.2).
+117s  libsoup-gnome2.4-1:riscv64 depends on libglib2.0-0 (>= 2.58).
+117s  libsnapd-qt1:riscv64 depends on libglib2.0-0 (>= 2.46).
+117s  libsnapd-glib1:riscv64 depends on libglib2.0-0 (>= 2.46).
+117s  libsecret-1-0:riscv64 depends on libglib2.0-0 (>= 2.44.0).
+117s  libsane1:riscv64 depends on libglib2.0-0 (>= 2.33.14).
+117s  librsvg2-common:riscv64 depends on libglib2.0-0 (>= 2.24.0).
+117s  librsvg2-2:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  librest-0.7-0:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libqt5xdg3:riscv64 depends on libglib2.0-0 (>= 2.39.4).
+117s  libqt5waylandclient5:riscv64 depends on libglib2.0-0 (>= 2.39.4).
+117s  libqt5multimediagsttools5:riscv64 depends on libglib2.0-0 (>= 2.31.8).
+117s  libqt5multimedia5-plugins:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  libqt5gui5:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  libqt5core5a:riscv64 depends on libglib2.0-0 (>= 2.22.0).
+117s  libqt5-ukui-style1 depends on libglib2.0-0.
+117s  libpulse-mainloop-glib0:riscv64 depends on libglib2.0-0 (>= 2.28.0).
+117s  libpoppler-glib8:riscv64 depends on libglib2.0-0 (>= 2.41).
+117s  libpolkit-qt5-1-1:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libpolkit-gobject-1-0:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libpolkit-agent-1-0:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libpipewire-0.3-modules:riscv64 depends on libglib2.0-0 (>= 2.31.8).
+117s  libpeony3 depends on libglib2.0-0 (>= 2.75.0).
+117s  libpeas-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.38.0).
+117s  libpangoxft-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.60.0).
+117s  libpangoft2-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.60.0).
+117s  libpangocairo-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.60.0).
+117s  libpango-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.61.2).
+117s  libpam-biometric depends on libglib2.0-0 (>= 2.12.0).
+117s  libpackagekit-glib2-18:riscv64 depends on libglib2.0-0 (>= 2.46).
+117s  libopencv-videoio4.2:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  libopencv-highgui4.2:riscv64 depends on libglib2.0-0 (>= 2.31.8).
+117s  libnotify4:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libnotify-bin depends on libglib2.0-0 (>= 2.26).
+117s  libnma0:riscv64 depends on libglib2.0-0 (>= 2.43.2).
+117s  libnm0:riscv64 depends on libglib2.0-0 (>= 2.43.2).
+117s  libmm-glib0:riscv64 depends on libglib2.0-0 (>= 2.36.0).
+117s  libmatemixer0:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libmatekbd4:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libmate-desktop-2-17:riscv64 depends on libglib2.0-0 (>= 2.50.0).
+117s  liblightdm-qt5-3-0:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  liblightdm-gobject-1-0:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libkysdk-systime:riscv64 depends on libglib2.0-0.
+117s  libkysdk-system:riscv64 depends on libglib2.0-0.
+117s  libkysdk-sysinfo:riscv64 depends on libglib2.0-0.
+117s  libkysdk-qtwidgets depends on libglib2.0-0.
+117s  libkysdk-location:riscv64 depends on libglib2.0-0.
+117s  libkysdk-hardware:riscv64 depends on libglib2.0-0.
+117s  libkysdk-conf2:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libkylin-nm-base depends on libglib2.0-0 (>= 2.26.0).
+117s  libjson-glib-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.55.2).
+117s  libjcat1:riscv64 depends on libglib2.0-0 (>= 2.61.2).
+117s  libjavascriptcoregtk-4.0-18:riscv64 depends on libglib2.0-0 (>= 2.41.1).
+117s  libindicator3-7 depends on libglib2.0-0 (>= 2.37.3).
+117s  libido3-0.1-0:riscv64 depends on libglib2.0-0 (>= 2.41.1).
+117s  libical3:riscv64 depends on libglib2.0-0 (>= 2.41.1).
+117s  libibus-1.0-5:riscv64 depends on libglib2.0-0 (>= 2.57.2).
+117s  libgxps2:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libgusb2:riscv64 depends on libglib2.0-0 (>= 2.44.0).
+117s  libgudev-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.38.0).
+117s  libgtksourceview-3.0-1:riscv64 depends on libglib2.0-0 (>= 2.47.1).
+117s  libgtk2.0-0:riscv64 depends on libglib2.0-0 (>= 2.41.1).
+117s  libgtk-3-bin depends on libglib2.0-0 (>= 2.57.2).
+117s  libgtk-3-0:riscv64 depends on libglib2.0-0 (>= 2.59.0).
+117s  libgstreamer1.0-0:riscv64 depends on libglib2.0-0 (>= 2.70.0).
+117s  libgstreamer-plugins-good1.0-0:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  libgstreamer-plugins-base1.0-0:riscv64 depends on libglib2.0-0 (>= 2.59.2).
+117s  libgstreamer-gl1.0-0:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  libgsettings-qt1:riscv64 depends on libglib2.0-0 (>= 2.39.4).
+117s  libgraphene-1.0-0:riscv64 depends on libglib2.0-0 (>= 2.14.0).
+117s  libgoa-1.0-0b:riscv64 depends on libglib2.0-0 (>= 2.52).
+117s  libgnome-panel0 depends on libglib2.0-0 (>= 2.55.2).
+117s  libgnome-desktop-3-19:riscv64 depends on libglib2.0-0 (>= 2.53.0).
+117s  libgdk-pixbuf2.0-bin depends on libglib2.0-0 (>= 2.48.0).
+117s  libgdk-pixbuf2.0-0:riscv64 depends on libglib2.0-0 (>= 2.48.0).
+117s  libgcr-ui-3-1:riscv64 depends on libglib2.0-0 (>= 2.44.0).
+117s  libgcr-base-3-1:riscv64 depends on libglib2.0-0 (>= 2.44.0).
+117s  libgck-1-0:riscv64 depends on libglib2.0-0 (>= 2.44.0).
+117s  libgail18:riscv64 depends on libglib2.0-0 (>= 2.27.3).
+117s  libgail-common:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libfwupd2:riscv64 depends on libglib2.0-0 (>= 2.53.2).
+117s  libfcitx5gclient2:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libfcitx-gclient1:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libenchant1c2a:riscv64 depends on libglib2.0-0 (>= 2.35.9).
+117s  libenchant-2-2:riscv64 depends on libglib2.0-0 (>= 2.28.0).
+117s  libddcutil3 depends on libglib2.0-0 (>= 2.39.4).
+117s  libdconf1:riscv64 depends on libglib2.0-0 (>= 2.55.2).
+117s  libdbusmenu-gtk3-4:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libdbus-glib-1-2:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  libcolorhug2:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libcolord2:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libcanberra0:riscv64 depends on libglib2.0-0 (>= 2.26.0).
+117s  libcanberra-gtk3-module:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  libcanberra-gtk3-0:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  libcaja-extension1:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libcairo-gobject2:riscv64 depends on libglib2.0-0 (>= 2.14.0).
+117s  libblockdev2:riscv64 depends on libglib2.0-0 (>= 2.42.2).
+117s  libblockdev-utils2:riscv64 depends on libglib2.0-0 (>= 2.70.0).
+117s  libblockdev-swap2:riscv64 depends on libglib2.0-0 (>= 2.42.2).
+117s  libblockdev-part2:riscv64 depends on libglib2.0-0 (>= 2.42.2).
+117s  libblockdev-part-err2:riscv64 depends on libglib2.0-0 (>= 2.42.2).
+117s  libblockdev-loop2:riscv64 depends on libglib2.0-0 (>= 2.42.2).
+117s  libblockdev-fs2:riscv64 depends on libglib2.0-0 (>= 2.42.2).
+117s  libblockdev-crypto2:riscv64 depends on libglib2.0-0 (>= 2.42.2).
+117s  libbiometric0 depends on libglib2.0-0 (>= 2.36).
+117s  libavcodec59:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  libavcodec58:riscv64 depends on libglib2.0-0 (>= 2.12.0).
+117s  libavahi-glib1:riscv64 depends on libglib2.0-0 (>= 2.16.0).
+117s  libatspi2.0-0:riscv64 depends on libglib2.0-0 (>= 2.37.3).
+117s  libatrilview3 depends on libglib2.0-0 (>= 2.37.3).
+117s  libatrildocument3 depends on libglib2.0-0 (>= 2.37.3).
+117s  libatk1.0-0:riscv64 depends on libglib2.0-0 (>= 2.55.2).
+117s  libatk-bridge2.0-0:riscv64 depends on libglib2.0-0 (>= 2.41.1).
+117s  libappstream4:riscv64 depends on libglib2.0-0 (>= 2.67.3+git20210214).
+117s  libappindicator3-1 depends on libglib2.0-0 (>= 2.37.3).
+117s  libaccountsservice0:riscv64 depends on libglib2.0-0 (>= 2.44).
+117s  kylin-update-frontend depends on libglib2.0-0 (>= 2.12.0).
+117s  kylin-process-manager depends on libglib2.0-0 (>= 2.55.1).
+117s  kylin-printer depends on libglib2.0-0 (>= 2.12.0).
+117s  kylin-photo-viewer depends on libglib2.0-0 (>= 2.16.0).
+117s  kylin-nm depends on libglib2.0-0 (>= 2.75.3).
+117s  kylin-device-daemon depends on libglib2.0-0 (>= 2.49.2).
+117s  kwin-wayland depends on libglib2.0-0 (>= 2.12.0).
+117s  indicator-session depends on libglib2.0-0 (>= 2.43.2).
+117s  indicator-printers depends on libglib2.0-0 (>= 2.43.2).
+117s  indicator-messages depends on libglib2.0-0 (>= 2.37.3).
+117s  indicator-applet depends on libglib2.0-0 (>= 2.55.2).
+117s  iio-sensor-proxy depends on libglib2.0-0 (>= 2.39.90).
+117s  ibus-gtk3:riscv64 depends on libglib2.0-0 (>= 2.46.0~).
+117s  ibus-gtk:riscv64 depends on libglib2.0-0 (>= 2.46.0~).
+117s  ibus depends on libglib2.0-0 (>= 2.62.2-0).
+117s  gvfs-libs:riscv64 depends on libglib2.0-0 (>= 2.70.0).
+117s  gvfs-fuse depends on libglib2.0-0 (>= 2.70.0).
+117s  gvfs-daemons depends on libglib2.0-0 (>= 2.70.0).
+117s  gvfs-backends depends on libglib2.0-0 (>= 2.70.0).
+117s  gvfs:riscv64 depends on libglib2.0-0 (>= 2.70.0).
+117s  gtk-update-icon-cache depends on libglib2.0-0 (>= 2.57.2).
+117s  gstreamer1.0-x:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  gstreamer1.0-pulseaudio:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  gstreamer1.0-plugins-good:riscv64 depends on libglib2.0-0 (>= 2.53.2).
+117s  gstreamer1.0-plugins-base:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  gstreamer1.0-libav:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  gstreamer1.0-gl:riscv64 depends on libglib2.0-0 (>= 2.40).
+117s  gnome-screensaver depends on libglib2.0-0 (>= 2.43.2).
+117s  gnome-power-manager depends on libglib2.0-0 (>= 2.45.8).
+117s  gnome-keyring depends on libglib2.0-0 (>= 2.43.2).
+117s  glib-networking-services depends on libglib2.0-0 (>= 2.63.0).
+117s  glib-networking:riscv64 depends on libglib2.0-0 (>= 2.63.0).
+117s  gcr depends on libglib2.0-0 (>= 2.44.0).
+117s  fcitx5-modules:riscv64 depends on libglib2.0-0 (>= 2.26.0).
+117s  fcitx5-frontend-gtk3:riscv64 depends on libglib2.0-0 (>= 2.67.3).
+117s  fcitx5-frontend-gtk2:riscv64 depends on libglib2.0-0 (>= 2.67.3).
+117s  engrampa depends on libglib2.0-0 (>= 2.37.3).
+117s  enchant-2 depends on libglib2.0-0 (>= 2.12.0).
+117s  enchant depends on libglib2.0-0 (>= 2.12.0).
+117s  desktop-file-utils depends on libglib2.0-0 (>= 2.28.0).
+117s  dconf-service depends on libglib2.0-0 (>= 2.55.2).
+117s  dconf-gsettings-backend:riscv64 depends on libglib2.0-0 (>= 2.55.2).
+117s  dconf-cli depends on libglib2.0-0 (>= 2.44.0).
+117s  cups-daemon depends on libglib2.0-0 (>= 2.22.0).
+117s  cups-browsed depends on libglib2.0-0 (>= 2.37.3).
+117s  colord depends on libglib2.0-0 (>= 2.37.3).
+117s  bluez-obexd depends on libglib2.0-0 (>= 2.35.9).
+117s  bluez depends on libglib2.0-0 (>= 2.31.8).
+117s  biometric-auth depends on libglib2.0-0 (>= 2.37.3).
+117s  atril depends on libglib2.0-0 (>= 2.61.2).
+117s  at-spi2-core depends on libglib2.0-0 (>= 2.37.3).
+117s  accountsservice depends on libglib2.0-0 (>= 2.44).
+117s 
+117s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+117s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+117s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+117s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+117s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+117s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+118s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194450 files and directories currently installed.)
+118s Removing libglib2.0-0:riscv64 (2.78.0-ok1~0229.1) ...
+118s Selecting previously unselected package libglib2.0-0t64:riscv64.
+118s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+118s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+118s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+118s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+118s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+118s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+119s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194431 files and directories currently installed.)
+119s Preparing to unpack .../libglib2.0-0t64_2.80.0-ok1~0615.2_riscv64.deb ...
+119s libglib2.0-0t64.preinst: Removing /var/lib/dpkg/info/libglib2.0-0:riscv64.postrm to avoid loss of /usr/share/glib-2.0/schemas/gschemas.compiled...
+119s removed '/var/lib/dpkg/info/libglib2.0-0:riscv64.postrm'
+119s Unpacking libglib2.0-0t64:riscv64 (2.80.0-ok1~0615.2) ...
+120s Preparing to unpack .../python3-cffi-backend_1.16.0-ok2_riscv64.deb ...
+120s Unpacking python3-cffi-backend:riscv64 (1.16.0-ok2) over (1.14.0-ok1.2) ...
+120s Preparing to unpack .../python3-distutils_3.12.3-ok6_all.deb ...
+121s Unpacking python3-distutils (3.12.3-ok6) over (3.10.7-ok2) ...
+121s Preparing to unpack .../python3-lib2to3_3.12.3-ok6_all.deb ...
+122s Unpacking python3-lib2to3 (3.12.3-ok6) over (3.10.7-ok2) ...
+123s Setting up python3-minimal (3.12.2-ok1) ...
+124s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+124s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+124s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+124s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+124s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+124s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+124s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194139 files and directories currently installed.)
+124s Preparing to unpack .../python3_3.12.2-ok1_riscv64.deb ...
+125s Unpacking python3 (3.12.2-ok1) over (3.8.2-ok2) ...
+126s Preparing to unpack .../python3-apt_2.7.7-ok3_riscv64.deb ...
+126s Unpacking python3-apt (2.7.7-ok3) over (2.3.0-ok4) ...
+127s dpkg: libapt-pkg6.0:riscv64: dependency problems, but removing anyway as you requested:
+127s  packagekit depends on libapt-pkg6.0 (>= 1.9.0).
+127s  aptitude depends on libapt-pkg6.0 (>= 1.9.11~).
+127s  apt-utils depends on libapt-pkg6.0 (>= 2.7.3-ok3).
+127s  apt depends on libapt-pkg6.0 (>= 2.7.3-ok3).
+127s 
+127s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+127s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+127s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+127s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+127s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+127s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+128s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194127 files and directories currently installed.)
+128s Removing libapt-pkg6.0:riscv64 (2.7.3-ok3) ...
+128s Selecting previously unselected package libapt-pkg6.0t64:riscv64.
+128s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+128s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+128s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+128s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+128s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+128s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+128s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194078 files and directories currently installed.)
+128s Preparing to unpack .../libapt-pkg6.0t64_2.8.0-ok1_riscv64.deb ...
+128s Unpacking libapt-pkg6.0t64:riscv64 (2.8.0-ok1) ...
+129s Setting up libapt-pkg6.0t64:riscv64 (2.8.0-ok1) ...
+129s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+129s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+129s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+129s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+129s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+129s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+130s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194128 files and directories currently installed.)
+130s Preparing to unpack .../apt_2.8.0-ok1_riscv64.deb ...
+130s Unpacking apt (2.8.0-ok1) over (2.7.3-ok3) ...
+131s Setting up apt (2.8.0-ok1) ...
+132s Running in chroot, ignoring command 'daemon-reload'
+133s Running in chroot, ignoring command 'is-active'
+133s Running in chroot, ignoring command 'is-active'
+133s Running in chroot, ignoring command 'restart'
+133s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+133s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+133s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+133s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+133s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+133s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+133s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194128 files and directories currently installed.)
+133s Preparing to unpack .../00-apt-utils_2.8.0-ok1_riscv64.deb ...
+133s Unpacking apt-utils (2.8.0-ok1) over (2.7.3-ok3) ...
+134s Preparing to unpack .../01-libgpgme11_1.22.0-ok4_riscv64.deb ...
+134s Unpacking libgpgme11:riscv64 (1.22.0-ok4) over (1.22.0-ok1) ...
+134s Preparing to unpack .../02-tdb-tools_1.4.10-ok2_riscv64.deb ...
+134s Unpacking tdb-tools (1.4.10-ok2) over (1.4.9-ok1) ...
+134s Selecting previously unselected package gir1.2-girepository-2.0:riscv64.
+135s Preparing to unpack .../03-gir1.2-girepository-2.0_1.80.1-ok1_riscv64.deb ...
+135s Unpacking gir1.2-girepository-2.0:riscv64 (1.80.1-ok1) ...
+135s Preparing to unpack .../04-python-apt-common_2.7.7-ok3_all.deb ...
+135s Unpacking python-apt-common (2.7.7-ok3) over (2.3.0-ok4) ...
+135s Selecting previously unselected package libtk8.6:riscv64.
+135s Preparing to unpack .../05-libtk8.6_8.6.14-ok1_riscv64.deb ...
+135s Unpacking libtk8.6:riscv64 (8.6.14-ok1) ...
+136s Selecting previously unselected package tk8.6-blt2.5.
+136s Preparing to unpack .../06-tk8.6-blt2.5_2.5.3+dfsg-ok3_riscv64.deb ...
+136s Unpacking tk8.6-blt2.5 (2.5.3+dfsg-ok3) ...
+136s Selecting previously unselected package blt.
+136s Preparing to unpack .../07-blt_2.5.3+dfsg-ok3_riscv64.deb ...
+136s Unpacking blt (2.5.3+dfsg-ok3) ...
+136s Selecting previously unselected package libharfbuzz-gobject0:riscv64.
+136s Preparing to unpack .../08-libharfbuzz-gobject0_8.3.0-ok2_riscv64.deb ...
+137s Unpacking libharfbuzz-gobject0:riscv64 (8.3.0-ok2) ...
+137s Preparing to unpack .../09-gir1.2-harfbuzz-0.0_8.3.0-ok2_riscv64.deb ...
+137s Unpacking gir1.2-harfbuzz-0.0:riscv64 (8.3.0-ok2) over (2.6.4-ok1) ...
+137s Selecting previously unselected package libdeflate0:riscv64.
+137s Preparing to unpack .../10-libdeflate0_1.19-ok1_riscv64.deb ...
+137s Unpacking libdeflate0:riscv64 (1.19-ok1) ...
+137s Preparing to unpack .../11-libgpgmepp6_1.22.0-ok4_riscv64.deb ...
+137s Unpacking libgpgmepp6:riscv64 (1.22.0-ok4) over (1.22.0-ok1) ...
+137s Preparing to unpack .../12-libharfbuzz-icu0_8.3.0-ok2_riscv64.deb ...
+137s Unpacking libharfbuzz-icu0:riscv64 (8.3.0-ok2) over (2.6.4-ok1) ...
+137s Selecting previously unselected package libimagequant0:riscv64.
+138s Preparing to unpack .../13-libimagequant0_2.18.0-ok1_riscv64.deb ...
+138s Unpacking libimagequant0:riscv64 (2.18.0-ok1) ...
+138s Selecting previously unselected package libjs-jquery.
+138s Preparing to unpack .../14-libjs-jquery_3.6.1+dfsg+~3.5.14-ok1_all.deb ...
+138s Unpacking libjs-jquery (3.6.1+dfsg+~3.5.14-ok1) ...
+138s Selecting previously unselected package libjs-underscore.
+138s Preparing to unpack .../15-libjs-underscore_1.13.4~dfsg+~1.11.4-ok1_all.deb ...
+138s Unpacking libjs-underscore (1.13.4~dfsg+~1.11.4-ok1) ...
+138s Selecting previously unselected package libjs-sphinxdoc.
+138s Preparing to unpack .../16-libjs-sphinxdoc_7.2.6-ok1_all.deb ...
+138s Unpacking libjs-sphinxdoc (7.2.6-ok1) ...
+138s Selecting previously unselected package liblerc4:riscv64.
+138s Preparing to unpack .../17-liblerc4_4.0.0+ds-ok1_riscv64.deb ...
+138s Unpacking liblerc4:riscv64 (4.0.0+ds-ok1) ...
+139s Preparing to unpack .../18-libopenjp2-7_2.5.0-ok1_riscv64.deb ...
+139s Unpacking libopenjp2-7:riscv64 (2.5.0-ok1) over (2.3.1-ok2) ...
+139s Selecting previously unselected package libraqm0:riscv64.
+139s Preparing to unpack .../19-libraqm0_0.10.1-ok2_riscv64.deb ...
+139s Unpacking libraqm0:riscv64 (0.10.1-ok2) ...
+139s Selecting previously unselected package libsharpyuv0:riscv64.
+139s Preparing to unpack .../20-libsharpyuv0_1.3.2-ok1_riscv64.deb ...
+139s Unpacking libsharpyuv0:riscv64 (1.3.2-ok1) ...
+139s Preparing to unpack .../21-libwebp7_1.3.2-ok1_riscv64.deb ...
+139s Unpacking libwebp7:riscv64 (1.3.2-ok1) over (1.2.4-ok1.1) ...
+140s Selecting previously unselected package libtiff6:riscv64.
+140s Preparing to unpack .../22-libtiff6_4.5.1+git230720-ok1_riscv64.deb ...
+140s Unpacking libtiff6:riscv64 (4.5.1+git230720-ok1) ...
+140s Preparing to unpack .../23-libwebpdemux2_1.3.2-ok1_riscv64.deb ...
+140s Unpacking libwebpdemux2:riscv64 (1.3.2-ok1) over (1.2.4-ok1.1) ...
+140s Preparing to unpack .../24-libwebpmux3_1.3.2-ok1_riscv64.deb ...
+140s Unpacking libwebpmux3:riscv64 (1.3.2-ok1) over (1.2.4-ok1.1) ...
+140s Selecting previously unselected package python-pil-doc.
+140s Preparing to unpack .../25-python-pil-doc_10.2.0-ok2_all.deb ...
+140s Unpacking python-pil-doc (10.2.0-ok2) ...
+142s Selecting previously unselected package python3-tk:riscv64.
+142s Preparing to unpack .../26-python3-tk_3.12.3-ok6_riscv64.deb ...
+142s Unpacking python3-tk:riscv64 (3.12.3-ok6) ...
+143s Selecting previously unselected package python3-pil.imagetk:riscv64.
+143s Preparing to unpack .../27-python3-pil.imagetk_10.2.0-ok2_riscv64.deb ...
+143s Unpacking python3-pil.imagetk:riscv64 (10.2.0-ok2) ...
+143s Selecting previously unselected package python3-pil:riscv64.
+143s Preparing to unpack .../28-python3-pil_10.2.0-ok2_riscv64.deb ...
+143s Unpacking python3-pil:riscv64 (10.2.0-ok2) ...
+144s Preparing to unpack .../29-whiptail_0.52.24-2ok3_riscv64.deb ...
+145s Unpacking whiptail (0.52.24-2ok3) over (0.52.21-ok2) ...
+145s Preparing to unpack .../30-zstd_1.5.5-ok3_riscv64.deb ...
+145s Unpacking zstd (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+146s Selecting previously unselected package autopkgtest-satdep.
+146s Preparing to unpack .../31-1-autopkgtest-satdep.deb ...
+146s Unpacking autopkgtest-satdep (0) ...
+146s Setting up media-types (10.1.0-ok1) ...
+146s Installing new version of config file /etc/mime.types ...
+146s Setting up libsharpyuv0:riscv64 (1.3.2-ok1) ...
+147s Setting up libpkgconf4:riscv64 (1.9.5-ok1) ...
+147s Setting up libnewt0.52:riscv64 (0.52.24-2ok3) ...
+147s Setting up apt-utils (2.8.0-ok1) ...
+147s Setting up liblerc4:riscv64 (4.0.0+ds-ok1) ...
+147s Setting up libgdbm6t64:riscv64 (1.23-ok5) ...
+147s Setting up libtdb1:riscv64 (1.4.10-ok2) ...
+147s Setting up libtirpc-common (1.3.4+ds-ok1) ...
+147s Setting up libtk8.6:riscv64 (8.6.14-ok1) ...
+147s Setting up libdeflate0:riscv64 (1.19-ok1) ...
+147s Setting up samba-common (2:4.19.2+dfsg-ok1~1207.6) ...
+148s Setting up libgpgme11:riscv64 (1.22.0-ok4) ...
+148s Setting up libwbclient0:riscv64 (2:4.19.2+dfsg-ok1~1207.6) ...
+148s Setting up libelf1t64:riscv64 (0.190-ok3) ...
+148s Setting up libtalloc2:riscv64 (2.4.2-ok2) ...
+148s Setting up libglib2.0-0t64:riscv64 (2.80.0-ok1~0615.2) ...
+148s Setting up libfreetype6:riscv64 (2.13.2+dfsg-ok1) ...
+148s Setting up tdb-tools (1.4.10-ok2) ...
+148s update-alternatives: using /usr/bin/tdbbackup.tdbtools to provide /usr/bin/tdbbackup (tdbbackup) in auto mode
+148s Setting up libimagequant0:riscv64 (2.18.0-ok1) ...
+148s Setting up pkgconf-bin (1.9.5-ok1) ...
+148s Setting up gir1.2-glib-2.0:riscv64 (2.80.0-ok1~0615.2) ...
+148s Setting up libwebp7:riscv64 (1.3.2-ok1) ...
+148s Setting up libicu74:riscv64 (74.2-ok6) ...
+148s Setting up whiptail (0.52.24-2ok3) ...
+148s Setting up python-apt-common (2.7.7-ok3) ...
+148s Setting up libtiff6:riscv64 (4.5.1+git230720-ok1) ...
+148s Setting up samba-ad-provision (2:4.19.2+dfsg-ok1~1207.6) ...
+148s Setting up libopenjp2-7:riscv64 (2.5.0-ok1) ...
+148s Setting up libharfbuzz0b:riscv64 (8.3.0-ok2) ...
+148s Setting up libgirepository-1.0-1:riscv64 (1.80.1-ok1) ...
+148s Setting up libjs-jquery (3.6.1+dfsg+~3.5.14-ok1) ...
+148s Setting up liburing2:riscv64 (2.5-ok1) ...
+148s Setting up libldb2:riscv64 (2:2.8.0+samba4.19.2+dfsg-ok1~1207.6) ...
+148s Setting up libwebpmux3:riscv64 (1.3.2-ok1) ...
+148s Setting up mailcap (3.70+nmu1-ok1) ...
+149s Setting up zstd (1.5.5-ok3) ...
+149s Setting up libjs-underscore (1.13.4~dfsg+~1.11.4-ok1) ...
+149s Setting up tk8.6-blt2.5 (2.5.3+dfsg-ok3) ...
+149s Setting up gir1.2-freedesktop:riscv64 (1.80.1-ok1) ...
+149s Setting up libharfbuzz-icu0:riscv64 (8.3.0-ok2) ...
+149s Setting up mime-support (3.66-ok1) ...
+149s Setting up libgpgmepp6:riscv64 (1.22.0-ok4) ...
+149s Setting up libtirpc3t64:riscv64 (1.3.4+ds-ok1) ...
+149s Setting up libgirepository-2.0-0:riscv64 (2.80.0-ok1~0615.2) ...
+149s Setting up blt (2.5.3+dfsg-ok3) ...
+149s Setting up libwebpdemux2:riscv64 (1.3.2-ok1) ...
+149s Setting up libglib2.0-bin (2.80.0-ok1~0615.2) ...
+149s Setting up samba-libs:riscv64 (2:4.19.2+dfsg-ok1~1207.6) ...
+149s Setting up libharfbuzz-gobject0:riscv64 (8.3.0-ok2) ...
+149s Setting up gir1.2-harfbuzz-0.0:riscv64 (8.3.0-ok2) ...
+149s Setting up pkgconf:riscv64 (1.9.5-ok1) ...
+149s Setting up libtirpc-dev:riscv64 (1.3.4+ds-ok1) ...
+149s Setting up gir1.2-girepository-2.0:riscv64 (1.80.1-ok1) ...
+149s Setting up libraqm0:riscv64 (0.10.1-ok2) ...
+149s Setting up pkg-config:riscv64 (1.9.5-ok1) ...
+149s Setting up libjs-sphinxdoc (7.2.6-ok1) ...
+149s Setting up libsmbclient:riscv64 (2:4.19.2+dfsg-ok1~1207.6) ...
+149s Setting up python-pil-doc (10.2.0-ok2) ...
+149s Setting up samba-dsdb-modules:riscv64 (2:4.19.2+dfsg-ok1~1207.6) ...
+149s Setting up libpython3.12-stdlib:riscv64 (3.12.2-ok4) ...
+149s Setting up samba-vfs-modules:riscv64 (2:4.19.2+dfsg-ok1~1207.6) ...
+149s Setting up python3.12 (3.12.2-ok4) ...
+153s Setting up libpython3.12t64:riscv64 (3.12.2-ok4) ...
+153s Setting up libpython3-stdlib:riscv64 (3.12.2-ok1) ...
+153s Setting up python3 (3.12.2-ok1) ...
+160s Setting up python3-newt:riscv64 (0.52.24-2ok3) ...
+160s Setting up python3-markupsafe (2.1.5-ok1) ...
+161s Setting up python3-psutil (5.9.8-ok2) ...
+162s Setting up python3-simplejson (3.19.2-ok1) ...
+163s Setting up python3-pil:riscv64 (10.2.0-ok2) ...
+164s Setting up python3-cups:riscv64 (2.0.1-ok2) ...
+164s Setting up python3-tdb (1.4.10-ok2) ...
+164s Setting up python3-packaging (24.0-ok1) ...
+165s Setting up python3-gpg (1.22.0-ok4) ...
+166s Setting up python3-gi (3.48.2-ok3) ...
+167s Setting up python3-ldb (2:2.8.0+samba4.19.2+dfsg-ok1~1207.6) ...
+167s Setting up python3-netifaces:riscv64 (0.11.0-ok3) ...
+167s Setting up python3-lib2to3 (3.12.3-ok6) ...
+168s Setting up python3-cffi-backend:riscv64 (1.16.0-ok2) ...
+168s Setting up python3-distutils (3.12.3-ok6) ...
+168s python3.12: can't get files for byte-compilation
+168s Setting up libglib2.0-dev-bin (2.80.0-ok1~0615.2) ...
+168s Setting up python3-dbus (1.3.2-ok3) ...
+169s Setting up python3-gdbm:riscv64 (3.12.3-ok6) ...
+169s Setting up python3-talloc:riscv64 (2.4.2-ok2) ...
+169s Setting up python3-apt (2.7.7-ok3) ...
+170s Setting up python3-yaml (6.0.1-ok1) ...
+170s Setting up python3-tk:riscv64 (3.12.3-ok6) ...
+171s Setting up libglib2.0-dev:riscv64 (2.80.0-ok1~0615.2) ...
+171s Setting up python3-pil.imagetk:riscv64 (10.2.0-ok2) ...
+171s Setting up python3-samba (2:4.19.2+dfsg-ok1~1207.6) ...
+172s /usr/lib/python3/dist-packages/samba/gp/gp_cert_auto_enroll_ext.py:319: SyntaxWarning: invalid escape sequence '\A'
+172s   return 'Cryptography\AutoEnrollment'
+172s /usr/lib/python3/dist-packages/samba/gp/gp_cert_auto_enroll_ext.py:371: SyntaxWarning: invalid escape sequence '\P'
+172s   section = 'Software\Policies\Microsoft\Cryptography\AutoEnrollment'
+172s /usr/lib/python3/dist-packages/samba/gp/gp_cert_auto_enroll_ext.py:491: SyntaxWarning: invalid escape sequence '\P'
+172s   section = 'Software\Policies\Microsoft\Cryptography\AutoEnrollment'
+175s /usr/lib/python3/dist-packages/samba/tests/dns_forwarder_helpers/server.py:80: SyntaxWarning: invalid escape sequence '\s'
+175s   m = re.match(b'^timeout\s+([\d.]+)$', data.strip())
+175s /usr/lib/python3/dist-packages/samba/tests/gpo.py:126: SyntaxWarning: invalid escape sequence '\L'
+175s   b"""
+175s /usr/lib/python3/dist-packages/samba/tests/gpo.py:263: SyntaxWarning: invalid escape sequence '\P'
+175s   b"""
+175s /usr/lib/python3/dist-packages/samba/tests/gpo.py:285: SyntaxWarning: invalid escape sequence '\P'
+175s   b"""
+175s /usr/lib/python3/dist-packages/samba/tests/gpo.py:2097: SyntaxWarning: invalid escape sequence '\P'
+175s   b"""
+175s /usr/lib/python3/dist-packages/samba/tests/gpo.py:4954: SyntaxWarning: invalid escape sequence '\P'
+175s   b"""
+177s /usr/lib/python3/dist-packages/samba/tests/samba_tool/gpo.py:1809: SyntaxWarning: invalid escape sequence '\s'
+177s   cse_ext = re.findall('^UniqueGUID\s+:\s+(.*)', out)
+177s /usr/lib/python3/dist-packages/samba/tests/samba_tool/join_member.py:43: SyntaxWarning: invalid escape sequence '\s'
+177s   existing_records = re.findall('A:\s+(\d+\.\d+\.\d+\.\d+)\s', out)
+177s /usr/lib/python3/dist-packages/samba/tests/samba_tool/ntacl.py:93: SyntaxWarning: invalid escape sequence '\s'
+177s   self.assertNotRegex(err, '^\s*File [^,]+, line \d+, in',
+177s /usr/lib/python3/dist-packages/samba/tests/samba_tool/user_virtualCryptSHA.py:42: SyntaxWarning: invalid escape sequence '\s'
+177s   p = re.compile("^" + name + ":\s+(\S+)")
+177s /usr/lib/python3/dist-packages/samba/tests/samba_tool/user_virtualCryptSHA_base.py:42: SyntaxWarning: invalid escape sequence '\s'
+177s   p = re.compile("^" + name + ":\s+(\S+)")
+178s Setting up kylin-system-updater (3.0.0.0-ok28) ...
+178s field appname_cn is exist.
+178s field status_cn is exist.
+179s field changelog is exist.
+179s field init_version is exist.
+179s Setting up autopkgtest-satdep (0) ...
+179s Setting up samba-common-bin (2:4.19.2+dfsg-ok1~1207.6) ...
+179s Setting up samba (2:4.19.2+dfsg-ok1~1207.6) ...
+179s Running in chroot, ignoring command 'daemon-reload'
+179s Running in chroot, ignoring request.
+179s Running in chroot, ignoring command 'show'
+179s Running in chroot, ignoring command 'daemon-reload'
+179s Running in chroot, ignoring request.
+179s Running in chroot, ignoring command 'show'
+179s Running in chroot, ignoring command 'daemon-reload'
+179s Running in chroot, ignoring request.
+179s Running in chroot, ignoring command 'show'
+181s Running in chroot, ignoring command 'daemon-reload'
+181s Running in chroot, ignoring command 'is-active'
+181s Running in chroot, ignoring command 'is-active'
+181s Running in chroot, ignoring command 'is-active'
+181s Running in chroot, ignoring command 'restart'
+181s Processing triggers for libc-bin (2.38-1ok6.8) ...
+181s Processing triggers for ufw (0.36-ok1) ...
+181s /usr/lib/python3/dist-packages/ufw/common.py:224: SyntaxWarning: invalid escape sequence '\d'
+181s   elif re.match('^\d+$', p):
+181s /usr/lib/python3/dist-packages/ufw/util.py:498: SyntaxWarning: invalid escape sequence '\.'
+181s   quads = re.split('\.', nm)
+181s /usr/lib/python3/dist-packages/ufw/util.py:760: SyntaxWarning: invalid escape sequence '\s'
+181s   tmp = re.split('\s', out)
+182s /usr/lib/python3/dist-packages/ufw/parser.py:231: SyntaxWarning: invalid escape sequence '\d'
+182s   if not re.match('^\d([0-9,:]*\d+)*$', port):
+182s /usr/lib/python3/dist-packages/ufw/parser.py:357: SyntaxWarning: invalid escape sequence '\d'
+182s   elif not re.match('^\d([0-9,:]*\d+)*$', tmp):
+182s Processing triggers for systemd (251.4-ok1.2) ...
+182s Running in chroot, ignoring command 'is-active'
+182s Processing triggers for man-db (2.10.2-2) ...
+183s Processing triggers for dbus (1.14.6-ok1) ...
+183s Processing triggers for desktop-file-utils (0.24-ok2) ...
+185s autopkgtest: DBG: testbed command exited with code 0
+185s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'python3-pil'], kind short, sout pipe, serr pipe, env []
+185s autopkgtest: DBG: testbed command exited with code 0
+185s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'python3-pil.imagetk'], kind short, sout pipe, serr pipe, env []
+185s autopkgtest: DBG: testbed command exited with code 0
+185s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'python-pil-doc'], kind short, sout pipe, serr pipe, env []
+185s autopkgtest: DBG: testbed command exited with code 0
+185s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+186s autopkgtest: DBG: testbed command exited with code 0
+186s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+189s autopkgtest: DBG: testbed command exited with code 0
+189s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common gnome-screensaver unity-settings-daemon libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 python3-pil python3-pil.imagetk libtiff6 libdeflate0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libgirepository-2.0-0 libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libharfbuzz-gobject0 libibus-1.0-5 libido3-0.1-0 libimagequant0 libindicator3-7 python-pil-doc libjs-sphinxdoc libjs-jquery libjs-underscore libkpathsea6 libkylin-chkname1 libkysdk-appcommon liblerc4 libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common pkg-config pkgconf pkgconf-bin libpkgconf4 libpython3.8 libquazip5-1 libraqm0 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libunity-settings-daemon1 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pluma-common python3-packaging python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+189s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'gnome-screensaver', 'unity-settings-daemon', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg', 'fonts-tlwg-garuda'], kind short, sout raw, serr pipe, env []
+190s autopkgtest: DBG: testbed command exited with code 0
+190s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf', 'fonts-tlwg-typo'], kind short, sout raw, serr pipe, env []
+190s autopkgtest: DBG: testbed command exited with code 0
+190s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0', 'gnome-desktop3-data'], kind short, sout raw, serr pipe, env []
+191s autopkgtest: DBG: testbed command exited with code 0
+191s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'python3-pil', 'python3-pil.imagetk', 'libtiff6', 'libdeflate0'], kind short, sout raw, serr pipe, env []
+191s autopkgtest: DBG: testbed command exited with code 0
+191s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libgirepository-2.0-0', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libharfbuzz-gobject0', 'libibus-1.0-5', 'libido3-0.1-0'], kind short, sout raw, serr pipe, env []
+192s autopkgtest: DBG: testbed command exited with code 0
+192s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libimagequant0', 'libindicator3-7', 'python-pil-doc', 'libjs-sphinxdoc', 'libjs-jquery', 'libjs-underscore', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'liblerc4', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'pkg-config', 'pkgconf', 'pkgconf-bin', 'libpkgconf4'], kind short, sout raw, serr pipe, env []
+192s autopkgtest: DBG: testbed command exited with code 0
+192s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libpython3.8', 'libquazip5-1', 'libraqm0', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libunity-settings-daemon1', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pluma-common', 'python3-packaging', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager'], kind short, sout raw, serr pipe, env []
+193s autopkgtest: DBG: testbed command exited with code 0
+193s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+193s autopkgtest: DBG: testbed command exited with code 0
+193s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+193s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+193s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+193s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+193s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+193s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+193s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+194s (Reading database ... 194768 files and directories currently installed.)
+194s Removing autopkgtest-satdep (0) ...
+194s autopkgtest: DBG: testbed command exited with code 0
+194s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+194s autopkgtest: DBG: testbed command exited with code 0
+194s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.PU3o1k/selftest-py3-packages.all"], kind short, sout raw, serr pipe, env []
+195s autopkgtest: DBG: testbed command exited with code 0
+195s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.PU3o1k/selftest-py3-packages.all /home/hachi/openkylin_test/sharefolder/results/pillow/selftest-py3-packages.all
+195s autopkgtest: DBG: got reply from testbed: ok
+195s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.PU3o1k/build.2fo/src'], kind short, sout raw, serr raw, env []
+195s autopkgtest: DBG: testbed command exited with code 0
+195s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.PU3o1k/build.2fo/src already exists
+195s autopkgtest [01:01:55]: test selftest-py3: [-----------------------
+195s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.PU3o1k/wrapper.sh --debug --artifacts=/tmp/autopkgtest.PU3o1k/selftest-py3-artifacts --chdir=/tmp/autopkgtest.PU3o1k/build.2fo/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.PU3o1k/selftest-py3-stderr --stdout=/tmp/autopkgtest.PU3o1k/selftest-py3-stdout --tmp=/tmp/autopkgtest.PU3o1k/autopkgtest_tmp --make-executable=/tmp/autopkgtest.PU3o1k/build.2fo/src/debian/tests/selftest-py3 -- /tmp/autopkgtest.PU3o1k/build.2fo/src/debian/tests/selftest-py3'], kind test, sout raw, serr raw, env []
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.PU3o1k/selftest-py3-artifacts
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: changing to directory: /tmp/autopkgtest.PU3o1k/build.2fo/src
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: setting environment: LANG=C.UTF-8
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LANGUAGE
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_ADDRESS
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_ALL
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_COLLATE
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_CTYPE
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_MEASUREMENT
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_MESSAGES
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_MONETARY
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_NAME
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_NUMERIC
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_PAPER
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_TELEPHONE
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: unsetting environment: LC_TIME
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: pretending to be a login shell
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: will write standard error to /tmp/autopkgtest.PU3o1k/selftest-py3-stderr
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: will write stdout to /tmp/autopkgtest.PU3o1k/selftest-py3-stdout
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.PU3o1k/autopkgtest_tmp
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: marking as executable: /tmp/autopkgtest.PU3o1k/build.2fo/src/debian/tests/selftest-py3
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: command to run: /tmp/autopkgtest.PU3o1k/build.2fo/src/debian/tests/selftest-py3
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: copying /tmp/tmp.JIwlAk1Z5r/out to stdout and file: /tmp/autopkgtest.PU3o1k/selftest-py3-stdout
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: copying /tmp/tmp.JIwlAk1Z5r/err to standard error and file: /tmp/autopkgtest.PU3o1k/selftest-py3-stdout
+195s /tmp/autopkgtest.PU3o1k/wrapper.sh: writing script pid 1379867 to /tmp/autopkgtest_script_pid
+196s --------------------------------------------------------------------
+196s Pillow 10.2.0
+196s Python 3.12.2 (main, Jul  3 2024, 01:39:10) [GCC 12.3.0]
+196s --------------------------------------------------------------------
+196s Python modules loaded from /usr/lib/python3/dist-packages/PIL
+196s Binary modules loaded from /usr/lib/python3/dist-packages/PIL
+196s --------------------------------------------------------------------
+196s --- PIL CORE support ok, compiled for 10.2.0
+196s --- TKINTER support ok, loaded 8.6
+196s --- FREETYPE2 support ok, loaded 2.13.2
+196s --- LITTLECMS2 support ok, loaded 2.9
+196s --- WEBP support ok, loaded 1.3.2
+196s --- WEBP Transparency support ok
+196s --- WEBPMUX support ok
+196s --- WEBP Animation support ok
+196s --- JPEG support ok, compiled for libjpeg-turbo 2.1.2
+196s --- OPENJPEG (JPEG2000) support ok, loaded 2.5.0
+196s --- ZLIB (PNG/ZIP) support ok, loaded 1.2.11
+196s --- LIBTIFF support ok, loaded 4.5.1
+196s --- RAQM (Bidirectional Text) support ok, loaded 0.10.1
+196s --- LIBIMAGEQUANT (Quantization method) support ok, loaded 2.18.0
+196s --- XCB (X protocol) support ok
+196s --------------------------------------------------------------------
+196s Running selftest:
+196s --- 59 tests passed.
+196s /tmp/autopkgtest.PU3o1k/wrapper.sh: checking for leaked background processes...
+196s /tmp/autopkgtest.PU3o1k/wrapper.sh: waiting for tee/cat subprocesses...
+196s /tmp/autopkgtest.PU3o1k/wrapper.sh: cleaning up...
+196s /tmp/autopkgtest.PU3o1k/wrapper.sh: Exit status: 0
+196s autopkgtest: DBG: testbed command exited with code 0
+196s autopkgtest [01:01:56]: test selftest-py3: -----------------------]
+196s autopkgtest: DBG: testbed executing test finished with exit status 0
+196s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.PU3o1k/selftest-py3-stdout /home/hachi/openkylin_test/sharefolder/results/pillow/selftest-py3-stdout
+196s autopkgtest: DBG: got reply from testbed: ok
+196s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.PU3o1k/selftest-py3-stderr /home/hachi/openkylin_test/sharefolder/results/pillow/selftest-py3-stderr
+196s autopkgtest: DBG: got reply from testbed: ok
+197s autopkgtest [01:01:57]: test selftest-py3:  - - - - - - - - - - results - - - - - - - - - -
+197s selftest-py3         PASS
+197s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.PU3o1k/selftest-py3-artifacts/ /home/hachi/openkylin_test/sharefolder/results/pillow/artifacts/
+197s autopkgtest: DBG: got reply from testbed: ok
+197s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.PU3o1k/selftest-py3-artifacts', '/tmp/autopkgtest.PU3o1k/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+197s autopkgtest: DBG: testbed command exited with code 0
+197s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+197s autopkgtest [01:01:57]: @@@@@@@@@@@@@@@@@@@@ summary
+197s selftest-py3         PASS
+197s autopkgtest: DBG: testbed stop
+197s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.PU3o1k
+197s autopkgtest: DBG: sending command to testbed: close
+197s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+200s autopkgtest: DBG: got reply from testbed: ok
+200s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,55 @@
+++++ BEGINNING TEST
++++ CHECK STD IDS
+keyctl id @t
+keyctl_get_keyring_ID: Required key not available
+keyctl id @p
+keyctl_get_keyring_ID: Required key not available
+keyctl id @s
+125127602
+keyctl id @u
+434819708
+keyctl id @us
+995883129
+keyctl id @g
+keyctl_get_keyring_ID: Invalid argument
+keyctl id @a
+keyctl_get_keyring_ID: Required key not available
++++ CREATE KEYRING
+keyctl newring lizard @s
+293573500
++++ CHECK NON-KEYRING KEY
+keyctl id 293573500
+293573500
+keyctl id %:lizard
+293573500
+keyctl id %:lizardx
+Can't find 'keyring:lizardx'
++++ UNLINK KEYRING
+keyctl unlink 293573500 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 293573500 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 293573500 @s
+keyctl_unlink: Required key not available
++++ CHECK NON-EXISTENT KEYRING ID
+keyctl id 293573500
+keyctl_get_keyring_ID: Required key not available
++++ CREATE KEY
+keyctl add user lizard gizzard @s
+914345458
++++ CHECK NON-KEYRING KEY
+keyctl id 914345458
+914345458
+keyctl id %user:lizard
+914345458
++++ UNLINK KEY
+keyctl unlink 914345458 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 914345458 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 914345458 @s
+keyctl_unlink: Required key not available
++++ CHECK NON-EXISTENT KEY ID
+keyctl id 914345458
+keyctl_get_keyring_ID: Required key not available
+++++ FINISHED TEST: PASS

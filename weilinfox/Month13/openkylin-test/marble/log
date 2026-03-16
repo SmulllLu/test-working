@@ -1,0 +1,483 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [18:10:55]: starting date and time: 2024-07-18 18:10:55+0800
+  0s autopkgtest [18:10:55]: version @version@
+  0s autopkgtest [18:10:55]: host lili; command line: /usr/bin/autopkgtest marble_22.12.3-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/marble -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.1NDLwh
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-c1feee12-d1f5-4947-ae55-467d9a0147f0,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-c1feee12-d1f5-4947-ae55-467d9a0147f0//tmp/autopkgtest.1NDLwh
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-c1feee12-d1f5-4947-ae55-467d9a0147f0//tmp/autopkgtest.1NDLwh', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.1NDLwh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.1NDLwh/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.1NDLwh/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [18:10:56]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [18:10:57]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.1NDLwh/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.1NDLwh/testbed-packages /home/hachi/openkylin_test/sharefolder/results/marble/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [18:10:57]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [18:10:57]: @@@@@@@@@@@@@@@@@@@@ source marble_22.12.3-ok1.dsc
+  2s autopkgtest: DBG: blame += marble_22.12.3-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.1NDLwh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown marble_22.12.3-ok1.dsc /tmp/autopkgtest.1NDLwh/marble_22.12.3-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.1NDLwh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown marble_22.12.3.orig.tar.xz /tmp/autopkgtest.1NDLwh/marble_22.12.3.orig.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.1NDLwh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown marble_22.12.3-ok1.debian.tar.xz /tmp/autopkgtest.1NDLwh/marble_22.12.3-ok1.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.1NDLwh/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.1NDLwh/marble_22.12.3-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.1NDLwh/build.XXX
+  3s + builddir=/tmp/autopkgtest.1NDLwh/build.ATA
+  3s + cd /tmp/autopkgtest.1NDLwh/build.ATA
+  3s + dpkg-source -x /tmp/autopkgtest.1NDLwh/marble_22.12.3-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.0JxUXCIE/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 21 Mar 2023 10:04:46 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.1NDLwh/marble_22.12.3-ok1.dsc
+  5s dpkg-source: info: extracting marble in src
+  5s dpkg-source: info: unpacking marble_22.12.3.orig.tar.xz
+ 10s dpkg-source: info: unpacking marble_22.12.3-ok1.debian.tar.xz
+ 10s dpkg-source: info: using patch list from debian/patches/series
+ 10s dpkg-source: info: applying do_not_install_private_headers
+ 10s + chmod -R a+rX .
+ 10s + cd src/.
+ 10s + pwd
+ 10s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest [18:11:05]: testing package marble version 4:22.12.3-ok1
+ 10s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.1NDLwh/build.ATA/src/debian/ /home/hachi/openkylin_test/sharefolder/results/marble/pkg/debian/
+ 10s autopkgtest: DBG: got reply from testbed: ok
+ 10s autopkgtest: DBG: processing dependency @
+ 10s autopkgtest: DBG: synthesised dependency libastro-dev
+ 10s autopkgtest: DBG: synthesised dependency libastro1
+ 10s autopkgtest: DBG: synthesised dependency libmarble-dev
+ 10s autopkgtest: DBG: synthesised dependency libmarblewidget-qt5-28
+ 10s autopkgtest: DBG: synthesised dependency marble
+ 10s autopkgtest: DBG: synthesised dependency marble-data
+ 10s autopkgtest: DBG: synthesised dependency marble-maps
+ 10s autopkgtest: DBG: synthesised dependency marble-plugins
+ 10s autopkgtest: DBG: synthesised dependency marble-qt
+ 10s autopkgtest: DBG: synthesised dependency marble-qt-data
+ 10s autopkgtest: DBG: synthesised dependency plasma-marble
+ 10s autopkgtest: DBG: processing dependency dh-acc
+ 10s autopkgtest: DBG: processing dependency exuberant-ctags
+ 10s autopkgtest: DBG: Test defined: name acc path debian/tests/acc command "None" restrictions ['allow-stderr'] features [] depends ['libastro-dev', 'libastro1', 'libmarble-dev', 'libmarblewidget-qt5-28', 'marble', 'marble-data', 'marble-maps', 'marble-plugins', 'marble-qt', 'marble-qt-data', 'plasma-marble', 'dh-acc', 'exuberant-ctags'] 
+ 10s autopkgtest [18:11:05]: build not needed
+ 10s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.1NDLwh/build.ATA/src/ /home/hachi/openkylin_test/sharefolder/results/marble/tests-tree/
+ 14s autopkgtest: DBG: got reply from testbed: ok
+ 14s autopkgtest: DBG: processing dependency @
+ 14s autopkgtest: DBG: synthesised dependency libastro-dev
+ 14s autopkgtest: DBG: synthesised dependency libastro1
+ 14s autopkgtest: DBG: synthesised dependency libmarble-dev
+ 14s autopkgtest: DBG: synthesised dependency libmarblewidget-qt5-28
+ 14s autopkgtest: DBG: synthesised dependency marble
+ 14s autopkgtest: DBG: synthesised dependency marble-data
+ 14s autopkgtest: DBG: synthesised dependency marble-maps
+ 14s autopkgtest: DBG: synthesised dependency marble-plugins
+ 14s autopkgtest: DBG: synthesised dependency marble-qt
+ 14s autopkgtest: DBG: synthesised dependency marble-qt-data
+ 14s autopkgtest: DBG: synthesised dependency plasma-marble
+ 14s autopkgtest: DBG: processing dependency dh-acc
+ 14s autopkgtest: DBG: processing dependency exuberant-ctags
+ 14s autopkgtest: DBG: Test defined: name acc path debian/tests/acc command "None" restrictions ['allow-stderr'] features [] depends ['libastro-dev', 'libastro1', 'libmarble-dev', 'libmarblewidget-qt5-28', 'marble', 'marble-data', 'marble-maps', 'marble-plugins', 'marble-qt', 'marble-qt-data', 'plasma-marble', 'dh-acc', 'exuberant-ctags'] 
+ 14s autopkgtest [18:11:09]: test acc: preparing testbed
+ 14s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libastro-dev', 'libastro1', 'libmarble-dev', 'libmarblewidget-qt5-28', 'marble', 'marble-data', 'marble-maps', 'marble-plugins', 'marble-qt', 'marble-qt-data', 'plasma-marble', 'dh-acc', 'exuberant-ctags']
+ 14s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 14s autopkgtest: DBG: install_deps: deps_new=['libastro-dev', 'libastro1', 'libmarble-dev', 'libmarblewidget-qt5-28', 'marble', 'marble-data', 'marble-maps', 'marble-plugins', 'marble-qt', 'marble-qt-data', 'plasma-marble', 'dh-acc', 'exuberant-ctags']
+ 14s autopkgtest: DBG: install-deps: satisfying libastro-dev, libastro1, libmarble-dev, libmarblewidget-qt5-28, marble, marble-data, marble-maps, marble-plugins, marble-qt, marble-qt-data, plasma-marble, dh-acc, exuberant-ctags
+ 14s autopkgtest: DBG: install-deps: architecture resolved: libastro-dev, libastro1, libmarble-dev, libmarblewidget-qt5-28, marble, marble-data, marble-maps, marble-plugins, marble-qt, marble-qt-data, plasma-marble, dh-acc, exuberant-ctags
+ 14s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 15s autopkgtest: DBG: testbed command exited with code 0
+ 15s autopkgtest: DBG: can use apt-get on testbed: True
+ 15s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.1NDLwh'], kind short, sout raw, serr pipe, env []
+ 15s autopkgtest: DBG: testbed command exited with code 0
+ 15s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-c1feee12-d1f5-4947-ae55-467d9a0147f0//tmp/autopkgtest.1NDLwh/1-autopkgtest-satdep.deb /tmp/autopkgtest.1NDLwh/1-autopkgtest-satdep.deb
+ 15s autopkgtest: DBG: got reply from testbed: ok
+ 15s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.1NDLwh/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 15s Reading package lists...
+ 16s Building dependency tree...
+ 16s Reading state information...
+ 16s Starting pkgProblemResolver with broken count: 1
+ 16s Starting 2 pkgProblemResolver with broken count: 1
+ 16s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 16s Broken autopkgtest-satdep:riscv64 Depends on libastro-dev:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 16s   Considering libastro-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s   Re-Instated libastro1:riscv64
+ 16s   Re-Instated libastro-dev:riscv64
+ 16s Broken autopkgtest-satdep:riscv64 Depends on libmarble-dev:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 16s   Considering libmarble-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 16s   Re-Instated marble-qt-data:riscv64
+ 16s   Re-Instated libphonon-l10n:riscv64
+ 16s   Re-Instated libphonon4qt5-data:riscv64
+ 16s   Re-Instated libphonon4qt5-4:riscv64
+ 16s   Re-Instated libphonon4qt5-4t64:riscv64
+ 16s   Re-Instated phonon-backend-vlc-common:riscv64
+ 16s   Re-Instated vlc-data:riscv64
+ 16s   Re-Instated liba52-0.7.4:riscv64
+ 16s   Re-Instated libnettle8t64:riscv64
+ 16s   Re-Instated libzstd1:riscv64
+ 16s   Re-Instated libarchive13t64:riscv64
+ 16s   Re-Instated libaribb24-0t64:riscv64
+ 16s   Re-Instated libasound2-data:riscv64
+ 16s   Re-Instated libasound2t64:riscv64
+ 16s   Re-Instated libcddb2:riscv64
+ 16s   Re-Instated libdav1d7:riscv64
+ 16s   Re-Instated libdca0:riscv64
+ 16s   Re-Instated libdvbpsi10:riscv64
+ 16s   Re-Instated libdvdnav4:riscv64
+ 16s   Re-Instated libdvdread8t64:riscv64
+ 16s   Re-Instated libebml5:riscv64
+ 16s   Re-Instated libfaad2:riscv64
+ 16s   Re-Instated libflac12t64:riscv64
+ 16s   Re-Instated libgcrypt20:riscv64
+ 16s   Re-Instated libglib2.0-0t64:riscv64
+ 16s   Re-Instated libhogweed6t64:riscv64
+ 16s   Re-Instated libunistring5:riscv64
+ 16s   Re-Instated libgnutls30t64:riscv64
+ 16s   Re-Instated libixml11t64:riscv64
+ 16s   Re-Instated libkate1:riscv64
+ 16s   Re-Instated liblirc-client0t64:riscv64
+ 16s   Re-Instated libmad0:riscv64
+ 16s   Re-Instated libmatroska7:riscv64
+ 16s   Re-Instated libmpcdec6:riscv64
+ 16s   Re-Instated libmpeg2-4:riscv64
+ 16s   Re-Instated libmpg123-0t64:riscv64
+ 16s   Re-Instated libnfs14:riscv64
+ 16s   Re-Instated libopenmpt-modplug1:riscv64
+ 16s   Re-Instated libpng16-16t64:riscv64
+ 16s   Re-Instated libprotobuf-lite32t64:riscv64
+ 16s   Re-Instated libresid-builder0c2a:riscv64
+ 16s   Re-Instated libsidplay2:riscv64
+ 16s   Re-Instated libspatialaudio0t64:riscv64
+ 16s   Re-Instated libssh2-1t64:riscv64
+ 16s   Re-Instated libupnp17t64:riscv64
+ 16s   Re-Instated libidn12:riscv64
+ 16s   Re-Instated libvlccore9:riscv64
+ 16s   Re-Instated libx265-199:riscv64
+ 16s   Re-Instated libzvbi-common:riscv64
+ 16s   Re-Instated libzvbi0t64:riscv64
+ 16s   Re-Instated vlc-plugin-base:riscv64
+ 16s   Re-Instated libcaca0:riscv64
+ 16s   Re-Instated libglvnd0:riscv64
+ 16s   Re-Instated libgles2:riscv64
+ 16s   Re-Instated libxcb-xv0:riscv64
+ 16s   Re-Instated vlc-plugin-video-output:riscv64
+ 16s   Re-Instated libvlc5:riscv64
+ 16s   Re-Instated phonon4qt5-backend-vlc:riscv64
+ 16s   Re-Instated phonon4qt5:riscv64
+ 16s   Re-Instated libmarblewidget-qt5-28:riscv64
+ 16s   Re-Instated libqt5svg5-dev:riscv64
+ 16s   Re-Instated libicu74:riscv64
+ 16s   Re-Instated libqt5positioning5:riscv64
+ 16s   Re-Instated libqt5webchannel5:riscv64
+ 16s   Re-Instated libsharpyuv0:riscv64
+ 16s   Re-Instated libwebp7:riscv64
+ 16s   Re-Instated libqt5webkit5:riscv64
+ 16s   Re-Instated libegl1:riscv64
+ 16s   Re-Instated libglx0:riscv64
+ 16s   Re-Instated libgl1:riscv64
+ 16s   Re-Instated libx11-6:riscv64
+ 16s   Re-Instated xorg-sgml-doctools:riscv64
+ 16s   Re-Instated x11proto-dev:riscv64
+ 16s   Re-Instated x11proto-core-dev:riscv64
+ 16s   Re-Instated libxau-dev:riscv64
+ 16s   Re-Instated libxdmcp-dev:riscv64
+ 16s   Re-Instated xtrans-dev:riscv64
+ 16s   Re-Instated libpthread-stubs0-dev:riscv64
+ 16s   Re-Instated libxcb1:riscv64
+ 16s   Re-Instated libxcb1-dev:riscv64
+ 16s   Re-Instated libx11-dev:riscv64
+ 16s   Re-Instated libglx-dev:riscv64
+ 16s   Re-Instated libgl-dev:riscv64
+ 16s   Re-Instated libegl-dev:riscv64
+ 16s   Re-Instated libopengl0:riscv64
+ 16s   Re-Instated libglu1-mesa:riscv64
+ 16s   Re-Instated libopengl-dev:riscv64
+ 16s   Re-Instated libglu1-mesa-dev:riscv64
+ 16s   Re-Instated libqt5concurrent5:riscv64
+ 16s   Re-Instated libqt5core5a:riscv64
+ 16s   Re-Instated libqt5dbus5:riscv64
+ 16s   Re-Instated libmtdev1t64:riscv64
+ 16s   Re-Instated libx11-xcb1:riscv64
+ 16s   Re-Instated libxcb-xinput0:riscv64
+ 16s   Re-Instated libqt5gui5:riscv64
+ 16s   Re-Instated libqt5network5:riscv64
+ 16s   Re-Instated libqt5printsupport5:riscv64
+ 16s   Re-Instated libqt5sql5:riscv64
+ 16s   Re-Instated libqt5test5:riscv64
+ 17s   Re-Instated libqt5widgets5:riscv64
+ 17s   Re-Instated libqt5xml5:riscv64
+ 17s   Re-Instated libvulkan1:riscv64
+ 17s   Re-Instated libvulkan-dev:riscv64
+ 17s   Re-Instated libxext-dev:riscv64
+ 17s   Re-Instated qt5-qmake-bin:riscv64
+ 17s   Re-Instated qtchooser:riscv64
+ 17s   Re-Instated qt5-qmake:riscv64
+ 17s   Re-Instated qtbase5-dev-tools:riscv64
+ 17s   Re-Instated qtbase5-dev:riscv64
+ 17s   Re-Instated libqt5quickparticles5:riscv64
+ 17s   Re-Instated libqt5quicktest5:riscv64
+ 17s   Re-Instated qt5-qmltooling-plugins:riscv64
+ 17s   Re-Instated qtdeclarative5-dev-tools:riscv64
+ 17s   Re-Instated qtdeclarative5-dev:riscv64
+ 17s   Re-Instated libqt5webkit5-dev:riscv64
+ 17s   Re-Instated libmarble-dev:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Re-Instated marble-data:riscv64
+ 17s   Re-Instated libgps28:riscv64
+ 17s   Re-Instated libprotobuf17:riscv64
+ 17s   Re-Instated libqt5serialport5:riscv64
+ 17s   Re-Instated libshp2:riscv64
+ 17s   Re-Instated marble-plugins:riscv64
+ 17s   Re-Instated libkf5parts-data:riscv64
+ 17s   Re-Instated libkf5parts5:riscv64
+ 17s   Re-Instated marble:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble-maps:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble-maps:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Re-Instated qml-module-qt-labs-folderlistmodel:riscv64
+ 17s   Re-Instated qml-module-qt-labs-settings:riscv64
+ 17s   Re-Instated qml-module-qtquick-privatewidgets:riscv64
+ 17s   Re-Instated qml-module-qtquick-dialogs:riscv64
+ 17s   Re-Instated marble-maps:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble-qt:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble-qt:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Re-Instated marble-qt:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on plasma-marble:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering plasma-marble:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s   Re-Instated qml-module-org-kde-kconfig:riscv64
+ 17s   Re-Instated qml-module-org-kde-kquickcontrols:riscv64
+ 17s   Re-Instated libkf5calendarevents5:riscv64
+ 17s   Re-Instated libkf5plasmaquick5:riscv64
+ 17s   Re-Instated plasma-framework:riscv64
+ 17s   Re-Instated libkf5threadweaver5:riscv64
+ 17s   Re-Instated libkf5runner5:riscv64
+ 17s   Re-Instated plasma-marble:riscv64
+ 17s Broken autopkgtest-satdep:riscv64 Depends on dh-acc:riscv64 < none @un H >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on exuberant-ctags:riscv64 < none @un H >
+ 17s Investigating (0) libzvbi0:riscv64 < 0.2.35-ok1 @ii K Ib >
+ 17s Broken libzvbi0:riscv64 Depends on libzvbi-common:riscv64 < 0.2.35-ok1 -> 0.2.42-2ok1 @ii uU > (= 0.2.35-ok1)
+ 17s   Considering libzvbi-common:riscv64 3 as a solution to libzvbi0:riscv64 19
+ 17s   Added libzvbi-common:riscv64 to the remove list
+ 17s   Fixing libzvbi0:riscv64 via keep of libzvbi-common:riscv64
+ 17s Investigating (0) libzvbi0t64:riscv64 < none -> 0.2.42-2ok1 @un uN Ib >
+ 17s Broken libzvbi0t64:riscv64 Depends on libzvbi-common:riscv64 < 0.2.35-ok1 | 0.2.42-2ok1 @ii uH > (= 0.2.42-2ok1)
+ 17s   Considering libzvbi-common:riscv64 3 as a solution to libzvbi0t64:riscv64 0
+ 17s   Holding Back libzvbi0t64:riscv64 rather than change libzvbi-common:riscv64
+ 17s Investigating (0) libpng16-16t64:riscv64 < none -> 1.6.43-ok1 @un uN Ib >
+ 17s Broken libpng16-16t64:riscv64 Breaks on libpng16-16:riscv64 < 1.6.38-2 @ii K > (< 1.6.43-ok1)
+ 17s   Considering libpng16-16:riscv64 330 as a solution to libpng16-16t64:riscv64 0
+ 17s   Holding Back libpng16-16t64:riscv64 rather than change libpng16-16:riscv64
+ 17s Investigating (0) vlc-plugin-base:riscv64 < none -> 3.0.20-ok5 @un uN Ib >
+ 17s Broken vlc-plugin-base:riscv64 Depends on libpng16-16t64:riscv64 < none | 1.6.43-ok1 @un uH > (>= 1.6.2)
+ 17s   Considering libpng16-16t64:riscv64 0 as a solution to vlc-plugin-base:riscv64 0
+ 17s   Holding Back vlc-plugin-base:riscv64 rather than change libpng16-16t64:riscv64
+ 17s Investigating (0) libglib2.0-0t64:riscv64 < none -> 2.80.0-ok1~0615.2 @un uN Ib >
+ 17s Broken libglib2.0-0t64:riscv64 Breaks on libglib2.0-0:riscv64 < 2.78.0-ok1~0229.1 @ii K > (< 2.80.0~)
+ 17s   Considering libglib2.0-0:riscv64 1516 as a solution to libglib2.0-0t64:riscv64 0
+ 17s   Holding Back libglib2.0-0t64:riscv64 rather than change libglib2.0-0:riscv64
+ 17s Investigating (0) libmtdev1t64:riscv64 < none -> 1.1.6-ok1 @un uN Ib >
+ 17s Broken libmtdev1t64:riscv64 Breaks on libmtdev1:riscv64 < 1.1.5-ok1 @ii K > (< 1.1.6-ok1)
+ 17s   Considering libmtdev1:riscv64 165 as a solution to libmtdev1t64:riscv64 0
+ 17s   Holding Back libmtdev1t64:riscv64 rather than change libmtdev1:riscv64
+ 17s Investigating (0) phonon4qt5-backend-vlc:riscv64 < none -> 0.12.0-ok1 @un uN Ib >
+ 17s Broken phonon4qt5-backend-vlc:riscv64 Depends on vlc-plugin-base:riscv64 < none | 3.0.20-ok5 @un uH >
+ 17s   Considering vlc-plugin-base:riscv64 0 as a solution to phonon4qt5-backend-vlc:riscv64 0
+ 17s   Holding Back phonon4qt5-backend-vlc:riscv64 rather than change vlc-plugin-base:riscv64
+ 17s Investigating (0) libmpg123-0t64:riscv64 < none -> 1.32.5-ok1 @un uN Ib >
+ 17s Broken libmpg123-0t64:riscv64 Breaks on libmpg123-0:riscv64 < 1.25.13-ok1 @ii K > (< 1.32.5-ok1)
+ 17s   Considering libmpg123-0:riscv64 5 as a solution to libmpg123-0t64:riscv64 0
+ 17s   Holding Back libmpg123-0t64:riscv64 rather than change libmpg123-0:riscv64
+ 17s Investigating (0) libgnutls30t64:riscv64 < none -> 3.8.3-ok3 @un uN Ib >
+ 17s Broken libgnutls30t64:riscv64 Breaks on libgnutls30:riscv64 < 3.6.13-ok3 @ii K > (< 3.8.3-ok3)
+ 17s   Considering libgnutls30:riscv64 217 as a solution to libgnutls30t64:riscv64 0
+ 17s   Holding Back libgnutls30t64:riscv64 rather than change libgnutls30:riscv64
+ 17s Investigating (0) libphonon4qt5-4t64:riscv64 < none -> 4:4.12.0-ok5 @un uN Ib >
+ 17s Broken libphonon4qt5-4t64:riscv64 Breaks on libphonon4qt5-4:riscv64 < none -> 4:4.12.0-ok1.1 @un uN > (< 4:4.12.0-ok5)
+ 17s   Considering libphonon4qt5-4:riscv64 0 as a solution to libphonon4qt5-4t64:riscv64 0
+ 17s   Holding Back libphonon4qt5-4t64:riscv64 rather than change libphonon4qt5-4:riscv64
+ 17s Investigating (0) libasound2t64:riscv64 < none -> 1.2.11-ok1 @un uN Ib >
+ 17s Broken libasound2t64:riscv64 Breaks on libasound2:riscv64 < 1.2.2-ok3 @ii K > (< 1.2.11-ok1)
+ 17s   Considering libasound2:riscv64 53 as a solution to libasound2t64:riscv64 0
+ 17s   Holding Back libasound2t64:riscv64 rather than change libasound2:riscv64
+ 17s Investigating (0) libarchive13t64:riscv64 < none -> 3.7.2-ok1 @un uN Ib >
+ 17s Broken libarchive13t64:riscv64 Breaks on libarchive13:riscv64 < 3.4.0-ok6 @ii K > (< 3.7.2-ok1)
+ 17s   Considering libarchive13:riscv64 12 as a solution to libarchive13t64:riscv64 0
+ 17s   Holding Back libarchive13t64:riscv64 rather than change libarchive13:riscv64
+ 17s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on dh-acc:riscv64 < none @un H >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on exuberant-ctags:riscv64 < none @un H >
+ 17s Investigating (1) libqt5gui5:riscv64 < 5.15.10+dfsg-3ok1.4 -> 5.15.10+dfsg-3ok2.6 @ii uU Ib >
+ 17s Broken libqt5gui5:riscv64 Depends on libmtdev1t64:riscv64 < none | 1.1.6-ok1 @un uH > (>= 1.0.8)
+ 17s   Considering libmtdev1t64:riscv64 0 as a solution to libqt5gui5:riscv64 859
+ 17s   Holding Back libqt5gui5:riscv64 rather than change libmtdev1t64:riscv64
+ 17s Investigating (1) libqt5webkit5:riscv64 < none -> 5.212.0~alpha4-ok2.5 @un uN Ib >
+ 17s Broken libqt5webkit5:riscv64 Depends on libglib2.0-0t64:riscv64 < none | 2.80.0-ok1~0615.2 @un uH > (>= 2.79.0)
+ 17s   Considering libglib2.0-0t64:riscv64 0 as a solution to libqt5webkit5:riscv64 0
+ 17s   Holding Back libqt5webkit5:riscv64 rather than change libglib2.0-0t64:riscv64
+ 17s Investigating (1) libqt5webkit5-dev:riscv64 < none -> 5.212.0~alpha4-ok2.5 @un uN Ib >
+ 17s Broken libqt5webkit5-dev:riscv64 Depends on libqt5webkit5:riscv64 < none | 5.212.0~alpha4-ok2.5 @un uH > (= 5.212.0~alpha4-ok2.5)
+ 17s   Considering libqt5webkit5:riscv64 0 as a solution to libqt5webkit5-dev:riscv64 0
+ 17s   Holding Back libqt5webkit5-dev:riscv64 rather than change libqt5webkit5:riscv64
+ 17s Investigating (1) qtbase5-dev:riscv64 < none -> 5.15.10+dfsg-3ok2.6 @un uN Ib >
+ 17s Broken qtbase5-dev:riscv64 Depends on libqt5gui5:riscv64 < 5.15.10+dfsg-3ok1.4 | 5.15.10+dfsg-3ok2.6 @ii uH > (= 5.15.10+dfsg-3ok2.6)
+ 17s   Considering libqt5gui5:riscv64 859 as a solution to qtbase5-dev:riscv64 0
+ 17s   Holding Back qtbase5-dev:riscv64 rather than change libqt5gui5:riscv64
+ 17s Investigating (1) phonon4qt5:riscv64 < none -> 4:4.12.0-ok5 @un uN Ib >
+ 17s Broken phonon4qt5:riscv64 Depends on libphonon4qt5-4t64:riscv64 < none | 4:4.12.0-ok5 @un uH > (>= 4:4.12.0-ok5)
+ 17s   Considering libphonon4qt5-4t64:riscv64 0 as a solution to phonon4qt5:riscv64 0
+ 17s   Holding Back phonon4qt5:riscv64 rather than change libphonon4qt5-4t64:riscv64
+ 17s Investigating (1) qtdeclarative5-dev:riscv64 < none -> 5.15.10+dfsg-2ok1.4 @un uN Ib >
+ 17s Broken qtdeclarative5-dev:riscv64 Depends on qtbase5-dev:riscv64 < none | 5.15.10+dfsg-3ok2.6 @un uH >
+ 17s   Considering qtbase5-dev:riscv64 0 as a solution to qtdeclarative5-dev:riscv64 0
+ 17s   Holding Back qtdeclarative5-dev:riscv64 rather than change qtbase5-dev:riscv64
+ 17s Broken qtdeclarative5-dev:riscv64 Depends on qtbase5-gles-dev:riscv64 < none | 5.15.10+dfsg-3ok2 @un uH >
+ 17s   Considering qtbase5-gles-dev:riscv64 0 as a solution to qtdeclarative5-dev:riscv64 0
+ 17s   Holding Back qtdeclarative5-dev:riscv64 rather than change qtbase5-gles-dev:riscv64
+ 17s   Or group keep for qtdeclarative5-dev:riscv64
+ 17s Investigating (2) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on dh-acc:riscv64 < none @un H >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on exuberant-ctags:riscv64 < none @un H >
+ 17s Investigating (2) marble-plugins:riscv64 < none -> 4:22.12.3-ok1 @un uN Ib >
+ 17s Broken marble-plugins:riscv64 Depends on phonon4qt5:riscv64 < none | 4:4.12.0-ok5 @un uH >
+ 17s   Considering phonon4qt5:riscv64 0 as a solution to marble-plugins:riscv64 1
+ 17s   Holding Back marble-plugins:riscv64 rather than change phonon4qt5:riscv64
+ 17s Investigating (2) marble:riscv64 < none -> 4:22.12.3-ok1 @un uN Ib >
+ 17s Broken marble:riscv64 Depends on marble-plugins:riscv64 < none | 4:22.12.3-ok1 @un uH > (= 4:22.12.3-ok1)
+ 17s   Considering marble-plugins:riscv64 1 as a solution to marble:riscv64 1
+ 17s   Holding Back marble:riscv64 rather than change marble-plugins:riscv64
+ 17s Investigating (2) marble-maps:riscv64 < none -> 4:22.12.3-ok1 @un uN Ib >
+ 17s Broken marble-maps:riscv64 Depends on marble-plugins:riscv64 < none | 4:22.12.3-ok1 @un uH > (= 4:22.12.3-ok1)
+ 17s   Considering marble-plugins:riscv64 1 as a solution to marble-maps:riscv64 1
+ 17s   Holding Back marble-maps:riscv64 rather than change marble-plugins:riscv64
+ 17s Investigating (2) libmarble-dev:riscv64 < none -> 4:22.12.3-ok1 @un uN Ib >
+ 17s Broken libmarble-dev:riscv64 Depends on libqt5webkit5-dev:riscv64 < none | 5.212.0~alpha4-ok2.5 @un uH > (>= 5.4)
+ 17s   Considering libqt5webkit5-dev:riscv64 0 as a solution to libmarble-dev:riscv64 1
+ 17s   Holding Back libmarble-dev:riscv64 rather than change libqt5webkit5-dev:riscv64
+ 17s Investigating (2) plasma-marble:riscv64 < none -> 4:22.12.3-ok1 @un uN Ib >
+ 17s Broken plasma-marble:riscv64 Depends on marble-plugins:riscv64 < none | 4:22.12.3-ok1 @un uH > (= 4:22.12.3-ok1)
+ 17s   Considering marble-plugins:riscv64 1 as a solution to plasma-marble:riscv64 1
+ 17s   Holding Back plasma-marble:riscv64 rather than change marble-plugins:riscv64
+ 17s Investigating (2) libmarblewidget-qt5-28:riscv64 < none -> 4:22.12.3-ok1 @un uN Ib >
+ 17s Broken libmarblewidget-qt5-28:riscv64 Depends on phonon4qt5:riscv64 < none | 4:4.12.0-ok5 @un uH >
+ 17s   Considering phonon4qt5:riscv64 0 as a solution to libmarblewidget-qt5-28:riscv64 1
+ 17s   Holding Back libmarblewidget-qt5-28:riscv64 rather than change phonon4qt5:riscv64
+ 17s Investigating (3) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on libmarble-dev:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering libmarble-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on libmarblewidget-qt5-28:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering libmarblewidget-qt5-28:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble-maps:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble-maps:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble-plugins:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble-plugins:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on plasma-marble:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering plasma-marble:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on dh-acc:riscv64 < none @un H >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on exuberant-ctags:riscv64 < none @un H >
+ 17s Investigating (3) marble-qt:riscv64 < none -> 4:22.12.3-ok1 @un uN Ib >
+ 17s Broken marble-qt:riscv64 Depends on libmarblewidget-qt5-28:riscv64 < none | 4:22.12.3-ok1 @un uH > (= 4:22.12.3-ok1)
+ 17s   Considering libmarblewidget-qt5-28:riscv64 1 as a solution to marble-qt:riscv64 1
+ 17s   Holding Back marble-qt:riscv64 rather than change libmarblewidget-qt5-28:riscv64
+ 17s Investigating (4) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on libmarble-dev:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering libmarble-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on libmarblewidget-qt5-28:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering libmarblewidget-qt5-28:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble-maps:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble-maps:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble-plugins:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble-plugins:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on marble-qt:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering marble-qt:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on plasma-marble:riscv64 < none | 4:22.12.3-ok1 @un uH >
+ 17s   Considering plasma-marble:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 17s Broken autopkgtest-satdep:riscv64 Depends on dh-acc:riscv64 < none @un H >
+ 17s Broken autopkgtest-satdep:riscv64 Depends on exuberant-ctags:riscv64 < none @un H >
+ 17s Done
+ 17s Some packages could not be installed. This may mean that you have
+ 17s requested an impossible situation or if you are using the unstable
+ 17s distribution that some required packages have not yet been created
+ 17s or been moved out of Incoming.
+ 17s The following information may help to resolve the situation:
+ 17s 
+ 17s The following packages have unmet dependencies:
+ 17s  autopkgtest-satdep : Depends: libmarble-dev but it is not going to be installed
+ 17s                       Depends: libmarblewidget-qt5-28 but it is not going to be installed
+ 17s                       Depends: marble but it is not going to be installed
+ 17s                       Depends: marble-maps but it is not going to be installed
+ 17s                       Depends: marble-plugins but it is not going to be installed
+ 17s                       Depends: marble-qt but it is not going to be installed
+ 17s                       Depends: plasma-marble but it is not going to be installed
+ 17s                       Depends: dh-acc but it is not installable
+ 17s                       Depends: exuberant-ctags but it is not installable
+ 17s E: Unable to correct problems, you have held broken packages.
+ 17s autopkgtest: DBG: testbed command exited with code 100
+ 17s autopkgtest: DBG: apt-get install /tmp/autopkgtest.1NDLwh/1-autopkgtest-satdep.deb failed; status-fd:
+ 17s 
+ 17s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libastro-dev libastro1 libmarble-dev libmarblewidget-qt5-28 marble marble-data marble-maps marble-plugins marble-qt marble-qt-data plasma-marble dh-acc exuberant-ctags -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 17s Reading package lists...
+ 18s Building dependency tree...
+ 18s Reading state information...
+ 18s Package exuberant-ctags is not available, but is referred to by another package.
+ 18s This may mean that the package is missing, has been obsoleted, or
+ 18s is only available from another source
+ 18s 
+ 18s E: Unable to locate package dh-acc
+ 18s E: Package 'exuberant-ctags' has no installation candidate
+ 18s autopkgtest: DBG: testbed command exited with code 100
+ 18s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 18s acc                  FAIL badpkg
+ 18s blame: marble_22.12.3-ok1.dsc
+ 18s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 18s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 18s autopkgtest [18:11:13]: @@@@@@@@@@@@@@@@@@@@ summary
+ 18s acc                  FAIL badpkg
+ 18s blame: marble_22.12.3-ok1.dsc
+ 18s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 18s autopkgtest: DBG: testbed stop
+ 18s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.1NDLwh
+ 18s autopkgtest: DBG: sending command to testbed: close
+ 18s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 19s autopkgtest: DBG: got reply from testbed: ok
+ 19s autopkgtest: DBG: sending command to testbed: quit

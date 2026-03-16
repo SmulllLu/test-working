@@ -1,0 +1,35 @@
+Testing if qemu-img creates images:
+qemu-img create q.raw 12G
+Formatting 'q.raw', fmt=raw size=12884901888
+ok.
+Testing for correct image size:
+ls -l q.raw
+-rw-r--r-- 1 root root 12884901888 Jul 18 20:40 q.raw
+ok.
+Testing if file is sparse:
+ls -s q.raw
+4 q.raw
+ok.
+Testing if conversion to a qcow2 image works:
+qemu-img convert -f raw -O qcow2 q.raw q.qcow2
+ok.
+Checking if image is qcow2:
+qemu-img info q.qcow2
+image: q.qcow2
+file format: qcow2
+virtual size: 12 GiB (12884901888 bytes)
+disk size: 196 KiB
+cluster_size: 65536
+Format specific information:
+    compat: 1.1
+    compression type: zlib
+    lazy refcounts: false
+    refcount bits: 16
+    corrupt: false
+    extended l2: false
+Child node '/file':
+    filename: q.qcow2
+    protocol type: file
+    file length: 192 KiB (197120 bytes)
+    disk size: 196 KiB
+ok.

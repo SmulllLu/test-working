@@ -1,0 +1,91 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [17:11:17]: starting date and time: 2024-07-18 17:11:17+0800
+  0s autopkgtest [17:11:17]: version @version@
+  0s autopkgtest [17:11:17]: host lili; command line: /usr/bin/autopkgtest linux-upstream_5.15.65-rt56+-3.dsc -o /home/hachi/openkylin_test/sharefolder/results/linux-upstream -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.9UCo8B
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-04ae22ba-57bc-41c2-a076-3828d11f2150,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-04ae22ba-57bc-41c2-a076-3828d11f2150//tmp/autopkgtest.9UCo8B
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-04ae22ba-57bc-41c2-a076-3828d11f2150//tmp/autopkgtest.9UCo8B', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9UCo8B'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.9UCo8B/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.9UCo8B/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [17:11:18]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [17:11:18]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.9UCo8B/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.9UCo8B/testbed-packages /home/hachi/openkylin_test/sharefolder/results/linux-upstream/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [17:11:19]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [17:11:19]: @@@@@@@@@@@@@@@@@@@@ source linux-upstream_5.15.65-rt56+-3.dsc
+  2s autopkgtest: DBG: blame += linux-upstream_5.15.65-rt56+-3.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9UCo8B'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown linux-upstream_5.15.65-rt56%2B-3.dsc /tmp/autopkgtest.9UCo8B/linux-upstream_5.15.65-rt56%2B-3.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.9UCo8B'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown linux-upstream_5.15.65-rt56%2B-3.tar.xz /tmp/autopkgtest.9UCo8B/linux-upstream_5.15.65-rt56%2B-3.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.9UCo8B/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.9UCo8B/linux-upstream_5.15.65-rt56+-3.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.9UCo8B/build.XXX
+  3s + builddir=/tmp/autopkgtest.9UCo8B/build.sF5
+  3s + cd /tmp/autopkgtest.9UCo8B/build.sF5
+  3s + dpkg-source -x /tmp/autopkgtest.9UCo8B/linux-upstream_5.15.65-rt56+-3.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.kVg9RJGe/trustedkeys.kbx': General error
+  3s gpgv: Signature made Mon 05 Jun 2023 11:58:47 AM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.9UCo8B/linux-upstream_5.15.65-rt56+-3.dsc
+  7s dpkg-source: info: extracting linux-upstream in src
+  7s dpkg-source: info: unpacking linux-upstream_5.15.65-rt56+-3.tar.xz
+ 34s + chmod -R a+rX .
+ 35s + cd src/.
+ 35s + pwd
+ 35s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest [17:11:52]: testing package linux-upstream version 5.15.65-rt56+-3
+ 35s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.9UCo8B/build.sF5/src/debian/ /home/hachi/openkylin_test/sharefolder/results/linux-upstream/pkg/debian/
+ 35s autopkgtest: DBG: got reply from testbed: ok
+ 35s autopkgtest: DBG: autodep8 not available ([Errno 2] No such file or directory: 'autodep8')
+ 35s autopkgtest [17:11:52]: build not needed
+ 35s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.9UCo8B/build.sF5/src/ /home/hachi/openkylin_test/sharefolder/results/linux-upstream/tests-tree/
+ 87s autopkgtest: DBG: got reply from testbed: ok
+ 87s autopkgtest: DBG: autodep8 not available ([Errno 2] No such file or directory: 'autodep8')
+ 87s *                    SKIP no tests in this package
+ 87s autopkgtest [17:12:44]: @@@@@@@@@@@@@@@@@@@@ summary
+ 87s *                    SKIP no tests in this package
+ 87s autopkgtest: DBG: testbed stop
+ 87s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.9UCo8B
+ 87s autopkgtest: DBG: sending command to testbed: close
+ 90s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 93s autopkgtest: DBG: got reply from testbed: ok
+ 93s autopkgtest: DBG: sending command to testbed: quit

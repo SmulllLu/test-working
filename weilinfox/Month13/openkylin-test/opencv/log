@@ -1,0 +1,936 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:36:58]: starting date and time: 2024-07-18 23:36:58+0800
+  0s autopkgtest [23:36:58]: version @version@
+  0s autopkgtest [23:36:58]: host lili; command line: /usr/bin/autopkgtest opencv_4.6.0+dfsg-ok8.dsc -o /home/hachi/openkylin_test/sharefolder/results/opencv -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.dhMMNj
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-6213c7b0-6c45-499d-8620-75e9a832f700,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-6213c7b0-6c45-499d-8620-75e9a832f700//tmp/autopkgtest.dhMMNj
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-6213c7b0-6c45-499d-8620-75e9a832f700//tmp/autopkgtest.dhMMNj', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dhMMNj'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.dhMMNj/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.dhMMNj/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:36:59]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [23:36:59]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.dhMMNj/testbed-packages"], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dhMMNj/testbed-packages /home/hachi/openkylin_test/sharefolder/results/opencv/testbed-packages
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [23:37:00]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [23:37:00]: @@@@@@@@@@@@@@@@@@@@ source opencv_4.6.0+dfsg-ok8.dsc
+  2s autopkgtest: DBG: blame += opencv_4.6.0+dfsg-ok8.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dhMMNj'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown opencv_4.6.0%2Bdfsg-ok8.dsc /tmp/autopkgtest.dhMMNj/opencv_4.6.0%2Bdfsg-ok8.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dhMMNj'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown opencv_4.6.0%2Bdfsg.orig.tar.gz /tmp/autopkgtest.dhMMNj/opencv_4.6.0%2Bdfsg.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dhMMNj'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown opencv_4.6.0%2Bdfsg-ok8.debian.tar.xz /tmp/autopkgtest.dhMMNj/opencv_4.6.0%2Bdfsg-ok8.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.dhMMNj/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.dhMMNj/opencv_4.6.0+dfsg-ok8.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.dhMMNj/build.XXX
+  2s + builddir=/tmp/autopkgtest.dhMMNj/build.yvz
+  2s + cd /tmp/autopkgtest.dhMMNj/build.yvz
+  2s + dpkg-source -x /tmp/autopkgtest.dhMMNj/opencv_4.6.0+dfsg-ok8.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.xLzY1aFw/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 18 Jun 2024 07:23:06 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.dhMMNj/opencv_4.6.0+dfsg-ok8.dsc
+  8s dpkg-source: info: extracting opencv in src
+  8s dpkg-source: info: unpacking opencv_4.6.0+dfsg.orig.tar.gz
+ 12s dpkg-source: info: unpacking opencv_4.6.0+dfsg-ok8.debian.tar.xz
+ 12s + chmod -R a+rX .
+ 12s + cd src/.
+ 12s + pwd
+ 12s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest [23:37:10]: testing package opencv version 4.6.0+dfsg-ok8
+ 12s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dhMMNj/build.yvz/src/debian/ /home/hachi/openkylin_test/sharefolder/results/opencv/pkg/debian/
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: processing dependency python3
+ 12s autopkgtest: DBG: processing dependency python3-numpy
+ 12s autopkgtest: DBG: processing dependency @
+ 12s autopkgtest: DBG: synthesised dependency opencv-doc
+ 12s autopkgtest: DBG: synthesised dependency libopencv-dev
+ 12s autopkgtest: DBG: synthesised dependency opencv-data
+ 12s autopkgtest: DBG: synthesised dependency libopencv-core-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-core406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-ml-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-ml406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-imgproc-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-imgproc406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-imgcodecs-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-imgcodecs406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-video-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-video406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-videoio-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-videoio406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-objdetect-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-objdetect406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-highgui-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-highgui406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-calib3d-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-calib3d406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-flann-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-flann406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-dnn-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-dnn406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-features2d-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-features2d406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-photo-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-photo406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-videostab-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-videostab406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-stitching-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-stitching406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-shape-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-shape406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-superres-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-superres406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-viz-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-viz406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-contrib-dev
+ 12s autopkgtest: DBG: synthesised dependency libopencv-contrib406
+ 12s autopkgtest: DBG: synthesised dependency libopencv-java [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]
+ 12s autopkgtest: DBG: synthesised dependency libopencv406-jni [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]
+ 13s autopkgtest: DBG: synthesised dependency python3-opencv
+ 13s autopkgtest: DBG: Test defined: name command1 path None command "python3 debian/tests/test.py" restrictions ['allow-stderr'] features [] depends ['python3', 'python3-numpy', 'opencv-doc', 'libopencv-dev', 'opencv-data', 'libopencv-core-dev', 'libopencv-core406', 'libopencv-ml-dev', 'libopencv-ml406', 'libopencv-imgproc-dev', 'libopencv-imgproc406', 'libopencv-imgcodecs-dev', 'libopencv-imgcodecs406', 'libopencv-video-dev', 'libopencv-video406', 'libopencv-videoio-dev', 'libopencv-videoio406', 'libopencv-objdetect-dev', 'libopencv-objdetect406', 'libopencv-highgui-dev', 'libopencv-highgui406', 'libopencv-calib3d-dev', 'libopencv-calib3d406', 'libopencv-flann-dev', 'libopencv-flann406', 'libopencv-dnn-dev', 'libopencv-dnn406', 'libopencv-features2d-dev', 'libopencv-features2d406', 'libopencv-photo-dev', 'libopencv-photo406', 'libopencv-videostab-dev', 'libopencv-videostab406', 'libopencv-stitching-dev', 'libopencv-stitching406', 'libopencv-shape-dev', 'libopencv-shape406', 'libopencv-superres-dev', 'libopencv-superres406', 'libopencv-viz-dev', 'libopencv-viz406', 'libopencv-contrib-dev', 'libopencv-contrib406', 'libopencv-java [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'libopencv406-jni [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'python3-opencv'] 
+ 13s autopkgtest [23:37:11]: build not needed
+ 13s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.dhMMNj/build.yvz/src/ /home/hachi/openkylin_test/sharefolder/results/opencv/tests-tree/
+ 20s autopkgtest: DBG: got reply from testbed: ok
+ 20s autopkgtest: DBG: processing dependency python3
+ 20s autopkgtest: DBG: processing dependency python3-numpy
+ 20s autopkgtest: DBG: processing dependency @
+ 20s autopkgtest: DBG: synthesised dependency opencv-doc
+ 20s autopkgtest: DBG: synthesised dependency libopencv-dev
+ 20s autopkgtest: DBG: synthesised dependency opencv-data
+ 20s autopkgtest: DBG: synthesised dependency libopencv-core-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-core406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-ml-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-ml406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-imgproc-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-imgproc406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-imgcodecs-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-imgcodecs406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-video-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-video406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-videoio-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-videoio406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-objdetect-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-objdetect406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-highgui-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-highgui406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-calib3d-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-calib3d406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-flann-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-flann406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-dnn-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-dnn406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-features2d-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-features2d406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-photo-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-photo406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-videostab-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-videostab406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-stitching-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-stitching406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-shape-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-shape406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-superres-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-superres406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-viz-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-viz406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-contrib-dev
+ 20s autopkgtest: DBG: synthesised dependency libopencv-contrib406
+ 20s autopkgtest: DBG: synthesised dependency libopencv-java [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]
+ 20s autopkgtest: DBG: synthesised dependency libopencv406-jni [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]
+ 20s autopkgtest: DBG: synthesised dependency python3-opencv
+ 20s autopkgtest: DBG: Test defined: name command1 path None command "python3 debian/tests/test.py" restrictions ['allow-stderr'] features [] depends ['python3', 'python3-numpy', 'opencv-doc', 'libopencv-dev', 'opencv-data', 'libopencv-core-dev', 'libopencv-core406', 'libopencv-ml-dev', 'libopencv-ml406', 'libopencv-imgproc-dev', 'libopencv-imgproc406', 'libopencv-imgcodecs-dev', 'libopencv-imgcodecs406', 'libopencv-video-dev', 'libopencv-video406', 'libopencv-videoio-dev', 'libopencv-videoio406', 'libopencv-objdetect-dev', 'libopencv-objdetect406', 'libopencv-highgui-dev', 'libopencv-highgui406', 'libopencv-calib3d-dev', 'libopencv-calib3d406', 'libopencv-flann-dev', 'libopencv-flann406', 'libopencv-dnn-dev', 'libopencv-dnn406', 'libopencv-features2d-dev', 'libopencv-features2d406', 'libopencv-photo-dev', 'libopencv-photo406', 'libopencv-videostab-dev', 'libopencv-videostab406', 'libopencv-stitching-dev', 'libopencv-stitching406', 'libopencv-shape-dev', 'libopencv-shape406', 'libopencv-superres-dev', 'libopencv-superres406', 'libopencv-viz-dev', 'libopencv-viz406', 'libopencv-contrib-dev', 'libopencv-contrib406', 'libopencv-java [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'libopencv406-jni [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'python3-opencv'] 
+ 20s autopkgtest [23:37:18]: test command1: preparing testbed
+ 20s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['python3', 'python3-numpy', 'opencv-doc', 'libopencv-dev', 'opencv-data', 'libopencv-core-dev', 'libopencv-core406', 'libopencv-ml-dev', 'libopencv-ml406', 'libopencv-imgproc-dev', 'libopencv-imgproc406', 'libopencv-imgcodecs-dev', 'libopencv-imgcodecs406', 'libopencv-video-dev', 'libopencv-video406', 'libopencv-videoio-dev', 'libopencv-videoio406', 'libopencv-objdetect-dev', 'libopencv-objdetect406', 'libopencv-highgui-dev', 'libopencv-highgui406', 'libopencv-calib3d-dev', 'libopencv-calib3d406', 'libopencv-flann-dev', 'libopencv-flann406', 'libopencv-dnn-dev', 'libopencv-dnn406', 'libopencv-features2d-dev', 'libopencv-features2d406', 'libopencv-photo-dev', 'libopencv-photo406', 'libopencv-videostab-dev', 'libopencv-videostab406', 'libopencv-stitching-dev', 'libopencv-stitching406', 'libopencv-shape-dev', 'libopencv-shape406', 'libopencv-superres-dev', 'libopencv-superres406', 'libopencv-viz-dev', 'libopencv-viz406', 'libopencv-contrib-dev', 'libopencv-contrib406', 'libopencv-java [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'libopencv406-jni [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'python3-opencv']
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['python3', 'python3-numpy', 'opencv-doc', 'libopencv-dev', 'opencv-data', 'libopencv-core-dev', 'libopencv-core406', 'libopencv-ml-dev', 'libopencv-ml406', 'libopencv-imgproc-dev', 'libopencv-imgproc406', 'libopencv-imgcodecs-dev', 'libopencv-imgcodecs406', 'libopencv-video-dev', 'libopencv-video406', 'libopencv-videoio-dev', 'libopencv-videoio406', 'libopencv-objdetect-dev', 'libopencv-objdetect406', 'libopencv-highgui-dev', 'libopencv-highgui406', 'libopencv-calib3d-dev', 'libopencv-calib3d406', 'libopencv-flann-dev', 'libopencv-flann406', 'libopencv-dnn-dev', 'libopencv-dnn406', 'libopencv-features2d-dev', 'libopencv-features2d406', 'libopencv-photo-dev', 'libopencv-photo406', 'libopencv-videostab-dev', 'libopencv-videostab406', 'libopencv-stitching-dev', 'libopencv-stitching406', 'libopencv-shape-dev', 'libopencv-shape406', 'libopencv-superres-dev', 'libopencv-superres406', 'libopencv-viz-dev', 'libopencv-viz406', 'libopencv-contrib-dev', 'libopencv-contrib406', 'libopencv-java [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'libopencv406-jni [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32]', 'python3-opencv']
+ 20s autopkgtest: DBG: install-deps: satisfying python3, python3-numpy, opencv-doc, libopencv-dev, opencv-data, libopencv-core-dev, libopencv-core406, libopencv-ml-dev, libopencv-ml406, libopencv-imgproc-dev, libopencv-imgproc406, libopencv-imgcodecs-dev, libopencv-imgcodecs406, libopencv-video-dev, libopencv-video406, libopencv-videoio-dev, libopencv-videoio406, libopencv-objdetect-dev, libopencv-objdetect406, libopencv-highgui-dev, libopencv-highgui406, libopencv-calib3d-dev, libopencv-calib3d406, libopencv-flann-dev, libopencv-flann406, libopencv-dnn-dev, libopencv-dnn406, libopencv-features2d-dev, libopencv-features2d406, libopencv-photo-dev, libopencv-photo406, libopencv-videostab-dev, libopencv-videostab406, libopencv-stitching-dev, libopencv-stitching406, libopencv-shape-dev, libopencv-shape406, libopencv-superres-dev, libopencv-superres406, libopencv-viz-dev, libopencv-viz406, libopencv-contrib-dev, libopencv-contrib406, libopencv-java [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32], libopencv406-jni [alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32], python3-opencv
+ 20s autopkgtest: DBG: install-deps: architecture resolved: python3, python3-numpy, opencv-doc, libopencv-dev, opencv-data, libopencv-core-dev, libopencv-core406, libopencv-ml-dev, libopencv-ml406, libopencv-imgproc-dev, libopencv-imgproc406, libopencv-imgcodecs-dev, libopencv-imgcodecs406, libopencv-video-dev, libopencv-video406, libopencv-videoio-dev, libopencv-videoio406, libopencv-objdetect-dev, libopencv-objdetect406, libopencv-highgui-dev, libopencv-highgui406, libopencv-calib3d-dev, libopencv-calib3d406, libopencv-flann-dev, libopencv-flann406, libopencv-dnn-dev, libopencv-dnn406, libopencv-features2d-dev, libopencv-features2d406, libopencv-photo-dev, libopencv-photo406, libopencv-videostab-dev, libopencv-videostab406, libopencv-stitching-dev, libopencv-stitching406, libopencv-shape-dev, libopencv-shape406, libopencv-superres-dev, libopencv-superres406, libopencv-viz-dev, libopencv-viz406, libopencv-contrib-dev, libopencv-contrib406, libopencv-java, libopencv406-jni, python3-opencv
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: can use apt-get on testbed: True
+ 21s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.dhMMNj'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-6213c7b0-6c45-499d-8620-75e9a832f700//tmp/autopkgtest.dhMMNj/1-autopkgtest-satdep.deb /tmp/autopkgtest.dhMMNj/1-autopkgtest-satdep.deb
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.dhMMNj/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 21s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 22s Starting pkgProblemResolver with broken count: 12
+ 23s Starting 2 pkgProblemResolver with broken count: 12
+ 23s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 23s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 23s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 23s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 23s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 23s Investigating (0) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-core-dev:riscv64 Depends on libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 @ii pK > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-core406:riscv64 160 as a solution to libopencv-core-dev:riscv64 24
+ 23s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 23s Investigating (0) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 23s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 23s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 23s Investigating (0) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Investigating (0) libopencv-imgcodecs-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-imgcodecs-dev:riscv64 Depends on libopencv-imgcodecs406:riscv64 < 4.6.0+dfsg-ok2 @ii puH > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-imgcodecs406:riscv64 37 as a solution to libopencv-imgcodecs-dev:riscv64 8
+ 23s   Re-Instated libopencv-imgcodecs406:riscv64
+ 23s Investigating (0) libhdf5-103-1t64:riscv64 < none -> 1.10.10+repack-ok2 @un puN Ib >
+ 23s Broken libhdf5-103-1t64:riscv64 Breaks on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pK > (< 1.10.5)
+ 23s   Considering libhdf5-103:riscv64 4 as a solution to libhdf5-103-1t64:riscv64 6
+ 23s Investigating (0) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s Investigating (0) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s Investigating (0) libavfilter8:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 23s Broken libavfilter8:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 23s   Considering libswresample4:riscv64 11 as a solution to libavfilter8:riscv64 3
+ 23s   Removing libavfilter8:riscv64 rather than change libswresample4:riscv64
+ 23s Investigating (0) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 23s Broken libvtk9.1:riscv64 Depends on libgl2ps1.4:riscv64 < none | 1.4.2+dfsg1-ok1 @un uH > (>= 1.4.2+dfsg1)
+ 23s   Considering libgl2ps1.4:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s   Re-Instated libgl2ps1.4:riscv64
+ 23s Broken libvtk9.1:riscv64 Depends on libglew2.2:riscv64 < none | 2.2.0-4ok1 @un uH > (>= 2.2.0-4ok1)
+ 23s   Considering libglew2.2:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s   Re-Instated libglew2.2:riscv64
+ 23s Broken libvtk9.1:riscv64 Depends on libnetcdf19t64:riscv64 < none | 1:4.9.2-ok4 @un uH > (>= 4.7.4)
+ 23s   Considering libnetcdf19t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s     Reinst Failed because of protected libhdf5-103:riscv64
+ 23s     Reinst Failed because of libhdf5-hl-100t64:riscv64
+ 23s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 23s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s   Re-Instated libevent-core-2.1-7t64:riscv64
+ 23s   Re-Instated libevent-pthreads-2.1-7t64:riscv64
+ 23s   Re-Instated libibverbs1:riscv64
+ 23s   Re-Instated ibverbs-providers:riscv64
+ 23s   Re-Instated librdmacm1:riscv64
+ 23s   Re-Instated libfabric1:riscv64
+ 23s   Re-Instated libhwloc15:riscv64
+ 23s   Re-Instated libxnvctrl0:riscv64
+ 23s   Re-Instated libhwloc-plugins:riscv64
+ 23s   Re-Instated libpmix2:riscv64
+ 23s   Re-Instated libopenmpi3t64:riscv64
+ 23s Broken libvtk9.1:riscv64 Depends on libproj25:riscv64 < none | 9.4.0-ok1 @un uH > (>= 5.0.0)
+ 23s   Considering libproj25:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s   Re-Instated proj-data:riscv64
+ 23s   Re-Instated libproj25:riscv64
+ 23s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 23s Broken libvtk9.1:riscv64 Depends on libtk8.6:riscv64 < none | 8.6.14-ok1 @un uH > (>= 8.6.0)
+ 23s   Considering libtk8.6:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s   Re-Instated libtk8.6:riscv64
+ 23s Investigating (0) libavdevice59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 23s Broken libavdevice59:riscv64 Depends on libavfilter8:riscv64 < 7:5.1.1-ok2 @ii R > (= 7:5.1.1-ok2)
+ 23s   Considering libavfilter8:riscv64 3 as a solution to libavdevice59:riscv64 1
+ 23s   Removing libavdevice59:riscv64 rather than change libavfilter8:riscv64
+ 23s Investigating (0) libevent-core-2.1-7t64:riscv64 < none -> 2.1.12-stable-ok2 @un uN Ib >
+ 23s Broken libevent-core-2.1-7t64:riscv64 Breaks on libevent-core-2.1-7:riscv64 < 2.1.11-stable-ok1 @ii K > (< 2.1.12-stable-ok2)
+ 23s   Considering libevent-core-2.1-7:riscv64 1 as a solution to libevent-core-2.1-7t64:riscv64 0
+ 23s   Holding Back libevent-core-2.1-7t64:riscv64 rather than change libevent-core-2.1-7:riscv64
+ 23s Investigating (0) ffmpeg:riscv64 < 7:5.1.1-ok2 @ii uH Ib >
+ 23s Broken ffmpeg:riscv64 Depends on libavdevice59:riscv64 < 7:5.1.1-ok2 @ii R > (= 7:5.1.1-ok2)
+ 23s   Considering libavdevice59:riscv64 1 as a solution to ffmpeg:riscv64 0
+ 23s     Reinst Failed because of libavdevice59:riscv64
+ 23s   Removing ffmpeg:riscv64 rather than change libavdevice59:riscv64
+ 23s Investigating (0) kylin-recorder:riscv64 < 1.3.0.2.0k3.3-ok4.6 | 1.3.0.2.0k3.3-ok5.9 @ii uH Ib >
+ 23s Broken kylin-recorder:riscv64 Depends on ffmpeg:riscv64 < 7:5.1.1-ok2 @ii uR >
+ 23s   Considering ffmpeg:riscv64 0 as a solution to kylin-recorder:riscv64 -1
+ 23s     Reinst Failed because of libavcodec60:riscv64
+ 23s   Removing kylin-recorder:riscv64 rather than change ffmpeg:riscv64
+ 23s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+ 23s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+ 23s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+ 23s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+ 23s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 23s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 23s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 23s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 23s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 23s Investigating (1) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-core-dev:riscv64 Depends on libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 @ii pK > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-core406:riscv64 160 as a solution to libopencv-core-dev:riscv64 24
+ 23s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 23s Investigating (1) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 23s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 23s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 23s Investigating (1) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Investigating (1) libopencv-imgcodecs-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-imgcodecs-dev:riscv64 Depends on libopencv-imgcodecs406:riscv64 < 4.6.0+dfsg-ok2 @ii puH > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-imgcodecs406:riscv64 8 as a solution to libopencv-imgcodecs-dev:riscv64 8
+ 23s Investigating (1) libhdf5-103-1t64:riscv64 < none -> 1.10.10+repack-ok2 @un puN Ib >
+ 23s Broken libhdf5-103-1t64:riscv64 Breaks on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pK > (< 1.10.5)
+ 23s   Considering libhdf5-103:riscv64 4 as a solution to libhdf5-103-1t64:riscv64 6
+ 23s Investigating (1) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s Investigating (1) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s Investigating (1) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 23s Broken libvtk9.1:riscv64 Depends on libnetcdf19t64:riscv64 < none | 1:4.9.2-ok4 @un uH > (>= 4.7.4)
+ 23s   Considering libnetcdf19t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 23s Investigating (1) libevent-pthreads-2.1-7t64:riscv64 < none -> 2.1.12-stable-ok2 @un uN Ib >
+ 23s Broken libevent-pthreads-2.1-7t64:riscv64 Depends on libevent-core-2.1-7t64:riscv64 < none | 2.1.12-stable-ok2 @un uH > (= 2.1.12-stable-ok2)
+ 23s   Considering libevent-core-2.1-7t64:riscv64 0 as a solution to libevent-pthreads-2.1-7t64:riscv64 0
+ 23s   Holding Back libevent-pthreads-2.1-7t64:riscv64 rather than change libevent-core-2.1-7t64:riscv64
+ 23s Investigating (1) libopenmpi3t64:riscv64 < none -> 4.1.6-ok1 @un uN Ib >
+ 23s Broken libopenmpi3t64:riscv64 Depends on libevent-core-2.1-7t64:riscv64 < none | 2.1.12-stable-ok2 @un uH > (>= 2.1.8-stable)
+ 23s   Considering libevent-core-2.1-7t64:riscv64 0 as a solution to libopenmpi3t64:riscv64 0
+ 23s   Holding Back libopenmpi3t64:riscv64 rather than change libevent-core-2.1-7t64:riscv64
+ 23s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 23s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 23s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 23s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 23s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 23s Investigating (2) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-core-dev:riscv64 Depends on libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 @ii pK > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-core406:riscv64 160 as a solution to libopencv-core-dev:riscv64 24
+ 23s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 23s Investigating (2) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 23s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 23s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 23s Investigating (2) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Investigating (2) libopencv-imgcodecs-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-imgcodecs-dev:riscv64 Depends on libopencv-imgcodecs406:riscv64 < 4.6.0+dfsg-ok2 @ii puH > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-imgcodecs406:riscv64 8 as a solution to libopencv-imgcodecs-dev:riscv64 8
+ 23s Investigating (2) libhdf5-103-1t64:riscv64 < none -> 1.10.10+repack-ok2 @un puN Ib >
+ 23s Broken libhdf5-103-1t64:riscv64 Breaks on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pK > (< 1.10.5)
+ 23s   Considering libhdf5-103:riscv64 4 as a solution to libhdf5-103-1t64:riscv64 6
+ 23s Investigating (2) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s Investigating (2) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s Investigating (2) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 23s Broken libvtk9.1:riscv64 Depends on libnetcdf19t64:riscv64 < none | 1:4.9.2-ok4 @un uH > (>= 4.7.4)
+ 23s   Considering libnetcdf19t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 23s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 23s Investigating (2) libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN Ib >
+ 23s Broken libpmix2:riscv64 Depends on libevent-pthreads-2.1-7:riscv64 < none | 2.1.11-stable-ok1 @un uH > (>= 2.1.8-stable)
+ 23s   Considering libevent-pthreads-2.1-7:riscv64 0 as a solution to libpmix2:riscv64 0
+ 23s   Holding Back libpmix2:riscv64 rather than change libevent-pthreads-2.1-7:riscv64
+ 23s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 23s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 23s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+ 23s   Re-Instated gir1.2-girepository-2.0:riscv64
+ 23s   Re-Instated python3-gi:riscv64
+ 23s Investigating (3) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-core-dev:riscv64 Depends on libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 @ii pK > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-core406:riscv64 160 as a solution to libopencv-core-dev:riscv64 24
+ 23s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 23s Investigating (3) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 23s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 23s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 23s Investigating (3) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Investigating (3) libopencv-imgcodecs-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-imgcodecs-dev:riscv64 Depends on libopencv-imgcodecs406:riscv64 < 4.6.0+dfsg-ok2 @ii puH > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-imgcodecs406:riscv64 8 as a solution to libopencv-imgcodecs-dev:riscv64 8
+ 23s Investigating (3) libhdf5-103-1t64:riscv64 < none -> 1.10.10+repack-ok2 @un puN Ib >
+ 23s Broken libhdf5-103-1t64:riscv64 Breaks on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pK > (< 1.10.5)
+ 23s   Considering libhdf5-103:riscv64 4 as a solution to libhdf5-103-1t64:riscv64 6
+ 23s Investigating (3) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s Investigating (3) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s Investigating (3) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 23s Broken libvtk9.1:riscv64 Depends on libnetcdf19t64:riscv64 < none | 1:4.9.2-ok4 @un uH > (>= 4.7.4)
+ 23s   Considering libnetcdf19t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 23s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 23s Investigating (4) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-core-dev:riscv64 Depends on libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 @ii pK > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-core406:riscv64 160 as a solution to libopencv-core-dev:riscv64 24
+ 23s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 23s Investigating (4) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 23s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 23s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 23s Investigating (4) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 13
+ 23s Investigating (4) libopencv-imgcodecs-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 23s Broken libopencv-imgcodecs-dev:riscv64 Depends on libopencv-imgcodecs406:riscv64 < 4.6.0+dfsg-ok2 @ii puH > (= 4.6.0+dfsg-ok8)
+ 23s   Considering libopencv-imgcodecs406:riscv64 8 as a solution to libopencv-imgcodecs-dev:riscv64 8
+ 23s Investigating (4) libhdf5-103-1t64:riscv64 < none -> 1.10.10+repack-ok2 @un puN Ib >
+ 23s Broken libhdf5-103-1t64:riscv64 Breaks on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pK > (< 1.10.5)
+ 23s   Considering libhdf5-103:riscv64 4 as a solution to libhdf5-103-1t64:riscv64 6
+ 23s Investigating (4) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 5
+ 23s Investigating (4) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 23s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 23s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 4
+ 23s Investigating (4) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 23s Broken libvtk9.1:riscv64 Depends on libnetcdf19t64:riscv64 < none | 1:4.9.2-ok4 @un uH > (>= 4.7.4)
+ 23s   Considering libnetcdf19t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 23s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 2
+ 23s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 23s Done
+ 23s Some packages could not be installed. This may mean that you have
+ 23s requested an impossible situation or if you are using the unstable
+ 23s distribution that some required packages have not yet been created
+ 23s or been moved out of Incoming.
+ 23s The following information may help to resolve the situation:
+ 23s 
+ 23s The following packages have unmet dependencies:
+ 23s  libavcodec-dev : Depends: libavcodec60 (= 7:6.1.1-ok3)
+ 23s  libavcodec59 : Depends: libswresample4 (= 7:5.1.1-ok2) but 7:6.1.1-ok3 is to be installed
+ 23s  libavformat-dev : Depends: libavformat60 (= 7:6.1.1-ok3)
+ 23s  libhdf5-103-1t64 : Breaks: libhdf5-103 (< 1.10.5) but 1.10.4+repack-ok2 is to be installed
+ 23s  libopencv-core-dev : Depends: libopencv-core406 (= 4.6.0+dfsg-ok8) but 4.6.0+dfsg-ok2 is to be installed
+ 23s                       Depends: libtbb-dev but it is not installable
+ 23s  libopencv-imgcodecs-dev : Depends: libopencv-imgcodecs406 (= 4.6.0+dfsg-ok8) but 4.6.0+dfsg-ok2 is to be installed
+ 23s  libopencv-videoio406 : Depends: libavcodec60 (>= 7:6.0)
+ 23s                         Depends: libavformat60 (>= 7:6.0)
+ 23s  libvtk9.1 : Depends: libnetcdf19t64 (>= 4.7.4) but it is not going to be installed
+ 23s              Depends: libopenmpi3t64 (>= 4.1.6) but it is not going to be installed
+ 23s              Depends: libtbb12 (>= 2021.11.0) but it is not installable
+ 23s E: Error, pkgProblemResolver::Resolve generated breaks, this may be caused by held packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.dhMMNj/1-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate python3 python3-numpy opencv-doc libopencv-dev opencv-data libopencv-core-dev libopencv-core406 libopencv-ml-dev libopencv-ml406 libopencv-imgproc-dev libopencv-imgproc406 libopencv-imgcodecs-dev libopencv-imgcodecs406 libopencv-video-dev libopencv-video406 libopencv-videoio-dev libopencv-videoio406 libopencv-objdetect-dev libopencv-objdetect406 libopencv-highgui-dev libopencv-highgui406 libopencv-calib3d-dev libopencv-calib3d406 libopencv-flann-dev libopencv-flann406 libopencv-dnn-dev libopencv-dnn406 libopencv-features2d-dev libopencv-features2d406 libopencv-photo-dev libopencv-photo406 libopencv-videostab-dev libopencv-videostab406 libopencv-stitching-dev libopencv-stitching406 libopencv-shape-dev libopencv-shape406 libopencv-superres-dev libopencv-superres406 libopencv-viz-dev libopencv-viz406 libopencv-contrib-dev libopencv-contrib406 libopencv-java libopencv406-jni python3-opencv -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 23s Reading package lists...
+ 24s Building dependency tree...
+ 24s Reading state information...
+ 24s Starting pkgProblemResolver with broken count: 14
+ 25s Starting 2 pkgProblemResolver with broken count: 14
+ 25s Investigating (0) libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 -> 4.6.0+dfsg-ok8 @ii puU Ib >
+ 25s Broken libopencv-core406:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (0) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 25s Investigating (0) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Investigating (0) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 25s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 25s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 25s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 25s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 25s Investigating (0) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 25s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 25s Investigating (0) libgdal34t64:riscv64 < none -> 3.8.4+dfsg-ok3 @un puN Ib >
+ 25s Broken libgdal34t64:riscv64 Depends on gdal-data:riscv64 < 3.0.4+dfsg-ok1 | 3.8.4+dfsg-ok3 @ii uH > (>= 3.8.4+dfsg-ok3)
+ 25s   Considering gdal-data:riscv64 2 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated gdal-data:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on gdal-plugins:riscv64 < none | 3.8.4+dfsg-ok3 @un uH > (>= 3.8.4+dfsg-ok3)
+ 25s   Considering gdal-plugins:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated gdal-plugins:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libarmadillo12:riscv64 < none | 1:12.6.7+dfsg-ok1 @un uH > (>= 1:12.6.7+dfsg)
+ 25s   Considering libarmadillo12:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libarpack2t64:riscv64
+ 25s   Re-Instated libsuperlu6:riscv64
+ 25s   Re-Instated libarmadillo12:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libblosc1:riscv64 < none @un H > (>= 1.17.1+ds1)
+ 25s Broken libgdal34t64:riscv64 Depends on libgeos-c1t64:riscv64 < none | 3.12.1-ok1 @un uH > (>= 3.11.0)
+ 25s   Considering libgeos-c1t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libgeos3.12.1t64:riscv64
+ 25s   Re-Instated libgeos-c1t64:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libheif1:riscv64 < none | 1.17.6-ok1 @un uH > (>= 1.4.0)
+ 25s   Considering libheif1:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libheif-plugin-aomdec:riscv64
+ 25s   Re-Instated libde265-0:riscv64
+ 25s   Re-Instated libheif-plugin-libde265:riscv64
+ 25s   Re-Instated libheif1:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libmariadb3:riscv64 < none | 1:10.6.15-ok1.2 @un uH > (>= 3.0.0)
+ 25s   Considering libmariadb3:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated mariadb-common:riscv64
+ 25s   Re-Instated libmariadb3:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libnetcdf19t64:riscv64 < none | 1:4.9.2-ok4 @un uH > (>= 1:4.0.0)
+ 25s   Considering libnetcdf19t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libhdf5-hl-100t64:riscv64
+ 25s   Re-Instated libnetcdf19t64:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libodbc2:riscv64 < none | 2.3.12-ok3 @un uH > (>= 2.3.1)
+ 25s   Considering libodbc2:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libodbccr2:riscv64
+ 25s   Re-Instated libodbc1:riscv64
+ 25s   Re-Instated libodbc2:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libodbcinst2:riscv64 < none | 2.3.12-ok3 @un uH > (>= 2.3.1)
+ 25s   Considering libodbcinst2:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated odbcinst:riscv64
+ 25s   Re-Instated odbcinst1debian2:riscv64
+ 25s   Re-Instated unixodbc-common:riscv64
+ 25s   Re-Instated libodbcinst2:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libopenjp2-7:riscv64 < 2.3.1-ok2 | 2.5.0-ok1 @ii uH > (>= 2.5.0)
+ 25s   Considering libopenjp2-7:riscv64 53 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libopenjp2-7:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libqhull-r8.0:riscv64 < none | 2020.2-ok1 @un uH > (>= 2020.1)
+ 25s   Considering libqhull-r8.0:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libqhull-r8.0:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libspatialite8t64:riscv64 < none | 5.1.0-ok1 @un uH > (>= 4.2.0)
+ 25s   Considering libspatialite8t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libminizip1t64:riscv64
+ 25s   Re-Instated libfreexl1:riscv64
+ 25s     Reinst Failed early because of librttopo1:riscv64
+ 25s Broken libgdal34t64:riscv64 Depends on libxerces-c3.2t64:riscv64 < none | 3.2.4+debian-ok1 @un uH >
+ 25s   Considering libxerces-c3.2t64:riscv64 1 as a solution to libgdal34t64:riscv64 13
+ 25s   Re-Instated libxerces-c3.2t64:riscv64
+ 25s Investigating (0) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s Investigating (0) libgdal26:riscv64 < 3.0.4+dfsg-ok1 @ii K Ib >
+ 25s Broken libgdal26:riscv64 Depends on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pR >
+ 25s   Considering libhdf5-103:riscv64 2 as a solution to libgdal26:riscv64 4
+ 25s   Added libhdf5-103:riscv64 to the remove list
+ 25s Investigating (0) libavfilter8:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavfilter8:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 25s   Considering libswresample4:riscv64 11 as a solution to libavfilter8:riscv64 3
+ 25s   Removing libavfilter8:riscv64 rather than change libswresample4:riscv64
+ 25s Investigating (0) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s Investigating (0) libnetcdf15:riscv64 < 1:4.7.3-ok1 @ii K Ib >
+ 25s Broken libnetcdf15:riscv64 Depends on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pR >
+ 25s   Considering libhdf5-103:riscv64 4 as a solution to libnetcdf15:riscv64 2
+ 25s   Removing libnetcdf15:riscv64 rather than change libhdf5-103:riscv64
+ 25s Investigating (0) libavdevice59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavdevice59:riscv64 Depends on libavfilter8:riscv64 < 7:5.1.1-ok2 @ii R > (= 7:5.1.1-ok2)
+ 25s   Considering libavfilter8:riscv64 3 as a solution to libavdevice59:riscv64 1
+ 25s   Removing libavdevice59:riscv64 rather than change libavfilter8:riscv64
+ 25s Investigating (0) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 25s Broken libvtk9.1:riscv64 Depends on libgl2ps1.4:riscv64 < none | 1.4.2+dfsg1-ok1 @un uH > (>= 1.4.2+dfsg1)
+ 25s   Considering libgl2ps1.4:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s   Re-Instated libgl2ps1.4:riscv64
+ 25s Broken libvtk9.1:riscv64 Depends on libglew2.2:riscv64 < none | 2.2.0-4ok1 @un uH > (>= 2.2.0-4ok1)
+ 25s   Considering libglew2.2:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s   Re-Instated libglew2.2:riscv64
+ 25s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 25s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s   Re-Instated libevent-core-2.1-7t64:riscv64
+ 25s   Re-Instated libevent-pthreads-2.1-7t64:riscv64
+ 25s   Re-Instated libibverbs1:riscv64
+ 25s   Re-Instated ibverbs-providers:riscv64
+ 25s   Re-Instated librdmacm1:riscv64
+ 25s   Re-Instated libfabric1:riscv64
+ 25s   Re-Instated libhwloc15:riscv64
+ 25s   Re-Instated libxnvctrl0:riscv64
+ 25s   Re-Instated libhwloc-plugins:riscv64
+ 25s   Re-Instated libpmix2:riscv64
+ 25s   Re-Instated libopenmpi3t64:riscv64
+ 25s Broken libvtk9.1:riscv64 Depends on libproj25:riscv64 < none | 9.4.0-ok1 @un uH > (>= 5.0.0)
+ 25s   Considering libproj25:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s   Re-Instated proj-data:riscv64
+ 25s   Re-Instated libproj25:riscv64
+ 25s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Broken libvtk9.1:riscv64 Depends on libtk8.6:riscv64 < none | 8.6.14-ok1 @un uH > (>= 8.6.0)
+ 25s   Considering libtk8.6:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s   Re-Instated libtk8.6:riscv64
+ 25s Investigating (0) libxerces-c3.2t64:riscv64 < none -> 3.2.4+debian-ok1 @un uN Ib >
+ 25s Broken libxerces-c3.2t64:riscv64 Breaks on libxerces-c3.2:riscv64 < 3.2.2+debian-ok1 @ii K > (< 3.2.4+debian-ok1)
+ 25s   Considering libxerces-c3.2:riscv64 2 as a solution to libxerces-c3.2t64:riscv64 1
+ 25s   Holding Back libxerces-c3.2t64:riscv64 rather than change libxerces-c3.2:riscv64
+ 25s Investigating (0) libgeos-c1t64:riscv64 < none -> 3.12.1-ok1 @un uN Ib >
+ 25s Broken libgeos-c1t64:riscv64 Breaks on libgeos-c1v5:riscv64 < 3.8.0-ok1 @ii K > (< 3.12.1-ok1)
+ 25s   Considering libgeos-c1v5:riscv64 4 as a solution to libgeos-c1t64:riscv64 0
+ 25s   Holding Back libgeos-c1t64:riscv64 rather than change libgeos-c1v5:riscv64
+ 25s Investigating (0) libevent-core-2.1-7t64:riscv64 < none -> 2.1.12-stable-ok2 @un uN Ib >
+ 25s Broken libevent-core-2.1-7t64:riscv64 Breaks on libevent-core-2.1-7:riscv64 < 2.1.11-stable-ok1 @ii K > (< 2.1.12-stable-ok2)
+ 25s   Considering libevent-core-2.1-7:riscv64 1 as a solution to libevent-core-2.1-7t64:riscv64 0
+ 25s   Holding Back libevent-core-2.1-7t64:riscv64 rather than change libevent-core-2.1-7:riscv64
+ 25s Investigating (0) libarpack2t64:riscv64 < none -> 3.9.1-ok1 @un uN Ib >
+ 25s Broken libarpack2t64:riscv64 Breaks on libarpack2:riscv64 < 3.7.0-ok1 @ii K > (< 3.9.1-ok1)
+ 25s   Considering libarpack2:riscv64 2 as a solution to libarpack2t64:riscv64 0
+ 25s   Holding Back libarpack2t64:riscv64 rather than change libarpack2:riscv64
+ 25s Investigating (0) libminizip1t64:riscv64 < none -> 1:1.3.dfsg-ok3 @un uN Ib >
+ 25s Broken libminizip1t64:riscv64 Breaks on libminizip1:riscv64 < 1.1-ok1 @ii K > (< 1:1.3.dfsg-ok3)
+ 25s   Considering libminizip1:riscv64 3 as a solution to libminizip1t64:riscv64 0
+ 25s   Holding Back libminizip1t64:riscv64 rather than change libminizip1:riscv64
+ 25s Investigating (0) ffmpeg:riscv64 < 7:5.1.1-ok2 @ii uH Ib >
+ 25s Broken ffmpeg:riscv64 Depends on libavdevice59:riscv64 < 7:5.1.1-ok2 @ii R > (= 7:5.1.1-ok2)
+ 25s   Considering libavdevice59:riscv64 1 as a solution to ffmpeg:riscv64 0
+ 25s     Reinst Failed because of libavdevice59:riscv64
+ 25s   Removing ffmpeg:riscv64 rather than change libavdevice59:riscv64
+ 25s Investigating (0) kylin-recorder:riscv64 < 1.3.0.2.0k3.3-ok4.6 | 1.3.0.2.0k3.3-ok5.9 @ii uH Ib >
+ 25s Broken kylin-recorder:riscv64 Depends on ffmpeg:riscv64 < 7:5.1.1-ok2 @ii uR >
+ 25s   Considering ffmpeg:riscv64 0 as a solution to kylin-recorder:riscv64 -1
+ 25s     Reinst Failed because of libavcodec60:riscv64
+ 25s   Removing kylin-recorder:riscv64 rather than change ffmpeg:riscv64
+ 25s Investigating (0) python3-jsonschema:riscv64 < 3.2.0-ok1 @ii K Ib >
+ 25s Broken python3-jsonschema:riscv64 Depends on python3-pyrsistent:riscv64 < 0.15.5-ok1 @ii pR >
+ 25s   Considering python3-pyrsistent:riscv64 1 as a solution to python3-jsonschema:riscv64 -2
+ 25s   Removing python3-jsonschema:riscv64 rather than change python3-pyrsistent:riscv64
+ 25s Investigating (1) libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 -> 4.6.0+dfsg-ok8 @ii puU Ib >
+ 25s Broken libopencv-core406:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (1) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 25s Investigating (1) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Investigating (1) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 25s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 25s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 25s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 25s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 25s Investigating (1) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 25s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 25s Investigating (1) libgdal34t64:riscv64 < none -> 3.8.4+dfsg-ok3 @un puN Ib >
+ 25s Broken libgdal34t64:riscv64 Depends on libblosc1:riscv64 < none @un H > (>= 1.17.1+ds1)
+ 25s Broken libgdal34t64:riscv64 Depends on libgeos-c1t64:riscv64 < none | 3.12.1-ok1 @un uH > (>= 3.11.0)
+ 25s   Considering libgeos-c1t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libspatialite8t64:riscv64 < none | 5.1.0-ok1 @un uH > (>= 4.2.0)
+ 25s   Considering libspatialite8t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libxerces-c3.2t64:riscv64 < none | 3.2.4+debian-ok1 @un uH >
+ 25s   Considering libxerces-c3.2t64:riscv64 1 as a solution to libgdal34t64:riscv64 13
+ 25s Investigating (1) libfreexl1:riscv64 < 1.0.5-ok1 -> 2.0.0-ok1 @ii uU Ib >
+ 25s Broken libfreexl1:riscv64 Depends on libminizip1t64:riscv64 < none | 1:1.3.dfsg-ok3 @un uH >
+ 25s   Considering libminizip1t64:riscv64 0 as a solution to libfreexl1:riscv64 5
+ 25s   Holding Back libfreexl1:riscv64 rather than change libminizip1t64:riscv64
+ 25s Investigating (1) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s Investigating (1) libgdal26:riscv64 < 3.0.4+dfsg-ok1 @ii K Ib >
+ 25s Broken libgdal26:riscv64 Depends on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pR >
+ 25s   Considering libhdf5-103:riscv64 4 as a solution to libgdal26:riscv64 4
+ 25s   Removing libgdal26:riscv64 rather than change libhdf5-103:riscv64
+ 25s Investigating (1) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s Investigating (1) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 25s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (1) libevent-pthreads-2.1-7t64:riscv64 < none -> 2.1.12-stable-ok2 @un uN Ib >
+ 25s Broken libevent-pthreads-2.1-7t64:riscv64 Depends on libevent-core-2.1-7t64:riscv64 < none | 2.1.12-stable-ok2 @un uH > (= 2.1.12-stable-ok2)
+ 25s   Considering libevent-core-2.1-7t64:riscv64 0 as a solution to libevent-pthreads-2.1-7t64:riscv64 0
+ 25s   Holding Back libevent-pthreads-2.1-7t64:riscv64 rather than change libevent-core-2.1-7t64:riscv64
+ 25s Investigating (1) libarmadillo12:riscv64 < none -> 1:12.6.7+dfsg-ok1 @un uN Ib >
+ 25s Broken libarmadillo12:riscv64 Depends on libarpack2t64:riscv64 < none | 3.9.1-ok1 @un uH > (>= 2.1)
+ 25s   Considering libarpack2t64:riscv64 0 as a solution to libarmadillo12:riscv64 0
+ 25s   Holding Back libarmadillo12:riscv64 rather than change libarpack2t64:riscv64
+ 25s Investigating (1) libopenmpi3t64:riscv64 < none -> 4.1.6-ok1 @un uN Ib >
+ 25s Broken libopenmpi3t64:riscv64 Depends on libevent-core-2.1-7t64:riscv64 < none | 2.1.12-stable-ok2 @un uH > (>= 2.1.8-stable)
+ 25s   Considering libevent-core-2.1-7t64:riscv64 0 as a solution to libopenmpi3t64:riscv64 0
+ 25s   Holding Back libopenmpi3t64:riscv64 rather than change libevent-core-2.1-7t64:riscv64
+ 25s Investigating (2) libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 -> 4.6.0+dfsg-ok8 @ii puU Ib >
+ 25s Broken libopencv-core406:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (2) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 25s Investigating (2) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Investigating (2) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 25s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 25s   Considering gir1.2-girepository-2.0:riscv64 1 as a solution to python3-gi:riscv64 27
+ 25s   Added gir1.2-girepository-2.0:riscv64 to the remove list
+ 25s   Fixing python3-gi:riscv64 via keep of gir1.2-girepository-2.0:riscv64
+ 25s Investigating (2) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 25s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 25s Investigating (2) libgdal34t64:riscv64 < none -> 3.8.4+dfsg-ok3 @un puN Ib >
+ 25s Broken libgdal34t64:riscv64 Depends on libarmadillo12:riscv64 < none | 1:12.6.7+dfsg-ok1 @un uH > (>= 1:12.6.7+dfsg)
+ 25s   Considering libarmadillo12:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libblosc1:riscv64 < none @un H > (>= 1.17.1+ds1)
+ 25s Broken libgdal34t64:riscv64 Depends on libgeos-c1t64:riscv64 < none | 3.12.1-ok1 @un uH > (>= 3.11.0)
+ 25s   Considering libgeos-c1t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libspatialite8t64:riscv64 < none | 5.1.0-ok1 @un uH > (>= 4.2.0)
+ 25s   Considering libspatialite8t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libxerces-c3.2t64:riscv64 < none | 3.2.4+debian-ok1 @un uH >
+ 25s   Considering libxerces-c3.2t64:riscv64 1 as a solution to libgdal34t64:riscv64 13
+ 25s Investigating (2) libopencv-imgcodecs4.2:riscv64 < 4.2.0+dfsg-ok1 @ii K Ib >
+ 25s Broken libopencv-imgcodecs4.2:riscv64 Depends on libgdal26:riscv64 < 3.0.4+dfsg-ok1 @ii R > (>= 2.3.1)
+ 25s   Considering libgdal26:riscv64 4 as a solution to libopencv-imgcodecs4.2:riscv64 5
+ 25s   Added libgdal26:riscv64 to the remove list
+ 25s   Fixing libopencv-imgcodecs4.2:riscv64 via keep of libgdal26:riscv64
+ 25s Investigating (2) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s Investigating (2) libgdal26:riscv64 < 3.0.4+dfsg-ok1 @ii K Ib >
+ 25s Broken libgdal26:riscv64 Depends on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pR >
+ 25s   Considering libhdf5-103:riscv64 4 as a solution to libgdal26:riscv64 5
+ 25s   Added libhdf5-103:riscv64 to the remove list
+ 25s Broken libgdal26:riscv64 Depends on libnetcdf15:riscv64 < 1:4.7.3-ok1 @ii R > (>= 1:4.0.0)
+ 25s   Considering libnetcdf15:riscv64 2 as a solution to libgdal26:riscv64 5
+ 25s   Added libnetcdf15:riscv64 to the remove list
+ 25s   Fixing libgdal26:riscv64 via keep of libnetcdf15:riscv64
+ 25s Investigating (2) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s Investigating (2) libnetcdf15:riscv64 < 1:4.7.3-ok1 @ii K Ib >
+ 25s Broken libnetcdf15:riscv64 Depends on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pR >
+ 25s   Considering libhdf5-103:riscv64 5 as a solution to libnetcdf15:riscv64 5
+ 25s   Removing libnetcdf15:riscv64 rather than change libhdf5-103:riscv64
+ 25s Investigating (2) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 25s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 25s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (2) libpmix2:riscv64 < none -> 4.1.2-ok1 @un uN Ib >
+ 25s Broken libpmix2:riscv64 Depends on libevent-pthreads-2.1-7:riscv64 < none | 2.1.11-stable-ok1 @un uH > (>= 2.1.8-stable)
+ 25s   Considering libevent-pthreads-2.1-7:riscv64 0 as a solution to libpmix2:riscv64 0
+ 25s   Holding Back libpmix2:riscv64 rather than change libevent-pthreads-2.1-7:riscv64
+ 25s Investigating (3) libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 -> 4.6.0+dfsg-ok8 @ii puU Ib >
+ 25s Broken libopencv-core406:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (3) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 25s Investigating (3) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Investigating (3) python3-gi:riscv64 < 3.36.0-ok3 -> 3.48.2-ok3 @ii uU Ib >
+ 25s Broken python3-gi:riscv64 Depends on gir1.2-girepository-2.0:riscv64 < none | 1.80.1-ok1 @un uH >
+ 25s   Considering gir1.2-girepository-2.0:riscv64 27 as a solution to python3-gi:riscv64 27
+ 25s   Re-Instated gir1.2-girepository-2.0:riscv64
+ 25s   Re-Instated python3-gi:riscv64
+ 25s Investigating (3) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 25s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 25s Investigating (3) libgdal34t64:riscv64 < none -> 3.8.4+dfsg-ok3 @un puN Ib >
+ 25s Broken libgdal34t64:riscv64 Depends on libarmadillo12:riscv64 < none | 1:12.6.7+dfsg-ok1 @un uH > (>= 1:12.6.7+dfsg)
+ 25s   Considering libarmadillo12:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libblosc1:riscv64 < none @un H > (>= 1.17.1+ds1)
+ 25s Broken libgdal34t64:riscv64 Depends on libgeos-c1t64:riscv64 < none | 3.12.1-ok1 @un uH > (>= 3.11.0)
+ 25s   Considering libgeos-c1t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libspatialite8t64:riscv64 < none | 5.1.0-ok1 @un uH > (>= 4.2.0)
+ 25s   Considering libspatialite8t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libxerces-c3.2t64:riscv64 < none | 3.2.4+debian-ok1 @un uH >
+ 25s   Considering libxerces-c3.2t64:riscv64 1 as a solution to libgdal34t64:riscv64 13
+ 25s Investigating (3) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s Investigating (3) libgdal26:riscv64 < 3.0.4+dfsg-ok1 @ii K Ib >
+ 25s Broken libgdal26:riscv64 Depends on libhdf5-103:riscv64 < 1.10.4+repack-ok2 @ii pR >
+ 25s   Considering libhdf5-103:riscv64 5 as a solution to libgdal26:riscv64 5
+ 25s   Removing libgdal26:riscv64 rather than change libhdf5-103:riscv64
+ 25s Investigating (3) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s Investigating (3) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 25s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 25s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (4) libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 -> 4.6.0+dfsg-ok8 @ii puU Ib >
+ 25s Broken libopencv-core406:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (4) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 25s Investigating (4) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Investigating (4) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 25s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 25s Investigating (4) libgdal34t64:riscv64 < none -> 3.8.4+dfsg-ok3 @un puN Ib >
+ 25s Broken libgdal34t64:riscv64 Depends on libarmadillo12:riscv64 < none | 1:12.6.7+dfsg-ok1 @un uH > (>= 1:12.6.7+dfsg)
+ 25s   Considering libarmadillo12:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libblosc1:riscv64 < none @un H > (>= 1.17.1+ds1)
+ 25s Broken libgdal34t64:riscv64 Depends on libgeos-c1t64:riscv64 < none | 3.12.1-ok1 @un uH > (>= 3.11.0)
+ 25s   Considering libgeos-c1t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libspatialite8t64:riscv64 < none | 5.1.0-ok1 @un uH > (>= 4.2.0)
+ 25s   Considering libspatialite8t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libxerces-c3.2t64:riscv64 < none | 3.2.4+debian-ok1 @un uH >
+ 25s   Considering libxerces-c3.2t64:riscv64 1 as a solution to libgdal34t64:riscv64 13
+ 25s Investigating (4) libopencv-imgcodecs4.2:riscv64 < 4.2.0+dfsg-ok1 @ii K Ib >
+ 25s Broken libopencv-imgcodecs4.2:riscv64 Depends on libgdal26:riscv64 < 3.0.4+dfsg-ok1 @ii R > (>= 2.3.1)
+ 25s   Considering libgdal26:riscv64 5 as a solution to libopencv-imgcodecs4.2:riscv64 5
+ 25s   Removing libopencv-imgcodecs4.2:riscv64 rather than change libgdal26:riscv64
+ 25s Investigating (4) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s Investigating (4) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s Investigating (4) libopencv-videoio4.2:riscv64 < 4.2.0+dfsg-ok1 @ii K Ib >
+ 25s Broken libopencv-videoio4.2:riscv64 Depends on libopencv-imgcodecs4.2:riscv64 < 4.2.0+dfsg-ok1 @ii R > (= 4.2.0+dfsg-ok1)
+ 25s   Considering libopencv-imgcodecs4.2:riscv64 5 as a solution to libopencv-videoio4.2:riscv64 2
+ 25s   Removing libopencv-videoio4.2:riscv64 rather than change libopencv-imgcodecs4.2:riscv64
+ 25s Investigating (4) libopencv-highgui4.2:riscv64 < 4.2.0+dfsg-ok1 @ii K Ib >
+ 25s Broken libopencv-highgui4.2:riscv64 Depends on libopencv-videoio4.2:riscv64 < 4.2.0+dfsg-ok1 @ii R > (= 4.2.0+dfsg-ok1)
+ 25s   Considering libopencv-videoio4.2:riscv64 5 as a solution to libopencv-highgui4.2:riscv64 1
+ 25s   Removing libopencv-highgui4.2:riscv64 rather than change libopencv-videoio4.2:riscv64
+ 25s Investigating (4) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 25s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 25s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (4) libkysdk-ocr:riscv64 < 2.3.0.0-0k5.2 | 2.5.1.2-0k0.5 @ii uH Ib >
+ 25s Broken libkysdk-ocr:riscv64 Depends on libopencv-highgui4.2:riscv64 < 4.2.0+dfsg-ok1 @ii R >
+ 25s   Considering libopencv-highgui4.2:riscv64 5 as a solution to libkysdk-ocr:riscv64 0
+ 25s   Re-Instated libkysdk-ocr:riscv64
+ 25s Investigating (5) libopencv-core406:riscv64 < 4.6.0+dfsg-ok2 -> 4.6.0+dfsg-ok8 @ii puU Ib >
+ 25s Broken libopencv-core406:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Investigating (5) libopencv-core-dev:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-core-dev:riscv64 Depends on libtbb-dev:riscv64 < none @un H >
+ 25s Investigating (5) libopencv-videoio406:riscv64 < none -> 4.6.0+dfsg-ok8 @un puN Ib >
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavcodec60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Broken libopencv-videoio406:riscv64 Depends on libavformat60:riscv64 < none @un H > (>= 7:6.0)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libopencv-videoio406:riscv64 10008
+ 25s Investigating (5) libavcodec59:riscv64 < 7:5.1.1-ok2 @ii K Ib >
+ 25s Broken libavcodec59:riscv64 Depends on libswresample4:riscv64 < 7:5.1.1-ok2 -> 7:6.1.1-ok3 @ii puU > (= 7:5.1.1-ok2)
+ 25s   Considering libswresample4:riscv64 11 as a solution to libavcodec59:riscv64 17
+ 25s Investigating (5) libgdal34t64:riscv64 < none -> 3.8.4+dfsg-ok3 @un puN Ib >
+ 25s Broken libgdal34t64:riscv64 Depends on libarmadillo12:riscv64 < none | 1:12.6.7+dfsg-ok1 @un uH > (>= 1:12.6.7+dfsg)
+ 25s   Considering libarmadillo12:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libblosc1:riscv64 < none @un H > (>= 1.17.1+ds1)
+ 25s Broken libgdal34t64:riscv64 Depends on libgeos-c1t64:riscv64 < none | 3.12.1-ok1 @un uH > (>= 3.11.0)
+ 25s   Considering libgeos-c1t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libspatialite8t64:riscv64 < none | 5.1.0-ok1 @un uH > (>= 4.2.0)
+ 25s   Considering libspatialite8t64:riscv64 0 as a solution to libgdal34t64:riscv64 13
+ 25s Broken libgdal34t64:riscv64 Depends on libxerces-c3.2t64:riscv64 < none | 3.2.4+debian-ok1 @un uH >
+ 25s   Considering libxerces-c3.2t64:riscv64 1 as a solution to libgdal34t64:riscv64 13
+ 25s Investigating (5) libavcodec-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavcodec-dev:riscv64 Depends on libavcodec60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavcodec60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s   Considering libavcodec-extra60:riscv64 0 as a solution to libavcodec-dev:riscv64 4
+ 25s Investigating (5) libavformat-dev:riscv64 < none -> 7:6.1.1-ok3 @un puN Ib >
+ 25s Broken libavformat-dev:riscv64 Depends on libavformat60:riscv64 < none @un H > (= 7:6.1.1-ok3)
+ 25s   Considering libavformat60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s   Considering libavformat-extra60:riscv64 0 as a solution to libavformat-dev:riscv64 3
+ 25s Investigating (5) libvtk9.1:riscv64 < none -> 9.1.0+really9.1.0+dfsg2-ok4 @un puN Ib >
+ 25s Broken libvtk9.1:riscv64 Depends on libopenmpi3t64:riscv64 < none | 4.1.6-ok1 @un uH > (>= 4.1.6)
+ 25s   Considering libopenmpi3t64:riscv64 0 as a solution to libvtk9.1:riscv64 1
+ 25s Broken libvtk9.1:riscv64 Depends on libtbb12:riscv64 < none @un H > (>= 2021.11.0)
+ 25s Done
+ 25s Some packages could not be installed. This may mean that you have
+ 25s requested an impossible situation or if you are using the unstable
+ 25s distribution that some required packages have not yet been created
+ 25s or been moved out of Incoming.
+ 25s The following information may help to resolve the situation:
+ 25s 
+ 25s The following packages have unmet dependencies:
+ 25s  libavcodec-dev : Depends: libavcodec60 (= 7:6.1.1-ok3)
+ 25s  libavcodec59 : Depends: libswresample4 (= 7:5.1.1-ok2) but 7:6.1.1-ok3 is to be installed
+ 25s  libavformat-dev : Depends: libavformat60 (= 7:6.1.1-ok3)
+ 25s  libgdal34t64 : Depends: libarmadillo12 (>= 1:12.6.7+dfsg) but it is not going to be installed
+ 25s                 Depends: libblosc1 (>= 1.17.1+ds1) but it is not installable
+ 25s                 Depends: libgeos-c1t64 (>= 3.11.0) but it is not going to be installed
+ 25s                 Depends: libspatialite8t64 (>= 4.2.0) but it is not going to be installed
+ 25s                 Depends: libxerces-c3.2t64 but it is not going to be installed
+ 25s  libopencv-core-dev : Depends: libtbb-dev but it is not installable
+ 25s  libopencv-core406 : Depends: libtbb12 (>= 2021.11.0) but it is not installable
+ 25s  libopencv-videoio406 : Depends: libavcodec60 (>= 7:6.0)
+ 25s                         Depends: libavformat60 (>= 7:6.0)
+ 25s  libvtk9.1 : Depends: libopenmpi3t64 (>= 4.1.6) but it is not going to be installed
+ 25s              Depends: libtbb12 (>= 2021.11.0) but it is not installable
+ 25s E: Error, pkgProblemResolver::Resolve generated breaks, this may be caused by held packages.
+ 25s autopkgtest: DBG: testbed command exited with code 100
+ 25s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 25s command1             FAIL badpkg
+ 25s blame: opencv_4.6.0+dfsg-ok8.dsc
+ 25s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 25s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 25s autopkgtest [23:37:23]: @@@@@@@@@@@@@@@@@@@@ summary
+ 25s command1             FAIL badpkg
+ 25s blame: opencv_4.6.0+dfsg-ok8.dsc
+ 25s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 25s autopkgtest: DBG: testbed stop
+ 25s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.dhMMNj
+ 25s autopkgtest: DBG: sending command to testbed: close
+ 26s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 27s autopkgtest: DBG: got reply from testbed: ok
+ 27s autopkgtest: DBG: sending command to testbed: quit

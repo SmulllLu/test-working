@@ -1,0 +1,521 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [01:27:53]: starting date and time: 2024-07-18 01:27:53+0800
+  0s autopkgtest [01:27:53]: version @version@
+  0s autopkgtest [01:27:53]: host lili; command line: /usr/bin/autopkgtest bzip2_1.0.8.2-0k0.dsc -o /home/hachi/openkylin_test/sharefolder/results/bzip2 -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.04JfJC
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-a58541a2-ffd9-4a64-b9d9-0d6c2db7839c,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-a58541a2-ffd9-4a64-b9d9-0d6c2db7839c//tmp/autopkgtest.04JfJC
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-a58541a2-ffd9-4a64-b9d9-0d6c2db7839c//tmp/autopkgtest.04JfJC', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.04JfJC'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.04JfJC/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.04JfJC/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:27:55]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:27:55]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.04JfJC/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.04JfJC/testbed-packages /home/hachi/openkylin_test/sharefolder/results/bzip2/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [01:27:55]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [01:27:55]: @@@@@@@@@@@@@@@@@@@@ source bzip2_1.0.8.2-0k0.dsc
+  2s autopkgtest: DBG: blame += bzip2_1.0.8.2-0k0.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.04JfJC'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown bzip2_1.0.8.2-0k0.dsc /tmp/autopkgtest.04JfJC/bzip2_1.0.8.2-0k0.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.04JfJC'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown bzip2_1.0.8.2.orig.tar.gz /tmp/autopkgtest.04JfJC/bzip2_1.0.8.2.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.04JfJC'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown bzip2_1.0.8.2-0k0.debian.tar.bz2 /tmp/autopkgtest.04JfJC/bzip2_1.0.8.2-0k0.debian.tar.bz2
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.04JfJC/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.04JfJC/bzip2_1.0.8.2-0k0.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.04JfJC/build.XXX
+  3s + builddir=/tmp/autopkgtest.04JfJC/build.Wz6
+  3s + cd /tmp/autopkgtest.04JfJC/build.Wz6
+  3s + dpkg-source -x /tmp/autopkgtest.04JfJC/bzip2_1.0.8.2-0k0.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.BCCCZZbA/trustedkeys.kbx': General error
+  3s gpgv: Signature made Fri 12 Aug 2022 06:05:42 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.04JfJC/bzip2_1.0.8.2-0k0.dsc
+  3s dpkg-source: info: extracting bzip2 in src
+  3s dpkg-source: info: unpacking bzip2_1.0.8.2.orig.tar.gz
+  3s dpkg-source: info: unpacking bzip2_1.0.8.2-0k0.debian.tar.bz2
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [01:27:56]: testing package bzip2 version 1.0.8.2-0k0
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.04JfJC/build.Wz6/src/debian/ /home/hachi/openkylin_test/sharefolder/results/bzip2/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libbz2-1.0
+  3s autopkgtest: DBG: synthesised dependency libbz2-dev
+  3s autopkgtest: DBG: synthesised dependency bzip2
+  3s autopkgtest: DBG: synthesised dependency bzip2-doc
+  3s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency debhelper (>= 11)
+  4s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.16.0)
+  4s autopkgtest: DBG: synthesised dependency docbook-xml
+  4s autopkgtest: DBG: synthesised dependency docbook2x
+  4s autopkgtest: DBG: synthesised dependency texinfo
+  4s autopkgtest: DBG: synthesised dependency xsltproc
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: Test defined: name compress path debian/tests/compress command "None" restrictions [] features [] depends ['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'] 
+  4s autopkgtest: DBG: Test defined: name grep path debian/tests/grep command "None" restrictions [] features [] depends ['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'] 
+  4s autopkgtest: DBG: Test defined: name link-with-shared path debian/tests/link-with-shared command "None" restrictions [] features [] depends ['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'] 
+  4s autopkgtest [01:27:57]: build not needed
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.04JfJC/build.Wz6/src/ /home/hachi/openkylin_test/sharefolder/results/bzip2/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency libbz2-1.0
+  4s autopkgtest: DBG: synthesised dependency libbz2-dev
+  4s autopkgtest: DBG: synthesised dependency bzip2
+  4s autopkgtest: DBG: synthesised dependency bzip2-doc
+  4s autopkgtest: DBG: processing dependency @builddeps@
+  4s autopkgtest: DBG: synthesised dependency debhelper (>= 11)
+  4s autopkgtest: DBG: synthesised dependency dpkg-dev (>= 1.16.0)
+  4s autopkgtest: DBG: synthesised dependency docbook-xml
+  4s autopkgtest: DBG: synthesised dependency docbook2x
+  4s autopkgtest: DBG: synthesised dependency texinfo
+  4s autopkgtest: DBG: synthesised dependency xsltproc
+  4s autopkgtest: DBG: synthesised dependency build-essential
+  4s autopkgtest: DBG: Test defined: name compress path debian/tests/compress command "None" restrictions [] features [] depends ['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'] 
+  4s autopkgtest: DBG: Test defined: name grep path debian/tests/grep command "None" restrictions [] features [] depends ['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'] 
+  4s autopkgtest: DBG: Test defined: name link-with-shared path debian/tests/link-with-shared command "None" restrictions [] features [] depends ['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'] 
+  4s autopkgtest [01:27:57]: test compress: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential']
+  4s autopkgtest: DBG: install-deps: satisfying libbz2-1.0, libbz2-dev, bzip2, bzip2-doc, debhelper (>= 11), dpkg-dev (>= 1.16.0), docbook-xml, docbook2x, texinfo, xsltproc, build-essential
+  4s autopkgtest: DBG: install-deps: architecture resolved: libbz2-1.0, libbz2-dev, bzip2, bzip2-doc, debhelper (>= 11), dpkg-dev (>= 1.16.0), docbook-xml, docbook2x, texinfo, xsltproc, build-essential
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.04JfJC'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a58541a2-ffd9-4a64-b9d9-0d6c2db7839c//tmp/autopkgtest.04JfJC/1-autopkgtest-satdep.deb /tmp/autopkgtest.04JfJC/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.04JfJC/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 1
+  6s Starting 2 pkgProblemResolver with broken count: 1
+  6s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  6s Broken autopkgtest-satdep:riscv64 Depends on libbz2-dev:riscv64 < none | 1.0.8.2-0k0 @un uH >
+  6s   Considering libbz2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  6s   Re-Instated libbz2-dev:riscv64
+  6s Broken autopkgtest-satdep:riscv64 Depends on bzip2-doc:riscv64 < none | 1.0.8.2-0k0 @un uH >
+  6s   Considering bzip2-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  6s   Re-Instated bzip2-doc:riscv64
+  6s Broken autopkgtest-satdep:riscv64 Depends on debhelper:riscv64 < none | 13.15.3-ok1 @un uH > (>= 11)
+  6s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  6s   Re-Instated autotools-dev:riscv64
+  6s   Re-Instated m4:riscv64
+  6s   Re-Instated autoconf:riscv64
+  6s   Re-Instated automake:riscv64
+  6s   Re-Instated autopoint:riscv64
+  6s   Re-Instated libdebhelper-perl:riscv64
+  6s   Re-Instated libtool:riscv64
+  6s   Re-Instated dh-autoreconf:riscv64
+  6s   Re-Instated libarchive-zip-perl:riscv64
+  6s   Re-Instated libsub-override-perl:riscv64
+  6s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+  6s   Re-Instated dh-strip-nondeterminism:riscv64
+  6s   Re-Instated dwz:riscv64
+  6s   Re-Instated intltool-debian:riscv64
+  6s   Re-Instated po-debconf:riscv64
+  6s   Re-Instated debhelper:riscv64
+  6s Broken autopkgtest-satdep:riscv64 Depends on docbook2x:riscv64 < none @un H >
+  6s Broken autopkgtest-satdep:riscv64 Depends on texinfo:riscv64 < none | 7.1-ok1 @un uH >
+  6s   Considering texinfo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  6s   Re-Instated libtext-unidecode-perl:riscv64
+  6s   Re-Instated perl-base:riscv64
+  6s   Re-Instated perl-modules-5.36:riscv64
+  6s   Re-Instated libperl5.36:riscv64
+  6s   Re-Instated perl:riscv64
+  6s   Re-Instated libxml-namespacesupport-perl:riscv64
+  6s   Re-Instated libxml-sax-base-perl:riscv64
+  6s   Re-Instated libxml-sax-perl:riscv64
+  6s   Re-Instated libxml-libxml-perl:riscv64
+  6s   Re-Instated texinfo-lib:riscv64
+  6s   Re-Instated tex-common:riscv64
+  6s   Re-Instated texinfo:riscv64
+  6s Broken autopkgtest-satdep:riscv64 Depends on xsltproc:riscv64 < none | 1.1.39-ok1 @un uH >
+  6s   Considering xsltproc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  6s   Re-Instated xsltproc:riscv64
+  6s Investigating (0) libhtml-parser-perl:riscv64 < 3.76-ok1 | 3.81-ok1 @ii uH Ib >
+  6s Broken libhtml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libhtml-parser-perl:riscv64 8
+  6s   Re-Instated libhtml-parser-perl:riscv64
+  6s Investigating (0) liblocale-gettext-perl:riscv64 < 1.07-ok1 | 1.07-ok2 @ii uH Ib >
+  6s Broken liblocale-gettext-perl:riscv64 PreDepends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to liblocale-gettext-perl:riscv64 6
+  6s   Re-Instated liblocale-gettext-perl:riscv64
+  6s Investigating (0) libclone-perl:riscv64 < 0.45-ok2 | 0.46-ok1 @ii uH Ib >
+  6s Broken libclone-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libclone-perl:riscv64 6
+  6s   Re-Instated libclone-perl:riscv64
+  6s Investigating (0) libtext-charwidth-perl:riscv64 < 0.04-ok2 | 0.04-ok3 @ii uH Ib >
+  6s Broken libtext-charwidth-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libtext-charwidth-perl:riscv64 6
+  6s   Re-Instated libtext-charwidth-perl:riscv64
+  6s Investigating (0) libnet-ssleay-perl:riscv64 < 1.88-ok2 | 1.94-ok1 @ii uH Ib >
+  6s Broken libnet-ssleay-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libnet-ssleay-perl:riscv64 4
+  6s   Re-Instated perl-openssl-defaults:riscv64
+  6s   Re-Instated libnet-ssleay-perl:riscv64
+  6s Investigating (0) libtext-iconv-perl:riscv64 < 1.7-ok1 | 1.7-ok2 @ii uH Ib >
+  6s Broken libtext-iconv-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libtext-iconv-perl:riscv64 4
+  6s   Re-Instated libtext-iconv-perl:riscv64
+  6s Investigating (0) libfile-fcntllock-perl:riscv64 < 0.22-ok1 @ii K Ib >
+  6s Broken libfile-fcntllock-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libfile-fcntllock-perl:riscv64 1
+  6s   Removing libfile-fcntllock-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Investigating (0) libalgorithm-diff-xs-perl:riscv64 < 0.04-ok1 @ii K Ib >
+  6s Broken libalgorithm-diff-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libalgorithm-diff-xs-perl:riscv64 1
+  6s   Removing libalgorithm-diff-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Investigating (0) libnet-dbus-perl:riscv64 < 1.2.0-ok1 @ii K Ib >
+  6s Broken libnet-dbus-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libnet-dbus-perl:riscv64 0
+  6s   Removing libnet-dbus-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Investigating (0) libxml-parser-perl:riscv64 < 2.46-ok2 | 2.47-ok1 @ii uH Ib >
+  6s Broken libxml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libxml-parser-perl:riscv64 0
+  6s   Re-Instated libxml-parser-perl:riscv64
+  6s Investigating (0) libintl-xs-perl:riscv64 < 1.26-ok1 @ii K Ib >
+  6s Broken libintl-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  6s   Considering perl-base:riscv64 5256 as a solution to libintl-xs-perl:riscv64 -1
+  6s   Removing libintl-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  6s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  6s Broken autopkgtest-satdep:riscv64 Depends on docbook2x:riscv64 < none @un H >
+  6s Done
+  6s Some packages could not be installed. This may mean that you have
+  6s requested an impossible situation or if you are using the unstable
+  6s distribution that some required packages have not yet been created
+  6s or been moved out of Incoming.
+  6s The following information may help to resolve the situation:
+  6s 
+  6s The following packages have unmet dependencies:
+  6s  autopkgtest-satdep : Depends: docbook2x but it is not installable
+  6s E: Unable to correct problems, you have held broken packages.
+  6s autopkgtest: DBG: testbed command exited with code 100
+  6s autopkgtest: DBG: apt-get install /tmp/autopkgtest.04JfJC/1-autopkgtest-satdep.deb failed; status-fd:
+  6s 
+  6s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+  6s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libbz2-1.0 libbz2-dev bzip2 bzip2-doc debhelper (>= 11) dpkg-dev (>= 1.16.0) docbook-xml docbook2x texinfo xsltproc build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  6s autopkgtest: DBG: testbed command exited with code 2
+  6s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  6s compress             FAIL badpkg
+  6s blame: bzip2_1.0.8.2-0k0.dsc
+  6s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  6s autopkgtest [01:27:59]: test grep: preparing testbed
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'], deps_new=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential']
+  6s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  6s autopkgtest: DBG: install_deps: deps_new=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential']
+  6s autopkgtest: DBG: install-deps: satisfying libbz2-1.0, libbz2-dev, bzip2, bzip2-doc, debhelper (>= 11), dpkg-dev (>= 1.16.0), docbook-xml, docbook2x, texinfo, xsltproc, build-essential
+  6s autopkgtest: DBG: install-deps: architecture resolved: libbz2-1.0, libbz2-dev, bzip2, bzip2-doc, debhelper (>= 11), dpkg-dev (>= 1.16.0), docbook-xml, docbook2x, texinfo, xsltproc, build-essential
+  6s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: can use apt-get on testbed: True
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.04JfJC'], kind short, sout raw, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a58541a2-ffd9-4a64-b9d9-0d6c2db7839c//tmp/autopkgtest.04JfJC/2-autopkgtest-satdep.deb /tmp/autopkgtest.04JfJC/2-autopkgtest-satdep.deb
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.04JfJC/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  7s Reading package lists...
+  8s Building dependency tree...
+  8s Reading state information...
+  8s Starting pkgProblemResolver with broken count: 1
+  8s Starting 2 pkgProblemResolver with broken count: 1
+  8s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  8s Broken autopkgtest-satdep:riscv64 Depends on libbz2-dev:riscv64 < none | 1.0.8.2-0k0 @un uH >
+  8s   Considering libbz2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Re-Instated libbz2-dev:riscv64
+  8s Broken autopkgtest-satdep:riscv64 Depends on bzip2-doc:riscv64 < none | 1.0.8.2-0k0 @un uH >
+  8s   Considering bzip2-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Re-Instated bzip2-doc:riscv64
+  8s Broken autopkgtest-satdep:riscv64 Depends on debhelper:riscv64 < none | 13.15.3-ok1 @un uH > (>= 11)
+  8s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Re-Instated autotools-dev:riscv64
+  8s   Re-Instated m4:riscv64
+  8s   Re-Instated autoconf:riscv64
+  8s   Re-Instated automake:riscv64
+  8s   Re-Instated autopoint:riscv64
+  8s   Re-Instated libdebhelper-perl:riscv64
+  8s   Re-Instated libtool:riscv64
+  8s   Re-Instated dh-autoreconf:riscv64
+  8s   Re-Instated libarchive-zip-perl:riscv64
+  8s   Re-Instated libsub-override-perl:riscv64
+  8s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+  8s   Re-Instated dh-strip-nondeterminism:riscv64
+  8s   Re-Instated dwz:riscv64
+  8s   Re-Instated intltool-debian:riscv64
+  8s   Re-Instated po-debconf:riscv64
+  8s   Re-Instated debhelper:riscv64
+  8s Broken autopkgtest-satdep:riscv64 Depends on docbook2x:riscv64 < none @un H >
+  8s Broken autopkgtest-satdep:riscv64 Depends on texinfo:riscv64 < none | 7.1-ok1 @un uH >
+  8s   Considering texinfo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Re-Instated libtext-unidecode-perl:riscv64
+  8s   Re-Instated perl-base:riscv64
+  8s   Re-Instated perl-modules-5.36:riscv64
+  8s   Re-Instated libperl5.36:riscv64
+  8s   Re-Instated perl:riscv64
+  8s   Re-Instated libxml-namespacesupport-perl:riscv64
+  8s   Re-Instated libxml-sax-base-perl:riscv64
+  8s   Re-Instated libxml-sax-perl:riscv64
+  8s   Re-Instated libxml-libxml-perl:riscv64
+  8s   Re-Instated texinfo-lib:riscv64
+  8s   Re-Instated tex-common:riscv64
+  8s   Re-Instated texinfo:riscv64
+  8s Broken autopkgtest-satdep:riscv64 Depends on xsltproc:riscv64 < none | 1.1.39-ok1 @un uH >
+  8s   Considering xsltproc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+  8s   Re-Instated xsltproc:riscv64
+  8s Investigating (0) libhtml-parser-perl:riscv64 < 3.76-ok1 | 3.81-ok1 @ii uH Ib >
+  8s Broken libhtml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libhtml-parser-perl:riscv64 8
+  8s   Re-Instated libhtml-parser-perl:riscv64
+  8s Investigating (0) libtext-charwidth-perl:riscv64 < 0.04-ok2 | 0.04-ok3 @ii uH Ib >
+  8s Broken libtext-charwidth-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libtext-charwidth-perl:riscv64 6
+  8s   Re-Instated libtext-charwidth-perl:riscv64
+  8s Investigating (0) libclone-perl:riscv64 < 0.45-ok2 | 0.46-ok1 @ii uH Ib >
+  8s Broken libclone-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libclone-perl:riscv64 6
+  8s   Re-Instated libclone-perl:riscv64
+  8s Investigating (0) liblocale-gettext-perl:riscv64 < 1.07-ok1 | 1.07-ok2 @ii uH Ib >
+  8s Broken liblocale-gettext-perl:riscv64 PreDepends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to liblocale-gettext-perl:riscv64 6
+  8s   Re-Instated liblocale-gettext-perl:riscv64
+  8s Investigating (0) libnet-ssleay-perl:riscv64 < 1.88-ok2 | 1.94-ok1 @ii uH Ib >
+  8s Broken libnet-ssleay-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libnet-ssleay-perl:riscv64 4
+  8s   Re-Instated perl-openssl-defaults:riscv64
+  8s   Re-Instated libnet-ssleay-perl:riscv64
+  8s Investigating (0) libtext-iconv-perl:riscv64 < 1.7-ok1 | 1.7-ok2 @ii uH Ib >
+  8s Broken libtext-iconv-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libtext-iconv-perl:riscv64 4
+  8s   Re-Instated libtext-iconv-perl:riscv64
+  8s Investigating (0) libfile-fcntllock-perl:riscv64 < 0.22-ok1 @ii K Ib >
+  8s Broken libfile-fcntllock-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libfile-fcntllock-perl:riscv64 1
+  8s   Removing libfile-fcntllock-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  8s Investigating (0) libalgorithm-diff-xs-perl:riscv64 < 0.04-ok1 @ii K Ib >
+  8s Broken libalgorithm-diff-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libalgorithm-diff-xs-perl:riscv64 1
+  8s   Removing libalgorithm-diff-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  8s Investigating (0) libnet-dbus-perl:riscv64 < 1.2.0-ok1 @ii K Ib >
+  8s Broken libnet-dbus-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libnet-dbus-perl:riscv64 0
+  8s   Removing libnet-dbus-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  8s Investigating (0) libxml-parser-perl:riscv64 < 2.46-ok2 | 2.47-ok1 @ii uH Ib >
+  8s Broken libxml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libxml-parser-perl:riscv64 0
+  8s   Re-Instated libxml-parser-perl:riscv64
+  8s Investigating (0) libintl-xs-perl:riscv64 < 1.26-ok1 @ii K Ib >
+  8s Broken libintl-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+  8s   Considering perl-base:riscv64 5256 as a solution to libintl-xs-perl:riscv64 -1
+  8s   Removing libintl-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+  8s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+  8s Broken autopkgtest-satdep:riscv64 Depends on docbook2x:riscv64 < none @un H >
+  8s Done
+  8s Some packages could not be installed. This may mean that you have
+  8s requested an impossible situation or if you are using the unstable
+  8s distribution that some required packages have not yet been created
+  8s or been moved out of Incoming.
+  8s The following information may help to resolve the situation:
+  8s 
+  8s The following packages have unmet dependencies:
+  8s  autopkgtest-satdep : Depends: docbook2x but it is not installable
+  9s E: Unable to correct problems, you have held broken packages.
+  9s autopkgtest: DBG: testbed command exited with code 100
+  9s autopkgtest: DBG: apt-get install /tmp/autopkgtest.04JfJC/2-autopkgtest-satdep.deb failed; status-fd:
+  9s 
+  9s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libbz2-1.0 libbz2-dev bzip2 bzip2-doc debhelper (>= 11) dpkg-dev (>= 1.16.0) docbook-xml docbook2x texinfo xsltproc build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  9s autopkgtest: DBG: testbed command exited with code 2
+  9s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  9s grep                 FAIL badpkg
+  9s blame: bzip2_1.0.8.2-0k0.dsc
+  9s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+  9s autopkgtest [01:28:02]: test link-with-shared: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential'], deps_new=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['libbz2-1.0', 'libbz2-dev', 'bzip2', 'bzip2-doc', 'debhelper (>= 11)', 'dpkg-dev (>= 1.16.0)', 'docbook-xml', 'docbook2x', 'texinfo', 'xsltproc', 'build-essential']
+  9s autopkgtest: DBG: install-deps: satisfying libbz2-1.0, libbz2-dev, bzip2, bzip2-doc, debhelper (>= 11), dpkg-dev (>= 1.16.0), docbook-xml, docbook2x, texinfo, xsltproc, build-essential
+  9s autopkgtest: DBG: install-deps: architecture resolved: libbz2-1.0, libbz2-dev, bzip2, bzip2-doc, debhelper (>= 11), dpkg-dev (>= 1.16.0), docbook-xml, docbook2x, texinfo, xsltproc, build-essential
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+  9s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.04JfJC'], kind short, sout raw, serr pipe, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-a58541a2-ffd9-4a64-b9d9-0d6c2db7839c//tmp/autopkgtest.04JfJC/3-autopkgtest-satdep.deb /tmp/autopkgtest.04JfJC/3-autopkgtest-satdep.deb
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.04JfJC/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 10s Reading package lists...
+ 10s Building dependency tree...
+ 10s Reading state information...
+ 10s Starting pkgProblemResolver with broken count: 1
+ 11s Starting 2 pkgProblemResolver with broken count: 1
+ 11s Investigating (0) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 11s Broken autopkgtest-satdep:riscv64 Depends on libbz2-dev:riscv64 < none | 1.0.8.2-0k0 @un uH >
+ 11s   Considering libbz2-dev:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated libbz2-dev:riscv64
+ 11s Broken autopkgtest-satdep:riscv64 Depends on bzip2-doc:riscv64 < none | 1.0.8.2-0k0 @un uH >
+ 11s   Considering bzip2-doc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated bzip2-doc:riscv64
+ 11s Broken autopkgtest-satdep:riscv64 Depends on debhelper:riscv64 < none | 13.15.3-ok1 @un uH > (>= 11)
+ 11s   Considering debhelper:riscv64 0 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated autotools-dev:riscv64
+ 11s   Re-Instated m4:riscv64
+ 11s   Re-Instated autoconf:riscv64
+ 11s   Re-Instated automake:riscv64
+ 11s   Re-Instated autopoint:riscv64
+ 11s   Re-Instated libdebhelper-perl:riscv64
+ 11s   Re-Instated libtool:riscv64
+ 11s   Re-Instated dh-autoreconf:riscv64
+ 11s   Re-Instated libarchive-zip-perl:riscv64
+ 11s   Re-Instated libsub-override-perl:riscv64
+ 11s   Re-Instated libfile-stripnondeterminism-perl:riscv64
+ 11s   Re-Instated dh-strip-nondeterminism:riscv64
+ 11s   Re-Instated dwz:riscv64
+ 11s   Re-Instated intltool-debian:riscv64
+ 11s   Re-Instated po-debconf:riscv64
+ 11s   Re-Instated debhelper:riscv64
+ 11s Broken autopkgtest-satdep:riscv64 Depends on docbook2x:riscv64 < none @un H >
+ 11s Broken autopkgtest-satdep:riscv64 Depends on texinfo:riscv64 < none | 7.1-ok1 @un uH >
+ 11s   Considering texinfo:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated libtext-unidecode-perl:riscv64
+ 11s   Re-Instated perl-base:riscv64
+ 11s   Re-Instated perl-modules-5.36:riscv64
+ 11s   Re-Instated libperl5.36:riscv64
+ 11s   Re-Instated perl:riscv64
+ 11s   Re-Instated libxml-namespacesupport-perl:riscv64
+ 11s   Re-Instated libxml-sax-base-perl:riscv64
+ 11s   Re-Instated libxml-sax-perl:riscv64
+ 11s   Re-Instated libxml-libxml-perl:riscv64
+ 11s   Re-Instated texinfo-lib:riscv64
+ 11s   Re-Instated tex-common:riscv64
+ 11s   Re-Instated texinfo:riscv64
+ 11s Broken autopkgtest-satdep:riscv64 Depends on xsltproc:riscv64 < none | 1.1.39-ok1 @un uH >
+ 11s   Considering xsltproc:riscv64 1 as a solution to autopkgtest-satdep:riscv64 9998
+ 11s   Re-Instated xsltproc:riscv64
+ 11s Investigating (0) libhtml-parser-perl:riscv64 < 3.76-ok1 | 3.81-ok1 @ii uH Ib >
+ 11s Broken libhtml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libhtml-parser-perl:riscv64 8
+ 11s   Re-Instated libhtml-parser-perl:riscv64
+ 11s Investigating (0) liblocale-gettext-perl:riscv64 < 1.07-ok1 | 1.07-ok2 @ii uH Ib >
+ 11s Broken liblocale-gettext-perl:riscv64 PreDepends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to liblocale-gettext-perl:riscv64 6
+ 11s   Re-Instated liblocale-gettext-perl:riscv64
+ 11s Investigating (0) libclone-perl:riscv64 < 0.45-ok2 | 0.46-ok1 @ii uH Ib >
+ 11s Broken libclone-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libclone-perl:riscv64 6
+ 11s   Re-Instated libclone-perl:riscv64
+ 11s Investigating (0) libtext-charwidth-perl:riscv64 < 0.04-ok2 | 0.04-ok3 @ii uH Ib >
+ 11s Broken libtext-charwidth-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libtext-charwidth-perl:riscv64 6
+ 11s   Re-Instated libtext-charwidth-perl:riscv64
+ 11s Investigating (0) libnet-ssleay-perl:riscv64 < 1.88-ok2 | 1.94-ok1 @ii uH Ib >
+ 11s Broken libnet-ssleay-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libnet-ssleay-perl:riscv64 4
+ 11s   Re-Instated perl-openssl-defaults:riscv64
+ 11s   Re-Instated libnet-ssleay-perl:riscv64
+ 11s Investigating (0) libtext-iconv-perl:riscv64 < 1.7-ok1 | 1.7-ok2 @ii uH Ib >
+ 11s Broken libtext-iconv-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libtext-iconv-perl:riscv64 4
+ 11s   Re-Instated libtext-iconv-perl:riscv64
+ 11s Investigating (0) libfile-fcntllock-perl:riscv64 < 0.22-ok1 @ii K Ib >
+ 11s Broken libfile-fcntllock-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libfile-fcntllock-perl:riscv64 1
+ 11s   Removing libfile-fcntllock-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+ 11s Investigating (0) libalgorithm-diff-xs-perl:riscv64 < 0.04-ok1 @ii K Ib >
+ 11s Broken libalgorithm-diff-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libalgorithm-diff-xs-perl:riscv64 1
+ 11s   Removing libalgorithm-diff-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+ 11s Investigating (0) libnet-dbus-perl:riscv64 < 1.2.0-ok1 @ii K Ib >
+ 11s Broken libnet-dbus-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libnet-dbus-perl:riscv64 0
+ 11s   Removing libnet-dbus-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+ 11s Investigating (0) libxml-parser-perl:riscv64 < 2.46-ok2 | 2.47-ok1 @ii uH Ib >
+ 11s Broken libxml-parser-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libxml-parser-perl:riscv64 0
+ 11s   Re-Instated libxml-parser-perl:riscv64
+ 11s Investigating (0) libintl-xs-perl:riscv64 < 1.26-ok1 @ii K Ib >
+ 11s Broken libintl-xs-perl:riscv64 Depends on perlapi-5.30.0:riscv64 < none @un H >
+ 11s   Considering perl-base:riscv64 5256 as a solution to libintl-xs-perl:riscv64 -1
+ 11s   Removing libintl-xs-perl:riscv64 rather than change perlapi-5.30.0:riscv64
+ 11s Investigating (1) autopkgtest-satdep:riscv64 < none -> 0 @un puN Ib >
+ 11s Broken autopkgtest-satdep:riscv64 Depends on docbook2x:riscv64 < none @un H >
+ 11s Done
+ 11s Some packages could not be installed. This may mean that you have
+ 11s requested an impossible situation or if you are using the unstable
+ 11s distribution that some required packages have not yet been created
+ 11s or been moved out of Incoming.
+ 11s The following information may help to resolve the situation:
+ 11s 
+ 11s The following packages have unmet dependencies:
+ 11s  autopkgtest-satdep : Depends: docbook2x but it is not installable
+ 11s E: Unable to correct problems, you have held broken packages.
+ 11s autopkgtest: DBG: testbed command exited with code 100
+ 11s autopkgtest: DBG: apt-get install /tmp/autopkgtest.04JfJC/3-autopkgtest-satdep.deb failed; status-fd:
+ 11s 
+ 11s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 11s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate libbz2-1.0 libbz2-dev bzip2 bzip2-doc debhelper (>= 11) dpkg-dev (>= 1.16.0) docbook-xml docbook2x texinfo xsltproc build-essential -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 11s autopkgtest: DBG: testbed command exited with code 2
+ 11s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 11s link-with-shared     FAIL badpkg
+ 11s blame: bzip2_1.0.8.2-0k0.dsc
+ 11s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 11s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 11s autopkgtest [01:28:04]: @@@@@@@@@@@@@@@@@@@@ summary
+ 11s compress             FAIL badpkg
+ 11s blame: bzip2_1.0.8.2-0k0.dsc
+ 11s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 11s grep                 FAIL badpkg
+ 11s blame: bzip2_1.0.8.2-0k0.dsc
+ 11s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 11s link-with-shared     FAIL badpkg
+ 11s blame: bzip2_1.0.8.2-0k0.dsc
+ 11s badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 11s autopkgtest: DBG: testbed stop
+ 11s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.04JfJC
+ 11s autopkgtest: DBG: sending command to testbed: close
+ 11s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: sending command to testbed: quit

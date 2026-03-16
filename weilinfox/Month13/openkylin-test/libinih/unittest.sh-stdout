@@ -1,0 +1,32 @@
+cc    -c -o parseargs.o parseargs.c
+cc    -c -o unittest.o unittest.c
+cc  -o unittest parseargs.o unittest.o  -linih
+./unittest > test_multi.txt
+./unittest --ini_max_line 20 > test_multi_max_line.txt
+./unittest --ini_allow_multiline 0 > test_single.txt
+./unittest --ini_allow_inline_comments 0 > test_disallow_inline_comments.txt
+./unittest --ini_stop_on_first_error 1 > test_stop_on_first_error.txt
+./unittest --ini_handler_lineno 1 > test_handler_lineno.txt
+cc    -c -o unittest_string.o unittest_string.c
+cc  -o unittest_string parseargs.o unittest_string.o  -linih
+./unittest_string --ini_max_line 20 > test_string.txt
+./unittest --ini_use_stack 0 > test_heap.txt
+./unittest --ini_use_stack 0 --ini_max_line 20 --ini_initial_alloc 20 > test_heap_max_line.txt
+./unittest --ini_use_stack 0 --ini_allow_realloc 1 --ini_initial_alloc 5 > test_heap_realloc.txt
+./unittest --ini_use_stack 0 --ini_max_line 20 --ini_allow_realloc 1 --ini_initial_alloc 5 > test_heap_realloc_max_line.txt
+./unittest_string --ini_use_stack 0 --ini_max_line 20 --ini_initial_alloc 20 > test_heap_string.txt
+./unittest --ini_allow_no_value 1 > test_allow_no_value.txt
+diff -u baseline_multi.txt test_multi.txt
+diff -u baseline_multi_max_line.txt test_multi_max_line.txt
+diff -u baseline_single.txt test_single.txt
+diff -u baseline_disallow_inline_comments.txt test_disallow_inline_comments.txt
+diff -u baseline_stop_on_first_error.txt test_stop_on_first_error.txt
+diff -u baseline_handler_lineno.txt test_handler_lineno.txt
+diff -u baseline_string.txt test_string.txt
+diff -u baseline_heap.txt test_heap.txt
+diff -u baseline_heap_max_line.txt test_heap_max_line.txt
+diff -u baseline_heap_realloc.txt test_heap_realloc.txt
+diff -u baseline_heap_realloc_max_line.txt test_heap_realloc_max_line.txt
+diff -u baseline_heap_string.txt test_heap_string.txt
+diff -u baseline_allow_no_value.txt test_allow_no_value.txt
+rm -rf *.o unittest unittest_string test_*.txt

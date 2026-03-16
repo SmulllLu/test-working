@@ -1,0 +1,45 @@
+make -C t301 run
+make[1]: Entering directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+./debian/rules clean
+make[2]: Entering directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+rm -rf build Foo.egg-info
+dh clean
+   debian/rules override_dh_auto_clean
+make[3]: Entering directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+#python3 setup.py clean
+make[3]: Leaving directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+   dh_clean
+make[2]: Leaving directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+rm -rf lib/Foo.egg-info
+============================================================
+==== TEST: t301
+dpkg-buildpackage -b -us -uc \
+  --no-check-builddeps \
+  --check-command="../test-package-show-info"
+dpkg-buildpackage: info: source package foo
+dpkg-buildpackage: info: source version 0.1.1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Piotr Ożarowski <piotr@debian.org>
+dpkg-buildpackage: info: host architecture riscv64
+make[2]: Entering directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+rm -rf build Foo.egg-info
+dh clean
+   debian/rules override_dh_auto_clean
+make[3]: Entering directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+#python3 setup.py clean
+make[3]: Leaving directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+   dh_clean
+make[2]: Leaving directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+make[2]: Entering directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+dh binary --buildsystem=python_distutils
+   dh_update_autotools_config -O--buildsystem=python_distutils
+   dh_auto_configure -O--buildsystem=python_distutils
+   dh_auto_test -O--buildsystem=python_distutils
+   dh_testroot -O--buildsystem=python_distutils
+   dh_prep -O--buildsystem=python_distutils
+   debian/rules override_dh_auto_install
+make[3]: Entering directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+python3 setup.py install --root=debian/python3-foo/
+make[3]: Leaving directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+make[2]: Leaving directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'
+make[1]: Leaving directory '/tmp/autopkgtest.x1wzZt/autopkgtest_tmp/tests/t301'

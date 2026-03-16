@@ -1,0 +1,64 @@
++ source ./common/common_lib.sh
+++ source /root/ruyi-mugen/libs/locallibs/common_lib.sh
++++ python3 --version
++++ '[' 0 -eq 0 ']'
++++ source /root/ruyi-mugen/libs/locallibs/common_lib_python.sh
+./common/common_lib.sh: line 71: syntax error near unexpected token `}'
+./common/common_lib.sh: line 71: `}'
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environmental preparation.'
++ message='Start environmental preparation.'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'Start environmental preparation.'
+Wed Feb  7 22:06:14 2024 - INFO  - Start environmental preparation.
++ install_ruyi
+ruyi_test_xthead_qemu.sh: line 23: install_ruyi: command not found
++ LOG_ERROR 'Install ruyi error'
++ message='Install ruyi error'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level error --message 'Install ruyi error'
+Wed Feb  7 22:06:15 2024 - ERROR - Install ruyi error
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Wed Feb  7 22:06:15 2024 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start to run test.'
++ message='Start to run test.'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'Start to run test.'
+Wed Feb  7 22:06:16 2024 - INFO  - Start to run test.
++ mkdir qemu_test
+mkdir: cannot create directory ‘qemu_test’: File exists
++ cd qemu_test
++ ruyi update
+++ ruyi list
+++ awk '/\* / {if (f==1) f=2} /./ {if (f==1) {print $0}} /\* emulator\/qemu-user-riscv-xthead/ {if (f==0) f=1}'
+++ grep -v 'no binary for current host'
+++ grep -e '^  -'
++ pe=
++ '[' -z ']'
+++ uname -m
++ LOG_INFO 'No qemu-user-riscv-xthead available for current host riscv64, skip'
++ message='No qemu-user-riscv-xthead available for current host riscv64, skip'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'No qemu-user-riscv-xthead available for current host riscv64, skip'
+Wed Feb  7 22:06:29 2024 - INFO  - No qemu-user-riscv-xthead available for current host riscv64, skip
++ exit 0
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Wed Feb  7 22:06:29 2024 - INFO  - start environment cleanup.
++ remove_ruyi
+ruyi_test_xthead_qemu.sh: line 73: remove_ruyi: command not found
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/ruyi-mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Wed Feb  7 22:06:29 2024 - INFO  - Finish environment cleanup!

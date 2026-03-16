@@ -1,0 +1,736 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [10:18:00]: starting date and time: 2024-07-18 10:18:00+0800
+  0s autopkgtest [10:18:00]: version @version@
+  0s autopkgtest [10:18:00]: host nana; command line: /usr/bin/autopkgtest libidn_1.42-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/libidn -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.O3OSy3
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a//tmp/autopkgtest.O3OSy3
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a//tmp/autopkgtest.O3OSy3', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.O3OSy3/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.O3OSy3/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [10:18:01]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [10:18:01]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.O3OSy3/testbed-packages"], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libidn/testbed-packages
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [10:18:02]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [10:18:02]: @@@@@@@@@@@@@@@@@@@@ source libidn_1.42-ok1.dsc
+  2s autopkgtest: DBG: blame += libidn_1.42-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libidn_1.42-ok1.dsc /tmp/autopkgtest.O3OSy3/libidn_1.42-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libidn_1.42.orig.tar.gz /tmp/autopkgtest.O3OSy3/libidn_1.42.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libidn_1.42.orig.tar.gz.asc /tmp/autopkgtest.O3OSy3/libidn_1.42.orig.tar.gz.asc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown libidn_1.42-ok1.debian.tar.xz /tmp/autopkgtest.O3OSy3/libidn_1.42-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.O3OSy3/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.O3OSy3/libidn_1.42-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.O3OSy3/build.XXX
+  2s + builddir=/tmp/autopkgtest.O3OSy3/build.b4J
+  2s + cd /tmp/autopkgtest.O3OSy3/build.b4J
+  2s + dpkg-source -x /tmp/autopkgtest.O3OSy3/libidn_1.42-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.p_6xnbII/trustedkeys.kbx': General error
+  3s gpgv: Signature made Wed 24 Apr 2024 03:08:42 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.O3OSy3/libidn_1.42-ok1.dsc
+  3s dpkg-source: info: extracting libidn in src
+  3s dpkg-source: info: unpacking libidn_1.42.orig.tar.gz
+  3s dpkg-source: info: unpacking libidn_1.42-ok1.debian.tar.xz
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [10:18:03]: testing package libidn version 1.42-ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/build.b4J/src/debian/ /home/hachi/openkylin_test/sharefolder/results/libidn/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency libidn-dev
+  3s autopkgtest: DBG: marked alternatives ['libidn-dev'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency man
+  3s autopkgtest: DBG: processing dependency pkg-config
+  3s autopkgtest: DBG: Test defined: name libidn path debian/tests/libidn command "None" restrictions [] features [] depends ['build-essential', 'libidn-dev', 'man', 'pkg-config'] 
+  3s autopkgtest: DBG: processing dependency build-essential
+  3s autopkgtest: DBG: processing dependency idn
+  3s autopkgtest: DBG: marked alternatives ['idn'] as a synthesised dependency
+  3s autopkgtest: DBG: processing dependency man
+  3s autopkgtest: DBG: Test defined: name idn path debian/tests/idn command "None" restrictions [] features [] depends ['build-essential', 'idn', 'man'] 
+  3s autopkgtest [10:18:03]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/build.b4J/src/ /home/hachi/openkylin_test/sharefolder/results/libidn/tests-tree/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency libidn-dev
+  4s autopkgtest: DBG: marked alternatives ['libidn-dev'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency man
+  4s autopkgtest: DBG: processing dependency pkg-config
+  4s autopkgtest: DBG: Test defined: name libidn path debian/tests/libidn command "None" restrictions [] features [] depends ['build-essential', 'libidn-dev', 'man', 'pkg-config'] 
+  4s autopkgtest: DBG: processing dependency build-essential
+  4s autopkgtest: DBG: processing dependency idn
+  4s autopkgtest: DBG: marked alternatives ['idn'] as a synthesised dependency
+  4s autopkgtest: DBG: processing dependency man
+  4s autopkgtest: DBG: Test defined: name idn path debian/tests/idn command "None" restrictions [] features [] depends ['build-essential', 'idn', 'man'] 
+  4s autopkgtest [10:18:04]: test libidn: preparing testbed
+  4s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['build-essential', 'libidn-dev', 'man', 'pkg-config']
+  4s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  4s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'libidn-dev', 'man', 'pkg-config']
+  4s autopkgtest: DBG: install-deps: satisfying build-essential, libidn-dev, man, pkg-config
+  4s autopkgtest: DBG: install-deps: architecture resolved: build-essential, libidn-dev, man, pkg-config
+  4s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a//tmp/autopkgtest.O3OSy3/1-autopkgtest-satdep.deb /tmp/autopkgtest.O3OSy3/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.O3OSy3/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  5s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  6s Starting pkgProblemResolver with broken count: 0
+  6s Starting 2 pkgProblemResolver with broken count: 0
+  6s Done
+  7s The following packages were automatically installed and are no longer required:
+  7s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  7s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  7s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  7s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  7s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  7s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  7s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  7s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  7s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  7s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  7s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  7s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  7s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  7s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  7s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  7s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  7s   language-selector-common language-selector-gnome libatrildocument3
+  7s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  7s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  7s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  7s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  7s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  7s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  7s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  7s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  7s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  7s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  7s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  7s   pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  7s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  7s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  7s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  7s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+  7s Use 'sudo apt autoremove' to remove them.
+  7s The following additional packages will be installed:
+  7s   libidn-dev libidn12
+  7s Suggested packages:
+  7s   idn
+  7s The following NEW packages will be installed:
+  7s   autopkgtest-satdep libidn-dev libidn12
+  7s 0 upgraded, 3 newly installed, 0 to remove and 1066 not upgraded.
+  7s Need to get 209 kB/210 kB of archives.
+  7s After this operation, 951 kB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.O3OSy3/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libidn12 riscv64 1.42-ok1 [41.9 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libidn-dev riscv64 1.42-ok1 [168 kB]
+  9s Fetched 209 kB in 0s (478 kB/s)
+  9s Selecting previously unselected package libidn12:riscv64.
+  9s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+  9s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 10s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 10s Preparing to unpack .../libidn12_1.42-ok1_riscv64.deb ...
+ 10s Unpacking libidn12:riscv64 (1.42-ok1) ...
+ 10s Selecting previously unselected package libidn-dev:riscv64.
+ 10s Preparing to unpack .../libidn-dev_1.42-ok1_riscv64.deb ...
+ 10s Unpacking libidn-dev:riscv64 (1.42-ok1) ...
+ 10s Selecting previously unselected package autopkgtest-satdep.
+ 10s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 10s Unpacking autopkgtest-satdep (0) ...
+ 10s Setting up libidn12:riscv64 (1.42-ok1) ...
+ 10s Setting up libidn-dev:riscv64 (1.42-ok1) ...
+ 10s Setting up autopkgtest-satdep (0) ...
+ 11s Processing triggers for man-db (2.10.2-2) ...
+ 11s Processing triggers for install-info (6.8-6ok1.1) ...
+ 11s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libidn-dev'], kind short, sout pipe, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libidn-dev libidn12 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 17s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 18s autopkgtest: DBG: testbed command exited with code 0
+ 18s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 19s autopkgtest: DBG: testbed command exited with code 0
+ 19s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 20s autopkgtest: DBG: testbed command exited with code 0
+ 20s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libidn-dev', 'libidn12', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config'], kind short, sout raw, serr pipe, env []
+ 22s autopkgtest: DBG: testbed command exited with code 0
+ 22s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 23s autopkgtest: DBG: testbed command exited with code 0
+ 23s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 23s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 23s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 24s (Reading database ... 193883 files and directories currently installed.)
+ 24s Removing autopkgtest-satdep (0) ...
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.O3OSy3/libidn-packages.all"], kind short, sout raw, serr pipe, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/libidn-packages.all /home/hachi/openkylin_test/sharefolder/results/libidn/libidn-packages.all
+ 24s autopkgtest: DBG: got reply from testbed: ok
+ 24s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.O3OSy3/build.b4J/src'], kind short, sout raw, serr raw, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.O3OSy3/build.b4J/src already exists
+ 25s autopkgtest [10:18:25]: test libidn: [-----------------------
+ 25s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.O3OSy3/wrapper.sh --debug --artifacts=/tmp/autopkgtest.O3OSy3/libidn-artifacts --chdir=/tmp/autopkgtest.O3OSy3/build.b4J/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.O3OSy3/libidn-stderr --stdout=/tmp/autopkgtest.O3OSy3/libidn-stdout --tmp=/tmp/autopkgtest.O3OSy3/autopkgtest_tmp --make-executable=/tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/libidn -- /tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/libidn'], kind test, sout raw, serr raw, env []
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.O3OSy3/libidn-artifacts
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: changing to directory: /tmp/autopkgtest.O3OSy3/build.b4J/src
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: setting environment: LANG=C.UTF-8
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LANGUAGE
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_ADDRESS
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_ALL
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_COLLATE
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_CTYPE
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_MESSAGES
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_MONETARY
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_NAME
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_NUMERIC
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_PAPER
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_TIME
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: pretending to be a login shell
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: will write standard error to /tmp/autopkgtest.O3OSy3/libidn-stderr
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: will write stdout to /tmp/autopkgtest.O3OSy3/libidn-stdout
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.O3OSy3/autopkgtest_tmp
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: marking as executable: /tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/libidn
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: command to run: /tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/libidn
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: copying /tmp/tmp.YMXsobTaeC/out to stdout and file: /tmp/autopkgtest.O3OSy3/libidn-stdout
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: copying /tmp/tmp.YMXsobTaeC/err to standard error and file: /tmp/autopkgtest.O3OSy3/libidn-stdout
+ 25s /tmp/autopkgtest.O3OSy3/wrapper.sh: writing script pid 757120 to /tmp/autopkgtest_script_pid
+ 25s srcdir=tests
+ 25s STANDALONE_CC: cc
+ 25s STANDALONE_CFLAGS: -lidn
+ 25s PASS: cc tests/tst_badutf8.c
+ 25s PASS: run tests/tst_badutf8.c
+ 25s PASS: cc tests/tst_badutf8nfkc.c
+ 25s PASS: run tests/tst_badutf8nfkc.c
+ 26s PASS: cc tests/tst_idna.c
+ 26s PASS: run tests/tst_idna.c
+ 26s PASS: cc tests/tst_idna2.c
+ 26s PASS: run tests/tst_idna2.c
+ 26s PASS: cc tests/tst_idna3.c
+ 26s PASS: run tests/tst_idna3.c
+ 27s PASS: cc tests/tst_idna4.c
+ 27s PASS: run tests/tst_idna4.c
+ 27s PASS: cc tests/tst_nfkc.c
+ 27s PASS: run tests/tst_nfkc.c
+ 28s PASS: cc tests/tst_pr29.c
+ 28s PASS: run tests/tst_pr29.c
+ 28s PASS: cc tests/tst_punycode.c
+ 28s PASS: run tests/tst_punycode.c
+ 28s PASS: cc tests/tst_strerror.c
+ 28s PASS: run tests/tst_strerror.c
+ 29s PASS: cc tests/tst_stringprep.c
+ 29s PASS: run tests/tst_stringprep.c
+ 29s PASS: cc tests/tst_symbols.c
+ 29s PASS: run tests/tst_symbols.c
+ 29s PASS: cc tests/tst_tld.c
+ 29s PASS: run tests/tst_tld.c
+ 30s PASS: cc tests/tst_toascii64oob.c
+ 30s PASS: run tests/tst_toascii64oob.c
+ 30s PASS: cc tests/tst_toutf8.c
+ 30s PASS: run tests/tst_toutf8.c
+ 30s PASS: cc tests/tst_utf8crash.c
+ 30s PASS: run tests/tst_utf8crash.c
+ 30s PASS: cc tests/tst_versions.c
+ 30s STRINGPREP_VERSION: 1.42
+ 30s stringprep_check_version (NULL): 1.42
+ 30s PASS: run tests/tst_versions.c
+ 30s PASS: gcc
+ 30s PASS: run
+ 31s stringprep_check_version(3)                                              libidn                                              stringprep_check_version(3)
+ 31s 
+ 31s NAME
+ 31s        stringprep_check_version - API function
+ 31s 
+ 31s SYNOPSIS
+ 31s        #include <stringprep.h>
+ 31s 
+ 31s        const char * stringprep_check_version(const char * req_version);
+ 31s 
+ 31s ARGUMENTS
+ 31s        const char * req_version
+ 31s                    Required version number, or NULL.
+ 31s 
+ 31s DESCRIPTION
+ 31s        Check  that  the version of the library is at minimum the requested one and return the version string; return NULL if the condition is not satis‐
+ 31s        fied.  If a NULL is passed to this function, no check is done, but the version string is simply returned.
+ 31s 
+ 31s        See STRINGPREP_VERSION for a suitable  req_version string.
+ 31s 
+ 31s        Return value: Version string of run-time library, or NULL if the run-time library does not meet the required version number.
+ 31s 
+ 31s REPORTING BUGS
+ 31s        Report bugs to <help-libidn@gnu.org>.
+ 31s        General guidelines for reporting bugs: https://www.gnu.org/gethelp/
+ 31s        GNU Libidn home page: https://www.gnu.org/software/libidn/
+ 31s 
+ 31s COPYRIGHT
+ 31s        Copyright © 2002-2024 Simon Josefsson.
+ 31s        Copying and distribution of this file, with or without modification, are permitted in any medium without royalty provided  the  copyright  notice
+ 31s        and this notice are preserved.
+ 31s 
+ 31s SEE ALSO
+ 31s        The  full  documentation  for libidn is maintained as a Texinfo manual.  If the info and libidn programs are properly installed at your site, the
+ 31s        command
+ 31s 
+ 31s               info libidn
+ 31s 
+ 31s        should give you access to the complete manual.  As an alternative you may obtain the manual from:
+ 31s 
+ 31s               https://www.gnu.org/software/libidn/manual/
+ 31s 
+ 31s libidn                                                                    1.42                                               stringprep_check_version(3)
+ 31s PASS: man
+ 31s /tmp/autopkgtest.O3OSy3/wrapper.sh: checking for leaked background processes...
+ 31s /tmp/autopkgtest.O3OSy3/wrapper.sh: waiting for tee/cat subprocesses...
+ 31s /tmp/autopkgtest.O3OSy3/wrapper.sh: cleaning up...
+ 31s /tmp/autopkgtest.O3OSy3/wrapper.sh: Exit status: 0
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest [10:18:31]: test libidn: -----------------------]
+ 31s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 31s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/libidn-stdout /home/hachi/openkylin_test/sharefolder/results/libidn/libidn-stdout
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/libidn-stderr /home/hachi/openkylin_test/sharefolder/results/libidn/libidn-stderr
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest [10:18:31]: test libidn:  - - - - - - - - - - results - - - - - - - - - -
+ 31s libidn               PASS
+ 31s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/libidn-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libidn/artifacts/
+ 31s autopkgtest: DBG: got reply from testbed: ok
+ 31s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.O3OSy3/libidn-artifacts', '/tmp/autopkgtest.O3OSy3/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest [10:18:31]: test idn: preparing testbed
+ 31s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['build-essential', 'libidn-dev', 'man', 'pkg-config'], deps_new=['build-essential', 'idn', 'man']
+ 31s autopkgtest: DBG: testbed reset
+ 31s autopkgtest: DBG: sending command to testbed: revert
+ 32s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 33s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.O3OSy3
+ 33s autopkgtest: DBG: sending command to testbed: print-execute-command
+ 33s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a,--user%3Droot,--
+ 33s autopkgtest: DBG: sending command to testbed: capabilities
+ 33s autopkgtest: DBG: got reply from testbed: ok ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a//tmp/autopkgtest.O3OSy3
+ 33s autopkgtest: DBG: testbed capabilities: ['ok', 'revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a//tmp/autopkgtest.O3OSy3', 'has_internet']
+ 33s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.O3OSy3/wrapper.sh
+ 33s autopkgtest: DBG: got reply from testbed: ok
+ 33s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.O3OSy3/wrapper.sh'], kind short, sout raw, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest [10:18:33]: testbed dpkg architecture: riscv64
+ 33s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest [10:18:33]: testbed apt version: 2.7.3-ok3
+ 33s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 127
+ 33s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.O3OSy3/testbed-packages"], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/testbed-packages /home/hachi/openkylin_test/sharefolder/results/libidn/testbed-packages
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 34s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'idn', 'man']
+ 34s autopkgtest: DBG: install-deps: satisfying build-essential, idn, man
+ 34s autopkgtest: DBG: install-deps: architecture resolved: build-essential, idn, man
+ 34s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: can use apt-get on testbed: True
+ 34s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-23ede4b4-9043-4f68-b43c-169b73b1759a//tmp/autopkgtest.O3OSy3/2-autopkgtest-satdep.deb /tmp/autopkgtest.O3OSy3/2-autopkgtest-satdep.deb
+ 34s autopkgtest: DBG: got reply from testbed: ok
+ 34s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.O3OSy3/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 35s Reading package lists...
+ 35s Building dependency tree...
+ 35s Reading state information...
+ 36s Starting pkgProblemResolver with broken count: 0
+ 36s Starting 2 pkgProblemResolver with broken count: 0
+ 36s Done
+ 37s The following packages were automatically installed and are no longer required:
+ 37s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 37s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 37s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 37s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 37s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 37s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 37s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 37s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 37s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 37s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 37s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 37s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 37s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 37s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 37s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 37s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 37s   language-selector-common language-selector-gnome libatrildocument3
+ 37s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 37s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 37s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 37s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 37s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 37s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 37s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 37s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 37s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 37s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+ 37s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 37s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 37s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 37s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 37s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 37s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 37s Use 'sudo apt autoremove' to remove them.
+ 37s The following additional packages will be installed:
+ 37s   idn libidn12
+ 37s The following NEW packages will be installed:
+ 37s   autopkgtest-satdep idn libidn12
+ 37s 0 upgraded, 3 newly installed, 0 to remove and 1066 not upgraded.
+ 37s Need to get 77.6 kB/78.3 kB of archives.
+ 37s After this operation, 362 kB of additional disk space will be used.
+ 37s Get:1 /tmp/autopkgtest.O3OSy3/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [716 B]
+ 37s Get:2 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libidn12 riscv64 1.42-ok1 [41.9 kB]
+ 37s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 idn riscv64 1.42-ok1 [35.7 kB]
+ 39s Fetched 77.6 kB in 0s (398 kB/s)
+ 39s Selecting previously unselected package libidn12:riscv64.
+ 39s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 39s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 39s Preparing to unpack .../libidn12_1.42-ok1_riscv64.deb ...
+ 39s Unpacking libidn12:riscv64 (1.42-ok1) ...
+ 40s Selecting previously unselected package idn.
+ 40s Preparing to unpack .../idn_1.42-ok1_riscv64.deb ...
+ 40s Unpacking idn (1.42-ok1) ...
+ 40s Selecting previously unselected package autopkgtest-satdep.
+ 40s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 40s Unpacking autopkgtest-satdep (0) ...
+ 40s Setting up libidn12:riscv64 (1.42-ok1) ...
+ 40s Setting up idn (1.42-ok1) ...
+ 40s Setting up autopkgtest-satdep (0) ...
+ 40s Processing triggers for man-db (2.10.2-2) ...
+ 40s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'idn'], kind short, sout pipe, serr pipe, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 42s autopkgtest: DBG: testbed command exited with code 0
+ 42s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 idn indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libidn12 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 46s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'idn', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text'], kind short, sout raw, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libidn12', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1'], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config'], kind short, sout raw, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 52s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 53s (Reading database ... 193824 files and directories currently installed.)
+ 53s Removing autopkgtest-satdep (0) ...
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.O3OSy3/idn-packages.all"], kind short, sout raw, serr pipe, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/idn-packages.all /home/hachi/openkylin_test/sharefolder/results/libidn/idn-packages.all
+ 53s autopkgtest: DBG: got reply from testbed: ok
+ 53s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.O3OSy3/build.b4J/src'], kind short, sout raw, serr raw, env []
+ 53s autopkgtest: DBG: testbed command exited with code 1
+ 53s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.O3OSy3/build.b4J'], kind short, sout raw, serr pipe, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: sending command to testbed: copydown /home/hachi/openkylin_test/sharefolder/results/libidn/tests-tree/ /tmp/autopkgtest.O3OSy3/build.b4J/src/
+ 54s autopkgtest: DBG: got reply from testbed: ok
+ 54s autopkgtest [10:18:54]: test idn: [-----------------------
+ 54s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.O3OSy3/wrapper.sh --debug --artifacts=/tmp/autopkgtest.O3OSy3/idn-artifacts --chdir=/tmp/autopkgtest.O3OSy3/build.b4J/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.O3OSy3/idn-stderr --stdout=/tmp/autopkgtest.O3OSy3/idn-stdout --tmp=/tmp/autopkgtest.O3OSy3/autopkgtest_tmp --make-executable=/tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/idn -- /tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/idn'], kind test, sout raw, serr raw, env []
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.O3OSy3/idn-artifacts
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: changing to directory: /tmp/autopkgtest.O3OSy3/build.b4J/src
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: setting environment: LANG=C.UTF-8
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LANGUAGE
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_ADDRESS
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_ALL
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_COLLATE
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_CTYPE
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_MESSAGES
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_MONETARY
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_NAME
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_NUMERIC
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_PAPER
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: unsetting environment: LC_TIME
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: pretending to be a login shell
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: will write standard error to /tmp/autopkgtest.O3OSy3/idn-stderr
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: will write stdout to /tmp/autopkgtest.O3OSy3/idn-stdout
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.O3OSy3/autopkgtest_tmp
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: marking as executable: /tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/idn
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: command to run: /tmp/autopkgtest.O3OSy3/build.b4J/src/debian/tests/idn
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: copying /tmp/tmp.FMfcAlnnvD/out to stdout and file: /tmp/autopkgtest.O3OSy3/idn-stdout
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: copying /tmp/tmp.FMfcAlnnvD/err to standard error and file: /tmp/autopkgtest.O3OSy3/idn-stdout
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: writing script pid 757653 to /tmp/autopkgtest_script_pid
+ 54s idn (GNU Libidn) 1.42
+ 54s Packaged by Debian (1.42-ok1)
+ 54s Copyright (C) 2024 Simon Josefsson.
+ 54s License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+ 54s This is free software: you are free to change and redistribute it.
+ 54s There is NO WARRANTY, to the extent permitted by law.
+ 54s 
+ 54s Written by Simon Josefsson.
+ 54s PASS: idn --version
+ 54s Usage: idn [OPTION]... [STRINGS]...
+ 54s Internationalized Domain Name (IDN) convert STRINGS, or standard input.
+ 54s 
+ 54s Command line interface to the internationalized domain name library.
+ 54s 
+ 54s All strings are expected to be encoded in the preferred charset used
+ 54s by your locale.  Use --debug to find out what this charset is.  You
+ 54s can override the charset used by setting environment variable CHARSET.
+ 54s 
+ 54s To process a string that starts with '-', for example '-foo', use '--'
+ 54s to signal the end of parameters, as in: idn --quiet -a -- -foo
+ 54s 
+ 54s Mandatory arguments to long options are mandatory for short options too.
+ 54s   -h, --help               Print help and exit
+ 54s   -V, --version            Print version and exit
+ 54s   -s, --stringprep         Prepare string according to nameprep profile
+ 54s   -d, --punycode-decode    Decode Punycode
+ 54s   -e, --punycode-encode    Encode Punycode
+ 54s   -a, --idna-to-ascii      Convert to ACE according to IDNA (default mode)
+ 54s   -u, --idna-to-unicode    Convert from ACE according to IDNA
+ 54s       --allow-unassigned   Toggle IDNA AllowUnassigned flag (default off)
+ 54s       --usestd3asciirules  Toggle IDNA UseSTD3ASCIIRules flag (default off)
+ 54s       --no-tld             Don't check string for TLD specific rules
+ 54s                              Only for --idna-to-ascii and --idna-to-unicode
+ 54s   -n, --nfkc               Normalize string according to Unicode v3.2 NFKC
+ 54s   -p, --profile=STRING     Use specified stringprep profile instead
+ 54s                              Valid stringprep profiles: Nameprep
+ 54s                              iSCSI Nodeprep Resourceprep trace SASLprep
+ 54s       --debug              Print debugging information
+ 54s       --quiet              Silent operation
+ 54s 
+ 54s Report bugs to: help-libidn@gnu.org
+ 54s Report Debian bugs to: https://bugs.debian.org/
+ 54s GNU Libidn home page: <https://www.gnu.org/software/libidn/>
+ 54s General help using GNU software: <https://www.gnu.org/gethelp/>
+ 54s PASS: idn --help
+ 54s idn (GNU Libidn) 1.42
+ 54s Packaged by Debian (1.42-ok1)
+ 54s Copyright (C) 2024 Simon Josefsson.
+ 54s License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+ 54s This is free software: you are free to change and redistribute it.
+ 54s There is NO WARRANTY, to the extent permitted by law.
+ 54s 
+ 54s Written by Simon Josefsson.
+ 54s PASS: idn --version
+ 54s IDN(1)                                                                User Commands                                                               IDN(1)
+ 54s 
+ 54s NAME
+ 54s        idn - Internationalized Domain Names command line tool
+ 54s 
+ 54s SYNOPSIS
+ 54s        idn [OPTION]... [STRINGS]...
+ 54s 
+ 54s DESCRIPTION
+ 54s        Internationalized Domain Name (IDN) convert STRINGS, or standard input.
+ 54s 
+ 54s        Command line interface to the internationalized domain name library.
+ 54s 
+ 54s        All  strings  are  expected  to  be encoded in the preferred charset used by your locale.  Use --debug to find out what this charset is.  You can
+ 54s        override the charset used by setting environment variable CHARSET.
+ 54s 
+ 54s        To process a string that starts with '-', for example '-foo', use '--' to signal the end of parameters, as in: idn --quiet -a -- -foo
+ 54s 
+ 54s        Mandatory arguments to long options are mandatory for short options too.
+ 54s 
+ 54s        -h, --help
+ 54s               Print help and exit
+ 54s 
+ 54s        -V, --version
+ 54s               Print version and exit
+ 54s 
+ 54s        -s, --stringprep
+ 54s               Prepare string according to nameprep profile
+ 54s 
+ 54s        -d, --punycode-decode
+ 54s               Decode Punycode
+ 54s 
+ 54s        -e, --punycode-encode
+ 54s               Encode Punycode
+ 54s 
+ 54s        -a, --idna-to-ascii
+ 54s               Convert to ACE according to IDNA (default mode)
+ 54s 
+ 54s        -u, --idna-to-unicode
+ 54s               Convert from ACE according to IDNA
+ 54s 
+ 54s        --allow-unassigned
+ 54s               Toggle IDNA AllowUnassigned flag (default off)
+ 54s 
+ 54s        --usestd3asciirules
+ 54s               Toggle IDNA UseSTD3ASCIIRules flag (default off)
+ 54s 
+ 54s        --no-tld
+ 54s               Don't check string for TLD specific rules Only for --idna-to-ascii and --idna-to-unicode
+ 54s 
+ 54s        -n, --nfkc
+ 54s               Normalize string according to Unicode v3.2 NFKC
+ 54s 
+ 54s        -p, --profile=STRING
+ 54s               Use specified stringprep profile instead Valid stringprep profiles: Nameprep iSCSI Nodeprep Resourceprep trace SASLprep
+ 54s 
+ 54s        --debug
+ 54s               Print debugging information
+ 54s 
+ 54s        --quiet
+ 54s               Silent operation
+ 54s 
+ 54s AUTHOR
+ 54s        Written by Simon Josefsson.
+ 54s 
+ 54s REPORTING BUGS
+ 54s        Report bugs to: help-libidn@gnu.org
+ 54s        GNU Libidn home page: <https://www.gnu.org/software/libidn/>
+ 54s        General help using GNU software: <https://www.gnu.org/gethelp/>
+ 54s 
+ 54s COPYRIGHT
+ 54s        Copyright © 2024 Simon Josefsson.  License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+ 54s        This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
+ 54s 
+ 54s SEE ALSO
+ 54s        The full documentation for idn is maintained as a Texinfo manual.  If the info and idn programs are properly installed at your site, the command
+ 54s 
+ 54s               info idn
+ 54s 
+ 54s        should give you access to the complete manual.
+ 54s 
+ 54s GNU Libidn 1.42                                                       January 2024                                                                IDN(1)
+ 54s PASS: man
+ 54s PASS: env CHARSET=UTF-8 idn --idna-to-unicode xn--rksmrgs-5wao1o: räksmörgås
+ 54s PASS: env CHARSET=UTF-8 idn --idna-to-ascii räksmörgås: xn--rksmrgs-5wao1o
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: checking for leaked background processes...
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: waiting for tee/cat subprocesses...
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: cleaning up...
+ 54s /tmp/autopkgtest.O3OSy3/wrapper.sh: Exit status: 0
+ 54s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest [10:18:55]: test idn: -----------------------]
+ 55s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/idn-stdout /home/hachi/openkylin_test/sharefolder/results/libidn/idn-stdout
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/idn-stderr /home/hachi/openkylin_test/sharefolder/results/libidn/idn-stderr
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest [10:18:55]: test idn:  - - - - - - - - - - results - - - - - - - - - -
+ 55s idn                  PASS
+ 55s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.O3OSy3/idn-artifacts/ /home/hachi/openkylin_test/sharefolder/results/libidn/artifacts/
+ 55s autopkgtest: DBG: got reply from testbed: ok
+ 55s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.O3OSy3/idn-artifacts', '/tmp/autopkgtest.O3OSy3/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 55s autopkgtest [10:18:55]: @@@@@@@@@@@@@@@@@@@@ summary
+ 55s libidn               PASS
+ 55s idn                  PASS
+ 55s autopkgtest: DBG: testbed stop
+ 55s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.O3OSy3
+ 55s autopkgtest: DBG: sending command to testbed: close
+ 55s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 56s autopkgtest: DBG: got reply from testbed: ok
+ 56s autopkgtest: DBG: sending command to testbed: quit

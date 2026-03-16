@@ -1,0 +1,21 @@
+++++ BEGINNING TEST
++++ CHECK UPDATE SESSION KEYRING
+keyctl pupdate @s
+keyctl_update: Operation not supported
++++ CHECK UPDATE INVALID KEY
+keyctl pupdate 0
+keyctl_update: Invalid argument
++++ ADD USER KEY
+keyctl add user wibble stuff @s
+1048260244
++++ UNLINK KEY
+keyctl unlink 1048260244 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 1048260244 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 1048260244 @s
+keyctl_unlink: Required key not available
++++ UPDATE UNLINKED KEY
+keyctl pupdate 1048260244
+keyctl_update: Required key not available
+++++ FINISHED TEST: PASS

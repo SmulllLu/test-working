@@ -1,0 +1,27 @@
+++++ BEGINNING TEST
++++ CHECK LINK FROM BAD KEY ID
+keyctl link 0 @s
+keyctl_link: Invalid argument
++++ CHECK LINK TO BAD KEY ID
+keyctl link @s 0
+keyctl_link: Invalid argument
++++ CREATE KEY
+keyctl add user lizard gizzard @s
+826878122
++++ CHECK LINK TO NON-KEYRING KEY
+keyctl link @s 826878122
+keyctl_link: Not a directory
++++ UNLINK KEY
+keyctl unlink 826878122 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 826878122 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 826878122 @s
+keyctl_unlink: Required key not available
++++ CHECK LINK TO NON-EXISTENT KEY ID
+keyctl link @s 826878122
+keyctl_link: Required key not available
++++ CHECK LINK FROM NON-EXISTENT KEY ID
+keyctl link 826878122 @s
+keyctl_link: Required key not available
+++++ FINISHED TEST: PASS

@@ -1,0 +1,94 @@
+g++  debian/tests/ustring.cpp -licuio -licui18n -licuuc -licudata
+Build test of debian/tests/ustring.cpp succeeded
+./a.out
+
+* demo_utf_h_macros() -------------- ***
+
+iterate forward through: a𐀀􏿿b { 0061 10000 10ffff 0062 }
+Codepoint at offset 0: U+0061
+Codepoint at offset 1: U+10000
+Codepoint at offset 3: U+10ffff
+Codepoint at offset 5: U+0062
+
+iterate backward through: ab\uDC00􏿿b { 0061 0062 dc00 10ffff 0062 }
+Codepoint at offset 5: U+0062
+Codepoint at offset 3: U+10ffff
+Codepoint at offset 2: U+dc00
+Codepoint at offset 1: U+0062
+Codepoint at offset 0: U+0061
+
+* demo_C_Unicode_strings() --------- ***
+
+should be "Aabc": Aabc { 0041 0061 0062 0063 }
+should be "A<sharp s>C": AßC { 0041 00df 0043 }
+
+* demoCaseMapInC() ----------------- ***
+
+input string: aBΣiIıİ ß ﬃςσΣ { 0061 0042 03a3 0069 0049 0131 0130 0020 00df 0020 fb03 03c2 03c3 03a3 }
+simple-uppercased: ABΣIIIİ ß ﬃΣΣΣ { 0041 0042 03a3 0049 0049 0049 0130 0020 00df 0020 fb03 03a3 03a3 03a3 }
+simple-lowercased: abσiiıi ß ﬃςσσ { 0061 0062 03c3 0069 0069 0131 0069 0020 00df 0020 fb03 03c2 03c3 03c3 }
+simple-titlecased: ABΣIIIİ ß ﬃΣΣΣ { 0041 0042 03a3 0049 0049 0049 0130 0020 00df 0020 fb03 03a3 03a3 03a3 }
+simple-case-folded/default: abσiiıİ ß ﬃσσσ { 0061 0062 03c3 0069 0069 0131 0130 0020 00df 0020 fb03 03c3 03c3 03c3 }
+simple-case-folded/Turkic: abσiııi ß ﬃσσσ { 0061 0062 03c3 0069 0131 0131 0069 0020 00df 0020 fb03 03c3 03c3 03c3 }
+
+input string: aBΣiIıİ ß ﬃςσΣ { 0061 0042 03a3 0069 0049 0131 0130 0020 00df 0020 fb03 03c2 03c3 03a3 }
+full-lowercased/en: abσiiıi̇ ß ﬃςσς { 0061 0062 03c3 0069 0069 0131 0069 0307 0020 00df 0020 fb03 03c2 03c3 03c2 }
+full-lowercased/tr: abσiııi ß ﬃςσς { 0061 0062 03c3 0069 0131 0131 0069 0020 00df 0020 fb03 03c2 03c3 03c2 }
+full-uppercased/en: ABΣIIIİ SS FFIΣΣΣ { 0041 0042 03a3 0049 0049 0049 0130 0020 0053 0053 0020 0046 0046 0049 03a3 03a3 03a3 }
+full-uppercased/tr: ABΣİIIİ SS FFIΣΣΣ { 0041 0042 03a3 0130 0049 0049 0130 0020 0053 0053 0020 0046 0046 0049 03a3 03a3 03a3 }
+full-titlecased/en: Abσiiıi̇ Ss Ffiςσς { 0041 0062 03c3 0069 0069 0131 0069 0307 0020 0053 0073 0020 0046 0066 0069 03c2 03c3 03c2 }
+full-titlecased/tr: Abσiııi Ss Ffiςσς { 0041 0062 03c3 0069 0131 0131 0069 0020 0053 0073 0020 0046 0066 0069 03c2 03c3 03c2 }
+full-case-folded/default: abσiiıi̇ ss ffiσσσ { 0061 0062 03c3 0069 0069 0131 0069 0307 0020 0073 0073 0020 0066 0066 0069 03c3 03c3 03c3 }
+full-case-folded/Turkic: abσiııi ss ffiσσσ { 0061 0062 03c3 0069 0131 0131 0069 0020 0073 0073 0020 0066 0066 0069 03c3 03c3 03c3 }
+
+* demoCaseMapInCPlusPlus() --------- ***
+
+input string: aBΣiIıİ ß ﬃςσΣ { 0061 0042 03a3 0069 0049 0131 0130 0020 00df 0020 fb03 03c2 03c3 03a3 }
+full-lowercased/en: abσiiıi̇ ß ﬃςσς { 0061 0062 03c3 0069 0069 0131 0069 0307 0020 00df 0020 fb03 03c2 03c3 03c2 }
+full-lowercased/tr: abσiııi ß ﬃςσς { 0061 0062 03c3 0069 0131 0131 0069 0020 00df 0020 fb03 03c2 03c3 03c2 }
+full-uppercased/en: ABΣIIIİ SS FFIΣΣΣ { 0041 0042 03a3 0049 0049 0049 0130 0020 0053 0053 0020 0046 0046 0049 03a3 03a3 03a3 }
+full-uppercased/tr: ABΣİIIİ SS FFIΣΣΣ { 0041 0042 03a3 0130 0049 0049 0130 0020 0053 0053 0020 0046 0046 0049 03a3 03a3 03a3 }
+full-titlecased/en: Abσiiıi̇ Ss Ffiςσς { 0041 0062 03c3 0069 0069 0131 0069 0307 0020 0053 0073 0020 0046 0066 0069 03c2 03c3 03c2 }
+full-titlecased/tr: Abσiııi Ss Ffiςσς { 0041 0062 03c3 0069 0131 0131 0069 0020 0053 0073 0020 0046 0066 0069 03c2 03c3 03c2 }
+full-case-folded/default: abσiiıi̇ ss ffiσσσ { 0061 0062 03c3 0069 0069 0131 0069 0307 0020 0073 0073 0020 0066 0066 0069 03c3 03c3 03c3 }
+full-case-folded/Turkic: abσiııi ss ffiσσσ { 0061 0062 03c3 0069 0131 0131 0069 0020 0073 0073 0020 0066 0066 0069 03c3 03c3 03c3 }
+
+* demoUnicodeStringStorage() ------- ***
+
+length of short string copy: 2
+length of longer string: 28
+length of longer string copy: 28
+readonly-alias string: a1€ { 0061 0031 20ac }
+readonly-aliasing string after modification: a9€ { 0061 0039 20ac }
+readonly buffer[0] after modifying its string: 0x97
+readonly buffer[1] after modifying its string: 0x49
+readonly buffer[2] after modifying its string: 0x8364
+fastCopyFrom(readonly alias of "writeable" array): b2􀀁 { 0062 0032 dbc0 dc01 }
+verify that a fastCopyFrom(readonly alias) uses the same buffer pointer: 1 (should be 1)
+verify that a regular copy of a readonly alias uses a different buffer pointer: 0 (should be 0)
+writeable-alias string: b2􀀁 { 0062 0032 dbc0 dc01 }
+writeable-alias backing buffer[0]=0x98 after modification
+writeable-alias backing buffer[1]=0x57 after modification
+writeable-alias backing buffer[2]=0x56256 after modification
+writeable-alias backing buffer[3]=0x56321 after modification
+writeable-alias backing buffer[0]=0x98 after modification of string copy
+writeable-alias backing buffer[1]=0x57 after modification of string copy
+writeable-alias backing buffer[2]=0x56256 after modification of string copy
+writeable-alias backing buffer[3]=0x56321 after modification of string copy
+string after growing too much and then shrinking[1]=0x37
+                          backing store for this[1]=0x57
+writeable-alias backing buffer[0]=0x98 after re-extract
+writeable-alias backing buffer[1]=0x37 after re-extract
+writeable-alias backing buffer[2]=0x56256 after re-extract
+writeable-alias backing buffer[3]=0x56321 after re-extract
+
+* demoUnicodeStringInit() ---------- ***
+
+C and C++ Unicode strings are equal: 1
+char * -> UChar * -> char * with only invariant characters: "such characters are safe 123 %-."
+german UnicodeString from unescaping:
+    Schönes Auto: € 11240.Privates Zeichen: 􂍅
+ { 0053 0063 0068 00f6 006e 0065 0073 0020 0041 0075 0074 006f 003a 0020 20ac 0020 0031 0031 0032 0034 0030 002e 000c 0050 0072 0069 0076 0061 0074 0065 0073 0020 005a 0065 0069 0063 0068 0065 006e 003a 0020 dbc8 df45 000a }
+german C Unicode string from char * unescaping: (length 44)
+    Schönes Auto: € 11240.Privates Zeichen: 􂍅
+ { 0053 0063 0068 00f6 006e 0065 0073 0020 0041 0075 0074 006f 003a 0020 20ac 0020 0031 0031 0032 0034 0030 002e 000c 0050 0072 0069 0076 0061 0074 0065 0073 0020 005a 0065 0069 0063 0068 0065 006e 003a 0020 dbc8 df45 000a }

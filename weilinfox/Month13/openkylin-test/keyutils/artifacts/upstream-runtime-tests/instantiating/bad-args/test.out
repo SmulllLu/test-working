@@ -1,0 +1,45 @@
+++++ BEGINNING TEST
++++ CHECK BAD KEY ID
+keyctl instantiate 0 a @p
+keyctl_instantiate: Operation not permitted
+echo -n a | keyctl pinstantiate 0 @p
+keyctl_instantiate: Operation not permitted
+keyctl negate 0 10 @p
+keyctl_negate: Operation not permitted
+keyctl reject 0 10 rejected @p
+keyctl_negate: Operation not permitted
++++ CREATE KEY
+keyctl add user lizard gizzard @s
+629245558
++++ CHECK ALREADY INSTANTIATED KEY
+keyctl instantiate 629245558 a @p
+keyctl_instantiate: Operation not permitted
+echo -n a | keyctl pinstantiate 629245558 @p
+keyctl_instantiate: Operation not permitted
+keyctl reject 629245558 10 rejected @p
+keyctl_negate: Operation not permitted
+keyctl negate 629245558 10 @p
+keyctl_negate: Operation not permitted
++++ CHECK REJECT TIMEOUT
+Unparsable timeout: 'aa'
++++ CHECK REJECT ERRORS
+Unparsable error: 'notanerror'
++++ CHECK NEGATE TIMEOUT
+Unparsable timeout: 'aa'
++++ UNLINK KEY
+keyctl unlink 629245558 @s
++++ WAITING FOR KEY TO BE UNLINKED
+keyctl unlink 629245558 @s
+keyctl_unlink: No such file or directory
+keyctl unlink 629245558 @s
+keyctl_unlink: Required key not available
++++ CHECK NON-EXISTENT KEY ID
+keyctl instantiate 629245558 a @p
+keyctl_instantiate: Operation not permitted
+echo -n a | keyctl pinstantiate 629245558 @p
+keyctl_instantiate: Operation not permitted
+keyctl reject 629245558 10 rejected @p
+keyctl_negate: Operation not permitted
+keyctl negate 629245558 10 @p
+keyctl_negate: Operation not permitted
+++++ FINISHED TEST: PASS

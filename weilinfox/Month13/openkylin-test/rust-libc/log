@@ -1,0 +1,613 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [23:44:16]: starting date and time: 2024-07-18 23:44:16+0800
+  0s autopkgtest [23:44:16]: version @version@
+  0s autopkgtest [23:44:16]: host nana; command line: /usr/bin/autopkgtest rust-libc_0.2.152-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/rust-libc -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.TiV4OF
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.TiV4OF/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.TiV4OF/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [23:44:19]: testbed dpkg architecture: riscv64
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [23:44:20]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 127
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.TiV4OF/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.TiV4OF/testbed-packages /home/hachi/openkylin_test/sharefolder/results/rust-libc/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [23:44:21]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: Binaries: initialising
+  5s autopkgtest [23:44:21]: @@@@@@@@@@@@@@@@@@@@ source rust-libc_0.2.152-ok1.dsc
+  5s autopkgtest: DBG: blame += rust-libc_0.2.152-ok1.dsc
+  5s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  5s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-libc_0.2.152-ok1.dsc /tmp/autopkgtest.TiV4OF/rust-libc_0.2.152-ok1.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-libc_0.2.152.orig.tar.gz /tmp/autopkgtest.TiV4OF/rust-libc_0.2.152.orig.tar.gz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown rust-libc_0.2.152-ok1.debian.tar.xz /tmp/autopkgtest.TiV4OF/rust-libc_0.2.152-ok1.debian.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: install_deps: deps_new=[]
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.TiV4OF/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.TiV4OF/rust-libc_0.2.152-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  6s + cd /
+  6s + mktemp -d /tmp/autopkgtest.TiV4OF/build.XXX
+  6s + builddir=/tmp/autopkgtest.TiV4OF/build.jvB
+  6s + cd /tmp/autopkgtest.TiV4OF/build.jvB
+  6s + dpkg-source -x /tmp/autopkgtest.TiV4OF/rust-libc_0.2.152-ok1.dsc src
+  7s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  7s gpgv: keyblock resource '/tmp/dpkg-verify-sig.vd2D2CpM/trustedkeys.kbx': General error
+  7s gpgv: Signature made Tue 07 May 2024 03:17:48 PM CST
+  7s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  7s gpgv: Can't check signature: No public key
+  7s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.TiV4OF/rust-libc_0.2.152-ok1.dsc
+  7s dpkg-source: info: extracting rust-libc in src
+  7s dpkg-source: info: unpacking rust-libc_0.2.152.orig.tar.gz
+  8s dpkg-source: info: unpacking rust-libc_0.2.152-ok1.debian.tar.xz
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [23:44:24]: testing package rust-libc version 0.2.152-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.TiV4OF/build.jvB/src/debian/ /home/hachi/openkylin_test/sharefolder/results/rust-libc/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name rust-libc:@ path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-libc:@'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc-dev:align path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features align" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:align'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc-dev:const-extern-fn path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features const-extern-fn" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-libc-dev:const-extern-fn'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:default'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc-dev:extra_traits path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features extra_traits" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:extra_traits'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc-dev:std path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:std'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc-dev:use_std path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features use_std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:use_std'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc-dev: path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc+rustc-dep-of-std-dev:rustc-dep-of-std path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features rustc-dep-of-std" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-libc+rustc-dep-of-std-dev:rustc-dep-of-std'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  8s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  8s autopkgtest: DBG: Test defined: name librust-libc+rustc-std-workspace-core-dev:rustc-std-workspace-core path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features rustc-std-workspace-core" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc+rustc-std-workspace-core-dev:rustc-std-workspace-core'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  8s autopkgtest [23:44:24]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.TiV4OF/build.jvB/src/ /home/hachi/openkylin_test/sharefolder/results/rust-libc/tests-tree/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name rust-libc:@ path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --all-features" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=rust-libc:@'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc-dev:align path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features align" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:align'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc-dev:const-extern-fn path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features const-extern-fn" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-libc-dev:const-extern-fn'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc-dev:default path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:default'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc-dev:extra_traits path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features extra_traits" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:extra_traits'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc-dev:std path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:std'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc-dev:use_std path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features use_std" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:use_std'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc-dev: path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc-dev:'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc+rustc-dep-of-std-dev:rustc-dep-of-std path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features rustc-dep-of-std" restrictions ['allow-stderr', 'flaky', 'skip-not-installable'] features ['test-name=librust-libc+rustc-dep-of-std-dev:rustc-dep-of-std'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest: DBG: processing dependency dh-cargo (>= 18)
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency librust-libc-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-dep-of-std-dev
+  9s autopkgtest: DBG: synthesised dependency librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: Test defined: name librust-libc+rustc-std-workspace-core-dev:rustc-std-workspace-core path None command "/usr/share/cargo/bin/cargo-auto-test libc 0.2.152 --all-targets --no-default-features --features rustc-std-workspace-core" restrictions ['allow-stderr', 'skip-not-installable'] features ['test-name=librust-libc+rustc-std-workspace-core-dev:rustc-std-workspace-core'] depends ['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'] 
+  9s autopkgtest [23:44:25]: test rust-libc:@: preparing testbed
+  9s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+  9s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  9s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+  9s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+  9s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest: DBG: can use apt-get on testbed: True
+ 10s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 10s autopkgtest: DBG: testbed command exited with code 0
+ 10s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/1-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/1-autopkgtest-satdep.deb
+ 10s autopkgtest: DBG: got reply from testbed: ok
+ 10s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 11s Reading package lists...
+ 11s Building dependency tree...
+ 11s Reading state information...
+ 12s Starting pkgProblemResolver with broken count: 1
+ 12s Starting 2 pkgProblemResolver with broken count: 1
+ 12s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 12s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 12s Done
+ 12s Some packages could not be installed. This may mean that you have
+ 12s requested an impossible situation or if you are using the unstable
+ 12s distribution that some required packages have not yet been created
+ 12s or been moved out of Incoming.
+ 12s The following information may help to resolve the situation:
+ 12s 
+ 12s The following packages have unmet dependencies:
+ 12s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 12s E: Unable to correct problems, you have held broken packages.
+ 12s autopkgtest: DBG: testbed command exited with code 100
+ 12s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/1-autopkgtest-satdep.deb failed; status-fd:
+ 12s 
+ 12s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 12s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 13s autopkgtest: DBG: testbed command exited with code 2
+ 13s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 13s rust-libc:@          SKIP installation fails and skip-not-installable set
+ 13s autopkgtest [23:44:29]: test librust-libc-dev:align: preparing testbed
+ 13s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 13s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 13s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 13s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 13s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 13s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: can use apt-get on testbed: True
+ 13s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 14s autopkgtest: DBG: testbed command exited with code 0
+ 14s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/2-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/2-autopkgtest-satdep.deb
+ 14s autopkgtest: DBG: got reply from testbed: ok
+ 14s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 15s Reading package lists...
+ 15s Building dependency tree...
+ 15s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 1
+ 16s Starting 2 pkgProblemResolver with broken count: 1
+ 16s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 16s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 16s Done
+ 16s Some packages could not be installed. This may mean that you have
+ 16s requested an impossible situation or if you are using the unstable
+ 16s distribution that some required packages have not yet been created
+ 16s or been moved out of Incoming.
+ 16s The following information may help to resolve the situation:
+ 16s 
+ 16s The following packages have unmet dependencies:
+ 16s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 16s E: Unable to correct problems, you have held broken packages.
+ 16s autopkgtest: DBG: testbed command exited with code 100
+ 16s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/2-autopkgtest-satdep.deb failed; status-fd:
+ 16s 
+ 16s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s autopkgtest: DBG: testbed command exited with code 2
+ 16s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 16s librust-libc-dev:align SKIP installation fails and skip-not-installable set
+ 16s autopkgtest [23:44:32]: test librust-libc-dev:const-extern-fn: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 16s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 17s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 17s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: can use apt-get on testbed: True
+ 17s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 17s autopkgtest: DBG: testbed command exited with code 0
+ 17s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/3-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/3-autopkgtest-satdep.deb
+ 17s autopkgtest: DBG: got reply from testbed: ok
+ 17s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 18s Reading package lists...
+ 19s Building dependency tree...
+ 19s Reading state information...
+ 19s Starting pkgProblemResolver with broken count: 1
+ 19s Starting 2 pkgProblemResolver with broken count: 1
+ 19s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 19s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 19s Done
+ 19s Some packages could not be installed. This may mean that you have
+ 19s requested an impossible situation or if you are using the unstable
+ 19s distribution that some required packages have not yet been created
+ 19s or been moved out of Incoming.
+ 19s The following information may help to resolve the situation:
+ 19s 
+ 19s The following packages have unmet dependencies:
+ 20s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 20s E: Unable to correct problems, you have held broken packages.
+ 20s autopkgtest: DBG: testbed command exited with code 100
+ 20s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/3-autopkgtest-satdep.deb failed; status-fd:
+ 20s 
+ 20s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 20s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 20s autopkgtest: DBG: testbed command exited with code 2
+ 20s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 20s librust-libc-dev:const-extern-fn SKIP installation fails and skip-not-installable set
+ 20s autopkgtest [23:44:36]: test librust-libc-dev:default: preparing testbed
+ 20s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 20s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 20s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 20s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 20s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 20s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: can use apt-get on testbed: True
+ 21s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 21s autopkgtest: DBG: testbed command exited with code 0
+ 21s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/4-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/4-autopkgtest-satdep.deb
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/4-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 22s Reading package lists...
+ 22s Building dependency tree...
+ 22s Reading state information...
+ 23s Starting pkgProblemResolver with broken count: 1
+ 23s Starting 2 pkgProblemResolver with broken count: 1
+ 23s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 23s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 23s Done
+ 23s Some packages could not be installed. This may mean that you have
+ 23s requested an impossible situation or if you are using the unstable
+ 23s distribution that some required packages have not yet been created
+ 23s or been moved out of Incoming.
+ 23s The following information may help to resolve the situation:
+ 23s 
+ 23s The following packages have unmet dependencies:
+ 23s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 23s E: Unable to correct problems, you have held broken packages.
+ 23s autopkgtest: DBG: testbed command exited with code 100
+ 23s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/4-autopkgtest-satdep.deb failed; status-fd:
+ 23s 
+ 23s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 23s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 24s autopkgtest: DBG: testbed command exited with code 2
+ 24s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 24s librust-libc-dev:default SKIP installation fails and skip-not-installable set
+ 24s autopkgtest [23:44:40]: test librust-libc-dev:extra_traits: preparing testbed
+ 24s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 24s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 24s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 24s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 24s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 24s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 24s autopkgtest: DBG: testbed command exited with code 0
+ 24s autopkgtest: DBG: can use apt-get on testbed: True
+ 24s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/5-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/5-autopkgtest-satdep.deb
+ 25s autopkgtest: DBG: got reply from testbed: ok
+ 25s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/5-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 25s Reading package lists...
+ 26s Building dependency tree...
+ 26s Reading state information...
+ 27s Starting pkgProblemResolver with broken count: 1
+ 27s Starting 2 pkgProblemResolver with broken count: 1
+ 27s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 27s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 27s Done
+ 27s Some packages could not be installed. This may mean that you have
+ 27s requested an impossible situation or if you are using the unstable
+ 27s distribution that some required packages have not yet been created
+ 27s or been moved out of Incoming.
+ 27s The following information may help to resolve the situation:
+ 27s 
+ 27s The following packages have unmet dependencies:
+ 27s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 27s E: Unable to correct problems, you have held broken packages.
+ 27s autopkgtest: DBG: testbed command exited with code 100
+ 27s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/5-autopkgtest-satdep.deb failed; status-fd:
+ 27s 
+ 27s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 27s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 27s autopkgtest: DBG: testbed command exited with code 2
+ 27s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 27s librust-libc-dev:extra_traits SKIP installation fails and skip-not-installable set
+ 27s autopkgtest [23:44:43]: test librust-libc-dev:std: preparing testbed
+ 27s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 27s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 27s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 27s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 28s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 28s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: can use apt-get on testbed: True
+ 28s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 28s autopkgtest: DBG: testbed command exited with code 0
+ 28s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/6-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/6-autopkgtest-satdep.deb
+ 28s autopkgtest: DBG: got reply from testbed: ok
+ 28s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/6-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 29s Reading package lists...
+ 30s Building dependency tree...
+ 30s Reading state information...
+ 30s Starting pkgProblemResolver with broken count: 1
+ 30s Starting 2 pkgProblemResolver with broken count: 1
+ 30s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 30s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 30s Done
+ 30s Some packages could not be installed. This may mean that you have
+ 30s requested an impossible situation or if you are using the unstable
+ 30s distribution that some required packages have not yet been created
+ 30s or been moved out of Incoming.
+ 30s The following information may help to resolve the situation:
+ 30s 
+ 30s The following packages have unmet dependencies:
+ 31s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 31s E: Unable to correct problems, you have held broken packages.
+ 31s autopkgtest: DBG: testbed command exited with code 100
+ 31s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/6-autopkgtest-satdep.deb failed; status-fd:
+ 31s 
+ 31s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 31s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 31s autopkgtest: DBG: testbed command exited with code 2
+ 31s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 31s librust-libc-dev:std SKIP installation fails and skip-not-installable set
+ 31s autopkgtest [23:44:47]: test librust-libc-dev:use_std: preparing testbed
+ 31s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 31s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 31s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 31s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 31s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 31s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: can use apt-get on testbed: True
+ 32s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/7-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/7-autopkgtest-satdep.deb
+ 32s autopkgtest: DBG: got reply from testbed: ok
+ 32s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/7-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 33s Reading package lists...
+ 33s Building dependency tree...
+ 33s Reading state information...
+ 34s Starting pkgProblemResolver with broken count: 1
+ 34s Starting 2 pkgProblemResolver with broken count: 1
+ 34s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 34s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 34s Done
+ 34s Some packages could not be installed. This may mean that you have
+ 34s requested an impossible situation or if you are using the unstable
+ 34s distribution that some required packages have not yet been created
+ 34s or been moved out of Incoming.
+ 34s The following information may help to resolve the situation:
+ 34s 
+ 34s The following packages have unmet dependencies:
+ 34s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 34s E: Unable to correct problems, you have held broken packages.
+ 35s autopkgtest: DBG: testbed command exited with code 100
+ 35s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/7-autopkgtest-satdep.deb failed; status-fd:
+ 35s 
+ 35s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 35s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 35s autopkgtest: DBG: testbed command exited with code 2
+ 35s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 35s librust-libc-dev:use_std SKIP installation fails and skip-not-installable set
+ 35s autopkgtest [23:44:51]: test librust-libc-dev:: preparing testbed
+ 35s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 35s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 35s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 35s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 35s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 35s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: can use apt-get on testbed: True
+ 35s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/8-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/8-autopkgtest-satdep.deb
+ 36s autopkgtest: DBG: got reply from testbed: ok
+ 36s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/8-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 37s Reading package lists...
+ 37s Building dependency tree...
+ 37s Reading state information...
+ 38s Starting pkgProblemResolver with broken count: 1
+ 38s Starting 2 pkgProblemResolver with broken count: 1
+ 38s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 38s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 38s Done
+ 38s Some packages could not be installed. This may mean that you have
+ 38s requested an impossible situation or if you are using the unstable
+ 38s distribution that some required packages have not yet been created
+ 38s or been moved out of Incoming.
+ 38s The following information may help to resolve the situation:
+ 38s 
+ 38s The following packages have unmet dependencies:
+ 38s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 38s E: Unable to correct problems, you have held broken packages.
+ 38s autopkgtest: DBG: testbed command exited with code 100
+ 38s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/8-autopkgtest-satdep.deb failed; status-fd:
+ 38s 
+ 38s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 38s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 38s autopkgtest: DBG: testbed command exited with code 2
+ 38s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 38s librust-libc-dev:    SKIP installation fails and skip-not-installable set
+ 38s autopkgtest [23:44:54]: test librust-libc+rustc-dep-of-std-dev:rustc-dep-of-std: preparing testbed
+ 38s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 38s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 38s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 38s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 39s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 39s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: can use apt-get on testbed: True
+ 39s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/9-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/9-autopkgtest-satdep.deb
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/9-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 41s Building dependency tree...
+ 41s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 1
+ 41s Starting 2 pkgProblemResolver with broken count: 1
+ 41s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 41s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 41s Done
+ 41s Some packages could not be installed. This may mean that you have
+ 41s requested an impossible situation or if you are using the unstable
+ 41s distribution that some required packages have not yet been created
+ 41s or been moved out of Incoming.
+ 41s The following information may help to resolve the situation:
+ 41s 
+ 41s The following packages have unmet dependencies:
+ 42s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 42s E: Unable to correct problems, you have held broken packages.
+ 42s autopkgtest: DBG: testbed command exited with code 100
+ 42s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/9-autopkgtest-satdep.deb failed; status-fd:
+ 42s 
+ 42s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 42s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 42s autopkgtest: DBG: testbed command exited with code 2
+ 42s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 42s librust-libc+rustc-dep-of-std-dev:rustc-dep-of-std SKIP installation fails and skip-not-installable set
+ 42s autopkgtest [23:44:58]: test librust-libc+rustc-std-workspace-core-dev:rustc-std-workspace-core: preparing testbed
+ 42s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev'], deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 42s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 42s autopkgtest: DBG: install_deps: deps_new=['dh-cargo (>= 18)', 'librust-libc-dev', 'librust-libc+rustc-dep-of-std-dev', 'librust-libc+rustc-std-workspace-core-dev']
+ 42s autopkgtest: DBG: install-deps: satisfying dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 42s autopkgtest: DBG: install-deps: architecture resolved: dh-cargo (>= 18), librust-libc-dev, librust-libc+rustc-dep-of-std-dev, librust-libc+rustc-std-workspace-core-dev
+ 42s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: can use apt-get on testbed: True
+ 43s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.TiV4OF'], kind short, sout raw, serr pipe, env []
+ 43s autopkgtest: DBG: testbed command exited with code 0
+ 43s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-0d5c7638-8322-4280-adfc-c780e7470413//tmp/autopkgtest.TiV4OF/10-autopkgtest-satdep.deb /tmp/autopkgtest.TiV4OF/10-autopkgtest-satdep.deb
+ 43s autopkgtest: DBG: got reply from testbed: ok
+ 43s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.TiV4OF/10-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 44s Reading package lists...
+ 44s Building dependency tree...
+ 44s Reading state information...
+ 45s Starting pkgProblemResolver with broken count: 1
+ 45s Starting 2 pkgProblemResolver with broken count: 1
+ 45s Investigating (0) libgit2-1.7:riscv64 < none -> 1.7.2+ds-ok1 @un puN Ib >
+ 45s Broken libgit2-1.7:riscv64 Depends on libhttp-parser2.9:riscv64 < none @un H > (>= 2.1)
+ 45s Done
+ 45s Some packages could not be installed. This may mean that you have
+ 45s requested an impossible situation or if you are using the unstable
+ 45s distribution that some required packages have not yet been created
+ 45s or been moved out of Incoming.
+ 45s The following information may help to resolve the situation:
+ 45s 
+ 45s The following packages have unmet dependencies:
+ 45s  libgit2-1.7 : Depends: libhttp-parser2.9 (>= 2.1) but it is not installable
+ 46s E: Unable to correct problems, you have held broken packages.
+ 46s autopkgtest: DBG: testbed command exited with code 100
+ 46s autopkgtest: DBG: apt-get install /tmp/autopkgtest.TiV4OF/10-autopkgtest-satdep.deb failed; status-fd:
+ 46s 
+ 46s autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+ 46s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dh-cargo (>= 18) librust-libc-dev librust-libc+rustc-dep-of-std-dev librust-libc+rustc-std-workspace-core-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 46s autopkgtest: DBG: testbed command exited with code 2
+ 46s autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+ 46s librust-libc+rustc-std-workspace-core-dev:rustc-std-workspace-core SKIP installation fails and skip-not-installable set
+ 46s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 46s autopkgtest [23:45:02]: @@@@@@@@@@@@@@@@@@@@ summary
+ 46s rust-libc:@          SKIP installation fails and skip-not-installable set
+ 46s librust-libc-dev:align SKIP installation fails and skip-not-installable set
+ 46s librust-libc-dev:const-extern-fn SKIP installation fails and skip-not-installable set
+ 46s librust-libc-dev:default SKIP installation fails and skip-not-installable set
+ 46s librust-libc-dev:extra_traits SKIP installation fails and skip-not-installable set
+ 46s librust-libc-dev:std SKIP installation fails and skip-not-installable set
+ 46s librust-libc-dev:use_std SKIP installation fails and skip-not-installable set
+ 46s librust-libc-dev:    SKIP installation fails and skip-not-installable set
+ 46s librust-libc+rustc-dep-of-std-dev:rustc-dep-of-std SKIP installation fails and skip-not-installable set
+ 46s librust-libc+rustc-std-workspace-core-dev:rustc-std-workspace-core SKIP installation fails and skip-not-installable set
+ 46s autopkgtest: DBG: testbed stop
+ 46s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.TiV4OF
+ 46s autopkgtest: DBG: sending command to testbed: close
+ 47s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 48s autopkgtest: DBG: got reply from testbed: ok
+ 48s autopkgtest: DBG: sending command to testbed: quit

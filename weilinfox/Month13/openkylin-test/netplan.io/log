@@ -1,0 +1,614 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [19:08:23]: starting date and time: 2024-07-18 19:08:23+0800
+  0s autopkgtest [19:08:23]: version @version@
+  0s autopkgtest [19:08:23]: host lili; command line: /usr/bin/autopkgtest netplan.io_1.0-ok3.dsc -o /home/hachi/openkylin_test/sharefolder/results/netplan.io -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.IIbEaV
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-1705e64b-ed17-491f-a35e-292e914bef0e,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-1705e64b-ed17-491f-a35e-292e914bef0e//tmp/autopkgtest.IIbEaV
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-1705e64b-ed17-491f-a35e-292e914bef0e//tmp/autopkgtest.IIbEaV', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IIbEaV'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.IIbEaV/wrapper.sh
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.IIbEaV/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [19:08:25]: testbed dpkg architecture: riscv64
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [19:08:25]: testbed apt version: 2.7.3-ok3
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 127
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.IIbEaV/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IIbEaV/testbed-packages /home/hachi/openkylin_test/sharefolder/results/netplan.io/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [19:08:25]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: Binaries: initialising
+  3s autopkgtest [19:08:26]: @@@@@@@@@@@@@@@@@@@@ source netplan.io_1.0-ok3.dsc
+  3s autopkgtest: DBG: blame += netplan.io_1.0-ok3.dsc
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IIbEaV'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown netplan.io_1.0-ok3.dsc /tmp/autopkgtest.IIbEaV/netplan.io_1.0-ok3.dsc
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IIbEaV'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown netplan.io_1.0.orig.tar.gz /tmp/autopkgtest.IIbEaV/netplan.io_1.0.orig.tar.gz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IIbEaV'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown netplan.io_1.0-ok3.debian.tar.xz /tmp/autopkgtest.IIbEaV/netplan.io_1.0-ok3.debian.tar.xz
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: install_deps: deps_new=[]
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.IIbEaV/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.IIbEaV/netplan.io_1.0-ok3.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  3s + cd /
+  3s + mktemp -d /tmp/autopkgtest.IIbEaV/build.XXX
+  3s + builddir=/tmp/autopkgtest.IIbEaV/build.LUA
+  3s + cd /tmp/autopkgtest.IIbEaV/build.LUA
+  3s + dpkg-source -x /tmp/autopkgtest.IIbEaV/netplan.io_1.0-ok3.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.2EwuPXwE/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 02 Jul 2024 12:09:36 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.IIbEaV/netplan.io_1.0-ok3.dsc
+  3s dpkg-source: info: extracting netplan.io in src
+  3s dpkg-source: info: unpacking netplan.io_1.0.orig.tar.gz
+  4s dpkg-source: info: unpacking netplan.io_1.0-ok3.debian.tar.xz
+  4s dpkg-source: info: using patch list from debian/patches/series
+  4s dpkg-source: info: applying 0001-sync-upstream-config.patch
+  4s + chmod -R a+rX .
+  4s + cd src/.
+  4s + pwd
+  4s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [19:08:27]: testing package netplan.io version 1.0-ok3
+  4s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IIbEaV/build.LUA/src/debian/ /home/hachi/openkylin_test/sharefolder/results/netplan.io/pkg/debian/
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  4s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  4s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  4s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  4s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  4s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  4s autopkgtest: DBG: processing dependency network-manager
+  4s autopkgtest: DBG: processing dependency hostapd
+  4s autopkgtest: DBG: processing dependency wpasupplicant
+  4s autopkgtest: DBG: processing dependency dnsmasq-base
+  4s autopkgtest: DBG: processing dependency libnm0
+  4s autopkgtest: DBG: processing dependency python3-gi
+  4s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  4s autopkgtest: DBG: processing dependency openvswitch-switch
+  4s autopkgtest: DBG: Test defined: name ovs path None command "(systemctl is-active openvswitch-switch.service || exit 77) && ./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=ovs" restrictions ['allow-stderr', 'isolation-container', 'needs-root', 'skip-not-installable', 'skippable'] features ['test-name=ovs'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'openvswitch-switch'] 
+  4s ovs                  SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  4s autopkgtest: DBG: processing dependency @
+  4s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  4s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  4s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  5s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  5s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  5s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  5s autopkgtest: DBG: processing dependency network-manager
+  5s autopkgtest: DBG: processing dependency hostapd
+  5s autopkgtest: DBG: processing dependency wpasupplicant
+  5s autopkgtest: DBG: processing dependency dnsmasq-base
+  5s autopkgtest: DBG: processing dependency libnm0
+  5s autopkgtest: DBG: processing dependency python3-gi
+  5s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  5s autopkgtest: DBG: processing dependency ethtool
+  5s autopkgtest: DBG: Test defined: name ethernets path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=ethernets" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=ethernets'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'ethtool'] 
+  5s ethernets            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  5s autopkgtest: DBG: processing dependency @
+  5s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  5s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  5s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  5s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  5s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  5s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  5s autopkgtest: DBG: processing dependency network-manager
+  5s autopkgtest: DBG: processing dependency hostapd
+  5s autopkgtest: DBG: processing dependency wpasupplicant
+  5s autopkgtest: DBG: processing dependency dnsmasq-base
+  5s autopkgtest: DBG: processing dependency libnm0
+  5s autopkgtest: DBG: processing dependency python3-gi
+  5s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  5s autopkgtest: DBG: Test defined: name bridges path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=bridges" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=bridges'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+  5s bridges              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  5s autopkgtest: DBG: processing dependency @
+  5s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  5s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  6s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  6s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  6s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  6s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  6s autopkgtest: DBG: processing dependency network-manager
+  6s autopkgtest: DBG: processing dependency hostapd
+  6s autopkgtest: DBG: processing dependency wpasupplicant
+  6s autopkgtest: DBG: processing dependency dnsmasq-base
+  6s autopkgtest: DBG: processing dependency libnm0
+  6s autopkgtest: DBG: processing dependency python3-gi
+  6s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  6s autopkgtest: DBG: Test defined: name bonds path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=bonds" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=bonds'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+  6s bonds                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  6s autopkgtest: DBG: processing dependency @
+  6s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  6s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  6s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  6s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  6s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  6s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  6s autopkgtest: DBG: processing dependency network-manager
+  6s autopkgtest: DBG: processing dependency hostapd
+  6s autopkgtest: DBG: processing dependency wpasupplicant
+  6s autopkgtest: DBG: processing dependency dnsmasq-base
+  6s autopkgtest: DBG: processing dependency libnm0
+  6s autopkgtest: DBG: processing dependency python3-gi
+  6s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  6s autopkgtest: DBG: Test defined: name routing path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=routing" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=routing'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+  6s routing              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  6s autopkgtest: DBG: processing dependency @
+  6s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  7s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  7s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  7s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  7s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  7s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  7s autopkgtest: DBG: processing dependency network-manager
+  7s autopkgtest: DBG: processing dependency hostapd
+  7s autopkgtest: DBG: processing dependency wpasupplicant
+  7s autopkgtest: DBG: processing dependency dnsmasq-base
+  7s autopkgtest: DBG: processing dependency libnm0
+  7s autopkgtest: DBG: processing dependency python3-gi
+  7s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  7s autopkgtest: DBG: Test defined: name vlans path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=vlans" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=vlans'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+  7s vlans                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  7s autopkgtest: DBG: processing dependency @
+  7s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  7s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  7s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  7s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  7s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  8s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  8s autopkgtest: DBG: processing dependency network-manager
+  8s autopkgtest: DBG: processing dependency hostapd
+  8s autopkgtest: DBG: processing dependency wpasupplicant
+  8s autopkgtest: DBG: processing dependency dnsmasq-base
+  8s autopkgtest: DBG: processing dependency libnm0
+  8s autopkgtest: DBG: processing dependency python3-gi
+  8s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  8s autopkgtest: DBG: processing dependency iw
+  8s autopkgtest: DBG: Test defined: name wifi path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=wifi" restrictions ['allow-stderr', 'flaky', 'isolation-container', 'needs-root'] features ['test-name=wifi'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'iw'] 
+  8s wifi                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  8s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  8s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  8s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  8s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  8s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  8s autopkgtest: DBG: processing dependency network-manager
+  8s autopkgtest: DBG: processing dependency hostapd
+  8s autopkgtest: DBG: processing dependency wpasupplicant
+  8s autopkgtest: DBG: processing dependency dnsmasq-base
+  8s autopkgtest: DBG: processing dependency libnm0
+  8s autopkgtest: DBG: processing dependency python3-gi
+  8s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  8s autopkgtest: DBG: processing dependency wireguard-tools
+  8s autopkgtest: DBG: Test defined: name tunnels path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=tunnels" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=tunnels'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'wireguard-tools'] 
+  8s tunnels              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  8s autopkgtest: DBG: processing dependency @
+  8s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  8s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  8s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  8s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  9s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  9s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  9s autopkgtest: DBG: processing dependency network-manager
+  9s autopkgtest: DBG: processing dependency hostapd
+  9s autopkgtest: DBG: processing dependency wpasupplicant
+  9s autopkgtest: DBG: processing dependency dnsmasq-base
+  9s autopkgtest: DBG: processing dependency libnm0
+  9s autopkgtest: DBG: processing dependency python3-gi
+  9s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  9s autopkgtest: DBG: Test defined: name scenarios path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=scenarios" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=scenarios'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+  9s scenarios            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  9s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  9s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+  9s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+  9s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+  9s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+  9s autopkgtest: DBG: processing dependency network-manager
+  9s autopkgtest: DBG: processing dependency hostapd
+  9s autopkgtest: DBG: processing dependency wpasupplicant
+  9s autopkgtest: DBG: processing dependency dnsmasq-base
+  9s autopkgtest: DBG: processing dependency libnm0
+  9s autopkgtest: DBG: processing dependency python3-gi
+  9s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+  9s autopkgtest: DBG: Test defined: name regressions path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=regressions" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=regressions'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+  9s regressions          SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+  9s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+  9s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 10s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 10s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 10s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 10s autopkgtest: DBG: processing dependency network-manager
+ 10s autopkgtest: DBG: processing dependency hostapd
+ 10s autopkgtest: DBG: processing dependency wpasupplicant
+ 10s autopkgtest: DBG: processing dependency dnsmasq-base
+ 10s autopkgtest: DBG: processing dependency libnm0
+ 10s autopkgtest: DBG: processing dependency python3-gi
+ 10s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 10s autopkgtest: DBG: Test defined: name dbus path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=dbus" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=dbus'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 10s dbus                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 10s autopkgtest: DBG: processing dependency @
+ 10s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 10s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 10s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 10s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 10s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 10s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 10s autopkgtest: DBG: processing dependency network-manager
+ 10s autopkgtest: DBG: processing dependency hostapd
+ 10s autopkgtest: DBG: processing dependency wpasupplicant
+ 10s autopkgtest: DBG: processing dependency dnsmasq-base
+ 10s autopkgtest: DBG: processing dependency libnm0
+ 10s autopkgtest: DBG: processing dependency python3-gi
+ 10s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 10s autopkgtest: DBG: Test defined: name dummies path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=dummies" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=dummies'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 10s dummies              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 10s autopkgtest: DBG: processing dependency @
+ 10s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 10s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 11s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 11s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 11s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 11s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 11s autopkgtest: DBG: processing dependency network-manager
+ 11s autopkgtest: DBG: processing dependency hostapd
+ 11s autopkgtest: DBG: processing dependency wpasupplicant
+ 11s autopkgtest: DBG: processing dependency dnsmasq-base
+ 11s autopkgtest: DBG: processing dependency libnm0
+ 11s autopkgtest: DBG: processing dependency python3-gi
+ 11s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 11s autopkgtest: DBG: Test defined: name veths path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=veths" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=veths'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 11s veths                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 11s autopkgtest: DBG: processing dependency @
+ 11s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 11s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 11s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 11s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 11s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 11s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 11s autopkgtest: DBG: processing dependency network-manager
+ 11s autopkgtest: DBG: processing dependency hostapd
+ 11s autopkgtest: DBG: processing dependency wpasupplicant
+ 11s autopkgtest: DBG: processing dependency dnsmasq-base
+ 11s autopkgtest: DBG: processing dependency libnm0
+ 11s autopkgtest: DBG: processing dependency python3-gi
+ 11s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 11s autopkgtest: DBG: Test defined: name diff path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=diff" restrictions ['allow-stderr', 'flaky', 'isolation-container', 'needs-root'] features ['test-name=diff'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 11s diff                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 11s autopkgtest: DBG: processing dependency netplan-generator
+ 11s autopkgtest: DBG: marked alternatives ['netplan-generator'] as a synthesised dependency
+ 11s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 11s autopkgtest: DBG: processing dependency udev
+ 11s autopkgtest: DBG: Test defined: name autostart path None command "./debian/tests/prep-testbed.sh && ./debian/tests/autostart.sh" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=autostart'] depends ['netplan-generator', 'systemd-resolved | systemd (<< 251.3-2~)', 'udev'] 
+ 11s autostart            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 11s autopkgtest: DBG: processing dependency @
+ 11s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 12s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 12s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 12s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 12s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 12s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 12s autopkgtest: DBG: processing dependency udev
+ 12s autopkgtest: DBG: Test defined: name cloud-init path None command "./debian/tests/prep-testbed.sh && ./debian/tests/cloud-init.sh" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=cloud-init'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'udev'] 
+ 12s cloud-init           SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 12s autopkgtest [19:08:35]: build not needed
+ 12s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IIbEaV/build.LUA/src/ /home/hachi/openkylin_test/sharefolder/results/netplan.io/tests-tree/
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: processing dependency @
+ 12s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 12s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 12s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 13s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 13s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 13s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 13s autopkgtest: DBG: processing dependency network-manager
+ 13s autopkgtest: DBG: processing dependency hostapd
+ 13s autopkgtest: DBG: processing dependency wpasupplicant
+ 13s autopkgtest: DBG: processing dependency dnsmasq-base
+ 13s autopkgtest: DBG: processing dependency libnm0
+ 13s autopkgtest: DBG: processing dependency python3-gi
+ 13s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 13s autopkgtest: DBG: processing dependency openvswitch-switch
+ 13s autopkgtest: DBG: Test defined: name ovs path None command "(systemctl is-active openvswitch-switch.service || exit 77) && ./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=ovs" restrictions ['allow-stderr', 'isolation-container', 'needs-root', 'skip-not-installable', 'skippable'] features ['test-name=ovs'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'openvswitch-switch'] 
+ 13s ovs                  SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 13s autopkgtest: DBG: processing dependency @
+ 13s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 13s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 13s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 13s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 13s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 13s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 13s autopkgtest: DBG: processing dependency network-manager
+ 13s autopkgtest: DBG: processing dependency hostapd
+ 13s autopkgtest: DBG: processing dependency wpasupplicant
+ 13s autopkgtest: DBG: processing dependency dnsmasq-base
+ 13s autopkgtest: DBG: processing dependency libnm0
+ 13s autopkgtest: DBG: processing dependency python3-gi
+ 13s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 13s autopkgtest: DBG: processing dependency ethtool
+ 13s autopkgtest: DBG: Test defined: name ethernets path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=ethernets" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=ethernets'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'ethtool'] 
+ 13s ethernets            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 13s autopkgtest: DBG: processing dependency @
+ 13s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 13s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 14s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 14s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 14s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 14s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 14s autopkgtest: DBG: processing dependency network-manager
+ 14s autopkgtest: DBG: processing dependency hostapd
+ 14s autopkgtest: DBG: processing dependency wpasupplicant
+ 14s autopkgtest: DBG: processing dependency dnsmasq-base
+ 14s autopkgtest: DBG: processing dependency libnm0
+ 14s autopkgtest: DBG: processing dependency python3-gi
+ 14s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 14s autopkgtest: DBG: Test defined: name bridges path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=bridges" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=bridges'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 14s bridges              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 14s autopkgtest: DBG: processing dependency @
+ 14s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 14s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 14s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 14s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 14s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 14s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 14s autopkgtest: DBG: processing dependency network-manager
+ 14s autopkgtest: DBG: processing dependency hostapd
+ 14s autopkgtest: DBG: processing dependency wpasupplicant
+ 14s autopkgtest: DBG: processing dependency dnsmasq-base
+ 14s autopkgtest: DBG: processing dependency libnm0
+ 14s autopkgtest: DBG: processing dependency python3-gi
+ 14s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 14s autopkgtest: DBG: Test defined: name bonds path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=bonds" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=bonds'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 14s bonds                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 14s autopkgtest: DBG: processing dependency @
+ 14s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 15s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 15s autopkgtest: DBG: processing dependency network-manager
+ 15s autopkgtest: DBG: processing dependency hostapd
+ 15s autopkgtest: DBG: processing dependency wpasupplicant
+ 15s autopkgtest: DBG: processing dependency dnsmasq-base
+ 15s autopkgtest: DBG: processing dependency libnm0
+ 15s autopkgtest: DBG: processing dependency python3-gi
+ 15s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 15s autopkgtest: DBG: Test defined: name routing path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=routing" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=routing'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 15s routing              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 15s autopkgtest: DBG: processing dependency @
+ 15s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 15s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 16s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 16s autopkgtest: DBG: processing dependency network-manager
+ 16s autopkgtest: DBG: processing dependency hostapd
+ 16s autopkgtest: DBG: processing dependency wpasupplicant
+ 16s autopkgtest: DBG: processing dependency dnsmasq-base
+ 16s autopkgtest: DBG: processing dependency libnm0
+ 16s autopkgtest: DBG: processing dependency python3-gi
+ 16s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 16s autopkgtest: DBG: Test defined: name vlans path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=vlans" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=vlans'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 16s vlans                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 16s autopkgtest: DBG: processing dependency @
+ 16s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 16s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 16s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 16s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 16s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 16s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 16s autopkgtest: DBG: processing dependency network-manager
+ 16s autopkgtest: DBG: processing dependency hostapd
+ 16s autopkgtest: DBG: processing dependency wpasupplicant
+ 16s autopkgtest: DBG: processing dependency dnsmasq-base
+ 16s autopkgtest: DBG: processing dependency libnm0
+ 16s autopkgtest: DBG: processing dependency python3-gi
+ 16s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 16s autopkgtest: DBG: processing dependency iw
+ 16s autopkgtest: DBG: Test defined: name wifi path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=wifi" restrictions ['allow-stderr', 'flaky', 'isolation-container', 'needs-root'] features ['test-name=wifi'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'iw'] 
+ 16s wifi                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 16s autopkgtest: DBG: processing dependency @
+ 16s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 16s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 16s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 16s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 17s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 17s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 17s autopkgtest: DBG: processing dependency network-manager
+ 17s autopkgtest: DBG: processing dependency hostapd
+ 17s autopkgtest: DBG: processing dependency wpasupplicant
+ 17s autopkgtest: DBG: processing dependency dnsmasq-base
+ 17s autopkgtest: DBG: processing dependency libnm0
+ 17s autopkgtest: DBG: processing dependency python3-gi
+ 17s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 17s autopkgtest: DBG: processing dependency wireguard-tools
+ 17s autopkgtest: DBG: Test defined: name tunnels path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=tunnels" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=tunnels'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0', 'wireguard-tools'] 
+ 17s tunnels              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 17s autopkgtest: DBG: processing dependency @
+ 17s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 17s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 17s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 17s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 17s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 17s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 17s autopkgtest: DBG: processing dependency network-manager
+ 17s autopkgtest: DBG: processing dependency hostapd
+ 17s autopkgtest: DBG: processing dependency wpasupplicant
+ 17s autopkgtest: DBG: processing dependency dnsmasq-base
+ 17s autopkgtest: DBG: processing dependency libnm0
+ 17s autopkgtest: DBG: processing dependency python3-gi
+ 17s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 17s autopkgtest: DBG: Test defined: name scenarios path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=scenarios" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=scenarios'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 17s scenarios            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 17s autopkgtest: DBG: processing dependency @
+ 17s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 17s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 17s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 18s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 18s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 18s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 18s autopkgtest: DBG: processing dependency network-manager
+ 18s autopkgtest: DBG: processing dependency hostapd
+ 18s autopkgtest: DBG: processing dependency wpasupplicant
+ 18s autopkgtest: DBG: processing dependency dnsmasq-base
+ 18s autopkgtest: DBG: processing dependency libnm0
+ 18s autopkgtest: DBG: processing dependency python3-gi
+ 18s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 18s autopkgtest: DBG: Test defined: name regressions path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=regressions" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=regressions'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 18s regressions          SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 18s autopkgtest: DBG: processing dependency @
+ 18s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 18s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 18s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 18s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 18s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 18s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 18s autopkgtest: DBG: processing dependency network-manager
+ 18s autopkgtest: DBG: processing dependency hostapd
+ 18s autopkgtest: DBG: processing dependency wpasupplicant
+ 18s autopkgtest: DBG: processing dependency dnsmasq-base
+ 18s autopkgtest: DBG: processing dependency libnm0
+ 18s autopkgtest: DBG: processing dependency python3-gi
+ 18s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 18s autopkgtest: DBG: Test defined: name dbus path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=dbus" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=dbus'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 18s dbus                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 18s autopkgtest: DBG: processing dependency @
+ 18s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 18s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 19s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 19s autopkgtest: DBG: processing dependency network-manager
+ 19s autopkgtest: DBG: processing dependency hostapd
+ 19s autopkgtest: DBG: processing dependency wpasupplicant
+ 19s autopkgtest: DBG: processing dependency dnsmasq-base
+ 19s autopkgtest: DBG: processing dependency libnm0
+ 19s autopkgtest: DBG: processing dependency python3-gi
+ 19s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 19s autopkgtest: DBG: Test defined: name dummies path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=dummies" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=dummies'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 19s dummies              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 19s autopkgtest: DBG: processing dependency @
+ 19s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 19s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 19s autopkgtest: DBG: processing dependency network-manager
+ 19s autopkgtest: DBG: processing dependency hostapd
+ 19s autopkgtest: DBG: processing dependency wpasupplicant
+ 19s autopkgtest: DBG: processing dependency dnsmasq-base
+ 19s autopkgtest: DBG: processing dependency libnm0
+ 19s autopkgtest: DBG: processing dependency python3-gi
+ 19s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 19s autopkgtest: DBG: Test defined: name veths path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=veths" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=veths'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 19s veths                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 19s autopkgtest: DBG: processing dependency @
+ 19s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 19s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 20s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 20s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 20s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 20s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 20s autopkgtest: DBG: processing dependency network-manager
+ 20s autopkgtest: DBG: processing dependency hostapd
+ 20s autopkgtest: DBG: processing dependency wpasupplicant
+ 20s autopkgtest: DBG: processing dependency dnsmasq-base
+ 20s autopkgtest: DBG: processing dependency libnm0
+ 20s autopkgtest: DBG: processing dependency python3-gi
+ 20s autopkgtest: DBG: processing dependency gir1.2-nm-1.0
+ 20s autopkgtest: DBG: Test defined: name diff path None command "./debian/tests/prep-testbed.sh && python3 tests/integration/run.py --test=diff" restrictions ['allow-stderr', 'flaky', 'isolation-container', 'needs-root'] features ['test-name=diff'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'network-manager', 'hostapd', 'wpasupplicant', 'dnsmasq-base', 'libnm0', 'python3-gi', 'gir1.2-nm-1.0'] 
+ 20s diff                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s autopkgtest: DBG: processing dependency netplan-generator
+ 20s autopkgtest: DBG: marked alternatives ['netplan-generator'] as a synthesised dependency
+ 20s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 20s autopkgtest: DBG: processing dependency udev
+ 20s autopkgtest: DBG: Test defined: name autostart path None command "./debian/tests/prep-testbed.sh && ./debian/tests/autostart.sh" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=autostart'] depends ['netplan-generator', 'systemd-resolved | systemd (<< 251.3-2~)', 'udev'] 
+ 20s autostart            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s autopkgtest: DBG: processing dependency @
+ 20s autopkgtest: DBG: synthesised dependency netplan.io [linux-any]
+ 20s autopkgtest: DBG: synthesised dependency netplan-generator [linux-any]
+ 20s autopkgtest: DBG: synthesised dependency python3-netplan [linux-any]
+ 20s autopkgtest: DBG: synthesised dependency libnetplan1 [linux-any]
+ 20s autopkgtest: DBG: synthesised dependency libnetplan-dev [linux-any]
+ 20s autopkgtest: DBG: processing dependency systemd-resolved | systemd (<< 251.3-2~)
+ 20s autopkgtest: DBG: processing dependency udev
+ 20s autopkgtest: DBG: Test defined: name cloud-init path None command "./debian/tests/prep-testbed.sh && ./debian/tests/cloud-init.sh" restrictions ['allow-stderr', 'isolation-container', 'needs-root'] features ['test-name=cloud-init'] depends ['netplan.io [linux-any]', 'netplan-generator [linux-any]', 'python3-netplan [linux-any]', 'libnetplan1 [linux-any]', 'libnetplan-dev [linux-any]', 'systemd-resolved | systemd (<< 251.3-2~)', 'udev'] 
+ 20s cloud-init           SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s autopkgtest [19:08:43]: @@@@@@@@@@@@@@@@@@@@ summary
+ 20s ovs                  SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s ethernets            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s bridges              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s bonds                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s routing              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s vlans                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s wifi                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s tunnels              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s scenarios            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s regressions          SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s dbus                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s dummies              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s veths                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s diff                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s autostart            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s cloud-init           SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s ovs                  SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s ethernets            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s bridges              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s bonds                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s routing              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s vlans                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s wifi                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s tunnels              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s scenarios            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s regressions          SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s dbus                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s dummies              SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s veths                SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s diff                 SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s autostart            SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s cloud-init           SKIP Test restriction "isolation-container" requires testbed capability "isolation-container" and/or "isolation-machine"
+ 20s autopkgtest: DBG: testbed stop
+ 20s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.IIbEaV
+ 20s autopkgtest: DBG: sending command to testbed: close
+ 21s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 21s autopkgtest: DBG: got reply from testbed: ok
+ 21s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,33 @@
+++++ BEGINNING TEST
++++ ADD KEYRING
+keyctl newring wibble @s
+236338846
++++ LIST KEYRING
+keyctl rlist 236338846
+
++++ ADD KEY
+keyctl add user lizard gizzard 236338846
+791822387
++++ LIST KEYRING 2
+keyctl rlist 236338846
+791822387
++++ INVALIDATE KEY
+keyctl invalidate 791822387
++++ LIST KEYRING 3
+keyctl rlist 236338846
+
++++ ADD KEY
+keyctl add user lizard2 gizzard 236338846
+859739084
++++ LIST KEYRING 4
+keyctl rlist 236338846
+859739084
++++ INVALIDATE KEYRING
+keyctl invalidate 236338846
++++ CHECK KEYRING
+keyctl rlist 236338846
+keyctl_read_alloc: Required key not available
++++ CHECK KEY
+keyctl rdescribe 859739084 @
+keyctl_describe: Required key not available
+++++ FINISHED TEST: PASS

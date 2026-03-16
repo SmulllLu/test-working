@@ -1,0 +1,855 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [11:19:04]: starting date and time: 2024-07-19 11:19:04+0800
+  0s autopkgtest [11:19:04]: version @version@
+  0s autopkgtest [11:19:04]: host lili; command line: /usr/bin/autopkgtest zvbi_0.2.42-2ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/zvbi -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.ShVWbz
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-bc4a2cab-7043-428a-b3cf-fb49f06cc31a,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-bc4a2cab-7043-428a-b3cf-fb49f06cc31a//tmp/autopkgtest.ShVWbz
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-bc4a2cab-7043-428a-b3cf-fb49f06cc31a//tmp/autopkgtest.ShVWbz', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.ShVWbz/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.ShVWbz/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [11:19:05]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [11:19:05]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.ShVWbz/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/testbed-packages /home/hachi/openkylin_test/sharefolder/results/zvbi/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [11:19:06]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [11:19:06]: @@@@@@@@@@@@@@@@@@@@ source zvbi_0.2.42-2ok1.dsc
+  2s autopkgtest: DBG: blame += zvbi_0.2.42-2ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown zvbi_0.2.42-2ok1.dsc /tmp/autopkgtest.ShVWbz/zvbi_0.2.42-2ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown zvbi_0.2.42.orig.tar.gz /tmp/autopkgtest.ShVWbz/zvbi_0.2.42.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown zvbi_0.2.42.orig.tar.gz.asc /tmp/autopkgtest.ShVWbz/zvbi_0.2.42.orig.tar.gz.asc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown zvbi_0.2.42-2ok1.debian.tar.xz /tmp/autopkgtest.ShVWbz/zvbi_0.2.42-2ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.ShVWbz/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.ShVWbz/zvbi_0.2.42-2ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.ShVWbz/build.XXX
+  2s + builddir=/tmp/autopkgtest.ShVWbz/build.44h
+  2s + cd /tmp/autopkgtest.ShVWbz/build.44h
+  2s + dpkg-source -x /tmp/autopkgtest.ShVWbz/zvbi_0.2.42-2ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.EmLFz0dt/trustedkeys.kbx': General error
+  3s gpgv: Signature made Mon 06 May 2024 09:51:27 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.ShVWbz/zvbi_0.2.42-2ok1.dsc
+  3s dpkg-source: info: extracting zvbi in src
+  3s dpkg-source: info: unpacking zvbi_0.2.42.orig.tar.gz
+  3s dpkg-source: info: unpacking zvbi_0.2.42-2ok1.debian.tar.xz
+  3s dpkg-source: info: using patch list from debian/patches/series
+  3s dpkg-source: info: applying sincos_not_found_but_conflicting.patch
+  3s + chmod -R a+rX .
+  3s + cd src/.
+  3s + pwd
+  3s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest [11:19:07]: testing package zvbi version 0.2.42-2ok1
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/build.44h/src/debian/ /home/hachi/openkylin_test/sharefolder/results/zvbi/pkg/debian/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libzvbi0t64
+  3s autopkgtest: DBG: synthesised dependency libzvbi-dev
+  3s autopkgtest: DBG: synthesised dependency libzvbi-common
+  3s autopkgtest: DBG: synthesised dependency libzvbi-doc
+  3s autopkgtest: DBG: synthesised dependency zvbi
+  3s autopkgtest: DBG: Test defined: name command1 path None command "zvbi-atsc-cc -h" restrictions [] features [] depends ['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi'] 
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libzvbi0t64
+  3s autopkgtest: DBG: synthesised dependency libzvbi-dev
+  3s autopkgtest: DBG: synthesised dependency libzvbi-common
+  3s autopkgtest: DBG: synthesised dependency libzvbi-doc
+  3s autopkgtest: DBG: synthesised dependency zvbi
+  3s autopkgtest: DBG: Test defined: name command2 path None command "zvbi-ntsc-cc -h" restrictions [] features [] depends ['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi'] 
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libzvbi0t64
+  3s autopkgtest: DBG: synthesised dependency libzvbi-dev
+  3s autopkgtest: DBG: synthesised dependency libzvbi-common
+  3s autopkgtest: DBG: synthesised dependency libzvbi-doc
+  3s autopkgtest: DBG: synthesised dependency zvbi
+  3s autopkgtest: DBG: processing dependency debhelper
+  3s autopkgtest: DBG: Test defined: name command3 path None command "dh_auto_test" restrictions [] features [] depends ['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi', 'debhelper'] 
+  3s autopkgtest [11:19:07]: build not needed
+  3s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/build.44h/src/ /home/hachi/openkylin_test/sharefolder/results/zvbi/tests-tree/
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libzvbi0t64
+  3s autopkgtest: DBG: synthesised dependency libzvbi-dev
+  3s autopkgtest: DBG: synthesised dependency libzvbi-common
+  3s autopkgtest: DBG: synthesised dependency libzvbi-doc
+  3s autopkgtest: DBG: synthesised dependency zvbi
+  3s autopkgtest: DBG: Test defined: name command1 path None command "zvbi-atsc-cc -h" restrictions [] features [] depends ['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi'] 
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libzvbi0t64
+  3s autopkgtest: DBG: synthesised dependency libzvbi-dev
+  3s autopkgtest: DBG: synthesised dependency libzvbi-common
+  3s autopkgtest: DBG: synthesised dependency libzvbi-doc
+  3s autopkgtest: DBG: synthesised dependency zvbi
+  3s autopkgtest: DBG: Test defined: name command2 path None command "zvbi-ntsc-cc -h" restrictions [] features [] depends ['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi'] 
+  3s autopkgtest: DBG: processing dependency @
+  3s autopkgtest: DBG: synthesised dependency libzvbi0t64
+  3s autopkgtest: DBG: synthesised dependency libzvbi-dev
+  3s autopkgtest: DBG: synthesised dependency libzvbi-common
+  3s autopkgtest: DBG: synthesised dependency libzvbi-doc
+  3s autopkgtest: DBG: synthesised dependency zvbi
+  3s autopkgtest: DBG: processing dependency debhelper
+  3s autopkgtest: DBG: Test defined: name command3 path None command "dh_auto_test" restrictions [] features [] depends ['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi', 'debhelper'] 
+  3s autopkgtest [11:19:07]: test command1: preparing testbed
+  3s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi']
+  3s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+  3s autopkgtest: DBG: install_deps: deps_new=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi']
+  3s autopkgtest: DBG: install-deps: satisfying libzvbi0t64, libzvbi-dev, libzvbi-common, libzvbi-doc, zvbi
+  3s autopkgtest: DBG: install-deps: architecture resolved: libzvbi0t64, libzvbi-dev, libzvbi-common, libzvbi-doc, zvbi
+  3s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: can use apt-get on testbed: True
+  4s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-bc4a2cab-7043-428a-b3cf-fb49f06cc31a//tmp/autopkgtest.ShVWbz/1-autopkgtest-satdep.deb /tmp/autopkgtest.ShVWbz/1-autopkgtest-satdep.deb
+  4s autopkgtest: DBG: got reply from testbed: ok
+  4s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.ShVWbz/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+  4s Reading package lists...
+  5s Building dependency tree...
+  5s Reading state information...
+  5s Starting pkgProblemResolver with broken count: 0
+  5s Starting 2 pkgProblemResolver with broken count: 0
+  5s Done
+  6s The following packages were automatically installed and are no longer required:
+  6s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+  6s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+  6s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  6s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  6s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  6s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  6s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  6s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  6s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+  6s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+  6s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+  6s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+  6s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+  6s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+  6s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+  6s   indicator-messages indicator-printers indicator-session kylin-screenshot
+  6s   language-selector-common language-selector-gnome libatrildocument3
+  6s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+  6s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+  6s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+  6s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+  6s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+  6s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+  6s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+  6s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+  6s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+  6s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0
+  6s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+  6s   pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+  6s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+  6s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+  6s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+  6s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor
+  6s Use 'sudo apt autoremove' to remove them.
+  6s The following additional packages will be installed:
+  6s   libjs-jquery libpng-dev libpng16-16t64 libzvbi-common libzvbi-dev
+  6s   libzvbi-doc libzvbi0t64 zvbi
+  6s Recommended packages:
+  6s   javascript-common libpng-tools
+  6s The following packages will be REMOVED:
+  6s   libpng16-16 libzvbi0
+  6s The following NEW packages will be installed:
+  6s   autopkgtest-satdep libjs-jquery libpng-dev libpng16-16t64 libzvbi-dev
+  6s   libzvbi-doc libzvbi0t64 zvbi
+  6s The following packages will be upgraded:
+  6s   libzvbi-common
+  7s 1 upgraded, 8 newly installed, 2 to remove and 1065 not upgraded.
+  7s Need to get 2,004 kB/2,005 kB of archives.
+  7s After this operation, 10.7 MB of additional disk space will be used.
+  7s Get:1 /tmp/autopkgtest.ShVWbz/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [724 B]
+  7s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzvbi0t64 riscv64 0.2.42-2ok1 [226 kB]
+  7s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpng16-16t64 riscv64 1.6.43-ok1 [169 kB]
+  8s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzvbi-common all 0.2.42-2ok1 [37.5 kB]
+  9s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 zvbi riscv64 0.2.42-2ok1 [163 kB]
+  9s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libjs-jquery all 3.6.1+dfsg+~3.5.14-ok1 [324 kB]
+ 11s Get:7 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libpng-dev riscv64 1.6.43-ok1 [372 kB]
+ 11s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzvbi-dev riscv64 0.2.42-2ok1 [507 kB]
+ 12s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzvbi-doc all 0.2.42-2ok1 [206 kB]
+ 14s Fetched 2,004 kB in 5s (390 kB/s)
+ 14s dpkg: libzvbi0:riscv64: dependency problems, but removing anyway as you requested:
+ 14s  libavcodec59:riscv64 depends on libzvbi0 (>= 0.2.35).
+ 14s  libavcodec58:riscv64 depends on libzvbi0 (>= 0.2.35).
+ 14s 
+ 14s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 14s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 14s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 14s Removing libzvbi0:riscv64 (0.2.35-ok1) ...
+ 15s Selecting previously unselected package libzvbi0t64:riscv64.
+ 15s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 15s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 15s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193798 files and directories currently installed.)
+ 15s Preparing to unpack .../libzvbi0t64_0.2.42-2ok1_riscv64.deb ...
+ 15s Unpacking libzvbi0t64:riscv64 (0.2.42-2ok1) ...
+ 16s dpkg: libpng16-16:riscv64: dependency problems, but removing anyway as you requested:
+ 16s  x11-apps depends on libpng16-16 (>= 1.6.2-1).
+ 16s  sane-utils depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libzvbi0t64:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libwebkit2gtk-4.0-37:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libsane1:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libqt5gui5:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libpoppler97:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libplymouth5:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libopencv-imgcodecs406:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libopencv-imgcodecs4.2:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  liblept5:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libimlib2:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libgxps2:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libgs9:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libgdk-pixbuf2.0-0:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libgdal26 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libgd3:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libfreetype6:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libfreeimage3:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libffmpegthumbnailer4v5 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libcupsfilters1:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  libcairo2:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  gstreamer1.0-plugins-good:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  gstreamer1.0-gl:riscv64 depends on libpng16-16 (>= 1.6.2-1).
+ 16s  apngasm depends on libpng16-16 (>= 1.6.2-1).
+ 16s  apng2gif depends on libpng16-16 (>= 1.6.2-1).
+ 16s 
+ 16s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 16s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193810 files and directories currently installed.)
+ 16s Removing libpng16-16:riscv64 (1.6.38-2) ...
+ 16s Selecting previously unselected package libpng16-16t64:riscv64.
+ 16s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 16s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 17s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193800 files and directories currently installed.)
+ 17s Preparing to unpack .../0-libpng16-16t64_1.6.43-ok1_riscv64.deb ...
+ 17s Unpacking libpng16-16t64:riscv64 (1.6.43-ok1) ...
+ 18s Preparing to unpack .../1-libzvbi-common_0.2.42-2ok1_all.deb ...
+ 18s Unpacking libzvbi-common (0.2.42-2ok1) over (0.2.35-ok1) ...
+ 18s Selecting previously unselected package zvbi.
+ 18s Preparing to unpack .../2-zvbi_0.2.42-2ok1_riscv64.deb ...
+ 18s Unpacking zvbi (0.2.42-2ok1) ...
+ 19s Selecting previously unselected package libjs-jquery.
+ 19s Preparing to unpack .../3-libjs-jquery_3.6.1+dfsg+~3.5.14-ok1_all.deb ...
+ 19s Unpacking libjs-jquery (3.6.1+dfsg+~3.5.14-ok1) ...
+ 19s Selecting previously unselected package libpng-dev:riscv64.
+ 19s Preparing to unpack .../4-libpng-dev_1.6.43-ok1_riscv64.deb ...
+ 19s Unpacking libpng-dev:riscv64 (1.6.43-ok1) ...
+ 20s Selecting previously unselected package libzvbi-dev:riscv64.
+ 20s Preparing to unpack .../5-libzvbi-dev_0.2.42-2ok1_riscv64.deb ...
+ 20s Unpacking libzvbi-dev:riscv64 (0.2.42-2ok1) ...
+ 21s Selecting previously unselected package libzvbi-doc.
+ 21s Preparing to unpack .../6-libzvbi-doc_0.2.42-2ok1_all.deb ...
+ 21s Unpacking libzvbi-doc (0.2.42-2ok1) ...
+ 22s Selecting previously unselected package autopkgtest-satdep.
+ 22s Preparing to unpack .../7-1-autopkgtest-satdep.deb ...
+ 22s Unpacking autopkgtest-satdep (0) ...
+ 23s Setting up libpng16-16t64:riscv64 (1.6.43-ok1) ...
+ 23s Setting up libjs-jquery (3.6.1+dfsg+~3.5.14-ok1) ...
+ 23s Setting up libzvbi-common (0.2.42-2ok1) ...
+ 23s Setting up libzvbi-doc (0.2.42-2ok1) ...
+ 23s Setting up libzvbi0t64:riscv64 (0.2.42-2ok1) ...
+ 23s Setting up libpng-dev:riscv64 (1.6.43-ok1) ...
+ 23s Setting up libzvbi-dev:riscv64 (0.2.42-2ok1) ...
+ 23s Setting up zvbi (0.2.42-2ok1) ...
+ 23s Running in chroot, ignoring command 'daemon-reload'
+ 23s Running in chroot, ignoring request.
+ 23s Running in chroot, ignoring command 'show'
+ 23s Setting up autopkgtest-satdep (0) ...
+ 23s Processing triggers for man-db (2.10.2-2) ...
+ 24s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi0t64'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-dev'], kind short, sout pipe, serr pipe, env []
+ 25s autopkgtest: DBG: testbed command exited with code 0
+ 25s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-common'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-doc'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'zvbi'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 26s autopkgtest: DBG: testbed command exited with code 0
+ 26s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 29s autopkgtest: DBG: testbed command exited with code 0
+ 29s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libzvbi-doc libjs-jquery libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libzvbi-dev libpng-dev libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev zvbi
+ 29s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 30s autopkgtest: DBG: testbed command exited with code 0
+ 30s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 31s autopkgtest: DBG: testbed command exited with code 0
+ 31s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 32s autopkgtest: DBG: testbed command exited with code 0
+ 32s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 33s autopkgtest: DBG: testbed command exited with code 0
+ 33s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libzvbi-doc', 'libjs-jquery', 'libkpathsea6', 'libkylin-chkname1'], kind short, sout raw, serr pipe, env []
+ 34s autopkgtest: DBG: testbed command exited with code 0
+ 34s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libkysdk-appcommon', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libzvbi-dev', 'libpng-dev', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa'], kind short, sout raw, serr pipe, env []
+ 35s autopkgtest: DBG: testbed command exited with code 0
+ 35s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev', 'zvbi'], kind short, sout raw, serr pipe, env []
+ 36s autopkgtest: DBG: testbed command exited with code 0
+ 36s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 36s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 36s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 37s (Reading database ... 194058 files and directories currently installed.)
+ 37s Removing autopkgtest-satdep (0) ...
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.ShVWbz/command1-packages.all"], kind short, sout raw, serr pipe, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command1-packages.all /home/hachi/openkylin_test/sharefolder/results/zvbi/command1-packages.all
+ 37s autopkgtest: DBG: got reply from testbed: ok
+ 37s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.ShVWbz/build.44h/src'], kind short, sout raw, serr raw, env []
+ 37s autopkgtest: DBG: testbed command exited with code 0
+ 37s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.ShVWbz/build.44h/src already exists
+ 37s autopkgtest [11:19:41]: test command1: zvbi-atsc-cc -h
+ 37s autopkgtest [11:19:41]: test command1: [-----------------------
+ 37s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', "set -e; exec /tmp/autopkgtest.ShVWbz/wrapper.sh --debug --artifacts=/tmp/autopkgtest.ShVWbz/command1-artifacts --chdir=/tmp/autopkgtest.ShVWbz/build.44h/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.ShVWbz/command1-stderr --stdout=/tmp/autopkgtest.ShVWbz/command1-stdout --tmp=/tmp/autopkgtest.ShVWbz/autopkgtest_tmp -- bash -ec 'zvbi-atsc-cc -h'"], kind test, sout raw, serr raw, env []
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.ShVWbz/command1-artifacts
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: changing to directory: /tmp/autopkgtest.ShVWbz/build.44h/src
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: LANG=C.UTF-8
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LANGUAGE
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_ADDRESS
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_ALL
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_COLLATE
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_CTYPE
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MESSAGES
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MONETARY
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_NAME
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_NUMERIC
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_PAPER
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_TIME
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: pretending to be a login shell
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: will write standard error to /tmp/autopkgtest.ShVWbz/command1-stderr
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: will write stdout to /tmp/autopkgtest.ShVWbz/command1-stdout
+ 37s /tmp/autopkgtest.ShVWbz/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.ShVWbz/autopkgtest_tmp
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: command to run: bash -ec zvbi-atsc-cc -h
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: copying /tmp/tmp.u2rNkR8rYB/out to stdout and file: /tmp/autopkgtest.ShVWbz/command1-stdout
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: copying /tmp/tmp.u2rNkR8rYB/err to standard error and file: /tmp/autopkgtest.ShVWbz/command1-stdout
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: writing script pid 1841293 to /tmp/autopkgtest_script_pid
+ 38s ATSC-CC 0.5 -- ATSC Closed Caption and XDS decoder
+ 38s Copyright (C) 2008 Michael H. Schimek <mschimek@users.sf.net>
+ 38s Based on code by Mike Baker, Mark K. Kim and timecop@japan.co.jp.
+ 38s This program is licensed under GPL 2 or later. NO WARRANTIES.
+ 38s 
+ 38s Usage: zvbi-atsc-cc [options] [-n] station name
+ 38s Options:
+ 38s -? | -h | --help | --usage     Print this message, then terminate
+ 38s -1 ... -4 | --cc1-file ... --cc4-file file name
+ 38s                                Append CC1 ... CC4 to this file
+ 38s -5 ... -8 | --t1-file ... --t4-file file name
+ 38s                                Append T1 ... T4 to this file
+ 38s -9 ... -0 | --s1-file ... --s2-file file name
+ 38s                                Append DTVCC service 1 ... 2 to this file
+ 38s -a | --adapter-num number      DVB device adapter [0]
+ 38s -b | --no-webtv                Do not print WebTV links
+ 38s -c | --cc                      Print Closed Caption (includes WebTV)
+ 38s -d | --demux-id number         DVB device demultiplexer [0]
+ 38s -e | --channel-conf file name  Channel config. file [~/.azap/channels.conf]
+ 38s -f | --filter type[,type]*     Select XDS info: all, call, desc, length,
+ 38s                                network, rating, time, timecode, timezone,
+ 38s                                title. Multiple -f options accumulate. [all]
+ 38s -i | --frontend-id number      DVB device frontend [0]
+ 38s -j | --format type             Print caption in 'plain' encoding, with
+ 38s                                'vt100' control codes or like the 'ntsc-cc'
+ 38s                                tool [ntsc-cc].
+ 38s -l | --channel number          Select caption channel 1 ... 4 [nothing]
+ 38s -m | --timestamps              Prepend timestamps to caption lines
+ 38s -n | --station name            Station name. Usually the -n can be omitted
+ 38s -q | --quiet		       Suppress all progress and error messages
+ 38s -p | --plain                   Same as -j plain.
+ 38s -r | --dvr-id number           DVB device dvr [0]
+ 38s -s | --sentences               Decode caption by sentences
+ 38s -v | --verbose                 Increase verbosity
+ 38s -x | --xds                     Print XDS info
+ 38s -C | --cc-file file name       Append all caption to this file [stdout]
+ 38s -L | --list                    List all TV stations in the channel
+ 38s                                configuration file
+ 38s -S | --stream-time
+ 38s -Sdate | --stream-time=date    Prepend timestamps to caption lines counting
+ 38s                                from the beginning of the video stream plus
+ 38s                                an optional date in format YYYYMMDDHHMMSS
+ 38s -T | --ts                      Decode a DVB Transport Stream on stdin
+ 38s                                instead of opening a DVB device
+ 38s -X | --xds-file file name      Append XDS info to this file [stdout]
+ 38s 
+ 38s To record data from multiple stations sharing a transponder frequency
+ 38s you can specify caption options and a station name repeatedly.
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: checking for leaked background processes...
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: waiting for tee/cat subprocesses...
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: cleaning up...
+ 38s /tmp/autopkgtest.ShVWbz/wrapper.sh: Exit status: 0
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest [11:19:42]: test command1: -----------------------]
+ 38s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 38s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command1-stdout /home/hachi/openkylin_test/sharefolder/results/zvbi/command1-stdout
+ 38s autopkgtest: DBG: got reply from testbed: ok
+ 38s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command1-stderr /home/hachi/openkylin_test/sharefolder/results/zvbi/command1-stderr
+ 38s autopkgtest: DBG: got reply from testbed: ok
+ 38s autopkgtest [11:19:42]: test command1:  - - - - - - - - - - results - - - - - - - - - -
+ 38s command1             PASS
+ 38s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command1-artifacts/ /home/hachi/openkylin_test/sharefolder/results/zvbi/artifacts/
+ 38s autopkgtest: DBG: got reply from testbed: ok
+ 38s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.ShVWbz/command1-artifacts', '/tmp/autopkgtest.ShVWbz/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest [11:19:42]: test command2: preparing testbed
+ 38s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi'], deps_new=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi']
+ 38s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 38s autopkgtest: DBG: install_deps: deps_new=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi']
+ 38s autopkgtest: DBG: install-deps: satisfying libzvbi0t64, libzvbi-dev, libzvbi-common, libzvbi-doc, zvbi
+ 38s autopkgtest: DBG: install-deps: architecture resolved: libzvbi0t64, libzvbi-dev, libzvbi-common, libzvbi-doc, zvbi
+ 38s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 38s autopkgtest: DBG: testbed command exited with code 0
+ 38s autopkgtest: DBG: can use apt-get on testbed: True
+ 39s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+ 39s autopkgtest: DBG: testbed command exited with code 0
+ 39s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-bc4a2cab-7043-428a-b3cf-fb49f06cc31a//tmp/autopkgtest.ShVWbz/2-autopkgtest-satdep.deb /tmp/autopkgtest.ShVWbz/2-autopkgtest-satdep.deb
+ 39s autopkgtest: DBG: got reply from testbed: ok
+ 39s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.ShVWbz/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 40s Reading package lists...
+ 40s Building dependency tree...
+ 40s Reading state information...
+ 41s Starting pkgProblemResolver with broken count: 0
+ 41s Starting 2 pkgProblemResolver with broken count: 0
+ 41s Done
+ 42s The following NEW packages will be installed:
+ 42s   autopkgtest-satdep
+ 42s 0 upgraded, 1 newly installed, 0 to remove and 1065 not upgraded.
+ 42s Need to get 0 B/724 B of archives.
+ 42s After this operation, 0 B of additional disk space will be used.
+ 42s Get:1 /tmp/autopkgtest.ShVWbz/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [724 B]
+ 44s Selecting previously unselected package autopkgtest-satdep.
+ 44s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 44s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 44s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194058 files and directories currently installed.)
+ 44s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 44s Unpacking autopkgtest-satdep (0) ...
+ 44s Setting up autopkgtest-satdep (0) ...
+ 45s autopkgtest: DBG: testbed command exited with code 0
+ 45s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi0t64'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-dev'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-common'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-doc'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'zvbi'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 49s autopkgtest: DBG: testbed command exited with code 0
+ 49s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 49s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 49s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 50s (Reading database ... 194058 files and directories currently installed.)
+ 50s Removing autopkgtest-satdep (0) ...
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.ShVWbz/command2-packages.all"], kind short, sout raw, serr pipe, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command2-packages.all /home/hachi/openkylin_test/sharefolder/results/zvbi/command2-packages.all
+ 50s autopkgtest: DBG: got reply from testbed: ok
+ 50s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.ShVWbz/build.44h/src'], kind short, sout raw, serr raw, env []
+ 50s autopkgtest: DBG: testbed command exited with code 0
+ 50s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.ShVWbz/build.44h/src already exists
+ 50s autopkgtest [11:19:54]: test command2: zvbi-ntsc-cc -h
+ 50s autopkgtest [11:19:54]: test command2: [-----------------------
+ 50s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', "set -e; exec /tmp/autopkgtest.ShVWbz/wrapper.sh --debug --artifacts=/tmp/autopkgtest.ShVWbz/command2-artifacts --chdir=/tmp/autopkgtest.ShVWbz/build.44h/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.ShVWbz/command2-stderr --stdout=/tmp/autopkgtest.ShVWbz/command2-stdout --tmp=/tmp/autopkgtest.ShVWbz/autopkgtest_tmp -- bash -ec 'zvbi-ntsc-cc -h'"], kind test, sout raw, serr raw, env []
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.ShVWbz/command2-artifacts
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: changing to directory: /tmp/autopkgtest.ShVWbz/build.44h/src
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: LANG=C.UTF-8
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LANGUAGE
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_ADDRESS
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_ALL
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_COLLATE
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_CTYPE
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MESSAGES
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MONETARY
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_NAME
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_NUMERIC
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_PAPER
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_TIME
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: pretending to be a login shell
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: will write standard error to /tmp/autopkgtest.ShVWbz/command2-stderr
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: will write stdout to /tmp/autopkgtest.ShVWbz/command2-stdout
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.ShVWbz/autopkgtest_tmp
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: command to run: bash -ec zvbi-ntsc-cc -h
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: copying /tmp/tmp.lxwntPReT3/out to stdout and file: /tmp/autopkgtest.ShVWbz/command2-stdout
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: copying /tmp/tmp.lxwntPReT3/err to standard error and file: /tmp/autopkgtest.ShVWbz/command2-stdout
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: writing script pid 1841417 to /tmp/autopkgtest_script_pid
+ 51s CCDecoder 0.13 -- Closed Caption and XDS decoder
+ 51s Copyright (C) 2003-2007 Mike Baker, Mark K. Kim, Michael H. Schimek
+ 51s <mschimek@users.sf.net>; Based on code by timecop@japan.co.jp.
+ 51s This program is licensed under GPL 2 or later. NO WARRANTIES.
+ 51s 
+ 51s Usage: zvbi-ntsc-cc [options]
+ 51s Options:
+ 51s -? | -h | --help | --usage  Print this message and exit
+ 51s -1 ... -4 | --cc1-file ... --cc4-file filename
+ 51s                             Append caption channel CC1 ... CC4 to this file
+ 51s -b | --no-webtv             Do not print WebTV links
+ 51s -c | --cc                   Print Closed Caption (includes WebTV)
+ 51s -d | --device filename      VBI device [/dev/vbi]
+ 51s -f | --filter type[,type]*  Select XDS info: all, call, desc, length,
+ 51s                             network, rating, time, timecode, timezone,
+ 51s                             title. Multiple -f options accumulate. [all]
+ 51s -k | --keyword string       Break caption line at this word (broken?).
+ 51s                             Multiple -k options accumulate.
+ 51s -l | --channel number       Select caption channel 1 ... 4 [no filter]
+ 51s -p | --plain-ascii          Print plain ASCII, else insert VT.100 color,
+ 51s                             italic and underline control codes
+ 51s -r | --raw line-number      Dump raw VBI data
+ 51s -s | --sentences            Decode caption by sentences
+ 51s -v | --verbose              Increase verbosity
+ 51s -w | --window               Open debugging window (with -r option)
+ 51s -x | --xds                  Print XDS info
+ 51s -C | --cc-file filename     Append all caption to this file [stdout]
+ 51s -R | --semi-raw             Dump semi-raw VBI data (with -r option)
+ 51s -S | --v4l2-sliced          Capture sliced (not raw) VBI data [raw]
+ 51s -X | --xds-file filename    Append XDS info to this file [stdout]
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: checking for leaked background processes...
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: waiting for tee/cat subprocesses...
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: cleaning up...
+ 51s /tmp/autopkgtest.ShVWbz/wrapper.sh: Exit status: 0
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest [11:19:55]: test command2: -----------------------]
+ 51s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 51s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command2-stdout /home/hachi/openkylin_test/sharefolder/results/zvbi/command2-stdout
+ 51s autopkgtest: DBG: got reply from testbed: ok
+ 51s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command2-stderr /home/hachi/openkylin_test/sharefolder/results/zvbi/command2-stderr
+ 51s autopkgtest: DBG: got reply from testbed: ok
+ 51s autopkgtest [11:19:55]: test command2:  - - - - - - - - - - results - - - - - - - - - -
+ 51s command2             PASS
+ 51s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command2-artifacts/ /home/hachi/openkylin_test/sharefolder/results/zvbi/artifacts/
+ 51s autopkgtest: DBG: got reply from testbed: ok
+ 51s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.ShVWbz/command2-artifacts', '/tmp/autopkgtest.ShVWbz/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest [11:19:55]: test command3: preparing testbed
+ 51s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi'], deps_new=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi', 'debhelper']
+ 51s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 51s autopkgtest: DBG: install_deps: deps_new=['libzvbi0t64', 'libzvbi-dev', 'libzvbi-common', 'libzvbi-doc', 'zvbi', 'debhelper']
+ 51s autopkgtest: DBG: install-deps: satisfying libzvbi0t64, libzvbi-dev, libzvbi-common, libzvbi-doc, zvbi, debhelper
+ 51s autopkgtest: DBG: install-deps: architecture resolved: libzvbi0t64, libzvbi-dev, libzvbi-common, libzvbi-doc, zvbi, debhelper
+ 51s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 51s autopkgtest: DBG: testbed command exited with code 0
+ 51s autopkgtest: DBG: can use apt-get on testbed: True
+ 52s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.ShVWbz'], kind short, sout raw, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-bc4a2cab-7043-428a-b3cf-fb49f06cc31a//tmp/autopkgtest.ShVWbz/3-autopkgtest-satdep.deb /tmp/autopkgtest.ShVWbz/3-autopkgtest-satdep.deb
+ 52s autopkgtest: DBG: got reply from testbed: ok
+ 52s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.ShVWbz/3-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 53s Reading package lists...
+ 53s Building dependency tree...
+ 53s Reading state information...
+ 54s Starting pkgProblemResolver with broken count: 0
+ 54s Starting 2 pkgProblemResolver with broken count: 0
+ 54s Done
+ 55s The following additional packages will be installed:
+ 55s   autoconf automake autopoint autotools-dev debhelper dh-autoreconf
+ 55s   dh-strip-nondeterminism dwz gettext gettext-base intltool-debian
+ 55s   libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl
+ 55s   libsub-override-perl libtool libunistring5 m4 po-debconf
+ 55s Suggested packages:
+ 55s   autoconf-archive gnu-standards autoconf-doc dh-make gettext-doc
+ 55s   libasprintf-dev libgettextpo-dev libtool-doc gfortran | fortran95-compiler
+ 55s   gcj-jdk m4-doc libmail-box-perl
+ 55s Recommended packages:
+ 55s   libarchive-cpio-perl libltdl-dev libmail-sendmail-perl
+ 55s The following NEW packages will be installed:
+ 55s   autoconf automake autopkgtest-satdep autopoint autotools-dev debhelper
+ 55s   dh-autoreconf dh-strip-nondeterminism dwz intltool-debian
+ 55s   libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl
+ 55s   libsub-override-perl libtool libunistring5 m4 po-debconf
+ 55s The following packages will be upgraded:
+ 55s   gettext gettext-base
+ 55s 2 upgraded, 18 newly installed, 0 to remove and 1063 not upgraded.
+ 55s Need to get 5,173 kB/5,174 kB of archives.
+ 55s After this operation, 10.9 MB of additional disk space will be used.
+ 55s Get:1 /tmp/autopkgtest.ShVWbz/3-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [732 B]
+ 55s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext-base riscv64 0.22-ok3 [81.1 kB]
+ 55s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 m4 riscv64 1.4.19-ok1 [259 kB]
+ 55s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 autoconf all 2.71-ok2 [390 kB]
+ 55s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 autotools-dev all 20220506-ok1 [41.6 kB]
+ 55s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 automake all 1:1.16.5-ok1 [557 kB]
+ 56s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libunistring5 riscv64 1.1-ok1 [540 kB]
+ 56s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 gettext riscv64 0.22-ok3 [1,190 kB]
+ 56s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 autopoint all 0.22-ok3 [424 kB]
+ 57s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdebhelper-perl all 13.15.3-ok1 [66.0 kB]
+ 57s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libtool all 2.4.7-ok2 [164 kB]
+ 57s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-autoreconf all 20-ok1 [16.3 kB]
+ 57s Get:13 http://archive.build.openkylin.top/openkylin nile/main riscv64 libarchive-zip-perl all 1.68-ok1 [90.7 kB]
+ 57s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsub-override-perl all 0.10-ok1 [9,172 B]
+ 57s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 libfile-stripnondeterminism-perl all 1.13.1-ok1 [16.3 kB]
+ 57s Get:16 http://archive.build.openkylin.top/openkylin nile/main riscv64 dh-strip-nondeterminism all 1.13.1-ok1 [5,324 B]
+ 57s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 dwz riscv64 0.15-1ok1 [113 kB]
+ 57s Get:18 http://archive.build.openkylin.top/openkylin nile/main riscv64 intltool-debian all 0.35.0+20060710.5-ok2 [23.2 kB]
+ 57s Get:19 http://archive.build.openkylin.top/openkylin nile/main riscv64 po-debconf all 1.0.21+nmu1-ok1 [227 kB]
+ 57s Get:20 http://archive.build.openkylin.top/openkylin nile/main riscv64 debhelper all 13.15.3-ok1 [959 kB]
+ 59s Fetched 5,173 kB in 2s (2,115 kB/s)
+ 59s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 59s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 59s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 59s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 59s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 59s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 60s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 194058 files and directories currently installed.)
+ 60s Preparing to unpack .../00-gettext-base_0.22-ok3_riscv64.deb ...
+ 60s Unpacking gettext-base (0.22-ok3) over (0.21-4-ok6) ...
+ 60s Selecting previously unselected package m4.
+ 60s Preparing to unpack .../01-m4_1.4.19-ok1_riscv64.deb ...
+ 60s Unpacking m4 (1.4.19-ok1) ...
+ 61s Selecting previously unselected package autoconf.
+ 61s Preparing to unpack .../02-autoconf_2.71-ok2_all.deb ...
+ 61s Unpacking autoconf (2.71-ok2) ...
+ 61s Selecting previously unselected package autotools-dev.
+ 61s Preparing to unpack .../03-autotools-dev_20220506-ok1_all.deb ...
+ 61s Unpacking autotools-dev (20220506-ok1) ...
+ 61s Selecting previously unselected package automake.
+ 62s Preparing to unpack .../04-automake_1%3a1.16.5-ok1_all.deb ...
+ 62s Unpacking automake (1:1.16.5-ok1) ...
+ 62s Selecting previously unselected package libunistring5:riscv64.
+ 62s Preparing to unpack .../05-libunistring5_1.1-ok1_riscv64.deb ...
+ 62s Unpacking libunistring5:riscv64 (1.1-ok1) ...
+ 62s Preparing to unpack .../06-gettext_0.22-ok3_riscv64.deb ...
+ 62s Unpacking gettext (0.22-ok3) over (0.21-4-ok5) ...
+ 63s Selecting previously unselected package autopoint.
+ 63s Preparing to unpack .../07-autopoint_0.22-ok3_all.deb ...
+ 63s Unpacking autopoint (0.22-ok3) ...
+ 64s Selecting previously unselected package libdebhelper-perl.
+ 64s Preparing to unpack .../08-libdebhelper-perl_13.15.3-ok1_all.deb ...
+ 64s Unpacking libdebhelper-perl (13.15.3-ok1) ...
+ 64s Selecting previously unselected package libtool.
+ 64s Preparing to unpack .../09-libtool_2.4.7-ok2_all.deb ...
+ 64s Unpacking libtool (2.4.7-ok2) ...
+ 64s Selecting previously unselected package dh-autoreconf.
+ 64s Preparing to unpack .../10-dh-autoreconf_20-ok1_all.deb ...
+ 64s Unpacking dh-autoreconf (20-ok1) ...
+ 65s Selecting previously unselected package libarchive-zip-perl.
+ 65s Preparing to unpack .../11-libarchive-zip-perl_1.68-ok1_all.deb ...
+ 65s Unpacking libarchive-zip-perl (1.68-ok1) ...
+ 65s Selecting previously unselected package libsub-override-perl.
+ 65s Preparing to unpack .../12-libsub-override-perl_0.10-ok1_all.deb ...
+ 65s Unpacking libsub-override-perl (0.10-ok1) ...
+ 65s Selecting previously unselected package libfile-stripnondeterminism-perl.
+ 65s Preparing to unpack .../13-libfile-stripnondeterminism-perl_1.13.1-ok1_all.deb ...
+ 65s Unpacking libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 65s Selecting previously unselected package dh-strip-nondeterminism.
+ 65s Preparing to unpack .../14-dh-strip-nondeterminism_1.13.1-ok1_all.deb ...
+ 65s Unpacking dh-strip-nondeterminism (1.13.1-ok1) ...
+ 66s Selecting previously unselected package dwz.
+ 66s Preparing to unpack .../15-dwz_0.15-1ok1_riscv64.deb ...
+ 66s Unpacking dwz (0.15-1ok1) ...
+ 66s Selecting previously unselected package intltool-debian.
+ 66s Preparing to unpack .../16-intltool-debian_0.35.0+20060710.5-ok2_all.deb ...
+ 66s Unpacking intltool-debian (0.35.0+20060710.5-ok2) ...
+ 66s Selecting previously unselected package po-debconf.
+ 66s Preparing to unpack .../17-po-debconf_1.0.21+nmu1-ok1_all.deb ...
+ 66s Unpacking po-debconf (1.0.21+nmu1-ok1) ...
+ 66s Selecting previously unselected package debhelper.
+ 66s Preparing to unpack .../18-debhelper_13.15.3-ok1_all.deb ...
+ 66s Unpacking debhelper (13.15.3-ok1) ...
+ 68s Selecting previously unselected package autopkgtest-satdep.
+ 68s Preparing to unpack .../19-3-autopkgtest-satdep.deb ...
+ 68s Unpacking autopkgtest-satdep (0) ...
+ 68s Setting up libarchive-zip-perl (1.68-ok1) ...
+ 68s Setting up libdebhelper-perl (13.15.3-ok1) ...
+ 68s Setting up gettext-base (0.22-ok3) ...
+ 68s Setting up m4 (1.4.19-ok1) ...
+ 68s Setting up autotools-dev (20220506-ok1) ...
+ 68s Setting up libunistring5:riscv64 (1.1-ok1) ...
+ 68s Setting up autopoint (0.22-ok3) ...
+ 68s Setting up autoconf (2.71-ok2) ...
+ 68s Setting up dwz (0.15-1ok1) ...
+ 68s Setting up libsub-override-perl (0.10-ok1) ...
+ 68s Setting up automake (1:1.16.5-ok1) ...
+ 68s update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+ 68s Setting up libfile-stripnondeterminism-perl (1.13.1-ok1) ...
+ 68s Setting up gettext (0.22-ok3) ...
+ 68s Setting up libtool (2.4.7-ok2) ...
+ 68s Setting up intltool-debian (0.35.0+20060710.5-ok2) ...
+ 68s Setting up dh-autoreconf (20-ok1) ...
+ 68s Setting up dh-strip-nondeterminism (1.13.1-ok1) ...
+ 68s Setting up po-debconf (1.0.21+nmu1-ok1) ...
+ 69s Setting up debhelper (13.15.3-ok1) ...
+ 69s Setting up autopkgtest-satdep (0) ...
+ 69s Processing triggers for man-db (2.10.2-2) ...
+ 69s Processing triggers for install-info (6.8-6ok1.1) ...
+ 70s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 71s autopkgtest: DBG: testbed command exited with code 0
+ 71s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi0t64'], kind short, sout pipe, serr pipe, env []
+ 71s autopkgtest: DBG: testbed command exited with code 0
+ 71s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-dev'], kind short, sout pipe, serr pipe, env []
+ 71s autopkgtest: DBG: testbed command exited with code 0
+ 71s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-common'], kind short, sout pipe, serr pipe, env []
+ 71s autopkgtest: DBG: testbed command exited with code 0
+ 71s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libzvbi-doc'], kind short, sout pipe, serr pipe, env []
+ 71s autopkgtest: DBG: testbed command exited with code 0
+ 71s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'zvbi'], kind short, sout pipe, serr pipe, env []
+ 72s autopkgtest: DBG: testbed command exited with code 0
+ 72s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 72s autopkgtest: DBG: testbed command exited with code 0
+ 72s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 75s autopkgtest: DBG: testbed command exited with code 0
+ 75s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 75s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 75s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 75s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 75s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 75s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 75s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 75s (Reading database ... 195051 files and directories currently installed.)
+ 75s Removing autopkgtest-satdep (0) ...
+ 76s autopkgtest: DBG: testbed command exited with code 0
+ 76s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 76s autopkgtest: DBG: testbed command exited with code 0
+ 76s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.ShVWbz/command3-packages.all"], kind short, sout raw, serr pipe, env []
+ 76s autopkgtest: DBG: testbed command exited with code 0
+ 76s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command3-packages.all /home/hachi/openkylin_test/sharefolder/results/zvbi/command3-packages.all
+ 76s autopkgtest: DBG: got reply from testbed: ok
+ 76s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.ShVWbz/build.44h/src'], kind short, sout raw, serr raw, env []
+ 76s autopkgtest: DBG: testbed command exited with code 0
+ 76s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.ShVWbz/build.44h/src already exists
+ 76s autopkgtest [11:20:20]: test command3: dh_auto_test
+ 76s autopkgtest [11:20:20]: test command3: [-----------------------
+ 76s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.ShVWbz/wrapper.sh --debug --artifacts=/tmp/autopkgtest.ShVWbz/command3-artifacts --chdir=/tmp/autopkgtest.ShVWbz/build.44h/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.ShVWbz/command3-stderr --stdout=/tmp/autopkgtest.ShVWbz/command3-stdout --tmp=/tmp/autopkgtest.ShVWbz/autopkgtest_tmp -- bash -ec dh_auto_test'], kind test, sout raw, serr raw, env []
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.ShVWbz/command3-artifacts
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: changing to directory: /tmp/autopkgtest.ShVWbz/build.44h/src
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: setting environment: LANG=C.UTF-8
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LANGUAGE
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_ADDRESS
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_ALL
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_COLLATE
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_CTYPE
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MESSAGES
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_MONETARY
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_NAME
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_NUMERIC
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_PAPER
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: unsetting environment: LC_TIME
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: pretending to be a login shell
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: will write standard error to /tmp/autopkgtest.ShVWbz/command3-stderr
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: will write stdout to /tmp/autopkgtest.ShVWbz/command3-stdout
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.ShVWbz/autopkgtest_tmp
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: command to run: bash -ec dh_auto_test
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: copying /tmp/tmp.LpucIOqJJt/out to stdout and file: /tmp/autopkgtest.ShVWbz/command3-stdout
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: copying /tmp/tmp.LpucIOqJJt/err to standard error and file: /tmp/autopkgtest.ShVWbz/command3-stdout
+ 76s /tmp/autopkgtest.ShVWbz/wrapper.sh: writing script pid 1841800 to /tmp/autopkgtest_script_pid
+ 77s /tmp/autopkgtest.ShVWbz/wrapper.sh: checking for leaked background processes...
+ 77s /tmp/autopkgtest.ShVWbz/wrapper.sh: waiting for tee/cat subprocesses...
+ 77s /tmp/autopkgtest.ShVWbz/wrapper.sh: cleaning up...
+ 77s /tmp/autopkgtest.ShVWbz/wrapper.sh: Exit status: 0
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest [11:20:21]: test command3: -----------------------]
+ 77s autopkgtest: DBG: testbed executing test finished with exit status 0
+ 77s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command3-stdout /home/hachi/openkylin_test/sharefolder/results/zvbi/command3-stdout
+ 77s autopkgtest: DBG: got reply from testbed: ok
+ 77s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command3-stderr /home/hachi/openkylin_test/sharefolder/results/zvbi/command3-stderr
+ 77s autopkgtest: DBG: got reply from testbed: ok
+ 77s autopkgtest [11:20:21]: test command3:  - - - - - - - - - - results - - - - - - - - - -
+ 77s command3             PASS
+ 77s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.ShVWbz/command3-artifacts/ /home/hachi/openkylin_test/sharefolder/results/zvbi/artifacts/
+ 77s autopkgtest: DBG: got reply from testbed: ok
+ 77s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.ShVWbz/command3-artifacts', '/tmp/autopkgtest.ShVWbz/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 77s autopkgtest [11:20:21]: @@@@@@@@@@@@@@@@@@@@ summary
+ 77s command1             PASS
+ 77s command2             PASS
+ 77s command3             PASS
+ 77s autopkgtest: DBG: testbed stop
+ 77s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.ShVWbz
+ 77s autopkgtest: DBG: sending command to testbed: close
+ 78s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 78s autopkgtest: DBG: got reply from testbed: ok
+ 78s autopkgtest: DBG: sending command to testbed: quit

@@ -1,0 +1,102 @@
+idn2_free(3)                                                             libidn2                                                            idn2_free(3)
+
+NAME
+       idn2_free - API function
+
+SYNOPSIS
+       #include <idn2.h>
+
+       void idn2_free(void * ptr);
+
+ARGUMENTS
+       void * ptr  pointer to deallocate
+
+DESCRIPTION
+       Call free(3) on the given pointer.
+
+       This  function  is typically only useful on systems where the library malloc heap is different from the library caller malloc heap, which happens
+       on Windows when the library is a separate DLL.
+
+REPORTING BUGS
+       Report bugs to <help-libidn@gnu.org>.
+       General guidelines for reporting bugs: https://www.gnu.org/gethelp/
+       Libidn2 home page: https://www.gnu.org/software/libidn2/
+
+COPYRIGHT
+       Copyright © 2002-2024 Simon Josefsson.
+       Copying and distribution of this file, with or without modification, are permitted in any medium without royalty provided  the  copyright  notice
+       and this notice are preserved.
+
+SEE ALSO
+       The  full documentation for libidn2 is maintained as a Texinfo manual.  If the info and libidn2 programs are properly installed at your site, the
+       command
+
+              info libidn2
+
+       should give you access to the complete manual.  As an alternative you may obtain the manual from:
+
+              https://www.gnu.org/software/libidn/libidn2/manual/
+
+libidn2                                                                   2.3.7                                                             idn2_free(3)
+PASS: man
+------------------------------------------------------------------------------------------------
+                                          IDNA2008 Register
+
+  #  Result                    Output                    A-label input             U-label input
+------------------------------------------------------------------------------------------------
+  0  IDN2_OK                   xn--rksmrgs-5wao1o        xn--rksmrgs-5wao1o        räksmörgås
+  1  IDN2_OK                   xn--sharp-pqa             (null)                    sharpß
+  2  IDN2_OK                   xn--sharp-pqa             xn--sharp-pqa             sharpß
+  3  IDN2_INVALID_ALABEL                                 foo                       (null)
+  4  IDN2_OK                   foo                       (null)                    foo
+  5  IDN2_OK                   xn--rksmrgs-5wao1o        (null)                    räksmörgås
+  6  IDN2_CONTEXTO                                       (null)                    ·
+  7  IDN2_CONTEXTO                                       (null)                    a·
+  8  IDN2_CONTEXTO                                       (null)                    ·a
+  9  IDN2_CONTEXTO                                       (null)                    a·a
+ 10  IDN2_OK                   xn--ll-0ea                (null)                    l·l
+ 11  IDN2_OK                   xn--alla-6ha              (null)                    al·la
+ 12  IDN2_CONTEXTO                                       (null)                    ͵
+ 13  IDN2_CONTEXTO                                       (null)                    ͵a
+ 14  IDN2_CONTEXTO                                       (null)                    ͵a͵ϳ
+ 15  IDN2_CONTEXTO                                       (null)                    ͵ϳ͵a
+ 16  IDN2_OK                   xn--wva6w                 (null)                    ͵ϳ
+ 17  IDN2_OK                   xn--wvaa19ab              (null)                    ͵ϳ͵ϳ
+ 18  IDN2_CONTEXTO                                       (null)                    ׳
+ 19  IDN2_CONTEXTO                                       (null)                    a׳
+ 20  IDN2_CONTEXTO                                       (null)                    a׳א׳
+ 21  IDN2_CONTEXTO                                       (null)                    א׳a׳
+ 22  IDN2_OK                   xn--4db4e                 (null)                    א׳
+ 23  IDN2_OK                   xn--4dbbb9k               (null)                    בא׳ב
+ 24  IDN2_CONTEXTO                                       (null)                    ״
+ 25  IDN2_CONTEXTO                                       (null)                    a״
+ 26  IDN2_CONTEXTO                                       (null)                    a״א
+ 27  IDN2_OK                   xn--4db6e                 (null)                    א״
+ 28  IDN2_OK                   xn--4dbbb3l               (null)                    בא״ב
+ 29  IDN2_BIDI                                           (null)                    ٠
+ 30  IDN2_OK                   xn--ggb0k                 (null)                    ء٠
+ 31  IDN2_OK                   xn--ggb82b                (null)                    ء۰
+ 32  IDN2_OK                   xn--ggbaa4w               (null)                    ء٠ءء
+ 33  IDN2_CONTEXTO                                       (null)                    ء٠۰
+ 34  IDN2_CONTEXTO                                       (null)                    ء٠ءء۰
+ 35  IDN2_CONTEXTO                                       (null)                    ء۰ءء٠
+ 36  IDN2_CONTEXTO                                       (null)                    ٠ء۰ءء٠
+ 37  IDN2_CONTEXTO                                       (null)                    ・
+ 38  IDN2_CONTEXTO                                       (null)                    foo・
+ 39  IDN2_CONTEXTO                                       (null)                    foo・bar
+ 40  IDN2_OK                   xn--foobarbaz-b23h61e     (null)                    foo・barぁbaz
+ 41  IDN2_OK                   xn--foobarbaz-qu4h06a     (null)                    foo・barァbaz
+ 42  IDN2_OK                   xn--foobarbaz-ql3hk3g     (null)                    foo・bar〇baz
+ 43  IDN2_OK                   xn--foobarbaz-dl5hq7z     (null)                    foo・bar㐀baz
+ 44  IDN2_OK                   xn--foobarbaz-dl5hq7z     (null)                    foo・bar㐀baz
+ 45  IDN2_OK                   xn--dominiomuylargoconmuchas-olcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa xn--dominiomuylargoconmuchas-olcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa dominiomuylargoconmuchasññññññññññññññññññññññññññññññññ
+ 46  IDN2_TOO_BIG_LABEL                                  xn--dominiomuylargoconmuchas-olcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa dominiomuylargoconmuchasñññññññññññññññññññññññññññññññññ
+------------------------------------------------------------------------------------------------
+
+error_count: 0
+PASS: tests/test-register.c
+
+error_count: 0
+PASS: tests/test-strerror.c
+PASS: gcc
+PASS: run

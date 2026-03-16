@@ -1,0 +1,632 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [02:02:45]: starting date and time: 2024-07-19 02:02:45+0800
+  0s autopkgtest [02:02:45]: version @version@
+  0s autopkgtest [02:02:45]: host nana; command line: /usr/bin/autopkgtest shadow_4.14.3-ok3.5.dsc -o /home/hachi/openkylin_test/sharefolder/results/shadow -d -B -- schroot openkylin-2
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed open, scratch=None
+  1s autopkgtest: DBG: sending command to testbed: open
+  3s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.CYqHKn
+  3s autopkgtest: DBG: sending command to testbed: print-execute-command
+  3s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-9998bcf9-10f2-4e08-b27e-85b4453971b7,--user%3Droot,--
+  3s autopkgtest: DBG: sending command to testbed: capabilities
+  3s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-9998bcf9-10f2-4e08-b27e-85b4453971b7//tmp/autopkgtest.CYqHKn
+  3s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-9998bcf9-10f2-4e08-b27e-85b4453971b7//tmp/autopkgtest.CYqHKn', 'has_internet']
+  3s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYqHKn'], kind short, sout raw, serr pipe, env []
+  3s autopkgtest: DBG: testbed command exited with code 0
+  3s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.CYqHKn/wrapper.sh
+  3s autopkgtest: DBG: got reply from testbed: ok
+  3s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.CYqHKn/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [02:02:49]: testbed dpkg architecture: riscv64
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  4s autopkgtest: DBG: testbed command exited with code 0
+  4s autopkgtest [02:02:49]: testbed apt version: 2.7.3-ok3
+  4s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 127
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CYqHKn/testbed-packages"], kind short, sout raw, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/testbed-packages /home/hachi/openkylin_test/sharefolder/results/shadow/testbed-packages
+  5s autopkgtest: DBG: got reply from testbed: ok
+  5s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  5s autopkgtest: DBG: testbed command exited with code 0
+  5s autopkgtest [02:02:50]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  5s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: Binaries: initialising
+  6s autopkgtest [02:02:51]: @@@@@@@@@@@@@@@@@@@@ source shadow_4.14.3-ok3.5.dsc
+  6s autopkgtest: DBG: blame += shadow_4.14.3-ok3.5.dsc
+  6s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYqHKn'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown shadow_4.14.3-ok3.5.dsc /tmp/autopkgtest.CYqHKn/shadow_4.14.3-ok3.5.dsc
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYqHKn'], kind short, sout raw, serr pipe, env []
+  6s autopkgtest: DBG: testbed command exited with code 0
+  6s autopkgtest: DBG: sending command to testbed: copydown shadow_4.14.3.orig.tar.xz /tmp/autopkgtest.CYqHKn/shadow_4.14.3.orig.tar.xz
+  6s autopkgtest: DBG: got reply from testbed: ok
+  6s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYqHKn'], kind short, sout raw, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: sending command to testbed: copydown shadow_4.14.3-ok3.5.debian.tar.xz /tmp/autopkgtest.CYqHKn/shadow_4.14.3-ok3.5.debian.tar.xz
+  7s autopkgtest: DBG: got reply from testbed: ok
+  7s autopkgtest: DBG: install_deps: deps_new=[]
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  7s autopkgtest: DBG: testbed command exited with code 0
+  7s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.CYqHKn/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.CYqHKn/shadow_4.14.3-ok3.5.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  7s + cd /
+  7s + mktemp -d /tmp/autopkgtest.CYqHKn/build.XXX
+  7s + builddir=/tmp/autopkgtest.CYqHKn/build.Ofj
+  7s + cd /tmp/autopkgtest.CYqHKn/build.Ofj
+  7s + dpkg-source -x /tmp/autopkgtest.CYqHKn/shadow_4.14.3-ok3.5.dsc src
+  8s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  8s gpgv: keyblock resource '/tmp/dpkg-verify-sig.0my5pC0r/trustedkeys.kbx': General error
+  8s gpgv: Signature made Sat 11 May 2024 10:57:36 AM CST
+  8s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  8s gpgv: Can't check signature: No public key
+  8s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.CYqHKn/shadow_4.14.3-ok3.5.dsc
+  8s dpkg-source: info: extracting shadow in src
+  8s dpkg-source: info: unpacking shadow_4.14.3.orig.tar.xz
+  9s dpkg-source: info: unpacking shadow_4.14.3-ok3.5.debian.tar.xz
+  9s + chmod -R a+rX .
+  9s + cd src/.
+  9s + pwd
+  9s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  9s autopkgtest: DBG: testbed command exited with code 0
+  9s autopkgtest [02:02:54]: testing package shadow version 1:4.14.3-ok3.5
+  9s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/ /home/hachi/openkylin_test/sharefolder/results/shadow/pkg/debian/
+  9s autopkgtest: DBG: got reply from testbed: ok
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency passwd
+  9s autopkgtest: DBG: synthesised dependency login
+  9s autopkgtest: DBG: synthesised dependency uidmap
+  9s autopkgtest: DBG: synthesised dependency libsubid4
+  9s autopkgtest: DBG: synthesised dependency libsubid-dev
+  9s autopkgtest: DBG: Test defined: name smoke path debian/tests/smoke command "None" restrictions ['needs-root', 'superficial'] features [] depends ['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev'] 
+  9s autopkgtest: DBG: processing dependency @
+  9s autopkgtest: DBG: synthesised dependency passwd
+  9s autopkgtest: DBG: synthesised dependency login
+  9s autopkgtest: DBG: synthesised dependency uidmap
+  9s autopkgtest: DBG: synthesised dependency libsubid4
+  9s autopkgtest: DBG: synthesised dependency libsubid-dev
+  9s autopkgtest: DBG: Test defined: name numeric-username path debian/tests/numeric-username command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev'] 
+  9s autopkgtest [02:02:54]: build not needed
+  9s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/build.Ofj/src/ /home/hachi/openkylin_test/sharefolder/results/shadow/tests-tree/
+ 12s autopkgtest: DBG: got reply from testbed: ok
+ 12s autopkgtest: DBG: processing dependency @
+ 12s autopkgtest: DBG: synthesised dependency passwd
+ 12s autopkgtest: DBG: synthesised dependency login
+ 12s autopkgtest: DBG: synthesised dependency uidmap
+ 12s autopkgtest: DBG: synthesised dependency libsubid4
+ 12s autopkgtest: DBG: synthesised dependency libsubid-dev
+ 12s autopkgtest: DBG: Test defined: name smoke path debian/tests/smoke command "None" restrictions ['needs-root', 'superficial'] features [] depends ['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev'] 
+ 12s autopkgtest: DBG: processing dependency @
+ 12s autopkgtest: DBG: synthesised dependency passwd
+ 12s autopkgtest: DBG: synthesised dependency login
+ 12s autopkgtest: DBG: synthesised dependency uidmap
+ 12s autopkgtest: DBG: synthesised dependency libsubid4
+ 12s autopkgtest: DBG: synthesised dependency libsubid-dev
+ 12s autopkgtest: DBG: Test defined: name numeric-username path debian/tests/numeric-username command "None" restrictions ['allow-stderr', 'needs-root'] features [] depends ['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev'] 
+ 12s autopkgtest [02:02:57]: test smoke: preparing testbed
+ 12s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev']
+ 12s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 12s autopkgtest: DBG: install_deps: deps_new=['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev']
+ 12s autopkgtest: DBG: install-deps: satisfying passwd, login, uidmap, libsubid4, libsubid-dev
+ 12s autopkgtest: DBG: install-deps: architecture resolved: passwd, login, uidmap, libsubid4, libsubid-dev
+ 12s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 12s autopkgtest: DBG: testbed command exited with code 0
+ 12s autopkgtest: DBG: can use apt-get on testbed: True
+ 12s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYqHKn'], kind short, sout raw, serr pipe, env []
+ 13s autopkgtest: DBG: testbed command exited with code 0
+ 13s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-9998bcf9-10f2-4e08-b27e-85b4453971b7//tmp/autopkgtest.CYqHKn/1-autopkgtest-satdep.deb /tmp/autopkgtest.CYqHKn/1-autopkgtest-satdep.deb
+ 13s autopkgtest: DBG: got reply from testbed: ok
+ 13s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.CYqHKn/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 14s Reading package lists...
+ 14s Building dependency tree...
+ 14s Reading state information...
+ 15s Starting pkgProblemResolver with broken count: 0
+ 15s Starting 2 pkgProblemResolver with broken count: 0
+ 15s Done
+ 16s The following packages were automatically installed and are no longer required:
+ 16s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 16s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 16s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 16s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 16s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 16s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 16s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 16s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 16s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 16s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 16s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 16s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 16s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 16s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 16s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 16s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 16s   language-selector-common language-selector-gnome libatrildocument3
+ 16s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 16s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 16s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 16s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 16s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 16s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 16s   libkysdk-appcommon libmatemixer-common libmatemixer0 libmount-dev
+ 16s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 16s   libselinux1-dev libsepol-dev libsepol1 libsoup-gnome2.4-1 libspectre1
+ 16s   libsynctex2 libukui-appwidget-qmlplugin0 libunity-settings-daemon1
+ 16s   libwhoopsie0 nautilus-data pipewire-alsa pipewire-audio-client-libraries
+ 16s   pipewire-jack pkg-config pluma pluma-common python3-aptdaemon.gtk3widgets
+ 16s   python3-ibus-1.0 python3-xdg session-migration ukui-appwidget-manager
+ 16s   ukui-notebook ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 16s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 16s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 16s Use 'sudo apt autoremove' to remove them.
+ 16s The following additional packages will be installed:
+ 16s   libselinux1 libselinux1-dev libsemanage-common libsemanage2 libsepol-dev
+ 16s   libsepol2 libsubid-dev libsubid4 login passwd uidmap
+ 16s The following packages will be REMOVED:
+ 16s   libsemanage1
+ 16s The following NEW packages will be installed:
+ 16s   autopkgtest-satdep libsemanage2 libsubid-dev libsubid4 uidmap
+ 16s The following packages will be upgraded:
+ 16s   libselinux1 libselinux1-dev libsemanage-common libsepol-dev libsepol2 login
+ 16s   passwd
+ 16s 7 upgraded, 5 newly installed, 1 to remove and 1058 not upgraded.
+ 16s Need to get 3,136 kB/3,137 kB of archives.
+ 16s After this operation, 3,927 kB of additional disk space will be used.
+ 16s Get:1 /tmp/autopkgtest.CYqHKn/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+ 16s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 login riscv64 1:4.14.3-ok3.5 [456 kB]
+ 17s Get:3 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsepol2 riscv64 3.5-ok1 [258 kB]
+ 17s Get:4 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsepol-dev riscv64 3.5-ok1 [1,009 kB]
+ 17s Get:5 http://archive.build.openkylin.top/openkylin nile/main riscv64 libselinux1-dev riscv64 3.5-ok1 [248 kB]
+ 17s Get:6 http://archive.build.openkylin.top/openkylin nile/main riscv64 libselinux1 riscv64 3.5-ok1 [67.4 kB]
+ 18s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsemanage-common all 3.5-ok1 [8,336 B]
+ 18s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsemanage2 riscv64 3.5-ok1 [76.5 kB]
+ 18s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 passwd riscv64 1:4.14.3-ok3.5 [778 kB]
+ 18s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsubid4 riscv64 1:4.14.3-ok3.5 [51.3 kB]
+ 18s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libsubid-dev riscv64 1:4.14.3-ok3.5 [152 kB]
+ 18s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 uidmap riscv64 1:4.14.3-ok3.5 [32.3 kB]
+ 22s Fetched 3,136 kB in 2s (1,647 kB/s)
+ 22s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 22s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 23s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 23s Preparing to unpack .../login_1%3a4.14.3-ok3.5_riscv64.deb ...
+ 23s Unpacking login (1:4.14.3-ok3.5) over (1:4.8.1-ok2) ...
+ 25s Setting up login (1:4.14.3-ok3.5) ...
+ 25s Installing new version of config file /etc/login.defs ...
+ 25s Installing new version of config file /etc/pam.d/login ...
+ 26s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 26s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 26s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193818 files and directories currently installed.)
+ 26s Preparing to unpack .../libsepol2_3.5-ok1_riscv64.deb ...
+ 26s Unpacking libsepol2:riscv64 (3.5-ok1) over (3.4-ok2) ...
+ 27s Setting up libsepol2:riscv64 (3.5-ok1) ...
+ 27s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 27s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 28s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193818 files and directories currently installed.)
+ 28s Preparing to unpack .../libsepol-dev_3.5-ok1_riscv64.deb ...
+ 28s Unpacking libsepol-dev:riscv64 (3.5-ok1) over (3.4-ok2) ...
+ 29s Preparing to unpack .../libselinux1-dev_3.5-ok1_riscv64.deb ...
+ 29s Unpacking libselinux1-dev:riscv64 (3.5-ok1) over (3.4-ok2) ...
+ 30s Preparing to unpack .../libselinux1_3.5-ok1_riscv64.deb ...
+ 30s Unpacking libselinux1:riscv64 (3.5-ok1) over (3.4-ok2) ...
+ 31s Setting up libselinux1:riscv64 (3.5-ok1) ...
+ 31s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 31s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 32s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193825 files and directories currently installed.)
+ 32s Preparing to unpack .../libsemanage-common_3.5-ok1_all.deb ...
+ 32s Unpacking libsemanage-common (3.5-ok1) over (3.0-ok1) ...
+ 32s Setting up libsemanage-common (3.5-ok1) ...
+ 32s Installing new version of config file /etc/selinux/semanage.conf ...
+ 33s Selecting previously unselected package libsemanage2:riscv64.
+ 33s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 33s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 33s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193825 files and directories currently installed.)
+ 33s Preparing to unpack .../libsemanage2_3.5-ok1_riscv64.deb ...
+ 33s Unpacking libsemanage2:riscv64 (3.5-ok1) ...
+ 34s Setting up libsemanage2:riscv64 (3.5-ok1) ...
+ 34s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 34s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 34s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193829 files and directories currently installed.)
+ 34s Preparing to unpack .../passwd_1%3a4.14.3-ok3.5_riscv64.deb ...
+ 35s Unpacking passwd (1:4.14.3-ok3.5) over (1:4.8.1-ok2) ...
+ 37s Setting up passwd (1:4.14.3-ok3.5) ...
+ 37s Installing new version of config file /etc/default/useradd ...
+ 37s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 37s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 38s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193859 files and directories currently installed.)
+ 38s Removing libsemanage1:riscv64 (3.0-ok1) ...
+ 39s Selecting previously unselected package libsubid4:riscv64.
+ 39s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 39s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 39s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193855 files and directories currently installed.)
+ 39s Preparing to unpack .../libsubid4_1%3a4.14.3-ok3.5_riscv64.deb ...
+ 39s Unpacking libsubid4:riscv64 (1:4.14.3-ok3.5) ...
+ 40s Selecting previously unselected package libsubid-dev:riscv64.
+ 40s Preparing to unpack .../libsubid-dev_1%3a4.14.3-ok3.5_riscv64.deb ...
+ 40s Unpacking libsubid-dev:riscv64 (1:4.14.3-ok3.5) ...
+ 40s Selecting previously unselected package uidmap.
+ 40s Preparing to unpack .../uidmap_1%3a4.14.3-ok3.5_riscv64.deb ...
+ 40s Unpacking uidmap (1:4.14.3-ok3.5) ...
+ 41s Selecting previously unselected package autopkgtest-satdep.
+ 41s Preparing to unpack .../1-autopkgtest-satdep.deb ...
+ 41s Unpacking autopkgtest-satdep (0) ...
+ 41s Setting up libsubid4:riscv64 (1:4.14.3-ok3.5) ...
+ 41s Setting up libsepol-dev:riscv64 (3.5-ok1) ...
+ 41s Setting up libselinux1-dev:riscv64 (3.5-ok1) ...
+ 41s Setting up uidmap (1:4.14.3-ok3.5) ...
+ 41s Setting up libsubid-dev:riscv64 (1:4.14.3-ok3.5) ...
+ 41s Setting up autopkgtest-satdep (0) ...
+ 41s Processing triggers for man-db (2.10.2-2) ...
+ 43s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'passwd'], kind short, sout pipe, serr pipe, env []
+ 46s autopkgtest: DBG: testbed command exited with code 0
+ 46s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'login'], kind short, sout pipe, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'uidmap'], kind short, sout pipe, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libsubid4'], kind short, sout pipe, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libsubid-dev'], kind short, sout pipe, serr pipe, env []
+ 47s autopkgtest: DBG: testbed command exited with code 0
+ 47s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 48s autopkgtest: DBG: testbed command exited with code 0
+ 48s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 52s autopkgtest: DBG: testbed command exited with code 0
+ 52s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libglib2.0-dev-bin libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libmatemixer0 libmatemixer-common libmount-dev libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsepol1 libsoup-gnome2.4-1 libspectre1 libsubid-dev uidmap libsubid4 libsynctex2 libwhoopsie0 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 52s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+ 53s autopkgtest: DBG: testbed command exited with code 0
+ 53s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+ 55s autopkgtest: DBG: testbed command exited with code 0
+ 55s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+ 56s autopkgtest: DBG: testbed command exited with code 0
+ 56s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libenchant1c2a'], kind short, sout raw, serr pipe, env []
+ 57s autopkgtest: DBG: testbed command exited with code 0
+ 57s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libglib2.0-dev-bin', 'libgnome-panel0', 'libgsettings-qt-dev', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libmatemixer0'], kind short, sout raw, serr pipe, env []
+ 58s autopkgtest: DBG: testbed command exited with code 0
+ 58s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libmatemixer-common', 'libmount-dev', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsepol1', 'libsoup-gnome2.4-1', 'libspectre1', 'libsubid-dev', 'uidmap', 'libsubid4', 'libsynctex2', 'libwhoopsie0', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa'], kind short, sout raw, serr pipe, env []
+ 60s autopkgtest: DBG: testbed command exited with code 0
+ 60s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+ 61s autopkgtest: DBG: testbed command exited with code 0
+ 61s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 61s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 61s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 62s (Reading database ... 193879 files and directories currently installed.)
+ 62s Removing autopkgtest-satdep (0) ...
+ 62s autopkgtest: DBG: testbed command exited with code 0
+ 62s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 62s autopkgtest: DBG: testbed command exited with code 0
+ 62s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CYqHKn/smoke-packages.all"], kind short, sout raw, serr pipe, env []
+ 63s autopkgtest: DBG: testbed command exited with code 0
+ 63s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/smoke-packages.all /home/hachi/openkylin_test/sharefolder/results/shadow/smoke-packages.all
+ 63s autopkgtest: DBG: got reply from testbed: ok
+ 63s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.CYqHKn/build.Ofj/src'], kind short, sout raw, serr raw, env []
+ 63s autopkgtest: DBG: testbed command exited with code 0
+ 63s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.CYqHKn/build.Ofj/src already exists
+ 63s autopkgtest [02:03:48]: test smoke: [-----------------------
+ 63s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.CYqHKn/wrapper.sh --debug --artifacts=/tmp/autopkgtest.CYqHKn/smoke-artifacts --chdir=/tmp/autopkgtest.CYqHKn/build.Ofj/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.CYqHKn/smoke-stderr --stdout=/tmp/autopkgtest.CYqHKn/smoke-stdout --tmp=/tmp/autopkgtest.CYqHKn/autopkgtest_tmp --env=AUTOPKGTEST_NORMAL_USER= --env=ADT_NORMAL_USER= --make-executable=/tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/smoke -- /tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/smoke'], kind test, sout raw, serr raw, env []
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.CYqHKn/smoke-artifacts
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: changing to directory: /tmp/autopkgtest.CYqHKn/build.Ofj/src
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: LANG=C.UTF-8
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LANGUAGE
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_ADDRESS
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_ALL
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_COLLATE
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_CTYPE
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_MESSAGES
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_MONETARY
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_NAME
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_NUMERIC
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_PAPER
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_TIME
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: pretending to be a login shell
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: will write standard error to /tmp/autopkgtest.CYqHKn/smoke-stderr
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: will write stdout to /tmp/autopkgtest.CYqHKn/smoke-stdout
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.CYqHKn/autopkgtest_tmp
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: AUTOPKGTEST_NORMAL_USER=
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: ADT_NORMAL_USER=
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: marking as executable: /tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/smoke
+ 63s /tmp/autopkgtest.CYqHKn/wrapper.sh: command to run: /tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/smoke
+ 64s /tmp/autopkgtest.CYqHKn/wrapper.sh: copying /tmp/tmp.y0trHiy5se/out to stdout and file: /tmp/autopkgtest.CYqHKn/smoke-stdout
+ 64s /tmp/autopkgtest.CYqHKn/wrapper.sh: copying /tmp/tmp.y0trHiy5se/err to standard error and file: /tmp/autopkgtest.CYqHKn/smoke-stdout
+ 64s /tmp/autopkgtest.CYqHKn/wrapper.sh: writing script pid 1378546 to /tmp/autopkgtest_script_pid
+ 64s Adding an user works
+ 64s shadow-test-user:x:1001:1001::/home/shadow-test-user:/bin/sh
+ 64s shadow-test-user:!:19922:0:99999:7:::
+ 64s Removing an user works
+ 64s Adding an extrauser works
+ 64s useradd: unrecognized option '--extrausers'
+ 64s Usage: useradd [options] LOGIN
+ 64s        useradd -D
+ 64s        useradd -D [options]
+ 64s 
+ 64s Options:
+ 64s       --badname                 do not check for bad names
+ 64s   -b, --base-dir BASE_DIR       base directory for the home directory of the
+ 64s                                 new account
+ 64s       --btrfs-subvolume-home    use BTRFS subvolume for home directory
+ 64s   -c, --comment COMMENT         GECOS field of the new account
+ 64s   -d, --home-dir HOME_DIR       home directory of the new account
+ 64s   -D, --defaults                print or change default useradd configuration
+ 64s   -e, --expiredate EXPIRE_DATE  expiration date of the new account
+ 64s   -f, --inactive INACTIVE       password inactivity period of the new account
+ 64s   -F, --add-subids-for-system   add entries to sub[ud]id even when adding a system user
+ 64s   -g, --gid GROUP               name or ID of the primary group of the new
+ 64s                                 account
+ 64s   -G, --groups GROUPS           list of supplementary groups of the new
+ 64s                                 account
+ 64s   -h, --help                    display this help message and exit
+ 64s   -k, --skel SKEL_DIR           use this alternative skeleton directory
+ 64s   -K, --key KEY=VALUE           override /etc/login.defs defaults
+ 64s   -l, --no-log-init             do not add the user to the lastlog and
+ 64s                                 faillog databases
+ 64s   -m, --create-home             create the user's home directory
+ 64s   -M, --no-create-home          do not create the user's home directory
+ 64s   -N, --no-user-group           do not create a group with the same name as
+ 64s                                 the user
+ 64s   -o, --non-unique              allow to create users with duplicate
+ 64s                                 (non-unique) UID
+ 64s   -p, --password PASSWORD       encrypted password of the new account
+ 64s   -r, --system                  create a system account
+ 64s   -R, --root CHROOT_DIR         directory to chroot into
+ 64s   -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+ 64s   -s, --shell SHELL             login shell of the new account
+ 64s   -u, --uid UID                 user ID of the new account
+ 64s   -U, --user-group              create a group with the same name as the user
+ 64s   -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping
+ 64s       --selinux-range SERANGE   use a specific MLS range for the SELinux user mapping
+ 64s 
+ 64s /tmp/autopkgtest.CYqHKn/wrapper.sh: checking for leaked background processes...
+ 65s /tmp/autopkgtest.CYqHKn/wrapper.sh: waiting for tee/cat subprocesses...
+ 65s /tmp/autopkgtest.CYqHKn/wrapper.sh: cleaning up...
+ 65s /tmp/autopkgtest.CYqHKn/wrapper.sh: Exit status: 2
+ 65s autopkgtest: DBG: testbed command exited with code 2
+ 65s autopkgtest [02:03:50]: test smoke: -----------------------]
+ 65s autopkgtest: DBG: testbed executing test finished with exit status 2
+ 65s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/smoke-stdout /home/hachi/openkylin_test/sharefolder/results/shadow/smoke-stdout
+ 65s autopkgtest: DBG: got reply from testbed: ok
+ 65s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/smoke-stderr /home/hachi/openkylin_test/sharefolder/results/shadow/smoke-stderr
+ 65s autopkgtest: DBG: got reply from testbed: ok
+ 65s autopkgtest [02:03:50]: test smoke:  - - - - - - - - - - results - - - - - - - - - -
+ 65s smoke                FAIL non-zero exit status 2
+ 65s autopkgtest [02:03:50]: test smoke:  - - - - - - - - - - stderr - - - - - - - - - -
+ 65s useradd: unrecognized option '--extrausers'
+ 65s Usage: useradd [options] LOGIN
+ 65s        useradd -D
+ 65s        useradd -D [options]
+ 65s 
+ 65s Options:
+ 65s       --badname                 do not check for bad names
+ 65s   -b, --base-dir BASE_DIR       base directory for the home directory of the
+ 65s                                 new account
+ 65s       --btrfs-subvolume-home    use BTRFS subvolume for home directory
+ 65s   -c, --comment COMMENT         GECOS field of the new account
+ 65s   -d, --home-dir HOME_DIR       home directory of the new account
+ 65s   -D, --defaults                print or change default useradd configuration
+ 65s   -e, --expiredate EXPIRE_DATE  expiration date of the new account
+ 65s   -f, --inactive INACTIVE       password inactivity period of the new account
+ 65s   -F, --add-subids-for-system   add entries to sub[ud]id even when adding a system user
+ 65s   -g, --gid GROUP               name or ID of the primary group of the new
+ 65s                                 account
+ 65s   -G, --groups GROUPS           list of supplementary groups of the new
+ 65s                                 account
+ 65s   -h, --help                    display this help message and exit
+ 65s   -k, --skel SKEL_DIR           use this alternative skeleton directory
+ 65s   -K, --key KEY=VALUE           override /etc/login.defs defaults
+ 65s   -l, --no-log-init             do not add the user to the lastlog and
+ 65s                                 faillog databases
+ 65s   -m, --create-home             create the user's home directory
+ 65s   -M, --no-create-home          do not create the user's home directory
+ 65s   -N, --no-user-group           do not create a group with the same name as
+ 65s                                 the user
+ 65s   -o, --non-unique              allow to create users with duplicate
+ 65s                                 (non-unique) UID
+ 65s   -p, --password PASSWORD       encrypted password of the new account
+ 65s   -r, --system                  create a system account
+ 65s   -R, --root CHROOT_DIR         directory to chroot into
+ 65s   -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+ 65s   -s, --shell SHELL             login shell of the new account
+ 65s   -u, --uid UID                 user ID of the new account
+ 65s   -U, --user-group              create a group with the same name as the user
+ 65s   -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping
+ 65s       --selinux-range SERANGE   use a specific MLS range for the SELinux user mapping
+ 65s 
+ 65s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/smoke-artifacts/ /home/hachi/openkylin_test/sharefolder/results/shadow/artifacts/
+ 65s autopkgtest: DBG: got reply from testbed: ok
+ 65s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.CYqHKn/smoke-artifacts', '/tmp/autopkgtest.CYqHKn/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest [02:03:51]: test numeric-username: preparing testbed
+ 66s autopkgtest: DBG: testbed reset: modified=False, deps_installed=['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev'], deps_new=['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev']
+ 66s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 66s autopkgtest: DBG: install_deps: deps_new=['passwd', 'login', 'uidmap', 'libsubid4', 'libsubid-dev']
+ 66s autopkgtest: DBG: install-deps: satisfying passwd, login, uidmap, libsubid4, libsubid-dev
+ 66s autopkgtest: DBG: install-deps: architecture resolved: passwd, login, uidmap, libsubid4, libsubid-dev
+ 66s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: can use apt-get on testbed: True
+ 66s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.CYqHKn'], kind short, sout raw, serr pipe, env []
+ 66s autopkgtest: DBG: testbed command exited with code 0
+ 66s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-9998bcf9-10f2-4e08-b27e-85b4453971b7//tmp/autopkgtest.CYqHKn/2-autopkgtest-satdep.deb /tmp/autopkgtest.CYqHKn/2-autopkgtest-satdep.deb
+ 66s autopkgtest: DBG: got reply from testbed: ok
+ 66s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.CYqHKn/2-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 68s Reading package lists...
+ 68s Building dependency tree...
+ 68s Reading state information...
+ 69s Starting pkgProblemResolver with broken count: 0
+ 69s Starting 2 pkgProblemResolver with broken count: 0
+ 69s Done
+ 70s The following NEW packages will be installed:
+ 70s   autopkgtest-satdep
+ 70s 0 upgraded, 1 newly installed, 0 to remove and 1058 not upgraded.
+ 70s Need to get 0 B/728 B of archives.
+ 70s After this operation, 0 B of additional disk space will be used.
+ 70s Get:1 /tmp/autopkgtest.CYqHKn/2-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [728 B]
+ 73s Selecting previously unselected package autopkgtest-satdep.
+ 73s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 73s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 74s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193879 files and directories currently installed.)
+ 74s Preparing to unpack .../2-autopkgtest-satdep.deb ...
+ 74s Unpacking autopkgtest-satdep (0) ...
+ 74s Setting up autopkgtest-satdep (0) ...
+ 76s autopkgtest: DBG: testbed command exited with code 0
+ 76s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'passwd'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'login'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'uidmap'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libsubid4'], kind short, sout pipe, serr pipe, env []
+ 77s autopkgtest: DBG: testbed command exited with code 0
+ 77s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libsubid-dev'], kind short, sout pipe, serr pipe, env []
+ 78s autopkgtest: DBG: testbed command exited with code 0
+ 78s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 78s autopkgtest: DBG: testbed command exited with code 0
+ 78s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 82s autopkgtest: DBG: testbed command exited with code 0
+ 82s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+ 82s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 82s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 83s (Reading database ... 193879 files and directories currently installed.)
+ 83s Removing autopkgtest-satdep (0) ...
+ 83s autopkgtest: DBG: testbed command exited with code 0
+ 83s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+ 83s autopkgtest: DBG: testbed command exited with code 0
+ 83s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.CYqHKn/numeric-username-packages.all"], kind short, sout raw, serr pipe, env []
+ 84s autopkgtest: DBG: testbed command exited with code 0
+ 84s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/numeric-username-packages.all /home/hachi/openkylin_test/sharefolder/results/shadow/numeric-username-packages.all
+ 84s autopkgtest: DBG: got reply from testbed: ok
+ 84s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.CYqHKn/build.Ofj/src'], kind short, sout raw, serr raw, env []
+ 84s autopkgtest: DBG: testbed command exited with code 0
+ 84s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.CYqHKn/build.Ofj/src already exists
+ 84s autopkgtest [02:04:09]: test numeric-username: [-----------------------
+ 84s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.CYqHKn/wrapper.sh --debug --artifacts=/tmp/autopkgtest.CYqHKn/numeric-username-artifacts --chdir=/tmp/autopkgtest.CYqHKn/build.Ofj/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.CYqHKn/numeric-username-stderr --stdout=/tmp/autopkgtest.CYqHKn/numeric-username-stdout --tmp=/tmp/autopkgtest.CYqHKn/autopkgtest_tmp --env=AUTOPKGTEST_NORMAL_USER= --env=ADT_NORMAL_USER= --make-executable=/tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/numeric-username -- /tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/numeric-username'], kind test, sout raw, serr raw, env []
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.CYqHKn/numeric-username-artifacts
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: changing to directory: /tmp/autopkgtest.CYqHKn/build.Ofj/src
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: LANG=C.UTF-8
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LANGUAGE
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_ADDRESS
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_ALL
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_COLLATE
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_CTYPE
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_MEASUREMENT
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_MESSAGES
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_MONETARY
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_NAME
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_NUMERIC
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_PAPER
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_TELEPHONE
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: unsetting environment: LC_TIME
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: pretending to be a login shell
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: will write standard error to /tmp/autopkgtest.CYqHKn/numeric-username-stderr
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: will write stdout to /tmp/autopkgtest.CYqHKn/numeric-username-stdout
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.CYqHKn/autopkgtest_tmp
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: AUTOPKGTEST_NORMAL_USER=
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: setting environment: ADT_NORMAL_USER=
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: marking as executable: /tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/numeric-username
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: command to run: /tmp/autopkgtest.CYqHKn/build.Ofj/src/debian/tests/numeric-username
+ 84s /tmp/autopkgtest.CYqHKn/wrapper.sh: copying /tmp/tmp.7UBCIupGKP/out to stdout and file: /tmp/autopkgtest.CYqHKn/numeric-username-stdout
+ 85s /tmp/autopkgtest.CYqHKn/wrapper.sh: copying /tmp/tmp.7UBCIupGKP/err to standard error and file: /tmp/autopkgtest.CYqHKn/numeric-username-stdout
+ 85s /tmp/autopkgtest.CYqHKn/wrapper.sh: writing script pid 1378689 to /tmp/autopkgtest_script_pid
+ 85s + useradd 0
+ 85s useradd: invalid user name '0': use --badname to ignore
+ 85s + ret=3
+ 85s + [ 3 -eq 0 ]
+ 85s + useradd 00
+ 85s useradd: invalid user name '00': use --badname to ignore
+ 85s + ret=3
+ 85s + [ 3 -eq 0 ]
+ 85s + useradd 0123456789
+ 85s useradd: invalid user name '0123456789': use --badname to ignore
+ 85s + ret=3
+ 85s + [ 3 -eq 0 ]
+ 85s + useradd 0x0
+ 85s + ret=0
+ 85s + [ 0 -eq 0 ]
+ 85s + exit 1
+ 85s /tmp/autopkgtest.CYqHKn/wrapper.sh: checking for leaked background processes...
+ 85s /tmp/autopkgtest.CYqHKn/wrapper.sh: waiting for tee/cat subprocesses...
+ 85s /tmp/autopkgtest.CYqHKn/wrapper.sh: cleaning up...
+ 85s /tmp/autopkgtest.CYqHKn/wrapper.sh: Exit status: 1
+ 85s autopkgtest: DBG: testbed command exited with code 1
+ 86s autopkgtest [02:04:11]: test numeric-username: -----------------------]
+ 86s autopkgtest: DBG: testbed executing test finished with exit status 1
+ 86s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/numeric-username-stdout /home/hachi/openkylin_test/sharefolder/results/shadow/numeric-username-stdout
+ 86s autopkgtest: DBG: got reply from testbed: ok
+ 86s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/numeric-username-stderr /home/hachi/openkylin_test/sharefolder/results/shadow/numeric-username-stderr
+ 86s autopkgtest: DBG: got reply from testbed: ok
+ 86s autopkgtest [02:04:11]: test numeric-username:  - - - - - - - - - - results - - - - - - - - - -
+ 86s numeric-username     FAIL non-zero exit status 1
+ 86s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.CYqHKn/numeric-username-artifacts/ /home/hachi/openkylin_test/sharefolder/results/shadow/artifacts/
+ 86s autopkgtest: DBG: got reply from testbed: ok
+ 86s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.CYqHKn/numeric-username-artifacts', '/tmp/autopkgtest.CYqHKn/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+ 86s autopkgtest: DBG: testbed command exited with code 0
+ 86s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+ 86s autopkgtest [02:04:11]: @@@@@@@@@@@@@@@@@@@@ summary
+ 86s smoke                FAIL non-zero exit status 2
+ 86s numeric-username     FAIL non-zero exit status 1
+ 86s autopkgtest: DBG: testbed stop
+ 86s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.CYqHKn
+ 86s autopkgtest: DBG: sending command to testbed: close
+ 87s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+ 88s autopkgtest: DBG: got reply from testbed: ok
+ 88s autopkgtest: DBG: sending command to testbed: quit

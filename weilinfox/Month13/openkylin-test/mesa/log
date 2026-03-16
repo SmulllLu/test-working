@@ -1,0 +1,612 @@
+  0s autopkgtest: DBG: testbed init
+  0s autopkgtest [18:29:16]: starting date and time: 2024-07-18 18:29:16+0800
+  0s autopkgtest [18:29:16]: version @version@
+  0s autopkgtest [18:29:16]: host lili; command line: /usr/bin/autopkgtest mesa_24.0.5-ok1.dsc -o /home/hachi/openkylin_test/sharefolder/results/mesa -d -B -- schroot openkylin-2
+  0s autopkgtest: DBG: got reply from testbed: ok
+  0s autopkgtest: DBG: testbed open, scratch=None
+  0s autopkgtest: DBG: sending command to testbed: open
+  1s autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.05WU16
+  1s autopkgtest: DBG: sending command to testbed: print-execute-command
+  1s autopkgtest: DBG: got reply from testbed: ok schroot,--run-session,--quiet,--directory%3D/,--chroot,openkylin-2-4b02f07e-b8c0-4f35-b4d9-9c0b81cdcfe9,--user%3Droot,--
+  1s autopkgtest: DBG: sending command to testbed: capabilities
+  1s autopkgtest: DBG: got reply from testbed: ok revert root-on-testbed downtmp-host=/var/run/schroot/mount/openkylin-2-4b02f07e-b8c0-4f35-b4d9-9c0b81cdcfe9//tmp/autopkgtest.05WU16
+  1s autopkgtest: DBG: testbed capabilities: ['revert', 'root-on-testbed', 'downtmp-host=/var/run/schroot/mount/openkylin-2-4b02f07e-b8c0-4f35-b4d9-9c0b81cdcfe9//tmp/autopkgtest.05WU16', 'has_internet']
+  1s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.05WU16'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.05WU16/wrapper.sh
+  1s autopkgtest: DBG: got reply from testbed: ok
+  1s autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.05WU16/wrapper.sh'], kind short, sout raw, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [18:29:17]: testbed dpkg architecture: riscv64
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['dpkg-query', '-W', '-f', '${Version}', 'apt'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest [18:29:17]: testbed apt version: 2.7.3-ok3
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 127
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+  1s autopkgtest: DBG: testbed command exited with code 0
+  1s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.05WU16/testbed-packages"], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.05WU16/testbed-packages /home/hachi/openkylin_test/sharefolder/results/mesa/testbed-packages
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest [18:29:18]: testbed running kernel: Linux 6.1.31 #1 SMP Sun Oct 22 00:58:22 CST 2023
+  2s autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: Binaries: initialising
+  2s autopkgtest [18:29:18]: @@@@@@@@@@@@@@@@@@@@ source mesa_24.0.5-ok1.dsc
+  2s autopkgtest: DBG: blame += mesa_24.0.5-ok1.dsc
+  2s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.05WU16'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown mesa_24.0.5-ok1.dsc /tmp/autopkgtest.05WU16/mesa_24.0.5-ok1.dsc
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.05WU16'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown mesa_24.0.5.orig.tar.gz /tmp/autopkgtest.05WU16/mesa_24.0.5.orig.tar.gz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.05WU16'], kind short, sout raw, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: sending command to testbed: copydown mesa_24.0.5-ok1.debian.tar.xz /tmp/autopkgtest.05WU16/mesa_24.0.5-ok1.debian.tar.xz
+  2s autopkgtest: DBG: got reply from testbed: ok
+  2s autopkgtest: DBG: install_deps: deps_new=[]
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+  2s autopkgtest: DBG: testbed command exited with code 0
+  2s autopkgtest: DBG: testbed command ['sh', '-ec', 'exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.05WU16/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.05WU16/mesa_24.0.5-ok1.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3'], kind build, sout pipe, serr raw, env []
+  2s + cd /
+  2s + mktemp -d /tmp/autopkgtest.05WU16/build.XXX
+  2s + builddir=/tmp/autopkgtest.05WU16/build.SNA
+  2s + cd /tmp/autopkgtest.05WU16/build.SNA
+  2s + dpkg-source -x /tmp/autopkgtest.05WU16/mesa_24.0.5-ok1.dsc src
+  3s gpgv: unknown type of key resource 'trustedkeys.kbx'
+  3s gpgv: keyblock resource '/tmp/dpkg-verify-sig.lNv3OR0W/trustedkeys.kbx': General error
+  3s gpgv: Signature made Tue 21 May 2024 04:39:31 PM CST
+  3s gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+  3s gpgv: Can't check signature: No public key
+  3s dpkg-source: warning: cannot verify signature /tmp/autopkgtest.05WU16/mesa_24.0.5-ok1.dsc
+  4s dpkg-source: info: extracting mesa in src
+  4s dpkg-source: info: unpacking mesa_24.0.5.orig.tar.gz
+  7s dpkg-source: info: unpacking mesa_24.0.5-ok1.debian.tar.xz
+  7s dpkg-source: info: using patch list from debian/patches/series
+  7s dpkg-source: info: applying path_max.diff
+  7s dpkg-source: info: applying src_glx_dri_common.h.diff
+  8s + chmod -R a+rX .
+  8s + cd src/.
+  8s + pwd
+  8s + sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+  8s autopkgtest: DBG: testbed command exited with code 0
+  8s autopkgtest [18:29:24]: testing package mesa version 24.0.5-ok1
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.05WU16/build.SNA/src/debian/ /home/hachi/openkylin_test/sharefolder/results/mesa/pkg/debian/
+  8s autopkgtest: DBG: got reply from testbed: ok
+  8s autopkgtest: DBG: processing dependency build-essential
+  8s autopkgtest: DBG: processing dependency libgbm-dev
+  8s autopkgtest: DBG: marked alternatives ['libgbm-dev'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency libgles2-mesa-dev
+  8s autopkgtest: DBG: marked alternatives ['libgles2-mesa-dev'] as a synthesised dependency
+  8s autopkgtest: DBG: processing dependency pkg-config
+  8s autopkgtest: DBG: Test defined: name gles-gbm-build-test path debian/tests/gles-gbm-build-test command "None" restrictions ['superficial'] features [] depends ['build-essential', 'libgbm-dev', 'libgles2-mesa-dev', 'pkg-config'] 
+  8s autopkgtest [18:29:24]: build not needed
+  8s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.05WU16/build.SNA/src/ /home/hachi/openkylin_test/sharefolder/results/mesa/tests-tree/
+ 16s autopkgtest: DBG: got reply from testbed: ok
+ 16s autopkgtest: DBG: processing dependency build-essential
+ 16s autopkgtest: DBG: processing dependency libgbm-dev
+ 16s autopkgtest: DBG: marked alternatives ['libgbm-dev'] as a synthesised dependency
+ 16s autopkgtest: DBG: processing dependency libgles2-mesa-dev
+ 16s autopkgtest: DBG: marked alternatives ['libgles2-mesa-dev'] as a synthesised dependency
+ 16s autopkgtest: DBG: processing dependency pkg-config
+ 16s autopkgtest: DBG: Test defined: name gles-gbm-build-test path debian/tests/gles-gbm-build-test command "None" restrictions ['superficial'] features [] depends ['build-essential', 'libgbm-dev', 'libgles2-mesa-dev', 'pkg-config'] 
+ 16s autopkgtest [18:29:32]: test gles-gbm-build-test: preparing testbed
+ 16s autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['build-essential', 'libgbm-dev', 'libgles2-mesa-dev', 'pkg-config']
+ 16s autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+ 16s autopkgtest: DBG: install_deps: deps_new=['build-essential', 'libgbm-dev', 'libgles2-mesa-dev', 'pkg-config']
+ 16s autopkgtest: DBG: install-deps: satisfying build-essential, libgbm-dev, libgles2-mesa-dev, pkg-config
+ 16s autopkgtest: DBG: install-deps: architecture resolved: build-essential, libgbm-dev, libgles2-mesa-dev, pkg-config
+ 16s autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: can use apt-get on testbed: True
+ 16s autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.05WU16'], kind short, sout raw, serr pipe, env []
+ 16s autopkgtest: DBG: testbed command exited with code 0
+ 16s autopkgtest: DBG: sending command to testbed: copydown /var/run/schroot/mount/openkylin-2-4b02f07e-b8c0-4f35-b4d9-9c0b81cdcfe9//tmp/autopkgtest.05WU16/1-autopkgtest-satdep.deb /tmp/autopkgtest.05WU16/1-autopkgtest-satdep.deb
+ 16s autopkgtest: DBG: got reply from testbed: ok
+ 16s autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes /tmp/autopkgtest.05WU16/1-autopkgtest-satdep.deb -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+ 16s Reading package lists...
+ 17s Building dependency tree...
+ 17s Reading state information...
+ 17s Starting pkgProblemResolver with broken count: 0
+ 18s Starting 2 pkgProblemResolver with broken count: 0
+ 18s Done
+ 18s The following packages were automatically installed and are no longer required:
+ 18s   aptdaemon-data atril atril-common bubblewrap cryptsetup-run
+ 18s   debian-archive-keyring enchant fonts-arundina fonts-mathjax fonts-thai-tlwg
+ 18s   fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+ 18s   fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+ 18s   fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+ 18s   fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+ 18s   fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+ 18s   fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+ 18s   fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+ 18s   fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf gir1.2-atk-1.0
+ 18s   gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-gtksource-3.0
+ 18s   gir1.2-harfbuzz-0.0 gir1.2-ibus-1.0 gir1.2-pango-1.0 gir1.2-peas-1.0
+ 18s   gir1.2-pluma-1.0 gir1.2-vte-2.91 gnome-desktop3-data gnome-power-manager
+ 18s   gnome-screensaver gnome-settings-daemon-common gsettings-ubuntu-schemas ibus
+ 18s   ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-common
+ 18s   indicator-messages indicator-printers indicator-session kylin-screenshot
+ 18s   language-selector-common language-selector-gnome libatrildocument3
+ 18s   libatrilview3 libbpf0 libcanberra-gtk3-0 libcanberra-gtk3-module
+ 18s   libdjvulibre-text libdjvulibre21 libenchant1c2a libfcitx-config4
+ 18s   libfcitx-gclient1 libfcitx-utils0 libffi-dev libglib2.0-dev
+ 18s   libglib2.0-dev-bin libgnome-desktop-3-19 libgnome-panel0 libgsettings-qt-dev
+ 18s   libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5
+ 18s   libido3-0.1-0 libindicator3-7 libjs-mathjax libkpathsea6 libkylin-chkname1
+ 18s   libkysdk-appcommon libllvm15 libmatemixer-common libmatemixer0 libmount-dev
+ 18s   libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libquazip5-1 librest-0.7-0
+ 18s   libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2
+ 18s   libukui-appwidget-qmlplugin0 libunity-settings-daemon1 libwhoopsie0 libz3-4
+ 18s   nautilus-data pipewire-alsa pipewire-audio-client-libraries pipewire-jack
+ 18s   pluma pluma-common python3-aptdaemon.gtk3widgets python3-ibus-1.0
+ 18s   python3-xdg session-migration ukui-appwidget-manager ukui-notebook
+ 18s   ukui-system-appwidget unicode-cldr-core unity-settings-daemon
+ 18s   unity-settings-daemon-schemas xfonts-thai xfonts-thai-etl xfonts-thai-manop
+ 18s   xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor zlib1g-dev
+ 18s Use 'sudo apt autoremove' to remove them.
+ 18s The following additional packages will be installed:
+ 18s   libdrm-amdgpu1 libdrm-common libdrm-nouveau2 libdrm-radeon1 libdrm2
+ 18s   libegl-dev libegl-mesa0 libegl1 libelf1t64 libgbm-dev libgbm1 libgl-dev
+ 18s   libgl1 libgl1-mesa-dri libglapi-mesa libgles-dev libgles1 libgles2
+ 18s   libgles2-mesa-dev libglvnd-core-dev libglvnd-dev libglvnd0 libglx-dev
+ 18s   libglx-mesa0 libglx0 libllvm17t64 libopengl-dev libopengl0
+ 18s   libpthread-stubs0-dev libx11-6 libx11-data libx11-dev libx11-xcb1 libxau-dev
+ 18s   libxcb-composite0 libxcb-damage0 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0
+ 18s   libxcb-present0 libxcb-randr0 libxcb-render0 libxcb-res0 libxcb-shape0
+ 18s   libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 libxcb-xinput0
+ 18s   libxcb-xkb1 libxcb1 libxcb1-dev libxdmcp-dev libzstd1 mesa-va-drivers
+ 18s   mesa-vdpau-drivers mesa-vulkan-drivers x11proto-core-dev x11proto-dev
+ 18s   xorg-sgml-doctools xtrans-dev zstd
+ 18s Suggested packages:
+ 18s   libx11-doc libxcb-doc
+ 18s Recommended packages:
+ 18s   libgl1-amber-dri
+ 19s The following packages will be REMOVED:
+ 19s   libelf1
+ 19s The following NEW packages will be installed:
+ 19s   autopkgtest-satdep libegl-dev libelf1t64 libgbm-dev libgl-dev libgles-dev
+ 19s   libgles1 libgles2 libgles2-mesa-dev libglvnd-core-dev libglvnd-dev
+ 19s   libglx-dev libllvm17t64 libopengl-dev libopengl0 libpthread-stubs0-dev
+ 19s   libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-core-dev
+ 19s   x11proto-dev xorg-sgml-doctools xtrans-dev
+ 19s The following packages will be upgraded:
+ 19s   libdrm-amdgpu1 libdrm-common libdrm-nouveau2 libdrm-radeon1 libdrm2
+ 19s   libegl-mesa0 libegl1 libgbm1 libgl1 libgl1-mesa-dri libglapi-mesa libglvnd0
+ 19s   libglx-mesa0 libglx0 libx11-6 libx11-data libx11-xcb1 libxcb-composite0
+ 19s   libxcb-damage0 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+ 19s   libxcb-randr0 libxcb-render0 libxcb-res0 libxcb-shape0 libxcb-shm0
+ 19s   libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 libxcb-xinput0 libxcb-xkb1
+ 19s   libxcb1 libzstd1 mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers zstd
+ 19s 39 upgraded, 24 newly installed, 1 to remove and 1027 not upgraded.
+ 19s Need to get 41.7 MB/41.7 MB of archives.
+ 19s After this operation, 109 MB of additional disk space will be used.
+ 19s Get:1 /tmp/autopkgtest.05WU16/1-autopkgtest-satdep.deb autopkgtest-satdep riscv64 0 [732 B]
+ 19s Get:2 http://archive.build.openkylin.top/openkylin nile/main riscv64 libzstd1 riscv64 1.5.5-ok3 [286 kB]
+ 19s Get:3 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 mesa-vulkan-drivers riscv64 24.0.5-ok1 [2,497 kB]
+ 21s Get:4 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 mesa-vdpau-drivers riscv64 24.0.5-ok1 [3,314 kB]
+ 22s Get:5 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 mesa-va-drivers riscv64 24.0.5-ok1 [3,340 kB]
+ 23s Get:6 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgl1-mesa-dri riscv64 24.0.5-ok1 [5,508 kB]
+ 26s Get:7 http://archive.build.openkylin.top/openkylin nile/main riscv64 libelf1t64 riscv64 0.190-ok3 [161 kB]
+ 26s Get:8 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-common all 2.4.120-ok1 [5,588 B]
+ 26s Get:9 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm2 riscv64 2.4.120-ok1 [36.2 kB]
+ 26s Get:10 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-amdgpu1 riscv64 2.4.120-ok1 [17.3 kB]
+ 26s Get:11 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-nouveau2 riscv64 2.4.120-ok1 [15.6 kB]
+ 26s Get:12 http://archive.build.openkylin.top/openkylin nile/main riscv64 libdrm-radeon1 riscv64 2.4.120-ok1 [19.9 kB]
+ 26s Get:13 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgl1 riscv64 1.7.0-ok1 [100 kB]
+ 26s Get:14 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-6 riscv64 2:1.8.7-ok1 [532 kB]
+ 26s Get:15 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-xcb1 riscv64 2:1.8.7-ok1 [7,348 B]
+ 26s Get:16 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb1 riscv64 1.15-ok2 [39.0 kB]
+ 26s Get:17 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-data all 2:1.8.7-ok1 [104 kB]
+ 26s Get:18 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-randr0 riscv64 1.15-ok2 [14.5 kB]
+ 26s Get:19 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libegl-mesa0 riscv64 24.0.5-ok1 [94.4 kB]
+ 26s Get:20 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgbm1 riscv64 24.0.5-ok1 [28.5 kB]
+ 26s Get:21 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-dri2-0 riscv64 1.15-ok2 [6,240 B]
+ 26s Get:22 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-dri3-0 riscv64 1.15-ok2 [6,132 B]
+ 26s Get:23 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-present0 riscv64 1.15-ok2 [5,148 B]
+ 26s Get:24 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-sync1 riscv64 1.15-ok2 [7,784 B]
+ 26s Get:25 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xfixes0 riscv64 1.15-ok2 [8,524 B]
+ 26s Get:26 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglx-mesa0 riscv64 24.0.5-ok1 [135 kB]
+ 27s Get:27 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglapi-mesa riscv64 24.0.5-ok1 [31.1 kB]
+ 27s Get:28 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libllvm17t64 riscv64 1:17.0.6-9ok4 [22.4 MB]
+ 36s Get:29 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-glx0 riscv64 1.15-ok2 [19.2 kB]
+ 36s Get:30 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-shm0 riscv64 1.15-ok2 [5,252 B]
+ 36s Get:31 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglx0 riscv64 1.7.0-ok1 [24.0 kB]
+ 36s Get:32 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libegl1 riscv64 1.7.0-ok1 [27.9 kB]
+ 36s Get:33 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglvnd0 riscv64 1.7.0-ok1 [47.5 kB]
+ 36s Get:34 http://archive.build.openkylin.top/openkylin nile/main riscv64 xorg-sgml-doctools all 1:1.11-ok1 [9,766 B]
+ 36s Get:35 http://archive.build.openkylin.top/openkylin nile/main riscv64 x11proto-dev all 2024.1-1ok3 [603 kB]
+ 36s Get:36 http://archive.build.openkylin.top/openkylin nile/main riscv64 x11proto-core-dev all 2024.1-1ok3 [2,616 B]
+ 36s Get:37 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxau-dev riscv64 1:1.0.9-ok1 [12.8 kB]
+ 36s Get:38 http://archive.build.openkylin.top/openkylin nile/main riscv64 libxdmcp-dev riscv64 1:1.1.3-ok1 [31.7 kB]
+ 36s Get:39 http://archive.build.openkylin.top/openkylin nile/main riscv64 xtrans-dev all 1.4.0-ok1 [68.5 kB]
+ 36s Get:40 http://archive.build.openkylin.top/openkylin nile/main riscv64 libpthread-stubs0-dev riscv64 0.4-ok2 [4,242 B]
+ 36s Get:41 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb1-dev riscv64 1.15-ok2 [129 kB]
+ 36s Get:42 http://archive.build.openkylin.top/openkylin nile/main riscv64 libx11-dev riscv64 2:1.8.7-ok1 [1,052 kB]
+ 37s Get:43 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglx-dev riscv64 1.7.0-ok1 [14.0 kB]
+ 37s Get:44 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgl-dev riscv64 1.7.0-ok1 [98.8 kB]
+ 37s Get:45 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libegl-dev riscv64 1.7.0-ok1 [17.7 kB]
+ 37s Get:46 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgbm-dev riscv64 24.0.5-ok1 [9,388 B]
+ 37s Get:47 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgles1 riscv64 1.7.0-ok1 [10.6 kB]
+ 37s Get:48 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgles2 riscv64 1.7.0-ok1 [17.4 kB]
+ 37s Get:49 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgles-dev riscv64 1.7.0-ok1 [49.0 kB]
+ 37s Get:50 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglvnd-core-dev riscv64 1.7.0-ok1 [11.7 kB]
+ 37s Get:51 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libopengl0 riscv64 1.7.0-ok1 [35.0 kB]
+ 37s Get:52 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libopengl-dev riscv64 1.7.0-ok1 [3,592 B]
+ 37s Get:53 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libglvnd-dev riscv64 1.7.0-ok1 [3,364 B]
+ 37s Get:54 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libgles2-mesa-dev riscv64 24.0.5-ok1 [5,812 B]
+ 37s Get:55 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-composite0 riscv64 1.15-ok2 [4,784 B]
+ 37s Get:56 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-damage0 riscv64 1.15-ok2 [4,544 B]
+ 37s Get:57 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-render0 riscv64 1.15-ok2 [13.2 kB]
+ 37s Get:58 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-res0 riscv64 1.15-ok2 [5,752 B]
+ 37s Get:59 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-shape0 riscv64 1.15-ok2 [5,412 B]
+ 37s Get:60 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xinerama0 riscv64 1.15-ok2 [4,872 B]
+ 37s Get:61 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xinput0 riscv64 1.15-ok2 [26.3 kB]
+ 37s Get:62 http://archive.build.openkylin.top/openkylin nile-proposed/main riscv64 libxcb-xkb1 riscv64 1.15-ok2 [26.7 kB]
+ 37s Get:63 http://archive.build.openkylin.top/openkylin nile/main riscv64 zstd riscv64 1.5.5-ok3 [643 kB]
+ 41s Fetched 41.7 MB in 19s (2,248 kB/s)
+ 41s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 41s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 41s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 41s Preparing to unpack .../libzstd1_1.5.5-ok3_riscv64.deb ...
+ 41s Unpacking libzstd1:riscv64 (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+ 42s Setting up libzstd1:riscv64 (1.5.5-ok3) ...
+ 42s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 42s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 42s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193809 files and directories currently installed.)
+ 42s Preparing to unpack .../mesa-vulkan-drivers_24.0.5-ok1_riscv64.deb ...
+ 42s Unpacking mesa-vulkan-drivers:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 43s Preparing to unpack .../mesa-vdpau-drivers_24.0.5-ok1_riscv64.deb ...
+ 43s Unpacking mesa-vdpau-drivers:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 44s Preparing to unpack .../mesa-va-drivers_24.0.5-ok1_riscv64.deb ...
+ 44s Unpacking mesa-va-drivers:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 45s Preparing to unpack .../libgl1-mesa-dri_24.0.5-ok1_riscv64.deb ...
+ 46s Unpacking libgl1-mesa-dri:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 52s dpkg: libelf1:riscv64: dependency problems, but removing anyway as you requested:
+ 52s  linux-headers-5.19.0-1004-generic depends on libelf1 (>= 0.144).
+ 52s  libglib2.0-bin depends on libelf1 (>= 0.142).
+ 52s  libbpf0:riscv64 depends on libelf1 (>= 0.144).
+ 52s  iproute2 depends on libelf1 (>= 0.131).
+ 52s 
+ 52s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 52s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 53s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193812 files and directories currently installed.)
+ 53s Removing libelf1:riscv64 (0.187-ok1) ...
+ 53s Selecting previously unselected package libelf1t64:riscv64.
+ 53s (Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+ 53s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+ 53s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+ 53s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+ 53s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+ 53s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+ 54s (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 193800 files and directories currently installed.)
+ 54s Preparing to unpack .../00-libelf1t64_0.190-ok3_riscv64.deb ...
+ 54s Unpacking libelf1t64:riscv64 (0.190-ok3) ...
+ 54s Preparing to unpack .../01-libdrm-common_2.4.120-ok1_all.deb ...
+ 54s Unpacking libdrm-common (2.4.120-ok1) over (2.4.114-ok2) ...
+ 55s Preparing to unpack .../02-libdrm2_2.4.120-ok1_riscv64.deb ...
+ 55s Unpacking libdrm2:riscv64 (2.4.120-ok1) over (2.4.114-ok2) ...
+ 55s Preparing to unpack .../03-libdrm-amdgpu1_2.4.120-ok1_riscv64.deb ...
+ 55s Unpacking libdrm-amdgpu1:riscv64 (2.4.120-ok1) over (2.4.114-ok2) ...
+ 56s Preparing to unpack .../04-libdrm-nouveau2_2.4.120-ok1_riscv64.deb ...
+ 56s Unpacking libdrm-nouveau2:riscv64 (2.4.120-ok1) over (2.4.114-ok2) ...
+ 56s Preparing to unpack .../05-libdrm-radeon1_2.4.120-ok1_riscv64.deb ...
+ 56s Unpacking libdrm-radeon1:riscv64 (2.4.120-ok1) over (2.4.114-ok2) ...
+ 57s Preparing to unpack .../06-libgl1_1.7.0-ok1_riscv64.deb ...
+ 57s Unpacking libgl1:riscv64 (1.7.0-ok1) over (1.6.0-ok1) ...
+ 58s Preparing to unpack .../07-libx11-6_2%3a1.8.7-ok1_riscv64.deb ...
+ 58s Unpacking libx11-6:riscv64 (2:1.8.7-ok1) over (2:1.8.6-ok1) ...
+ 58s Preparing to unpack .../08-libx11-xcb1_2%3a1.8.7-ok1_riscv64.deb ...
+ 58s Unpacking libx11-xcb1:riscv64 (2:1.8.7-ok1) over (2:1.8.6-ok1) ...
+ 59s Preparing to unpack .../09-libxcb1_1.15-ok2_riscv64.deb ...
+ 59s Unpacking libxcb1:riscv64 (1.15-ok2) over (1.15-1) ...
+ 59s Preparing to unpack .../10-libx11-data_2%3a1.8.7-ok1_all.deb ...
+ 59s Unpacking libx11-data (2:1.8.7-ok1) over (2:1.8.6-ok1) ...
+ 64s Preparing to unpack .../11-libxcb-randr0_1.15-ok2_riscv64.deb ...
+ 64s Unpacking libxcb-randr0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 65s Preparing to unpack .../12-libegl-mesa0_24.0.5-ok1_riscv64.deb ...
+ 65s Unpacking libegl-mesa0:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 65s Preparing to unpack .../13-libgbm1_24.0.5-ok1_riscv64.deb ...
+ 65s Unpacking libgbm1:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 66s Preparing to unpack .../14-libxcb-dri2-0_1.15-ok2_riscv64.deb ...
+ 66s Unpacking libxcb-dri2-0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 66s Preparing to unpack .../15-libxcb-dri3-0_1.15-ok2_riscv64.deb ...
+ 66s Unpacking libxcb-dri3-0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 67s Preparing to unpack .../16-libxcb-present0_1.15-ok2_riscv64.deb ...
+ 67s Unpacking libxcb-present0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 67s Preparing to unpack .../17-libxcb-sync1_1.15-ok2_riscv64.deb ...
+ 67s Unpacking libxcb-sync1:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 68s Preparing to unpack .../18-libxcb-xfixes0_1.15-ok2_riscv64.deb ...
+ 68s Unpacking libxcb-xfixes0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 68s Preparing to unpack .../19-libglx-mesa0_24.0.5-ok1_riscv64.deb ...
+ 68s Unpacking libglx-mesa0:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 69s Preparing to unpack .../20-libglapi-mesa_24.0.5-ok1_riscv64.deb ...
+ 69s Unpacking libglapi-mesa:riscv64 (24.0.5-ok1) over (22.3.7-ok6) ...
+ 69s Selecting previously unselected package libllvm17t64:riscv64.
+ 69s Preparing to unpack .../21-libllvm17t64_1%3a17.0.6-9ok4_riscv64.deb ...
+ 69s Unpacking libllvm17t64:riscv64 (1:17.0.6-9ok4) ...
+ 75s Preparing to unpack .../22-libxcb-glx0_1.15-ok2_riscv64.deb ...
+ 75s Unpacking libxcb-glx0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 75s Preparing to unpack .../23-libxcb-shm0_1.15-ok2_riscv64.deb ...
+ 75s Unpacking libxcb-shm0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 76s Preparing to unpack .../24-libglx0_1.7.0-ok1_riscv64.deb ...
+ 76s Unpacking libglx0:riscv64 (1.7.0-ok1) over (1.6.0-ok1) ...
+ 76s Preparing to unpack .../25-libegl1_1.7.0-ok1_riscv64.deb ...
+ 76s Unpacking libegl1:riscv64 (1.7.0-ok1) over (1.6.0-ok1) ...
+ 77s Preparing to unpack .../26-libglvnd0_1.7.0-ok1_riscv64.deb ...
+ 77s Unpacking libglvnd0:riscv64 (1.7.0-ok1) over (1.6.0-ok1) ...
+ 77s Selecting previously unselected package xorg-sgml-doctools.
+ 77s Preparing to unpack .../27-xorg-sgml-doctools_1%3a1.11-ok1_all.deb ...
+ 77s Unpacking xorg-sgml-doctools (1:1.11-ok1) ...
+ 78s Selecting previously unselected package x11proto-dev.
+ 78s Preparing to unpack .../28-x11proto-dev_2024.1-1ok3_all.deb ...
+ 78s Unpacking x11proto-dev (2024.1-1ok3) ...
+ 79s Selecting previously unselected package x11proto-core-dev.
+ 79s Preparing to unpack .../29-x11proto-core-dev_2024.1-1ok3_all.deb ...
+ 79s Unpacking x11proto-core-dev (2024.1-1ok3) ...
+ 80s Selecting previously unselected package libxau-dev:riscv64.
+ 80s Preparing to unpack .../30-libxau-dev_1%3a1.0.9-ok1_riscv64.deb ...
+ 80s Unpacking libxau-dev:riscv64 (1:1.0.9-ok1) ...
+ 80s Selecting previously unselected package libxdmcp-dev:riscv64.
+ 80s Preparing to unpack .../31-libxdmcp-dev_1%3a1.1.3-ok1_riscv64.deb ...
+ 80s Unpacking libxdmcp-dev:riscv64 (1:1.1.3-ok1) ...
+ 81s Selecting previously unselected package xtrans-dev.
+ 81s Preparing to unpack .../32-xtrans-dev_1.4.0-ok1_all.deb ...
+ 81s Unpacking xtrans-dev (1.4.0-ok1) ...
+ 81s Selecting previously unselected package libpthread-stubs0-dev:riscv64.
+ 81s Preparing to unpack .../33-libpthread-stubs0-dev_0.4-ok2_riscv64.deb ...
+ 81s Unpacking libpthread-stubs0-dev:riscv64 (0.4-ok2) ...
+ 82s Selecting previously unselected package libxcb1-dev:riscv64.
+ 82s Preparing to unpack .../34-libxcb1-dev_1.15-ok2_riscv64.deb ...
+ 82s Unpacking libxcb1-dev:riscv64 (1.15-ok2) ...
+ 82s Selecting previously unselected package libx11-dev:riscv64.
+ 82s Preparing to unpack .../35-libx11-dev_2%3a1.8.7-ok1_riscv64.deb ...
+ 82s Unpacking libx11-dev:riscv64 (2:1.8.7-ok1) ...
+ 83s Selecting previously unselected package libglx-dev:riscv64.
+ 83s Preparing to unpack .../36-libglx-dev_1.7.0-ok1_riscv64.deb ...
+ 83s Unpacking libglx-dev:riscv64 (1.7.0-ok1) ...
+ 83s Selecting previously unselected package libgl-dev:riscv64.
+ 84s Preparing to unpack .../37-libgl-dev_1.7.0-ok1_riscv64.deb ...
+ 84s Unpacking libgl-dev:riscv64 (1.7.0-ok1) ...
+ 84s Selecting previously unselected package libegl-dev:riscv64.
+ 84s Preparing to unpack .../38-libegl-dev_1.7.0-ok1_riscv64.deb ...
+ 84s Unpacking libegl-dev:riscv64 (1.7.0-ok1) ...
+ 84s Selecting previously unselected package libgbm-dev:riscv64.
+ 84s Preparing to unpack .../39-libgbm-dev_24.0.5-ok1_riscv64.deb ...
+ 84s Unpacking libgbm-dev:riscv64 (24.0.5-ok1) ...
+ 85s Selecting previously unselected package libgles1:riscv64.
+ 85s Preparing to unpack .../40-libgles1_1.7.0-ok1_riscv64.deb ...
+ 85s Unpacking libgles1:riscv64 (1.7.0-ok1) ...
+ 85s Selecting previously unselected package libgles2:riscv64.
+ 85s Preparing to unpack .../41-libgles2_1.7.0-ok1_riscv64.deb ...
+ 85s Unpacking libgles2:riscv64 (1.7.0-ok1) ...
+ 86s Selecting previously unselected package libgles-dev:riscv64.
+ 86s Preparing to unpack .../42-libgles-dev_1.7.0-ok1_riscv64.deb ...
+ 86s Unpacking libgles-dev:riscv64 (1.7.0-ok1) ...
+ 86s Selecting previously unselected package libglvnd-core-dev:riscv64.
+ 86s Preparing to unpack .../43-libglvnd-core-dev_1.7.0-ok1_riscv64.deb ...
+ 86s Unpacking libglvnd-core-dev:riscv64 (1.7.0-ok1) ...
+ 87s Selecting previously unselected package libopengl0:riscv64.
+ 87s Preparing to unpack .../44-libopengl0_1.7.0-ok1_riscv64.deb ...
+ 87s Unpacking libopengl0:riscv64 (1.7.0-ok1) ...
+ 87s Selecting previously unselected package libopengl-dev:riscv64.
+ 87s Preparing to unpack .../45-libopengl-dev_1.7.0-ok1_riscv64.deb ...
+ 87s Unpacking libopengl-dev:riscv64 (1.7.0-ok1) ...
+ 88s Selecting previously unselected package libglvnd-dev:riscv64.
+ 88s Preparing to unpack .../46-libglvnd-dev_1.7.0-ok1_riscv64.deb ...
+ 88s Unpacking libglvnd-dev:riscv64 (1.7.0-ok1) ...
+ 88s Selecting previously unselected package libgles2-mesa-dev:riscv64.
+ 88s Preparing to unpack .../47-libgles2-mesa-dev_24.0.5-ok1_riscv64.deb ...
+ 88s Unpacking libgles2-mesa-dev:riscv64 (24.0.5-ok1) ...
+ 89s Preparing to unpack .../48-libxcb-composite0_1.15-ok2_riscv64.deb ...
+ 89s Unpacking libxcb-composite0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 89s Preparing to unpack .../49-libxcb-damage0_1.15-ok2_riscv64.deb ...
+ 89s Unpacking libxcb-damage0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 89s Preparing to unpack .../50-libxcb-render0_1.15-ok2_riscv64.deb ...
+ 90s Unpacking libxcb-render0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 90s Preparing to unpack .../51-libxcb-res0_1.15-ok2_riscv64.deb ...
+ 90s Unpacking libxcb-res0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 90s Preparing to unpack .../52-libxcb-shape0_1.15-ok2_riscv64.deb ...
+ 90s Unpacking libxcb-shape0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 91s Preparing to unpack .../53-libxcb-xinerama0_1.15-ok2_riscv64.deb ...
+ 91s Unpacking libxcb-xinerama0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 92s Preparing to unpack .../54-libxcb-xinput0_1.15-ok2_riscv64.deb ...
+ 92s Unpacking libxcb-xinput0:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 92s Preparing to unpack .../55-libxcb-xkb1_1.15-ok2_riscv64.deb ...
+ 92s Unpacking libxcb-xkb1:riscv64 (1.15-ok2) over (1.14-ok1) ...
+ 93s Preparing to unpack .../56-zstd_1.5.5-ok3_riscv64.deb ...
+ 93s Unpacking zstd (1.5.5-ok3) over (1.5.2+dfsg-1) ...
+ 93s Selecting previously unselected package autopkgtest-satdep.
+ 93s Preparing to unpack .../57-1-autopkgtest-satdep.deb ...
+ 93s Unpacking autopkgtest-satdep (0) ...
+ 94s Setting up libxcb1:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-xfixes0:riscv64 (1.15-ok2) ...
+ 94s Setting up libglvnd-core-dev:riscv64 (1.7.0-ok1) ...
+ 94s Setting up libxcb-xinput0:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-render0:riscv64 (1.15-ok2) ...
+ 94s Setting up libglvnd0:riscv64 (1.7.0-ok1) ...
+ 94s Setting up libxcb-glx0:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-shape0:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-shm0:riscv64 (1.15-ok2) ...
+ 94s Setting up libpthread-stubs0-dev:riscv64 (0.4-ok2) ...
+ 94s Setting up libopengl0:riscv64 (1.7.0-ok1) ...
+ 94s Setting up libelf1t64:riscv64 (0.190-ok3) ...
+ 94s Setting up libxcb-xkb1:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-present0:riscv64 (1.15-ok2) ...
+ 94s Setting up xtrans-dev (1.4.0-ok1) ...
+ 94s Setting up libxcb-xinerama0:riscv64 (1.15-ok2) ...
+ 94s Setting up libgles2:riscv64 (1.7.0-ok1) ...
+ 94s Setting up libllvm17t64:riscv64 (1:17.0.6-9ok4) ...
+ 94s Setting up libx11-data (2:1.8.7-ok1) ...
+ 94s Setting up libxcb-sync1:riscv64 (1.15-ok2) ...
+ 94s Setting up libgles1:riscv64 (1.7.0-ok1) ...
+ 94s Setting up libglapi-mesa:riscv64 (24.0.5-ok1) ...
+ 94s Setting up libxcb-dri2-0:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-composite0:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-randr0:riscv64 (1.15-ok2) ...
+ 94s Setting up libx11-6:riscv64 (2:1.8.7-ok1) ...
+ 94s Setting up xorg-sgml-doctools (1:1.11-ok1) ...
+ 94s Setting up libopengl-dev:riscv64 (1.7.0-ok1) ...
+ 94s Setting up libdrm-common (2.4.120-ok1) ...
+ 94s Setting up zstd (1.5.5-ok3) ...
+ 94s Setting up libxcb-damage0:riscv64 (1.15-ok2) ...
+ 94s Setting up libxcb-dri3-0:riscv64 (1.15-ok2) ...
+ 94s Setting up libx11-xcb1:riscv64 (2:1.8.7-ok1) ...
+ 94s Setting up libxcb-res0:riscv64 (1.15-ok2) ...
+ 94s Setting up libdrm2:riscv64 (2.4.120-ok1) ...
+ 94s Setting up libdrm-amdgpu1:riscv64 (2.4.120-ok1) ...
+ 94s Setting up mesa-vulkan-drivers:riscv64 (24.0.5-ok1) ...
+ 94s Setting up libdrm-nouveau2:riscv64 (2.4.120-ok1) ...
+ 94s Setting up libgbm1:riscv64 (24.0.5-ok1) ...
+ 94s Setting up libdrm-radeon1:riscv64 (2.4.120-ok1) ...
+ 94s Setting up libgl1-mesa-dri:riscv64 (24.0.5-ok1) ...
+ 94s Setting up libgbm-dev:riscv64 (24.0.5-ok1) ...
+ 94s Setting up libegl-mesa0:riscv64 (24.0.5-ok1) ...
+ 94s Setting up libegl1:riscv64 (1.7.0-ok1) ...
+ 94s Setting up mesa-va-drivers:riscv64 (24.0.5-ok1) ...
+ 95s Setting up mesa-vdpau-drivers:riscv64 (24.0.5-ok1) ...
+ 95s Setting up libglx-mesa0:riscv64 (24.0.5-ok1) ...
+ 95s Setting up libglx0:riscv64 (1.7.0-ok1) ...
+ 95s Setting up libgl1:riscv64 (1.7.0-ok1) ...
+ 95s Processing triggers for sgml-base (1.30-ok2) ...
+ 95s Setting up x11proto-dev (2024.1-1ok3) ...
+ 95s Setting up libxau-dev:riscv64 (1:1.0.9-ok1) ...
+ 95s Processing triggers for libc-bin (2.38-1ok6.8) ...
+ 95s Processing triggers for man-db (2.10.2-2) ...
+ 96s Setting up libxdmcp-dev:riscv64 (1:1.1.3-ok1) ...
+ 96s Setting up x11proto-core-dev (2024.1-1ok3) ...
+ 96s Setting up libxcb1-dev:riscv64 (1.15-ok2) ...
+ 96s Setting up libx11-dev:riscv64 (2:1.8.7-ok1) ...
+ 96s Setting up libglx-dev:riscv64 (1.7.0-ok1) ...
+ 96s Setting up libgl-dev:riscv64 (1.7.0-ok1) ...
+ 96s Setting up libegl-dev:riscv64 (1.7.0-ok1) ...
+ 96s Setting up libgles-dev:riscv64 (1.7.0-ok1) ...
+ 96s Setting up libglvnd-dev:riscv64 (1.7.0-ok1) ...
+ 96s Setting up libgles2-mesa-dev:riscv64 (24.0.5-ok1) ...
+ 96s Setting up autopkgtest-satdep (0) ...
+ 97s autopkgtest: DBG: testbed command exited with code 0
+ 97s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libgbm-dev'], kind short, sout pipe, serr pipe, env []
+ 97s autopkgtest: DBG: testbed command exited with code 0
+ 97s autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'libgles2-mesa-dev'], kind short, sout pipe, serr pipe, env []
+ 97s autopkgtest: DBG: testbed command exited with code 0
+ 97s autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+ 98s autopkgtest: DBG: testbed command exited with code 0
+ 98s autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+101s autopkgtest: DBG: testbed command exited with code 0
+101s autopkgtest: DBG: Marking test dependencies as manually installed: language-selector-gnome python3-aptdaemon.gtk3widgets aptdaemon-data atril atril-common unity-settings-daemon libunity-settings-daemon1 gnome-screensaver libgnome-desktop-3-19 bubblewrap cryptsetup-run debian-archive-keyring enchant fonts-arundina libatrilview3 libatrildocument3 libjs-mathjax fonts-mathjax xfonts-thai fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf pluma gir1.2-pluma-1.0 ibus gir1.2-gtk-3.0 gir1.2-atk-1.0 gir1.2-vte-2.91 gir1.2-pango-1.0 gir1.2-harfbuzz-0.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtksource-3.0 python3-ibus-1.0 gir1.2-ibus-1.0 gir1.2-peas-1.0 gnome-desktop3-data gnome-power-manager indicator-session gnome-settings-daemon-common gsettings-ubuntu-schemas ibus-data ibus-gtk ibus-gtk3 indicator-applet indicator-printers indicator-messages indicator-common kylin-screenshot language-selector-common libbpf0 libcanberra-gtk3-module libcanberra-gtk3-0 libdjvulibre21 libdjvulibre-text libgles2-mesa-dev libglvnd-dev libgles-dev libegl-dev libenchant1c2a libfcitx-config4 libfcitx-gclient1 libfcitx-utils0 ukui-system-appwidget libukui-appwidget-qmlplugin0 libglib2.0-dev libffi-dev libgbm-dev libgl-dev libgles1 libgles2 libglib2.0-dev-bin libglvnd-core-dev libglx-dev libgnome-panel0 libgsettings-qt-dev libgtksourceview-3.0-1 libgtksourceview-3.0-common libgxps2 libibus-1.0-5 libido3-0.1-0 libindicator3-7 libkpathsea6 libkylin-chkname1 libkysdk-appcommon libllvm15 libmatemixer0 libmatemixer-common libmount-dev libopengl-dev libopengl0 libpangoxft-1.0-0 libpeas-1.0-0 libpeas-common libx11-dev libxcb1-dev libpthread-stubs0-dev libquazip5-1 librest-0.7-0 libselinux1-dev libsepol-dev libsoup-gnome2.4-1 libspectre1 libsynctex2 libwhoopsie0 libxau-dev libxdmcp-dev libz3-4 nautilus-data pipewire-audio-client-libraries pipewire-alsa pipewire-jack pkg-config pluma-common python3-xdg session-migration ukui-appwidget-manager ukui-notebook unicode-cldr-core unity-settings-daemon-schemas x11proto-core-dev x11proto-dev xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor xorg-sgml-doctools xtrans-dev zlib1g-dev
+101s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'language-selector-gnome', 'python3-aptdaemon.gtk3widgets', 'aptdaemon-data', 'atril', 'atril-common', 'unity-settings-daemon', 'libunity-settings-daemon1', 'gnome-screensaver', 'libgnome-desktop-3-19', 'bubblewrap', 'cryptsetup-run', 'debian-archive-keyring', 'enchant', 'fonts-arundina', 'libatrilview3', 'libatrildocument3', 'libjs-mathjax', 'fonts-mathjax', 'xfonts-thai', 'fonts-thai-tlwg'], kind short, sout raw, serr pipe, env []
+102s autopkgtest: DBG: testbed command exited with code 0
+102s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-garuda', 'fonts-tlwg-garuda-ttf', 'fonts-tlwg-kinnari', 'fonts-tlwg-kinnari-ttf', 'fonts-tlwg-laksaman', 'fonts-tlwg-laksaman-ttf', 'fonts-tlwg-loma', 'fonts-tlwg-loma-ttf', 'fonts-tlwg-mono', 'fonts-tlwg-mono-ttf', 'fonts-tlwg-norasi', 'fonts-tlwg-norasi-ttf', 'fonts-tlwg-purisa', 'fonts-tlwg-purisa-ttf', 'fonts-tlwg-sawasdee', 'fonts-tlwg-sawasdee-ttf', 'fonts-tlwg-typewriter', 'fonts-tlwg-typewriter-ttf', 'fonts-tlwg-typist', 'fonts-tlwg-typist-ttf'], kind short, sout raw, serr pipe, env []
+103s autopkgtest: DBG: testbed command exited with code 0
+103s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'fonts-tlwg-typo', 'fonts-tlwg-typo-ttf', 'fonts-tlwg-umpush', 'fonts-tlwg-umpush-ttf', 'fonts-tlwg-waree', 'fonts-tlwg-waree-ttf', 'pluma', 'gir1.2-pluma-1.0', 'ibus', 'gir1.2-gtk-3.0', 'gir1.2-atk-1.0', 'gir1.2-vte-2.91', 'gir1.2-pango-1.0', 'gir1.2-harfbuzz-0.0', 'gir1.2-freedesktop', 'gir1.2-gdkpixbuf-2.0', 'gir1.2-gtksource-3.0', 'python3-ibus-1.0', 'gir1.2-ibus-1.0', 'gir1.2-peas-1.0'], kind short, sout raw, serr pipe, env []
+104s autopkgtest: DBG: testbed command exited with code 0
+104s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'gnome-desktop3-data', 'gnome-power-manager', 'indicator-session', 'gnome-settings-daemon-common', 'gsettings-ubuntu-schemas', 'ibus-data', 'ibus-gtk', 'ibus-gtk3', 'indicator-applet', 'indicator-printers', 'indicator-messages', 'indicator-common', 'kylin-screenshot', 'language-selector-common', 'libbpf0', 'libcanberra-gtk3-module', 'libcanberra-gtk3-0', 'libdjvulibre21', 'libdjvulibre-text', 'libgles2-mesa-dev'], kind short, sout raw, serr pipe, env []
+105s autopkgtest: DBG: testbed command exited with code 0
+105s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libglvnd-dev', 'libgles-dev', 'libegl-dev', 'libenchant1c2a', 'libfcitx-config4', 'libfcitx-gclient1', 'libfcitx-utils0', 'ukui-system-appwidget', 'libukui-appwidget-qmlplugin0', 'libglib2.0-dev', 'libffi-dev', 'libgbm-dev', 'libgl-dev', 'libgles1', 'libgles2', 'libglib2.0-dev-bin', 'libglvnd-core-dev', 'libglx-dev', 'libgnome-panel0', 'libgsettings-qt-dev'], kind short, sout raw, serr pipe, env []
+106s autopkgtest: DBG: testbed command exited with code 0
+106s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libgtksourceview-3.0-1', 'libgtksourceview-3.0-common', 'libgxps2', 'libibus-1.0-5', 'libido3-0.1-0', 'libindicator3-7', 'libkpathsea6', 'libkylin-chkname1', 'libkysdk-appcommon', 'libllvm15', 'libmatemixer0', 'libmatemixer-common', 'libmount-dev', 'libopengl-dev', 'libopengl0', 'libpangoxft-1.0-0', 'libpeas-1.0-0', 'libpeas-common', 'libx11-dev', 'libxcb1-dev'], kind short, sout raw, serr pipe, env []
+107s autopkgtest: DBG: testbed command exited with code 0
+107s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'libpthread-stubs0-dev', 'libquazip5-1', 'librest-0.7-0', 'libselinux1-dev', 'libsepol-dev', 'libsoup-gnome2.4-1', 'libspectre1', 'libsynctex2', 'libwhoopsie0', 'libxau-dev', 'libxdmcp-dev', 'libz3-4', 'nautilus-data', 'pipewire-audio-client-libraries', 'pipewire-alsa', 'pipewire-jack', 'pkg-config', 'pluma-common', 'python3-xdg', 'session-migration'], kind short, sout raw, serr pipe, env []
+108s autopkgtest: DBG: testbed command exited with code 0
+108s autopkgtest: DBG: testbed command ['apt-mark', 'manual', '-qq', 'ukui-appwidget-manager', 'ukui-notebook', 'unicode-cldr-core', 'unity-settings-daemon-schemas', 'x11proto-core-dev', 'x11proto-dev', 'xfonts-thai-etl', 'xfonts-thai-manop', 'xfonts-thai-nectec', 'xfonts-thai-poonlap', 'xfonts-thai-vor', 'xorg-sgml-doctools', 'xtrans-dev', 'zlib1g-dev'], kind short, sout raw, serr pipe, env []
+108s autopkgtest: DBG: testbed command exited with code 0
+108s autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+109s dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+109s dpkg: warning: files list file for package 'initramfs-tools' missing; assuming package has no files currently installed
+109s dpkg: warning: files list file for package 'libkysdk-location:riscv64' missing; assuming package has no files currently installed
+109s dpkg: warning: files list file for package 'kylin-daq' missing; assuming package has no files currently installed
+109s dpkg: warning: files list file for package 'initramfs-tools-core' missing; assuming package has no files currently installed
+109s dpkg: warning: files list file for package 'initramfs-tools-bin' missing; assuming package has no files currently installed
+109s (Reading database ... 194233 files and directories currently installed.)
+109s Removing autopkgtest-satdep (0) ...
+109s autopkgtest: DBG: testbed command exited with code 0
+109s autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+109s autopkgtest: DBG: testbed command exited with code 0
+109s autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.05WU16/gles-gbm-build-test-packages.all"], kind short, sout raw, serr pipe, env []
+109s autopkgtest: DBG: testbed command exited with code 0
+109s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.05WU16/gles-gbm-build-test-packages.all /home/hachi/openkylin_test/sharefolder/results/mesa/gles-gbm-build-test-packages.all
+109s autopkgtest: DBG: got reply from testbed: ok
+109s autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.05WU16/build.SNA/src'], kind short, sout raw, serr raw, env []
+110s autopkgtest: DBG: testbed command exited with code 0
+110s autopkgtest: DBG: copydown: tb path /tmp/autopkgtest.05WU16/build.SNA/src already exists
+110s autopkgtest [18:31:06]: test gles-gbm-build-test: [-----------------------
+110s autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; exec /tmp/autopkgtest.05WU16/wrapper.sh --debug --artifacts=/tmp/autopkgtest.05WU16/gles-gbm-build-test-artifacts --chdir=/tmp/autopkgtest.05WU16/build.SNA/src --env=DEB_BUILD_OPTIONS=parallel=128 --env=DEBIAN_FRONTEND=noninteractive --env=LANG=C.UTF-8 --unset-env=LANGUAGE --unset-env=LC_ADDRESS --unset-env=LC_ALL --unset-env=LC_COLLATE --unset-env=LC_CTYPE --unset-env=LC_IDENTIFICATION --unset-env=LC_MEASUREMENT --unset-env=LC_MESSAGES --unset-env=LC_MONETARY --unset-env=LC_NAME --unset-env=LC_NUMERIC --unset-env=LC_PAPER --unset-env=LC_TELEPHONE --unset-env=LC_TIME --script-pid-file=/tmp/autopkgtest_script_pid --source-profile --stderr=/tmp/autopkgtest.05WU16/gles-gbm-build-test-stderr --stdout=/tmp/autopkgtest.05WU16/gles-gbm-build-test-stdout --tmp=/tmp/autopkgtest.05WU16/autopkgtest_tmp --make-executable=/tmp/autopkgtest.05WU16/build.SNA/src/debian/tests/gles-gbm-build-test -- /tmp/autopkgtest.05WU16/build.SNA/src/debian/tests/gles-gbm-build-test'], kind test, sout raw, serr raw, env []
+110s /tmp/autopkgtest.05WU16/wrapper.sh: creating AUTOPKGTEST_ARTIFACTS: /tmp/autopkgtest.05WU16/gles-gbm-build-test-artifacts
+110s /tmp/autopkgtest.05WU16/wrapper.sh: changing to directory: /tmp/autopkgtest.05WU16/build.SNA/src
+110s /tmp/autopkgtest.05WU16/wrapper.sh: setting environment: DEB_BUILD_OPTIONS=parallel=128
+110s /tmp/autopkgtest.05WU16/wrapper.sh: setting environment: DEBIAN_FRONTEND=noninteractive
+110s /tmp/autopkgtest.05WU16/wrapper.sh: setting environment: LANG=C.UTF-8
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LANGUAGE
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_ADDRESS
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_ALL
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_COLLATE
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_CTYPE
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_IDENTIFICATION
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_MEASUREMENT
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_MESSAGES
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_MONETARY
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_NAME
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_NUMERIC
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_PAPER
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_TELEPHONE
+110s /tmp/autopkgtest.05WU16/wrapper.sh: unsetting environment: LC_TIME
+110s /tmp/autopkgtest.05WU16/wrapper.sh: will create pid file: /tmp/autopkgtest_script_pid
+110s /tmp/autopkgtest.05WU16/wrapper.sh: pretending to be a login shell
+110s /tmp/autopkgtest.05WU16/wrapper.sh: will write standard error to /tmp/autopkgtest.05WU16/gles-gbm-build-test-stderr
+110s /tmp/autopkgtest.05WU16/wrapper.sh: will write stdout to /tmp/autopkgtest.05WU16/gles-gbm-build-test-stdout
+110s /tmp/autopkgtest.05WU16/wrapper.sh: creating AUTOPKGTEST_TMP: /tmp/autopkgtest.05WU16/autopkgtest_tmp
+110s /tmp/autopkgtest.05WU16/wrapper.sh: marking as executable: /tmp/autopkgtest.05WU16/build.SNA/src/debian/tests/gles-gbm-build-test
+110s /tmp/autopkgtest.05WU16/wrapper.sh: command to run: /tmp/autopkgtest.05WU16/build.SNA/src/debian/tests/gles-gbm-build-test
+110s /tmp/autopkgtest.05WU16/wrapper.sh: copying /tmp/tmp.dOM2DTfhmm/out to stdout and file: /tmp/autopkgtest.05WU16/gles-gbm-build-test-stdout
+110s /tmp/autopkgtest.05WU16/wrapper.sh: copying /tmp/tmp.dOM2DTfhmm/err to standard error and file: /tmp/autopkgtest.05WU16/gles-gbm-build-test-stdout
+110s /tmp/autopkgtest.05WU16/wrapper.sh: writing script pid 1238753 to /tmp/autopkgtest_script_pid
+110s gcc -g -o debian/tests/gles-gbm  debian/tests/gles-gbm.c -lGLESv2 -lEGL -lgbm
+110s Build test of debian/tests/gles-gbm.c succeeded
+110s /tmp/autopkgtest.05WU16/wrapper.sh: checking for leaked background processes...
+110s /tmp/autopkgtest.05WU16/wrapper.sh: waiting for tee/cat subprocesses...
+110s /tmp/autopkgtest.05WU16/wrapper.sh: cleaning up...
+110s /tmp/autopkgtest.05WU16/wrapper.sh: Exit status: 0
+110s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest [18:31:07]: test gles-gbm-build-test: -----------------------]
+111s autopkgtest: DBG: testbed executing test finished with exit status 0
+111s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.05WU16/gles-gbm-build-test-stdout /home/hachi/openkylin_test/sharefolder/results/mesa/gles-gbm-build-test-stdout
+111s autopkgtest: DBG: got reply from testbed: ok
+111s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.05WU16/gles-gbm-build-test-stderr /home/hachi/openkylin_test/sharefolder/results/mesa/gles-gbm-build-test-stderr
+111s autopkgtest: DBG: got reply from testbed: ok
+111s autopkgtest [18:31:07]: test gles-gbm-build-test:  - - - - - - - - - - results - - - - - - - - - -
+111s gles-gbm-build-test  PASS (superficial)
+111s autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.05WU16/gles-gbm-build-test-artifacts/ /home/hachi/openkylin_test/sharefolder/results/mesa/artifacts/
+111s autopkgtest: DBG: got reply from testbed: ok
+111s autopkgtest: DBG: testbed command ['rm', '-rf', '/tmp/autopkgtest.05WU16/gles-gbm-build-test-artifacts', '/tmp/autopkgtest.05WU16/autopkgtest_tmp'], kind short, sout raw, serr pipe, env []
+111s autopkgtest: DBG: testbed command exited with code 0
+111s autopkgtest: DBG: needs_reset, previously=False, requested by run_tests() line 220
+111s autopkgtest [18:31:07]: @@@@@@@@@@@@@@@@@@@@ summary
+111s gles-gbm-build-test  PASS (superficial)
+111s autopkgtest: DBG: testbed stop
+111s autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.05WU16
+111s autopkgtest: DBG: sending command to testbed: close
+111s E: 15killprocs: egrep: warning: egrep is obsolescent; using grep -E
+112s autopkgtest: DBG: got reply from testbed: ok
+112s autopkgtest: DBG: sending command to testbed: quit
