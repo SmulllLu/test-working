@@ -11,3 +11,16 @@
 1. Fork ruyi 包管理器测试仓，测试 ruyi 包管理器 [0.48.0-alpha.20260317](https://github.com/ruyisdk/ruyi/releases/tag/0.48.0-alpha.20260317) 版本
 2. （可选） VS Code 和 Eclipse 插件选其一执行手动测试
 3. 针对 ruyi 包管理器和两种图形化插件的特性，调研测试方案。提出可行的迁移方案，或在现有方案基础上提出改进意见
+
+比如 pexpect + testinfra 啥的，因为 ruyi 是一个 python 软件，可以考虑一个方案。比如基于状态机/流程图的系统测试。
+
+这两个看上去有点死了
+
++ https://github.com/intel/fMBT
++ https://github.com/altwalker/altwalker
+
+这两个看上去比较手搓
+
++ https://github.com/pytransitions/transitions
++ https://python-statemachine.readthedocs.io/en/latest/index.html
+
