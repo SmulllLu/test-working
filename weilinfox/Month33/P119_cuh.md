@@ -24,3 +24,12 @@
 + https://github.com/pytransitions/transitions
 + https://python-statemachine.readthedocs.io/en/latest/index.html
 
+也许基于状态图/流程图会太麻烦了，比如可能需要考虑将系统状态回退到某个节点。
+
+至于 ruyi-litester 实现的测试，也许 pexpect 就可以完全实现。
+
+关于这个设计需要达到的目标，可以先考虑下面两个场景：
+
++ 能够查出下面这个 issue 的成因 https://github.com/ruyisdk/ruyi/issues/415
++ 能够测试出 ruyi self clean --all 少删除了文件
+
