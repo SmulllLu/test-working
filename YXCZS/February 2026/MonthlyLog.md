@@ -10,6 +10,6 @@
 
 ### Doc
 - 使用qemu的OpenEuler构建项目
-	- OpenTTD:[构建文档](https://github.com/YXCZS/plct_working/blob/main/blog/OpenTTD.md)
-	- Yolo_Label:[构建文档](https://github.com/YXCZS/plct_working/blob/main/blog/Yolo_Label.md)
-	- supertux:[构建文档](https://github.com/YXCZS/plct_working/blob/main/blog/supertux.md)
+	- OpenTTD:[构建文档](https://github.com/ruyisdk-test/test-working/tree/main/YXCZS/blog/OpenTTD.md)
+	- Yolo_Label:[构建文档](https://github.com/ruyisdk-test/test-working/tree/main/YXCZS/blog/Yolo_Label.md)
+	- supertux:[构建文档](https://github.com/ruyisdk-test/test-working/tree/main/YXCZS/blog/supertux.md)
