@@ -2,10 +2,10 @@
 
 ## 1. Test Case Reports
 ### Completed test case reports for ruyisdk-eclipse-plugins (v0.1.0 & v0.1.1)
-- **v0.1.0 Report**: [Test Document](./v0.1.0/测试文档.md)
+- **v0.1.0 Report**: [Test Document](https://github.com/ruyisdk-test/test-working/blob/main/jxy687/January%202026/v0.1.0/测试文档.md)
 	- Added test results for RuyiSDK Management, Package Management, and core plugin functions.
 	- Based on commit [7cd298b](https://github.com/ruyisdk/ruyisdk-eclipse-plugins/commit/7cd298ba0b7dfb557898560f59ecf027423577be).
-- **v0.1.1 Report**: [Test Document](./v0.1.1/README.md)
+- **v0.1.1 Report**: [Test Document](https://github.com/ruyisdk-test/test-working/blob/main/jxy687/January%202026/v0.1.1/README.md)
 	- Conducted manual testing for 12 cases across News Feed and Virtual Environments.
 	- Based on commit [3e669eb](https://github.com/ruyisdk/ruyisdk-eclipse-plugins/commit/3e669ebb3961b948a4dd242fe9a404ad7bb1306f).
 
