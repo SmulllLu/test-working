@@ -9,5 +9,5 @@
 - 回访，该issue目前仍有问题，[pr133](https://github.com/ruyisdk/ruyisdk-vscode-extension/pull/133)貌似没修好
 
 ## 文档
-### [ruyi包管理器](https://github.com/qingwan12138/PLCT-WORK/tree/main/April/Ruyi%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8)
+### [ruyi包管理器](https://github.com/ruyisdk-test/test-working/blob/main/cjh/26-April/Ruyi%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8)
 - ruyi包管理器草案
