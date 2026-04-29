@@ -1,4 +1,4 @@
-# March  2026 
+# April  2026 
 ## Issues
 ### [Issue 136](https://github.com/ruyisdk/ruyisdk-vscode-extension/issues/136)
 - vscode插件更新后通过.vsix重新安装插件后存在缓存问题，仍是上个版本内容，建议加个重启vscode弹窗
