@@ -2,11 +2,11 @@
 
 ## 1. Test Case Reports
 ### Completed test case reports for ruyisdk-vscode-extension (v0.1.0 & v0.1.1-beta.1)
-- **v0.1.0 Report**: [Test Document](https://github.com/qingwan12138/PLCT-WORK/blob/main/January/ruyisdk-vscode-extension-test%20report/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A0108/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.md)
+- **v0.1.0 Report**: [Test Document](https://github.com/ruyisdk-test/test-working/blob/main/cjh/26-January/ruyisdk-vscode-extension-test%20report/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A0108/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.md)
 	- Added test results for Package Management and Virtual Environment Management.
-- **v0.1.1-beta.1 Report**: [Test Document](https://github.com/qingwan12138/PLCT-WORK/blob/main/January/ruyisdk-vscode-extension-test%20report/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A0120/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3.md)
+- **v0.1.1-beta.1 Report**: [Test Document](https://github.com/ruyisdk-test/test-working/blob/main/cjh/26-January/ruyisdk-vscode-extension-test%20report/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A0120/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3.md)
 	- Added test results for news and Virtual Environment Management.
-- **v0.1.1-beta.1 Report**：[Test Document](https://github.com/qingwan12138/PLCT-WORK/blob/main/January/ruyisdk-vscode-extension-test%20report/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A0128/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.md)
+- **v0.1.1-beta.1 Report**：[Test Document](https://github.com/ruyisdk-test/test-working/blob/main/cjh/26-January/ruyisdk-vscode-extension-test%20report/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A0128/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.md)
   - Added test results for RuyiSDK
 
 ## 2. Issues & Feedback

@@ -11,10 +11,10 @@
 - bug：交互式创建虚拟环境时sysroot无法正常配置
 
 ## Document
-### [Cavestoryen](https://github.com/qingwan12138/PLCT-WORK/blob/main/March/blog/ruyisdk%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91nxengine-evo%E5%B9%B6%E8%BF%90%E8%A1%8Ccavestoryen.md)
+### [Cavestoryen](https://github.com/ruyisdk-test/test-working/tree/main/cjh/26-March/blog/ruyisdk%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91nxengine-evo%E5%B9%B6%E8%BF%90%E8%A1%8Ccavestoryen.md)
 - 通过ruyisdk虚拟环境从源代码编译和运行 nxengine-evo引擎并运行cavestoryen
 
-### [Sonic Robo Blast 2](https://github.com/qingwan12138/PLCT-WORK/blob/main/March/blog/RuyiSDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Sonic%20Robo%20Blast%202.md)
+### [Sonic Robo Blast 2](https://github.com/ruyisdk-test/test-working/tree/main/cjh/26-March/blog/RuyiSDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Sonic%20Robo%20Blast%202.md)
 - 通过ruyisdk虚拟环境构建运行 Sonic Robo Blast 2(索尼克机器人爆炸2)
 
 ## Blog

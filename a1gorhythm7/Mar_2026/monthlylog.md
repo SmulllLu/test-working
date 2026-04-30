@@ -1,43 +1,20 @@
-News & fixes for the website
+Ruyiinlive component update (#426 https://github.com/ruyisdk/ruyisdk-website/pull/426)
+This PR updates the RuyiInLive homepage component to fetch and display new community statistics and hot tags. It introduces the display of 30-day activity metrics (active users, posts, topics) and a pill-based list of popular Ruyi SDK tags, powered by a newly generated hot-tags API. The data fetching logic is simplified by consuming the public statistics endpoint, and the layout for metrics and tags is made more responsive. Additionally, it adds a CI script to periodically generate the hot-tags data used in the site, improving maintainability through automation.
 
-Pull #326 https://github.com/ruyisdk/ruyisdk-website/pull/326
+Downloads page refactor (#418 https://github.com/ruyisdk/ruyisdk-website/pull/418)
+This PR significantly refactors the downloads page, separating the IDE integrations into distinct VS Code and Eclipse sections with their own styling and branding. Each extension now has a dedicated section featuring titles, descriptions, and logos. Anchor IDs are added for improved navigation. The layout, typography, and header gradients are refreshed to improve clarity and visual hierarchy, and the package manager card is updated with a new logo and a link to the IDE mirror, resulting in a more visually appealing and user-friendly downloads page.
 
-Fix layout issues when news pictures have different height/width ratios.
-Adjust article and skeleton layouts so text and thumbnails stretch consistently across aspect ratios.
-Add a check-news-images validation script for news image existence and basic size/aspect constraints.
-Wire the image validation script into package.json for optional strict checking.
-Pull #329 https://github.com/ruyisdk/ruyisdk-website/pull/329
+Fix height calculation in /about page (#408 https://github.com/ruyisdk/ruyisdk-website/pull/408)
+This PR simplifies the /about page layout by removing JavaScript references and resize listeners that were previously required to manually sync the partners section height with the main content. These changes streamline the page code, reduce complexity, and eliminate unnecessary logic previously used for layout alignment.
 
-Optimize the mobile news page: refine typography, title/date/summary layout for better small-screen readability.
-Ensure article images render as block elements while keeping existing hover scaling behavior.
-Improve responsive behavior of news cards to reduce layout shifts on narrow viewports.
-Pull #330 https://github.com/ruyisdk/ruyisdk-website/pull/330
+Index news three cards layout (#407 https://github.com/ruyisdk/ruyisdk-website/pull/407)
+The NewsShowcase component is simplified in this PR to present up to three news items in a static three-card grid on desktop and a vertical list on mobile. Auto-rotation and visibility logic are removed in favor of a direct static rendering of the latest news items based on fetched data. This makes the news section easier to maintain and provides a consistent visual layout across devices.
 
-Improve the subscribe form and button with consistent, responsive layout and localized copy.
-Add internationalization support for labels, placeholders, and status messages.
-Refresh visual design (gradients, shadows, focus/hover states) and replace inline styles with CSS module classes for maintainability and consistent layout across viewports.
-Pull #331 https://github.com/ruyisdk/ruyisdk-website/pull/331
+Refactor about page (#396 https://github.com/ruyisdk/ruyisdk-website/pull/396)
+This PR extensively refactors the About page, shifting from MDX components to locale-specific Markdown files for loading About, contact, and QR code content, greatly improving content management and localization. A reusable partners section is created and integrated into both About and Community pages, presenting an expanded list of partner logos. The PR standardizes QR code images and introduces a community navigation dropdown for easier site exploration. Styling for Markdown content is also enhanced through new CSS modules for better visual consistency.
 
-CI behaviour fix for contributor JSON file: add a CI step to detect changes to the generated contributors JSON and only run the diff check when that file changed.
-Prevent unnecessary CI failures by skipping the generated_contributors.json diff check when no relevant generation changes exist.
-Pull #341 https://github.com/ruyisdk/ruyisdk-website/pull/341
+Add issue data in contributors page (issue #307) (#395 https://github.com/ruyisdk/ruyisdk-website/pull/395)
+This PR adds an issue count metric to the contributors page, updating static GitHub API data files to include these statistics. The contributors page now displays total issues alongside contributors, commits, and pull requests. The code also gracefully defaults to fallback totals if issue data is missing for any repository and updates translations for the new statistics label, enhancing the accuracy and completeness of contributor analytics.
 
-Add a richer downloads experience with direct architecture-aware links and thank-you redirect.
-Switch to a fast mirror as the primary source for package manager releases.
-Introduce an internal slide deck at /slide for the website revamp with keyboard navigation and local route previewing.
-Downloads selector includes CPU architecture detection, source/architecture choice, and localized thank-you redirection.
-Metadata enhancements: scrape the fast mirror for latest packages, synthesize per-architecture URLs, and improve fallbacks and robustness.
-Update localized documentation to support the new downloads flow and labels.
-Pull #343 https://github.com/ruyisdk/ruyisdk-website/pull/343
-
-Extract shared UI elements into reusable components under the common directory.
-Introduce the PageBackground component, unify card/avatars/statistics icon layouts.
-Refactor contributors, about, and news pages to consume these shared components.
-Export new shared components for site-wide usage.
-Pull #344 https://github.com/ruyisdk/ruyisdk-website/pull/344
-
-Migrate the site styling pipeline from UnoCSS to Tailwind CSS.
-Configure Tailwind CSS and Autoprefixer as part of the Docusaurus and PostCSS build.
-Unify color, typography, layout, and shadow settings with a shared Tailwind configuration.
-Replace UnoCSS plugin and stylesheet with Tailwind equivalents, integrate with existing Sass styles.
-Update package dependencies and build processes accordingly.
+Disable dark mode for CodeBlock (#383 https://github.com/ruyisdk/ruyisdk-website/pull/383)
+This PR enforces a light theme appearance for the documentation CodeBlock component, overriding any global dark mode. It removes all dark mode-specific Tailwind CSS classes from the CodeBlock container and forces line highlighting to use the light theme. This standardization ensures that code snippets remain clear and readable regardless of site theme settings.
